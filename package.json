@@ -1,0 +1,55 @@
+{
+  "name": "cognidocs",
+  "version": "0.1.0",
+  "private": true,
+  "description": "AI-powered documentation tool for JavaScript/TypeScript projects",
+  "keywords": [
+    "documentation",
+    "typescript",
+    "react",
+    "nextjs",
+    "vue",
+    "ai",
+    "code-analysis"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/cognidocs.git"
+  },
+  "license": "MIT",
+  "workspaces": [
+    "packages/*",
+    "apps/*",
+    "shared/*"
+  ],
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "test": "turbo run test",
+    "lint": "turbo run lint",
+    "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\"",
+    "format:check": "prettier --check \"**/*.{ts,tsx,js,jsx,json,md}\"",
+    "typecheck": "turbo run typecheck",
+    "clean": "turbo run clean && rm -rf node_modules",
+    "phase1": "turbo run dev --filter=@cognidocs/cli --filter=@cognidocs/parser --filter=@cognidocs/testing",
+    "phase2": "turbo run dev --filter=@cognidocs/analyzer --filter=@cognidocs/coverage",
+    "phase3": "turbo run dev --filter=@cognidocs/docs-generator --filter=@cognidocs/site-builder"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "@typescript-eslint/eslint-plugin": "^6.13.0",
+    "@typescript-eslint/parser": "^6.13.0",
+    "eslint": "^8.54.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-import": "^2.29.0",
+    "prettier": "^3.1.0",
+    "turbo": "^1.11.0",
+    "typescript": "^5.3.0",
+    "vitest": "^1.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
+  "packageManager": "npm@10.2.5"
+}

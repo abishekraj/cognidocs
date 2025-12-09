@@ -1,0 +1,43 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ESNext",
+    "lib": ["ES2022"],
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "allowJs": true,
+    "checkJs": false,
+    "jsx": "react-jsx",
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "outDir": "./dist",
+    "removeComments": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "skipLibCheck": true,
+    "paths": {
+      "@cognidocs/cli": ["./packages/cli/src"],
+      "@cognidocs/parser": ["./packages/parser/src"],
+      "@cognidocs/analyzer": ["./packages/analyzer/src"],
+      "@cognidocs/coverage": ["./packages/coverage/src"],
+      "@cognidocs/ai": ["./packages/ai/src"],
+      "@cognidocs/docs-generator": ["./packages/docs-generator/src"],
+      "@cognidocs/graph-viz": ["./packages/graph-viz/src"],
+      "@cognidocs/component-preview": ["./packages/component-preview/src"],
+      "@cognidocs/site-builder": ["./packages/site-builder/src"],
+      "@cognidocs/types": ["./shared/types/src"],
+      "@cognidocs/utils": ["./shared/utils/src"],
+      "@cognidocs/constants": ["./shared/constants/src"]
+    }
+  },
+  "include": ["packages/**/*", "apps/**/*", "shared/**/*"],
+  "exclude": ["node_modules", "dist", "build", ".next", "coverage"]
+}

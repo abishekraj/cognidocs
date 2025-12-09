@@ -1,0 +1,32 @@
+{
+  "name": "@cognidocs/parser",
+  "version": "0.1.0",
+  "description": "AST parser for extracting metadata from JavaScript/TypeScript code",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "dev": "tsup --watch",
+    "build": "tsup",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint src",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "@cognidocs/types": "workspace:*",
+    "@cognidocs/utils": "workspace:*",
+    "@babel/parser": "^7.23.5",
+    "@babel/traverse": "^7.23.5",
+    "@babel/types": "^7.23.5",
+    "typescript": "^5.3.0",
+    "glob": "^10.3.10"
+  },
+  "devDependencies": {
+    "@types/babel__traverse": "^7.20.4",
+    "tsup": "^8.0.1",
+    "vitest": "^1.0.0"
+  },
+  "keywords": ["parser", "ast", "typescript", "babel"],
+  "license": "MIT"
+}

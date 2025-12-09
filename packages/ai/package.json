@@ -1,0 +1,25 @@
+{
+  "name": "@cognidocs/ai",
+  "version": "0.1.0",
+  "description": "AI-powered documentation features - Phase 6",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "dev": "tsup --watch",
+    "build": "tsup",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "@cognidocs/types": "workspace:*",
+    "openai": "^4.20.0"
+  },
+  "devDependencies": {
+    "tsup": "^8.0.1",
+    "typescript": "^5.3.0",
+    "vitest": "^1.0.0"
+  },
+  "keywords": ["ai", "openai", "llm", "embeddings"],
+  "license": "MIT"
+}
