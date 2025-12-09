@@ -1,31 +1,9 @@
-/**
- * @cognidocs/analyzer - Code Analysis and Dependency Graphs
- * Phase 2: Analysis & Coverage
- *
- * Status: Not yet implemented
- */
+export * from './graph/DependencyGraph';
 
-export interface DependencyGraph {
-  nodes: DependencyNode[];
-  edges: DependencyEdge[];
-}
+import { DependencyGraph } from './graph/DependencyGraph';
+import type { ParseResult } from '@cognidocs/types';
 
-export interface DependencyNode {
-  id: string;
-  name: string;
-  path: string;
-  type: 'component' | 'function' | 'module';
-}
-
-export interface DependencyEdge {
-  from: string;
-  to: string;
-  type: 'import' | 'extends' | 'uses';
-}
-
-export class Analyzer {
-  // TODO: Phase 2 - Implement dependency analysis
-  async analyzeDependencies(_parseResults: any[]): Promise<DependencyGraph> {
-    throw new Error('Phase 2: Not yet implemented');
-  }
+export function analyzeDependencies(results: ParseResult[]) {
+  const graph = new DependencyGraph(results);
+  return graph.getGraph();
 }

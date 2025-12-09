@@ -1,0 +1,91 @@
+{
+  "nodes": {
+    "/Users/abishekraj/Downloads/cognidocs/packages/parser/src/types.ts": {
+      "id": "/Users/abishekraj/Downloads/cognidocs/packages/parser/src/types.ts",
+      "imports": [],
+      "exports": [],
+      "circular": false,
+      "externalImports": []
+    },
+    "/Users/abishekraj/Downloads/cognidocs/packages/parser/src/index.ts": {
+      "id": "/Users/abishekraj/Downloads/cognidocs/packages/parser/src/index.ts",
+      "imports": [],
+      "exports": [],
+      "circular": false,
+      "externalImports": []
+    },
+    "/Users/abishekraj/Downloads/cognidocs/packages/parser/src/parsers/typescript-parser.ts": {
+      "id": "/Users/abishekraj/Downloads/cognidocs/packages/parser/src/parsers/typescript-parser.ts",
+      "imports": [
+        "/Users/abishekraj/Downloads/cognidocs/packages/parser/src/types.ts"
+      ],
+      "exports": [
+        "TypeScriptParser"
+      ],
+      "circular": false,
+      "externalImports": [
+        "typescript",
+        "fs",
+        "glob"
+      ]
+    },
+    "/Users/abishekraj/Downloads/cognidocs/packages/parser/src/parsers/react-parser.ts": {
+      "id": "/Users/abishekraj/Downloads/cognidocs/packages/parser/src/parsers/react-parser.ts",
+      "imports": [
+        "/Users/abishekraj/Downloads/cognidocs/packages/parser/src/types.ts"
+      ],
+      "exports": [
+        "ReactParser"
+      ],
+      "circular": false,
+      "externalImports": [
+        "typescript",
+        "fs"
+      ]
+    },
+    "/Users/abishekraj/Downloads/cognidocs/packages/parser/src/parsers/index.ts": {
+      "id": "/Users/abishekraj/Downloads/cognidocs/packages/parser/src/parsers/index.ts",
+      "imports": [],
+      "exports": [],
+      "circular": false,
+      "externalImports": []
+    },
+    "/Users/abishekraj/Downloads/cognidocs/packages/parser/src/extractors/index.ts": {
+      "id": "/Users/abishekraj/Downloads/cognidocs/packages/parser/src/extractors/index.ts",
+      "imports": [],
+      "exports": [
+        "JSDocExtractor",
+        "TypeExtractor"
+      ],
+      "circular": false,
+      "externalImports": []
+    },
+    "/Users/abishekraj/Downloads/cognidocs/packages/parser/src/__tests__/typescript-parser.test.ts": {
+      "id": "/Users/abishekraj/Downloads/cognidocs/packages/parser/src/__tests__/typescript-parser.test.ts",
+      "imports": [
+        "/Users/abishekraj/Downloads/cognidocs/packages/parser/src/parsers/typescript-parser.ts"
+      ],
+      "exports": [],
+      "circular": false,
+      "externalImports": [
+        "vitest",
+        "fs",
+        "path"
+      ]
+    },
+    "/Users/abishekraj/Downloads/cognidocs/packages/parser/src/__tests__/react-parser.test.ts": {
+      "id": "/Users/abishekraj/Downloads/cognidocs/packages/parser/src/__tests__/react-parser.test.ts",
+      "imports": [
+        "/Users/abishekraj/Downloads/cognidocs/packages/parser/src/parsers/react-parser.ts"
+      ],
+      "exports": [],
+      "circular": false,
+      "externalImports": [
+        "vitest",
+        "fs",
+        "path"
+      ]
+    }
+  },
+  "circularCount": 0
+}

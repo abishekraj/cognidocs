@@ -18,6 +18,8 @@
   },
   "dependencies": {
     "@cognidocs/parser": "*",
+    "@cognidocs/analyzer": "*",
+    "@cognidocs/coverage": "*",
     "@cognidocs/types": "*",
     "@cognidocs/utils": "*",
     "@cognidocs/constants": "*",

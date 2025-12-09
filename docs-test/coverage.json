@@ -1,0 +1,233 @@
+{
+  "overall": {
+    "total": 4,
+    "documented": 1,
+    "percentage": 25
+  },
+  "files": [
+    {
+      "filePath": "/Users/abishekraj/Downloads/cognidocs/packages/parser/src/types.ts",
+      "score": {
+        "total": 0,
+        "documented": 0,
+        "percentage": 100
+      },
+      "components": {
+        "total": 0,
+        "documented": 0,
+        "percentage": 100
+      },
+      "functions": {
+        "total": 0,
+        "documented": 0,
+        "percentage": 100
+      },
+      "classes": {
+        "total": 0,
+        "documented": 0,
+        "percentage": 100
+      },
+      "interfaces": {
+        "total": 0,
+        "documented": 0,
+        "percentage": 100
+      }
+    },
+    {
+      "filePath": "/Users/abishekraj/Downloads/cognidocs/packages/parser/src/index.ts",
+      "score": {
+        "total": 0,
+        "documented": 0,
+        "percentage": 100
+      },
+      "components": {
+        "total": 0,
+        "documented": 0,
+        "percentage": 100
+      },
+      "functions": {
+        "total": 0,
+        "documented": 0,
+        "percentage": 100
+      },
+      "classes": {
+        "total": 0,
+        "documented": 0,
+        "percentage": 100
+      },
+      "interfaces": {
+        "total": 0,
+        "documented": 0,
+        "percentage": 100
+      }
+    },
+    {
+      "filePath": "/Users/abishekraj/Downloads/cognidocs/packages/parser/src/parsers/typescript-parser.ts",
+      "score": {
+        "total": 1,
+        "documented": 0,
+        "percentage": 0
+      },
+      "components": {
+        "total": 0,
+        "documented": 0,
+        "percentage": 100
+      },
+      "functions": {
+        "total": 0,
+        "documented": 0,
+        "percentage": 100
+      },
+      "classes": {
+        "total": 1,
+        "documented": 0,
+        "percentage": 0
+      },
+      "interfaces": {
+        "total": 0,
+        "documented": 0,
+        "percentage": 100
+      }
+    },
+    {
+      "filePath": "/Users/abishekraj/Downloads/cognidocs/packages/parser/src/parsers/react-parser.ts",
+      "score": {
+        "total": 1,
+        "documented": 0,
+        "percentage": 0
+      },
+      "components": {
+        "total": 0,
+        "documented": 0,
+        "percentage": 100
+      },
+      "functions": {
+        "total": 0,
+        "documented": 0,
+        "percentage": 100
+      },
+      "classes": {
+        "total": 1,
+        "documented": 0,
+        "percentage": 0
+      },
+      "interfaces": {
+        "total": 0,
+        "documented": 0,
+        "percentage": 100
+      }
+    },
+    {
+      "filePath": "/Users/abishekraj/Downloads/cognidocs/packages/parser/src/parsers/index.ts",
+      "score": {
+        "total": 0,
+        "documented": 0,
+        "percentage": 100
+      },
+      "components": {
+        "total": 0,
+        "documented": 0,
+        "percentage": 100
+      },
+      "functions": {
+        "total": 0,
+        "documented": 0,
+        "percentage": 100
+      },
+      "classes": {
+        "total": 0,
+        "documented": 0,
+        "percentage": 100
+      },
+      "interfaces": {
+        "total": 0,
+        "documented": 0,
+        "percentage": 100
+      }
+    },
+    {
+      "filePath": "/Users/abishekraj/Downloads/cognidocs/packages/parser/src/extractors/index.ts",
+      "score": {
+        "total": 2,
+        "documented": 1,
+        "percentage": 50
+      },
+      "components": {
+        "total": 0,
+        "documented": 0,
+        "percentage": 100
+      },
+      "functions": {
+        "total": 0,
+        "documented": 0,
+        "percentage": 100
+      },
+      "classes": {
+        "total": 2,
+        "documented": 1,
+        "percentage": 50
+      },
+      "interfaces": {
+        "total": 0,
+        "documented": 0,
+        "percentage": 100
+      }
+    },
+    {
+      "filePath": "/Users/abishekraj/Downloads/cognidocs/packages/parser/src/__tests__/typescript-parser.test.ts",
+      "score": {
+        "total": 0,
+        "documented": 0,
+        "percentage": 100
+      },
+      "components": {
+        "total": 0,
+        "documented": 0,
+        "percentage": 100
+      },
+      "functions": {
+        "total": 0,
+        "documented": 0,
+        "percentage": 100
+      },
+      "classes": {
+        "total": 0,
+        "documented": 0,
+        "percentage": 100
+      },
+      "interfaces": {
+        "total": 0,
+        "documented": 0,
+        "percentage": 100
+      }
+    },
+    {
+      "filePath": "/Users/abishekraj/Downloads/cognidocs/packages/parser/src/__tests__/react-parser.test.ts",
+      "score": {
+        "total": 0,
+        "documented": 0,
+        "percentage": 100
+      },
+      "components": {
+        "total": 0,
+        "documented": 0,
+        "percentage": 100
+      },
+      "functions": {
+        "total": 0,
+        "documented": 0,
+        "percentage": 100
+      },
+      "classes": {
+        "total": 0,
+        "documented": 0,
+        "percentage": 100
+      },
+      "interfaces": {
+        "total": 0,
+        "documented": 0,
+        "percentage": 100
+      }
+    }
+  ]
+}

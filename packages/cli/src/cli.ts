@@ -47,19 +47,38 @@ program
     }
   });
 
-// Phase 2 Commands (Placeholder)
+import { analyzeCommand } from './commands/analyze';
+import { coverageCommand } from './commands/coverage';
+
+// ... (other imports)
+
+// Phase 2 Commands
 program
   .command('analyze')
   .description('[Phase 2] Run dependency analysis')
-  .action(() => {
-    console.log(chalk.gray('Phase 2: Analysis & Coverage - Not yet available'));
+  .option('-c, --config <path>', 'Path to config file')
+  .option('-o, --output <path>', 'Output directory')
+  .action(async (options) => {
+    try {
+      await analyzeCommand(options);
+    } catch (error) {
+      console.error(chalk.red('Error:'), error);
+      process.exit(1);
+    }
   });
 
 program
   .command('coverage')
   .description('[Phase 2] Generate coverage report')
-  .action(() => {
-    console.log(chalk.gray('Phase 2: Analysis & Coverage - Not yet available'));
+  .option('-c, --config <path>', 'Path to config file')
+  .option('-o, --output <path>', 'Output directory')
+  .action(async (options) => {
+    try {
+      await coverageCommand(options);
+    } catch (error) {
+      console.error(chalk.red('Error:'), error);
+      process.exit(1);
+    }
   });
 
 // Phase 3 Commands (Placeholder)

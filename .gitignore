@@ -12,6 +12,7 @@ out/
 
 # Testing
 coverage/
+!packages/coverage/
 .nyc_output/
 
 # Environment variables

@@ -1,7 +1,7 @@
 {
-  "name": "@cognidocs/analyzer",
+  "name": "@cognidocs/coverage",
   "version": "0.1.0",
-  "description": "Dependency analysis and graph generation for CogniDocs",
+  "description": "Coverage tracking for CogniDocs",
   "main": "./dist/index.mjs",
   "types": "./dist/index.d.mts",
   "scripts": {
@@ -23,9 +23,9 @@
     "typescript": "^5.3.0"
   },
   "keywords": [
-    "analyzer",
-    "dependency-graph",
-    "analysis"
+    "coverage",
+    "documentation",
+    "metrics"
   ],
   "license": "MIT"
 }
