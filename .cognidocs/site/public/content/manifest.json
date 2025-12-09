@@ -1,0 +1,76 @@
+[
+  {
+    "type": "file",
+    "name": "README",
+    "path": "README.md"
+  },
+  {
+    "type": "directory",
+    "name": "api",
+    "path": "api",
+    "children": []
+  },
+  {
+    "type": "directory",
+    "name": "architecture",
+    "path": "architecture",
+    "children": []
+  },
+  {
+    "type": "directory",
+    "name": "classes",
+    "path": "classes",
+    "children": [
+      {
+        "type": "file",
+        "name": "JSDocExtractor",
+        "path": "classes/JSDocExtractor.md"
+      },
+      {
+        "type": "file",
+        "name": "ReactParser",
+        "path": "classes/ReactParser.md"
+      },
+      {
+        "type": "file",
+        "name": "TypeExtractor",
+        "path": "classes/TypeExtractor.md"
+      },
+      {
+        "type": "file",
+        "name": "TypeScriptParser",
+        "path": "classes/TypeScriptParser.md"
+      }
+    ]
+  },
+  {
+    "type": "directory",
+    "name": "components",
+    "path": "components",
+    "children": []
+  },
+  {
+    "type": "directory",
+    "name": "functions",
+    "path": "functions",
+    "children": []
+  },
+  {
+    "type": "directory",
+    "name": "guides",
+    "path": "guides",
+    "children": []
+  },
+  {
+    "type": "directory",
+    "name": "interfaces",
+    "path": "interfaces",
+    "children": []
+  },
+  {
+    "type": "directory",
+    "name": "types",
+    "path": "types",
+    "children": []
+  }
+]

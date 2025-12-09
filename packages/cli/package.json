@@ -20,6 +20,8 @@
     "@cognidocs/parser": "*",
     "@cognidocs/analyzer": "*",
     "@cognidocs/coverage": "*",
+    "@cognidocs/docs-generator": "*",
+    "@cognidocs/site-builder": "*",
     "@cognidocs/types": "*",
     "@cognidocs/utils": "*",
     "@cognidocs/constants": "*",

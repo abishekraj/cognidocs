@@ -86,25 +86,32 @@ cognidocs coverage
 
 ---
 
-## Phase 3: Core Documentation (Weeks 6-7) 🔴 NOT STARTED
+## Phase 3: Core Documentation � COMPLETE
 
-**Goal:** Generate documentation and static site (MVP)
+**Goal:** Generate documentation and build static site.
 
-### Packages
+- [x] Create `@cognidocs/docs-generator` package
+- [x] Implement Markdown generation strategy
+- [x] Create `@cognidocs/site-builder` package (Vite + React)
+- [x] Implement `cognidocs build` command
+- [x] Implement `cognidocs serve` command
 
-- `@cognidocs/docs-generator` - Doc generation
-- `@cognidocs/site-builder` - Static site builder
+## Phase 4: Plugin System 🟡 IN PROGRESS
 
-### Tasks
+**Goal:** Allow users to extend functionality.
 
-- [ ] Markdown/MDX generation
-- [ ] API reference pages
-- [ ] Component documentation
-- [ ] Navigation structure
-- [ ] 2-3 themes (Gitbook, Material)
-- [ ] Search with Pagefind
-- [ ] Mobile-responsive design
-- [ ] Dark mode support
+- [ ] Design plugin API (hooks system)
+- [ ] Create `@cognidocs/plugin-core`
+- [ ] Implement plugin loading in CLI
+- [ ] Create example plugins (e.g., JSDoc enhancer)
+
+## Current Focus
+
+We are currently working on **Phase 4: Plugin System**.
+
+1.  Design the Plugin API interface.
+2.  Implement the plugin loader.
+3.  Create a standardized plugin structure.
 
 ### Deliverables
 

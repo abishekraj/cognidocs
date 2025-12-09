@@ -81,12 +81,21 @@ program
     }
   });
 
-// Phase 3 Commands (Placeholder)
+import { serveCommand } from './commands/serve';
+
+// Phase 3 Commands
 program
   .command('serve')
-  .description('[Phase 3] Start development server')
-  .action(() => {
-    console.log(chalk.gray('Phase 3: Core Documentation - Not yet available'));
+  .description('Start documentation server')
+  .option('-c, --config <path>', 'Path to config file')
+  .option('-p, --port <number>', 'Port to listen on', parseInt)
+  .action(async (options) => {
+    try {
+      await serveCommand(options);
+    } catch (error) {
+      console.error(chalk.red('Error:'), error);
+      process.exit(1);
+    }
   });
 
 // Phase 6 Commands (Placeholder)

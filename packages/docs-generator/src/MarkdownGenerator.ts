@@ -1,0 +1,189 @@
+import { join } from 'path';
+import fs from 'fs-extra';
+const { ensureDir, writeFile } = fs;
+import type {
+  ParseResult,
+  ComponentMetadata,
+  FunctionMetadata,
+  ClassMetadata,
+  InterfaceMetadata,
+  TypeMetadata,
+} from '@cognidocs/types';
+
+export class MarkdownGenerator {
+  constructor(private outputDir: string) {}
+
+  async generate(results: ParseResult[]): Promise<void> {
+    await ensureDir(this.outputDir);
+    await ensureDir(join(this.outputDir, 'components'));
+    await ensureDir(join(this.outputDir, 'functions'));
+    await ensureDir(join(this.outputDir, 'classes'));
+    await ensureDir(join(this.outputDir, 'interfaces'));
+    await ensureDir(join(this.outputDir, 'types'));
+
+    const summary: string[] = ['# Documentation Index\n'];
+
+    for (const result of results) {
+      if (result.components) {
+        for (const component of result.components) {
+          await this.generateComponentDoc(component);
+          summary.push(`- [${component.name}](./components/${component.name}.md) (Component)`);
+        }
+      }
+
+      for (const func of result.functions) {
+        // Only document exported functions
+        if (func.isExported) {
+          await this.generateFunctionDoc(func);
+          summary.push(`- [${func.name}](./functions/${func.name}.md) (Function)`);
+        }
+      }
+
+      for (const cls of result.classes) {
+        if (cls.isExported) {
+          await this.generateClassDoc(cls);
+          summary.push(`- [${cls.name}](./classes/${cls.name}.md) (Class)`);
+        }
+      }
+
+      for (const iface of result.interfaces) {
+        if (iface.isExported) {
+          await this.generateInterfaceDoc(iface);
+          summary.push(`- [${iface.name}](./interfaces/${iface.name}.md) (Interface)`);
+        }
+      }
+
+      for (const type of result.types) {
+        if (type.isExported) {
+          await this.generateTypeDoc(type);
+          summary.push(`- [${type.name}](./types/${type.name}.md) (Type)`);
+        }
+      }
+    }
+
+    await writeFile(join(this.outputDir, 'README.md'), summary.join('\n'));
+  }
+
+  private async generateComponentDoc(component: ComponentMetadata): Promise<void> {
+    const lines: string[] = [`# ${component.name}`];
+
+    if (component.description) {
+      lines.push(`\n${component.description}\n`);
+    }
+
+    lines.push(`\n**Type:** ${component.type} Component (${component.framework})`);
+    lines.push(
+      `**Source:** \`${component.filePath}${component.line ? `:${component.line}` : ''}\`\n`
+    );
+
+    if (component.examples && component.examples.length > 0) {
+      lines.push('## Examples');
+      component.examples.forEach((example) => {
+        lines.push(`\n\`\`\`tsx\n${example}\n\`\`\`\n`);
+      });
+    }
+
+    if (component.props && component.props.length > 0) {
+      lines.push('## Props');
+      lines.push('| Name | Type | Optional | Description |');
+      lines.push('| :--- | :--- | :------- | :---------- |');
+
+      for (const prop of component.props) {
+        lines.push(
+          `| \`${prop.name}\` | \`${prop.type || 'any'}\` | ${prop.optional ? 'Yes' : 'No'} | ${prop.description || '-'} |`
+        );
+      }
+    }
+
+    await writeFile(join(this.outputDir, 'components', `${component.name}.md`), lines.join('\n'));
+  }
+
+  private async generateFunctionDoc(func: FunctionMetadata): Promise<void> {
+    const lines: string[] = [`# ${func.name}`];
+
+    if (func.description) {
+      lines.push(`\n${func.description}\n`);
+    }
+
+    lines.push(`\n**Return Type:** \`${func.returnType || 'void'}\`\n`);
+
+    if (func.parameters && func.parameters.length > 0) {
+      lines.push('## Parameters');
+      lines.push('| Name | Type | Optional | Description |');
+      lines.push('| :--- | :--- | :------- | :---------- |');
+
+      for (const param of func.parameters) {
+        lines.push(
+          `| \`${param.name}\` | \`${param.type || 'any'}\` | ${param.optional ? 'Yes' : 'No'} | ${param.description || '-'} |`
+        );
+      }
+    }
+
+    await writeFile(join(this.outputDir, 'functions', `${func.name}.md`), lines.join('\n'));
+  }
+
+  private async generateClassDoc(cls: ClassMetadata): Promise<void> {
+    const lines: string[] = [`# ${cls.name}`];
+
+    if (cls.description) {
+      lines.push(`\n${cls.description}\n`);
+    }
+
+    if (cls.extendsClass) {
+      lines.push(`**Extends:** \`${cls.extendsClass}\`\n`);
+    }
+
+    if (cls.properties && cls.properties.length > 0) {
+      lines.push('## Properties');
+      lines.push('| Name | Type | Description |');
+      lines.push('| :--- | :--- | :---------- |');
+      for (const prop of cls.properties) {
+        lines.push(`| \`${prop.name}\` | \`${prop.type || 'any'}\` | ${prop.description || '-'} |`);
+      }
+      lines.push('');
+    }
+
+    if (cls.methods && cls.methods.length > 0) {
+      lines.push('## Methods');
+      for (const method of cls.methods) {
+        lines.push(`### ${method.name}`);
+        if (method.description) lines.push(`\n${method.description}\n`);
+        lines.push(`**Return:** \`${method.returnType || 'void'}\``);
+        // Could add params table here too
+        lines.push('');
+      }
+    }
+
+    await writeFile(join(this.outputDir, 'classes', `${cls.name}.md`), lines.join('\n'));
+  }
+
+  private async generateInterfaceDoc(iface: InterfaceMetadata): Promise<void> {
+    const lines: string[] = [`# ${iface.name}`];
+    if (iface.description) lines.push(`\n${iface.description}\n`);
+
+    if (iface.properties && iface.properties.length > 0) {
+      lines.push('## Properties');
+      lines.push('| Name | Type | Optional | Description |');
+      lines.push('| :--- | :--- | :------- | :---------- |');
+      for (const prop of iface.properties) {
+        lines.push(
+          `| \`${prop.name}\` | \`${prop.type || 'any'}\` | ${prop.optional ? 'Yes' : 'No'} | ${prop.description || '-'} |`
+        );
+      }
+    }
+
+    await writeFile(join(this.outputDir, 'interfaces', `${iface.name}.md`), lines.join('\n'));
+  }
+
+  private async generateTypeDoc(type: TypeMetadata): Promise<void> {
+    const lines: string[] = [`# ${type.name}`];
+    if (type.description) lines.push(`\n${type.description}\n`);
+
+    lines.push('## Definition');
+    lines.push('```typescript');
+    lines.push(type.type); // This might be the raw type string
+    lines.push('```');
+
+    await writeFile(join(this.outputDir, 'types', `${type.name}.md`), lines.join('\n'));
+  }
+}
