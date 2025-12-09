@@ -2,6 +2,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import fs from 'fs-extra';
 import { build as viteBuild } from 'vite';
+import react from '@vitejs/plugin-react';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -15,8 +16,8 @@ export class SiteBuilder {
     _projectRoot: string,
     private docsDir: string
   ) {
-    // Assuming dist/index.mjs structure, template is at ../template
-    this.templateDir = path.resolve(__dirname, '../template');
+    // __dirname points to dist/ directory, template is at dist/template
+    this.templateDir = path.resolve(__dirname, 'template');
     this.siteDir = path.resolve(_projectRoot, '.cognidocs/site');
   }
 
@@ -25,18 +26,15 @@ export class SiteBuilder {
 
     console.log('Building static site with Vite...');
 
-    // We need to resolve the path to the node_modules of the CLI/package
-    // to ensure Vite finds the plugins and React.
-    // Currently, we'll try to rely on require.resolve or standard resolution.
-
+    // Build with inline React plugin configuration
     await viteBuild({
       root: this.siteDir,
       base: './',
+      plugins: [react()],
       build: {
         outDir: path.resolve(outputDir),
         emptyOutDir: true,
       },
-      // We might need to inject standard plugins here if the template vite config is simple
     });
   }
 
@@ -45,7 +43,9 @@ export class SiteBuilder {
     await ensureDir(this.siteDir);
 
     // 2. Copy template
-    await copy(this.templateDir, this.siteDir);
+    console.log(`[DEBUG] Copying template from: ${this.templateDir}`);
+    console.log(`[DEBUG] Copying template to: ${this.siteDir}`);
+    await copy(this.templateDir, this.siteDir, { overwrite: true });
 
     // 3. Copy docs content
     // We copy the generated markdown to public/content so it can be fetched or imported

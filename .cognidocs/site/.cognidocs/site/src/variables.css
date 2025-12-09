@@ -1,0 +1,101 @@
+:root {
+  /* Compodoc-inspired Color Palette */
+
+  /* Light Theme (Default) */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f5f5f5; /* Sidebar */
+  --text-primary: #333333;
+  --text-secondary: #666666;
+  --accent-color: #0088cc; /* Compodoc Blue */
+  --border-color: #e0e0e0;
+
+  --code-bg: #f8f8f8;
+  --code-text: #333;
+
+  /* Dimensions & Spacing */
+  --sidebar-width: 260px;
+  --header-height: 60px;
+  --space-unit: 8px;
+
+  /* Typography */
+  --font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+/* Dark Theme Data Attribute or Class */
+[data-theme='dark'],
+body.dark {
+  --bg-primary: #212121; /* Compodoc Dark Gray */
+  --bg-secondary: #2d2d2d;
+  --text-primary: #fafafa;
+  --text-secondary: #b0b0b0;
+  --accent-color: #7fc9ff; /* Light Blue Accent */
+  --border-color: #444444;
+
+  --code-bg: #1e1e1e;
+  --code-text: #d4d4d4;
+}
+
+/* Global Reset */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-family);
+  margin: 0;
+  transition:
+    background-color 0.2s,
+    color 0.2s;
+}
+
+a {
+  color: var(--accent-color);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Utility Classes */
+.container {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: var(--sidebar-width);
+  background-color: var(--bg-secondary);
+  border-right: 1px solid var(--border-color);
+  position: fixed;
+  height: 100vh;
+  overflow-y: auto;
+  left: 0;
+  top: 0;
+}
+
+.main-content {
+  margin-left: var(--sidebar-width);
+  padding: 32px;
+  flex: 1;
+  max-width: 1000px;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .sidebar {
+    transform: translateX(-100%);
+    transition: transform 0.3s;
+    z-index: 100;
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  .main-content {
+    margin-left: 0;
+  }
+}

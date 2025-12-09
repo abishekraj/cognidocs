@@ -4,7 +4,10 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Status
 
-**Current Phase:** Phase 1 (Foundation) - ✅ COMPLETE
+**Current Phase:** Phase 3 (Core Documentation) - 🟡 IN PROGRESS
+- ✅ Phase 1 (Foundation) - COMPLETE
+- ✅ Phase 2 (Analysis & Coverage) - COMPLETE
+- 🟡 Phase 3 (Core Documentation) - IN PROGRESS
 
 CogniDocs is a comprehensive JavaScript/TypeScript documentation tool combining features from Compodoc and Storybook with AI capabilities. The project uses a monorepo architecture with Turbo, organized into 10 development phases.
 
@@ -23,8 +26,12 @@ npm run phase1              # Run Phase 1 packages only (CLI, Parser, Testing)
 npm link -w @cognidocs/cli  # Link CLI globally
 cognidocs init              # Initialize config (interactive)
 cognidocs init --yes        # Initialize with defaults
-cognidocs build             # Parse code and generate JSON output
+cognidocs build             # Parse code and generate documentation
 cognidocs build --output ./docs  # Custom output directory
+cognidocs analyze           # Analyze dependencies (Phase 2)
+cognidocs coverage          # Generate coverage report (Phase 2)
+cognidocs serve             # Start development server (Phase 3)
+cognidocs serve --port 3001 # Serve on custom port
 ```
 
 ### Testing
@@ -42,6 +49,26 @@ npm run build --filter=@cognidocs/cli     # Build single package
 npm run dev --filter=@cognidocs/parser    # Watch single package
 ```
 
+## Configuration
+
+CogniDocs uses a `cognidocs.config.js` file in the project root. Generate it with `cognidocs init`:
+
+```javascript
+export default {
+  entry: './src',              // Entry point for parsing
+  output: './docs',            // Output directory for generated docs
+  theme: 'gitbook',            // Theme (gitbook, docs, modern, etc.)
+  darkMode: true,              // Enable dark mode
+  frameworks: ['react'],       // Frameworks to detect (react, vue, svelte, etc.)
+  exclude: [                   // Files/directories to exclude
+    '**/*.test.ts',
+    '**/*.test.tsx',
+    '**/node_modules/**',
+    '**/dist/**'
+  ]
+};
+```
+
 ## Architecture Overview
 
 ### Monorepo Structure
@@ -49,14 +76,15 @@ npm run dev --filter=@cognidocs/parser    # Watch single package
 packages/          # Core library packages
 ├── cli/          # ✅ Command-line interface (Phase 1)
 ├── parser/       # ✅ TypeScript/React AST parser (Phase 1)
-├── analyzer/     # 🔴 Dependency analysis (Phase 2)
-├── coverage/     # 🔴 Coverage tracking (Phase 2)
-├── docs-generator/  # 🔴 Doc generation (Phase 3)
-├── site-builder/    # 🔴 Static site builder (Phase 3)
-├── graph-viz/       # 🔴 Visualizations (Phase 4)
+├── analyzer/     # ✅ Dependency analysis (Phase 2)
+├── coverage/     # ✅ Coverage tracking (Phase 2)
+├── docs-generator/  # 🟡 Doc generation (Phase 3)
+├── site-builder/    # 🟡 Static site builder (Phase 3)
+├── graph-viz/       # 🟡 Visualizations (Phase 3)
+├── plugin-core/     # 🟡 Plugin system (Phase 3)
 ├── component-preview/  # 🔴 Live previews (Phase 5)
 ├── ai/              # 🔴 AI integration (Phase 6)
-└── testing/         # 🟡 Test utilities (Phase 1)
+└── testing/         # ✅ Test utilities (Phase 1)
 
 shared/           # Shared libraries
 ├── types/        # TypeScript type definitions
@@ -69,12 +97,18 @@ apps/             # SaaS applications (Phase 7+)
 └── collaboration/
 
 examples/         # Sample projects for testing
-└── sample-react/ # React example with Button component
+├── sample-react/   # React example with Button component
+└── sample-nextjs/  # Next.js example
 ```
 
 ### Package Dependencies
-- CLI depends on: Parser, Types, Utils, Constants
+- CLI depends on: Parser, Analyzer, Coverage, Docs-Generator, Site-Builder, Plugin-Core, Types, Utils, Constants
 - Parser depends on: Types, Utils
+- Analyzer depends on: Types, Utils
+- Coverage depends on: Types, Utils
+- Docs-Generator depends on: Types, Utils, Constants
+- Site-Builder depends on: Utils, Graph-Viz
+- Graph-Viz is standalone (React component library)
 - All packages use shared libraries (types, utils, constants)
 
 ## Phase 1 Implementation (COMPLETE)
@@ -131,10 +165,91 @@ Specialized React component detection:
 **@cognidocs/utils** - File, path, and string utilities
 **@cognidocs/constants** - Framework lists, file extensions, themes
 
-## Output Format (Phase 1)
+## Phase 2 Implementation (COMPLETE)
 
-Phase 1 outputs structured JSON. Example component:
+### Dependency Analyzer
+**File:** `packages/analyzer/src/DependencyAnalyzer.ts`
 
+Analyzes module dependencies and relationships:
+- Builds dependency graphs from parse results
+- Detects circular dependencies
+- Calculates module metrics (imports, exports, dependents)
+- Identifies orphaned modules
+
+**Key Methods:**
+- `analyze(parseResults)` - Returns DependencyGraph
+- `detectCircularDependencies()` - Finds circular import chains
+- `getModuleMetrics(modulePath)` - Get import/export counts
+
+### Coverage Calculator
+**File:** `packages/coverage/src/CoverageCalculator.ts`
+
+Calculates documentation coverage metrics:
+- Function documentation coverage
+- Class/interface documentation coverage
+- Type coverage analysis
+- Overall project coverage scores
+
+**CLI Commands:**
+- `cognidocs analyze` - Generate dependency analysis
+- `cognidocs coverage` - Calculate documentation coverage
+
+## Phase 3 Implementation (IN PROGRESS)
+
+### Documentation Generator
+**File:** `packages/docs-generator/src/DocsGenerator.ts`
+
+Converts parsed metadata into structured documentation:
+- Generates markdown documentation files
+- Organizes content by categories (components, functions, classes, etc.)
+- Supports multiple output formats
+
+### Site Builder
+**File:** `packages/site-builder/src/SiteBuilder.ts`
+
+Builds static documentation sites:
+- React-based site template with Vite
+- Component search functionality (using Lunr.js)
+- Interactive dependency graphs (D3.js)
+- Responsive sidebar navigation
+- Markdown rendering with react-markdown
+
+**CLI Commands:**
+- `cognidocs serve` - Start development server on port 3000
+- `cognidocs serve --port <port>` - Use custom port
+
+### Graph Visualization
+**File:** `packages/graph-viz/src/DependencyGraph.tsx`
+
+React component for interactive dependency graphs:
+- D3.js force-directed graph visualization
+- Node highlighting on hover
+- Zoom and pan controls
+- Shows module relationships and dependencies
+
+### Plugin System
+**File:** `packages/plugin-core/src/index.ts`
+
+Core plugin infrastructure:
+- Plugin lifecycle hooks
+- Type-safe plugin interfaces
+- Plugin loading and initialization
+
+## Output Format
+
+### Phase 1-2 Output
+`cognidocs build` generates structured JSON files:
+- `docs/data.json` - Full parsed metadata including parse results, dependency graph, coverage metrics
+- `docs/components/*.json` - Individual component files
+
+### Phase 3 Output
+`cognidocs build` + `cognidocs serve` generates:
+- React-based documentation site (Vite + React)
+- Search index (Lunr.js)
+- Interactive dependency graphs (D3.js)
+- Static site ready for deployment
+
+Example component JSON:
 ```json
 {
   "name": "Button",
@@ -155,14 +270,12 @@ Phase 1 outputs structured JSON. Example component:
 }
 ```
 
-Phase 3 will convert this JSON to HTML documentation.
-
 ## Phase Reference System
 
 When working on phases, reference them as:
-- "Let's implement Phase 2"
-- "Show me Phase 3 tasks"
-- "Complete the analyzer from Phase 2"
+- "Let's implement Phase 4"
+- "Show me Phase 5 tasks"
+- "Complete the component preview from Phase 5"
 
 Each package README indicates its phase and status (🟢 Complete, 🟡 In Progress, 🔴 Not Started).
 
@@ -204,15 +317,40 @@ All metadata types are in `packages/parser/src/types.ts`:
 - `ClassMetadata` - Class structure
 - etc.
 
-## Known Limitations (By Design)
+### Building and Developing
 
-Phase 1 outputs JSON only. Future phases add:
-- Phase 2: Dependency graphs, coverage
-- Phase 3: HTML generation, themes, search
-- Phase 4: Visual graphs
-- Phase 5: Component previews
-- Phase 6: AI features
-- Phase 7+: SaaS platform
+**Turbo Build System:**
+- Turbo caches build outputs for fast incremental builds
+- Dependencies are built automatically (e.g., building CLI builds Parser first)
+- Use `--filter` to build specific packages: `npm run build --filter=@cognidocs/parser`
+
+**Common Workflows:**
+```bash
+# Full rebuild after pulling changes
+npm run build
+
+# Develop specific package
+npm run dev --filter=@cognidocs/cli
+
+# Test changes across multiple packages
+npm run dev  # Runs all packages in watch mode
+
+# After making changes to shared packages (types, utils, constants)
+npm run build  # Rebuild dependents
+```
+
+**tsup Configuration:**
+- All packages use tsup for bundling
+- Outputs both ESM (.mjs) and types (.d.ts)
+- Watch mode enabled in dev scripts
+
+## Known Limitations and Future Phases
+
+Current limitations and upcoming features:
+- Phase 4: Enhanced visual graphs and diagrams
+- Phase 5: Live component previews and playground
+- Phase 6: AI-powered features (doc generation, semantic search, chat)
+- Phase 7+: SaaS platform, team collaboration, marketplace
 
 ## Troubleshooting
 
@@ -237,27 +375,37 @@ npm run build      # Rebuild
 - Ensure files match pattern `**/*.{ts,tsx}`
 - Files in `node_modules`, `dist`, `*.test.*` are excluded by default
 
-## Next Steps: Phase 2
+**Server not starting**
+```bash
+# Make sure site is built first
+cognidocs build
+cognidocs serve
+```
 
-**Goal:** Dependency analysis and coverage tracking
+## Next Steps: Phase 4+
 
-**Tasks:**
-1. Implement `@cognidocs/analyzer` package
-   - Build dependency graphs from parse results
-   - Detect circular dependencies
-   - Module relationship extraction
+**Current Focus:** Complete Phase 3 site builder and documentation generation
 
-2. Implement `@cognidocs/coverage` package
-   - Calculate documentation coverage
-   - Import test coverage (Jest/Vitest)
-   - Type coverage analysis
+**Phase 4 - Enhanced Visualizations:**
+- Advanced graph layouts (hierarchical, circular)
+- Component relationship diagrams
+- Call graphs and flow diagrams
+- Mermaid.js integration
 
-3. Add CLI commands:
-   - `cognidocs analyze`
-   - `cognidocs coverage`
+**Phase 5 - Component Previews:**
+- Live component playground
+- Props editing interface
+- Multiple framework support (React, Vue, Svelte)
+- Hot module replacement
 
-**To start Phase 2:**
-Reference the phase in conversation: "Let's implement Phase 2" or "Start dependency graph generation"
+**Phase 6 - AI Integration:**
+- OpenAI/Anthropic integration
+- Semantic search with vector embeddings
+- Auto-generate missing documentation
+- Interactive chatbot for codebase queries
+
+**To start next phase:**
+Reference the phase in conversation: "Let's implement Phase 4" or "Add enhanced visualizations"
 
 ## References
 
