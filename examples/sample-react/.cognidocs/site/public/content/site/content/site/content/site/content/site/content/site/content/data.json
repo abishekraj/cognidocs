@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generatedAt": "2025-12-09T18:07:26.303Z",
+    "generatedAt": "2025-12-09T16:58:49.758Z",
     "phase": "phase3-documentation",
     "config": {
       "entry": "./src",
@@ -12,12 +12,17 @@
       ],
       "exclude": [
         "**/*.test.ts",
-        "**/node_modules/**"
+        "**/*.test.tsx",
+        "**/node_modules/**",
+        "**/dist/**"
       ],
-      "plugins": [
-        "../test-plugin.mjs"
-      ],
-      "testPluginActive": true
+      "coverage": {
+        "enabled": true,
+        "thresholds": {
+          "docs": 80,
+          "types": 90
+        }
+      }
     }
   },
   "stats": {

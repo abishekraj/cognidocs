@@ -182,6 +182,20 @@ export function Sidebar({ isOpen, onClose, graph }: SidebarProps) {
               >
                 Documentation
               </li>
+              <li style={{ marginBottom: '8px' }}>
+                <a
+                  href="#/graph"
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '8px',
+                    color: 'var(--accent-color)',
+                    fontWeight: 500,
+                  }}
+                >
+                  Dependency Graph
+                </a>
+              </li>
               {renderTree(manifest)}
 
               <hr style={{ borderColor: 'var(--border-color)', margin: '16px 0' }} />

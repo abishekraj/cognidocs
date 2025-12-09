@@ -257,6 +257,162 @@
                           },
                           {
                             "type": "directory",
+                            "name": "site",
+                            "path": "site/content/site/content/site/content/site",
+                            "children": [
+                              {
+                                "type": "directory",
+                                "name": "assets",
+                                "path": "site/content/site/content/site/content/site/assets",
+                                "children": []
+                              },
+                              {
+                                "type": "directory",
+                                "name": "content",
+                                "path": "site/content/site/content/site/content/site/content",
+                                "children": [
+                                  {
+                                    "type": "file",
+                                    "name": "README",
+                                    "path": "site/content/site/content/site/content/site/content/README.md"
+                                  },
+                                  {
+                                    "type": "directory",
+                                    "name": "classes",
+                                    "path": "site/content/site/content/site/content/site/content/classes",
+                                    "children": []
+                                  },
+                                  {
+                                    "type": "directory",
+                                    "name": "components",
+                                    "path": "site/content/site/content/site/content/site/content/components",
+                                    "children": [
+                                      {
+                                        "type": "file",
+                                        "name": "Button",
+                                        "path": "site/content/site/content/site/content/site/content/components/Button.md"
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "type": "directory",
+                                    "name": "functions",
+                                    "path": "site/content/site/content/site/content/site/content/functions",
+                                    "children": [
+                                      {
+                                        "type": "file",
+                                        "name": "capitalize",
+                                        "path": "site/content/site/content/site/content/site/content/functions/capitalize.md"
+                                      },
+                                      {
+                                        "type": "file",
+                                        "name": "formatDate",
+                                        "path": "site/content/site/content/site/content/site/content/functions/formatDate.md"
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "type": "directory",
+                                    "name": "interfaces",
+                                    "path": "site/content/site/content/site/content/site/content/interfaces",
+                                    "children": [
+                                      {
+                                        "type": "file",
+                                        "name": "ButtonProps",
+                                        "path": "site/content/site/content/site/content/site/content/interfaces/ButtonProps.md"
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "type": "directory",
+                                    "name": "site",
+                                    "path": "site/content/site/content/site/content/site/content/site",
+                                    "children": [
+                                      {
+                                        "type": "directory",
+                                        "name": "assets",
+                                        "path": "site/content/site/content/site/content/site/content/site/assets",
+                                        "children": []
+                                      },
+                                      {
+                                        "type": "directory",
+                                        "name": "content",
+                                        "path": "site/content/site/content/site/content/site/content/site/content",
+                                        "children": [
+                                          {
+                                            "type": "file",
+                                            "name": "README",
+                                            "path": "site/content/site/content/site/content/site/content/site/content/README.md"
+                                          },
+                                          {
+                                            "type": "directory",
+                                            "name": "classes",
+                                            "path": "site/content/site/content/site/content/site/content/site/content/classes",
+                                            "children": []
+                                          },
+                                          {
+                                            "type": "directory",
+                                            "name": "components",
+                                            "path": "site/content/site/content/site/content/site/content/site/content/components",
+                                            "children": [
+                                              {
+                                                "type": "file",
+                                                "name": "Button",
+                                                "path": "site/content/site/content/site/content/site/content/site/content/components/Button.md"
+                                              }
+                                            ]
+                                          },
+                                          {
+                                            "type": "directory",
+                                            "name": "functions",
+                                            "path": "site/content/site/content/site/content/site/content/site/content/functions",
+                                            "children": [
+                                              {
+                                                "type": "file",
+                                                "name": "capitalize",
+                                                "path": "site/content/site/content/site/content/site/content/site/content/functions/capitalize.md"
+                                              },
+                                              {
+                                                "type": "file",
+                                                "name": "formatDate",
+                                                "path": "site/content/site/content/site/content/site/content/site/content/functions/formatDate.md"
+                                              }
+                                            ]
+                                          },
+                                          {
+                                            "type": "directory",
+                                            "name": "interfaces",
+                                            "path": "site/content/site/content/site/content/site/content/site/content/interfaces",
+                                            "children": [
+                                              {
+                                                "type": "file",
+                                                "name": "ButtonProps",
+                                                "path": "site/content/site/content/site/content/site/content/site/content/interfaces/ButtonProps.md"
+                                              }
+                                            ]
+                                          },
+                                          {
+                                            "type": "directory",
+                                            "name": "types",
+                                            "path": "site/content/site/content/site/content/site/content/site/content/types",
+                                            "children": []
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "type": "directory",
+                                    "name": "types",
+                                    "path": "site/content/site/content/site/content/site/content/types",
+                                    "children": []
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "type": "directory",
                             "name": "types",
                             "path": "site/content/site/content/site/content/types",
                             "children": []
