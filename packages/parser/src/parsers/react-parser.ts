@@ -5,7 +5,7 @@
 
 import * as ts from 'typescript';
 import { readFileSync } from 'fs';
-import type { ComponentMetadata, PropMetadata, ParseResult } from '../types';
+import type { ComponentMetadata, PropertyMetadata } from '../types';
 
 export class ReactParser {
   /**
@@ -156,6 +156,7 @@ export class ReactParser {
       filePath: sourceFile.fileName,
       line,
       framework: 'react',
+      isExported: true,
     };
   }
 
@@ -186,14 +187,15 @@ export class ReactParser {
       filePath: sourceFile.fileName,
       line,
       framework: 'react',
+      isExported: true,
     };
   }
 
   /**
    * Extract props from TypeScript type
    */
-  private extractPropsFromType(typeNode: ts.TypeNode): PropMetadata[] {
-    const props: PropMetadata[] = [];
+  private extractPropsFromType(typeNode: ts.TypeNode): PropertyMetadata[] {
+    const props: PropertyMetadata[] = [];
 
     // Handle type reference (interface or type alias name)
     if (ts.isTypeReferenceNode(typeNode)) {
@@ -224,8 +226,8 @@ export class ReactParser {
   /**
    * Extract props from a named interface/type
    */
-  extractPropsFromInterface(interfaceName: string, sourceFile: ts.SourceFile): PropMetadata[] {
-    const props: PropMetadata[] = [];
+  extractPropsFromInterface(interfaceName: string, sourceFile: ts.SourceFile): PropertyMetadata[] {
+    const props: PropertyMetadata[] = [];
 
     const visit = (node: ts.Node) => {
       if (ts.isInterfaceDeclaration(node) && node.name.getText() === interfaceName) {

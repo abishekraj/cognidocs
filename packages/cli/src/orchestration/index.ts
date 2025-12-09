@@ -9,10 +9,8 @@ export interface OrchestrationContext {
 }
 
 export class Orchestrator {
-  private context: OrchestrationContext;
-
-  constructor(context: OrchestrationContext) {
-    this.context = context;
+  constructor(_context: OrchestrationContext) {
+    // Context will be used in future phases
   }
 
   async runPhase1(): Promise<void> {

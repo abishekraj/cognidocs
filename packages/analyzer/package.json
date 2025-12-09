@@ -12,9 +12,9 @@
     "clean": "rm -rf dist"
   },
   "dependencies": {
-    "@cognidocs/parser": "workspace:*",
-    "@cognidocs/types": "workspace:*",
-    "@cognidocs/utils": "workspace:*"
+    "@cognidocs/parser": "*",
+    "@cognidocs/types": "*",
+    "@cognidocs/utils": "*"
   },
   "devDependencies": {
     "tsup": "^8.0.1",

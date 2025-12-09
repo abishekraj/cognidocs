@@ -13,15 +13,15 @@ export interface AIProvider {
 
 export class OpenAIProvider implements AIProvider {
   // TODO: Phase 6 - Implement OpenAI integration
-  async generateDocumentation(code: string): Promise<string> {
+  async generateDocumentation(_code: string): Promise<string> {
     throw new Error('Phase 6: Not yet implemented');
   }
 
-  async embedText(text: string): Promise<number[]> {
+  async embedText(_text: string): Promise<number[]> {
     throw new Error('Phase 6: Not yet implemented');
   }
 
-  async chat(messages: any[]): Promise<string> {
+  async chat(_messages: any[]): Promise<string> {
     throw new Error('Phase 6: Not yet implemented');
   }
 }

@@ -9,7 +9,7 @@ import chalk from 'chalk';
 import ora from 'ora';
 import { loadConfig } from '../config';
 import { TypeScriptParser, ReactParser } from '@cognidocs/parser';
-import { fileExists } from '@cognidocs/utils';
+// import { fileExists } from '@cognidocs/utils';
 import type { ParseResult, ComponentMetadata } from '@cognidocs/types';
 
 export interface BuildOptions {
@@ -40,10 +40,7 @@ export async function buildCommand(options: BuildOptions = {}): Promise<void> {
   const parseSpinner = ora('Parsing source files...').start();
 
   try {
-    const parseResults: ParseResult[] = await tsParser.parseDirectory(
-      entryPath,
-      '**/*.{ts,tsx}'
-    );
+    const parseResults: ParseResult[] = await tsParser.parseDirectory(entryPath, '**/*.{ts,tsx}');
 
     parseSpinner.text = 'Extracting React components...';
 
@@ -129,7 +126,6 @@ export async function buildCommand(options: BuildOptions = {}): Promise<void> {
     if (options.watch) {
       console.log(chalk.yellow('⚠️  Watch mode not yet implemented (Phase 3)'));
     }
-
   } catch (error) {
     parseSpinner.fail('Build failed');
     console.error(chalk.red('\n❌ Error:'), error);

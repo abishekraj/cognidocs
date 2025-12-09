@@ -25,7 +25,7 @@ export interface DependencyEdge {
 
 export class Analyzer {
   // TODO: Phase 2 - Implement dependency analysis
-  async analyzeDependencies(parseResults: any[]): Promise<DependencyGraph> {
+  async analyzeDependencies(_parseResults: any[]): Promise<DependencyGraph> {
     throw new Error('Phase 2: Not yet implemented');
   }
 }

@@ -2,8 +2,8 @@
   "name": "@cognidocs/constants",
   "version": "0.1.0",
   "description": "Shared constants for CogniDocs",
-  "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "main": "./dist/index.mjs",
+  "types": "./dist/index.d.mts",
   "scripts": {
     "dev": "tsup --watch",
     "build": "tsup",
@@ -14,6 +14,8 @@
     "tsup": "^8.0.1",
     "typescript": "^5.3.0"
   },
-  "keywords": ["constants"],
+  "keywords": [
+    "constants"
+  ],
   "license": "MIT"
 }

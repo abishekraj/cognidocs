@@ -20,7 +20,7 @@ export async function initCommand(options: InitOptions = {}): Promise<void> {
   const configPath = join(process.cwd(), 'cognidocs.config.js');
 
   // Check if config already exists
-  if (!options.force && await fileExists(configPath)) {
+  if (!options.force && (await fileExists(configPath))) {
     console.log(chalk.yellow('⚠️  Configuration file already exists!'));
     console.log(chalk.gray(`   ${configPath}\n`));
 
@@ -41,7 +41,7 @@ export async function initCommand(options: InitOptions = {}): Promise<void> {
     }
   }
 
-  let config;
+  let config: any;
 
   if (options.yes) {
     // Use defaults without prompting
@@ -51,12 +51,7 @@ export async function initCommand(options: InitOptions = {}): Promise<void> {
       theme: 'gitbook',
       darkMode: true,
       frameworks: ['react'],
-      exclude: [
-        '**/*.test.ts',
-        '**/*.test.tsx',
-        '**/node_modules/**',
-        '**/dist/**',
-      ],
+      exclude: ['**/*.test.ts', '**/*.test.tsx', '**/node_modules/**', '**/dist/**'],
     };
   } else {
     // Interactive prompts
@@ -116,12 +111,7 @@ export async function initCommand(options: InitOptions = {}): Promise<void> {
       theme: answers.theme,
       darkMode: answers.darkMode,
       frameworks: answers.frameworks,
-      exclude: [
-        '**/*.test.ts',
-        '**/*.test.tsx',
-        '**/node_modules/**',
-        '**/dist/**',
-      ],
+      exclude: ['**/*.test.ts', '**/*.test.tsx', '**/node_modules/**', '**/dist/**'],
     };
 
     if (answers.coverage) {

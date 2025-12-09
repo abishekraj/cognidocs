@@ -3,7 +3,6 @@
  */
 
 import { promises as fs } from 'fs';
-import * as path from 'path';
 
 export async function fileExists(filePath: string): Promise<boolean> {
   try {

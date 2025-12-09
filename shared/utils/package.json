@@ -2,8 +2,8 @@
   "name": "@cognidocs/utils",
   "version": "0.1.0",
   "description": "Shared utility functions for CogniDocs",
-  "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "main": "./dist/index.mjs",
+  "types": "./dist/index.d.mts",
   "scripts": {
     "dev": "tsup --watch",
     "build": "tsup",
@@ -16,6 +16,9 @@
     "typescript": "^5.3.0",
     "vitest": "^1.0.0"
   },
-  "keywords": ["utils", "helpers"],
+  "keywords": [
+    "utils",
+    "helpers"
+  ],
   "license": "MIT"
 }

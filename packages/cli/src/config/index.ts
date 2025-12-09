@@ -35,12 +35,12 @@ export const defaultConfig: CogniDocsConfig = {
   exclude: ['**/*.test.ts', '**/node_modules/**'],
 };
 
-export async function loadConfig(configPath?: string): Promise<CogniDocsConfig> {
+export async function loadConfig(_configPath?: string): Promise<CogniDocsConfig> {
   // TODO: Phase 1 - Implement config loading with cosmiconfig
   return defaultConfig;
 }
 
-export async function createConfig(config: Partial<CogniDocsConfig>): Promise<void> {
+export async function createConfig(_config: Partial<CogniDocsConfig>): Promise<void> {
   // TODO: Phase 1 - Implement config file creation
   console.log('Creating config file...');
 }

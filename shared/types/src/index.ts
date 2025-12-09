@@ -16,15 +16,117 @@ export type Phase =
   | 'phase9-marketplace'
   | 'phase10-polish';
 
-// Re-export parser types
-export type {
-  ParseResult,
-  ComponentMetadata,
-  FunctionMetadata,
-  ClassMetadata,
-  InterfaceMetadata,
-  TypeMetadata,
-} from '@cognidocs/parser';
+// Parser types (used by @cognidocs/parser package)
+export interface ParameterMetadata {
+  name: string;
+  type?: string;
+  optional: boolean;
+  defaultValue?: string;
+  description?: string;
+}
+
+export interface PropertyMetadata {
+  name: string;
+  type?: string;
+  optional?: boolean;
+  isPrivate?: boolean;
+  isProtected?: boolean;
+  isStatic?: boolean;
+  defaultValue?: string;
+  description?: string;
+  required?: boolean;
+}
+
+export interface MethodMetadata {
+  name: string;
+  parameters: ParameterMetadata[];
+  returnType?: string;
+  description?: string;
+  isAsync?: boolean;
+  isPrivate?: boolean;
+  isProtected?: boolean;
+  isStatic?: boolean;
+}
+
+export interface FunctionMetadata {
+  name: string;
+  description?: string;
+  parameters: ParameterMetadata[];
+  returnType?: string;
+  isExported: boolean;
+  isAsync: boolean;
+  filePath: string;
+  line?: number;
+  examples?: string[];
+}
+
+export interface ClassMetadata {
+  name: string;
+  description?: string;
+  properties: PropertyMetadata[];
+  methods: MethodMetadata[];
+  isExported: boolean;
+  extendsClass?: string;
+  implementsInterfaces?: string[];
+  filePath: string;
+  line?: number;
+}
+
+export interface InterfaceMetadata {
+  name: string;
+  description?: string;
+  properties: PropertyMetadata[];
+  isExported: boolean;
+  extendsInterfaces?: string[];
+  filePath: string;
+  line?: number;
+}
+
+export interface TypeMetadata {
+  name: string;
+  description?: string;
+  type: string;
+  isExported: boolean;
+  filePath: string;
+  line?: number;
+}
+
+export interface ImportMetadata {
+  source: string;
+  specifiers: string[];
+  isDefault: boolean;
+  isNamespace: boolean;
+}
+
+export interface ExportMetadata {
+  name: string;
+  type: 'function' | 'class' | 'const' | 'type' | 'interface';
+  isDefault: boolean;
+}
+
+export interface ComponentMetadata {
+  name: string;
+  type: 'function' | 'class';
+  framework: 'react' | 'vue' | 'svelte' | 'solid';
+  description?: string;
+  props?: PropertyMetadata[];
+  hooks?: string[];
+  filePath: string;
+  isExported: boolean;
+  line?: number;
+  examples?: string[];
+}
+
+export interface ParseResult {
+  filePath: string;
+  components?: ComponentMetadata[];
+  functions: FunctionMetadata[];
+  classes: ClassMetadata[];
+  interfaces: InterfaceMetadata[];
+  types: TypeMetadata[];
+  imports: ImportMetadata[];
+  exports: string[];
+}
 
 // Common types
 export interface FileInfo {

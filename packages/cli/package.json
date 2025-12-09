@@ -2,10 +2,10 @@
   "name": "@cognidocs/cli",
   "version": "0.1.0",
   "description": "CogniDocs CLI - Command-line interface and orchestration",
-  "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "main": "./dist/index.mjs",
+  "types": "./dist/index.d.mts",
   "bin": {
-    "cognidocs": "./dist/cli.js"
+    "cognidocs": "./dist/cli.mjs"
   },
   "scripts": {
     "dev": "tsup --watch",
@@ -17,10 +17,10 @@
     "clean": "rm -rf dist"
   },
   "dependencies": {
-    "@cognidocs/parser": "workspace:*",
-    "@cognidocs/types": "workspace:*",
-    "@cognidocs/utils": "workspace:*",
-    "@cognidocs/constants": "workspace:*",
+    "@cognidocs/parser": "*",
+    "@cognidocs/types": "*",
+    "@cognidocs/utils": "*",
+    "@cognidocs/constants": "*",
     "commander": "^11.1.0",
     "inquirer": "^9.2.12",
     "ora": "^7.0.1",
@@ -35,6 +35,10 @@
     "typescript": "^5.3.0",
     "vitest": "^1.0.0"
   },
-  "keywords": ["cognidocs", "cli", "documentation"],
+  "keywords": [
+    "cognidocs",
+    "cli",
+    "documentation"
+  ],
   "license": "MIT"
 }
