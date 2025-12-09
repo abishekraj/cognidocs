@@ -33,7 +33,8 @@
     "clean": "turbo run clean && rm -rf node_modules",
     "phase1": "turbo run dev --filter=@cognidocs/cli --filter=@cognidocs/parser --filter=@cognidocs/testing",
     "phase2": "turbo run dev --filter=@cognidocs/analyzer --filter=@cognidocs/coverage",
-    "phase3": "turbo run dev --filter=@cognidocs/docs-generator --filter=@cognidocs/site-builder"
+    "phase3": "turbo run build --filter=./packages/* && cd examples/sample-react && cognidocs build",
+    "phase3-ui": "turbo run build --filter=@cognidocs/site-builder && cd examples/sample-react && cognidocs serve"
   },
   "devDependencies": {
     "@types/node": "^20.10.0",

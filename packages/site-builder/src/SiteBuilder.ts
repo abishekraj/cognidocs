@@ -54,9 +54,49 @@ export class SiteBuilder {
     await copy(this.docsDir, contentDir);
 
     // 4. Generate content manifest
-    // This helps the frontend know what files exist
     const manifest = await this.generateManifest(this.docsDir);
     await writeFile(path.join(contentDir, 'manifest.json'), JSON.stringify(manifest, null, 2));
+
+    // 5. Generate Search Index
+    console.log('Generating search index...');
+    await this.generateSearchIndex(this.docsDir, contentDir);
+  }
+
+  private async generateSearchIndex(docsDir: string, outputDir: string): Promise<void> {
+    const lunr = await import('lunr').then((m) => m.default || m);
+    // Gather all documents
+    const documents: any[] = [];
+
+    async function traverse(dir: string, base: string = '') {
+      const entries = await fs.readdir(dir, { withFileTypes: true });
+      for (const entry of entries) {
+        if (entry.isDirectory() && !entry.name.startsWith('.')) {
+          await traverse(path.join(dir, entry.name), path.join(base, entry.name));
+        } else if (entry.name.endsWith('.md')) {
+          const content = await fs.readFile(path.join(dir, entry.name), 'utf-8');
+          documents.push({
+            id: path.join(base, entry.name), // e.g., 'guide/intro.md'
+            title: entry.name.replace('.md', ''),
+            body: content,
+          });
+        }
+      }
+    }
+    await traverse(docsDir);
+
+    const idx = lunr(function () {
+      this.ref('id');
+      this.field('title');
+      this.field('body');
+
+      documents.forEach((doc) => {
+        this.add(doc);
+      });
+    });
+
+    await writeFile(path.join(outputDir, 'search-index.json'), JSON.stringify(idx));
+    // Also save the documents map to retrieve titles/snippets (optional but good for UI)
+    await writeFile(path.join(outputDir, 'search-data.json'), JSON.stringify(documents));
   }
 
   private async generateManifest(dir: string, base: string = ''): Promise<any[]> {

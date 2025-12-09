@@ -95,6 +95,47 @@ cognidocs coverage
 - [x] Create `@cognidocs/site-builder` package (Vite + React)
 - [x] Implement `cognidocs build` command
 - [x] Implement `cognidocs serve` command
+- [x] Implement `cognidocs serve` command (Phase 3)
+
+---
+
+## Phase 3.5: Advanced UI & Theming (Weeks 6-7) 🟢 COMPLETED
+
+**Goal:** Create a premium, Compodoc-like documentation interface.
+
+### Tasks
+
+- [ ] **UI Architecture**
+  - [ ] Implement responsive sidebar layout with search
+  - [ ] Create Table of Contents (TOC) component
+  - [ ] Add mobile navigation drawer
+- [ ] **Theming System**
+  - [ ] Implement Light/Dark mode toggle
+  - [ ] Create Theme Manager (Context)
+  - [ ] Add multiple color themes (Blue, Purple, Orange, etc.)
+- [ ] **Enhanced Content Rendering**
+  - [ ] Render `README.md` as Introduction page
+  - [ ] Support "Additional Documentation" (Markdown articles)
+  - [ ] Add "Getting Started" and "Tutorials" sections
+- [ ] **Search & Navigation**
+  - [ ] Implement client-side full-text search (Lunr.js or Fuse.js)
+  - [ ] Add keyboard shortcuts (Cmd+K)
+  - [ ] Implement breadcrumbs
+
+### Deliverables
+
+- Professional, responsive documentation site
+- Dark mode support
+- Search functionality
+- "Additional Docs" support
+
+### Commands
+
+```bash
+npm run phase3-ui
+```
+
+---
 
 ## Phase 4: Plugin System 🟡 IN PROGRESS
 
@@ -130,7 +171,7 @@ cognidocs serve
 
 ---
 
-## Phase 4: Graph Visualization (Weeks 8-9) 🔴 NOT STARTED
+## Phase 5: Graph Visualization (Weeks 8-9) 🔴 NOT STARTED
 
 **Goal:** Interactive dependency graphs
 
@@ -156,7 +197,7 @@ cognidocs serve
 
 ---
 
-## Phase 5: Component Previews (Weeks 10-11) 🔴 NOT STARTED
+## Phase 6: Component Previews (Weeks 10-11) 🔴 NOT STARTED
 
 **Goal:** Live component demonstrations
 
@@ -183,7 +224,7 @@ cognidocs serve
 
 ---
 
-## Phase 6: AI Integration (Weeks 12-14) 🔴 NOT STARTED
+## Phase 7: AI Integration (Weeks 12-14) 🔴 NOT STARTED
 
 **Goal:** AI-powered documentation features
 
@@ -234,7 +275,7 @@ cognidocs ai chat
 
 ---
 
-## Phase 7: SaaS Platform (Weeks 15-17) 🔴 NOT STARTED
+## Phase 8: SaaS Platform (Weeks 15-17) 🔴 NOT STARTED
 
 **Goal:** Launch cloud platform with teams
 
@@ -310,7 +351,7 @@ OPENAI_API_KEY=
 
 ---
 
-## Phase 8: Enterprise Features (Weeks 18-20) 🔴 NOT STARTED
+## Phase 9: Enterprise Features (Weeks 18-20) 🔴 NOT STARTED
 
 **Goal:** Enterprise-ready features
 
@@ -327,7 +368,7 @@ OPENAI_API_KEY=
 
 ---
 
-## Phase 9: Marketplace & Plugins (Weeks 21-22) 🔴 NOT STARTED
+## Phase 10: Marketplace & Plugins (Weeks 21-22) 🔴 NOT STARTED
 
 **Goal:** Theme and plugin ecosystem
 
@@ -348,7 +389,7 @@ OPENAI_API_KEY=
 
 ---
 
-## Phase 10: Polish & Launch (Weeks 23-24) 🔴 NOT STARTED
+## Phase 11: Polish & Launch (Weeks 23-24) 🔴 NOT STARTED
 
 **Goal:** Production-ready and public launch
 
