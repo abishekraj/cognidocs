@@ -36,7 +36,8 @@
       "@cognidocs/site-builder": ["./packages/site-builder/src"],
       "@cognidocs/types": ["./shared/types/src"],
       "@cognidocs/utils": ["./shared/utils/src"],
-      "@cognidocs/constants": ["./shared/constants/src"]
+      "@cognidocs/constants": ["./shared/constants/src"],
+      "@cognidocs/plugin-core": ["./packages/plugin-core/src"]
     }
   },
   "include": ["packages/**/*", "apps/**/*", "shared/**/*"],

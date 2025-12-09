@@ -23,7 +23,7 @@ export async function buildCommand(options: BuildOptions = {}): Promise<void> {
 
   // Load configuration
   const spinner = ora('Loading configuration...').start();
-  const config = await loadConfig(options.config);
+  let config = await loadConfig(options.config);
   spinner.succeed('Configuration loaded');
 
   const entryPath = resolve(process.cwd(), config.entry);
@@ -35,6 +35,19 @@ export async function buildCommand(options: BuildOptions = {}): Promise<void> {
   // Initialize parsers
   const tsParser = new TypeScriptParser();
   const reactParser = new ReactParser();
+
+  // Plugin Support
+  const { PluginManager } = await import('../PluginManager');
+  const pluginManager = new PluginManager();
+
+  if (config.plugins && config.plugins.length > 0) {
+    try {
+      await pluginManager.loadPlugins(config.plugins);
+      config = await pluginManager.executeConfigureHooks(config);
+    } catch (e) {
+      console.warn('Failed to load plugins in build', e);
+    }
+  }
 
   // Phase 1: Parse source files
   const parseSpinner = ora('Parsing source files...').start();
@@ -55,6 +68,16 @@ export async function buildCommand(options: BuildOptions = {}): Promise<void> {
         result.components = components;
       }
     }
+
+    // Execute Plugin Transform Hooks
+    // Allows plugins to modify the parsed data before it becomes documentation
+    await pluginManager.executeTransformHooks({
+      docs: parseResults,
+      manifest: {
+        generatedAt: new Date().toISOString(),
+        files: parseResults.length,
+      },
+    });
 
     parseSpinner.succeed(
       `Parsed ${parseResults.length} files, found ${allComponents.length} React components`

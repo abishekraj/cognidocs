@@ -24,6 +24,7 @@
     "@cognidocs/site-builder": "*",
     "@cognidocs/types": "*",
     "@cognidocs/utils": "*",
+    "@cognidocs/plugin-core": "*",
     "@cognidocs/constants": "*",
     "commander": "^11.1.0",
     "inquirer": "^9.2.12",

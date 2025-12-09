@@ -18,8 +18,25 @@ export async function analyzeCommand(options: AnalyzeOptions = {}): Promise<void
 
   // Load configuration
   const spinner = ora('Loading configuration...').start();
-  const config = await loadConfig(options.config);
-  spinner.succeed('Configuration loaded');
+  let config = await loadConfig(options.config);
+
+  // Plugin Support
+  const { PluginManager } = await import('../PluginManager');
+  const pluginManager = new PluginManager();
+
+  if (config.plugins && config.plugins.length > 0) {
+    try {
+      await pluginManager.loadPlugins(config.plugins);
+      // Allow plugins to modify config
+      config = await pluginManager.executeConfigureHooks(config);
+      spinner.succeed(`Configuration loaded (${pluginManager.getPlugins().length} plugins active)`);
+    } catch (e) {
+      spinner.warn('Failed to load some plugins');
+      console.warn(e);
+    }
+  } else {
+    spinner.succeed('Configuration loaded');
+  }
 
   const entryPath = resolve(process.cwd(), config.entry);
   const outputPath = resolve(process.cwd(), options.output || config.output);
@@ -40,7 +57,14 @@ export async function analyzeCommand(options: AnalyzeOptions = {}): Promise<void
     // Run Analysis
     const analysisSpinner = ora('Building dependency graph...').start();
     const graph = analyzeDependencies(parseResults);
-    analysisSpinner.succeed('Dependency graph generated');
+
+    // Execute Plugin Analyze Hooks
+    await pluginManager.executeAnalyzeHooks({
+      graph,
+      files: parseResults.map((r) => r.filePath),
+    });
+
+    analysisSpinner.succeed('Dependency graph generated (and processed by plugins)');
 
     // Report
     const nodeCount = Object.keys(graph.nodes).length;
