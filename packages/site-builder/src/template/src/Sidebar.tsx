@@ -193,15 +193,29 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
 
               <Separator className="my-2" />
 
-              {/* Additional Documentation */}
-              {manifest.length > 0 && (
+              {/* Additional Documentation - Separate Section */}
+              {manifest.find((item: any) => item.name === 'additional-documentation') && (
+                <>
+                  <NavigationSection
+                    title="Guides"
+                    icon={BookOpen}
+                    defaultOpen={true}
+                  >
+                    {renderTree(manifest.find((item: any) => item.name === 'additional-documentation')?.children || [])}
+                  </NavigationSection>
+                  <Separator className="my-2" />
+                </>
+              )}
+
+              {/* Documentation */}
+              {manifest.filter((item: any) => item.name !== 'additional-documentation').length > 0 && (
                 <NavigationSection
                   title="Documentation"
                   icon={FileCode}
-                  count={manifest.length}
+                  count={manifest.filter((item: any) => item.name !== 'additional-documentation').length}
                   defaultOpen={true}
                 >
-                  {renderTree(manifest)}
+                  {renderTree(manifest.filter((item: any) => item.name !== 'additional-documentation'))}
                 </NavigationSection>
               )}
             </div>

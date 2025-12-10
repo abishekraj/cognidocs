@@ -1,12 +1,11 @@
-import React, { useEffect, useState, useMemo } from 'react';
+import React, { useEffect, useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeHighlight from 'rehype-highlight';
 import rehypeSlug from 'rehype-slug';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
-import { Card } from '../components/ui/card';
-import { ScrollArea } from '../components/ui/scroll-area';
-import { FileText } from 'lucide-react';
+import { TableOfContents } from '../components/TableOfContents';
+import { CodeBlock } from '../components/CodeBlock';
 import 'highlight.js/styles/github-dark.css';
 
 interface MarkdownPageProps {
@@ -110,27 +109,40 @@ export function MarkdownPage({ path }: MarkdownPageProps) {
                 <a className="text-primary hover:underline font-medium" {...props} />
               ),
               code: ({ node, inline, className, children, ...props }: any) => {
-                if (inline) {
-                  return (
-                    <code
-                      className="bg-muted px-1.5 py-0.5 rounded text-sm font-mono text-foreground border border-border"
-                      {...props}
-                    >
-                      {children}
-                    </code>
-                  );
+                // Extract string from children - handle React elements properly
+                let code = '';
+                if (Array.isArray(children)) {
+                  code = children.map(child => {
+                    if (typeof child === 'string') return child;
+                    if (typeof child === 'number') return String(child);
+                    if (child && typeof child === 'object' && 'props' in child && child.props?.children) {
+                      // React element - extract text from props.children
+                      return String(child.props.children);
+                    }
+                    return '';
+                  }).join('');
+                } else if (typeof children === 'string' || typeof children === 'number') {
+                  code = String(children);
+                } else if (children && typeof children === 'object' && 'props' in children && children.props?.children) {
+                  // React element - extract text from props.children
+                  code = String(children.props.children);
+                } else {
+                  code = '';
                 }
+                code = code.replace(/\n$/, '');
+
                 return (
-                  <code className={`${className} block`} {...props}>
-                    {children}
-                  </code>
+                  <CodeBlock
+                    inline={inline}
+                    className={className}
+                    language={className?.replace(/language-/, '')}
+                  >
+                    {code}
+                  </CodeBlock>
                 );
               },
-              pre: ({ node, ...props }) => (
-                <pre
-                  className="bg-muted border border-border rounded-lg p-4 overflow-x-auto mb-4"
-                  {...props}
-                />
+              pre: ({ node, children, ...props }: any) => (
+                <>{children}</>
               ),
               blockquote: ({ node, ...props }) => (
                 <blockquote
@@ -160,30 +172,8 @@ export function MarkdownPage({ path }: MarkdownPageProps) {
 
       {/* Table of Contents Sidebar */}
       {showTOC && (
-        <aside className="hidden lg:block w-64 flex-shrink-0">
-          <Card className="p-4 sticky top-4">
-            <div className="flex items-center gap-2 mb-4">
-              <FileText className="h-4 w-4 text-primary" />
-              <h3 className="text-sm font-semibold text-foreground">On This Page</h3>
-            </div>
-            <ScrollArea className="h-[calc(100vh-200px)]">
-              <nav className="space-y-1">
-                {headings.map((heading, index) => (
-                  <button
-                    key={index}
-                    onClick={() => scrollToHeading(heading.id)}
-                    className={`
-                      block w-full text-left text-sm hover:text-primary transition-colors
-                      ${heading.level === 1 ? 'font-semibold' : 'text-muted-foreground'}
-                    `}
-                    style={{ paddingLeft: `${(heading.level - 1) * 12}px` }}
-                  >
-                    {heading.text}
-                  </button>
-                ))}
-              </nav>
-            </ScrollArea>
-          </Card>
+        <aside className="hidden lg:block flex-shrink-0">
+          <TableOfContents content={content} sticky={true} />
         </aside>
       )}
     </div>

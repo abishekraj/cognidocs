@@ -84,19 +84,91 @@ export default defineConfig({
       await copy(projectReadme, path.join(contentDir, 'README.md'), { overwrite: true });
     }
 
+    // 4.5. Copy additional-documentation folder if it exists
+    const additionalDocsPath = path.join(this.projectRoot, 'additional-documentation');
+    if (await fs.pathExists(additionalDocsPath)) {
+      console.log('Copying additional documentation...');
+      await copy(additionalDocsPath, path.join(contentDir, 'additional-documentation'), {
+        overwrite: true,
+      });
+    }
+
     // 5. Copy graph.json if it exists
     const graphJsonPath = path.join(this.docsDir, 'graph.json');
     if (await fs.pathExists(graphJsonPath)) {
       await copy(graphJsonPath, path.join(contentDir, 'graph.json'));
     }
 
-    // 6. Generate content manifest (excluding 'site' directory)
+    // 6. Extract and save project metadata from package.json
+    await this.generateProjectMetadata(contentDir);
+
+    // 7. Generate content manifest (excluding 'site' directory)
     const manifest = await this.generateManifest(this.docsDir);
+
+    // 7.5. Add additional-documentation to manifest if it exists
+    if (await fs.pathExists(additionalDocsPath)) {
+      const additionalDocsManifest = await this.generateManifest(
+        additionalDocsPath,
+        'additional-documentation'
+      );
+      if (additionalDocsManifest.length > 0) {
+        manifest.push({
+          type: 'directory',
+          name: 'additional-documentation',
+          path: 'additional-documentation',
+          title: 'Additional Documentation',
+          children: additionalDocsManifest,
+        });
+      }
+    }
+
     await writeFile(path.join(contentDir, 'manifest.json'), JSON.stringify(manifest, null, 2));
 
-    // 7. Generate Search Index
+    // 8. Generate Search Index
     console.log('Generating search index...');
     await this.generateSearchIndex(this.docsDir, contentDir);
+  }
+
+  private async generateProjectMetadata(outputDir: string): Promise<void> {
+    try {
+      // Try to read package.json from project root
+      const packageJsonPath = path.join(this.projectRoot, 'package.json');
+      let projectMetadata: any = {
+        name: 'Documentation',
+        description: 'Project Documentation',
+        version: '1.0.0',
+      };
+
+      if (await fs.pathExists(packageJsonPath)) {
+        const packageJson = await fs.readJson(packageJsonPath);
+        projectMetadata = {
+          name: packageJson.name || 'Documentation',
+          description: packageJson.description || 'Project Documentation',
+          version: packageJson.version || '1.0.0',
+          author: packageJson.author,
+          homepage: packageJson.homepage,
+          repository: packageJson.repository?.url || packageJson.repository,
+          license: packageJson.license,
+        };
+      }
+
+      // Save project metadata
+      await writeFile(
+        path.join(outputDir, 'project.json'),
+        JSON.stringify(projectMetadata, null, 2)
+      );
+    } catch (error) {
+      console.warn('Failed to generate project metadata:', error);
+      // Use defaults if package.json reading fails
+      await writeFile(
+        path.join(outputDir, 'project.json'),
+        JSON.stringify({
+          name: 'Documentation',
+          description: 'Project Documentation',
+          version: '1.0.0',
+        }, null, 2)
+      );
+    }
   }
 
   private async generateSearchIndex(docsDir: string, outputDir: string): Promise<void> {
@@ -173,13 +245,53 @@ export default defineConfig({
           });
         }
       } else if (entry.name.endsWith('.md') && !excludedFiles.includes(entry.name)) {
+        // Parse frontmatter if it exists
+        const filePath = path.join(dir, entry.name);
+        const frontmatter = await this.parseFrontmatter(filePath);
+
         manifest.push({
           type: 'file',
-          name: entry.name.replace('.md', ''),
+          name: frontmatter.title || entry.name.replace('.md', ''),
           path: path.join(base, entry.name),
+          ...frontmatter,
         });
       }
     }
+
+    // Sort by order if specified
+    manifest.sort((a, b) => {
+      const orderA = a.order ?? 999;
+      const orderB = b.order ?? 999;
+      return orderA - orderB;
+    });
+
     return manifest;
+  }
+
+  private async parseFrontmatter(filePath: string): Promise<Record<string, any>> {
+    try {
+      const content = await fs.readFile(filePath, 'utf-8');
+      const frontmatterRegex = /^---\n([\s\S]*?)\n---/;
+      const match = content.match(frontmatterRegex);
+
+      if (!match) return {};
+
+      const frontmatterText = match[1];
+      const frontmatter: Record<string, any> = {};
+
+      // Parse simple YAML frontmatter (key: value format)
+      frontmatterText.split('\n').forEach((line) => {
+        const [key, ...valueParts] = line.split(':');
+        if (key && valueParts.length > 0) {
+          const value = valueParts.join(':').trim();
+          // Try to parse as number if possible
+          frontmatter[key.trim()] = isNaN(Number(value)) ? value : Number(value);
+        }
+      });
+
+      return frontmatter;
+    } catch (error) {
+      return {};
+    }
   }
 }

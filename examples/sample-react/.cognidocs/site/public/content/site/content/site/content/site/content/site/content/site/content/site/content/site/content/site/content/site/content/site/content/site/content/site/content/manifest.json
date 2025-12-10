@@ -1,14 +1,20 @@
 [
   {
     "type": "file",
-    "name": "README",
-    "path": "README.md"
+    "name": "DOCUMENTATION_GUIDE",
+    "path": "DOCUMENTATION_GUIDE.md"
   },
   {
     "type": "directory",
     "name": "classes",
     "path": "classes",
-    "children": []
+    "children": [
+      {
+        "type": "file",
+        "name": "UserService",
+        "path": "classes/UserService.md"
+      }
+    ]
   },
   {
     "type": "directory",
@@ -19,6 +25,16 @@
         "type": "file",
         "name": "Button",
         "path": "components/Button.md"
+      },
+      {
+        "type": "file",
+        "name": "Card",
+        "path": "components/Card.md"
+      },
+      {
+        "type": "file",
+        "name": "Input",
+        "path": "components/Input.md"
       }
     ]
   },
@@ -29,13 +45,38 @@
     "children": [
       {
         "type": "file",
+        "name": "Input",
+        "path": "functions/Input.md"
+      },
+      {
+        "type": "file",
+        "name": "buildUrl",
+        "path": "functions/buildUrl.md"
+      },
+      {
+        "type": "file",
         "name": "capitalize",
         "path": "functions/capitalize.md"
       },
       {
         "type": "file",
+        "name": "fetchData",
+        "path": "functions/fetchData.md"
+      },
+      {
+        "type": "file",
         "name": "formatDate",
         "path": "functions/formatDate.md"
+      },
+      {
+        "type": "file",
+        "name": "postData",
+        "path": "functions/postData.md"
+      },
+      {
+        "type": "file",
+        "name": "retryRequest",
+        "path": "functions/retryRequest.md"
       }
     ]
   },
@@ -46,86 +87,48 @@
     "children": [
       {
         "type": "file",
-        "name": "ButtonProps",
-        "path": "interfaces/ButtonProps.md"
-      }
-    ]
-  },
-  {
-    "type": "directory",
-    "name": "site",
-    "path": "site",
-    "children": [
-      {
-        "type": "directory",
-        "name": "assets",
-        "path": "site/assets",
-        "children": []
+        "name": "ApiConfig",
+        "path": "interfaces/ApiConfig.md"
       },
       {
-        "type": "directory",
-        "name": "content",
-        "path": "site/content",
-        "children": [
-          {
-            "type": "file",
-            "name": "README",
-            "path": "site/content/README.md"
-          },
-          {
-            "type": "directory",
-            "name": "classes",
-            "path": "site/content/classes",
-            "children": []
-          },
-          {
-            "type": "directory",
-            "name": "components",
-            "path": "site/content/components",
-            "children": [
-              {
-                "type": "file",
-                "name": "Button",
-                "path": "site/content/components/Button.md"
-              }
-            ]
-          },
-          {
-            "type": "directory",
-            "name": "functions",
-            "path": "site/content/functions",
-            "children": [
-              {
-                "type": "file",
-                "name": "capitalize",
-                "path": "site/content/functions/capitalize.md"
-              },
-              {
-                "type": "file",
-                "name": "formatDate",
-                "path": "site/content/functions/formatDate.md"
-              }
-            ]
-          },
-          {
-            "type": "directory",
-            "name": "interfaces",
-            "path": "site/content/interfaces",
-            "children": [
-              {
-                "type": "file",
-                "name": "ButtonProps",
-                "path": "site/content/interfaces/ButtonProps.md"
-              }
-            ]
-          },
-          {
-            "type": "directory",
-            "name": "types",
-            "path": "site/content/types",
-            "children": []
-          }
-        ]
+        "type": "file",
+        "name": "ApiResponse",
+        "path": "interfaces/ApiResponse.md"
+      },
+      {
+        "type": "file",
+        "name": "AuthCredentials",
+        "path": "interfaces/AuthCredentials.md"
+      },
+      {
+        "type": "file",
+        "name": "ButtonProps",
+        "path": "interfaces/ButtonProps.md"
+      },
+      {
+        "type": "file",
+        "name": "CardProps",
+        "path": "interfaces/CardProps.md"
+      },
+      {
+        "type": "file",
+        "name": "UpdateUserProfile",
+        "path": "interfaces/UpdateUserProfile.md"
+      },
+      {
+        "type": "file",
+        "name": "User",
+        "path": "interfaces/User.md"
+      },
+      {
+        "type": "file",
+        "name": "UserListParams",
+        "path": "interfaces/UserListParams.md"
+      },
+      {
+        "type": "file",
+        "name": "UserSession",
+        "path": "interfaces/UserSession.md"
       }
     ]
   },
@@ -133,6 +136,17 @@
     "type": "directory",
     "name": "types",
     "path": "types",
-    "children": []
+    "children": [
+      {
+        "type": "file",
+        "name": "UserRole",
+        "path": "types/UserRole.md"
+      },
+      {
+        "type": "file",
+        "name": "UserStatus",
+        "path": "types/UserStatus.md"
+      }
+    ]
   }
 ]

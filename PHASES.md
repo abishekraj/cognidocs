@@ -303,7 +303,7 @@ cognidocs serve    # Start development server
 
 ---
 
-### Task 5: Enhanced Content Rendering & Documentation Pages 🟡 IN PROGRESS
+### Task 5: Enhanced Content Rendering & Documentation Pages ✅ MOSTLY COMPLETE
 
 **Subtasks:**
 - [x] Implement proper routing system (hash-based routing implemented)
@@ -316,11 +316,12 @@ cognidocs serve    # Start development server
   - [ ] **Module Page** (exports, imports, dependencies - needs enhancement)
   - [ ] **Coverage Report Page** (visual charts, metrics - planned)
   - [x] **Additional Docs Pages** (custom markdown files from manifest - working)
-- [ ] **Custom Header with Project Name:**
-  - Display project name from package.json on header left
-  - Display "CogniDocs" branding on header right/nav bar
-  - Support custom logo via config
-  - Make header sticky on scroll
+- [x] **Custom Header with Project Name:**
+  - [x] Display project name from package.json on header left
+  - [x] Display "CogniDocs" branding on header right/nav bar
+  - [x] Display version number from package.json
+  - [ ] Support custom logo via config (TODO placeholder added)
+  - [x] Make header sticky on scroll
 - [ ] **Additional Documentation System:**
   - Support `/additional-documentation/` folder in project root
   - Auto-discover and render all .md files in the folder
@@ -330,12 +331,16 @@ cognidocs serve    # Start development server
   - Parse frontmatter for metadata (title, description, category)
   - Render as separate pages: `/additional-documentation/{filename}.html`
   - Display in sidebar under "Additional Documentation" section
-- [ ] **README Integration:**
-  - Auto-render project README.md as "Introduction" page
-  - Make it the default landing page
-  - Support README from root or docs folder
-- [ ] Add Table of Contents (TOC) for long pages (auto-generated from headings)
-- [ ] Implement breadcrumb navigation showing full path
+- [x] **README Integration:**
+  - [x] Auto-render project README.md as "Introduction" page
+  - [x] Make it accessible via Introduction route
+  - [x] Support README from root or docs folder
+- [x] Add Table of Contents (TOC) for long pages (auto-generated from headings)
+  - [x] Sticky TOC sidebar
+  - [x] Auto-scroll to section with smooth scroll
+  - [x] Active section highlighting
+  - [x] Only show for pages with 3+ headings
+- [x] Implement breadcrumb navigation showing full path
 - [ ] Add "Edit on GitHub" links (configurable repo URL)
 - [ ] Create component metadata display:
   - Props table with types, defaults, descriptions
@@ -343,8 +348,11 @@ cognidocs serve    # Start development server
   - Source code viewer with syntax highlighting
   - Examples/Usage section
   - Related components/dependencies
-- [ ] Add copy-to-clipboard for code blocks
-- [ ] Implement anchor links for headings
+- [x] Add copy-to-clipboard for code blocks
+  - [x] Copy button with success feedback
+  - [x] Language badge display
+  - [x] Styled code blocks with borders
+- [x] Implement anchor links for headings (via rehype-autolink-headings)
 - [ ] Add prev/next navigation buttons
 
 **Files to Create/Modify:**

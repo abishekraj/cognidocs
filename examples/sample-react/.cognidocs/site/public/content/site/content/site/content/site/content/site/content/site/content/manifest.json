@@ -1,10 +1,5 @@
 [
   {
-    "type": "file",
-    "name": "README",
-    "path": "README.md"
-  },
-  {
     "type": "directory",
     "name": "classes",
     "path": "classes",
