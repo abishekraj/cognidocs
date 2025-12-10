@@ -1,0 +1,48 @@
+[
+  {
+    "type": "file",
+    "name": "README",
+    "path": "README.md"
+  },
+  {
+    "type": "directory",
+    "name": "components",
+    "path": "components",
+    "children": [
+      {
+        "type": "file",
+        "name": "Button",
+        "path": "components/Button.md"
+      }
+    ]
+  },
+  {
+    "type": "directory",
+    "name": "functions",
+    "path": "functions",
+    "children": [
+      {
+        "type": "file",
+        "name": "capitalize",
+        "path": "functions/capitalize.md"
+      },
+      {
+        "type": "file",
+        "name": "formatDate",
+        "path": "functions/formatDate.md"
+      }
+    ]
+  },
+  {
+    "type": "directory",
+    "name": "interfaces",
+    "path": "interfaces",
+    "children": [
+      {
+        "type": "file",
+        "name": "ButtonProps",
+        "path": "interfaces/ButtonProps.md"
+      }
+    ]
+  }
+]
