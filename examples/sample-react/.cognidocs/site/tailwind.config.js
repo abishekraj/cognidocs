@@ -5,6 +5,14 @@ export default {
     './index.html',
     './src/**/*.{js,ts,jsx,tsx}',
   ],
+  safelist: [
+    // Safelist all theme color utilities to support @apply in CSS
+    'bg-background', 'bg-foreground', 'bg-primary', 'bg-secondary', 'bg-muted', 'bg-accent', 'bg-destructive', 'bg-card', 'bg-popover',
+    'text-background', 'text-foreground', 'text-primary', 'text-secondary', 'text-muted', 'text-accent', 'text-destructive', 'text-card', 'text-popover',
+    'text-primary-foreground', 'text-secondary-foreground', 'text-muted-foreground', 'text-accent-foreground', 'text-destructive-foreground', 'text-card-foreground', 'text-popover-foreground',
+    'border-background', 'border-foreground', 'border-primary', 'border-secondary', 'border-muted', 'border-accent', 'border-destructive', 'border-card', 'border-popover', 'border-border',
+    'hover:text-primary', 'hover:underline', 'hover:bg-primary/90', 'animate-pulse',
+  ],
   theme: {
     container: {
       center: true,

@@ -1,69 +1,82 @@
-import React from 'react';
 import { ThemeProvider } from './ThemeContext';
 import { Layout } from './components/Layout';
-import ReactMarkdown from 'react-markdown';
-import { DependencyGraph } from '@cognidocs/graph-viz';
+import { PageHeader } from './components/PageHeader';
+import { useRouter } from './Router';
+import { OverviewPage } from './pages/OverviewPage';
+import { ComponentDetailPage } from './pages/ComponentDetailPage';
+import { MarkdownPage } from './pages/MarkdownPage';
+import { GraphPage } from './pages/GraphPage';
 
-// Simple content fetcher for demo
-function ContentViewer() {
-  const [content, setContent] = React.useState('# Loading...');
-  const [view, setView] = React.useState('content');
-  const [graphData, setGraphData] = React.useState(null);
+function AppContent() {
+  const route = useRouter();
 
-  React.useEffect(() => {
-    // Load graph data once
-    fetch('/graph.json')
-      .then((res) => res.json())
-      .then(setGraphData)
-      .catch((e) => console.error(e));
+  const renderPage = () => {
+    switch (route.type) {
+      case 'overview':
+        return <OverviewPage />;
 
-    // Basic router logic (hash based for simplicity)
-    const loadContent = async () => {
-      const hash = window.location.hash.slice(2) || 'README'; // default to README
+      case 'introduction':
+        return <MarkdownPage path="README" />;
 
-      if (hash === 'graph') {
-        setView('graph');
-        return;
-      }
+      case 'component':
+        return route.id ? <ComponentDetailPage id={route.id} /> : <NotFoundPage />;
 
-      setView('content');
-      try {
-        const res = await fetch(`/content/${hash}.md`);
-        if (res.ok) {
-          const text = await res.text();
-          setContent(text);
-        } else {
-          setContent('# 404 - Document Not Found');
-        }
-      } catch (e) {
-        setContent('# Error loading content');
-      }
-    };
+      case 'function':
+      case 'interface':
+      case 'type':
+      case 'class':
+        return <DetailPlaceholderPage type={route.type} id={route.id || 'Unknown'} />;
 
-    window.addEventListener('hashchange', loadContent);
-    loadContent();
-    return () => window.removeEventListener('hashchange', loadContent);
-  }, []);
+      case 'content':
+        return route.id ? <MarkdownPage path={route.id} /> : <NotFoundPage />;
 
-  if (view === 'graph') {
-    if (!graphData) return <div>Loading Graph...</div>;
-    return (
-      <div
-        style={{
-          height: 'calc(100vh - 40px)',
-          border: '1px solid var(--border-color)',
-          borderRadius: '8px',
-          overflow: 'hidden',
-        }}
-      >
-        <DependencyGraph data={graphData} />
-      </div>
-    );
-  }
+      case 'graph':
+        return <GraphPage />;
+
+      case 'notfound':
+      default:
+        return <NotFoundPage />;
+    }
+  };
 
   return (
-    <div className="markdown-body">
-      <ReactMarkdown>{content}</ReactMarkdown>
+    <Layout>
+      <PageHeader route={route} />
+      <div className="px-6 py-6">
+        {renderPage()}
+      </div>
+    </Layout>
+  );
+}
+
+function NotFoundPage() {
+  return (
+    <div className="flex flex-col items-center justify-center h-96">
+      <h1 className="text-6xl font-bold text-muted-foreground mb-4">404</h1>
+      <p className="text-xl text-foreground mb-2">Page Not Found</p>
+      <p className="text-muted-foreground mb-6">
+        The page you're looking for doesn't exist.
+      </p>
+      <a
+        href="#/"
+        className="px-4 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors"
+      >
+        Go Home
+      </a>
+    </div>
+  );
+}
+
+function DetailPlaceholderPage({ type, id }: { type: string; id: string }) {
+  return (
+    <div className="space-y-4">
+      <h1 className="text-4xl font-bold text-foreground capitalize">{type} Detail</h1>
+      <p className="text-lg text-muted-foreground">
+        Detailed view for <code className="bg-muted px-2 py-1 rounded">{id}</code>
+      </p>
+      <p className="text-sm text-muted-foreground">
+        This page type is coming soon in a future update.
+      </p>
     </div>
   );
 }
@@ -71,9 +84,7 @@ function ContentViewer() {
 export default function App() {
   return (
     <ThemeProvider>
-      <Layout>
-        <ContentViewer />
-      </Layout>
+      <AppContent />
     </ThemeProvider>
   );
 }

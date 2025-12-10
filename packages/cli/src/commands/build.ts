@@ -132,6 +132,57 @@ export async function buildCommand(options: BuildOptions = {}): Promise<void> {
     const generator = new MarkdownGenerator(outputPath);
     await generator.generate(parseResults);
 
+    // Generate dependency graph
+    outputSpinner.text = 'Generating dependency graph...';
+    const { analyzeDependencies } = await import('@cognidocs/analyzer');
+
+    const graphResult = analyzeDependencies(parseResults);
+
+    // Build graph data structure for visualization from GraphResult
+    const nodes: any[] = [];
+    const edges: any[] = [];
+
+    Object.values(graphResult.nodes).forEach((node: any) => {
+      // Extract file name from path for display
+      const fileName = node.id.split('/').pop() || node.id;
+
+      nodes.push({
+        id: node.id,
+        name: fileName,
+        type: 'file', // All nodes are files in dependency graph
+        filePath: node.id,
+        exports: node.exports || [],
+        circular: node.circular || false,
+      });
+
+      // Add edges for imports (dependencies)
+      if (node.imports && Array.isArray(node.imports)) {
+        node.imports.forEach((importPath: string) => {
+          edges.push({
+            source: node.id,
+            target: importPath,
+          });
+        });
+      }
+    });
+
+    const graphData = {
+      nodes,
+      edges,
+      metadata: {
+        generatedAt: new Date().toISOString(),
+        totalNodes: nodes.length,
+        totalEdges: edges.length,
+        circularDependencies: graphResult.circularCount,
+      },
+    };
+
+    await writeFile(
+      join(outputPath, 'graph.json'),
+      JSON.stringify(graphData, null, 2),
+      'utf-8'
+    );
+
     // Phase 3: Build Static Site
     outputSpinner.text = 'Building static site...';
     try {

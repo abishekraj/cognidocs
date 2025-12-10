@@ -9,4 +9,9 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'),
     },
   },
+  build: {
+    outDir: '/Users/abishekraj/Downloads/cognidocs/examples/sample-react/docs/site',
+    emptyOutDir: true,
+  },
+  base: './',
 });

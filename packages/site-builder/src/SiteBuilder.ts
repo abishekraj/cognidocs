@@ -1,8 +1,7 @@
 import path from 'path';
 import { fileURLToPath } from 'url';
 import fs from 'fs-extra';
-import { build as viteBuild } from 'vite';
-import react from '@vitejs/plugin-react';
+import { execSync } from 'child_process';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -11,11 +10,13 @@ const { copy, ensureDir, writeFile } = fs;
 export class SiteBuilder {
   private templateDir: string;
   private siteDir: string;
+  private projectRoot: string;
 
   constructor(
     _projectRoot: string,
     private docsDir: string
   ) {
+    this.projectRoot = _projectRoot;
     // __dirname points to dist/ directory, template is at dist/template
     this.templateDir = path.resolve(__dirname, 'template');
     this.siteDir = path.resolve(_projectRoot, '.cognidocs/site');
@@ -26,16 +27,40 @@ export class SiteBuilder {
 
     console.log('Building static site with Vite...');
 
-    // Build with inline React plugin configuration
-    await viteBuild({
-      root: this.siteDir,
-      base: './',
-      plugins: [react()],
-      build: {
-        outDir: path.resolve(outputDir),
-        emptyOutDir: true,
-      },
-    });
+    // Build by running npm run build in the site directory
+    // This ensures Tailwind's JIT compiler works correctly with content scanning
+    try {
+      // First, update vite.config.ts to use the correct outDir
+      const viteConfigPath = path.join(this.siteDir, 'vite.config.ts');
+      const viteConfigContent = `import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+import path from 'path';
+
+export default defineConfig({
+  plugins: [react()],
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, './src'),
+    },
+  },
+  build: {
+    outDir: '${path.resolve(outputDir)}',
+    emptyOutDir: true,
+  },
+  base: './',
+});
+`;
+      await fs.writeFile(viteConfigPath, viteConfigContent, 'utf-8');
+
+      // Run npm run build
+      execSync('npm run build', {
+        cwd: this.siteDir,
+        stdio: 'inherit',
+      });
+    } catch (error) {
+      console.error('Failed to build site:', error);
+      throw error;
+    }
   }
 
   async prepare(): Promise<void> {
@@ -53,11 +78,23 @@ export class SiteBuilder {
     await ensureDir(contentDir);
     await copy(this.docsDir, contentDir);
 
-    // 4. Generate content manifest
+    // 4. Copy project README to content directory (for Introduction page)
+    const projectReadme = path.join(this.projectRoot, 'README.md');
+    if (await fs.pathExists(projectReadme)) {
+      await copy(projectReadme, path.join(contentDir, 'README.md'), { overwrite: true });
+    }
+
+    // 5. Copy graph.json if it exists
+    const graphJsonPath = path.join(this.docsDir, 'graph.json');
+    if (await fs.pathExists(graphJsonPath)) {
+      await copy(graphJsonPath, path.join(contentDir, 'graph.json'));
+    }
+
+    // 6. Generate content manifest (excluding 'site' directory)
     const manifest = await this.generateManifest(this.docsDir);
     await writeFile(path.join(contentDir, 'manifest.json'), JSON.stringify(manifest, null, 2));
 
-    // 5. Generate Search Index
+    // 7. Generate Search Index
     console.log('Generating search index...');
     await this.generateSearchIndex(this.docsDir, contentDir);
   }
@@ -70,7 +107,7 @@ export class SiteBuilder {
     async function traverse(dir: string, base: string = '') {
       const entries = await fs.readdir(dir, { withFileTypes: true });
       for (const entry of entries) {
-        if (entry.isDirectory() && !entry.name.startsWith('.')) {
+        if (entry.isDirectory() && !entry.name.startsWith('.') && entry.name !== 'site') {
           await traverse(path.join(dir, entry.name), path.join(base, entry.name));
         } else if (entry.name.endsWith('.md')) {
           const content = await fs.readFile(path.join(dir, entry.name), 'utf-8');
@@ -105,19 +142,23 @@ export class SiteBuilder {
 
     for (const entry of entries) {
       if (entry.isDirectory()) {
-        // Skip if it's hidden
-        if (entry.name.startsWith('.')) continue;
+        // Skip hidden directories and the 'site' directory
+        if (entry.name.startsWith('.') || entry.name === 'site') continue;
 
         const children = await this.generateManifest(
           path.join(dir, entry.name),
           path.join(base, entry.name)
         );
-        manifest.push({
-          type: 'directory',
-          name: entry.name,
-          path: path.join(base, entry.name),
-          children,
-        });
+
+        // Only include directories that have content (not empty)
+        if (children.length > 0) {
+          manifest.push({
+            type: 'directory',
+            name: entry.name,
+            path: path.join(base, entry.name),
+            children,
+          });
+        }
       } else if (entry.name.endsWith('.md')) {
         manifest.push({
           type: 'file',

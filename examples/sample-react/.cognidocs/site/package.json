@@ -18,7 +18,11 @@
     "tailwind-merge": "^2.2.0",
     "@cognidocs/graph-viz": "*",
     "@radix-ui/react-slot": "^1.0.2",
-    "class-variance-authority": "^0.7.0"
+    "class-variance-authority": "^0.7.0",
+    "rehype-highlight": "^7.0.0",
+    "remark-gfm": "^4.0.0",
+    "rehype-slug": "^6.0.0",
+    "rehype-autolink-headings": "^7.1.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.0",
