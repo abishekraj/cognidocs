@@ -1,10 +1,7 @@
 import * as React from 'react';
 import { useState } from 'react';
-import { useTheme } from './ThemeContext';
 import {
   Search,
-  Sun,
-  Moon,
   FileCode,
   Box,
   Layers,
@@ -14,11 +11,11 @@ import {
 } from 'lucide-react';
 import { cn } from './lib/utils';
 import { Input } from './components/ui/input';
-import { Button } from './components/ui/button';
 import { ScrollArea } from './components/ui/scroll-area';
 import { Separator } from './components/ui/separator';
 import { NavigationSection } from './components/NavigationSection';
 import { NavigationItem } from './components/NavigationItem';
+import { ThemeSwitcher } from './components/ThemeSwitcher';
 
 interface SidebarProps {
   isOpen: boolean;
@@ -27,7 +24,6 @@ interface SidebarProps {
 }
 
 export function Sidebar({ isOpen, onClose, graph }: SidebarProps) {
-  const { theme, toggleTheme } = useTheme();
   const [searchTerm, setSearchTerm] = useState('');
   const [searchResults, setSearchResults] = useState<any[]>([]);
   const [searchIndex, setSearchIndex] = useState<any>(null);
@@ -123,37 +119,40 @@ export function Sidebar({ isOpen, onClose, graph }: SidebarProps) {
         )}
       >
         {/* Header Area */}
-        <div className="sticky top-0 z-10 bg-background border-b border-border px-4 py-3">
-          <div className="flex items-center justify-between mb-3">
-            <h2 className="text-lg font-bold text-foreground flex items-center gap-2">
-              <BookOpen className="h-5 w-5 text-primary" />
-              CogniDocs
-            </h2>
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={toggleTheme}
-              className="h-8 w-8"
-              aria-label="Toggle theme"
-            >
-              {theme === 'light' ? (
-                <Moon className="h-4 w-4" />
-              ) : (
-                <Sun className="h-4 w-4" />
-              )}
-            </Button>
+        <div className="sticky top-0 z-10 bg-background border-b border-border">
+          {/* Title and Theme Switcher Row */}
+          <div className="px-4 pt-4 pb-3 border-b border-border">
+            <div className="flex items-center justify-between mb-3">
+              <h2 className="text-lg font-bold text-foreground flex items-center gap-2">
+                <BookOpen className="h-5 w-5 text-primary" />
+                CogniDocs
+              </h2>
+            </div>
+            {/* Theme Switcher - Full Width */}
+            <ThemeSwitcher />
           </div>
 
-          {/* Search Input */}
-          <div className="relative">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-            <Input
-              type="text"
-              placeholder="Search documentation..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="pl-9 h-9"
-            />
+          {/* Search Input Section */}
+          <div className="px-4 py-3">
+            <div className="relative">
+              <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground pointer-events-none" />
+              <Input
+                type="text"
+                placeholder="Search documentation..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="pl-8 pr-3 h-9 text-sm"
+              />
+            </div>
+            <div className="mt-2 flex items-center px-0.5">
+              <span className="text-[11px] text-muted-foreground">
+                Press{' '}
+                <kbd className="pointer-events-none inline-flex h-4 select-none items-center gap-0.5 rounded border bg-muted px-1 font-mono text-[10px] font-medium text-muted-foreground">
+                  <span className="text-[11px]">⌘</span>K
+                </kbd>{' '}
+                for advanced search
+              </span>
+            </div>
           </div>
         </div>
 

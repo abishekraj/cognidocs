@@ -1,44 +1,61 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
-
-type Theme = 'light' | 'dark';
+import { themes, getThemeById, type Theme } from './themes';
 
 interface ThemeContextType {
   theme: Theme;
-  toggleTheme: () => void;
+  setTheme: (theme: Theme) => void;
+  availableThemes: Theme[];
 }
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
+const THEME_STORAGE_KEY = 'cognidocs-theme-id';
+
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  // Initialize from localStorage or system preference
-  const [theme, setTheme] = useState<Theme>(() => {
+  // Initialize from localStorage or default to GitBook Light
+  const [theme, setThemeState] = useState<Theme>(() => {
     if (typeof window !== 'undefined') {
-      const saved = localStorage.getItem('cognidocs-theme');
-      if (saved === 'dark' || saved === 'light') return saved;
-      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      const savedId = localStorage.getItem(THEME_STORAGE_KEY);
+      if (savedId) {
+        const savedTheme = getThemeById(savedId);
+        if (savedTheme) return savedTheme;
+      }
     }
-    return 'light';
+    // Default to GitBook Light
+    return themes[0];
   });
 
   useEffect(() => {
     const root = document.documentElement;
-    if (theme === 'dark') {
+
+    // Apply theme mode (light/dark)
+    if (theme.mode === 'dark') {
       root.classList.add('dark');
-      root.setAttribute('data-theme', 'dark');
-      document.body.classList.add('dark'); // For variables.css compat
     } else {
       root.classList.remove('dark');
-      root.removeAttribute('data-theme');
-      document.body.classList.remove('dark');
     }
-    localStorage.setItem('cognidocs-theme', theme);
+
+    // Apply theme colors as CSS variables
+    Object.entries(theme.colors).forEach(([key, value]) => {
+      root.style.setProperty(`--${key}`, value);
+    });
+
+    // Save theme ID to localStorage
+    localStorage.setItem(THEME_STORAGE_KEY, theme.id);
+
+    // Set data attribute for theme-specific styling
+    root.setAttribute('data-theme', theme.id);
   }, [theme]);
 
-  const toggleTheme = () => {
-    setTheme((prev) => (prev === 'light' ? 'dark' : 'light'));
+  const setTheme = (newTheme: Theme) => {
+    setThemeState(newTheme);
   };
 
-  return <ThemeContext.Provider value={{ theme, toggleTheme }}>{children}</ThemeContext.Provider>;
+  return (
+    <ThemeContext.Provider value={{ theme, setTheme, availableThemes: themes }}>
+      {children}
+    </ThemeContext.Provider>
+  );
 }
 
 export function useTheme() {
