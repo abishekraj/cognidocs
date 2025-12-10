@@ -124,6 +124,7 @@ export class ReactParser {
   ): ComponentMetadata | null {
     let name: string;
     let propsType: ts.TypeNode | undefined;
+    let propsTypeName: string | undefined;
     let functionNode: ts.FunctionDeclaration | ts.ArrowFunction | ts.FunctionExpression;
 
     if (ts.isFunctionDeclaration(node)) {
@@ -138,12 +139,30 @@ export class ReactParser {
 
       if (!declaration.initializer) return null;
       functionNode = declaration.initializer as ts.ArrowFunction | ts.FunctionExpression;
+
+      // Check if it's a typed component like: const Button: React.FC<ButtonProps>
+      if (declaration.type && ts.isTypeReferenceNode(declaration.type)) {
+        // Extract generic type argument (e.g., ButtonProps from React.FC<ButtonProps>)
+        const typeArgs = declaration.type.typeArguments;
+        if (typeArgs && typeArgs.length > 0 && ts.isTypeReferenceNode(typeArgs[0])) {
+          propsTypeName = typeArgs[0].typeName.getText();
+        }
+      }
+
       propsType = functionNode.parameters[0]?.type;
     }
 
     const jsDoc = this.extractJSDoc(node);
     const line = sourceFile.getLineAndCharacterOfPosition(node.getStart()).line + 1;
-    const props = propsType ? this.extractPropsFromType(propsType) : [];
+
+    // Try to extract props from type, or from referenced interface
+    let props = propsType ? this.extractPropsFromType(propsType, sourceFile) : [];
+
+    // If we found a props type name (like ButtonProps), extract from that interface
+    if (props.length === 0 && propsTypeName) {
+      props = this.extractPropsFromInterface(propsTypeName, sourceFile);
+    }
+
     const hooks = this.extractHooks(functionNode);
 
     return {
@@ -176,7 +195,7 @@ export class ReactParser {
     // Extract props from generic type parameter: class MyComponent extends Component<MyProps>
     const heritage = node.heritageClauses?.find(h => h.token === ts.SyntaxKind.ExtendsKeyword);
     const propsType = heritage?.types[0]?.typeArguments?.[0];
-    const props = propsType ? this.extractPropsFromType(propsType) : [];
+    const props = propsType ? this.extractPropsFromType(propsType, sourceFile) : [];
 
     return {
       name,
@@ -194,14 +213,14 @@ export class ReactParser {
   /**
    * Extract props from TypeScript type
    */
-  private extractPropsFromType(typeNode: ts.TypeNode): PropertyMetadata[] {
+  private extractPropsFromType(typeNode: ts.TypeNode, sourceFile: ts.SourceFile): PropertyMetadata[] {
     const props: PropertyMetadata[] = [];
 
     // Handle type reference (interface or type alias name)
     if (ts.isTypeReferenceNode(typeNode)) {
-      // This would need type checker to resolve the actual interface
-      // For now, we'll just note that we found a reference
-      return props;
+      const typeName = typeNode.typeName.getText();
+      // Try to resolve the interface/type from the source file
+      return this.extractPropsFromInterface(typeName, sourceFile);
     }
 
     // Handle inline type literal: { prop1: string; prop2?: number }

@@ -140,10 +140,23 @@ export default defineConfig({
     const entries = await fs.readdir(dir, { withFileTypes: true });
     const manifest: any[] = [];
 
+    // Directories to exclude from manifest
+    const excludedDirs = ['site'];
+    // Files to exclude from manifest (system files only, not user docs)
+    const excludedFiles = [
+      'README.md', // Project README shown in Introduction
+      'DOCUMENTATION_GUIDE.md', // Documentation guide (not shown in nav)
+      'graph.json',
+      'data.json',
+      'manifest.json',
+      'search-index.json',
+      'search-data.json',
+    ];
+
     for (const entry of entries) {
       if (entry.isDirectory()) {
-        // Skip hidden directories and the 'site' directory
-        if (entry.name.startsWith('.') || entry.name === 'site') continue;
+        // Skip hidden directories and 'site' directory
+        if (entry.name.startsWith('.') || excludedDirs.includes(entry.name)) continue;
 
         const children = await this.generateManifest(
           path.join(dir, entry.name),
@@ -159,7 +172,7 @@ export default defineConfig({
             children,
           });
         }
-      } else if (entry.name.endsWith('.md')) {
+      } else if (entry.name.endsWith('.md') && !excludedFiles.includes(entry.name)) {
         manifest.push({
           type: 'file',
           name: entry.name.replace('.md', ''),
