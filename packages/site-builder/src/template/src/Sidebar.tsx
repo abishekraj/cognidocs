@@ -3,7 +3,6 @@ import { useState } from 'react';
 import {
   Search,
   FileCode,
-  Box,
   Layers,
   BookOpen,
   Network,
@@ -20,10 +19,9 @@ import { ThemeSwitcher } from './components/ThemeSwitcher';
 interface SidebarProps {
   isOpen: boolean;
   onClose: () => void;
-  graph: any; // TODO: Type this properly with shared types
 }
 
-export function Sidebar({ isOpen, onClose, graph }: SidebarProps) {
+export function Sidebar({ isOpen, onClose }: SidebarProps) {
   const [searchTerm, setSearchTerm] = useState('');
   const [searchResults, setSearchResults] = useState<any[]>([]);
   const [searchIndex, setSearchIndex] = useState<any>(null);
@@ -69,7 +67,6 @@ export function Sidebar({ isOpen, onClose, graph }: SidebarProps) {
     setSearchResults(mapped);
   }, [searchTerm, searchIndex, store]);
 
-  const nodes = graph?.nodes || [];
   const isSearching = searchTerm.length > 0;
 
   // Recursive helper to render manifest tree
@@ -198,36 +195,13 @@ export function Sidebar({ isOpen, onClose, graph }: SidebarProps) {
 
               {/* Additional Documentation */}
               {manifest.length > 0 && (
-                <>
-                  <NavigationSection
-                    title="Documentation"
-                    icon={FileCode}
-                    count={manifest.length}
-                    defaultOpen={true}
-                  >
-                    {renderTree(manifest)}
-                  </NavigationSection>
-                  <Separator className="my-2" />
-                </>
-              )}
-
-              {/* Components Section */}
-              {nodes.length > 0 && (
                 <NavigationSection
-                  title="Components"
-                  icon={Box}
-                  count={nodes.length}
+                  title="Documentation"
+                  icon={FileCode}
+                  count={manifest.length}
                   defaultOpen={true}
                 >
-                  {nodes.map((node: any) => (
-                    <NavigationItem
-                      key={node.id}
-                      label={node.name}
-                      href={`#/component/${node.id}`}
-                      icon={Box}
-                      isActive={currentPath === `#/component/${node.id}`}
-                    />
-                  ))}
+                  {renderTree(manifest)}
                 </NavigationSection>
               )}
             </div>

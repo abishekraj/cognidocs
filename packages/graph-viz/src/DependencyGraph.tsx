@@ -4,7 +4,7 @@ import { Maximize, Minus, Plus } from 'lucide-react';
 
 interface DependencyGraphProps {
   data: {
-    nodes: Record<string, any>;
+    nodes: any[];
     edges: any[];
   };
 }
@@ -15,8 +15,13 @@ export const DependencyGraph: React.FC<DependencyGraphProps> = ({ data }) => {
   const [, setZoomLevel] = useState(1);
 
   // Transform data for D3
-  const nodes = Object.values(data.nodes).map((n: any) => ({ ...n }));
-  const links = data.edges.map((e: any) => ({ source: e.from, target: e.to }));
+  const nodes = Array.isArray(data.nodes)
+    ? data.nodes.map((n: any) => ({ ...n }))
+    : Object.values(data.nodes).map((n: any) => ({ ...n }));
+  const links = data.edges.map((e: any) => ({
+    source: e.source || e.from,
+    target: e.target || e.to
+  }));
 
   useEffect(() => {
     if (!svgRef.current || !containerRef.current || nodes.length === 0) return;

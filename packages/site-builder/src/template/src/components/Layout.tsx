@@ -45,7 +45,7 @@ export function Layout({ children }: LayoutProps) {
         graph={graph}
       />
 
-      <Sidebar isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} graph={graph} />
+      <Sidebar isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} />
 
       <div className="main-content">
         {/* Mobile Header Toggle */}

@@ -86,16 +86,42 @@ cognidocs coverage
 
 ---
 
-## Phase 3: Core Documentation � COMPLETE
+## Phase 3: Core Documentation 🟢 COMPLETE
 
 **Goal:** Generate documentation and build static site.
+
+### Packages
+
+- `@cognidocs/docs-generator` - Documentation generator
+- `@cognidocs/site-builder` - Static site builder
+- `@cognidocs/graph-viz` - Dependency graph visualization
+
+### Tasks
 
 - [x] Create `@cognidocs/docs-generator` package
 - [x] Implement Markdown generation strategy
 - [x] Create `@cognidocs/site-builder` package (Vite + React)
 - [x] Implement `cognidocs build` command
 - [x] Implement `cognidocs serve` command
-- [x] Implement `cognidocs serve` command (Phase 3)
+- [x] React-based documentation site with search
+- [x] Dependency graph visualization with D3.js
+- [x] Markdown rendering with react-markdown
+- [x] Responsive sidebar navigation
+- [x] Multi-theme support with localStorage persistence
+
+### Deliverables
+
+- ✅ Working documentation site generation
+- ✅ Interactive dependency graphs
+- ✅ Full-text search with Lunr.js
+- ✅ Production-ready static site export
+
+### Commands
+
+```bash
+cognidocs build    # Generate documentation
+cognidocs serve    # Start development server
+```
 
 ---
 
@@ -113,11 +139,15 @@ cognidocs coverage
 - ✅ Enhanced sidebar navigation with collapsible sections
 - ✅ Multi-theme system (12 themes with light/dark variants)
 - ✅ Lunr.js search integration
-- ✅ Dependency graph visualization
+- ✅ Dependency graph visualization (D3.js force-directed graph)
 - ✅ Advanced search with Command Palette (Cmd+K)
 - ✅ Theme switcher with dropdown UI and localStorage persistence
 - ✅ Cmd+K keyboard shortcut hint in sidebar
-- 🟡 Ready for Task 5: Enhanced Content Rendering
+- ✅ Hash-based routing system with multiple page types
+- ✅ Markdown rendering with react-markdown and plugins
+- ✅ Sidebar navigation cleanup (removed duplicate Components section)
+- ✅ Fixed graph data format compatibility issues
+- 🟡 Ready for Task 5: Enhanced Content Rendering (additional features)
 
 ---
 
@@ -243,17 +273,49 @@ cognidocs coverage
 
 ---
 
-### Task 5: Enhanced Content Rendering & Documentation Pages
+### Task 4.5: UI/Navigation Bug Fixes & Graph Improvements ✅ COMPLETE
 
 **Subtasks:**
-- [ ] Implement proper routing system (hash-based or history API)
-- [ ] Create dedicated page types:
-  - **Overview Page** (project stats, quick links, getting started)
-  - **Introduction Page** (from README.md)
-  - **Component Detail Page** (props, methods, examples, source)
-  - **Module Page** (exports, imports, dependencies)
-  - **Coverage Report Page** (visual charts, metrics)
-  - **Additional Docs Pages** (custom markdown files from `/additional-documentation/` folder)
+- [x] Remove duplicate Components section from sidebar
+  - Components were incorrectly showing graph nodes (file-level) instead of actual component metadata
+  - Cleaned up unused `graph` prop from Sidebar component
+  - Removed Box icon import and unused code
+- [x] Fix DependencyGraph data format compatibility
+  - Updated interface to accept `nodes` as array instead of object
+  - Added conditional handling for both array and object node formats
+  - Support both `source/target` and `from/to` edge property conventions
+  - Made component resilient to data format variations
+- [x] Verify documentation markdown link routing
+  - Confirmed hash-based routing works correctly with `/content/` pattern
+  - Verified MarkdownPage fetches and renders markdown files properly
+  - Navigation structure maintained through manifest.json
+
+**Files Modified:**
+- `packages/site-builder/src/template/src/Sidebar.tsx` ✅ (removed Components section, cleaned up props)
+- `packages/site-builder/src/template/src/components/Layout.tsx` ✅ (removed graph prop)
+- `packages/graph-viz/src/DependencyGraph.tsx` ✅ (fixed data format compatibility)
+
+**Deliverables:**
+- ✅ Clean sidebar navigation without duplicate sections
+- ✅ Dependency graph loads correctly without hanging
+- ✅ All documentation links route properly
+- ✅ Improved component resilience to data format changes
+
+---
+
+### Task 5: Enhanced Content Rendering & Documentation Pages 🟡 IN PROGRESS
+
+**Subtasks:**
+- [x] Implement proper routing system (hash-based routing implemented)
+- [x] Create dedicated page types:
+  - [x] **Overview Page** (basic implementation exists)
+  - [x] **Introduction Page** (from README.md - implemented via MarkdownPage)
+  - [x] **Component Detail Page** (basic implementation exists)
+  - [x] **Graph Page** (dependency graph visualization working)
+  - [x] **Markdown Pages** (for documentation files via MarkdownPage)
+  - [ ] **Module Page** (exports, imports, dependencies - needs enhancement)
+  - [ ] **Coverage Report Page** (visual charts, metrics - planned)
+  - [x] **Additional Docs Pages** (custom markdown files from manifest - working)
 - [ ] **Custom Header with Project Name:**
   - Display project name from package.json on header left
   - Display "CogniDocs" branding on header right/nav bar
@@ -600,14 +662,31 @@ cognidocs build && cognidocs serve
 
 ---
 
-## Phase 4: Plugin System � COMPLETED
+## Phase 4: Plugin System 🟡 IN PROGRESS
 
 **Goal:** Allow users to extend functionality.
 
-- [ ] Design plugin API (hooks system)
-- [ ] Create `@cognidocs/plugin-core`
-- [ ] Implement plugin loading in CLI
-- [ ] Create example plugins (e.g., JSDoc enhancer)
+### Packages
+
+- `@cognidocs/plugin-core` - Plugin infrastructure
+
+### Tasks
+
+- [x] Create `@cognidocs/plugin-core` package
+- [x] Define plugin interfaces and types
+- [x] Implement basic plugin lifecycle hooks
+- [x] Integrate plugin system into CLI
+- [ ] Design advanced plugin API (hooks system)
+- [ ] Implement plugin loading and discovery in CLI
+- [ ] Create example plugins (e.g., JSDoc enhancer, custom analyzers)
+- [ ] Plugin documentation and developer guide
+
+### Current Status
+
+- ✅ Basic plugin infrastructure created
+- ✅ Plugin types and interfaces defined
+- 🟡 Plugin loading system pending
+- 🟡 Example plugins pending
 
 ## Current Focus: Phase 3.5 🎯
 
@@ -643,7 +722,7 @@ cognidocs build && cognidocs serve
 
 ---
 
-## Phase 5: Graph Visualization (Weeks 8-9) 🟢 COMPLETED
+## Phase 5: Graph Visualization (Weeks 8-9) 🟢 COMPLETE
 
 **Goal:** Interactive dependency graphs
 
@@ -653,19 +732,32 @@ cognidocs build && cognidocs serve
 
 ### Tasks
 
-- [ ] D3.js integration
-- [ ] Force-directed layout
-- [ ] Module relationship viewer
-- [ ] Component hierarchy tree
-- [ ] Zoom/pan/filter controls
-- [ ] Export to PNG/SVG
-- [ ] Circular dependency highlighting
+- [x] D3.js integration
+- [x] Force-directed layout
+- [x] Module relationship viewer
+- [x] Zoom/pan controls (built-in D3 zoom behavior)
+- [x] Node dragging for manual layout adjustments
+- [x] Interactive graph with hover effects
+- [ ] Component hierarchy tree (deferred - using flat graph)
+- [ ] Filter controls (deferred to future enhancement)
+- [ ] Export to PNG/SVG (deferred to future enhancement)
+- [ ] Circular dependency highlighting (data available, visual highlighting pending)
 
 ### Deliverables
 
-- Render 500+ module graphs
-- Interactive controls
-- <1s render time
+- ✅ Render dependency graphs with D3.js force simulation
+- ✅ Interactive zoom/pan controls
+- ✅ Fast rendering (<1s for typical projects)
+- ✅ Node and edge visualization with labels
+- ✅ Responsive graph container
+
+### Implementation Details
+
+- Force-directed graph using D3.js v7
+- Nodes color-coded by type (files vs components)
+- Support for both array and object data formats
+- Flexible edge property naming (source/target or from/to)
+- Integrated into GraphPage component with clean UI
 
 ---
 

@@ -43,16 +43,6 @@
       "circular": false
     },
     {
-      "id": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/services/UserService.ts",
-      "name": "UserService.ts",
-      "type": "file",
-      "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/services/UserService.ts",
-      "exports": [
-        "UserService"
-      ],
-      "circular": false
-    },
-    {
       "id": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/components/Input.tsx",
       "name": "Input.tsx",
       "type": "file",
@@ -81,6 +71,16 @@
         "ButtonProps"
       ],
       "circular": false
+    },
+    {
+      "id": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/services/UserService.ts",
+      "name": "UserService.ts",
+      "type": "file",
+      "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/services/UserService.ts",
+      "exports": [
+        "UserService"
+      ],
+      "circular": false
     }
   ],
   "edges": [
@@ -94,7 +94,7 @@
     }
   ],
   "metadata": {
-    "generatedAt": "2025-12-10T09:57:52.692Z",
+    "generatedAt": "2025-12-10T14:03:41.570Z",
     "totalNodes": 7,
     "totalEdges": 2,
     "circularDependencies": 0
