@@ -2,6 +2,26 @@
 
 This document provides a quick reference for each development phase and what to work on.
 
+---
+
+## 🎉 MVP STATUS: READY FOR RELEASE ✅
+
+**Phase 3.5 is COMPLETE** with all critical bugs fixed and UI fully polished. The documentation tool is production-ready and can be deployed.
+
+**What's Included:**
+- ✅ Full TypeScript/React parsing with JSDoc extraction
+- ✅ Dependency analysis and coverage tracking
+- ✅ Premium documentation site with 12 professional themes
+- ✅ Advanced search with Cmd+K command palette
+- ✅ Interactive dependency graphs with D3.js
+- ✅ Responsive design with accessible navigation
+- ✅ Markdown documentation with proper table rendering
+- ✅ Clean, minimal UI with all bugs fixed
+
+**See [CLAUDE.md](CLAUDE.md) for full MVP details and deployment options.**
+
+---
+
 ## How to Reference Phases
 
 When working with Claude Code, you can reference phases like:
@@ -651,7 +671,7 @@ cognidocs serve    # Start development server
 - [x] **Copy-to-clipboard for code blocks** - Already implemented in CodeBlock component with Copy/Check icons
 - [x] **Scroll-to-top button** - Floating button appears after scrolling 300px
 - [x] **Copy link buttons for headings** - HeadingWithLink component created (ready for markdown integration)
-- [x] **Footer with version and attribution** - Professional footer with links and branding
+- [x] **Footer with version and attribution** - Professional footer removed for cleaner design
 - [x] **Smooth scroll behavior** - Enabled globally via `scroll-behavior: smooth` in HTML
 - [x] **Open Graph meta tags** - Added for better social media sharing
 - [x] **Loading states** - Suspense boundaries and LoadingSkeleton already in place
@@ -697,6 +717,60 @@ cognidocs serve    # Start development server
 - "Made with ❤️ using Claude Code" attribution
 - Copyright notice
 - Fully responsive (stacks on mobile)
+
+---
+
+### Task 10.5: Final UI Polish & Bug Fixes (COMPLETE) ✅
+
+**Status:** 🟢 Complete
+**Priority:** High (MVP Quality)
+**Description:** Final round of UI/UX improvements and critical bug fixes before MVP release.
+
+**Subtasks:**
+- [x] **Markdown table pipe escaping** - Fixed TypeScript union types breaking tables in documentation
+- [x] **Footer removal** - Removed professional footer for cleaner, more minimal design
+- [x] **Navigation reordering** - Placed Introduction before Project Overview in sidebar for better UX
+- [x] **Sidebar overflow fixes** - Fixed focus ring cutoff on selected items with `ring-inset` and padding adjustments
+
+**Bug Fixes:**
+
+**1. Pipe Character Escaping in Markdown Tables**
+- **Problem:** Union types like `'primary' | 'secondary' | 'danger'` broke markdown tables (pipe is table delimiter)
+- **Files Affected:** Button.md, Card.md, Input.md, ButtonProps.md, CardProps.md, UserListParams.md, UserSettings.md
+- **Solution:** Added `escapeMarkdownPipes()` method to MarkdownGenerator.ts
+- **Implementation:** Replace all `|` with `\|` in type strings across all table generation methods
+- **File:** [packages/docs-generator/src/MarkdownGenerator.ts](packages/docs-generator/src/MarkdownGenerator.ts)
+
+**2. Footer Component Removal**
+- **Rationale:** Cleaner, more minimal design aesthetic for MVP
+- **Files Modified:**
+  - Removed Footer import and usage from [packages/site-builder/src/template/src/components/Layout.tsx](packages/site-builder/src/template/src/components/Layout.tsx)
+  - Deleted [packages/site-builder/src/template/src/components/Footer.tsx](packages/site-builder/src/template/src/components/Footer.tsx)
+- **Result:** Cleaner page layout without footer clutter
+
+**3. Sidebar Navigation Reordering**
+- **Change:** Swapped Introduction and Project Overview order
+- **New Order:**
+  1. Introduction (README)
+  2. Project Overview
+  3. Dependency Graph
+- **Rationale:** Users should see Introduction/README first before diving into project details
+- **File:** [packages/site-builder/src/template/src/Sidebar.tsx](packages/site-builder/src/template/src/Sidebar.tsx:208-219)
+
+**4. Sidebar Item Focus Ring Overflow**
+- **Problem:** Selected sidebar items had focus rings extending beyond boundaries, causing visual cutoff
+- **Root Cause:** `focus:ring-offset-1` adds external spacing for focus indicators
+- **Solutions Applied:**
+  - Changed `focus:ring-offset-1` to `focus:ring-inset` (keeps ring inside element boundaries)
+  - Adjusted padding: `px-3` → `pl-3 pr-2` for better spacing
+  - Added `pr-1` to nav element for additional breathing room
+  - Added `flex-shrink-0` to icons to prevent compression
+- **Files Modified:**
+  - [packages/site-builder/src/template/src/components/NavigationItem.tsx](packages/site-builder/src/template/src/components/NavigationItem.tsx:36,47)
+  - [packages/site-builder/src/template/src/Sidebar.tsx](packages/site-builder/src/template/src/Sidebar.tsx:185,205)
+- **Result:** Clean focus indicators that don't overflow container
+
+**MVP Ready:** ✅ All critical bugs fixed, UI polished, ready for initial release
 
 **4. Enhanced Metadata ([index.html](packages/site-builder/src/template/index.html#L2-L17))**
 - `scroll-behavior: smooth` for smooth scrolling

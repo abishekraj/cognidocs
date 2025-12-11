@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Status
 
-**Current Phase:** Phase 3.5 (Premium UI) - 🟢 COMPLETE
+**Current Phase:** Phase 3.5 (Premium UI) - 🟢 COMPLETE ✅ **MVP READY**
 - ✅ Phase 1 (Foundation) - COMPLETE
 - ✅ Phase 2 (Analysis & Coverage) - COMPLETE
 - ✅ Phase 3 (Core Documentation) - COMPLETE
@@ -12,7 +12,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 CogniDocs is a comprehensive JavaScript/TypeScript documentation tool combining features from Compodoc and Storybook with AI capabilities. The project uses a monorepo architecture with Turbo, organized into 10 development phases.
 
-**Latest Milestone:** Production-ready documentation site with premium UI, 12 themes, advanced search (Cmd+K), and comprehensive content rendering.
+**Latest Milestone:** 🎉 **MVP RELEASE** - Production-ready documentation site with premium UI, 12 themes, advanced search (Cmd+K), comprehensive content rendering, and polished UX with all critical bugs fixed.
 
 ## Essential Commands
 
@@ -209,6 +209,13 @@ Converts parsed metadata into structured documentation:
 - Parses frontmatter metadata (title, description, category, order)
 - Supports multiple output formats
 
+**Recent Enhancement - Markdown Table Escaping:**
+- **File:** [packages/docs-generator/src/MarkdownGenerator.ts](packages/docs-generator/src/MarkdownGenerator.ts:19-22)
+- **Problem:** TypeScript union types (e.g., `'primary' | 'secondary' | 'danger'`) broke markdown tables because `|` is the table delimiter
+- **Solution:** Added `escapeMarkdownPipes()` method that replaces `|` with `\|` in all type strings
+- **Applied to:** All table generation methods (components, functions, classes, interfaces)
+- **Result:** Union types now render properly in documentation tables
+
 ### Site Builder
 **File:** `packages/site-builder/src/SiteBuilder.ts`
 
@@ -233,6 +240,30 @@ Builds premium static documentation sites:
 - Proper code rendering in all contexts (inline, block, tables)
 - Theme persistence with localStorage
 - Mobile-responsive design
+- Clean, minimal layout (footer removed for simplicity)
+- Optimized navigation order (Introduction → Project Overview → Dependency Graph)
+- Polished focus states without visual overflow
+
+**Recent UI Polish & Bug Fixes:**
+
+1. **Footer Removal** (MVP Polish)
+   - Removed professional footer component for cleaner, more minimal design
+   - Files modified: [Layout.tsx](packages/site-builder/src/template/src/components/Layout.tsx)
+   - Deleted: Footer.tsx component
+
+2. **Navigation Reordering** (UX Improvement)
+   - Reordered sidebar navigation for better information hierarchy
+   - New order: Introduction (README) → Project Overview → Dependency Graph
+   - File: [Sidebar.tsx](packages/site-builder/src/template/src/Sidebar.tsx:208-219)
+
+3. **Sidebar Focus Ring Overflow Fix** (Visual Bug)
+   - **Problem:** Selected sidebar items had focus rings extending beyond boundaries, causing cutoff
+   - **Solution:** Changed `focus:ring-offset-1` to `focus:ring-inset` to keep focus indicators inside element boundaries
+   - **Additional fixes:** Adjusted padding (`px-3` → `pl-3 pr-2`), added `pr-1` to nav element, added `flex-shrink-0` to icons
+   - **Files modified:**
+     - [NavigationItem.tsx](packages/site-builder/src/template/src/components/NavigationItem.tsx:36,47)
+     - [Sidebar.tsx](packages/site-builder/src/template/src/Sidebar.tsx:185,205)
+   - **Result:** Clean focus indicators without overflow
 
 **CLI Commands:**
 - `cognidocs build` - Parse code and generate documentation site
@@ -432,37 +463,53 @@ cognidocs build
 cognidocs serve
 ```
 
-## Next Steps: Phase 4+
+## 🎉 MVP Status: READY FOR RELEASE
 
-**Current Focus:** Phase 3.5 is COMPLETE. Ready for next phase selection.
+**Phase 3.5 is COMPLETE with all critical bugs fixed and UI polished.**
 
-**Recommended Next Tasks (Phase 3.5 Polish):**
-- **Task 7:** Statistics & Metrics Dashboard (Overview Page)
-  - Display project metrics (components, coverage, test stats)
-  - Visual charts (coverage pie chart, file type distribution)
-  - Quick links and project metadata
-- **Task 8:** Mobile Responsiveness & Accessibility
-  - WCAG 2.1 AA compliance verification
-  - Mobile optimization and testing
-  - ARIA labels and keyboard navigation
-- **Task 9:** Performance Optimization
-  - Code splitting and lazy loading
-  - Bundle size optimization
-  - Loading skeletons and caching
+### What's Included in MVP:
+✅ Full TypeScript/React parsing with JSDoc extraction
+✅ Dependency analysis and coverage tracking
+✅ Premium documentation site with 12 professional themes
+✅ Advanced search with Cmd+K command palette
+✅ Interactive dependency graphs with D3.js
+✅ Responsive design with accessible navigation
+✅ Markdown documentation with proper table rendering
+✅ Additional guides/documentation support with frontmatter
+✅ Clean, minimal UI with polished interactions
+✅ All critical bugs fixed (table escaping, focus overflow)
+
+### MVP Deployment Ready:
+The generated documentation site is production-ready and can be deployed to:
+- **GitHub Pages** - Static site hosting
+- **Netlify** - Automatic deployments
+- **Vercel** - Optimized for React/Vite
+- **AWS S3 + CloudFront** - Enterprise hosting
+- **Any static hosting** - Pure HTML/CSS/JS output
+
+### Next Steps: Post-MVP Enhancements
+
+**Optional Polish Tasks (Not Critical):**
+- **Task 7:** Statistics & Metrics Dashboard - Display project metrics on overview page
+- **Task 8:** Mobile/Accessibility Audit - WCAG 2.1 AA verification
+- **Task 9:** Performance Optimization - Code splitting and bundle optimization
 
 **Future Phase Options:**
 
-**Phase 4 - Plugin System & Enhanced Visualizations:**
+**Phase 4 - Enhanced Visualizations:**
 - Advanced graph layouts (hierarchical, circular)
 - Component relationship diagrams
 - Mermaid.js integration for diagrams in markdown
-- Custom plugin development
+
+**Phase 5 - Plugin System:**
+- Custom plugin development API
+- Plugin marketplace foundation
+- Theme plugin architecture
 
 **Phase 6 - Component Previews:**
 - Live component playground
 - Props editing interface
 - Multiple framework support (React, Vue, Svelte)
-- Hot module replacement
 
 **Phase 7 - AI Integration:**
 - OpenAI/Anthropic integration
@@ -470,8 +517,8 @@ cognidocs serve
 - Auto-generate missing documentation
 - Interactive chatbot for codebase queries
 
-**To start next phase:**
-Reference the phase in conversation: "Let's work on Task 7" or "Start Phase 4" or "Add component previews"
+**To start next enhancement:**
+Reference the task/phase in conversation: "Let's work on Task 7" or "Start Phase 4" or "Add component previews"
 
 ## References
 
