@@ -4,6 +4,7 @@ node_modules/
 .pnp.js
 
 # Build outputs
+apps/
 dist/
 build/
 .next/
@@ -58,6 +59,7 @@ Thumbs.db
 # Output directories
 apps/
 docs/
+docs-test/
 *.tsbuildinfo
 
 # Example project generated docs (for testing)
