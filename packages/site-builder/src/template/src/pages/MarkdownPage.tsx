@@ -173,15 +173,31 @@ export function MarkdownPage({ path }: MarkdownPageProps) {
                   <table className="min-w-full border-collapse border border-border" {...props} />
                 </div>
               ),
-              thead: ({ node, ...props }) => <thead className="bg-muted" {...props} />,
+              thead: ({ node, ...props }) => <thead {...props} />,
               th: ({ node, ...props }) => (
                 <th className="border border-border px-4 py-2 text-left font-semibold text-foreground" {...props} />
               ),
-              td: ({ node, children, ...props }: any) => (
-                <td className="border border-border px-4 py-2 text-foreground" {...props}>
-                  {typeof children === 'object' && children?.type === 'code' ? children : children}
-                </td>
-              ),
+              td: ({ node, children, ...props }: any) => {
+                // Helper function to strip styling from code elements inside tables
+                const stripCodeStyling = (child: any): any => {
+                  if (!child) return child;
+                  if (typeof child === 'string' || typeof child === 'number') return child;
+                  if (Array.isArray(child)) return child.map(stripCodeStyling);
+
+                  // If it's a code element, render it as plain text
+                  if (child?.type === 'code' || (typeof child === 'object' && child?.props?.className?.includes('language-'))) {
+                    return <span className="font-mono text-foreground">{child.props?.children || child}</span>;
+                  }
+
+                  return child;
+                };
+
+                return (
+                  <td className="border border-border px-4 py-2 text-foreground" {...props}>
+                    {stripCodeStyling(children)}
+                  </td>
+                );
+              },
             }}
           >
             {content}

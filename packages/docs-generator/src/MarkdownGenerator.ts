@@ -79,7 +79,14 @@ export class MarkdownGenerator {
     if (component.examples && component.examples.length > 0) {
       lines.push('## Examples');
       component.examples.forEach((example) => {
-        lines.push(`\n\`\`\`tsx\n${example}\n\`\`\`\n`);
+        // Check if the example already contains code fences
+        // If it does, use it as-is. Otherwise, wrap it with code fences.
+        const hasCodeFence = example.trim().startsWith('```');
+        if (hasCodeFence) {
+          lines.push(`\n${example}\n`);
+        } else {
+          lines.push(`\n\`\`\`tsx\n${example}\n\`\`\`\n`);
+        }
       });
     }
 

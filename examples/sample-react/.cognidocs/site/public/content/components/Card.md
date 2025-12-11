@@ -12,15 +12,12 @@ interactive features. It supports different visual variants and loading states.
 ## Examples
 
 ```tsx
-```tsx
 <Card title="Example Card" variant="elevated">
   <p>This is the card content</p>
 </Card>
 ```
-```
 
 
-```tsx
 ```tsx
 // With subtitle and click handler
 <Card
@@ -30,7 +27,6 @@ interactive features. It supports different visual variants and loading states.
 >
   <div>Card content here</div>
 </Card>
-```
 ```
 
 ## Props

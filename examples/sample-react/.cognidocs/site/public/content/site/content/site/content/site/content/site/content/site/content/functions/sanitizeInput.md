@@ -1,5 +1,8 @@
 # sanitizeInput
 
+Sanitizes user input by trimming whitespace and removing dangerous characters
+
+
 **Return Type:** `string`
 
 ## Parameters

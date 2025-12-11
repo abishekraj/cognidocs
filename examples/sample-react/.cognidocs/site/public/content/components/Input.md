@@ -12,7 +12,6 @@ error messages, and various input types support.
 ## Examples
 
 ```tsx
-```tsx
 <Input
   label="Email"
   type="email"
@@ -21,10 +20,8 @@ error messages, and various input types support.
   onChange={setEmail}
 />
 ```
-```
 
 
-```tsx
 ```tsx
 // With validation error
 <Input
@@ -35,7 +32,6 @@ error messages, and various input types support.
   error="Password must be at least 8 characters"
   required
 />
-```
 ```
 
 ## Props
