@@ -1,5 +1,8 @@
 # validatePassword
 
+Validates a password meets minimum security requirements
+
+
 **Return Type:** `boolean`
 
 ## Parameters

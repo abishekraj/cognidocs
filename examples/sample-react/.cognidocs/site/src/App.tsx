@@ -3,6 +3,7 @@ import { ThemeProvider } from './ThemeContext';
 import { Layout } from './components/Layout';
 import { PageHeader } from './components/PageHeader';
 import { LoadingSkeleton } from './components/LoadingSkeleton';
+import { ScrollToTop } from './components/ScrollToTop';
 import { useRouter } from './Router';
 
 // Lazy load pages for code splitting
@@ -51,6 +52,7 @@ function AppContent() {
           {renderPage()}
         </Suspense>
       </div>
+      <ScrollToTop />
     </Layout>
   );
 }
