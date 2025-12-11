@@ -52,9 +52,12 @@ export function Layout({ children }: LayoutProps) {
         <div className="md:hidden flex items-center mb-4">
           <button
             onClick={() => setIsSidebarOpen(true)}
-            className="p-2 mr-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800"
+            className="p-3 mr-2 rounded-md hover:bg-accent transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+            aria-label="Open navigation menu"
+            aria-expanded={isSidebarOpen}
+            aria-controls="mobile-sidebar"
           >
-            <Menu size={24} />
+            <Menu size={24} className="text-foreground" />
           </button>
           <span className="font-bold">CogniDocs</span>
         </div>

@@ -33,11 +33,13 @@ export function NavigationItem({
       className={cn(
         'flex items-center gap-2 px-3 py-1.5 rounded-md text-sm transition-all group',
         'hover:bg-accent/50 hover:text-accent-foreground',
+        'focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-1',
         isActive
           ? 'bg-accent text-accent-foreground font-medium'
           : 'text-muted-foreground hover:text-foreground',
         className
       )}
+      aria-current={isActive ? 'page' : undefined}
     >
       {Icon && (
         <Icon

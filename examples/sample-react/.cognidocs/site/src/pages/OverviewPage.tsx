@@ -444,9 +444,10 @@ export function OverviewPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
           <a
             href="#/README"
-            className="flex items-center gap-3 p-3 rounded-lg border border-border hover:bg-accent hover:text-accent-foreground transition-colors"
+            className="flex items-center gap-3 p-3 rounded-lg border border-border hover:bg-accent hover:text-accent-foreground transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+            aria-label="Go to Introduction page"
           >
-            <FileText className="h-5 w-5 text-primary" />
+            <FileText className="h-5 w-5 text-primary" aria-hidden="true" />
             <div>
               <div className="font-medium">Introduction</div>
               <div className="text-xs text-muted-foreground">Read the README</div>
@@ -454,9 +455,10 @@ export function OverviewPage() {
           </a>
           <a
             href="#/graph"
-            className="flex items-center gap-3 p-3 rounded-lg border border-border hover:bg-accent hover:text-accent-foreground transition-colors"
+            className="flex items-center gap-3 p-3 rounded-lg border border-border hover:bg-accent hover:text-accent-foreground transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+            aria-label="Go to Dependency Graph page"
           >
-            <GitBranch className="h-5 w-5 text-primary" />
+            <GitBranch className="h-5 w-5 text-primary" aria-hidden="true" />
             <div>
               <div className="font-medium">Dependency Graph</div>
               <div className="text-xs text-muted-foreground">Visualize dependencies</div>
