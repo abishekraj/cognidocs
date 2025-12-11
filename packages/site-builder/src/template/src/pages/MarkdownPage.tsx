@@ -31,9 +31,11 @@ export function MarkdownPage({ path }: MarkdownPageProps) {
         return res.text();
       })
       .then((text) => {
-        setContent(text);
+        // Remove frontmatter from markdown content
+        const contentWithoutFrontmatter = removeFrontmatter(text);
+        setContent(contentWithoutFrontmatter);
         // Extract headings for TOC
-        const extractedHeadings = extractHeadings(text);
+        const extractedHeadings = extractHeadings(contentWithoutFrontmatter);
         setHeadings(extractedHeadings);
         setLoading(false);
       })
@@ -43,6 +45,12 @@ export function MarkdownPage({ path }: MarkdownPageProps) {
         setLoading(false);
       });
   }, [path]);
+
+  const removeFrontmatter = (markdown: string): string => {
+    // Remove YAML frontmatter (---\n...\n---)
+    const frontmatterRegex = /^---\n[\s\S]*?\n---\n*/;
+    return markdown.replace(frontmatterRegex, '');
+  };
 
   const extractHeadings = (markdown: string): Heading[] => {
     const headingRegex = /^(#{1,6})\s+(.+)$/gm;
