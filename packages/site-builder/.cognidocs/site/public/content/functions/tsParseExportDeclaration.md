@@ -1,0 +1,3 @@
+# tsParseExportDeclaration
+
+**Return Type:** `void`

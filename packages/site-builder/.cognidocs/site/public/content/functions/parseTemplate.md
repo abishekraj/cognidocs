@@ -1,0 +1,3 @@
+# parseTemplate
+
+**Return Type:** `void`

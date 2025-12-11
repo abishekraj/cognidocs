@@ -1,0 +1,3 @@
+# tsParseArrow
+
+**Return Type:** `boolean`

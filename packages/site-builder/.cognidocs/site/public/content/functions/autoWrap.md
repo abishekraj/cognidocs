@@ -1,0 +1,3 @@
+# autoWrap
+
+**Return Type:** `boolean`

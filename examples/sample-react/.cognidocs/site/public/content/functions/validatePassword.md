@@ -8,4 +8,4 @@ Validates a password meets minimum security requirements
 ## Parameters
 | Name | Type | Optional | Description |
 | :--- | :--- | :------- | :---------- |
-| `password` | `string` | No | - |
+| `password` | `string` | No | The password to validate |

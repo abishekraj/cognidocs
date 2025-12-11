@@ -1,0 +1,2 @@
+# InRuleRecoveryException
+**Extends:** `Error`

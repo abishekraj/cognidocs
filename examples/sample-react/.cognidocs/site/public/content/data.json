@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generatedAt": "2025-12-11T17:33:34.383Z",
+    "generatedAt": "2025-12-11T17:55:15.693Z",
     "phase": "phase3-documentation",
     "config": {
       "entry": "./src",
@@ -39,14 +39,27 @@
             {
               "name": "email",
               "type": "string",
-              "optional": false
+              "optional": false,
+              "description": "The email address to validate"
             }
           ],
           "returnType": "boolean",
           "isExported": true,
           "isAsync": false,
           "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/utils/validation.ts",
-          "line": 6
+          "line": 6,
+          "jsdoc": {
+            "examples": [],
+            "see": [],
+            "links": [],
+            "params": {
+              "email": "The email address to validate"
+            },
+            "author": [],
+            "tags": [],
+            "description": "Validates an email address format",
+            "returns": "True if the email is valid, false otherwise"
+          }
         },
         {
           "name": "validatePassword",
@@ -55,14 +68,27 @@
             {
               "name": "password",
               "type": "string",
-              "optional": false
+              "optional": false,
+              "description": "The password to validate"
             }
           ],
           "returnType": "boolean",
           "isExported": true,
           "isAsync": false,
           "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/utils/validation.ts",
-          "line": 16
+          "line": 16,
+          "jsdoc": {
+            "examples": [],
+            "see": [],
+            "links": [],
+            "params": {
+              "password": "The password to validate"
+            },
+            "author": [],
+            "tags": [],
+            "description": "Validates a password meets minimum security requirements",
+            "returns": "True if password is at least 8 characters long"
+          }
         },
         {
           "name": "validateUsername",
@@ -71,14 +97,27 @@
             {
               "name": "username",
               "type": "string",
-              "optional": false
+              "optional": false,
+              "description": "The username to validate"
             }
           ],
           "returnType": "boolean",
           "isExported": true,
           "isAsync": false,
           "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/utils/validation.ts",
-          "line": 25
+          "line": 25,
+          "jsdoc": {
+            "examples": [],
+            "see": [],
+            "links": [],
+            "params": {
+              "username": "The username to validate"
+            },
+            "author": [],
+            "tags": [],
+            "description": "Validates a username",
+            "returns": "True if username is valid (3-20 characters)"
+          }
         },
         {
           "name": "validatePhoneNumber",
@@ -87,14 +126,27 @@
             {
               "name": "phone",
               "type": "string",
-              "optional": false
+              "optional": false,
+              "description": "The phone number to validate"
             }
           ],
           "returnType": "boolean",
           "isExported": true,
           "isAsync": false,
           "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/utils/validation.ts",
-          "line": 34
+          "line": 34,
+          "jsdoc": {
+            "examples": [],
+            "see": [],
+            "links": [],
+            "params": {
+              "phone": "The phone number to validate"
+            },
+            "author": [],
+            "tags": [],
+            "description": "Validates a phone number in E.164 format",
+            "returns": "True if the phone number matches E.164 format"
+          }
         },
         {
           "name": "sanitizeInput",
@@ -103,14 +155,27 @@
             {
               "name": "input",
               "type": "string",
-              "optional": false
+              "optional": false,
+              "description": "The input string to sanitize"
             }
           ],
           "returnType": "string",
           "isExported": true,
           "isAsync": false,
           "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/utils/validation.ts",
-          "line": 44
+          "line": 44,
+          "jsdoc": {
+            "examples": [],
+            "see": [],
+            "links": [],
+            "params": {
+              "input": "The input string to sanitize"
+            },
+            "author": [],
+            "tags": [],
+            "description": "Sanitizes user input by trimming whitespace and removing dangerous characters",
+            "returns": "The sanitized string with < and > characters removed"
+          }
         },
         {
           "name": "validateUrl",
@@ -119,14 +184,27 @@
             {
               "name": "url",
               "type": "string",
-              "optional": false
+              "optional": false,
+              "description": "The URL to validate"
             }
           ],
           "returnType": "boolean",
           "isExported": true,
           "isAsync": false,
           "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/utils/validation.ts",
-          "line": 53
+          "line": 53,
+          "jsdoc": {
+            "examples": [],
+            "see": [],
+            "links": [],
+            "params": {
+              "url": "The URL to validate"
+            },
+            "author": [],
+            "tags": [],
+            "description": "Validates a URL format",
+            "returns": "True if URL is valid"
+          }
         }
       ],
       "classes": [],
@@ -210,19 +288,38 @@
             {
               "name": "date",
               "type": "Date",
-              "optional": false
+              "optional": false,
+              "description": "The date to format"
             },
             {
               "name": "locale",
               "type": "string",
-              "optional": false
+              "optional": false,
+              "description": "The locale to use for formatting"
             }
           ],
           "returnType": "string",
           "isExported": true,
           "isAsync": false,
           "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/utils/helpers.ts",
-          "line": 13
+          "line": 13,
+          "jsdoc": {
+            "examples": [
+              {
+                "code": "formatDate(new Date(), 'en-US'); // \"12/9/2025\""
+              }
+            ],
+            "see": [],
+            "links": [],
+            "params": {
+              "date": "The date to format",
+              "locale": "The locale to use for formatting"
+            },
+            "author": [],
+            "tags": [],
+            "description": "Formats a date string to a readable format",
+            "returns": "Formatted date string"
+          }
         },
         {
           "name": "capitalize",
@@ -231,14 +328,31 @@
             {
               "name": "str",
               "type": "string",
-              "optional": false
+              "optional": false,
+              "description": "The string to capitalize"
             }
           ],
           "returnType": "string",
           "isExported": true,
           "isAsync": false,
           "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/utils/helpers.ts",
-          "line": 28
+          "line": 28,
+          "jsdoc": {
+            "examples": [
+              {
+                "code": "capitalize('hello'); // \"Hello\""
+              }
+            ],
+            "see": [],
+            "links": [],
+            "params": {
+              "str": "The string to capitalize"
+            },
+            "author": [],
+            "tags": [],
+            "description": "Capitalizes the first letter of a string",
+            "returns": "Capitalized string"
+          }
         }
       ],
       "classes": [],
@@ -255,24 +369,62 @@
       "functions": [
         {
           "name": "fetchData",
-          "description": "Fetches data from the specified API endpoint.",
+          "description": "Fetches data from the specified API endpoint. This is an async function that makes a GET request to the provided URL and returns the parsed JSON response.",
           "parameters": [
             {
               "name": "url",
               "type": "string",
-              "optional": false
+              "optional": false,
+              "description": "The API endpoint URL to fetch from"
             },
             {
               "name": "config",
               "type": "Partial<ApiConfig>",
-              "optional": true
+              "optional": true,
+              "description": "Optional configuration for the request"
             }
           ],
           "returnType": "Promise<ApiResponse<T>>",
           "isExported": true,
           "isAsync": true,
           "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/utils/api.ts",
-          "line": 75
+          "line": 75,
+          "jsdoc": {
+            "examples": [
+              {
+                "code": "interface User {\n  id: number;\n  name: string;\n}\nconst response = await fetchData<User>('/api/users/1');\nconsole.log(response.data.name);"
+              }
+            ],
+            "see": [
+              {
+                "url": "ApiConfig",
+                "text": "ApiConfig"
+              },
+              {
+                "url": "ApiResponse",
+                "text": "ApiResponse"
+              }
+            ],
+            "links": [
+              {
+                "url": "ApiConfig",
+                "text": "ApiConfig"
+              },
+              {
+                "url": "ApiResponse",
+                "text": "ApiResponse"
+              }
+            ],
+            "params": {
+              "url": "The API endpoint URL to fetch from",
+              "config": "Optional configuration for the request"
+            },
+            "author": [],
+            "tags": [],
+            "description": "Fetches data from the specified API endpoint. This is an async function that makes a GET request to the provided URL and returns the parsed JSON response.",
+            "returns": "A promise that resolves to the API response",
+            "since": "1.0.0"
+          }
         },
         {
           "name": "postData",
@@ -281,50 +433,94 @@
             {
               "name": "url",
               "type": "string",
-              "optional": false
+              "optional": false,
+              "description": "The API endpoint URL"
             },
             {
               "name": "data",
               "type": "T",
-              "optional": false
+              "optional": false,
+              "description": "The data to send in the request body"
             },
             {
               "name": "config",
               "type": "Partial<ApiConfig>",
-              "optional": true
+              "optional": true,
+              "description": "Optional configuration for the request"
             }
           ],
           "returnType": "Promise<ApiResponse<R>>",
           "isExported": true,
           "isAsync": true,
           "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/utils/api.ts",
-          "line": 134
+          "line": 134,
+          "jsdoc": {
+            "examples": [
+              {
+                "code": "interface CreateUserRequest {\n  name: string;\n  email: string;\n}\ninterface User {\n  id: number;\n  name: string;\n  email: string;\n}\nconst response = await postData<CreateUserRequest, User>('/api/users', {\n  name: 'John Doe',\n  email: 'john@example.com',\n});"
+              }
+            ],
+            "see": [],
+            "links": [],
+            "params": {
+              "url": "The API endpoint URL",
+              "data": "The data to send in the request body",
+              "config": "Optional configuration for the request"
+            },
+            "author": [],
+            "tags": [],
+            "description": "Posts data to the specified API endpoint.",
+            "returns": "A promise that resolves to the API response",
+            "since": "1.0.0"
+          }
         },
         {
           "name": "retryRequest",
-          "description": "Retries a failed API request with exponential backoff.",
+          "description": "Retries a failed API request with exponential backoff. This utility function will retry the provided async function up to the specified number of times, with increasing delays between attempts.",
           "parameters": [
             {
               "name": "fn",
               "type": "() => Promise<T>",
-              "optional": false
+              "optional": false,
+              "description": "The async function to retry"
             },
             {
               "name": "retries",
               "type": "number",
-              "optional": false
+              "optional": false,
+              "description": "Maximum number of retry attempts (default: 3)"
             },
             {
               "name": "delay",
               "type": "number",
-              "optional": false
+              "optional": false,
+              "description": "Initial delay in milliseconds (default: 1000)"
             }
           ],
           "returnType": "Promise<T>",
           "isExported": true,
           "isAsync": true,
           "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/utils/api.ts",
-          "line": 191
+          "line": 191,
+          "jsdoc": {
+            "examples": [
+              {
+                "code": "const data = await retryRequest(\n  () => fetchData<User>('/api/users/1'),\n  3,\n  1000\n);"
+              }
+            ],
+            "see": [],
+            "links": [],
+            "params": {
+              "fn": "The async function to retry",
+              "retries": "Maximum number of retry attempts (default: 3)",
+              "delay": "Initial delay in milliseconds (default: 1000)"
+            },
+            "author": [],
+            "tags": [],
+            "description": "Retries a failed API request with exponential backoff. This utility function will retry the provided async function up to the specified number of times, with increasing delays between attempts.",
+            "returns": "A promise that resolves to the function's return value",
+            "since": "1.1.0"
+          }
         },
         {
           "name": "buildUrl",
@@ -333,19 +529,39 @@
             {
               "name": "baseUrl",
               "type": "string",
-              "optional": false
+              "optional": false,
+              "description": "The base URL"
             },
             {
               "name": "params",
               "type": "Record<string, string | number | boolean>",
-              "optional": false
+              "optional": false,
+              "description": "Object containing query parameters"
             }
           ],
           "returnType": "string",
           "isExported": true,
           "isAsync": false,
           "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/utils/api.ts",
-          "line": 230
+          "line": 230,
+          "jsdoc": {
+            "examples": [
+              {
+                "code": "const url = buildUrl('/api/users', { page: 1, limit: 10, sort: 'name' });\n// Returns: '/api/users?page=1&limit=10&sort=name'"
+              }
+            ],
+            "see": [],
+            "links": [],
+            "params": {
+              "baseUrl": "The base URL",
+              "params": "Object containing query parameters"
+            },
+            "author": [],
+            "tags": [],
+            "description": "Builds a URL with query parameters.",
+            "returns": "The complete URL with encoded query parameters",
+            "since": "1.0.0"
+          }
         }
       ],
       "classes": [],
@@ -415,6 +631,221 @@
         "postData",
         "retryRequest",
         "buildUrl"
+      ]
+    },
+    {
+      "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/types/user.ts",
+      "functions": [],
+      "classes": [],
+      "interfaces": [
+        {
+          "name": "User",
+          "description": "Represents a user in the system",
+          "properties": [
+            {
+              "name": "id",
+              "type": "number",
+              "optional": false
+            },
+            {
+              "name": "email",
+              "type": "string",
+              "optional": false
+            },
+            {
+              "name": "name",
+              "type": "string",
+              "optional": false
+            },
+            {
+              "name": "role",
+              "type": "UserRole",
+              "optional": false
+            },
+            {
+              "name": "status",
+              "type": "UserStatus",
+              "optional": false
+            },
+            {
+              "name": "avatarUrl",
+              "type": "string",
+              "optional": true
+            },
+            {
+              "name": "bio",
+              "type": "string",
+              "optional": true
+            },
+            {
+              "name": "createdAt",
+              "type": "Date",
+              "optional": false
+            },
+            {
+              "name": "updatedAt",
+              "type": "Date",
+              "optional": false
+            }
+          ],
+          "isExported": true,
+          "extendsInterfaces": [],
+          "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/types/user.ts",
+          "line": 25
+        },
+        {
+          "name": "UpdateUserProfile",
+          "description": "Partial user data for profile updates",
+          "properties": [
+            {
+              "name": "name",
+              "type": "string",
+              "optional": true
+            },
+            {
+              "name": "bio",
+              "type": "string",
+              "optional": true
+            },
+            {
+              "name": "avatarUrl",
+              "type": "string",
+              "optional": true
+            }
+          ],
+          "isExported": true,
+          "extendsInterfaces": [],
+          "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/types/user.ts",
+          "line": 84
+        },
+        {
+          "name": "AuthCredentials",
+          "description": "User authentication credentials",
+          "properties": [
+            {
+              "name": "email",
+              "type": "string",
+              "optional": false
+            },
+            {
+              "name": "password",
+              "type": "string",
+              "optional": false
+            },
+            {
+              "name": "rememberMe",
+              "type": "boolean",
+              "optional": true
+            }
+          ],
+          "isExported": true,
+          "extendsInterfaces": [],
+          "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/types/user.ts",
+          "line": 101
+        },
+        {
+          "name": "UserSession",
+          "description": "User session information",
+          "properties": [
+            {
+              "name": "token",
+              "type": "string",
+              "optional": false
+            },
+            {
+              "name": "refreshToken",
+              "type": "string",
+              "optional": false
+            },
+            {
+              "name": "expiresAt",
+              "type": "number",
+              "optional": false
+            },
+            {
+              "name": "user",
+              "type": "User",
+              "optional": false
+            }
+          ],
+          "isExported": true,
+          "extendsInterfaces": [],
+          "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/types/user.ts",
+          "line": 127
+        },
+        {
+          "name": "UserListParams",
+          "description": "Pagination parameters for user lists",
+          "properties": [
+            {
+              "name": "page",
+              "type": "number",
+              "optional": true
+            },
+            {
+              "name": "limit",
+              "type": "number",
+              "optional": true
+            },
+            {
+              "name": "sortBy",
+              "type": "keyof User",
+              "optional": true
+            },
+            {
+              "name": "sortOrder",
+              "type": "'asc' | 'desc'",
+              "optional": true
+            },
+            {
+              "name": "role",
+              "type": "UserRole",
+              "optional": true
+            },
+            {
+              "name": "status",
+              "type": "UserStatus",
+              "optional": true
+            },
+            {
+              "name": "search",
+              "type": "string",
+              "optional": true
+            }
+          ],
+          "isExported": true,
+          "extendsInterfaces": [],
+          "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/types/user.ts",
+          "line": 155
+        }
+      ],
+      "types": [
+        {
+          "name": "UserRole",
+          "description": "User role enumeration",
+          "type": "'admin' | 'moderator' | 'user' | 'guest'",
+          "isExported": true,
+          "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/types/user.ts",
+          "line": 11
+        },
+        {
+          "name": "UserStatus",
+          "description": "User status enumeration",
+          "type": "'active' | 'inactive' | 'suspended' | 'banned'",
+          "isExported": true,
+          "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/types/user.ts",
+          "line": 17
+        }
+      ],
+      "imports": [],
+      "exports": [
+        "UserRole",
+        "UserStatus",
+        "User",
+        "UpdateUserProfile",
+        "AuthCredentials",
+        "UserSession",
+        "UserListParams"
       ]
     },
     {
@@ -676,71 +1107,73 @@
             {
               "name": "label",
               "type": "string",
-              "required": true,
-              "description": "Label text displayed above the input"
+              "required": true
             },
             {
               "name": "type",
               "type": "'text' | 'email' | 'password' | 'number' | 'tel' | 'url'",
-              "required": false,
-              "description": "HTML input type"
+              "required": false
             },
             {
               "name": "value",
               "type": "string",
-              "required": true,
-              "description": "Current input value"
+              "required": true
             },
             {
               "name": "onChange",
               "type": "(value: string) => void",
-              "required": true,
-              "description": "Callback fired when input value changes"
+              "required": true
             },
             {
               "name": "placeholder",
               "type": "string",
-              "required": false,
-              "description": "Placeholder text shown when input is empty"
+              "required": false
             },
             {
               "name": "error",
               "type": "string",
-              "required": false,
-              "description": "Error message to display below the input"
+              "required": false
             },
             {
               "name": "disabled",
               "type": "boolean",
-              "required": false,
-              "description": "Whether the input is disabled"
+              "required": false
             },
             {
               "name": "required",
               "type": "boolean",
-              "required": false,
-              "description": "Whether the input is required"
+              "required": false
             },
             {
               "name": "maxLength",
               "type": "number",
-              "required": false,
-              "description": "Maximum number of characters allowed"
+              "required": false
             }
           ],
           "hooks": [
             "useState",
             "useCallback"
           ],
-          "description": "A controlled input component with validation and error handling.\n\nThis component provides a styled text input with built-in validation,\nerror messages, and various input types support.",
-          "examples": [
-            "```tsx\n<Input\n  label=\"Email\"\n  type=\"email\"\n  placeholder=\"Enter your email\"\n  value={email}\n  onChange={setEmail}\n/>\n```",
-            "```tsx\n// With validation error\n<Input\n  label=\"Password\"\n  type=\"password\"\n  value={password}\n  onChange={setPassword}\n  error=\"Password must be at least 8 characters\"\n  required\n/>\n```"
-          ],
+          "description": "A controlled input component with validation and error handling. This component provides a styled text input with built-in validation, error messages, and various input types support.",
           "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/components/Input.tsx",
           "line": 37,
           "framework": "react",
-          "isExported": true
+          "isExported": true,
+          "jsdoc": {
+            "examples": [
+              {
+                "code": "<Input\n  label=\"Email\"\n  type=\"email\"\n  placeholder=\"Enter your email\"\n  value={email}\n  onChange={setEmail}\n/>"
+              }
+            ],
+            "see": [],
+            "links": [],
+            "params": {},
+            "author": [],
+            "tags": [],
+            "description": "A controlled input component with validation and error handling. This component provides a styled text input with built-in validation, error messages, and various input types support.",
+            "deprecated": "Use TextField component instead for better accessibility",
+            "since": "1.0.0"
+          }
         }
       ]
     },
@@ -863,15 +1296,35 @@
             "useState",
             "useEffect"
           ],
-          "description": "A flexible card component for displaying content with a title and optional actions.\n\nThe Card component provides a container with consistent styling and optional\ninteractive features. It supports different visual variants and loading states.",
-          "examples": [
-            "```tsx\n<Card title=\"Example Card\" variant=\"elevated\">\n  <p>This is the card content</p>\n</Card>\n```",
-            "```tsx\n// With subtitle and click handler\n<Card\n  title=\"Interactive Card\"\n  subtitle=\"Click me!\"\n  onClick={(e) => console.log('Card clicked', e)}\n>\n  <div>Card content here</div>\n</Card>\n```"
-          ],
+          "description": "A flexible card component for displaying content with a title and optional actions. The Card component provides a container with consistent styling and optional interactive features. It supports different visual variants and loading states.",
           "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/components/Card.tsx",
           "line": 79,
           "framework": "react",
-          "isExported": true
+          "isExported": true,
+          "jsdoc": {
+            "examples": [
+              {
+                "code": "<Card title=\"Example Card\" variant=\"elevated\">\n  <p>This is the card content</p>\n</Card>"
+              }
+            ],
+            "see": [
+              {
+                "url": "CardProps",
+                "text": "CardProps"
+              }
+            ],
+            "links": [
+              {
+                "url": "CardProps",
+                "text": "CardProps"
+              }
+            ],
+            "params": {},
+            "author": [],
+            "tags": [],
+            "description": "A flexible card component for displaying content with a title and optional actions. The Card component provides a container with consistent styling and optional interactive features. It supports different visual variants and loading states.",
+            "since": "1.0.0"
+          }
         }
       ]
     },
@@ -956,11 +1409,45 @@
             }
           ],
           "hooks": [],
-          "description": "Button component for user interactions",
+          "description": "Button component for user interactions A flexible button component that supports multiple visual variants and states. Perfect for forms, actions, and interactive UI elements.",
           "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/components/Button.tsx",
-          "line": 43,
+          "line": 81,
           "framework": "react",
-          "isExported": true
+          "isExported": true,
+          "jsdoc": {
+            "examples": [
+              {
+                "code": "<Button variant=\"primary\" onClick={() => console.log('Saved!')}>\n  Save Changes\n</Button>",
+                "description": "Basic usage with primary variant"
+              }
+            ],
+            "see": [
+              {
+                "url": "https://react.dev/reference/react-dom/components/button",
+                "text": "https://react.dev/reference/react-dom/components/button"
+              },
+              {
+                "text": "Props interface definition",
+                "target": "ButtonProps"
+              }
+            ],
+            "links": [
+              {
+                "url": "https://react.dev/reference/react-dom/components/button",
+                "text": "https://react.dev/reference/react-dom/components/button"
+              }
+            ],
+            "params": {
+              "props": "Button properties"
+            },
+            "author": [
+              "CogniDocs Team"
+            ],
+            "tags": [],
+            "description": "Button component for user interactions A flexible button component that supports multiple visual variants and states. Perfect for forms, actions, and interactive UI elements.",
+            "returns": "A styled button element",
+            "since": "1.0.0"
+          }
         }
       ]
     },
@@ -970,7 +1457,7 @@
       "classes": [
         {
           "name": "UserService",
-          "description": "Service class for managing user-related API operations.",
+          "description": "Service class for managing user-related API operations. This class provides methods for CRUD operations on users, including fetching, creating, updating, and deleting user data.",
           "properties": [
             {
               "name": "baseUrl",
@@ -992,13 +1479,15 @@
                 {
                   "name": "userId",
                   "type": "number",
-                  "optional": false
+                  "optional": false,
+                  "description": "The ID of the user to fetch"
                 }
               ],
               "returnType": "Promise<User>",
               "isPrivate": false,
               "isStatic": false,
-              "isAsync": true
+              "isAsync": true,
+              "description": "Fetches a single user by ID"
             },
             {
               "name": "listUsers",
@@ -1006,13 +1495,15 @@
                 {
                   "name": "params",
                   "type": "UserListParams",
-                  "optional": true
+                  "optional": true,
+                  "description": "Query parameters for filtering and pagination"
                 }
               ],
               "returnType": "Promise<User[]>",
               "isPrivate": false,
               "isStatic": false,
-              "isAsync": true
+              "isAsync": true,
+              "description": "Fetches a list of users with optional filtering and pagination"
             },
             {
               "name": "updateUser",
@@ -1020,18 +1511,21 @@
                 {
                   "name": "userId",
                   "type": "number",
-                  "optional": false
+                  "optional": false,
+                  "description": "The ID of the user to update"
                 },
                 {
                   "name": "updates",
                   "type": "UpdateUserProfile",
-                  "optional": false
+                  "optional": false,
+                  "description": "The fields to update"
                 }
               ],
               "returnType": "Promise<User>",
               "isPrivate": false,
               "isStatic": false,
-              "isAsync": true
+              "isAsync": true,
+              "description": "Updates a user's profile information"
             },
             {
               "name": "deleteUser",
@@ -1039,13 +1533,15 @@
                 {
                   "name": "userId",
                   "type": "number",
-                  "optional": false
+                  "optional": false,
+                  "description": "The ID of the user to delete"
                 }
               ],
               "returnType": "Promise<void>",
               "isPrivate": false,
               "isStatic": false,
-              "isAsync": true
+              "isAsync": true,
+              "description": "Deletes a user by ID"
             },
             {
               "name": "getHeaders",
@@ -1053,7 +1549,8 @@
               "returnType": "Record<string, string>",
               "isPrivate": true,
               "isStatic": false,
-              "isAsync": false
+              "isAsync": false,
+              "description": "Gets the default headers for API requests"
             },
             {
               "name": "isValidUserId",
@@ -1061,19 +1558,35 @@
                 {
                   "name": "userId",
                   "type": "number",
-                  "optional": false
+                  "optional": false,
+                  "description": "The user ID to validate"
                 }
               ],
               "returnType": "boolean",
               "isPrivate": false,
               "isStatic": true,
-              "isAsync": false
+              "isAsync": false,
+              "description": "Validates if a user ID is valid"
             }
           ],
           "isExported": true,
           "implementsInterfaces": [],
           "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/services/UserService.ts",
-          "line": 24
+          "line": 24,
+          "jsdoc": {
+            "examples": [
+              {
+                "code": "const userService = new UserService('https://api.example.com');\n// Fetch a user\nconst user = await userService.getUser(123);\n// Update user profile\nawait userService.updateUser(123, { name: 'Jane Doe' });"
+              }
+            ],
+            "see": [],
+            "links": [],
+            "params": {},
+            "author": [],
+            "tags": [],
+            "description": "Service class for managing user-related API operations. This class provides methods for CRUD operations on users, including fetching, creating, updating, and deleting user data.",
+            "since": "1.0.0"
+          }
         }
       ],
       "interfaces": [],
@@ -1101,221 +1614,6 @@
       ],
       "exports": [
         "UserService"
-      ]
-    },
-    {
-      "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/types/user.ts",
-      "functions": [],
-      "classes": [],
-      "interfaces": [
-        {
-          "name": "User",
-          "description": "Represents a user in the system",
-          "properties": [
-            {
-              "name": "id",
-              "type": "number",
-              "optional": false
-            },
-            {
-              "name": "email",
-              "type": "string",
-              "optional": false
-            },
-            {
-              "name": "name",
-              "type": "string",
-              "optional": false
-            },
-            {
-              "name": "role",
-              "type": "UserRole",
-              "optional": false
-            },
-            {
-              "name": "status",
-              "type": "UserStatus",
-              "optional": false
-            },
-            {
-              "name": "avatarUrl",
-              "type": "string",
-              "optional": true
-            },
-            {
-              "name": "bio",
-              "type": "string",
-              "optional": true
-            },
-            {
-              "name": "createdAt",
-              "type": "Date",
-              "optional": false
-            },
-            {
-              "name": "updatedAt",
-              "type": "Date",
-              "optional": false
-            }
-          ],
-          "isExported": true,
-          "extendsInterfaces": [],
-          "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/types/user.ts",
-          "line": 25
-        },
-        {
-          "name": "UpdateUserProfile",
-          "description": "Partial user data for profile updates",
-          "properties": [
-            {
-              "name": "name",
-              "type": "string",
-              "optional": true
-            },
-            {
-              "name": "bio",
-              "type": "string",
-              "optional": true
-            },
-            {
-              "name": "avatarUrl",
-              "type": "string",
-              "optional": true
-            }
-          ],
-          "isExported": true,
-          "extendsInterfaces": [],
-          "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/types/user.ts",
-          "line": 84
-        },
-        {
-          "name": "AuthCredentials",
-          "description": "User authentication credentials",
-          "properties": [
-            {
-              "name": "email",
-              "type": "string",
-              "optional": false
-            },
-            {
-              "name": "password",
-              "type": "string",
-              "optional": false
-            },
-            {
-              "name": "rememberMe",
-              "type": "boolean",
-              "optional": true
-            }
-          ],
-          "isExported": true,
-          "extendsInterfaces": [],
-          "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/types/user.ts",
-          "line": 101
-        },
-        {
-          "name": "UserSession",
-          "description": "User session information",
-          "properties": [
-            {
-              "name": "token",
-              "type": "string",
-              "optional": false
-            },
-            {
-              "name": "refreshToken",
-              "type": "string",
-              "optional": false
-            },
-            {
-              "name": "expiresAt",
-              "type": "number",
-              "optional": false
-            },
-            {
-              "name": "user",
-              "type": "User",
-              "optional": false
-            }
-          ],
-          "isExported": true,
-          "extendsInterfaces": [],
-          "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/types/user.ts",
-          "line": 127
-        },
-        {
-          "name": "UserListParams",
-          "description": "Pagination parameters for user lists",
-          "properties": [
-            {
-              "name": "page",
-              "type": "number",
-              "optional": true
-            },
-            {
-              "name": "limit",
-              "type": "number",
-              "optional": true
-            },
-            {
-              "name": "sortBy",
-              "type": "keyof User",
-              "optional": true
-            },
-            {
-              "name": "sortOrder",
-              "type": "'asc' | 'desc'",
-              "optional": true
-            },
-            {
-              "name": "role",
-              "type": "UserRole",
-              "optional": true
-            },
-            {
-              "name": "status",
-              "type": "UserStatus",
-              "optional": true
-            },
-            {
-              "name": "search",
-              "type": "string",
-              "optional": true
-            }
-          ],
-          "isExported": true,
-          "extendsInterfaces": [],
-          "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/types/user.ts",
-          "line": 155
-        }
-      ],
-      "types": [
-        {
-          "name": "UserRole",
-          "description": "User role enumeration",
-          "type": "'admin' | 'moderator' | 'user' | 'guest'",
-          "isExported": true,
-          "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/types/user.ts",
-          "line": 11
-        },
-        {
-          "name": "UserStatus",
-          "description": "User status enumeration",
-          "type": "'active' | 'inactive' | 'suspended' | 'banned'",
-          "isExported": true,
-          "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/types/user.ts",
-          "line": 17
-        }
-      ],
-      "imports": [],
-      "exports": [
-        "UserRole",
-        "UserStatus",
-        "User",
-        "UpdateUserProfile",
-        "AuthCredentials",
-        "UserSession",
-        "UserListParams"
       ]
     }
   ]

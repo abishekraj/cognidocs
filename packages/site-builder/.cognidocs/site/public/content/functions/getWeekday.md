@@ -1,0 +1,3 @@
+# getWeekday
+
+**Return Type:** `string`

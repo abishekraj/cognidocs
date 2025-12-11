@@ -1,0 +1,5 @@
+# NumberLiteral
+## Definition
+```typescript
+NumericLiteral
+```

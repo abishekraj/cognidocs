@@ -1,0 +1,2 @@
+# WorkerThreadParserWorker
+**Extends:** `ParserWorker`

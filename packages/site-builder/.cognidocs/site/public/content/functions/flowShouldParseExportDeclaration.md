@@ -1,0 +1,3 @@
+# flowShouldParseExportDeclaration
+
+**Return Type:** `boolean`

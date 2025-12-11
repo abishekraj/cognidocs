@@ -1,0 +1,5 @@
+# RequestCompletedEventName
+## Definition
+```typescript
+"requestCompleted"
+```

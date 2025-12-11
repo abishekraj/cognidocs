@@ -1,0 +1,3 @@
+# getTickInterval
+
+**Return Type:** `any`

@@ -1,0 +1,5 @@
+# Undo
+## Definition
+```typescript
+() => void
+```

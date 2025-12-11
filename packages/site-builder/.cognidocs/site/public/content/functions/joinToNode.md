@@ -1,0 +1,9 @@
+# joinToNode
+
+**Return Type:** `CompositeGeneratorNode | undefined`
+
+## Parameters
+| Name | Type | Optional | Description |
+| :--- | :--- | :------- | :---------- |
+| `iterable` | `Iterable<Generated> \| Generated[]` | No | an {@link Array} or {@link Iterable} providing the elements to be joined |
+| `options` | `JoinOptions<Generated>` | Yes | optional config object for defining a `separator`, contributing specialized `prefix` and/or `suffix` providers, and activating conditional line-break insertion. In addition, a dedicated `filter` function can be provided that is required get provided with the original element indices in the aformentioned functions, if the list is to be filtered. If {@link Array.filter} would be applied to the original list, the indices will be those of the filtered list during subsequent processing that in particular will cause confusion when using the tracing variant of this function named ({@link joinTracedToNode}). |

@@ -1,0 +1,2 @@
+# DiagramNotFoundError
+**Extends:** `Error`

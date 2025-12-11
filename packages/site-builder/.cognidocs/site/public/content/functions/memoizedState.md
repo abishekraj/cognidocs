@@ -1,0 +1,3 @@
+# memoizedState
+
+**Return Type:** `MemoState`

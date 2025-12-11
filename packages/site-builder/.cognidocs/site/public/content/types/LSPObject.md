@@ -1,0 +1,5 @@
+# LSPObject
+## Definition
+```typescript
+object
+```

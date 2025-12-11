@@ -37,8 +37,46 @@ export interface ButtonProps {
 /**
  * Button component for user interactions
  *
+ * A flexible button component that supports multiple visual variants and states.
+ * Perfect for forms, actions, and interactive UI elements.
+ *
  * @param props - Button properties
+ * @param props.variant - Visual style variant (primary, secondary, or danger)
+ * @param props.disabled - Whether the button is disabled
+ * @param props.onClick - Click event handler
+ * @param props.children - Button content (text, icons, or other React elements)
+ *
  * @returns A styled button element
+ *
+ * @example
+ * Basic usage with primary variant
+ * ```tsx
+ * <Button variant="primary" onClick={() => console.log('Saved!')}>
+ *   Save Changes
+ * </Button>
+ * ```
+ *
+ * @example
+ * Danger button for destructive actions
+ * ```tsx
+ * <Button variant="danger" onClick={handleDelete}>
+ *   Delete Account
+ * </Button>
+ * ```
+ *
+ * @example
+ * Disabled button state
+ * ```tsx
+ * <Button variant="secondary" disabled>
+ *   Processing...
+ * </Button>
+ * ```
+ *
+ * @see {@link https://react.dev/reference/react-dom/components/button} React Button Documentation
+ * @see ButtonProps - Props interface definition
+ *
+ * @since 1.0.0
+ * @author CogniDocs Team
  */
 export const Button: React.FC<ButtonProps> = ({
   variant = 'primary',

@@ -1,0 +1,2 @@
+# ErrorWithLocation
+**Extends:** `Error`

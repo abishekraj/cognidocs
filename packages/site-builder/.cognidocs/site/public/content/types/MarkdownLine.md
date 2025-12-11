@@ -1,0 +1,5 @@
+# MarkdownLine
+## Definition
+```typescript
+MarkdownWord[]
+```

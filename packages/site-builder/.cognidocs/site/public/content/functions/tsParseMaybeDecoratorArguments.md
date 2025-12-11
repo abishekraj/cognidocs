@@ -1,0 +1,3 @@
+# tsParseMaybeDecoratorArguments
+
+**Return Type:** `void`

@@ -1,0 +1,3 @@
+# jsxClosingFragment
+
+**Return Type:** `JSXClosingFragment`

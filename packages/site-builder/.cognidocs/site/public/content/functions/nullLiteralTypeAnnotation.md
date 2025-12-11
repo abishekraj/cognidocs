@@ -1,0 +1,3 @@
+# nullLiteralTypeAnnotation
+
+**Return Type:** `NullLiteralTypeAnnotation`

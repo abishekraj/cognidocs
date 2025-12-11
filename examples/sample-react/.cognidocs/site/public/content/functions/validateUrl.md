@@ -8,4 +8,4 @@ Validates a URL format
 ## Parameters
 | Name | Type | Optional | Description |
 | :--- | :--- | :------- | :---------- |
-| `url` | `string` | No | - |
+| `url` | `string` | No | The URL to validate |

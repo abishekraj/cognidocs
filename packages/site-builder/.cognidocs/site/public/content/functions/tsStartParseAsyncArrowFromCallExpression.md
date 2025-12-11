@@ -1,0 +1,3 @@
+# tsStartParseAsyncArrowFromCallExpression
+
+**Return Type:** `void`

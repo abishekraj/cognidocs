@@ -264,6 +264,15 @@
             "description": "Learn how to use callout boxes to highlight important information in your documentation",
             "category": "Guides",
             "order": 4
+          },
+          {
+            "type": "file",
+            "name": "JSDoc Documentation Guide",
+            "path": "additional-documentation/guides/jsdoc-documentation.md",
+            "title": "JSDoc Documentation Guide",
+            "description": "Learn how to write rich JSDoc comments that generate beautiful, interactive documentation",
+            "category": "Guides",
+            "order": 5
           }
         ]
       },

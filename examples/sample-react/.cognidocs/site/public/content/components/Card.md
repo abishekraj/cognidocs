@@ -1,33 +1,10 @@
 # Card
 
-A flexible card component for displaying content with a title and optional actions.
-
-The Card component provides a container with consistent styling and optional
-interactive features. It supports different visual variants and loading states.
+A flexible card component for displaying content with a title and optional actions. The Card component provides a container with consistent styling and optional interactive features. It supports different visual variants and loading states.
 
 
 **Type:** function Component (react)
 **Source:** `/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/components/Card.tsx:79`
-
-## Examples
-
-```tsx
-<Card title="Example Card" variant="elevated">
-  <p>This is the card content</p>
-</Card>
-```
-
-
-```tsx
-// With subtitle and click handler
-<Card
-  title="Interactive Card"
-  subtitle="Click me!"
-  onClick={(e) => console.log('Card clicked', e)}
->
-  <div>Card content here</div>
-</Card>
-```
 
 ## Props
 | Name | Type | Optional | Description |

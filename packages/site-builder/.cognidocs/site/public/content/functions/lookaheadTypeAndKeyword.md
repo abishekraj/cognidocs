@@ -1,0 +1,3 @@
+# lookaheadTypeAndKeyword
+
+**Return Type:** `TypeAndKeyword`

@@ -8,4 +8,4 @@ Sanitizes user input by trimming whitespace and removing dangerous characters
 ## Parameters
 | Name | Type | Optional | Description |
 | :--- | :--- | :------- | :---------- |
-| `input` | `string` | No | - |
+| `input` | `string` | No | The input string to sanitize |

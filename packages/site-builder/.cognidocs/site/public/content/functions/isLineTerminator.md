@@ -1,0 +1,3 @@
+# isLineTerminator
+
+**Return Type:** `boolean`

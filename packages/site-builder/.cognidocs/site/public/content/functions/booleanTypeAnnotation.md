@@ -1,0 +1,3 @@
+# booleanTypeAnnotation
+
+**Return Type:** `BooleanTypeAnnotation`

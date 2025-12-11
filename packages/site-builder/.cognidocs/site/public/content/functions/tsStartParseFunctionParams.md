@@ -1,0 +1,3 @@
+# tsStartParseFunctionParams
+
+**Return Type:** `void`

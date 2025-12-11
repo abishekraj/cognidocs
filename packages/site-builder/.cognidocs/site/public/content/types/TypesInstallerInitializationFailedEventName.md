@@ -1,0 +1,5 @@
+# TypesInstallerInitializationFailedEventName
+## Definition
+```typescript
+"typesInstallerInitializationFailed"
+```

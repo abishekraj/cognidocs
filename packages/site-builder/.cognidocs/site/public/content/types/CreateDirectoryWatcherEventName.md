@@ -1,0 +1,5 @@
+# CreateDirectoryWatcherEventName
+## Definition
+```typescript
+"createDirectoryWatcher"
+```

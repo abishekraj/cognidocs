@@ -1,0 +1,3 @@
+# tsTryParseExport
+
+**Return Type:** `boolean`

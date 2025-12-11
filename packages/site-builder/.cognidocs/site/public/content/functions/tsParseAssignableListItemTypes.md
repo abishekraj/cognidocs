@@ -1,0 +1,3 @@
+# tsParseAssignableListItemTypes
+
+**Return Type:** `void`

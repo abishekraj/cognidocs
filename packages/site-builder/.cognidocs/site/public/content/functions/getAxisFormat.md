@@ -1,0 +1,3 @@
+# getAxisFormat
+
+**Return Type:** `string`

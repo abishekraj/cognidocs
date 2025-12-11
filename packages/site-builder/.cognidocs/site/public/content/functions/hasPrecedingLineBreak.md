@@ -1,0 +1,3 @@
+# hasPrecedingLineBreak
+
+**Return Type:** `boolean`

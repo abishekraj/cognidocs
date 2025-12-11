@@ -1,0 +1,5 @@
+# Accessor
+## Definition
+```typescript
+ClassAccessorProperty
+```

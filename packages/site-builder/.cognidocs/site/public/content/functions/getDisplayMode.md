@@ -1,0 +1,3 @@
+# getDisplayMode
+
+**Return Type:** `string`

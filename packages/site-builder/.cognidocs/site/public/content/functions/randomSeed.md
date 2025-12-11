@@ -1,0 +1,3 @@
+# randomSeed
+
+**Return Type:** `number`

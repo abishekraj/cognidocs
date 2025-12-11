@@ -1,0 +1,5 @@
+# UpdateOperator
+## Definition
+```typescript
+"++" | "--"
+```

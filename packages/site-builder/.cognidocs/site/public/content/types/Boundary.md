@@ -1,0 +1,5 @@
+# Boundary
+## Definition
+```typescript
+any
+```

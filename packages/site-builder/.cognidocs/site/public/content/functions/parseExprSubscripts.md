@@ -1,0 +1,3 @@
+# parseExprSubscripts
+
+**Return Type:** `boolean`

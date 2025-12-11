@@ -1,0 +1,3 @@
+# symbolTypeAnnotation
+
+**Return Type:** `SymbolTypeAnnotation`

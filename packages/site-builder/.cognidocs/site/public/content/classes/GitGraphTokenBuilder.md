@@ -1,0 +1,2 @@
+# GitGraphTokenBuilder
+**Extends:** `AbstractMermaidTokenBuilder`

@@ -8,4 +8,4 @@ Capitalizes the first letter of a string
 ## Parameters
 | Name | Type | Optional | Description |
 | :--- | :--- | :------- | :---------- |
-| `str` | `string` | No | - |
+| `str` | `string` | No | The string to capitalize |

@@ -1,0 +1,5 @@
+# TypingsInstalledTelemetryEventName
+## Definition
+```typescript
+"typingsInstalled"
+```

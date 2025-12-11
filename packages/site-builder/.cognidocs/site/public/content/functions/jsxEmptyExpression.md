@@ -1,0 +1,3 @@
+# jsxEmptyExpression
+
+**Return Type:** `JSXEmptyExpression`

@@ -1,0 +1,5 @@
+# AnyThemeGroupIds
+## Definition
+```typescript
+string
+```

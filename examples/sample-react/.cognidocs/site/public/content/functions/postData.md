@@ -8,6 +8,6 @@ Posts data to the specified API endpoint.
 ## Parameters
 | Name | Type | Optional | Description |
 | :--- | :--- | :------- | :---------- |
-| `url` | `string` | No | - |
-| `data` | `T` | No | - |
-| `config` | `Partial<ApiConfig>` | Yes | - |
+| `url` | `string` | No | The API endpoint URL |
+| `data` | `T` | No | The data to send in the request body |
+| `config` | `Partial<ApiConfig>` | Yes | Optional configuration for the request |

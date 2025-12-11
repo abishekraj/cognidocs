@@ -1,0 +1,5 @@
+# LSPErrorCodes
+## Definition
+```typescript
+integer
+```

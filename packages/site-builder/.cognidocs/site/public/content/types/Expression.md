@@ -1,0 +1,30 @@
+# Expression
+## Definition
+```typescript
+| Identifier
+| Literal
+| ThisExpression
+| ArrayExpression
+| ObjectExpression
+| FunctionExpression
+| UnaryExpression
+| UpdateExpression
+| BinaryExpression
+| AssignmentExpression
+| LogicalExpression
+| MemberExpression
+| ConditionalExpression
+| CallExpression
+| NewExpression
+| SequenceExpression
+| ArrowFunctionExpression
+| YieldExpression
+| TemplateLiteral
+| TaggedTemplateExpression
+| ClassExpression
+| MetaProperty
+| AwaitExpression
+| ChainExpression
+| ImportExpression
+| ParenthesizedExpression
+```

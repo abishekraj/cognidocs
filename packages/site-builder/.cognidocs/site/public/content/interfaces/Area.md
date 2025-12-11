@@ -1,0 +1,3 @@
+# Area
+
+The area generator produces an area, as in an area chart. An area is defined by two bounding lines, either splines or polylines. Typically, the two lines share the same x-values (x0 = x1), differing only in y-value (y0 and y1); most commonly, y0 is defined as a constant representing zero. The first line (the topline) is defined by x1 and y1 and is rendered first; the second line (the baseline) is defined by x0 and y0 and is rendered second, with the points in reverse order. With a curveLinear curve, this produces a clockwise polygon. The generic refers to the data type of an element in the input array passed into the area generator.

@@ -1,0 +1,5 @@
+# RegexLiteral
+## Definition
+```typescript
+RegExpLiteral
+```

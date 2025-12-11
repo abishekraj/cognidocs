@@ -1,0 +1,3 @@
+# tsThisType
+
+**Return Type:** `TSThisType`

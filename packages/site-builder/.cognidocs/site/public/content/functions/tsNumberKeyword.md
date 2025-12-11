@@ -1,0 +1,3 @@
+# tsNumberKeyword
+
+**Return Type:** `TSNumberKeyword`

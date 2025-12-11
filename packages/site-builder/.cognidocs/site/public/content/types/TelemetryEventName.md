@@ -1,0 +1,5 @@
+# TelemetryEventName
+## Definition
+```typescript
+"telemetry"
+```

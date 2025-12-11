@@ -1,0 +1,5 @@
+# EndInstallTypesEventName
+## Definition
+```typescript
+"endInstallTypes"
+```

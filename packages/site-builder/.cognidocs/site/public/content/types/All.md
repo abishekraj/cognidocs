@@ -1,0 +1,5 @@
+# All
+## Definition
+```typescript
+Globals
+```

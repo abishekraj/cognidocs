@@ -1,0 +1,5 @@
+# ProjectLanguageServiceStateEventName
+## Definition
+```typescript
+"projectLanguageServiceState"
+```

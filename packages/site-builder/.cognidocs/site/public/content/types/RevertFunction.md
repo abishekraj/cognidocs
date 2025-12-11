@@ -1,0 +1,5 @@
+# RevertFunction
+## Definition
+```typescript
+() => void
+```

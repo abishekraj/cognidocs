@@ -1,0 +1,3 @@
+# ScaleThreshold
+
+Threshold scales are similar to quantize scales, except they allow you to map arbitrary subsets of the domain to discrete values in the range. The input domain is still continuous, and divided into slices based on a set of threshold values. If the number of values in the scale’s range is N+1, the number of values in the scale’s domain must be N. If there are fewer than N elements in the domain, the additional values in the range are ignored. If there are more than N elements in the domain, the scale may return undefined for some inputs. The first generic corresponds to the data type of domain values. The second generic corresponds to the data type of range values. The third generic corresponds to the data type of the unknown value.

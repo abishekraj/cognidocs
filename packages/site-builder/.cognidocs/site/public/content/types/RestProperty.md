@@ -1,0 +1,5 @@
+# RestProperty
+## Definition
+```typescript
+RestElement
+```

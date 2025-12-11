@@ -1,0 +1,5 @@
+# OrganizeImportsScope
+## Definition
+```typescript
+GetCombinedCodeFixScope
+```

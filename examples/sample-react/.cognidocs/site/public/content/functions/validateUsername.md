@@ -8,4 +8,4 @@ Validates a username
 ## Parameters
 | Name | Type | Optional | Description |
 | :--- | :--- | :------- | :---------- |
-| `username` | `string` | No | - |
+| `username` | `string` | No | The username to validate |

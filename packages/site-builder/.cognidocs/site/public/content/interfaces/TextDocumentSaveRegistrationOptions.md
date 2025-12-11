@@ -1,0 +1,3 @@
+# TextDocumentSaveRegistrationOptions
+
+Save registration options.

@@ -1,0 +1,5 @@
+# ProjectsUpdatedInBackgroundEventName
+## Definition
+```typescript
+"projectsUpdatedInBackground"
+```

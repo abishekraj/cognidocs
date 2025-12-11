@@ -1,0 +1,3 @@
+# useId
+
+**Return Type:** `string`

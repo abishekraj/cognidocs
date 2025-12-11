@@ -1,0 +1,5 @@
+# ProjectLoadingStartEventName
+## Definition
+```typescript
+"projectLoadingStart"
+```

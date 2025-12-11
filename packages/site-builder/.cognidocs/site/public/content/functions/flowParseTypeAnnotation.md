@@ -1,0 +1,3 @@
+# flowParseTypeAnnotation
+
+**Return Type:** `void`

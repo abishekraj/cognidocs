@@ -1,0 +1,5 @@
+# GeometryObject
+## Definition
+```typescript
+Geometry
+```

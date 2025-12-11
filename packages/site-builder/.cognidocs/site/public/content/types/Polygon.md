@@ -1,0 +1,5 @@
+# Polygon
+## Definition
+```typescript
+Point[]
+```

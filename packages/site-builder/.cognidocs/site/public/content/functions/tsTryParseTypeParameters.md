@@ -1,0 +1,3 @@
+# tsTryParseTypeParameters
+
+**Return Type:** `void`

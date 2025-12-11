@@ -1,0 +1,3 @@
+# HoverOptions
+
+Hover options.

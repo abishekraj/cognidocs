@@ -1,0 +1,3 @@
+# parseDecorators
+
+**Return Type:** `void`

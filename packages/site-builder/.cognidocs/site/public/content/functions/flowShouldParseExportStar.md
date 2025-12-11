@@ -1,0 +1,3 @@
+# flowShouldParseExportStar
+
+**Return Type:** `boolean`

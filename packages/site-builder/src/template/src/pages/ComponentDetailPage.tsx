@@ -2,7 +2,32 @@ import React, { useEffect, useState } from 'react';
 import { Card } from '../components/ui/card';
 import { Badge } from '../components/ui/badge';
 import { Separator } from '../components/ui/separator';
-import { Box, FileCode, Hash, Link as LinkIcon } from 'lucide-react';
+import { Box, FileCode, Hash, Link as LinkIcon, AlertCircle } from 'lucide-react';
+import { JSDocExample } from '../components/JSDocExample';
+import { JSDocLinks } from '../components/JSDocLinks';
+
+interface JSDocExample {
+  code: string;
+  description?: string;
+}
+
+interface JSDocLink {
+  text: string;
+  url?: string;
+  target?: string;
+}
+
+interface JSDocMetadata {
+  description?: string;
+  examples?: JSDocExample[];
+  see?: JSDocLink[];
+  links?: JSDocLink[];
+  params?: Record<string, string>;
+  returns?: string;
+  deprecated?: string;
+  since?: string;
+  author?: string[];
+}
 
 interface ComponentData {
   name: string;
@@ -19,6 +44,7 @@ interface ComponentData {
   line: number;
   framework: string;
   isExported: boolean;
+  jsdoc?: JSDocMetadata;
 }
 
 interface ComponentDetailPageProps {
@@ -159,6 +185,65 @@ export function ComponentDetailPage({ id }: ComponentDetailPageProps) {
                 {hook}
               </Badge>
             ))}
+          </div>
+        </Card>
+      )}
+
+      {/* Deprecated Warning */}
+      {component.jsdoc?.deprecated && (
+        <Card className="p-6 border-destructive/50 bg-destructive/10">
+          <div className="flex items-start gap-3">
+            <AlertCircle className="h-5 w-5 text-destructive flex-shrink-0 mt-0.5" />
+            <div>
+              <h3 className="text-lg font-bold text-destructive mb-2">Deprecated</h3>
+              <p className="text-sm text-muted-foreground">{component.jsdoc.deprecated}</p>
+            </div>
+          </div>
+        </Card>
+      )}
+
+      {/* JSDoc Examples */}
+      {component.jsdoc?.examples && component.jsdoc.examples.length > 0 && (
+        <JSDocExample examples={component.jsdoc.examples} />
+      )}
+
+      {/* JSDoc Links and See Also */}
+      {((component.jsdoc?.see && component.jsdoc.see.length > 0) ||
+        (component.jsdoc?.links && component.jsdoc.links.length > 0)) && (
+        <JSDocLinks see={component.jsdoc.see} links={component.jsdoc.links} />
+      )}
+
+      {/* Additional JSDoc Metadata */}
+      {(component.jsdoc?.returns || component.jsdoc?.since || component.jsdoc?.author) && (
+        <Card className="p-6">
+          <h3 className="text-lg font-bold text-foreground mb-4">Additional Information</h3>
+          <div className="space-y-3">
+            {component.jsdoc.returns && (
+              <div>
+                <span className="text-sm font-semibold text-muted-foreground">Returns:</span>
+                <p className="text-sm text-foreground mt-1">{component.jsdoc.returns}</p>
+              </div>
+            )}
+            {component.jsdoc.since && (
+              <div>
+                <span className="text-sm font-semibold text-muted-foreground">Since:</span>
+                <Badge variant="outline" className="ml-2">
+                  {component.jsdoc.since}
+                </Badge>
+              </div>
+            )}
+            {component.jsdoc.author && component.jsdoc.author.length > 0 && (
+              <div>
+                <span className="text-sm font-semibold text-muted-foreground">Author(s):</span>
+                <div className="flex flex-wrap gap-2 mt-2">
+                  {component.jsdoc.author.map((author, index) => (
+                    <Badge key={index} variant="secondary">
+                      {author}
+                    </Badge>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
         </Card>
       )}

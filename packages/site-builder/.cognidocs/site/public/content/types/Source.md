@@ -1,0 +1,5 @@
+# Source
+## Definition
+```typescript
+ReverseSegment[][]
+```

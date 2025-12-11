@@ -1,0 +1,3 @@
+# tsParseTypeAssertion
+
+**Return Type:** `void`

@@ -1,0 +1,3 @@
+# ScaleQuantile
+
+Quantile scales map a sampled input domain to a discrete range. The domain is considered continuous and thus the scale will accept any reasonable input value; however, the domain is specified as a discrete set of sample values. The number of values in (the cardinality of) the output range determines the number of quantiles that will be computed from the domain. To compute the quantiles, the domain is sorted, and treated as a population of discrete values; see d3-array’s quantile. The first generic corresponds to the data type of range elements. The second generic corresponds to the data type of the unknown value.

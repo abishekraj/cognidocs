@@ -1,0 +1,3 @@
+# IconifyCategories
+
+Icon categories

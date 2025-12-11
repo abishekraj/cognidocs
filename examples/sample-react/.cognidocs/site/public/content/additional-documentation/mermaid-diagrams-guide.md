@@ -189,16 +189,16 @@ The diagram will automatically render with the theme matching your current site 
 
 ## Supported Diagram Types
 
-- **Flowcharts** - `graph TD`, `graph LR`
-- **Sequence Diagrams** - `sequenceDiagram`
-- **Class Diagrams** - `classDiagram`
-- **State Diagrams** - `stateDiagram-v2`
-- **Entity Relationship Diagrams** - `erDiagram`
-- **Gantt Charts** - `gantt`
-- **Pie Charts** - `pie`
-- **Git Graphs** - `gitGraph`
-- **User Journey** - `journey`
-- **Quadrant Charts** - `quadrantChart`
+- **Flowcharts** - graph TD, graph LR
+- **Sequence Diagrams** - sequenceDiagram
+- **Class Diagrams** - classDiagram
+- **State Diagrams** - stateDiagram-v2
+- **Entity Relationship Diagrams** - erDiagram
+- **Gantt Charts** - gantt
+- **Pie Charts** - pie
+- **Git Graphs** - gitGraph
+- **User Journey** - journey
+- **Quadrant Charts** - quadrantChart
 
 ## Theme Support
 

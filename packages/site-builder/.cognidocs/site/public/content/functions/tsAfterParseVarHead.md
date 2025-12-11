@@ -1,0 +1,3 @@
+# tsAfterParseVarHead
+
+**Return Type:** `void`

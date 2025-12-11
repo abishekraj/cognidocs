@@ -1,0 +1,5 @@
+# SpreadProperty
+## Definition
+```typescript
+SpreadElement
+```

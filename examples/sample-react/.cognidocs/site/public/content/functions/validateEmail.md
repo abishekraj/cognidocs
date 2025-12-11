@@ -8,4 +8,4 @@ Validates an email address format
 ## Parameters
 | Name | Type | Optional | Description |
 | :--- | :--- | :------- | :---------- |
-| `email` | `string` | No | - |
+| `email` | `string` | No | The email address to validate |

@@ -1,0 +1,3 @@
+# getNextContextId
+
+**Return Type:** `number`

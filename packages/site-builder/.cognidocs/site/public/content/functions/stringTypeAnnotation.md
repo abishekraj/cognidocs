@@ -1,0 +1,3 @@
+# stringTypeAnnotation
+
+**Return Type:** `StringTypeAnnotation`

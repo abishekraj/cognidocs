@@ -1,0 +1,5 @@
+# DefinitionInfoAndBoundSpanReponse
+## Definition
+```typescript
+DefinitionInfoAndBoundSpanResponse
+```

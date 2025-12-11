@@ -1,0 +1,2 @@
+# DocumentCache
+**Extends:** `ContextCache`

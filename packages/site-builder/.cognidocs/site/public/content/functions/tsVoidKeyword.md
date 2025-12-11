@@ -1,0 +1,3 @@
+# tsVoidKeyword
+
+**Return Type:** `TSVoidKeyword`

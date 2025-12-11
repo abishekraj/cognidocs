@@ -1,0 +1,5 @@
+# SourceMapLine
+## Definition
+```typescript
+SourceMapSegment[]
+```

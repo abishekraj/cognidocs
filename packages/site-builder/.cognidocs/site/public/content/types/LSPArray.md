@@ -1,0 +1,5 @@
+# LSPArray
+## Definition
+```typescript
+any[]
+```

@@ -1,0 +1,5 @@
+# PatternRe
+## Definition
+```typescript
+RegExp
+```

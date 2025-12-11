@@ -1,0 +1,3 @@
+# flowTryParseExportDefaultExpression
+
+**Return Type:** `boolean`

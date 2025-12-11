@@ -1,0 +1,5 @@
+# SuggestionDiagnosticsSyncResponse
+## Definition
+```typescript
+SemanticDiagnosticsSyncResponse
+```

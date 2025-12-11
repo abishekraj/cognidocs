@@ -16,6 +16,36 @@ export type Phase =
   | 'phase9-marketplace'
   | 'phase10-polish';
 
+// JSDoc metadata types
+export interface JSDocTag {
+  tagName: string;
+  text?: string;
+}
+
+export interface JSDocExample {
+  code: string;
+  description?: string;
+}
+
+export interface JSDocLink {
+  text: string;
+  url?: string;
+  target?: string;
+}
+
+export interface JSDocMetadata {
+  description?: string;
+  examples?: JSDocExample[];
+  see?: JSDocLink[];
+  links?: JSDocLink[];
+  params?: Record<string, string>;
+  returns?: string;
+  deprecated?: string;
+  since?: string;
+  author?: string[];
+  tags?: JSDocTag[];
+}
+
 // Parser types (used by @cognidocs/parser package)
 export interface ParameterMetadata {
   name: string;
@@ -58,6 +88,7 @@ export interface FunctionMetadata {
   filePath: string;
   line?: number;
   examples?: string[];
+  jsdoc?: JSDocMetadata;
 }
 
 export interface ClassMetadata {
@@ -70,6 +101,7 @@ export interface ClassMetadata {
   implementsInterfaces?: string[];
   filePath: string;
   line?: number;
+  jsdoc?: JSDocMetadata;
 }
 
 export interface InterfaceMetadata {
@@ -115,6 +147,7 @@ export interface ComponentMetadata {
   isExported: boolean;
   line?: number;
   examples?: string[];
+  jsdoc?: JSDocMetadata;
 }
 
 export interface ParseResult {

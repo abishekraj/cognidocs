@@ -1,0 +1,3 @@
+# flowShouldDisallowExportDefaultSpecifier
+
+**Return Type:** `boolean`

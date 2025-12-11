@@ -1,0 +1,5 @@
+# Alternative
+## Definition
+```typescript
+TokenType[][]
+```

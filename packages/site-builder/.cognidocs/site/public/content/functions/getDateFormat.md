@@ -1,0 +1,3 @@
+# getDateFormat
+
+**Return Type:** `string`

@@ -16,6 +16,10 @@ export type {
   ParameterMetadata,
   PropertyMetadata,
   MethodMetadata,
+  JSDocMetadata,
+  JSDocExample,
+  JSDocLink,
+  JSDocTag,
 } from '@cognidocs/types';
 
 // Alias for compatibility

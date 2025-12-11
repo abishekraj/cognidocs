@@ -1,0 +1,3 @@
+# parseArrow
+
+**Return Type:** `boolean`

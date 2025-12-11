@@ -1,0 +1,5 @@
+# MiddlewareArguments
+## Definition
+```typescript
+MiddlewareState
+```

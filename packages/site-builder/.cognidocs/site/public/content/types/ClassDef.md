@@ -1,0 +1,5 @@
+# ClassDef
+## Definition
+```typescript
+string
+```

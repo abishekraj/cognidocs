@@ -1,0 +1,5 @@
+# LogicalOperator
+## Definition
+```typescript
+"||" | "&&" | "??"
+```

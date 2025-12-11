@@ -1,0 +1,9 @@
+# isClassAccessorProperty
+
+**Return Type:** `node is ClassAccessorProperty`
+
+## Parameters
+| Name | Type | Optional | Description |
+| :--- | :--- | :------- | :---------- |
+| `node` | `object \| null \| undefined` | No | - |
+| `opts` | `object \| null` | Yes | - |

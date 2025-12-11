@@ -8,4 +8,4 @@ Validates a phone number in E.164 format
 ## Parameters
 | Name | Type | Optional | Description |
 | :--- | :--- | :------- | :---------- |
-| `phone` | `string` | No | - |
+| `phone` | `string` | No | The phone number to validate |

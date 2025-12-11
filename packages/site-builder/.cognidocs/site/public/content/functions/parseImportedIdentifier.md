@@ -1,0 +1,3 @@
+# parseImportedIdentifier
+
+**Return Type:** `void`

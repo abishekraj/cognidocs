@@ -1,0 +1,9 @@
+# isOptionalCallExpression
+
+**Return Type:** `node is OptionalCallExpression`
+
+## Parameters
+| Name | Type | Optional | Description |
+| :--- | :--- | :------- | :---------- |
+| `node` | `object \| null \| undefined` | No | - |
+| `opts` | `object \| null` | Yes | - |

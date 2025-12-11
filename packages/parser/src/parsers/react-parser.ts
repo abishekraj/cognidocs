@@ -5,7 +5,7 @@
 
 import * as ts from 'typescript';
 import { readFileSync } from 'fs';
-import type { ComponentMetadata, PropertyMetadata } from '../types';
+import type { ComponentMetadata, PropertyMetadata, JSDocMetadata } from '../types';
 
 export class ReactParser {
   /**
@@ -152,7 +152,7 @@ export class ReactParser {
       propsType = functionNode.parameters[0]?.type;
     }
 
-    const jsDoc = this.extractJSDoc(node);
+    const jsdoc = this.extractJSDocMetadata(node);
     const line = sourceFile.getLineAndCharacterOfPosition(node.getStart()).line + 1;
 
     // Try to extract props from type, or from referenced interface
@@ -170,12 +170,12 @@ export class ReactParser {
       type: 'function',
       props,
       hooks,
-      description: jsDoc.description,
-      examples: jsDoc.tags?.example,
+      description: jsdoc?.description,
       filePath: sourceFile.fileName,
       line,
       framework: 'react',
       isExported: true,
+      jsdoc,
     };
   }
 
@@ -189,7 +189,7 @@ export class ReactParser {
     if (!node.name) return null;
 
     const name = node.name.getText();
-    const jsDoc = this.extractJSDoc(node);
+    const jsdoc = this.extractJSDocMetadata(node);
     const line = sourceFile.getLineAndCharacterOfPosition(node.getStart()).line + 1;
 
     // Extract props from generic type parameter: class MyComponent extends Component<MyProps>
@@ -201,12 +201,12 @@ export class ReactParser {
       name,
       type: 'class',
       props,
-      description: jsDoc.description,
-      examples: jsDoc.tags?.example,
+      description: jsdoc?.description,
       filePath: sourceFile.fileName,
       line,
       framework: 'react',
       isExported: true,
+      jsdoc,
     };
   }
 
@@ -313,35 +313,146 @@ export class ReactParser {
   }
 
   /**
-   * Extract JSDoc comments
+   * Extract comprehensive JSDoc metadata including all tags
    */
-  private extractJSDoc(node: ts.Node): { description?: string; tags?: Record<string, string[]> } {
-    const jsDocTags = ts.getJSDocTags(node);
-    const jsDocComments = ts.getJSDocCommentsAndTags(node);
+  private extractJSDocMetadata(node: ts.Node): JSDocMetadata | undefined {
+    const sourceFile = node.getSourceFile();
+    const fullText = sourceFile.getFullText();
+    const commentRanges = ts.getLeadingCommentRanges(fullText, node.getFullStart());
 
-    let description: string | undefined;
-    const tags: Record<string, string[]> = {};
+    if (!commentRanges || commentRanges.length === 0) return undefined;
 
-    jsDocComments.forEach((comment) => {
-      if (ts.isJSDoc(comment) && comment.comment) {
-        if (typeof comment.comment === 'string') {
-          description = comment.comment;
+    const lastComment = commentRanges[commentRanges.length - 1];
+    const commentText = fullText.substring(lastComment.pos, lastComment.end);
+
+    // Must be JSDoc comment (/** ... */)
+    if (!commentText.startsWith('/**')) return undefined;
+
+    const metadata: JSDocMetadata = {
+      examples: [],
+      see: [],
+      links: [],
+      params: {},
+      author: [],
+      tags: [],
+    };
+
+    // Extract description (first line(s) before any tags)
+    const descMatch = commentText.match(/\/\*\*\s*\n((?:\s*\*(?!\s*@).*\n)*)/);
+    if (descMatch) {
+      const desc = descMatch[1]
+        .split('\n')
+        .map(line => line.replace(/^\s*\*\s?/, '').trim())
+        .filter(line => line.length > 0)
+        .join(' ');
+      if (desc) metadata.description = desc;
+    }
+
+    // Extract @example tags
+    const exampleMatches = commentText.matchAll(/@example\s*\n((?:(?!\s*@).*\n)*)/g);
+    for (const match of exampleMatches) {
+      const exampleText = match[1]
+        .split('\n')
+        .map(line => line.replace(/^\s*\*\s?/, ''))
+        .filter(line => line.trim().length > 0)
+        .join('\n');
+
+      if (exampleText.trim()) {
+        // Check if there's a description before the code block
+        const parts = exampleText.split(/```/);
+        if (parts.length >= 3) {
+          const description = parts[0].trim() || undefined;
+          const code = parts[1].replace(/^[a-z]+\n/, '').trim(); // Remove language specifier
+          metadata.examples?.push({ code, description });
+        } else {
+          // No code block, treat entire content as code
+          metadata.examples?.push({ code: exampleText.trim() });
         }
       }
-    });
+    }
 
-    jsDocTags.forEach((tag) => {
-      const tagName = tag.tagName.getText();
-      const tagComment = typeof tag.comment === 'string' ? tag.comment : '';
-
-      if (!tags[tagName]) {
-        tags[tagName] = [];
+    // Extract @see tags
+    const seeMatches = commentText.matchAll(/@see\s+(\{@link\s+([^}]+)\}|(\S+))(?:\s+-\s+(.+))?/g);
+    for (const match of seeMatches) {
+      if (match[2]) {
+        // {@link URL} format
+        const [url, ...textParts] = match[2].trim().split(/\s+/);
+        metadata.see?.push({
+          url,
+          text: textParts.join(' ') || url,
+        });
+      } else if (match[3]) {
+        // Plain URL or identifier
+        metadata.see?.push({
+          text: match[4] || match[3],
+          target: match[3],
+        });
       }
-      if (tagComment) {
-        tags[tagName].push(tagComment);
-      }
-    });
+    }
 
-    return { description, tags: Object.keys(tags).length > 0 ? tags : undefined };
+    // Extract inline @link tags
+    const linkMatches = commentText.matchAll(/\{@link\s+([^}\s]+)(?:\s+([^}]+))?\}/g);
+    for (const match of linkMatches) {
+      metadata.links?.push({
+        url: match[1],
+        text: match[2] || match[1],
+      });
+    }
+
+    // Extract @param tags
+    const paramMatches = commentText.matchAll(/@param\s+(?:\{[^}]+\}\s+)?(\w+)\s+-?\s*(.+?)(?=\n\s*(?:\*\s*@|\*\/))/gs);
+    for (const match of paramMatches) {
+      const paramName = match[1];
+      const paramDesc = match[2]
+        .split('\n')
+        .map(line => line.replace(/^\s*\*\s?/, '').trim())
+        .filter(line => line.length > 0)
+        .join(' ');
+      if (metadata.params) {
+        metadata.params[paramName] = paramDesc;
+      }
+    }
+
+    // Extract @returns tag
+    const returnsMatch = commentText.match(/@returns?\s+(?:\{[^}]+\}\s+)?(.+?)(?=\n\s*(?:\*\s*@|\*\/))/s);
+    if (returnsMatch) {
+      metadata.returns = returnsMatch[1]
+        .split('\n')
+        .map(line => line.replace(/^\s*\*\s?/, '').trim())
+        .filter(line => line.length > 0)
+        .join(' ');
+    }
+
+    // Extract @deprecated tag
+    const deprecatedMatch = commentText.match(/@deprecated\s+(.+?)(?=\n\s*(?:\*\s*@|\*\/))/s);
+    if (deprecatedMatch) {
+      metadata.deprecated = deprecatedMatch[1]
+        .split('\n')
+        .map(line => line.replace(/^\s*\*\s?/, '').trim())
+        .filter(line => line.length > 0)
+        .join(' ');
+    }
+
+    // Extract @since tag
+    const sinceMatch = commentText.match(/@since\s+(\S+)/);
+    if (sinceMatch) {
+      metadata.since = sinceMatch[1];
+    }
+
+    // Extract @author tags
+    const authorMatches = commentText.matchAll(/@author\s+(.+?)(?=\n|$)/g);
+    for (const match of authorMatches) {
+      metadata.author?.push(match[1].trim());
+    }
+
+    return metadata;
+  }
+
+  /**
+   * Simple JSDoc extraction for property descriptions
+   */
+  private extractJSDoc(node: ts.Node): { description?: string } {
+    const metadata = this.extractJSDocMetadata(node);
+    return { description: metadata?.description };
   }
 }

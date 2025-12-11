@@ -1,0 +1,3 @@
+# topAxisEnabled
+
+**Return Type:** `boolean`

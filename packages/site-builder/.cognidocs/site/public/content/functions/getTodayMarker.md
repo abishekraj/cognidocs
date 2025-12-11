@@ -1,0 +1,3 @@
+# getTodayMarker
+
+**Return Type:** `string`

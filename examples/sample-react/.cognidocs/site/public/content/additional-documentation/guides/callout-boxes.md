@@ -11,13 +11,11 @@ Callout boxes are special containers that help you highlight important informati
 
 ## Syntax
 
-Callout boxes use the directive syntax with three colons (`:::`):
+Callout boxes use the directive syntax with three colons:
 
-```markdown
-:::type
-Your content goes here
-:::
-```
+    :::type
+    Your content goes here
+    :::
 
 Replace `type` with one of: `info`, `warning`, `tip`, or `danger`.
 
@@ -32,11 +30,10 @@ This is an informational callout. Use it to share helpful context, background in
 :::
 
 **Syntax:**
-```markdown
-:::info
-Your informational content here
-:::
-```
+
+    :::info
+    Your informational content here
+    :::
 
 ### Warning Callouts
 
@@ -47,11 +44,10 @@ This is a warning callout. Use it to alert users about potential pitfalls, depre
 :::
 
 **Syntax:**
-```markdown
-:::warning
-Your warning message here
-:::
-```
+
+    :::warning
+    Your warning message here
+    :::
 
 ### Tip Callouts
 
@@ -62,11 +58,10 @@ This is a tip callout. Use it to share best practices, pro tips, performance opt
 :::
 
 **Syntax:**
-```markdown
-:::tip
-Your helpful tip here
-:::
-```
+
+    :::tip
+    Your helpful tip here
+    :::
 
 ### Danger Callouts
 
@@ -77,11 +72,10 @@ This is a danger callout. Use it for critical warnings about destructive actions
 :::
 
 **Syntax:**
-```markdown
-:::danger
-Your critical warning here
-:::
-```
+
+    :::danger
+    Your critical warning here
+    :::
 
 ## Practical Examples
 

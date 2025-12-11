@@ -1,0 +1,3 @@
+# clear
+
+**Return Type:** `void`

@@ -1,0 +1,5 @@
+# LargeFileReferencedEventName
+## Definition
+```typescript
+"largeFileReferenced"
+```

@@ -1,0 +1,5 @@
+# ErrorCodes
+## Definition
+```typescript
+integer
+```

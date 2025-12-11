@@ -1,0 +1,5 @@
+# AnyClassGroupIds
+## Definition
+```typescript
+string
+```

@@ -1,0 +1,5 @@
+# Operator
+## Definition
+```typescript
+'=' | '+=' | '?=' | undefined
+```

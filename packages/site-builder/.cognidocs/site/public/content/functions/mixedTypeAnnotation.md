@@ -1,0 +1,3 @@
+# mixedTypeAnnotation
+
+**Return Type:** `MixedTypeAnnotation`

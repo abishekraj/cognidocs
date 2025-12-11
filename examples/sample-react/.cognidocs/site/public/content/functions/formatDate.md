@@ -8,5 +8,5 @@ Formats a date string to a readable format
 ## Parameters
 | Name | Type | Optional | Description |
 | :--- | :--- | :------- | :---------- |
-| `date` | `Date` | No | - |
-| `locale` | `string` | No | - |
+| `date` | `Date` | No | The date to format |
+| `locale` | `string` | No | The locale to use for formatting |

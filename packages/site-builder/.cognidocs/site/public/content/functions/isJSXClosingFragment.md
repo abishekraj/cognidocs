@@ -1,0 +1,9 @@
+# isJSXClosingFragment
+
+**Return Type:** `node is JSXClosingFragment`
+
+## Parameters
+| Name | Type | Optional | Description |
+| :--- | :--- | :------- | :---------- |
+| `node` | `object \| null \| undefined` | No | - |
+| `opts` | `object \| null` | Yes | - |

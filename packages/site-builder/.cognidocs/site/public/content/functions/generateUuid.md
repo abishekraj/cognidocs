@@ -1,0 +1,3 @@
+# generateUuid
+
+**Return Type:** `string`

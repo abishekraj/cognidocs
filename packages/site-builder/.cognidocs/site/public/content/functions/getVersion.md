@@ -1,0 +1,3 @@
+# getVersion
+
+**Return Type:** `string`

@@ -1,0 +1,3 @@
+# getParentBoundaryParse
+
+**Return Type:** `string`

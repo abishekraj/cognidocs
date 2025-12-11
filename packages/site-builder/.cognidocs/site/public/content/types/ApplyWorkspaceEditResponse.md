@@ -1,0 +1,5 @@
+# ApplyWorkspaceEditResponse
+## Definition
+```typescript
+ApplyWorkspaceEditResult
+```

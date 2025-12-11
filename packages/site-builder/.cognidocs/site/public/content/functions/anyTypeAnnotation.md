@@ -1,0 +1,3 @@
+# anyTypeAnnotation
+
+**Return Type:** `AnyTypeAnnotation`

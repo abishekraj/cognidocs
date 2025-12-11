@@ -1,10 +1,10 @@
 # Button
 
-Button component for user interactions
+Button component for user interactions A flexible button component that supports multiple visual variants and states. Perfect for forms, actions, and interactive UI elements.
 
 
 **Type:** function Component (react)
-**Source:** `/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/components/Button.tsx:43`
+**Source:** `/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/components/Button.tsx:81`
 
 ## Props
 | Name | Type | Optional | Description |

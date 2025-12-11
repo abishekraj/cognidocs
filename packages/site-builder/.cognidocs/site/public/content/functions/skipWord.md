@@ -1,0 +1,3 @@
+# skipWord
+
+**Return Type:** `void`

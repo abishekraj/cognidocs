@@ -1,0 +1,2 @@
+# InvalidArgumentError
+**Extends:** `CommanderError`

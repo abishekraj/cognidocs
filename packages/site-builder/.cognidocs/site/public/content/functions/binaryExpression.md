@@ -1,0 +1,10 @@
+# binaryExpression
+
+**Return Type:** `BinaryExpression`
+
+## Parameters
+| Name | Type | Optional | Description |
+| :--- | :--- | :------- | :---------- |
+| `operator` | `"+" \| "-" \| "/" \| "%" \| "*" \| "**" \| "&" \| "\|" \| ">>" \| ">>>" \| "<<" \| "^" \| "==" \| "===" \| "!=" \| "!==" \| "in" \| "instanceof" \| ">" \| "<" \| ">=" \| "<=" \| "\|>"` | No | - |
+| `left` | `Expression \| PrivateName` | No | - |
+| `right` | `Expression` | No | - |

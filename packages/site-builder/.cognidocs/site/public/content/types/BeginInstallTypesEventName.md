@@ -1,0 +1,5 @@
+# BeginInstallTypesEventName
+## Definition
+```typescript
+"beginInstallTypes"
+```

@@ -1,0 +1,3 @@
+# flowParseArrow
+
+**Return Type:** `boolean`

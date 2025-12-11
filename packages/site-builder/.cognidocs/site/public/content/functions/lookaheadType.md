@@ -1,0 +1,3 @@
+# lookaheadType
+
+**Return Type:** `TokenType`

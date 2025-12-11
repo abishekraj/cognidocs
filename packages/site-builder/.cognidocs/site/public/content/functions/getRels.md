@@ -1,0 +1,3 @@
+# getRels
+
+**Return Type:** `any[]`

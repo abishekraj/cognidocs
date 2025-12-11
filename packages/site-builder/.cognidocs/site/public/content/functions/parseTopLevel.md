@@ -1,0 +1,3 @@
+# parseTopLevel
+
+**Return Type:** `File`

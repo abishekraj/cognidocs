@@ -1,0 +1,3 @@
+# skipSpace
+
+**Return Type:** `void`

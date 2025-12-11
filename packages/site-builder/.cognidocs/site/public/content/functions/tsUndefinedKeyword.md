@@ -1,0 +1,3 @@
+# tsUndefinedKeyword
+
+**Return Type:** `TSUndefinedKeyword`
