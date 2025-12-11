@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import mermaid from 'mermaid';
 import { useTheme } from '../ThemeContext';
 
@@ -8,48 +8,46 @@ interface MermaidDiagramProps {
 }
 
 export const MermaidDiagram: React.FC<MermaidDiagramProps> = ({ chart, className = '' }) => {
-  const containerRef = useRef<HTMLDivElement>(null);
   const [svg, setSvg] = useState<string>('');
   const [error, setError] = useState<string>('');
   const { theme } = useTheme();
 
   useEffect(() => {
     const renderDiagram = async () => {
-      if (!containerRef.current || !chart) return;
+      if (!chart) return;
 
       try {
+        // Helper to convert HSL values to proper color format
+        const getColorValue = (cssVar: string, fallback: string): string => {
+          const value = getComputedStyle(document.documentElement)
+            .getPropertyValue(cssVar)
+            .trim();
+
+          if (!value) return fallback;
+
+          // If it's already a hex color, return it
+          if (value.startsWith('#')) return value;
+
+          // If it's HSL format like "265 89% 78%", convert to hsl() format
+          if (/^\d+\s+\d+%\s+\d+%$/.test(value)) {
+            const [h, s, l] = value.split(/\s+/);
+            return `hsl(${h}, ${s}, ${l})`;
+          }
+
+          return fallback;
+        };
+
         // Initialize mermaid with theme-aware configuration
         mermaid.initialize({
           startOnLoad: false,
-          theme: theme.includes('dark') ||
-                 theme === 'dracula' ||
-                 theme === 'monokai' ||
-                 theme === 'one-dark' ||
-                 theme === 'nord-dark' ||
-                 theme === 'github-dark' ||
-                 theme === 'gitbook-dark' ||
-                 theme === 'solarized-dark'
-            ? 'dark'
-            : 'default',
+          theme: theme.mode === 'dark' ? 'dark' : 'default',
           themeVariables: {
-            primaryColor: getComputedStyle(document.documentElement)
-              .getPropertyValue('--primary')
-              .trim() || '#3b82f6',
-            primaryTextColor: getComputedStyle(document.documentElement)
-              .getPropertyValue('--primary-foreground')
-              .trim() || '#ffffff',
-            primaryBorderColor: getComputedStyle(document.documentElement)
-              .getPropertyValue('--border')
-              .trim() || '#e5e7eb',
-            lineColor: getComputedStyle(document.documentElement)
-              .getPropertyValue('--muted-foreground')
-              .trim() || '#6b7280',
-            secondaryColor: getComputedStyle(document.documentElement)
-              .getPropertyValue('--secondary')
-              .trim() || '#f3f4f6',
-            tertiaryColor: getComputedStyle(document.documentElement)
-              .getPropertyValue('--accent')
-              .trim() || '#fef3c7',
+            primaryColor: getColorValue('--primary', '#3b82f6'),
+            primaryTextColor: getColorValue('--primary-foreground', '#ffffff'),
+            primaryBorderColor: getColorValue('--border', '#e5e7eb'),
+            lineColor: getColorValue('--muted-foreground', '#6b7280'),
+            secondaryColor: getColorValue('--secondary', '#f3f4f6'),
+            tertiaryColor: getColorValue('--accent', '#fef3c7'),
           },
           fontFamily: getComputedStyle(document.documentElement)
             .getPropertyValue('font-family')
@@ -59,7 +57,7 @@ export const MermaidDiagram: React.FC<MermaidDiagramProps> = ({ chart, className
         });
 
         // Generate unique ID for this diagram
-        const id = `mermaid-${Math.random().toString(36).substr(2, 9)}`;
+        const id = `mermaid-${Math.random().toString(36).substring(2, 11)}`;
 
         // Render the diagram
         const { svg: renderedSvg } = await mermaid.render(id, chart);
@@ -132,7 +130,6 @@ export const MermaidDiagram: React.FC<MermaidDiagramProps> = ({ chart, className
 
   return (
     <div
-      ref={containerRef}
       className={`mermaid-diagram my-6 flex items-center justify-center overflow-x-auto ${className}`}
       dangerouslySetInnerHTML={{ __html: svg }}
     />

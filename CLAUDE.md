@@ -225,6 +225,7 @@ Builds premium static documentation sites:
 - **12 Professional Themes** - GitBook, GitHub, Nord, Dracula, Monokai, Solarized, One Dark, Material (with light/dark variants)
 - **Advanced Search** - Lunr.js with Cmd+K command palette
 - **Interactive Dependency Graphs** - D3.js force-directed visualization
+- **Mermaid.js Diagrams** - Full support for Mermaid diagrams in markdown (flowcharts, sequence, class, state, ER, Gantt, pie, git graphs)
 - **Responsive Navigation** - Collapsible sidebar with hierarchical sections
 - **Markdown Rendering** - react-markdown with syntax highlighting (rehype-highlight)
 - **Additional Documentation** - Guides section with frontmatter support
