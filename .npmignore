@@ -1,0 +1,42 @@
+# Internal documentation
+CLAUDE.md
+PHASES.md
+PHASE1_COMPLETE.md
+PROJECT_STRUCTURE.md
+agents.md
+SETUP.md
+INTERNAL_FILES.md
+
+# SaaS platform (not open source)
+apps/
+guides/
+
+# Development files
+.vscode/
+.idea/
+.turbo/
+*.tsbuildinfo
+.eslintcache
+tsconfig.json
+turbo.json
+
+# Examples (generated docs)
+examples/*/docs/
+
+# Tests
+__tests__/
+__test_files__/
+*.test.ts
+*.test.tsx
+*.spec.ts
+coverage/
+
+# Git
+.git/
+.gitignore
+.github/
+
+# Misc
+.DS_Store
+Thumbs.db
+*.log
