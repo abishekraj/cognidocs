@@ -7,6 +7,7 @@ import {
   BookOpen,
   Network,
   Home,
+  BarChart3,
 } from 'lucide-react';
 import { cn } from './lib/utils';
 import { Input } from './components/ui/input';
@@ -28,6 +29,7 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
   const [store, setStore] = useState<any[]>([]);
   const [manifest, setManifest] = useState<any[]>([]);
   const [currentPath, setCurrentPath] = useState(window.location.hash);
+  const sidebarRef = React.useRef<HTMLElement>(null);
 
   // Load Search Index and Manifest
   React.useEffect(() => {
@@ -52,6 +54,25 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
     window.addEventListener('hashchange', handleHashChange);
     return () => window.removeEventListener('hashchange', handleHashChange);
   }, []);
+
+  // Handle Escape key to close sidebar and focus management
+  React.useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && isOpen) {
+        onClose();
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener('keydown', handleKeyDown);
+      // Focus the sidebar when opened for screen reader navigation
+      sidebarRef.current?.focus();
+    }
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isOpen, onClose]);
 
   // Perform Search
   React.useEffect(() => {
@@ -106,14 +127,19 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
           isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
         )}
         onClick={onClose}
+        aria-hidden="true"
       />
 
       {/* Sidebar Container */}
       <aside
+        ref={sidebarRef}
+        id="mobile-sidebar"
         className={cn(
           'sidebar z-50 transition-transform duration-300 bg-background border-r border-border',
           isOpen ? 'open' : ''
         )}
+        aria-label="Main navigation"
+        tabIndex={-1}
       >
         {/* Header Area */}
         <div className="sticky top-0 z-10 bg-background border-b border-border">
@@ -132,13 +158,15 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
           {/* Search Input Section */}
           <div className="px-4 py-3">
             <div className="relative">
-              <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground pointer-events-none" />
+              <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground pointer-events-none" aria-hidden="true" />
               <Input
                 type="text"
                 placeholder="Search documentation..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="pl-8 pr-3 h-9 text-sm"
+                aria-label="Search documentation"
+                role="searchbox"
               />
             </div>
             <div className="mt-2 flex items-center px-0.5">
@@ -154,11 +182,11 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
         </div>
 
         {/* Navigation List */}
-        <ScrollArea className="flex-1 px-3 py-4">
+        <ScrollArea className="flex-1 pl-3 pr-2 py-4">
           {isSearching ? (
-            <div className="space-y-1">
+            <div className="space-y-1" role="list" aria-label="Search results">
               {searchResults.length === 0 ? (
-                <div className="px-3 py-2 text-sm text-muted-foreground">
+                <div className="px-3 py-2 text-sm text-muted-foreground" role="status">
                   No results found
                 </div>
               ) : (
@@ -174,7 +202,7 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
               )}
             </div>
           ) : (
-            <div className="space-y-4">
+            <nav className="space-y-4 pr-1" aria-label="Documentation navigation">
               {/* Overview Section */}
               <NavigationSection title="Overview" icon={Home} defaultOpen={true}>
                 <NavigationItem
@@ -182,6 +210,12 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
                   href="#/README"
                   icon={BookOpen}
                   isActive={currentPath === '#/README' || currentPath === '' || currentPath === '#/'}
+                />
+                <NavigationItem
+                  label="Project Overview"
+                  href="#/overview"
+                  icon={BarChart3}
+                  isActive={currentPath === '#/overview'}
                 />
                 <NavigationItem
                   label="Dependency Graph"
@@ -218,7 +252,7 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
                   {renderTree(manifest.filter((item: any) => item.name !== 'additional-documentation'))}
                 </NavigationSection>
               )}
-            </div>
+            </nav>
           )}
         </ScrollArea>
       </aside>

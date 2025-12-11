@@ -6,6 +6,7 @@ import rehypeSlug from 'rehype-slug';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import { TableOfContents } from '../components/TableOfContents';
 import { CodeBlock } from '../components/CodeBlock';
+import { MermaidDiagram } from '../components/MermaidDiagram';
 import 'highlight.js/styles/github-dark.css';
 
 interface MarkdownPageProps {
@@ -124,33 +125,47 @@ export function MarkdownPage({ path }: MarkdownPageProps) {
                 <a className="text-primary hover:underline font-medium" {...props} />
               ),
               code: ({ node, inline, className, children, ...props }: any) => {
-                // Extract string from children - handle React elements properly
-                let code = '';
-                if (Array.isArray(children)) {
-                  code = children.map(child => {
-                    if (typeof child === 'string') return child;
-                    if (typeof child === 'number') return String(child);
-                    if (child && typeof child === 'object' && 'props' in child && child.props?.children) {
-                      // React element - extract text from props.children
-                      return String(child.props.children);
+                // Recursively extract string from children - handle React elements and nested structures
+                const extractText = (child: any): string => {
+                  if (!child) return '';
+                  if (typeof child === 'string') return child;
+                  if (typeof child === 'number') return String(child);
+
+                  if (Array.isArray(child)) {
+                    return child.map(c => extractText(c)).join('');
+                  }
+
+                  if (typeof child === 'object') {
+                    // Handle React elements with props.children
+                    if ('props' in child && child.props) {
+                      if (typeof child.props.children === 'string') {
+                        return child.props.children;
+                      }
+                      if (Array.isArray(child.props.children)) {
+                        return child.props.children.map((c: any) => extractText(c)).join('');
+                      }
+                      if (child.props.children) {
+                        return extractText(child.props.children);
+                      }
                     }
-                    return '';
-                  }).join('');
-                } else if (typeof children === 'string' || typeof children === 'number') {
-                  code = String(children);
-                } else if (children && typeof children === 'object' && 'props' in children && children.props?.children) {
-                  // React element - extract text from props.children
-                  code = String(children.props.children);
-                } else {
-                  code = '';
+                  }
+
+                  return '';
+                };
+
+                const code = extractText(children).replace(/\n$/, '');
+                const language = className?.replace(/language-/, '') || '';
+
+                // Check if this is a mermaid diagram
+                if (language === 'mermaid' && !inline) {
+                  return <MermaidDiagram chart={code} />;
                 }
-                code = code.replace(/\n$/, '');
 
                 return (
                   <CodeBlock
                     inline={inline}
                     className={className}
-                    language={className?.replace(/language-/, '')}
+                    language={language}
                   >
                     {code}
                   </CodeBlock>
@@ -173,15 +188,52 @@ export function MarkdownPage({ path }: MarkdownPageProps) {
                   <table className="min-w-full border-collapse border border-border" {...props} />
                 </div>
               ),
-              thead: ({ node, ...props }) => <thead className="bg-muted" {...props} />,
+              thead: ({ node, ...props }) => <thead {...props} />,
               th: ({ node, ...props }) => (
                 <th className="border border-border px-4 py-2 text-left font-semibold text-foreground" {...props} />
               ),
-              td: ({ node, children, ...props }: any) => (
-                <td className="border border-border px-4 py-2 text-foreground" {...props}>
-                  {typeof children === 'object' && children?.type === 'code' ? children : children}
-                </td>
-              ),
+              td: ({ node, children, ...props }: any) => {
+                // Helper function to extract text from code elements and strip styling
+                const extractTextFromChild = (child: any): string | React.ReactNode => {
+                  if (!child) return child;
+                  if (typeof child === 'string') return child;
+                  if (typeof child === 'number') return String(child);
+                  if (Array.isArray(child)) {
+                    return child.map(c => extractTextFromChild(c)).join('');
+                  }
+
+                  // If it's a code element, extract its text content recursively
+                  if (child?.type === 'code' || (typeof child === 'object' && child?.props?.className?.includes('language-'))) {
+                    const codeChildren = child.props?.children;
+                    if (typeof codeChildren === 'string') {
+                      return codeChildren;
+                    } else if (Array.isArray(codeChildren)) {
+                      return codeChildren.map(c => extractTextFromChild(c)).join('');
+                    } else if (codeChildren && typeof codeChildren === 'object') {
+                      return extractTextFromChild(codeChildren);
+                    }
+                    return '';
+                  }
+
+                  // Handle nested React elements
+                  if (typeof child === 'object' && child?.props?.children) {
+                    const nested = child.props.children;
+                    if (typeof nested === 'string') return nested;
+                    if (Array.isArray(nested)) return nested.map(c => extractTextFromChild(c)).join('');
+                    return extractTextFromChild(nested);
+                  }
+
+                  return child;
+                };
+
+                const processedChildren = extractTextFromChild(children);
+
+                return (
+                  <td className="border border-border px-4 py-2 text-foreground" {...props}>
+                    <span className="font-mono text-foreground">{processedChildren}</span>
+                  </td>
+                );
+              },
             }}
           >
             {content}

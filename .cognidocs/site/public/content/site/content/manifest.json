@@ -1,22 +1,5 @@
 [
   {
-    "type": "file",
-    "name": "README",
-    "path": "README.md"
-  },
-  {
-    "type": "directory",
-    "name": "api",
-    "path": "api",
-    "children": []
-  },
-  {
-    "type": "directory",
-    "name": "architecture",
-    "path": "architecture",
-    "children": []
-  },
-  {
     "type": "directory",
     "name": "classes",
     "path": "classes",
@@ -45,32 +28,19 @@
   },
   {
     "type": "directory",
-    "name": "components",
-    "path": "components",
-    "children": []
-  },
-  {
-    "type": "directory",
-    "name": "functions",
-    "path": "functions",
-    "children": []
-  },
-  {
-    "type": "directory",
-    "name": "guides",
-    "path": "guides",
-    "children": []
-  },
-  {
-    "type": "directory",
-    "name": "interfaces",
-    "path": "interfaces",
-    "children": []
-  },
-  {
-    "type": "directory",
-    "name": "types",
-    "path": "types",
-    "children": []
+    "name": "additional-documentation",
+    "path": "additional-documentation",
+    "title": "Additional Documentation",
+    "children": [
+      {
+        "type": "file",
+        "name": "Mermaid Diagrams Guide",
+        "path": "additional-documentation/mermaid-diagrams-guide.md",
+        "title": "Mermaid Diagrams Guide",
+        "description": "Examples of Mermaid diagrams in CogniDocs documentation",
+        "category": "Guides",
+        "order": 100
+      }
+    ]
   }
 ]

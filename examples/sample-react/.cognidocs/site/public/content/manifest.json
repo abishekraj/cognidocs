@@ -225,6 +225,24 @@
         "category": "Overview"
       },
       {
+        "type": "file",
+        "name": "Test Mermaid",
+        "path": "additional-documentation/test-mermaid.md",
+        "title": "Test Mermaid",
+        "description": "Simple test",
+        "category": "Guides",
+        "order": 1
+      },
+      {
+        "type": "file",
+        "name": "Mermaid Diagrams Guide",
+        "path": "additional-documentation/mermaid-diagrams-guide.md",
+        "title": "Mermaid Diagrams Guide",
+        "description": "Examples of Mermaid diagrams in CogniDocs documentation",
+        "category": "Guides",
+        "order": 100
+      },
+      {
         "type": "directory",
         "name": "guides",
         "path": "additional-documentation/guides",

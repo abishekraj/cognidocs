@@ -6,6 +6,7 @@ import rehypeSlug from 'rehype-slug';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import { TableOfContents } from '../components/TableOfContents';
 import { CodeBlock } from '../components/CodeBlock';
+import { MermaidDiagram } from '../components/MermaidDiagram';
 import 'highlight.js/styles/github-dark.css';
 
 interface MarkdownPageProps {
@@ -123,6 +124,39 @@ export function MarkdownPage({ path }: MarkdownPageProps) {
               a: ({ node, ...props }) => (
                 <a className="text-primary hover:underline font-medium" {...props} />
               ),
+              pre: ({ node, children, ...props }: any) => {
+                // Check if this pre contains a code block with mermaid
+                const codeChild = children?.props;
+                if (codeChild?.className?.includes('language-mermaid')) {
+                  // Recursively extract string from children
+                  const extractText = (child: any): string => {
+                    if (!child) return '';
+                    if (typeof child === 'string') return child;
+                    if (typeof child === 'number') return String(child);
+                    if (Array.isArray(child)) {
+                      return child.map(c => extractText(c)).join('');
+                    }
+                    if (typeof child === 'object' && 'props' in child && child.props) {
+                      if (typeof child.props.children === 'string') {
+                        return child.props.children;
+                      }
+                      if (Array.isArray(child.props.children)) {
+                        return child.props.children.map((c: any) => extractText(c)).join('');
+                      }
+                      if (child.props.children) {
+                        return extractText(child.props.children);
+                      }
+                    }
+                    return '';
+                  };
+
+                  const code = extractText(codeChild.children).replace(/\n$/, '');
+                  return <MermaidDiagram chart={code} />;
+                }
+
+                // Otherwise just render the children
+                return <>{children}</>;
+              },
               code: ({ node, inline, className, children, ...props }: any) => {
                 // Recursively extract string from children - handle React elements and nested structures
                 const extractText = (child: any): string => {
@@ -153,20 +187,18 @@ export function MarkdownPage({ path }: MarkdownPageProps) {
                 };
 
                 const code = extractText(children).replace(/\n$/, '');
+                const language = className?.replace(/language-/, '') || '';
 
                 return (
                   <CodeBlock
                     inline={inline}
                     className={className}
-                    language={className?.replace(/language-/, '')}
+                    language={language}
                   >
                     {code}
                   </CodeBlock>
                 );
               },
-              pre: ({ node, children, ...props }: any) => (
-                <>{children}</>
-              ),
               blockquote: ({ node, ...props }) => (
                 <blockquote
                   className="border-l-4 border-primary pl-4 italic text-muted-foreground my-4"

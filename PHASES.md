@@ -807,7 +807,15 @@ cognidocs serve    # Start development server
   - Module dependency maps
   - Service injection diagrams
   - Data flow visualizations
-- [ ] **Mermaid.js Integration:** Support Mermaid diagrams in markdown (flowcharts, sequence, class diagrams)
+- [x] **Mermaid.js Integration:** Support Mermaid diagrams in markdown (flowcharts, sequence, class diagrams) ✅
+  - ✅ Installed mermaid v11.4.1 dependency
+  - ✅ Created MermaidDiagram component with theme-aware rendering
+  - ✅ Integrated with MarkdownPage via custom code block handler
+  - ✅ Supports all diagram types: flowcharts, sequence, class, state, ER, Gantt, pie, git graphs
+  - ✅ Automatic theme adaptation (light/dark based on site theme)
+  - ✅ Error handling with user-friendly error messages
+  - ✅ Loading states during diagram rendering
+  - ✅ Sample documentation guide created (Mermaid Diagrams Guide)
 - [ ] **Interactive Graph Filters:** Filter dependency graph by:
   - Module type (components, services, utils)
   - Depth level

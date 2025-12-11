@@ -1,21 +1,29 @@
 {
   "name": "cognidocs",
-  "version": "0.1.0",
-  "private": true,
-  "description": "AI-powered documentation tool for JavaScript/TypeScript projects",
+  "version": "1.0.0",
+  "description": "Beautiful documentation for TypeScript & React projects — automatically generated from your code",
   "keywords": [
     "documentation",
     "typescript",
     "react",
     "nextjs",
     "vue",
-    "ai",
-    "code-analysis"
+    "documentation-generator",
+    "api-documentation",
+    "code-analysis",
+    "ast-parser",
+    "component-documentation"
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourusername/cognidocs.git"
+    "url": "https://github.com/yourusername/cognidocs.git",
+    "directory": "/"
   },
+  "bugs": {
+    "url": "https://github.com/yourusername/cognidocs/issues"
+  },
+  "homepage": "https://github.com/yourusername/cognidocs#readme",
+  "author": "Your Name <your.email@example.com>",
   "license": "MIT",
   "workspaces": [
     "packages/*",

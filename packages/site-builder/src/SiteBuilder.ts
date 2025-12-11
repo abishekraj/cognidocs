@@ -52,6 +52,16 @@ export default defineConfig({
 `;
       await fs.writeFile(viteConfigPath, viteConfigContent, 'utf-8');
 
+      // Install dependencies if node_modules doesn't exist
+      const nodeModulesPath = path.join(this.siteDir, 'node_modules');
+      if (!await fs.pathExists(nodeModulesPath)) {
+        console.log('Installing dependencies...');
+        execSync('npm install', {
+          cwd: this.siteDir,
+          stdio: 'inherit',
+        });
+      }
+
       // Run npm run build
       execSync('npm run build', {
         cwd: this.siteDir,
