@@ -6,7 +6,7 @@
 export default {
   "entry": "./src",
   "output": "./docs",
-  "theme": "gitbook",
+  "theme": "material",
   "darkMode": true,
   "frameworks": [
     "react"

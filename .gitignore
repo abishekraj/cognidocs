@@ -60,6 +60,9 @@ docs/
 *.tsbuildinfo
 
 # Example project generated docs (for testing)
-# examples/*/docs/
+examples/*/docs/
+examples/*/.cognidocs/
+
+
 # examples/
 

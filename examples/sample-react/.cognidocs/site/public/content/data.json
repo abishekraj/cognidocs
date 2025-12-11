@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generatedAt": "2025-12-11T17:55:15.693Z",
+    "generatedAt": "2025-12-11T18:07:04.817Z",
     "phase": "phase3-documentation",
     "config": {
       "entry": "./src",
@@ -849,6 +849,171 @@
       ]
     },
     {
+      "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/services/UserService.ts",
+      "functions": [],
+      "classes": [
+        {
+          "name": "UserService",
+          "description": "Service class for managing user-related API operations. This class provides methods for CRUD operations on users, including fetching, creating, updating, and deleting user data.",
+          "properties": [
+            {
+              "name": "baseUrl",
+              "type": "string",
+              "isPrivate": true,
+              "isStatic": false
+            },
+            {
+              "name": "apiKey",
+              "type": "string",
+              "isPrivate": true,
+              "isStatic": false
+            }
+          ],
+          "methods": [
+            {
+              "name": "getUser",
+              "parameters": [
+                {
+                  "name": "userId",
+                  "type": "number",
+                  "optional": false,
+                  "description": "The ID of the user to fetch"
+                }
+              ],
+              "returnType": "Promise<User>",
+              "isPrivate": false,
+              "isStatic": false,
+              "isAsync": true,
+              "description": "Fetches a single user by ID"
+            },
+            {
+              "name": "listUsers",
+              "parameters": [
+                {
+                  "name": "params",
+                  "type": "UserListParams",
+                  "optional": true,
+                  "description": "Query parameters for filtering and pagination"
+                }
+              ],
+              "returnType": "Promise<User[]>",
+              "isPrivate": false,
+              "isStatic": false,
+              "isAsync": true,
+              "description": "Fetches a list of users with optional filtering and pagination"
+            },
+            {
+              "name": "updateUser",
+              "parameters": [
+                {
+                  "name": "userId",
+                  "type": "number",
+                  "optional": false,
+                  "description": "The ID of the user to update"
+                },
+                {
+                  "name": "updates",
+                  "type": "UpdateUserProfile",
+                  "optional": false,
+                  "description": "The fields to update"
+                }
+              ],
+              "returnType": "Promise<User>",
+              "isPrivate": false,
+              "isStatic": false,
+              "isAsync": true,
+              "description": "Updates a user's profile information"
+            },
+            {
+              "name": "deleteUser",
+              "parameters": [
+                {
+                  "name": "userId",
+                  "type": "number",
+                  "optional": false,
+                  "description": "The ID of the user to delete"
+                }
+              ],
+              "returnType": "Promise<void>",
+              "isPrivate": false,
+              "isStatic": false,
+              "isAsync": true,
+              "description": "Deletes a user by ID"
+            },
+            {
+              "name": "getHeaders",
+              "parameters": [],
+              "returnType": "Record<string, string>",
+              "isPrivate": true,
+              "isStatic": false,
+              "isAsync": false,
+              "description": "Gets the default headers for API requests"
+            },
+            {
+              "name": "isValidUserId",
+              "parameters": [
+                {
+                  "name": "userId",
+                  "type": "number",
+                  "optional": false,
+                  "description": "The user ID to validate"
+                }
+              ],
+              "returnType": "boolean",
+              "isPrivate": false,
+              "isStatic": true,
+              "isAsync": false,
+              "description": "Validates if a user ID is valid"
+            }
+          ],
+          "isExported": true,
+          "implementsInterfaces": [],
+          "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/services/UserService.ts",
+          "line": 24,
+          "jsdoc": {
+            "examples": [
+              {
+                "code": "const userService = new UserService('https://api.example.com');\n// Fetch a user\nconst user = await userService.getUser(123);\n// Update user profile\nawait userService.updateUser(123, { name: 'Jane Doe' });"
+              }
+            ],
+            "see": [],
+            "links": [],
+            "params": {},
+            "author": [],
+            "tags": [],
+            "description": "Service class for managing user-related API operations. This class provides methods for CRUD operations on users, including fetching, creating, updating, and deleting user data.",
+            "since": "1.0.0"
+          }
+        }
+      ],
+      "interfaces": [],
+      "types": [],
+      "imports": [
+        {
+          "source": "../types/user",
+          "specifiers": [
+            "User",
+            "UserListParams",
+            "UpdateUserProfile"
+          ],
+          "isDefault": false,
+          "isNamespace": false
+        },
+        {
+          "source": "../utils/api",
+          "specifiers": [
+            "fetchData",
+            "postData"
+          ],
+          "isDefault": false,
+          "isNamespace": false
+        }
+      ],
+      "exports": [
+        "UserService"
+      ]
+    },
+    {
       "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/components/UserProfile.tsx",
       "functions": [
         {
@@ -1449,171 +1614,6 @@
             "since": "1.0.0"
           }
         }
-      ]
-    },
-    {
-      "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/services/UserService.ts",
-      "functions": [],
-      "classes": [
-        {
-          "name": "UserService",
-          "description": "Service class for managing user-related API operations. This class provides methods for CRUD operations on users, including fetching, creating, updating, and deleting user data.",
-          "properties": [
-            {
-              "name": "baseUrl",
-              "type": "string",
-              "isPrivate": true,
-              "isStatic": false
-            },
-            {
-              "name": "apiKey",
-              "type": "string",
-              "isPrivate": true,
-              "isStatic": false
-            }
-          ],
-          "methods": [
-            {
-              "name": "getUser",
-              "parameters": [
-                {
-                  "name": "userId",
-                  "type": "number",
-                  "optional": false,
-                  "description": "The ID of the user to fetch"
-                }
-              ],
-              "returnType": "Promise<User>",
-              "isPrivate": false,
-              "isStatic": false,
-              "isAsync": true,
-              "description": "Fetches a single user by ID"
-            },
-            {
-              "name": "listUsers",
-              "parameters": [
-                {
-                  "name": "params",
-                  "type": "UserListParams",
-                  "optional": true,
-                  "description": "Query parameters for filtering and pagination"
-                }
-              ],
-              "returnType": "Promise<User[]>",
-              "isPrivate": false,
-              "isStatic": false,
-              "isAsync": true,
-              "description": "Fetches a list of users with optional filtering and pagination"
-            },
-            {
-              "name": "updateUser",
-              "parameters": [
-                {
-                  "name": "userId",
-                  "type": "number",
-                  "optional": false,
-                  "description": "The ID of the user to update"
-                },
-                {
-                  "name": "updates",
-                  "type": "UpdateUserProfile",
-                  "optional": false,
-                  "description": "The fields to update"
-                }
-              ],
-              "returnType": "Promise<User>",
-              "isPrivate": false,
-              "isStatic": false,
-              "isAsync": true,
-              "description": "Updates a user's profile information"
-            },
-            {
-              "name": "deleteUser",
-              "parameters": [
-                {
-                  "name": "userId",
-                  "type": "number",
-                  "optional": false,
-                  "description": "The ID of the user to delete"
-                }
-              ],
-              "returnType": "Promise<void>",
-              "isPrivate": false,
-              "isStatic": false,
-              "isAsync": true,
-              "description": "Deletes a user by ID"
-            },
-            {
-              "name": "getHeaders",
-              "parameters": [],
-              "returnType": "Record<string, string>",
-              "isPrivate": true,
-              "isStatic": false,
-              "isAsync": false,
-              "description": "Gets the default headers for API requests"
-            },
-            {
-              "name": "isValidUserId",
-              "parameters": [
-                {
-                  "name": "userId",
-                  "type": "number",
-                  "optional": false,
-                  "description": "The user ID to validate"
-                }
-              ],
-              "returnType": "boolean",
-              "isPrivate": false,
-              "isStatic": true,
-              "isAsync": false,
-              "description": "Validates if a user ID is valid"
-            }
-          ],
-          "isExported": true,
-          "implementsInterfaces": [],
-          "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/services/UserService.ts",
-          "line": 24,
-          "jsdoc": {
-            "examples": [
-              {
-                "code": "const userService = new UserService('https://api.example.com');\n// Fetch a user\nconst user = await userService.getUser(123);\n// Update user profile\nawait userService.updateUser(123, { name: 'Jane Doe' });"
-              }
-            ],
-            "see": [],
-            "links": [],
-            "params": {},
-            "author": [],
-            "tags": [],
-            "description": "Service class for managing user-related API operations. This class provides methods for CRUD operations on users, including fetching, creating, updating, and deleting user data.",
-            "since": "1.0.0"
-          }
-        }
-      ],
-      "interfaces": [],
-      "types": [],
-      "imports": [
-        {
-          "source": "../types/user",
-          "specifiers": [
-            "User",
-            "UserListParams",
-            "UpdateUserProfile"
-          ],
-          "isDefault": false,
-          "isNamespace": false
-        },
-        {
-          "source": "../utils/api",
-          "specifiers": [
-            "fetchData",
-            "postData"
-          ],
-          "isDefault": false,
-          "isNamespace": false
-        }
-      ],
-      "exports": [
-        "UserService"
       ]
     }
   ]
