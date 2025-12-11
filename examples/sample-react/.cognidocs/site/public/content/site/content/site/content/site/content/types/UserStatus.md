@@ -1,5 +1,8 @@
 # UserStatus
+
+User status enumeration
+
 ## Definition
 ```typescript
-'active' | 'inactive' | 'suspended' | 'pending'
+'active' | 'inactive' | 'suspended' | 'banned'
 ```

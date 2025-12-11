@@ -182,7 +182,7 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
         </div>
 
         {/* Navigation List */}
-        <ScrollArea className="flex-1 px-3 py-4">
+        <ScrollArea className="flex-1 pl-3 pr-2 py-4">
           {isSearching ? (
             <div className="space-y-1" role="list" aria-label="Search results">
               {searchResults.length === 0 ? (
@@ -202,20 +202,20 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
               )}
             </div>
           ) : (
-            <nav className="space-y-4" aria-label="Documentation navigation">
+            <nav className="space-y-4 pr-1" aria-label="Documentation navigation">
               {/* Overview Section */}
               <NavigationSection title="Overview" icon={Home} defaultOpen={true}>
-                <NavigationItem
-                  label="Project Overview"
-                  href="#/overview"
-                  icon={BarChart3}
-                  isActive={currentPath === '#/overview'}
-                />
                 <NavigationItem
                   label="Introduction"
                   href="#/README"
                   icon={BookOpen}
                   isActive={currentPath === '#/README' || currentPath === '' || currentPath === '#/'}
+                />
+                <NavigationItem
+                  label="Project Overview"
+                  href="#/overview"
+                  icon={BarChart3}
+                  isActive={currentPath === '#/overview'}
                 />
                 <NavigationItem
                   label="Dependency Graph"

@@ -8,7 +8,7 @@ Props for the Card component
 | `title` | `string` | No | - |
 | `subtitle` | `string` | Yes | - |
 | `children` | `React.ReactNode` | No | - |
-| `variant` | `'default' | 'elevated' | 'outlined'` | Yes | - |
+| `variant` | `'default' \| 'elevated' \| 'outlined'` | Yes | - |
 | `loading` | `boolean` | Yes | - |
 | `onClick` | `(event: React.MouseEvent<HTMLDivElement>) => void` | Yes | - |
 | `className` | `string` | Yes | - |

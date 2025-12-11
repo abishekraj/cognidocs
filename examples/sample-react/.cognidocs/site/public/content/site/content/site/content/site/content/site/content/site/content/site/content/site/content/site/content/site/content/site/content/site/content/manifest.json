@@ -6,6 +6,11 @@
     "children": [
       {
         "type": "file",
+        "name": "UserManager",
+        "path": "classes/UserManager.md"
+      },
+      {
+        "type": "file",
         "name": "UserService",
         "path": "classes/UserService.md"
       }
@@ -30,6 +35,11 @@
         "type": "file",
         "name": "Input",
         "path": "components/Input.md"
+      },
+      {
+        "type": "file",
+        "name": "UserProfile",
+        "path": "components/UserProfile.md"
       }
     ]
   },
@@ -65,6 +75,16 @@
       },
       {
         "type": "file",
+        "name": "formatUserRole",
+        "path": "functions/formatUserRole.md"
+      },
+      {
+        "type": "file",
+        "name": "getUserDisplayName",
+        "path": "functions/getUserDisplayName.md"
+      },
+      {
+        "type": "file",
         "name": "postData",
         "path": "functions/postData.md"
       },
@@ -72,6 +92,36 @@
         "type": "file",
         "name": "retryRequest",
         "path": "functions/retryRequest.md"
+      },
+      {
+        "type": "file",
+        "name": "sanitizeInput",
+        "path": "functions/sanitizeInput.md"
+      },
+      {
+        "type": "file",
+        "name": "validateEmail",
+        "path": "functions/validateEmail.md"
+      },
+      {
+        "type": "file",
+        "name": "validatePassword",
+        "path": "functions/validatePassword.md"
+      },
+      {
+        "type": "file",
+        "name": "validatePhoneNumber",
+        "path": "functions/validatePhoneNumber.md"
+      },
+      {
+        "type": "file",
+        "name": "validateUrl",
+        "path": "functions/validateUrl.md"
+      },
+      {
+        "type": "file",
+        "name": "validateUsername",
+        "path": "functions/validateUsername.md"
       }
     ]
   },
@@ -107,6 +157,11 @@
       },
       {
         "type": "file",
+        "name": "FormData",
+        "path": "interfaces/FormData.md"
+      },
+      {
+        "type": "file",
         "name": "UpdateUserProfile",
         "path": "interfaces/UpdateUserProfile.md"
       },
@@ -124,6 +179,16 @@
         "type": "file",
         "name": "UserSession",
         "path": "interfaces/UserSession.md"
+      },
+      {
+        "type": "file",
+        "name": "UserSettings",
+        "path": "interfaces/UserSettings.md"
+      },
+      {
+        "type": "file",
+        "name": "ValidationResult",
+        "path": "interfaces/ValidationResult.md"
       }
     ]
   },
@@ -141,6 +206,11 @@
         "type": "file",
         "name": "UserStatus",
         "path": "types/UserStatus.md"
+      },
+      {
+        "type": "file",
+        "name": "ValidationRule",
+        "path": "types/ValidationRule.md"
       }
     ]
   },

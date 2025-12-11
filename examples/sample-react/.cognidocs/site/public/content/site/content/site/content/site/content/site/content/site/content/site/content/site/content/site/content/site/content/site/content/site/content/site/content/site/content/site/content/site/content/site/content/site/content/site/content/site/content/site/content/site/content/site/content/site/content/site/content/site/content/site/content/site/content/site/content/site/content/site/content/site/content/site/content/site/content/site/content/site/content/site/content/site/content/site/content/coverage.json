@@ -1,0 +1,65 @@
+{
+  "overall": {
+    "total": 4,
+    "documented": 4,
+    "percentage": 100
+  },
+  "files": [
+    {
+      "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/utils/helpers.ts",
+      "score": {
+        "total": 2,
+        "documented": 2,
+        "percentage": 100
+      },
+      "components": {
+        "total": 0,
+        "documented": 0,
+        "percentage": 100
+      },
+      "functions": {
+        "total": 2,
+        "documented": 2,
+        "percentage": 100
+      },
+      "classes": {
+        "total": 0,
+        "documented": 0,
+        "percentage": 100
+      },
+      "interfaces": {
+        "total": 0,
+        "documented": 0,
+        "percentage": 100
+      }
+    },
+    {
+      "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/components/Button.tsx",
+      "score": {
+        "total": 2,
+        "documented": 2,
+        "percentage": 100
+      },
+      "components": {
+        "total": 1,
+        "documented": 1,
+        "percentage": 100
+      },
+      "functions": {
+        "total": 0,
+        "documented": 0,
+        "percentage": 100
+      },
+      "classes": {
+        "total": 0,
+        "documented": 0,
+        "percentage": 100
+      },
+      "interfaces": {
+        "total": 1,
+        "documented": 1,
+        "percentage": 100
+      }
+    }
+  ]
+}

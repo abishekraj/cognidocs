@@ -50,11 +50,6 @@
     "children": [
       {
         "type": "file",
-        "name": "Input",
-        "path": "functions/Input.md"
-      },
-      {
-        "type": "file",
         "name": "buildUrl",
         "path": "functions/buildUrl.md"
       },

@@ -143,5 +143,70 @@
         "path": "types/UserStatus.md"
       }
     ]
+  },
+  {
+    "type": "directory",
+    "name": "additional-documentation",
+    "path": "additional-documentation",
+    "title": "Additional Documentation",
+    "children": [
+      {
+        "type": "file",
+        "name": "Getting Started",
+        "path": "additional-documentation/getting-started.md",
+        "title": "Getting Started",
+        "description": "Quick start guide for the sample React application",
+        "order": 1,
+        "category": "Overview"
+      },
+      {
+        "type": "directory",
+        "name": "guides",
+        "path": "additional-documentation/guides",
+        "children": [
+          {
+            "type": "file",
+            "name": "Component Guide",
+            "path": "additional-documentation/guides/components.md",
+            "title": "Component Guide",
+            "description": "Learn how to create and use components",
+            "order": 1,
+            "category": "Guides"
+          },
+          {
+            "type": "file",
+            "name": "Best Practices",
+            "path": "additional-documentation/guides/best-practices.md",
+            "title": "Best Practices",
+            "description": "Code quality and best practices",
+            "order": 2,
+            "category": "Guides"
+          }
+        ]
+      },
+      {
+        "type": "directory",
+        "name": "tutorials",
+        "path": "additional-documentation/tutorials",
+        "children": [
+          {
+            "type": "directory",
+            "name": "advanced",
+            "path": "additional-documentation/tutorials/advanced",
+            "children": [
+              {
+                "type": "file",
+                "name": "Advanced State Management",
+                "path": "additional-documentation/tutorials/advanced/state-management.md",
+                "title": "Advanced State Management",
+                "description": "Learn advanced state management patterns",
+                "order": 1,
+                "category": "Advanced Tutorials"
+              }
+            ]
+          }
+        ]
+      }
+    ]
   }
 ]

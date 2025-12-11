@@ -71,7 +71,7 @@ export function useLocalStorage<T>(key: string, initialValue: T) {
 
 ## Reducer Pattern
 
-For complex state, use `useReducer`:
+For complex state, use 'useReducer':
 
 ```typescript
 type Action =

@@ -12,7 +12,6 @@ error messages, and various input types support.
 ## Examples
 
 ```tsx
-```tsx
 <Input
   label="Email"
   type="email"
@@ -21,10 +20,8 @@ error messages, and various input types support.
   onChange={setEmail}
 />
 ```
-```
 
 
-```tsx
 ```tsx
 // With validation error
 <Input
@@ -36,13 +33,12 @@ error messages, and various input types support.
   required
 />
 ```
-```
 
 ## Props
 | Name | Type | Optional | Description |
 | :--- | :--- | :------- | :---------- |
 | `label` | `string` | No | Label text displayed above the input |
-| `type` | `'text' | 'email' | 'password' | 'number' | 'tel' | 'url'` | No | HTML input type |
+| `type` | `'text' \| 'email' \| 'password' \| 'number' \| 'tel' \| 'url'` | No | HTML input type |
 | `value` | `string` | No | Current input value |
 | `onChange` | `(value: string) => void` | No | Callback fired when input value changes |
 | `placeholder` | `string` | No | Placeholder text shown when input is empty |

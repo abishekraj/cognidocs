@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generatedAt": "2025-12-10T15:12:31.934Z",
+    "generatedAt": "2025-12-11T04:46:55.486Z",
     "phase": "phase3-documentation",
     "config": {
       "entry": "./src",
@@ -21,14 +21,185 @@
     }
   },
   "stats": {
-    "files": 7,
-    "components": 3,
-    "functions": 7,
-    "classes": 1,
-    "interfaces": 9,
-    "types": 2
+    "files": 9,
+    "components": 4,
+    "functions": 15,
+    "classes": 2,
+    "interfaces": 13,
+    "types": 5
   },
   "results": [
+    {
+      "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/utils/validation.ts",
+      "functions": [
+        {
+          "name": "validateEmail",
+          "description": "Validates an email address format",
+          "parameters": [
+            {
+              "name": "email",
+              "type": "string",
+              "optional": false
+            }
+          ],
+          "returnType": "boolean",
+          "isExported": true,
+          "isAsync": false,
+          "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/utils/validation.ts",
+          "line": 6
+        },
+        {
+          "name": "validatePassword",
+          "description": "Validates a password meets minimum security requirements",
+          "parameters": [
+            {
+              "name": "password",
+              "type": "string",
+              "optional": false
+            }
+          ],
+          "returnType": "boolean",
+          "isExported": true,
+          "isAsync": false,
+          "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/utils/validation.ts",
+          "line": 16
+        },
+        {
+          "name": "validateUsername",
+          "description": "Validates a username",
+          "parameters": [
+            {
+              "name": "username",
+              "type": "string",
+              "optional": false
+            }
+          ],
+          "returnType": "boolean",
+          "isExported": true,
+          "isAsync": false,
+          "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/utils/validation.ts",
+          "line": 25
+        },
+        {
+          "name": "validatePhoneNumber",
+          "description": "Validates a phone number in E.164 format",
+          "parameters": [
+            {
+              "name": "phone",
+              "type": "string",
+              "optional": false
+            }
+          ],
+          "returnType": "boolean",
+          "isExported": true,
+          "isAsync": false,
+          "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/utils/validation.ts",
+          "line": 34
+        },
+        {
+          "name": "sanitizeInput",
+          "description": "Sanitizes user input by trimming whitespace and removing dangerous characters",
+          "parameters": [
+            {
+              "name": "input",
+              "type": "string",
+              "optional": false
+            }
+          ],
+          "returnType": "string",
+          "isExported": true,
+          "isAsync": false,
+          "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/utils/validation.ts",
+          "line": 44
+        },
+        {
+          "name": "validateUrl",
+          "description": "Validates a URL format",
+          "parameters": [
+            {
+              "name": "url",
+              "type": "string",
+              "optional": false
+            }
+          ],
+          "returnType": "boolean",
+          "isExported": true,
+          "isAsync": false,
+          "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/utils/validation.ts",
+          "line": 53
+        }
+      ],
+      "classes": [],
+      "interfaces": [
+        {
+          "name": "ValidationResult",
+          "description": "Represents the result of a validation operation",
+          "properties": [
+            {
+              "name": "isValid",
+              "type": "boolean",
+              "optional": false
+            },
+            {
+              "name": "errors",
+              "type": "string[]",
+              "optional": false
+            }
+          ],
+          "isExported": true,
+          "extendsInterfaces": [],
+          "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/utils/validation.ts",
+          "line": 65
+        },
+        {
+          "name": "FormData",
+          "description": "Form data structure for user registration/login",
+          "properties": [
+            {
+              "name": "email",
+              "type": "string",
+              "optional": false
+            },
+            {
+              "name": "password",
+              "type": "string",
+              "optional": false
+            },
+            {
+              "name": "username",
+              "type": "string",
+              "optional": false
+            }
+          ],
+          "isExported": true,
+          "extendsInterfaces": [],
+          "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/utils/validation.ts",
+          "line": 75
+        }
+      ],
+      "types": [
+        {
+          "name": "ValidationRule",
+          "description": "A function that validates a string value",
+          "type": "(value: string) => boolean",
+          "isExported": true,
+          "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/utils/validation.ts",
+          "line": 89
+        }
+      ],
+      "imports": [],
+      "exports": [
+        "validateEmail",
+        "validatePassword",
+        "validateUsername",
+        "validatePhoneNumber",
+        "sanitizeInput",
+        "validateUrl",
+        "ValidationResult",
+        "FormData",
+        "ValidationRule"
+      ]
+    },
     {
       "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/utils/helpers.ts",
       "functions": [
@@ -598,6 +769,236 @@
       ],
       "exports": [
         "UserService"
+      ]
+    },
+    {
+      "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/components/UserProfile.tsx",
+      "functions": [
+        {
+          "name": "getUserDisplayName",
+          "parameters": [
+            {
+              "name": "user",
+              "type": "{ firstName?: string; lastName?: string; username: string }",
+              "optional": false
+            }
+          ],
+          "isExported": true,
+          "isAsync": false,
+          "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/components/UserProfile.tsx",
+          "line": 54
+        },
+        {
+          "name": "formatUserRole",
+          "parameters": [
+            {
+              "name": "role",
+              "type": "string",
+              "optional": false
+            }
+          ],
+          "isExported": true,
+          "isAsync": false,
+          "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/components/UserProfile.tsx",
+          "line": 61
+        }
+      ],
+      "classes": [
+        {
+          "name": "UserManager",
+          "properties": [
+            {
+              "name": "users",
+              "type": "Map<string, UserProfileProps>",
+              "isPrivate": true,
+              "isStatic": false
+            }
+          ],
+          "methods": [
+            {
+              "name": "addUser",
+              "parameters": [
+                {
+                  "name": "user",
+                  "type": "UserProfileProps",
+                  "optional": false
+                }
+              ],
+              "isPrivate": false,
+              "isStatic": false,
+              "isAsync": false
+            },
+            {
+              "name": "getUser",
+              "parameters": [
+                {
+                  "name": "userId",
+                  "type": "string",
+                  "optional": false
+                }
+              ],
+              "isPrivate": false,
+              "isStatic": false,
+              "isAsync": false
+            },
+            {
+              "name": "removeUser",
+              "parameters": [
+                {
+                  "name": "userId",
+                  "type": "string",
+                  "optional": false
+                }
+              ],
+              "isPrivate": false,
+              "isStatic": false,
+              "isAsync": false
+            },
+            {
+              "name": "getAllUsers",
+              "parameters": [],
+              "isPrivate": false,
+              "isStatic": false,
+              "isAsync": false
+            }
+          ],
+          "isExported": true,
+          "implementsInterfaces": [],
+          "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/components/UserProfile.tsx",
+          "line": 65
+        }
+      ],
+      "interfaces": [
+        {
+          "name": "UserProfileProps",
+          "properties": [
+            {
+              "name": "userId",
+              "type": "string",
+              "optional": false
+            },
+            {
+              "name": "username",
+              "type": "string",
+              "optional": false
+            },
+            {
+              "name": "email",
+              "type": "string",
+              "optional": false
+            },
+            {
+              "name": "avatar",
+              "type": "string",
+              "optional": true
+            },
+            {
+              "name": "isActive",
+              "type": "boolean",
+              "optional": true
+            }
+          ],
+          "isExported": false,
+          "extendsInterfaces": [],
+          "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/components/UserProfile.tsx",
+          "line": 3
+        },
+        {
+          "name": "UserSettings",
+          "properties": [
+            {
+              "name": "theme",
+              "type": "'light' | 'dark'",
+              "optional": false
+            },
+            {
+              "name": "notifications",
+              "type": "boolean",
+              "optional": false
+            },
+            {
+              "name": "language",
+              "type": "string",
+              "optional": false
+            }
+          ],
+          "isExported": true,
+          "extendsInterfaces": [],
+          "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/components/UserProfile.tsx",
+          "line": 89
+        }
+      ],
+      "types": [
+        {
+          "name": "UserRole",
+          "type": "'admin' | 'moderator' | 'user' | 'guest'",
+          "isExported": true,
+          "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/components/UserProfile.tsx",
+          "line": 95
+        },
+        {
+          "name": "UserStatus",
+          "type": "'active' | 'inactive' | 'suspended' | 'pending'",
+          "isExported": true,
+          "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/components/UserProfile.tsx",
+          "line": 97
+        }
+      ],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "React"
+          ],
+          "isDefault": true,
+          "isNamespace": false
+        }
+      ],
+      "exports": [
+        "getUserDisplayName",
+        "formatUserRole",
+        "UserManager",
+        "UserSettings",
+        "UserRole",
+        "UserStatus"
+      ],
+      "components": [
+        {
+          "name": "UserProfile",
+          "type": "function",
+          "props": [
+            {
+              "name": "userId",
+              "type": "string",
+              "required": true
+            },
+            {
+              "name": "username",
+              "type": "string",
+              "required": true
+            },
+            {
+              "name": "email",
+              "type": "string",
+              "required": true
+            },
+            {
+              "name": "avatar",
+              "type": "string",
+              "required": false
+            },
+            {
+              "name": "isActive",
+              "type": "boolean",
+              "required": false
+            }
+          ],
+          "hooks": [],
+          "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/components/UserProfile.tsx",
+          "line": 11,
+          "framework": "react",
+          "isExported": true
+        }
       ]
     },
     {

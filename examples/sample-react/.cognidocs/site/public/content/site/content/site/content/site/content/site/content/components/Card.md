@@ -12,15 +12,12 @@ interactive features. It supports different visual variants and loading states.
 ## Examples
 
 ```tsx
-```tsx
 <Card title="Example Card" variant="elevated">
   <p>This is the card content</p>
 </Card>
 ```
-```
 
 
-```tsx
 ```tsx
 // With subtitle and click handler
 <Card
@@ -31,7 +28,6 @@ interactive features. It supports different visual variants and loading states.
   <div>Card content here</div>
 </Card>
 ```
-```
 
 ## Props
 | Name | Type | Optional | Description |
@@ -39,7 +35,7 @@ interactive features. It supports different visual variants and loading states.
 | `title` | `string` | No | The title displayed at the top of the card |
 | `subtitle` | `string` | No | Optional subtitle displayed below the title |
 | `children` | `React.ReactNode` | No | Card content (can be text, elements, or other components) |
-| `variant` | `'default' | 'elevated' | 'outlined'` | No | Visual style variant of the card |
+| `variant` | `'default' \| 'elevated' \| 'outlined'` | No | Visual style variant of the card |
 | `loading` | `boolean` | No | Whether the card is in a loading state |
 | `onClick` | `(event: React.MouseEvent<HTMLDivElement>) => void` | No | Callback fired when the card is clicked |
 | `className` | `string` | No | Custom CSS class name |

@@ -8,7 +8,7 @@ Pagination parameters for user lists
 | `page` | `number` | Yes | - |
 | `limit` | `number` | Yes | - |
 | `sortBy` | `keyof User` | Yes | - |
-| `sortOrder` | `'asc' | 'desc'` | Yes | - |
+| `sortOrder` | `'asc' \| 'desc'` | Yes | - |
 | `role` | `UserRole` | Yes | - |
 | `status` | `UserStatus` | Yes | - |
 | `search` | `string` | Yes | - |

@@ -66,6 +66,11 @@ export async function buildCommand(options: BuildOptions = {}): Promise<void> {
 
         // Merge components into parse result
         result.components = components;
+
+        // CRITICAL FIX: Remove component functions from the functions array to prevent duplicates
+        // Component names that were identified as React components should not be documented as functions
+        const componentNames = new Set(components.map(c => c.name));
+        result.functions = result.functions.filter(func => !componentNames.has(func.name));
       }
     }
 

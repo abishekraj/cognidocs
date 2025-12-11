@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Sidebar } from '../Sidebar'; // We will move Sidebar to components or adjust path
 import { CommandPalette } from './CommandPalette';
-import { Footer } from './Footer';
 import { Menu } from 'lucide-react';
 
 interface LayoutProps {
@@ -64,7 +63,6 @@ export function Layout({ children }: LayoutProps) {
         </div>
 
         {children}
-        <Footer />
       </div>
     </div>
   );

@@ -1,6 +1,24 @@
 {
   "nodes": [
     {
+      "id": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/utils/validation.ts",
+      "name": "validation.ts",
+      "type": "file",
+      "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/utils/validation.ts",
+      "exports": [
+        "validateEmail",
+        "validatePassword",
+        "validateUsername",
+        "validatePhoneNumber",
+        "sanitizeInput",
+        "validateUrl",
+        "ValidationResult",
+        "FormData",
+        "ValidationRule"
+      ],
+      "circular": false
+    },
+    {
       "id": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/utils/helpers.ts",
       "name": "helpers.ts",
       "type": "file",
@@ -53,6 +71,21 @@
       "circular": false
     },
     {
+      "id": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/components/UserProfile.tsx",
+      "name": "UserProfile.tsx",
+      "type": "file",
+      "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/components/UserProfile.tsx",
+      "exports": [
+        "getUserDisplayName",
+        "formatUserRole",
+        "UserManager",
+        "UserSettings",
+        "UserRole",
+        "UserStatus"
+      ],
+      "circular": false
+    },
+    {
       "id": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/components/Input.tsx",
       "name": "Input.tsx",
       "type": "file",
@@ -94,8 +127,8 @@
     }
   ],
   "metadata": {
-    "generatedAt": "2025-12-10T14:59:33.746Z",
-    "totalNodes": 7,
+    "generatedAt": "2025-12-11T04:34:49.382Z",
+    "totalNodes": 9,
     "totalEdges": 2,
     "circularDependencies": 0
   }

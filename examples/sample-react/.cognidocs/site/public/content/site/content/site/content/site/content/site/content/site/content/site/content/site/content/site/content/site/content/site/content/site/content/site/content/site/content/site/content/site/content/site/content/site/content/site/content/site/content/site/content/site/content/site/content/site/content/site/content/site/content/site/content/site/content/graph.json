@@ -12,6 +12,67 @@
       "circular": false
     },
     {
+      "id": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/utils/api.ts",
+      "name": "api.ts",
+      "type": "file",
+      "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/utils/api.ts",
+      "exports": [
+        "ApiConfig",
+        "ApiResponse",
+        "fetchData",
+        "postData",
+        "retryRequest",
+        "buildUrl"
+      ],
+      "circular": false
+    },
+    {
+      "id": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/types/user.ts",
+      "name": "user.ts",
+      "type": "file",
+      "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/types/user.ts",
+      "exports": [
+        "UserRole",
+        "UserStatus",
+        "User",
+        "UpdateUserProfile",
+        "AuthCredentials",
+        "UserSession",
+        "UserListParams"
+      ],
+      "circular": false
+    },
+    {
+      "id": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/services/UserService.ts",
+      "name": "UserService.ts",
+      "type": "file",
+      "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/services/UserService.ts",
+      "exports": [
+        "UserService"
+      ],
+      "circular": false
+    },
+    {
+      "id": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/components/Input.tsx",
+      "name": "Input.tsx",
+      "type": "file",
+      "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/components/Input.tsx",
+      "exports": [
+        "Input"
+      ],
+      "circular": false
+    },
+    {
+      "id": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/components/Card.tsx",
+      "name": "Card.tsx",
+      "type": "file",
+      "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/components/Card.tsx",
+      "exports": [
+        "CardProps"
+      ],
+      "circular": false
+    },
+    {
       "id": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/components/Button.tsx",
       "name": "Button.tsx",
       "type": "file",
@@ -22,11 +83,20 @@
       "circular": false
     }
   ],
-  "edges": [],
+  "edges": [
+    {
+      "source": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/services/UserService.ts",
+      "target": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/types/user.ts"
+    },
+    {
+      "source": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/services/UserService.ts",
+      "target": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/utils/api.ts"
+    }
+  ],
   "metadata": {
-    "generatedAt": "2025-12-10T09:28:49.429Z",
-    "totalNodes": 2,
-    "totalEdges": 0,
+    "generatedAt": "2025-12-10T14:22:59.058Z",
+    "totalNodes": 7,
+    "totalEdges": 2,
     "circularDependencies": 0
   }
 }

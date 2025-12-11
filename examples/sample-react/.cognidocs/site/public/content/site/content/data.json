@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generatedAt": "2025-12-11T07:40:50.385Z",
+    "generatedAt": "2025-12-11T12:07:30.157Z",
     "phase": "phase3-documentation",
     "config": {
       "entry": "./src",
@@ -23,7 +23,7 @@
   "stats": {
     "files": 9,
     "components": 4,
-    "functions": 15,
+    "functions": 14,
     "classes": 2,
     "interfaces": 13,
     "types": 5
@@ -1003,23 +1003,7 @@
     },
     {
       "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/components/Input.tsx",
-      "functions": [
-        {
-          "name": "Input",
-          "description": "A controlled input component with validation and error handling.",
-          "parameters": [
-            {
-              "name": "{\n  label,\n  type = 'text',\n  value,\n  onChange,\n  placeholder,\n  error,\n  disabled = false,\n  required = false,\n  maxLength,\n}",
-              "type": "{\n  /** Label text displayed above the input */\n  label: string;\n\n  /** HTML input type */\n  type?: 'text' | 'email' | 'password' | 'number' | 'tel' | 'url';\n\n  /** Current input value */\n  value: string;\n\n  /** Callback fired when input value changes */\n  onChange: (value: string) => void;\n\n  /** Placeholder text shown when input is empty */\n  placeholder?: string;\n\n  /** Error message to display below the input */\n  error?: string;\n\n  /** Whether the input is disabled */\n  disabled?: boolean;\n\n  /** Whether the input is required */\n  required?: boolean;\n\n  /** Maximum number of characters allowed */\n  maxLength?: number;\n}",
-              "optional": false
-            }
-          ],
-          "isExported": true,
-          "isAsync": false,
-          "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/components/Input.tsx",
-          "line": 37
-        }
-      ],
+      "functions": [],
       "classes": [],
       "interfaces": [],
       "types": [],

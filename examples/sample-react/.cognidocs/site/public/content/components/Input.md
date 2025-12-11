@@ -38,7 +38,7 @@ error messages, and various input types support.
 | Name | Type | Optional | Description |
 | :--- | :--- | :------- | :---------- |
 | `label` | `string` | No | Label text displayed above the input |
-| `type` | `'text' | 'email' | 'password' | 'number' | 'tel' | 'url'` | No | HTML input type |
+| `type` | `'text' \| 'email' \| 'password' \| 'number' \| 'tel' \| 'url'` | No | HTML input type |
 | `value` | `string` | No | Current input value |
 | `onChange` | `(value: string) => void` | No | Callback fired when input value changes |
 | `placeholder` | `string` | No | Placeholder text shown when input is empty |

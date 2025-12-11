@@ -13,50 +13,90 @@ import type {
 export class MarkdownGenerator {
   constructor(private outputDir: string) {}
 
+  /**
+   * Escapes pipe characters in type strings to prevent breaking markdown tables
+   */
+  private escapeMarkdownPipes(text: string): string {
+    if (!text) return text;
+    return text.replace(/\|/g, '\\|');
+  }
+
   async generate(results: ParseResult[]): Promise<void> {
     await ensureDir(this.outputDir);
-    await ensureDir(join(this.outputDir, 'components'));
-    await ensureDir(join(this.outputDir, 'functions'));
-    await ensureDir(join(this.outputDir, 'classes'));
-    await ensureDir(join(this.outputDir, 'interfaces'));
-    await ensureDir(join(this.outputDir, 'types'));
+
+    // Clean up old documentation folders to prevent stale files
+    const foldersToClean = ['components', 'functions', 'classes', 'interfaces', 'types'];
+    for (const folder of foldersToClean) {
+      const folderPath = join(this.outputDir, folder);
+      // Remove and recreate to ensure clean state
+      if (await fs.pathExists(folderPath)) {
+        await fs.remove(folderPath);
+      }
+      await ensureDir(folderPath);
+    }
 
     const summary: string[] = ['# Documentation Index\n'];
+
+    // Track documented items to prevent duplicates
+    const documentedItems = {
+      components: new Set<string>(),
+      functions: new Set<string>(),
+      classes: new Set<string>(),
+      interfaces: new Set<string>(),
+      types: new Set<string>(),
+    };
 
     for (const result of results) {
       if (result.components) {
         for (const component of result.components) {
-          await this.generateComponentDoc(component);
-          summary.push(`- [${component.name}](./components/${component.name}.md) (Component)`);
+          if (!documentedItems.components.has(component.name)) {
+            await this.generateComponentDoc(component);
+            summary.push(`- [${component.name}](./components/${component.name}.md) (Component)`);
+            documentedItems.components.add(component.name);
+          } else {
+            console.warn(`⚠️  Skipping duplicate component documentation: ${component.name}`);
+          }
         }
       }
 
       for (const func of result.functions) {
-        // Only document exported functions
-        if (func.isExported) {
+        // Only document exported functions and prevent duplicates
+        if (func.isExported && !documentedItems.functions.has(func.name)) {
           await this.generateFunctionDoc(func);
           summary.push(`- [${func.name}](./functions/${func.name}.md) (Function)`);
+          documentedItems.functions.add(func.name);
+        } else if (func.isExported && documentedItems.functions.has(func.name)) {
+          console.warn(`⚠️  Skipping duplicate function documentation: ${func.name}`);
         }
       }
 
       for (const cls of result.classes) {
-        if (cls.isExported) {
+        if (cls.isExported && !documentedItems.classes.has(cls.name)) {
           await this.generateClassDoc(cls);
           summary.push(`- [${cls.name}](./classes/${cls.name}.md) (Class)`);
+          documentedItems.classes.add(cls.name);
+        } else if (cls.isExported && documentedItems.classes.has(cls.name)) {
+          console.warn(`⚠️  Skipping duplicate class documentation: ${cls.name}`);
         }
       }
 
       for (const iface of result.interfaces) {
-        if (iface.isExported) {
+        if (iface.isExported && !documentedItems.interfaces.has(iface.name)) {
           await this.generateInterfaceDoc(iface);
           summary.push(`- [${iface.name}](./interfaces/${iface.name}.md) (Interface)`);
+          documentedItems.interfaces.add(iface.name);
+        } else if (iface.isExported && documentedItems.interfaces.has(iface.name)) {
+          console.warn(`⚠️  Skipping duplicate interface documentation: ${iface.name}`);
         }
       }
 
       for (const type of result.types) {
-        if (type.isExported) {
+        if (type.isExported && !documentedItems.types.has(type.name)) {
           await this.generateTypeDoc(type);
           summary.push(`- [${type.name}](./types/${type.name}.md) (Type)`);
+          documentedItems.types.add(type.name);
+        } else if (type.isExported && documentedItems.types.has(type.name)) {
+          console.warn(`⚠️  Skipping duplicate type documentation: ${type.name}`);
         }
       }
     }
@@ -96,8 +136,9 @@ export class MarkdownGenerator {
       lines.push('| :--- | :--- | :------- | :---------- |');
 
       for (const prop of component.props) {
+        const escapedType = this.escapeMarkdownPipes(prop.type || 'any');
         lines.push(
-          `| \`${prop.name}\` | \`${prop.type || 'any'}\` | ${prop.optional ? 'Yes' : 'No'} | ${prop.description || '-'} |`
+          `| \`${prop.name}\` | \`${escapedType}\` | ${prop.optional ? 'Yes' : 'No'} | ${prop.description || '-'} |`
         );
       }
     }
@@ -120,8 +161,9 @@ export class MarkdownGenerator {
       lines.push('| :--- | :--- | :------- | :---------- |');
 
       for (const param of func.parameters) {
+        const escapedType = this.escapeMarkdownPipes(param.type || 'any');
         lines.push(
-          `| \`${param.name}\` | \`${param.type || 'any'}\` | ${param.optional ? 'Yes' : 'No'} | ${param.description || '-'} |`
+          `| \`${param.name}\` | \`${escapedType}\` | ${param.optional ? 'Yes' : 'No'} | ${param.description || '-'} |`
         );
       }
     }
@@ -145,7 +187,8 @@ export class MarkdownGenerator {
       lines.push('| Name | Type | Description |');
       lines.push('| :--- | :--- | :---------- |');
       for (const prop of cls.properties) {
-        lines.push(`| \`${prop.name}\` | \`${prop.type || 'any'}\` | ${prop.description || '-'} |`);
+        const escapedType = this.escapeMarkdownPipes(prop.type || 'any');
+        lines.push(`| \`${prop.name}\` | \`${escapedType}\` | ${prop.description || '-'} |`);
       }
       lines.push('');
     }
@@ -173,8 +216,9 @@ export class MarkdownGenerator {
       lines.push('| Name | Type | Optional | Description |');
       lines.push('| :--- | :--- | :------- | :---------- |');
       for (const prop of iface.properties) {
+        const escapedType = this.escapeMarkdownPipes(prop.type || 'any');
         lines.push(
-          `| \`${prop.name}\` | \`${prop.type || 'any'}\` | ${prop.optional ? 'Yes' : 'No'} | ${prop.description || '-'} |`
+          `| \`${prop.name}\` | \`${escapedType}\` | ${prop.optional ? 'Yes' : 'No'} | ${prop.description || '-'} |`
         );
       }
     }

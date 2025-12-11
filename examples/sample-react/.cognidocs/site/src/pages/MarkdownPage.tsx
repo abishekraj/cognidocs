@@ -124,27 +124,35 @@ export function MarkdownPage({ path }: MarkdownPageProps) {
                 <a className="text-primary hover:underline font-medium" {...props} />
               ),
               code: ({ node, inline, className, children, ...props }: any) => {
-                // Extract string from children - handle React elements properly
-                let code = '';
-                if (Array.isArray(children)) {
-                  code = children.map(child => {
-                    if (typeof child === 'string') return child;
-                    if (typeof child === 'number') return String(child);
-                    if (child && typeof child === 'object' && 'props' in child && child.props?.children) {
-                      // React element - extract text from props.children
-                      return String(child.props.children);
+                // Recursively extract string from children - handle React elements and nested structures
+                const extractText = (child: any): string => {
+                  if (!child) return '';
+                  if (typeof child === 'string') return child;
+                  if (typeof child === 'number') return String(child);
+
+                  if (Array.isArray(child)) {
+                    return child.map(c => extractText(c)).join('');
+                  }
+
+                  if (typeof child === 'object') {
+                    // Handle React elements with props.children
+                    if ('props' in child && child.props) {
+                      if (typeof child.props.children === 'string') {
+                        return child.props.children;
+                      }
+                      if (Array.isArray(child.props.children)) {
+                        return child.props.children.map((c: any) => extractText(c)).join('');
+                      }
+                      if (child.props.children) {
+                        return extractText(child.props.children);
+                      }
                     }
-                    return '';
-                  }).join('');
-                } else if (typeof children === 'string' || typeof children === 'number') {
-                  code = String(children);
-                } else if (children && typeof children === 'object' && 'props' in children && children.props?.children) {
-                  // React element - extract text from props.children
-                  code = String(children.props.children);
-                } else {
-                  code = '';
-                }
-                code = code.replace(/\n$/, '');
+                  }
+
+                  return '';
+                };
+
+                const code = extractText(children).replace(/\n$/, '');
 
                 return (
                   <CodeBlock
@@ -178,23 +186,44 @@ export function MarkdownPage({ path }: MarkdownPageProps) {
                 <th className="border border-border px-4 py-2 text-left font-semibold text-foreground" {...props} />
               ),
               td: ({ node, children, ...props }: any) => {
-                // Helper function to strip styling from code elements inside tables
-                const stripCodeStyling = (child: any): any => {
+                // Helper function to extract text from code elements and strip styling
+                const extractTextFromChild = (child: any): string | React.ReactNode => {
                   if (!child) return child;
-                  if (typeof child === 'string' || typeof child === 'number') return child;
-                  if (Array.isArray(child)) return child.map(stripCodeStyling);
+                  if (typeof child === 'string') return child;
+                  if (typeof child === 'number') return String(child);
+                  if (Array.isArray(child)) {
+                    return child.map(c => extractTextFromChild(c)).join('');
+                  }
 
-                  // If it's a code element, render it as plain text
+                  // If it's a code element, extract its text content recursively
                   if (child?.type === 'code' || (typeof child === 'object' && child?.props?.className?.includes('language-'))) {
-                    return <span className="font-mono text-foreground">{child.props?.children || child}</span>;
+                    const codeChildren = child.props?.children;
+                    if (typeof codeChildren === 'string') {
+                      return codeChildren;
+                    } else if (Array.isArray(codeChildren)) {
+                      return codeChildren.map(c => extractTextFromChild(c)).join('');
+                    } else if (codeChildren && typeof codeChildren === 'object') {
+                      return extractTextFromChild(codeChildren);
+                    }
+                    return '';
+                  }
+
+                  // Handle nested React elements
+                  if (typeof child === 'object' && child?.props?.children) {
+                    const nested = child.props.children;
+                    if (typeof nested === 'string') return nested;
+                    if (Array.isArray(nested)) return nested.map(c => extractTextFromChild(c)).join('');
+                    return extractTextFromChild(nested);
                   }
 
                   return child;
                 };
 
+                const processedChildren = extractTextFromChild(children);
+
                 return (
                   <td className="border border-border px-4 py-2 text-foreground" {...props}>
-                    {stripCodeStyling(children)}
+                    <span className="font-mono text-foreground">{processedChildren}</span>
                   </td>
                 );
               },
