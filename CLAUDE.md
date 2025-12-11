@@ -226,6 +226,7 @@ Builds premium static documentation sites:
 - **Advanced Search** - Lunr.js with Cmd+K command palette
 - **Interactive Dependency Graphs** - D3.js force-directed visualization
 - **Mermaid.js Diagrams** - Full support for Mermaid diagrams in markdown (flowcharts, sequence, class, state, ER, Gantt, pie, git graphs)
+- **Callout Boxes** - Four types of callouts (info, warning, tip, danger) with remark-directive syntax (`:::type`)
 - **Responsive Navigation** - Collapsible sidebar with hierarchical sections
 - **Markdown Rendering** - react-markdown with syntax highlighting (rehype-highlight)
 - **Additional Documentation** - Guides section with frontmatter support
@@ -266,6 +267,20 @@ Builds premium static documentation sites:
      - [Sidebar.tsx](packages/site-builder/src/template/src/Sidebar.tsx:185,205)
    - **Result:** Clean focus indicators without overflow
 
+4. **Callout Boxes Implementation** (Content Enhancement)
+   - **Feature:** Added support for four types of callout boxes: info, warning, tip, danger
+   - **Syntax:** Uses remark-directive syntax (`:::type` ... `:::`)
+   - **Components:**
+     - Created [Callout.tsx](packages/site-builder/src/template/src/components/Callout.tsx) with styled variants for each type
+     - Uses Lucide React icons (Info, AlertTriangle, Lightbulb, AlertCircle)
+     - Full dark mode support with theme-aware colors
+   - **Integration:**
+     - Updated [MarkdownPage.tsx](packages/site-builder/src/template/src/pages/MarkdownPage.tsx) with `remarkCallouts()` plugin
+     - Added `remark-directive` and `unist-util-visit` dependencies
+     - Custom div component handler to render Callout components
+   - **Documentation:** Created comprehensive [callout-boxes.md](examples/sample-react/additional-documentation/guides/callout-boxes.md) guide
+   - **Result:** Rich, visually appealing callouts that enhance documentation readability
+
 **CLI Commands:**
 - `cognidocs build` - Parse code and generate documentation site
 - `cognidocs serve` - Start development server on port 4173 (or next available)
@@ -283,6 +298,7 @@ Builds premium static documentation sites:
 - `src/components/ThemeSwitcher.tsx` - Theme dropdown selector
 - `src/components/TableOfContents.tsx` - Auto-generated TOC
 - `src/components/CodeBlock.tsx` - Code blocks with copy functionality
+- `src/components/Callout.tsx` - Callout boxes for highlighting important information
 - `src/pages/MarkdownPage.tsx` - Markdown rendering with enhancements
 - `src/pages/ComponentDetailPage.tsx` - Component documentation display
 - `src/pages/GraphPage.tsx` - Dependency graph visualization

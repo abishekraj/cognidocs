@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import remarkDirective from 'remark-directive';
 import rehypeHighlight from 'rehype-highlight';
 import rehypeSlug from 'rehype-slug';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
+import { visit } from 'unist-util-visit';
 import { TableOfContents } from '../components/TableOfContents';
 import { CodeBlock } from '../components/CodeBlock';
 import { MermaidDiagram } from '../components/MermaidDiagram';
+import { Callout, CalloutType } from '../components/Callout';
 import 'highlight.js/styles/github-dark.css';
 
 interface MarkdownPageProps {
@@ -17,6 +20,27 @@ interface Heading {
   level: number;
   text: string;
   id: string;
+}
+
+// Remark plugin to transform directives into callouts
+function remarkCallouts() {
+  return (tree: any) => {
+    visit(tree, (node: any) => {
+      if (
+        node.type === 'containerDirective' &&
+        ['info', 'warning', 'tip', 'danger'].includes(node.name)
+      ) {
+        const data = node.data || (node.data = {});
+        const tagName = 'div';
+
+        data.hName = tagName;
+        data.hProperties = {
+          className: `callout callout-${node.name}`,
+          'data-callout-type': node.name,
+        };
+      }
+    });
+  };
 }
 
 export function MarkdownPage({ path }: MarkdownPageProps) {
@@ -94,12 +118,23 @@ export function MarkdownPage({ path }: MarkdownPageProps) {
       <div className={`flex-1 ${showTOC ? 'max-w-4xl' : 'max-w-5xl'}`}>
         <article className="prose prose-slate dark:prose-invert max-w-none">
           <ReactMarkdown
-            remarkPlugins={[remarkGfm]}
+            remarkPlugins={[remarkGfm, remarkDirective, remarkCallouts]}
             rehypePlugins={[
               rehypeHighlight,
               rehypeSlug,
             ]}
             components={{
+              div: ({ node, className, children, ...props }: any) => {
+                // Handle callout divs
+                if (className && className.startsWith('callout callout-')) {
+                  const type = props['data-callout-type'] as CalloutType;
+                  if (['info', 'warning', 'tip', 'danger'].includes(type)) {
+                    return <Callout type={type}>{children}</Callout>;
+                  }
+                }
+                // Regular div
+                return <div className={className} {...props}>{children}</div>;
+              },
               h1: ({ node, children, ...props }: any) => (
                 <h1 className="text-4xl font-bold text-foreground mb-4 mt-8 first:mt-0" {...props}>
                   {children}

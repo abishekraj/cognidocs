@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generatedAt": "2025-12-11T17:08:27.435Z",
+    "generatedAt": "2025-12-11T17:33:34.383Z",
     "phase": "phase3-documentation",
     "config": {
       "entry": "./src",
@@ -415,360 +415,6 @@
         "postData",
         "retryRequest",
         "buildUrl"
-      ]
-    },
-    {
-      "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/types/user.ts",
-      "functions": [],
-      "classes": [],
-      "interfaces": [
-        {
-          "name": "User",
-          "description": "Represents a user in the system",
-          "properties": [
-            {
-              "name": "id",
-              "type": "number",
-              "optional": false
-            },
-            {
-              "name": "email",
-              "type": "string",
-              "optional": false
-            },
-            {
-              "name": "name",
-              "type": "string",
-              "optional": false
-            },
-            {
-              "name": "role",
-              "type": "UserRole",
-              "optional": false
-            },
-            {
-              "name": "status",
-              "type": "UserStatus",
-              "optional": false
-            },
-            {
-              "name": "avatarUrl",
-              "type": "string",
-              "optional": true
-            },
-            {
-              "name": "bio",
-              "type": "string",
-              "optional": true
-            },
-            {
-              "name": "createdAt",
-              "type": "Date",
-              "optional": false
-            },
-            {
-              "name": "updatedAt",
-              "type": "Date",
-              "optional": false
-            }
-          ],
-          "isExported": true,
-          "extendsInterfaces": [],
-          "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/types/user.ts",
-          "line": 25
-        },
-        {
-          "name": "UpdateUserProfile",
-          "description": "Partial user data for profile updates",
-          "properties": [
-            {
-              "name": "name",
-              "type": "string",
-              "optional": true
-            },
-            {
-              "name": "bio",
-              "type": "string",
-              "optional": true
-            },
-            {
-              "name": "avatarUrl",
-              "type": "string",
-              "optional": true
-            }
-          ],
-          "isExported": true,
-          "extendsInterfaces": [],
-          "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/types/user.ts",
-          "line": 84
-        },
-        {
-          "name": "AuthCredentials",
-          "description": "User authentication credentials",
-          "properties": [
-            {
-              "name": "email",
-              "type": "string",
-              "optional": false
-            },
-            {
-              "name": "password",
-              "type": "string",
-              "optional": false
-            },
-            {
-              "name": "rememberMe",
-              "type": "boolean",
-              "optional": true
-            }
-          ],
-          "isExported": true,
-          "extendsInterfaces": [],
-          "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/types/user.ts",
-          "line": 101
-        },
-        {
-          "name": "UserSession",
-          "description": "User session information",
-          "properties": [
-            {
-              "name": "token",
-              "type": "string",
-              "optional": false
-            },
-            {
-              "name": "refreshToken",
-              "type": "string",
-              "optional": false
-            },
-            {
-              "name": "expiresAt",
-              "type": "number",
-              "optional": false
-            },
-            {
-              "name": "user",
-              "type": "User",
-              "optional": false
-            }
-          ],
-          "isExported": true,
-          "extendsInterfaces": [],
-          "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/types/user.ts",
-          "line": 127
-        },
-        {
-          "name": "UserListParams",
-          "description": "Pagination parameters for user lists",
-          "properties": [
-            {
-              "name": "page",
-              "type": "number",
-              "optional": true
-            },
-            {
-              "name": "limit",
-              "type": "number",
-              "optional": true
-            },
-            {
-              "name": "sortBy",
-              "type": "keyof User",
-              "optional": true
-            },
-            {
-              "name": "sortOrder",
-              "type": "'asc' | 'desc'",
-              "optional": true
-            },
-            {
-              "name": "role",
-              "type": "UserRole",
-              "optional": true
-            },
-            {
-              "name": "status",
-              "type": "UserStatus",
-              "optional": true
-            },
-            {
-              "name": "search",
-              "type": "string",
-              "optional": true
-            }
-          ],
-          "isExported": true,
-          "extendsInterfaces": [],
-          "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/types/user.ts",
-          "line": 155
-        }
-      ],
-      "types": [
-        {
-          "name": "UserRole",
-          "description": "User role enumeration",
-          "type": "'admin' | 'moderator' | 'user' | 'guest'",
-          "isExported": true,
-          "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/types/user.ts",
-          "line": 11
-        },
-        {
-          "name": "UserStatus",
-          "description": "User status enumeration",
-          "type": "'active' | 'inactive' | 'suspended' | 'banned'",
-          "isExported": true,
-          "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/types/user.ts",
-          "line": 17
-        }
-      ],
-      "imports": [],
-      "exports": [
-        "UserRole",
-        "UserStatus",
-        "User",
-        "UpdateUserProfile",
-        "AuthCredentials",
-        "UserSession",
-        "UserListParams"
-      ]
-    },
-    {
-      "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/services/UserService.ts",
-      "functions": [],
-      "classes": [
-        {
-          "name": "UserService",
-          "description": "Service class for managing user-related API operations.",
-          "properties": [
-            {
-              "name": "baseUrl",
-              "type": "string",
-              "isPrivate": true,
-              "isStatic": false
-            },
-            {
-              "name": "apiKey",
-              "type": "string",
-              "isPrivate": true,
-              "isStatic": false
-            }
-          ],
-          "methods": [
-            {
-              "name": "getUser",
-              "parameters": [
-                {
-                  "name": "userId",
-                  "type": "number",
-                  "optional": false
-                }
-              ],
-              "returnType": "Promise<User>",
-              "isPrivate": false,
-              "isStatic": false,
-              "isAsync": true
-            },
-            {
-              "name": "listUsers",
-              "parameters": [
-                {
-                  "name": "params",
-                  "type": "UserListParams",
-                  "optional": true
-                }
-              ],
-              "returnType": "Promise<User[]>",
-              "isPrivate": false,
-              "isStatic": false,
-              "isAsync": true
-            },
-            {
-              "name": "updateUser",
-              "parameters": [
-                {
-                  "name": "userId",
-                  "type": "number",
-                  "optional": false
-                },
-                {
-                  "name": "updates",
-                  "type": "UpdateUserProfile",
-                  "optional": false
-                }
-              ],
-              "returnType": "Promise<User>",
-              "isPrivate": false,
-              "isStatic": false,
-              "isAsync": true
-            },
-            {
-              "name": "deleteUser",
-              "parameters": [
-                {
-                  "name": "userId",
-                  "type": "number",
-                  "optional": false
-                }
-              ],
-              "returnType": "Promise<void>",
-              "isPrivate": false,
-              "isStatic": false,
-              "isAsync": true
-            },
-            {
-              "name": "getHeaders",
-              "parameters": [],
-              "returnType": "Record<string, string>",
-              "isPrivate": true,
-              "isStatic": false,
-              "isAsync": false
-            },
-            {
-              "name": "isValidUserId",
-              "parameters": [
-                {
-                  "name": "userId",
-                  "type": "number",
-                  "optional": false
-                }
-              ],
-              "returnType": "boolean",
-              "isPrivate": false,
-              "isStatic": true,
-              "isAsync": false
-            }
-          ],
-          "isExported": true,
-          "implementsInterfaces": [],
-          "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/services/UserService.ts",
-          "line": 24
-        }
-      ],
-      "interfaces": [],
-      "types": [],
-      "imports": [
-        {
-          "source": "../types/user",
-          "specifiers": [
-            "User",
-            "UserListParams",
-            "UpdateUserProfile"
-          ],
-          "isDefault": false,
-          "isNamespace": false
-        },
-        {
-          "source": "../utils/api",
-          "specifiers": [
-            "fetchData",
-            "postData"
-          ],
-          "isDefault": false,
-          "isNamespace": false
-        }
-      ],
-      "exports": [
-        "UserService"
       ]
     },
     {
@@ -1316,6 +962,360 @@
           "framework": "react",
           "isExported": true
         }
+      ]
+    },
+    {
+      "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/services/UserService.ts",
+      "functions": [],
+      "classes": [
+        {
+          "name": "UserService",
+          "description": "Service class for managing user-related API operations.",
+          "properties": [
+            {
+              "name": "baseUrl",
+              "type": "string",
+              "isPrivate": true,
+              "isStatic": false
+            },
+            {
+              "name": "apiKey",
+              "type": "string",
+              "isPrivate": true,
+              "isStatic": false
+            }
+          ],
+          "methods": [
+            {
+              "name": "getUser",
+              "parameters": [
+                {
+                  "name": "userId",
+                  "type": "number",
+                  "optional": false
+                }
+              ],
+              "returnType": "Promise<User>",
+              "isPrivate": false,
+              "isStatic": false,
+              "isAsync": true
+            },
+            {
+              "name": "listUsers",
+              "parameters": [
+                {
+                  "name": "params",
+                  "type": "UserListParams",
+                  "optional": true
+                }
+              ],
+              "returnType": "Promise<User[]>",
+              "isPrivate": false,
+              "isStatic": false,
+              "isAsync": true
+            },
+            {
+              "name": "updateUser",
+              "parameters": [
+                {
+                  "name": "userId",
+                  "type": "number",
+                  "optional": false
+                },
+                {
+                  "name": "updates",
+                  "type": "UpdateUserProfile",
+                  "optional": false
+                }
+              ],
+              "returnType": "Promise<User>",
+              "isPrivate": false,
+              "isStatic": false,
+              "isAsync": true
+            },
+            {
+              "name": "deleteUser",
+              "parameters": [
+                {
+                  "name": "userId",
+                  "type": "number",
+                  "optional": false
+                }
+              ],
+              "returnType": "Promise<void>",
+              "isPrivate": false,
+              "isStatic": false,
+              "isAsync": true
+            },
+            {
+              "name": "getHeaders",
+              "parameters": [],
+              "returnType": "Record<string, string>",
+              "isPrivate": true,
+              "isStatic": false,
+              "isAsync": false
+            },
+            {
+              "name": "isValidUserId",
+              "parameters": [
+                {
+                  "name": "userId",
+                  "type": "number",
+                  "optional": false
+                }
+              ],
+              "returnType": "boolean",
+              "isPrivate": false,
+              "isStatic": true,
+              "isAsync": false
+            }
+          ],
+          "isExported": true,
+          "implementsInterfaces": [],
+          "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/services/UserService.ts",
+          "line": 24
+        }
+      ],
+      "interfaces": [],
+      "types": [],
+      "imports": [
+        {
+          "source": "../types/user",
+          "specifiers": [
+            "User",
+            "UserListParams",
+            "UpdateUserProfile"
+          ],
+          "isDefault": false,
+          "isNamespace": false
+        },
+        {
+          "source": "../utils/api",
+          "specifiers": [
+            "fetchData",
+            "postData"
+          ],
+          "isDefault": false,
+          "isNamespace": false
+        }
+      ],
+      "exports": [
+        "UserService"
+      ]
+    },
+    {
+      "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/types/user.ts",
+      "functions": [],
+      "classes": [],
+      "interfaces": [
+        {
+          "name": "User",
+          "description": "Represents a user in the system",
+          "properties": [
+            {
+              "name": "id",
+              "type": "number",
+              "optional": false
+            },
+            {
+              "name": "email",
+              "type": "string",
+              "optional": false
+            },
+            {
+              "name": "name",
+              "type": "string",
+              "optional": false
+            },
+            {
+              "name": "role",
+              "type": "UserRole",
+              "optional": false
+            },
+            {
+              "name": "status",
+              "type": "UserStatus",
+              "optional": false
+            },
+            {
+              "name": "avatarUrl",
+              "type": "string",
+              "optional": true
+            },
+            {
+              "name": "bio",
+              "type": "string",
+              "optional": true
+            },
+            {
+              "name": "createdAt",
+              "type": "Date",
+              "optional": false
+            },
+            {
+              "name": "updatedAt",
+              "type": "Date",
+              "optional": false
+            }
+          ],
+          "isExported": true,
+          "extendsInterfaces": [],
+          "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/types/user.ts",
+          "line": 25
+        },
+        {
+          "name": "UpdateUserProfile",
+          "description": "Partial user data for profile updates",
+          "properties": [
+            {
+              "name": "name",
+              "type": "string",
+              "optional": true
+            },
+            {
+              "name": "bio",
+              "type": "string",
+              "optional": true
+            },
+            {
+              "name": "avatarUrl",
+              "type": "string",
+              "optional": true
+            }
+          ],
+          "isExported": true,
+          "extendsInterfaces": [],
+          "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/types/user.ts",
+          "line": 84
+        },
+        {
+          "name": "AuthCredentials",
+          "description": "User authentication credentials",
+          "properties": [
+            {
+              "name": "email",
+              "type": "string",
+              "optional": false
+            },
+            {
+              "name": "password",
+              "type": "string",
+              "optional": false
+            },
+            {
+              "name": "rememberMe",
+              "type": "boolean",
+              "optional": true
+            }
+          ],
+          "isExported": true,
+          "extendsInterfaces": [],
+          "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/types/user.ts",
+          "line": 101
+        },
+        {
+          "name": "UserSession",
+          "description": "User session information",
+          "properties": [
+            {
+              "name": "token",
+              "type": "string",
+              "optional": false
+            },
+            {
+              "name": "refreshToken",
+              "type": "string",
+              "optional": false
+            },
+            {
+              "name": "expiresAt",
+              "type": "number",
+              "optional": false
+            },
+            {
+              "name": "user",
+              "type": "User",
+              "optional": false
+            }
+          ],
+          "isExported": true,
+          "extendsInterfaces": [],
+          "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/types/user.ts",
+          "line": 127
+        },
+        {
+          "name": "UserListParams",
+          "description": "Pagination parameters for user lists",
+          "properties": [
+            {
+              "name": "page",
+              "type": "number",
+              "optional": true
+            },
+            {
+              "name": "limit",
+              "type": "number",
+              "optional": true
+            },
+            {
+              "name": "sortBy",
+              "type": "keyof User",
+              "optional": true
+            },
+            {
+              "name": "sortOrder",
+              "type": "'asc' | 'desc'",
+              "optional": true
+            },
+            {
+              "name": "role",
+              "type": "UserRole",
+              "optional": true
+            },
+            {
+              "name": "status",
+              "type": "UserStatus",
+              "optional": true
+            },
+            {
+              "name": "search",
+              "type": "string",
+              "optional": true
+            }
+          ],
+          "isExported": true,
+          "extendsInterfaces": [],
+          "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/types/user.ts",
+          "line": 155
+        }
+      ],
+      "types": [
+        {
+          "name": "UserRole",
+          "description": "User role enumeration",
+          "type": "'admin' | 'moderator' | 'user' | 'guest'",
+          "isExported": true,
+          "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/types/user.ts",
+          "line": 11
+        },
+        {
+          "name": "UserStatus",
+          "description": "User status enumeration",
+          "type": "'active' | 'inactive' | 'suspended' | 'banned'",
+          "isExported": true,
+          "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/types/user.ts",
+          "line": 17
+        }
+      ],
+      "imports": [],
+      "exports": [
+        "UserRole",
+        "UserStatus",
+        "User",
+        "UpdateUserProfile",
+        "AuthCredentials",
+        "UserSession",
+        "UserListParams"
       ]
     }
   ]

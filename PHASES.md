@@ -865,7 +865,7 @@ cognidocs serve    # Start development server
 - [ ] **Code Playground:** Embedded live code editor for examples (like CodeSandbox embed)
 - [ ] **Video Embeds:** Support YouTube/Vimeo embeds in additional docs
 - [ ] **Image Galleries:** Support image carousels in documentation
-- [ ] **Callout Boxes:** Support info, warning, tip, danger callout blocks
+- [x] **Callout Boxes:** Support info, warning, tip, danger callout blocks ✅
 - [ ] **Tabs Component:** Support tabbed content in markdown
 - [ ] **Expandable Sections:** Support accordion/collapse in markdown
 

@@ -226,15 +226,6 @@
       },
       {
         "type": "file",
-        "name": "Test Mermaid",
-        "path": "additional-documentation/test-mermaid.md",
-        "title": "Test Mermaid",
-        "description": "Simple test",
-        "category": "Guides",
-        "order": 1
-      },
-      {
-        "type": "file",
         "name": "Mermaid Diagrams Guide",
         "path": "additional-documentation/mermaid-diagrams-guide.md",
         "title": "Mermaid Diagrams Guide",
@@ -264,6 +255,15 @@
             "description": "Code quality and best practices",
             "order": 2,
             "category": "Guides"
+          },
+          {
+            "type": "file",
+            "name": "Callout Boxes Guide",
+            "path": "additional-documentation/guides/callout-boxes.md",
+            "title": "Callout Boxes Guide",
+            "description": "Learn how to use callout boxes to highlight important information in your documentation",
+            "category": "Guides",
+            "order": 4
           }
         ]
       },

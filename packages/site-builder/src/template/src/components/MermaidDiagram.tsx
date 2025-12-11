@@ -28,8 +28,8 @@ export const MermaidDiagram: React.FC<MermaidDiagramProps> = ({ chart, className
           // If it's already a hex color, return it
           if (value.startsWith('#')) return value;
 
-          // If it's HSL format like "265 89% 78%", convert to hsl() format
-          if (/^\d+\s+\d+%\s+\d+%$/.test(value)) {
+          // If it's HSL format like "265 89% 78%" or "221.2 83.2% 53.3%", convert to hsl() format
+          if (/^[\d.]+\s+[\d.]+%\s+[\d.]+%$/.test(value)) {
             const [h, s, l] = value.split(/\s+/);
             return `hsl(${h}, ${s}, ${l})`;
           }
