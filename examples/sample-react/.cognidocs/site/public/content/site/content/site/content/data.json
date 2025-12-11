@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generatedAt": "2025-12-11T04:34:49.360Z",
+    "generatedAt": "2025-12-11T04:46:55.486Z",
     "phase": "phase3-documentation",
     "config": {
       "entry": "./src",
@@ -50,6 +50,7 @@
         },
         {
           "name": "validatePassword",
+          "description": "Validates a password meets minimum security requirements",
           "parameters": [
             {
               "name": "password",
@@ -61,7 +62,7 @@
           "isExported": true,
           "isAsync": false,
           "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/utils/validation.ts",
-          "line": 11
+          "line": 16
         },
         {
           "name": "validateUsername",
@@ -77,10 +78,11 @@
           "isExported": true,
           "isAsync": false,
           "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/utils/validation.ts",
-          "line": 20
+          "line": 25
         },
         {
           "name": "validatePhoneNumber",
+          "description": "Validates a phone number in E.164 format",
           "parameters": [
             {
               "name": "phone",
@@ -92,10 +94,11 @@
           "isExported": true,
           "isAsync": false,
           "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/utils/validation.ts",
-          "line": 24
+          "line": 34
         },
         {
           "name": "sanitizeInput",
+          "description": "Sanitizes user input by trimming whitespace and removing dangerous characters",
           "parameters": [
             {
               "name": "input",
@@ -107,7 +110,7 @@
           "isExported": true,
           "isAsync": false,
           "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/utils/validation.ts",
-          "line": 29
+          "line": 44
         },
         {
           "name": "validateUrl",
@@ -123,13 +126,14 @@
           "isExported": true,
           "isAsync": false,
           "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/utils/validation.ts",
-          "line": 38
+          "line": 53
         }
       ],
       "classes": [],
       "interfaces": [
         {
           "name": "ValidationResult",
+          "description": "Represents the result of a validation operation",
           "properties": [
             {
               "name": "isValid",
@@ -145,10 +149,11 @@
           "isExported": true,
           "extendsInterfaces": [],
           "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/utils/validation.ts",
-          "line": 47
+          "line": 65
         },
         {
           "name": "FormData",
+          "description": "Form data structure for user registration/login",
           "properties": [
             {
               "name": "email",
@@ -169,16 +174,17 @@
           "isExported": true,
           "extendsInterfaces": [],
           "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/utils/validation.ts",
-          "line": 52
+          "line": 75
         }
       ],
       "types": [
         {
           "name": "ValidationRule",
+          "description": "A function that validates a string value",
           "type": "(value: string) => boolean",
           "isExported": true,
           "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/utils/validation.ts",
-          "line": 58
+          "line": 89
         }
       ],
       "imports": [],

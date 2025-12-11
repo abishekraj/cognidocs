@@ -1,10 +1,5 @@
 [
   {
-    "type": "file",
-    "name": "DOCUMENTATION_GUIDE",
-    "path": "DOCUMENTATION_GUIDE.md"
-  },
-  {
     "type": "directory",
     "name": "classes",
     "path": "classes",

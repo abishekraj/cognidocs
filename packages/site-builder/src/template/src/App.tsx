@@ -1,11 +1,15 @@
+import { lazy, Suspense } from 'react';
 import { ThemeProvider } from './ThemeContext';
 import { Layout } from './components/Layout';
 import { PageHeader } from './components/PageHeader';
+import { LoadingSkeleton } from './components/LoadingSkeleton';
 import { useRouter } from './Router';
-import { OverviewPage } from './pages/OverviewPage';
-import { ComponentDetailPage } from './pages/ComponentDetailPage';
-import { MarkdownPage } from './pages/MarkdownPage';
-import { GraphPage } from './pages/GraphPage';
+
+// Lazy load pages for code splitting
+const OverviewPage = lazy(() => import('./pages/OverviewPage').then(m => ({ default: m.OverviewPage })));
+const ComponentDetailPage = lazy(() => import('./pages/ComponentDetailPage').then(m => ({ default: m.ComponentDetailPage })));
+const MarkdownPage = lazy(() => import('./pages/MarkdownPage').then(m => ({ default: m.MarkdownPage })));
+const GraphPage = lazy(() => import('./pages/GraphPage').then(m => ({ default: m.GraphPage })));
 
 function AppContent() {
   const route = useRouter();
@@ -43,7 +47,9 @@ function AppContent() {
     <Layout>
       <PageHeader route={route} />
       <div className="px-6 py-6">
-        {renderPage()}
+        <Suspense fallback={<LoadingSkeleton />}>
+          {renderPage()}
+        </Suspense>
       </div>
     </Layout>
   );

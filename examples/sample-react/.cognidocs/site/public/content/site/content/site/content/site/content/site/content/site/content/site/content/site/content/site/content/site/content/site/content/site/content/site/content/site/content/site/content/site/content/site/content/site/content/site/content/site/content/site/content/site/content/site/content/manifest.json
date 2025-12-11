@@ -1,8 +1,8 @@
 [
   {
     "type": "file",
-    "name": "README",
-    "path": "README.md"
+    "name": "DOCUMENTATION_GUIDE",
+    "path": "DOCUMENTATION_GUIDE.md"
   },
   {
     "type": "directory",

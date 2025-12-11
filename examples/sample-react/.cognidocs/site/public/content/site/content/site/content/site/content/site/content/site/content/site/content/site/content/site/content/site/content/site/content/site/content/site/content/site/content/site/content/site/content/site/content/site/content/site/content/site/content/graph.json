@@ -27,6 +27,22 @@
       "circular": false
     },
     {
+      "id": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/types/user.ts",
+      "name": "user.ts",
+      "type": "file",
+      "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/types/user.ts",
+      "exports": [
+        "UserRole",
+        "UserStatus",
+        "User",
+        "UpdateUserProfile",
+        "AuthCredentials",
+        "UserSession",
+        "UserListParams"
+      ],
+      "circular": false
+    },
+    {
       "id": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/components/Input.tsx",
       "name": "Input.tsx",
       "type": "file",
@@ -57,22 +73,6 @@
       "circular": false
     },
     {
-      "id": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/types/user.ts",
-      "name": "user.ts",
-      "type": "file",
-      "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/types/user.ts",
-      "exports": [
-        "UserRole",
-        "UserStatus",
-        "User",
-        "UpdateUserProfile",
-        "AuthCredentials",
-        "UserSession",
-        "UserListParams"
-      ],
-      "circular": false
-    },
-    {
       "id": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/services/UserService.ts",
       "name": "UserService.ts",
       "type": "file",
@@ -94,7 +94,7 @@
     }
   ],
   "metadata": {
-    "generatedAt": "2025-12-10T09:53:07.338Z",
+    "generatedAt": "2025-12-10T14:03:41.570Z",
     "totalNodes": 7,
     "totalEdges": 2,
     "circularDependencies": 0
