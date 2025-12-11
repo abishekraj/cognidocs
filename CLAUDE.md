@@ -4,12 +4,15 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Status
 
-**Current Phase:** Phase 3 (Core Documentation) - 🟡 IN PROGRESS
+**Current Phase:** Phase 3.5 (Premium UI) - 🟢 COMPLETE
 - ✅ Phase 1 (Foundation) - COMPLETE
 - ✅ Phase 2 (Analysis & Coverage) - COMPLETE
-- 🟡 Phase 3 (Core Documentation) - IN PROGRESS
+- ✅ Phase 3 (Core Documentation) - COMPLETE
+- ✅ Phase 3.5 (Premium UI & Compodoc-Style Documentation) - COMPLETE
 
 CogniDocs is a comprehensive JavaScript/TypeScript documentation tool combining features from Compodoc and Storybook with AI capabilities. The project uses a monorepo architecture with Turbo, organized into 10 development phases.
+
+**Latest Milestone:** Production-ready documentation site with premium UI, 12 themes, advanced search (Cmd+K), and comprehensive content rendering.
 
 ## Essential Commands
 
@@ -78,12 +81,12 @@ packages/          # Core library packages
 ├── parser/       # ✅ TypeScript/React AST parser (Phase 1)
 ├── analyzer/     # ✅ Dependency analysis (Phase 2)
 ├── coverage/     # ✅ Coverage tracking (Phase 2)
-├── docs-generator/  # 🟡 Doc generation (Phase 3)
-├── site-builder/    # 🟡 Static site builder (Phase 3)
-├── graph-viz/       # 🟡 Visualizations (Phase 3)
-├── plugin-core/     # 🟡 Plugin system (Phase 3)
-├── component-preview/  # 🔴 Live previews (Phase 5)
-├── ai/              # 🔴 AI integration (Phase 6)
+├── docs-generator/  # ✅ Doc generation (Phase 3)
+├── site-builder/    # ✅ Static site builder (Phase 3.5)
+├── graph-viz/       # ✅ Visualizations (Phase 3.5)
+├── plugin-core/     # ✅ Plugin system (Phase 3-4)
+├── component-preview/  # 🔴 Live previews (Phase 6)
+├── ai/              # 🔴 AI integration (Phase 7)
 └── testing/         # ✅ Test utilities (Phase 1)
 
 shared/           # Shared libraries
@@ -194,7 +197,7 @@ Calculates documentation coverage metrics:
 - `cognidocs analyze` - Generate dependency analysis
 - `cognidocs coverage` - Calculate documentation coverage
 
-## Phase 3 Implementation (IN PROGRESS)
+## Phase 3 & 3.5 Implementation (COMPLETE)
 
 ### Documentation Generator
 **File:** `packages/docs-generator/src/DocsGenerator.ts`
@@ -202,30 +205,74 @@ Calculates documentation coverage metrics:
 Converts parsed metadata into structured documentation:
 - Generates markdown documentation files
 - Organizes content by categories (components, functions, classes, etc.)
+- Processes additional-documentation folder
+- Parses frontmatter metadata (title, description, category, order)
 - Supports multiple output formats
 
 ### Site Builder
 **File:** `packages/site-builder/src/SiteBuilder.ts`
 
-Builds static documentation sites:
-- React-based site template with Vite
-- Component search functionality (using Lunr.js)
-- Interactive dependency graphs (D3.js)
-- Responsive sidebar navigation
-- Markdown rendering with react-markdown
+Builds premium static documentation sites:
+- **React + Vite + TypeScript** - Modern build stack
+- **Shadcn/ui + Tailwind CSS** - Premium UI components
+- **12 Professional Themes** - GitBook, GitHub, Nord, Dracula, Monokai, Solarized, One Dark, Material (with light/dark variants)
+- **Advanced Search** - Lunr.js with Cmd+K command palette
+- **Interactive Dependency Graphs** - D3.js force-directed visualization
+- **Responsive Navigation** - Collapsible sidebar with hierarchical sections
+- **Markdown Rendering** - react-markdown with syntax highlighting (rehype-highlight)
+- **Additional Documentation** - Guides section with frontmatter support
+- **Code Blocks** - Copy-to-clipboard, language badges, proper React element handling
+- **Table of Contents** - Auto-generated sticky TOC for long pages
+- **Project Branding** - Custom header with project name and version
+
+**Key Features:**
+- Hash-based routing for SPA navigation
+- Frontmatter stripping (YAML metadata hidden from rendered output)
+- Non-clickable section headers (TOC-only navigation)
+- Normalized table styling for component props
+- Proper code rendering in all contexts (inline, block, tables)
+- Theme persistence with localStorage
+- Mobile-responsive design
 
 **CLI Commands:**
-- `cognidocs serve` - Start development server on port 3000
+- `cognidocs build` - Parse code and generate documentation site
+- `cognidocs serve` - Start development server on port 4173 (or next available)
 - `cognidocs serve --port <port>` - Use custom port
+
+### Site Template Structure
+**Path:** `packages/site-builder/src/template/`
+
+**Key Components:**
+- `src/App.tsx` - Main application with hash-based routing
+- `src/Sidebar.tsx` - Navigation with search, theme switcher, hierarchical sections
+- `src/components/Layout.tsx` - Page layout with header, sidebar, content
+- `src/components/Header.tsx` - Project branding and navigation
+- `src/components/CommandPalette.tsx` - Cmd+K advanced search
+- `src/components/ThemeSwitcher.tsx` - Theme dropdown selector
+- `src/components/TableOfContents.tsx` - Auto-generated TOC
+- `src/components/CodeBlock.tsx` - Code blocks with copy functionality
+- `src/pages/MarkdownPage.tsx` - Markdown rendering with enhancements
+- `src/pages/ComponentDetailPage.tsx` - Component documentation display
+- `src/pages/GraphPage.tsx` - Dependency graph visualization
+
+**Markdown Rendering Features:**
+- Frontmatter removal via regex `/^---\n[\s\S]*?\n---\n*/`
+- Custom heading components (h1-h4) without auto-links
+- Normalized table styling
+- Code block handling with React element text extraction
+- TOC heading extraction after frontmatter removal
 
 ### Graph Visualization
 **File:** `packages/graph-viz/src/DependencyGraph.tsx`
 
 React component for interactive dependency graphs:
-- D3.js force-directed graph visualization
+- D3.js force-directed graph visualization with force simulation
 - Node highlighting on hover
-- Zoom and pan controls
+- Zoom and pan controls (D3 zoom behavior)
+- Drag nodes for manual layout adjustments
 - Shows module relationships and dependencies
+- Supports both array and object node data formats
+- Flexible edge property naming (source/target or from/to)
 
 ### Plugin System
 **File:** `packages/plugin-core/src/index.ts`
@@ -233,7 +280,7 @@ React component for interactive dependency graphs:
 Core plugin infrastructure:
 - Plugin lifecycle hooks
 - Type-safe plugin interfaces
-- Plugin loading and initialization
+- Plugin loading and initialization (basic implementation)
 
 ## Output Format
 
@@ -242,12 +289,15 @@ Core plugin infrastructure:
 - `docs/data.json` - Full parsed metadata including parse results, dependency graph, coverage metrics
 - `docs/components/*.json` - Individual component files
 
-### Phase 3 Output
+### Phase 3 & 3.5 Output
 `cognidocs build` + `cognidocs serve` generates:
-- React-based documentation site (Vite + React)
-- Search index (Lunr.js)
-- Interactive dependency graphs (D3.js)
-- Static site ready for deployment
+- **Premium documentation site** - React + Vite + TypeScript + Shadcn/ui
+- **Markdown documentation** - Auto-generated from code with frontmatter metadata
+- **Search index** - Lunr.js with Cmd+K command palette
+- **Interactive dependency graphs** - D3.js force-directed visualization
+- **12 Professional themes** - Light/dark variants with localStorage persistence
+- **Additional documentation** - Guides section from `/additional-documentation/` folder
+- **Static site ready for deployment** - Production build with optimized assets
 
 Example component JSON:
 ```json
@@ -384,28 +434,44 @@ cognidocs serve
 
 ## Next Steps: Phase 4+
 
-**Current Focus:** Complete Phase 3 site builder and documentation generation
+**Current Focus:** Phase 3.5 is COMPLETE. Ready for next phase selection.
 
-**Phase 4 - Enhanced Visualizations:**
+**Recommended Next Tasks (Phase 3.5 Polish):**
+- **Task 7:** Statistics & Metrics Dashboard (Overview Page)
+  - Display project metrics (components, coverage, test stats)
+  - Visual charts (coverage pie chart, file type distribution)
+  - Quick links and project metadata
+- **Task 8:** Mobile Responsiveness & Accessibility
+  - WCAG 2.1 AA compliance verification
+  - Mobile optimization and testing
+  - ARIA labels and keyboard navigation
+- **Task 9:** Performance Optimization
+  - Code splitting and lazy loading
+  - Bundle size optimization
+  - Loading skeletons and caching
+
+**Future Phase Options:**
+
+**Phase 4 - Plugin System & Enhanced Visualizations:**
 - Advanced graph layouts (hierarchical, circular)
 - Component relationship diagrams
-- Call graphs and flow diagrams
-- Mermaid.js integration
+- Mermaid.js integration for diagrams in markdown
+- Custom plugin development
 
-**Phase 5 - Component Previews:**
+**Phase 6 - Component Previews:**
 - Live component playground
 - Props editing interface
 - Multiple framework support (React, Vue, Svelte)
 - Hot module replacement
 
-**Phase 6 - AI Integration:**
+**Phase 7 - AI Integration:**
 - OpenAI/Anthropic integration
 - Semantic search with vector embeddings
 - Auto-generate missing documentation
 - Interactive chatbot for codebase queries
 
 **To start next phase:**
-Reference the phase in conversation: "Let's implement Phase 4" or "Add enhanced visualizations"
+Reference the phase in conversation: "Let's work on Task 7" or "Start Phase 4" or "Add component previews"
 
 ## References
 

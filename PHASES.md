@@ -125,7 +125,7 @@ cognidocs serve    # Start development server
 
 ---
 
-## Phase 3.5: Premium UI & Compodoc-Style Documentation (Weeks 6-7) 🟡 IN PROGRESS
+## Phase 3.5: Premium UI & Compodoc-Style Documentation (Weeks 6-7) 🟢 COMPLETE
 
 **Goal:** Transform the documentation site into a premium, production-ready interface matching Compodoc quality with modern enhancements.
 
@@ -147,7 +147,11 @@ cognidocs serve    # Start development server
 - ✅ Markdown rendering with react-markdown and plugins
 - ✅ Sidebar navigation cleanup (removed duplicate Components section)
 - ✅ Fixed graph data format compatibility issues
-- 🟡 Ready for Task 5: Enhanced Content Rendering (additional features)
+- ✅ Enhanced content rendering with all UI/UX improvements
+- ✅ Additional documentation system (Guides section)
+- ✅ Frontmatter stripping and proper code rendering
+- ✅ Table styling normalization and header link removal
+- ✅ Code blocks with copy functionality and syntax highlighting
 
 ---
 
@@ -303,7 +307,7 @@ cognidocs serve    # Start development server
 
 ---
 
-### Task 5: Enhanced Content Rendering & Documentation Pages ✅ MOSTLY COMPLETE
+### Task 5: Enhanced Content Rendering & Documentation Pages ✅ COMPLETE
 
 **Subtasks:**
 - [x] Implement proper routing system (hash-based routing implemented)
@@ -313,24 +317,25 @@ cognidocs serve    # Start development server
   - [x] **Component Detail Page** (basic implementation exists)
   - [x] **Graph Page** (dependency graph visualization working)
   - [x] **Markdown Pages** (for documentation files via MarkdownPage)
-  - [ ] **Module Page** (exports, imports, dependencies - needs enhancement)
-  - [ ] **Coverage Report Page** (visual charts, metrics - planned)
+  - [ ] **Module Page** (exports, imports, dependencies - needs enhancement) - DEFERRED
+  - [ ] **Coverage Report Page** (visual charts, metrics - planned) - DEFERRED
   - [x] **Additional Docs Pages** (custom markdown files from manifest - working)
 - [x] **Custom Header with Project Name:**
   - [x] Display project name from package.json on header left
   - [x] Display "CogniDocs" branding on header right/nav bar
   - [x] Display version number from package.json
-  - [ ] Support custom logo via config (TODO placeholder added)
+  - [ ] Support custom logo via config (TODO placeholder added) - DEFERRED
   - [x] Make header sticky on scroll
-- [ ] **Additional Documentation System:**
-  - Support `/additional-documentation/` folder in project root
-  - Auto-discover and render all .md files in the folder
-  - Support nested folder structure (categories)
-  - Generate navigation sidebar section for additional docs
-  - Support custom ordering via frontmatter (order: 1, 2, 3)
-  - Parse frontmatter for metadata (title, description, category)
-  - Render as separate pages: `/additional-documentation/{filename}.html`
-  - Display in sidebar under "Additional Documentation" section
+- [x] **Additional Documentation System:**
+  - [x] Support `/additional-documentation/` folder in project root
+  - [x] Auto-discover and render all .md files in the folder
+  - [x] Support nested folder structure (categories)
+  - [x] Generate navigation sidebar section for additional docs (displayed as "Guides")
+  - [x] Support custom ordering via frontmatter (order: 1, 2, 3)
+  - [x] Parse frontmatter for metadata (title, description, category)
+  - [x] Render as separate pages via hash routing
+  - [x] Display in sidebar under "Guides" section (appears ABOVE Documentation section)
+  - [x] Strip frontmatter from rendered output (invisible to users)
 - [x] **README Integration:**
   - [x] Auto-render project README.md as "Introduction" page
   - [x] Make it accessible via Introduction route
@@ -340,71 +345,140 @@ cognidocs serve    # Start development server
   - [x] Auto-scroll to section with smooth scroll
   - [x] Active section highlighting
   - [x] Only show for pages with 3+ headings
+  - [x] Extract headings after frontmatter removal for accuracy
 - [x] Implement breadcrumb navigation showing full path
-- [ ] Add "Edit on GitHub" links (configurable repo URL)
-- [ ] Create component metadata display:
-  - Props table with types, defaults, descriptions
-  - Methods/Functions with signatures
-  - Source code viewer with syntax highlighting
-  - Examples/Usage section
-  - Related components/dependencies
+- [ ] Add "Edit on GitHub" links (configurable repo URL) - DEFERRED
+- [x] Create component metadata display:
+  - [x] Props table with types, defaults, descriptions (normalized styling)
+  - [x] Methods/Functions with signatures
+  - [x] Source code viewer with syntax highlighting
+  - [x] Examples/Usage section
+  - [ ] Related components/dependencies - DEFERRED
 - [x] Add copy-to-clipboard for code blocks
   - [x] Copy button with success feedback
   - [x] Language badge display
   - [x] Styled code blocks with borders
-- [x] Implement anchor links for headings (via rehype-autolink-headings)
-- [ ] Add prev/next navigation buttons
+  - [x] Proper React element text extraction for code rendering
+- [x] Heading links and navigation improvements:
+  - [x] Removed clickable header links (prevented 404 navigation)
+  - [x] Section headers no longer auto-linked (only TOC navigates)
+  - [x] Clean heading rendering without wrapper links
+- [x] Table styling improvements:
+  - [x] Normalized table cell styling (removed prominent/bold text)
+  - [x] Consistent text-foreground color for all table content
+  - [x] Fixed code block rendering in table cells
+- [ ] Add prev/next navigation buttons - DEFERRED
 
-**Files to Create/Modify:**
-- `packages/site-builder/src/template/src/App.tsx` (enhanced routing)
-- `packages/site-builder/src/template/src/components/Header.tsx` (new - project name + CogniDocs branding)
-- `packages/site-builder/src/template/src/pages/` (new directory)
-  - `OverviewPage.tsx`
-  - `ComponentPage.tsx`
-  - `ModulePage.tsx`
-  - `CoveragePage.tsx`
-  - `AdditionalDocPage.tsx`
-- `packages/site-builder/src/template/src/components/TableOfContents.tsx` (new)
-- `packages/site-builder/src/template/src/components/Breadcrumbs.tsx` (new)
-- `packages/site-builder/src/template/src/components/CodeBlock.tsx` (new)
-- `packages/site-builder/src/template/src/components/PropsTable.tsx` (new)
-- `packages/docs-generator/src/DocsGenerator.ts` (process additional-documentation folder)
-- `packages/site-builder/src/SiteBuilder.ts` (copy additional docs, parse frontmatter)
+**Files Created/Modified:**
+- ✅ `packages/site-builder/src/template/src/App.tsx` (enhanced routing)
+- ✅ `packages/site-builder/src/template/src/components/Header.tsx` (new - project name + CogniDocs branding)
+- ✅ `packages/site-builder/src/template/src/pages/MarkdownPage.tsx` (complete rewrite with improvements)
+- ✅ `packages/site-builder/src/template/src/pages/ComponentDetailPage.tsx` (enhanced)
+- ✅ `packages/site-builder/src/template/src/pages/GraphPage.tsx` (working)
+- ✅ `packages/site-builder/src/template/src/components/TableOfContents.tsx` (new)
+- ✅ `packages/site-builder/src/template/src/components/Breadcrumbs.tsx` (new)
+- ✅ `packages/site-builder/src/template/src/components/CodeBlock.tsx` (new - with copy functionality)
+- ✅ `packages/site-builder/src/template/src/Sidebar.tsx` (reorganized navigation structure)
+- ✅ `packages/docs-generator/src/DocsGenerator.ts` (process additional-documentation folder)
+- ✅ `packages/site-builder/src/SiteBuilder.ts` (copy additional docs, parse frontmatter)
 
 **Deliverables:**
-- Rich, informative documentation pages
-- Clear information hierarchy
-- Additional documentation support (like Compodoc)
-- Project-branded header
-- README as introduction page
-- Easy navigation within and between pages
+- ✅ Rich, informative documentation pages with proper markdown rendering
+- ✅ Clear information hierarchy with normalized styling
+- ✅ Additional documentation support (Guides section above Documentation)
+- ✅ Project-branded header with version display
+- ✅ README as introduction page
+- ✅ Easy navigation within and between pages
+- ✅ Frontmatter stripping for clean output
+- ✅ Non-clickable section headers (TOC-only navigation)
+- ✅ Code blocks with proper text extraction and copy functionality
+- ✅ Normalized table styling for component props
 
 ---
 
-### Task 6: Syntax Highlighting & Code Display
+### Task 6: Syntax Highlighting & Code Display ✅ COMPLETE
 
 **Subtasks:**
-- [ ] Integrate Shiki or Prism for syntax highlighting
-- [ ] Support multiple languages (TypeScript, JavaScript, JSX, TSX, JSON, CSS, HTML)
-- [ ] Add line numbers to code blocks
-- [ ] Implement code block features:
-  - Copy button
-  - Language badge
-  - Line highlighting for specific lines
-  - Expandable/collapsible for long code
-- [ ] Match syntax theme to selected site theme
-- [ ] Add diff highlighting for before/after examples
-- [ ] Optimize performance for large code blocks
+- [x] Integrate syntax highlighting (using rehype-highlight)
+- [x] Support multiple languages (TypeScript, JavaScript, JSX, TSX, JSON, CSS, HTML, etc.)
+- [x] Add line numbers to code blocks (optional, implemented in CodeBlock component)
+- [x] Implement code block features:
+  - [x] Copy button with success feedback
+  - [x] Language badge display
+  - [ ] Line highlighting for specific lines - DEFERRED
+  - [ ] Expandable/collapsible for long code - DEFERRED
+- [ ] Match syntax theme to selected site theme - DEFERRED (using default highlight.js themes)
+- [ ] Add diff highlighting for before/after examples - DEFERRED
+- [x] Optimize performance for large code blocks
 
-**Files to Create/Modify:**
-- `packages/site-builder/src/template/src/components/CodeBlock.tsx` (new)
-- `packages/site-builder/src/template/src/lib/syntax-highlighter.ts` (new)
-- Update ReactMarkdown configuration in pages
+**Files Created/Modified:**
+- ✅ `packages/site-builder/src/template/src/components/CodeBlock.tsx` (new - with copy & language badge)
+- ✅ `packages/site-builder/src/template/src/pages/MarkdownPage.tsx` (ReactMarkdown with rehype-highlight)
 
 **Deliverables:**
-- Beautiful, readable code blocks
-- Theme-matched syntax highlighting
-- Developer-friendly features
+- ✅ Beautiful, readable code blocks with proper styling
+- ✅ Syntax highlighting via rehype-highlight
+- ✅ Developer-friendly copy-to-clipboard functionality
+- ✅ Language badge display for code blocks
+- ✅ Proper handling of inline vs block code
+- ✅ React element text extraction for accurate code rendering
+
+---
+
+### Task 5.5: UI/UX Polish & Bug Fixes ✅ COMPLETE
+
+**Goal:** Fix rendering issues and improve overall user experience based on testing feedback.
+
+**Subtasks:**
+- [x] **Sidebar Organization:**
+  - [x] Rename "API Documentation" to "Documentation"
+  - [x] Move "Guides" (additional-documentation) ABOVE "Documentation" section
+  - [x] Maintain clean separation between user guides and auto-generated API docs
+- [x] **Code Block Rendering Fixes:**
+  - [x] Fix `[Object Object]` display issue in code blocks
+  - [x] Implement proper React element text extraction
+  - [x] Handle both string children and React element children
+  - [x] Support arrays of mixed children types
+  - [x] Fix code rendering in table cells
+- [x] **Frontmatter Handling:**
+  - [x] Strip YAML frontmatter from rendered markdown
+  - [x] Keep frontmatter in source files for metadata
+  - [x] Apply frontmatter removal before rendering and TOC extraction
+  - [x] Use regex pattern `/^---\n[\s\S]*?\n---\n*/` for removal
+- [x] **Header Link Improvements:**
+  - [x] Remove clickable links from section headers (Props, Classes, Methods, etc.)
+  - [x] Prevent 404 navigation errors from auto-linked headers
+  - [x] Remove `rehypeAutolinkHeadings` plugin
+  - [x] Update heading components to render plain children
+  - [x] Keep TOC navigation working (only way to navigate to sections)
+- [x] **Table Styling Normalization:**
+  - [x] Remove prominent/bold styling from table cells
+  - [x] Use consistent `text-foreground` color for all table content
+  - [x] Fix Name, Type, and Description columns in Props tables
+  - [x] Maintain proper code block rendering within tables
+- [x] **TOC Accuracy:**
+  - [x] Extract headings after frontmatter removal
+  - [x] Ensure only heading lines are matched (not content text)
+  - [x] Verify heading regex `/^(#{1,6})\s+(.+)$/gm` works correctly
+
+**Files Modified:**
+- ✅ `packages/site-builder/src/template/src/Sidebar.tsx` (navigation reorganization)
+- ✅ `packages/site-builder/src/template/src/pages/MarkdownPage.tsx` (multiple rendering improvements)
+- ✅ `packages/site-builder/src/template/src/components/CodeBlock.tsx` (React element handling)
+
+**Issues Resolved:**
+1. ✅ Code blocks showing `[Object Object]` instead of actual code
+2. ✅ YAML frontmatter visible in rendered documentation
+3. ✅ Section headers causing 404 navigation errors when clicked
+4. ✅ Table cells with overly prominent styling
+5. ✅ Sidebar navigation order (Guides before Documentation)
+
+**Deliverables:**
+- ✅ Clean, professional documentation rendering without artifacts
+- ✅ Improved navigation UX (non-clickable headers, proper TOC-only navigation)
+- ✅ Normalized visual styling across all documentation pages
+- ✅ Proper code block rendering in all contexts (inline, block, tables)
+- ✅ Invisible frontmatter processing (metadata preserved, display hidden)
 
 ---
 
@@ -637,21 +711,30 @@ cognidocs serve    # Start development server
 
 **Core Features (Must-Have for MVP):**
 - ✅ Premium documentation site matching Compodoc quality
-- ✅ 8+ professional themes with dark/light modes
+- ✅ 12 professional themes with dark/light modes (GitBook, GitHub, Nord, Dracula, Monokai, Solarized, One Dark, Material)
 - ✅ Advanced search with Cmd+K command palette
 - ✅ Comprehensive component documentation pages
-- ✅ Mobile-responsive and accessible (WCAG AA)
+- ✅ Mobile-responsive and accessible (WCAG AA ready)
 - ✅ Fast performance (<200KB initial, <2s load)
 - ✅ Professional UI using shadcn/ui components
 - ✅ Rich content features (TOC, breadcrumbs, syntax highlighting)
-- ✅ Metrics dashboard and overview page
+- ✅ Metrics dashboard and overview page (basic)
 - ✅ Additional documentation support (/additional-documentation/ folder)
-- ✅ Project-branded header with custom logo support
+- ✅ Project-branded header with version display
 - ✅ README as introduction page
+- ✅ Code blocks with copy-to-clipboard functionality
+- ✅ Proper markdown rendering with frontmatter stripping
+- ✅ Non-clickable section headers (TOC-only navigation)
+- ✅ Normalized table styling for component props
+- ✅ Sidebar organization (Guides above Documentation)
 
 **Premium Features (Nice-to-Have):**
 - 🎯 Select features from Task 11 based on priority
 - 🎯 Can be implemented in phases 4-6
+- 📋 Custom logo support (placeholder exists)
+- 📋 Edit on GitHub links
+- 📋 Prev/next navigation buttons
+- 📋 Module and Coverage Report pages
 
 ### Commands
 

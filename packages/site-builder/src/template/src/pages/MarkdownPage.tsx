@@ -97,20 +97,27 @@ export function MarkdownPage({ path }: MarkdownPageProps) {
             rehypePlugins={[
               rehypeHighlight,
               rehypeSlug,
-              [rehypeAutolinkHeadings, { behavior: 'wrap' }],
             ]}
             components={{
-              h1: ({ node, ...props }) => (
-                <h1 className="text-4xl font-bold text-foreground mb-4 mt-8 first:mt-0" {...props} />
+              h1: ({ node, children, ...props }: any) => (
+                <h1 className="text-4xl font-bold text-foreground mb-4 mt-8 first:mt-0" {...props}>
+                  {children}
+                </h1>
               ),
-              h2: ({ node, ...props }) => (
-                <h2 className="text-3xl font-bold text-foreground mb-3 mt-6 border-b border-border pb-2" {...props} />
+              h2: ({ node, children, ...props }: any) => (
+                <h2 className="text-3xl font-bold text-foreground mb-3 mt-6 border-b border-border pb-2" {...props}>
+                  {children}
+                </h2>
               ),
-              h3: ({ node, ...props }) => (
-                <h3 className="text-2xl font-semibold text-foreground mb-2 mt-5" {...props} />
+              h3: ({ node, children, ...props }: any) => (
+                <h3 className="text-2xl font-semibold text-foreground mb-2 mt-5" {...props}>
+                  {children}
+                </h3>
               ),
-              h4: ({ node, ...props }) => (
-                <h4 className="text-xl font-semibold text-foreground mb-2 mt-4" {...props} />
+              h4: ({ node, children, ...props }: any) => (
+                <h4 className="text-xl font-semibold text-foreground mb-2 mt-4" {...props}>
+                  {children}
+                </h4>
               ),
               p: ({ node, ...props }) => <p className="text-foreground mb-4 leading-7" {...props} />,
               a: ({ node, ...props }) => (
@@ -168,9 +175,13 @@ export function MarkdownPage({ path }: MarkdownPageProps) {
               ),
               thead: ({ node, ...props }) => <thead className="bg-muted" {...props} />,
               th: ({ node, ...props }) => (
-                <th className="border border-border px-4 py-2 text-left font-semibold" {...props} />
+                <th className="border border-border px-4 py-2 text-left font-semibold text-foreground" {...props} />
               ),
-              td: ({ node, ...props }) => <td className="border border-border px-4 py-2" {...props} />,
+              td: ({ node, children, ...props }: any) => (
+                <td className="border border-border px-4 py-2 text-foreground" {...props}>
+                  {typeof children === 'object' && children?.type === 'code' ? children : children}
+                </td>
+              ),
             }}
           >
             {content}
