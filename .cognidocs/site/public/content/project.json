@@ -1,0 +1,7 @@
+{
+  "name": "cognidocs",
+  "description": "AI-powered documentation tool for JavaScript/TypeScript projects",
+  "version": "0.1.0",
+  "repository": "https://github.com/yourusername/cognidocs.git",
+  "license": "MIT"
+}

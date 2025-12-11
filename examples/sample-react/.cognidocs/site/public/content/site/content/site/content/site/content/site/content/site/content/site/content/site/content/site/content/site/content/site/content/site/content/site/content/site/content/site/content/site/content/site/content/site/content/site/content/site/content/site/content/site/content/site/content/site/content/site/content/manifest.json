@@ -6,12 +6,6 @@
   },
   {
     "type": "directory",
-    "name": "classes",
-    "path": "classes",
-    "children": []
-  },
-  {
-    "type": "directory",
     "name": "components",
     "path": "components",
     "children": [
@@ -50,11 +44,5 @@
         "path": "interfaces/ButtonProps.md"
       }
     ]
-  },
-  {
-    "type": "directory",
-    "name": "types",
-    "path": "types",
-    "children": []
   }
 ]

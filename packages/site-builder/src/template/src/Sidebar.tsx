@@ -7,6 +7,7 @@ import {
   BookOpen,
   Network,
   Home,
+  BarChart3,
 } from 'lucide-react';
 import { cn } from './lib/utils';
 import { Input } from './components/ui/input';
@@ -177,6 +178,12 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
             <div className="space-y-4">
               {/* Overview Section */}
               <NavigationSection title="Overview" icon={Home} defaultOpen={true}>
+                <NavigationItem
+                  label="Project Overview"
+                  href="#/overview"
+                  icon={BarChart3}
+                  isActive={currentPath === '#/overview'}
+                />
                 <NavigationItem
                   label="Introduction"
                   href="#/README"

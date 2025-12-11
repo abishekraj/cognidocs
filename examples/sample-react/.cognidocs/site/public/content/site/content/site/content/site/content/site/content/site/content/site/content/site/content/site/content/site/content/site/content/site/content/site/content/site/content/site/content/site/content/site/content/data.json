@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generatedAt": "2025-12-10T09:34:41.641Z",
+    "generatedAt": "2025-12-10T14:03:41.551Z",
     "phase": "phase3-documentation",
     "config": {
       "entry": "./src",
@@ -462,145 +462,6 @@
       ]
     },
     {
-      "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/services/UserService.ts",
-      "functions": [],
-      "classes": [
-        {
-          "name": "UserService",
-          "description": "Service class for managing user-related API operations.",
-          "properties": [
-            {
-              "name": "baseUrl",
-              "type": "string",
-              "isPrivate": true,
-              "isStatic": false
-            },
-            {
-              "name": "apiKey",
-              "type": "string",
-              "isPrivate": true,
-              "isStatic": false
-            }
-          ],
-          "methods": [
-            {
-              "name": "getUser",
-              "parameters": [
-                {
-                  "name": "userId",
-                  "type": "number",
-                  "optional": false
-                }
-              ],
-              "returnType": "Promise<User>",
-              "isPrivate": false,
-              "isStatic": false,
-              "isAsync": true
-            },
-            {
-              "name": "listUsers",
-              "parameters": [
-                {
-                  "name": "params",
-                  "type": "UserListParams",
-                  "optional": true
-                }
-              ],
-              "returnType": "Promise<User[]>",
-              "isPrivate": false,
-              "isStatic": false,
-              "isAsync": true
-            },
-            {
-              "name": "updateUser",
-              "parameters": [
-                {
-                  "name": "userId",
-                  "type": "number",
-                  "optional": false
-                },
-                {
-                  "name": "updates",
-                  "type": "UpdateUserProfile",
-                  "optional": false
-                }
-              ],
-              "returnType": "Promise<User>",
-              "isPrivate": false,
-              "isStatic": false,
-              "isAsync": true
-            },
-            {
-              "name": "deleteUser",
-              "parameters": [
-                {
-                  "name": "userId",
-                  "type": "number",
-                  "optional": false
-                }
-              ],
-              "returnType": "Promise<void>",
-              "isPrivate": false,
-              "isStatic": false,
-              "isAsync": true
-            },
-            {
-              "name": "getHeaders",
-              "parameters": [],
-              "returnType": "Record<string, string>",
-              "isPrivate": true,
-              "isStatic": false,
-              "isAsync": false
-            },
-            {
-              "name": "isValidUserId",
-              "parameters": [
-                {
-                  "name": "userId",
-                  "type": "number",
-                  "optional": false
-                }
-              ],
-              "returnType": "boolean",
-              "isPrivate": false,
-              "isStatic": true,
-              "isAsync": false
-            }
-          ],
-          "isExported": true,
-          "implementsInterfaces": [],
-          "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/services/UserService.ts",
-          "line": 24
-        }
-      ],
-      "interfaces": [],
-      "types": [],
-      "imports": [
-        {
-          "source": "../types/user",
-          "specifiers": [
-            "User",
-            "UserListParams",
-            "UpdateUserProfile"
-          ],
-          "isDefault": false,
-          "isNamespace": false
-        },
-        {
-          "source": "../utils/api",
-          "specifiers": [
-            "fetchData",
-            "postData"
-          ],
-          "isDefault": false,
-          "isNamespace": false
-        }
-      ],
-      "exports": [
-        "UserService"
-      ]
-    },
-    {
       "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/components/Input.tsx",
       "functions": [
         {
@@ -931,6 +792,145 @@
           "framework": "react",
           "isExported": true
         }
+      ]
+    },
+    {
+      "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/services/UserService.ts",
+      "functions": [],
+      "classes": [
+        {
+          "name": "UserService",
+          "description": "Service class for managing user-related API operations.",
+          "properties": [
+            {
+              "name": "baseUrl",
+              "type": "string",
+              "isPrivate": true,
+              "isStatic": false
+            },
+            {
+              "name": "apiKey",
+              "type": "string",
+              "isPrivate": true,
+              "isStatic": false
+            }
+          ],
+          "methods": [
+            {
+              "name": "getUser",
+              "parameters": [
+                {
+                  "name": "userId",
+                  "type": "number",
+                  "optional": false
+                }
+              ],
+              "returnType": "Promise<User>",
+              "isPrivate": false,
+              "isStatic": false,
+              "isAsync": true
+            },
+            {
+              "name": "listUsers",
+              "parameters": [
+                {
+                  "name": "params",
+                  "type": "UserListParams",
+                  "optional": true
+                }
+              ],
+              "returnType": "Promise<User[]>",
+              "isPrivate": false,
+              "isStatic": false,
+              "isAsync": true
+            },
+            {
+              "name": "updateUser",
+              "parameters": [
+                {
+                  "name": "userId",
+                  "type": "number",
+                  "optional": false
+                },
+                {
+                  "name": "updates",
+                  "type": "UpdateUserProfile",
+                  "optional": false
+                }
+              ],
+              "returnType": "Promise<User>",
+              "isPrivate": false,
+              "isStatic": false,
+              "isAsync": true
+            },
+            {
+              "name": "deleteUser",
+              "parameters": [
+                {
+                  "name": "userId",
+                  "type": "number",
+                  "optional": false
+                }
+              ],
+              "returnType": "Promise<void>",
+              "isPrivate": false,
+              "isStatic": false,
+              "isAsync": true
+            },
+            {
+              "name": "getHeaders",
+              "parameters": [],
+              "returnType": "Record<string, string>",
+              "isPrivate": true,
+              "isStatic": false,
+              "isAsync": false
+            },
+            {
+              "name": "isValidUserId",
+              "parameters": [
+                {
+                  "name": "userId",
+                  "type": "number",
+                  "optional": false
+                }
+              ],
+              "returnType": "boolean",
+              "isPrivate": false,
+              "isStatic": true,
+              "isAsync": false
+            }
+          ],
+          "isExported": true,
+          "implementsInterfaces": [],
+          "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/services/UserService.ts",
+          "line": 24
+        }
+      ],
+      "interfaces": [],
+      "types": [],
+      "imports": [
+        {
+          "source": "../types/user",
+          "specifiers": [
+            "User",
+            "UserListParams",
+            "UpdateUserProfile"
+          ],
+          "isDefault": false,
+          "isNamespace": false
+        },
+        {
+          "source": "../utils/api",
+          "specifiers": [
+            "fetchData",
+            "postData"
+          ],
+          "isDefault": false,
+          "isNamespace": false
+        }
+      ],
+      "exports": [
+        "UserService"
       ]
     }
   ]
