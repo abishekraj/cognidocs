@@ -1,6 +1,6 @@
 {
   "name": "@cognidocs/plugin-core",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "description": "Core types and interfaces for CogniDocs plugins",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -11,9 +11,22 @@
     "test": "vitest run",
     "lint": "eslint src"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "plugin",
+    "plugin-system",
+    "extensibility"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/abishekraj/cognidocs.git",
+    "directory": "packages/plugin-core"
+  },
+  "bugs": {
+    "url": "https://github.com/abishekraj/cognidocs/issues"
+  },
+  "homepage": "https://github.com/abishekraj/cognidocs#readme",
+  "author": "Abishek Raj <abishek.abi07@gmail.com>",
+  "license": "MIT",
   "devDependencies": {
     "tsup": "^8.0.1",
     "typescript": "^5.3.0",

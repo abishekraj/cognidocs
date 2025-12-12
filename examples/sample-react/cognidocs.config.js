@@ -6,7 +6,7 @@
 export default {
   "entry": "./src",
   "output": "./docs",
-  "theme": "material",
+  "theme": "gitbook",
   "darkMode": true,
   "frameworks": [
     "react"
@@ -16,12 +16,5 @@ export default {
     "**/*.test.tsx",
     "**/node_modules/**",
     "**/dist/**"
-  ],
-  "coverage": {
-    "enabled": true,
-    "thresholds": {
-      "docs": 80,
-      "types": 90
-    }
-  }
+  ]
 };

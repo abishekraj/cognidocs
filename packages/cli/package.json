@@ -1,6 +1,6 @@
 {
   "name": "@cognidocs/cli",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Beautiful documentation for TypeScript & React projects — CLI tool",
   "main": "./dist/index.mjs",
   "types": "./dist/index.d.mts",
@@ -13,14 +13,14 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourusername/cognidocs.git",
+    "url": "https://github.com/abishekraj/cognidocs.git",
     "directory": "packages/cli"
   },
   "bugs": {
-    "url": "https://github.com/yourusername/cognidocs/issues"
+    "url": "https://github.com/abishekraj/cognidocs/issues"
   },
-  "homepage": "https://github.com/yourusername/cognidocs#readme",
-  "author": "Your Name <your.email@example.com>",
+  "homepage": "https://github.com/abishekraj/cognidocs#readme",
+  "author": "Abishek Raj <abishek.abi07@gmail.com>",
   "scripts": {
     "dev": "tsup --watch",
     "build": "tsup",

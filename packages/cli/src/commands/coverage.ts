@@ -5,7 +5,7 @@ import ora from 'ora';
 import { loadConfig } from '../config';
 import { TypeScriptParser, ReactParser } from '@cognidocs/parser';
 import { calculateCoverage } from '@cognidocs/coverage';
-import type { ParseResult, ComponentMetadata } from '@cognidocs/types';
+import type { ParseResult } from '@cognidocs/types';
 
 export interface CoverageOptions {
   config?: string;

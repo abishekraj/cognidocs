@@ -1,6 +1,6 @@
 {
   "name": "@cognidocs/utils",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "description": "Shared utility functions for CogniDocs",
   "main": "./dist/index.mjs",
   "types": "./dist/index.d.mts",
@@ -20,5 +20,15 @@
     "utils",
     "helpers"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/abishekraj/cognidocs.git",
+    "directory": "shared/utils"
+  },
+  "bugs": {
+    "url": "https://github.com/abishekraj/cognidocs/issues"
+  },
+  "homepage": "https://github.com/abishekraj/cognidocs#readme",
+  "author": "Abishek Raj <abishek.abi07@gmail.com>",
   "license": "MIT"
 }

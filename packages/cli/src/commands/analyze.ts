@@ -3,9 +3,9 @@ import { writeFile, mkdir } from 'fs/promises';
 import chalk from 'chalk';
 import ora from 'ora';
 import { loadConfig } from '../config';
-import { TypeScriptParser, ReactParser } from '@cognidocs/parser';
+import { TypeScriptParser } from '@cognidocs/parser';
 import { analyzeDependencies } from '@cognidocs/analyzer';
-import type { ParseResult, ComponentMetadata } from '@cognidocs/types';
+import type { ParseResult } from '@cognidocs/types';
 
 export interface AnalyzeOptions {
   config?: string;
@@ -44,7 +44,6 @@ export async function analyzeCommand(options: AnalyzeOptions = {}): Promise<void
   // Parse source files (Required for analysis)
   const parseSpinner = ora('Parsing source files...').start();
   const tsParser = new TypeScriptParser();
-  const reactParser = new ReactParser();
 
   try {
     const parseResults: ParseResult[] = await tsParser.parseDirectory(entryPath, '**/*.{ts,tsx}');
