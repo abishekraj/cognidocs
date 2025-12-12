@@ -10,7 +10,7 @@ CogniDocs is a modern documentation generator for JavaScript and TypeScript proj
 
 **✨ Perfect for:**
 
-- React, Next.js, Vue, and TypeScript projects
+- React and TypeScript projects ( Next.js, Vue, Svelte coming soon!)
 - Component libraries and design systems
 - Open-source projects needing quick documentation
 - Teams wanting automated API documentation

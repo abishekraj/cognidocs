@@ -1,0 +1,28 @@
+# Dependencies
+node_modules/
+src/template/node_modules/
+
+# Development files
+*.test.ts
+*.test.tsx
+__tests__/
+coverage/
+
+# Build artifacts
+*.tsbuildinfo
+.turbo/
+
+# Generated documentation (for testing)
+.cognidocs/
+docs/
+
+# Editor
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db

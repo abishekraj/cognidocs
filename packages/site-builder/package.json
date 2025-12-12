@@ -4,6 +4,10 @@
   "comment": "Phase 3: Core Documentation - Site Builder",
   "main": "./dist/index.mjs",
   "types": "./dist/index.d.mts",
+  "files": [
+    "dist",
+    "README.md"
+  ],
   "scripts": {
     "build": "tsup",
     "dev": "tsup --watch",

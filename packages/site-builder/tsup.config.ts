@@ -13,6 +13,15 @@ export default defineConfig({
     const templateSrc = path.resolve(__dirname, 'src/template');
     const templateDist = path.resolve(__dirname, 'dist/template');
     console.log(`Copying template from ${templateSrc} to ${templateDist}`);
-    await fs.copy(templateSrc, templateDist);
+    await fs.copy(templateSrc, templateDist, {
+      filter: (src: string) => {
+        // Exclude only node_modules, .cognidocs, and cache directories
+        const relativePath = src.replace(templateSrc, '');
+        return !relativePath.includes('node_modules') &&
+               !relativePath.includes('.cognidocs') &&
+               !relativePath.includes('/.turbo') &&
+               !relativePath.includes('/.cache');
+      }
+    });
   },
 });
