@@ -59,13 +59,52 @@ _Beautiful documentation site with search, themes, and dependency graphs_
 
 ### Installation
 
+CogniDocs supports **npm**, **pnpm**, and **yarn**. Choose your preferred package manager:
+
 ```bash
-# Install globally
+# Install with npm
 npm install -g @cognidocs/cli
+
+# Install with pnpm (recommended for Windows)
+pnpm install -g @cognidocs/cli
+
+# Install with yarn
+yarn global add @cognidocs/cli
 
 # Or use npx (no installation required)
 npx @cognidocs/cli init
 ```
+
+#### 📦 Package Manager Auto-Detection
+
+CogniDocs **automatically detects and uses** your project's package manager based on lock files:
+
+- **pnpm-lock.yaml** → Uses `pnpm install` and `pnpm run build`
+- **yarn.lock** → Uses `yarn install` and `yarn build`
+- **package-lock.json** → Uses `npm install` and `npm run build`
+- **No lock file** → Defaults to npm
+
+**Zero configuration required!** CogniDocs will use the right commands automatically.
+
+#### 💻 Windows Users
+
+We **strongly recommend pnpm** for the best experience on Windows:
+
+```powershell
+# Install pnpm globally
+npm install -g pnpm
+
+# Install CogniDocs with pnpm
+pnpm install -g @cognidocs/cli
+```
+
+**Why pnpm on Windows?**
+- ✅ Better handling of optional dependencies
+- ✅ Avoids common `@rollup/rollup-win32-x64-msvc` errors
+- ✅ Faster installations with hard links
+- ✅ More disk-efficient than npm
+
+See [Windows Troubleshooting](#-windows-troubleshooting) for more details.
 
 ### Usage
 
@@ -360,6 +399,105 @@ CogniDocs combines inspiration from:
 - **TypeDoc** - TypeScript API documentation
 
 Built with ❤️ by the open-source community.
+
+---
+
+## 💻 Windows Troubleshooting
+
+### Rollup Optional Dependency Error
+
+If you encounter this error on Windows:
+
+```
+Error: Cannot find module @rollup/rollup-win32-x64-msvc
+npm has a bug related to optional dependencies
+```
+
+This is a known npm bug on Windows. CogniDocs automatically applies fixes, but here are manual solutions if needed:
+
+### Automatic Fixes (Applied by CogniDocs)
+
+When you run `cognidocs build`, CogniDocs automatically:
+
+1. ✅ **Detects your package manager** (pnpm, yarn, or npm)
+2. ✅ **Uses the optimal commands** for your package manager
+3. ✅ **Applies Windows fixes for npm** (removes package-lock.json, uses --legacy-peer-deps)
+4. ✅ **Includes .npmrc configuration** in generated site
+
+**Package Manager Auto-Detection:**
+- Detects pnpm from `pnpm-lock.yaml`
+- Detects yarn from `yarn.lock`
+- Detects npm from `package-lock.json`
+- Uses npm as default if no lock file is found
+
+### Manual Fix (If Automatic Fails)
+
+```powershell
+# Navigate to the generated site directory
+cd .cognidocs\site
+
+# Remove problematic files
+Remove-Item -Recurse -Force node_modules, package-lock.json
+
+# Reinstall with legacy peer deps
+npm install --legacy-peer-deps
+
+# Return to project root
+cd ..\..
+
+# Build documentation
+cognidocs build
+```
+
+### Recommended Solution: Use pnpm
+
+**pnpm** handles optional dependencies much better than npm on Windows:
+
+```powershell
+# Install pnpm globally
+npm install -g pnpm
+
+# Uninstall npm version (optional)
+npm uninstall -g @cognidocs/cli
+
+# Install with pnpm
+pnpm install -g @cognidocs/cli
+
+# Use normally
+cognidocs build
+```
+
+### Alternative: Use Yarn
+
+```powershell
+# Install yarn globally
+npm install -g yarn
+
+# Install with yarn
+yarn global add @cognidocs/cli
+```
+
+### Testing Windows Compatibility
+
+Run the included Windows test script:
+
+```powershell
+# From the CogniDocs repository
+.\scripts\test-windows.ps1
+
+# With cleanup after testing
+.\scripts\test-windows.ps1 -CleanUp
+
+# Verbose output
+.\scripts\test-windows.ps1 -Verbose
+```
+
+### Related Issues
+
+- [npm/cli#4828](https://github.com/npm/cli/issues/4828) - npm optional dependencies bug
+- [vitejs/vite#7719](https://github.com/vitejs/vite/issues/7719) - Vite/Rollup Windows issues
+
+For more details, check `.cognidocs/site/WINDOWS_TROUBLESHOOTING.md` after running `cognidocs build`.
 
 ---
 

@@ -15,7 +15,33 @@ const program = new Command();
 program
   .name('cognidocs')
   .description('AI-powered documentation tool for JavaScript/TypeScript projects')
-  .version('0.0.6');
+  .version('0.0.6')
+  .addHelpText(
+    'after',
+    `
+${chalk.bold('Installation:')}
+  ${chalk.cyan('npm install -g @cognidocs/cli')}        # Install with npm
+  ${chalk.cyan('pnpm install -g @cognidocs/cli')}       # Install with pnpm (recommended for Windows)
+  ${chalk.cyan('yarn global add @cognidocs/cli')}       # Install with yarn
+  ${chalk.cyan('npx @cognidocs/cli init')}              # Use without installation
+
+${chalk.bold('Quick Start:')}
+  ${chalk.cyan('cognidocs init')}                       # Initialize configuration
+  ${chalk.cyan('cognidocs build')}                      # Generate documentation
+  ${chalk.cyan('cognidocs serve')}                      # Start dev server
+
+${chalk.bold('Package Manager Support:')}
+  CogniDocs automatically detects and uses npm, pnpm, or yarn based on your project's lock files.
+  ${chalk.gray('Priority: pnpm-lock.yaml > yarn.lock > package-lock.json')}
+
+${chalk.bold('Windows Users:')}
+  We recommend using ${chalk.cyan('pnpm')} for the best experience on Windows.
+  It handles optional dependencies better than npm, avoiding common Rollup errors.
+
+${chalk.bold('Documentation:')}
+  ${chalk.cyan('https://github.com/yourusername/cognidocs')}
+`
+  );
 
 // Phase 1 Commands
 program

@@ -29,7 +29,12 @@ npm run phase1              # Run Phase 1 packages only (CLI, Parser, Testing)
 ### CLI Usage (after building)
 
 ```bash
-npm link -w @cognidocs/cli  # Link CLI globally
+npm link -w @cognidocs/cli  # Link CLI globally (or use pnpm/yarn)
+
+# Get help with installation instructions
+cognidocs --help            # Shows installation, quick start, and package manager info
+
+# Basic commands
 cognidocs init              # Initialize config (interactive)
 cognidocs init --yes        # Initialize with defaults
 cognidocs build             # Parse code and generate documentation
@@ -39,6 +44,9 @@ cognidocs coverage          # Generate coverage report (Phase 2)
 cognidocs serve             # Start development server (Phase 3)
 cognidocs serve --port 3001 # Serve on custom port
 ```
+
+**Package Manager Support:**
+The CLI automatically detects and uses npm, pnpm, or yarn based on your project's lock files. No configuration needed!
 
 ### Testing
 
@@ -262,8 +270,9 @@ Converts parsed metadata into structured documentation:
 
 **File:** `packages/site-builder/src/SiteBuilder.ts`
 
-Builds premium static documentation sites:
+Builds premium static documentation sites with **automatic package manager detection**:
 
+- **Package Manager Auto-Detection** - Automatically detects and uses npm, pnpm, or yarn
 - **React + Vite + TypeScript** - Modern build stack
 - **Shadcn/ui + Tailwind CSS** - Premium UI components
 - **12 Professional Themes** - GitBook, GitHub, Nord, Dracula, Monokai, Solarized, One Dark, Material (with light/dark variants)
@@ -277,6 +286,7 @@ Builds premium static documentation sites:
 - **Code Blocks** - Copy-to-clipboard, language badges, proper React element handling
 - **Table of Contents** - Auto-generated sticky TOC for long pages
 - **Project Branding** - Custom header with project name and version
+- **Windows Compatibility** - Automatic fixes for npm's Rollup dependency bug
 
 **Key Features:**
 
@@ -325,6 +335,20 @@ Builds premium static documentation sites:
      - Custom div component handler to render Callout components
    - **Documentation:** Created comprehensive [callout-boxes.md](examples/sample-react/additional-documentation/guides/callout-boxes.md) guide
    - **Result:** Rich, visually appealing callouts that enhance documentation readability
+
+5. **Package Manager Auto-Detection** (Cross-Platform Support)
+   - **Feature:** Automatically detects and uses npm, pnpm, or yarn based on lock files
+   - **Detection Logic:** Checks for `pnpm-lock.yaml`, `yarn.lock`, `package-lock.json` (in priority order)
+   - **Utility Module:** [packageManager.ts](packages/site-builder/src/utils/packageManager.ts)
+     - `detectPackageManager()` - Auto-detects from lock files
+     - `getInstallCommand()` - Returns appropriate install command (with Windows npm fixes)
+     - `getBuildCommand()` - Returns appropriate build command
+     - `getLockFileName()` - Returns lock file name for cleanup
+     - `getPackageManagerDisplayName()` - User-friendly names
+   - **Windows Compatibility:** Applies `--legacy-peer-deps` and removes `package-lock.json` only for npm on Windows
+   - **Integration:** [SiteBuilder.ts](packages/site-builder/src/SiteBuilder.ts:62-144) uses auto-detection for all installations
+   - **Testing:** Comprehensive unit tests in [packageManager.test.ts](packages/site-builder/src/__tests__/packageManager.test.ts)
+   - **Result:** Zero configuration, works seamlessly with any package manager
 
 **CLI Commands:**
 
@@ -543,7 +567,7 @@ npm run build      # Rebuild
 **Parser not finding files**
 
 - Check `cognidocs.config.js` entry path
-- Ensure files match pattern `**/*.{ts,tsx}`
+- Ensure files match pattern `**/*.{ts,tsx,js,jsx}`
 - Files in `node_modules`, `dist`, `*.test.*` are excluded by default
 
 **Server not starting**
@@ -552,6 +576,48 @@ npm run build      # Rebuild
 # Make sure site is built first
 cognidocs build
 cognidocs serve
+```
+
+**Windows: Rollup optional dependency error**
+
+If you encounter an error like:
+```
+Error: Cannot find module @rollup/rollup-win32-x64-msvc
+```
+
+This is a known npm bug with optional dependencies on Windows (see [npm/cli#4828](https://github.com/npm/cli/issues/4828)).
+
+**Fixes applied in CogniDocs:**
+- The site builder automatically removes `package-lock.json` before installing
+- Uses `--legacy-peer-deps` flag for npm install
+- Includes `.npmrc` with `legacy-peer-deps=true` in template
+
+**Manual fix if issue persists:**
+```bash
+# Navigate to the generated site directory
+cd .cognidocs/site
+
+# Remove problematic files
+rm -rf node_modules package-lock.json
+
+# Reinstall with legacy peer deps
+npm install --legacy-peer-deps
+
+# Return to project root and build
+cd ../..
+cognidocs build
+```
+
+**Alternative for Windows users:**
+Consider using [pnpm](https://pnpm.io/) or [yarn](https://yarnpkg.com/) instead of npm, as they handle optional dependencies better:
+```bash
+# Using pnpm (recommended for Windows)
+pnpm install
+pnpm run build
+
+# Using yarn
+yarn install
+yarn build
 ```
 
 ## 🎉 MVP Status: READY FOR RELEASE
