@@ -11,6 +11,9 @@ This document provides a quick reference for each development phase and what to 
 **What's Included:**
 
 - ✅ Full TypeScript/React parsing with JSDoc extraction
+- ✅ **JavaScript support** - Parse .js and .jsx files with JSDoc
+- ✅ **Comprehensive export detection** - All export patterns (default, named, re-exports)
+- ✅ Configurable file patterns for custom project structures
 - ✅ Dependency analysis and coverage tracking
 - ✅ Premium documentation site with 12 professional themes
 - ✅ Advanced search with Cmd+K command palette
@@ -49,10 +52,18 @@ When working with Claude Code, you can reference phases like:
 - [x] CLI scaffolding with Commander.js
 - [x] Configuration system
 - [x] TypeScript Compiler API integration
-- [x] React component parser
+- [x] **JavaScript support** - Parse .js, .jsx files with appropriate ScriptKind
+- [x] React component parser (TypeScript + JavaScript)
 - [x] JSDoc extraction
 - [x] Basic file system operations
 - [x] Test suite with Vitest
+- [x] **Configurable file patterns** - filePattern option in config
+- [x] **Comprehensive export detection** - Support all JavaScript/TypeScript export patterns:
+  - Inline exports: `export function foo() {}`
+  - Named export lists: `export { foo, bar }`
+  - Default exports: `export default App`
+  - Re-exports: `export * from './module'`
+  - Named re-exports with aliases
 
 ### Deliverables
 

@@ -13,12 +13,21 @@ export class ReactParser {
    */
   async parseComponent(filePath: string): Promise<ComponentMetadata[]> {
     const fileContent = readFileSync(filePath, 'utf-8');
+
+    // Determine ScriptKind based on file extension
+    let scriptKind = ts.ScriptKind.TSX; // Default to TSX
+    if (filePath.endsWith('.jsx')) {
+      scriptKind = ts.ScriptKind.JSX;
+    } else if (filePath.endsWith('.js')) {
+      scriptKind = ts.ScriptKind.JS;
+    }
+
     const sourceFile = ts.createSourceFile(
       filePath,
       fileContent,
       ts.ScriptTarget.Latest,
       true,
-      ts.ScriptKind.TSX
+      scriptKind
     );
 
     const components: ComponentMetadata[] = [];

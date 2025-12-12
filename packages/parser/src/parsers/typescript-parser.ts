@@ -19,12 +19,23 @@ import type {
 export class TypeScriptParser {
   async parseFile(filePath: string): Promise<ParseResult> {
     const fileContent = readFileSync(filePath, 'utf-8');
+
+    // Determine ScriptKind based on file extension
+    let scriptKind = ts.ScriptKind.TS;
+    if (filePath.endsWith('.tsx')) {
+      scriptKind = ts.ScriptKind.TSX;
+    } else if (filePath.endsWith('.jsx')) {
+      scriptKind = ts.ScriptKind.JSX;
+    } else if (filePath.endsWith('.js')) {
+      scriptKind = ts.ScriptKind.JS;
+    }
+
     const sourceFile = ts.createSourceFile(
       filePath,
       fileContent,
       ts.ScriptTarget.Latest,
       true,
-      ts.ScriptKind.TS
+      scriptKind
     );
 
     const result: ParseResult = {
@@ -37,25 +48,53 @@ export class TypeScriptParser {
       exports: [],
     };
 
+    const exportedNames = new Set<string>();
+
+    // First pass: collect all exported names
+    const collectExports = (node: ts.Node) => {
+      // Handle export default statements: export default App
+      if (ts.isExportAssignment(node) && !node.isExportEquals) {
+        const exportedName = this.getExportAssignmentName(node);
+        if (exportedName) exportedNames.add(exportedName);
+      }
+
+      // Handle named export lists: export { foo, bar }
+      if (ts.isExportDeclaration(node) && node.exportClause && ts.isNamedExports(node.exportClause)) {
+        node.exportClause.elements.forEach((element) => {
+          exportedNames.add(element.name.getText());
+        });
+      }
+
+      // Handle inline exports with export keyword: export function foo()
+      if (this.isExported(node)) {
+        const exportName = this.getExportName(node);
+        if (exportName) exportedNames.add(exportName);
+      }
+
+      ts.forEachChild(node, collectExports);
+    };
+
+    collectExports(sourceFile);
+
     const visit = (node: ts.Node) => {
       // Parse function declarations
       if (ts.isFunctionDeclaration(node) && node.name) {
-        result.functions.push(this.parseFunctionDeclaration(node, filePath));
+        result.functions.push(this.parseFunctionDeclaration(node, filePath, exportedNames));
       }
 
       // Parse class declarations
       if (ts.isClassDeclaration(node) && node.name) {
-        result.classes.push(this.parseClassDeclaration(node, filePath));
+        result.classes.push(this.parseClassDeclaration(node, filePath, exportedNames));
       }
 
       // Parse interface declarations
       if (ts.isInterfaceDeclaration(node)) {
-        result.interfaces.push(this.parseInterfaceDeclaration(node, filePath));
+        result.interfaces.push(this.parseInterfaceDeclaration(node, filePath, exportedNames));
       }
 
       // Parse type alias declarations
       if (ts.isTypeAliasDeclaration(node)) {
-        result.types.push(this.parseTypeAliasDeclaration(node, filePath));
+        result.types.push(this.parseTypeAliasDeclaration(node, filePath, exportedNames));
       }
 
       // Parse import declarations
@@ -64,20 +103,18 @@ export class TypeScriptParser {
         if (importData) result.imports.push(importData);
       }
 
-      // Parse export declarations
-      if (ts.isExportDeclaration(node) || this.isExported(node)) {
-        const exportName = this.getExportName(node);
-        if (exportName) result.exports.push(exportName);
-      }
-
       ts.forEachChild(node, visit);
     };
 
     visit(sourceFile);
+
+    // Populate exports array from collected names
+    result.exports = Array.from(exportedNames);
+
     return result;
   }
 
-  async parseDirectory(dirPath: string, pattern: string = '**/*.{ts,tsx}'): Promise<ParseResult[]> {
+  async parseDirectory(dirPath: string, pattern: string = '**/*.{ts,tsx,js,jsx}'): Promise<ParseResult[]> {
     const files = await glob(pattern, { cwd: dirPath, absolute: true });
     const results: ParseResult[] = [];
 
@@ -95,7 +132,8 @@ export class TypeScriptParser {
 
   private parseFunctionDeclaration(
     node: ts.FunctionDeclaration,
-    filePath: string
+    filePath: string,
+    exportedNames: Set<string>
   ): FunctionMetadata {
     const name = node.name?.getText() || 'anonymous';
     const jsdoc = this.extractJSDoc(node);
@@ -112,7 +150,7 @@ export class TypeScriptParser {
       description,
       parameters,
       returnType: node.type?.getText(),
-      isExported: this.isExported(node),
+      isExported: this.isExported(node) || exportedNames.has(name),
       isAsync: !!node.modifiers?.some((m) => m.kind === ts.SyntaxKind.AsyncKeyword),
       filePath,
       line: this.getLineNumber(node),
@@ -120,7 +158,7 @@ export class TypeScriptParser {
     };
   }
 
-  private parseClassDeclaration(node: ts.ClassDeclaration, filePath: string): ClassMetadata {
+  private parseClassDeclaration(node: ts.ClassDeclaration, filePath: string, exportedNames: Set<string>): ClassMetadata {
     const name = node.name?.getText() || 'Anonymous';
     const jsdoc = this.extractJSDoc(node);
     const description = this.extractJSDocComment(node);
@@ -155,7 +193,7 @@ export class TypeScriptParser {
       description,
       properties,
       methods,
-      isExported: this.isExported(node),
+      isExported: this.isExported(node) || exportedNames.has(name),
       extendsClass: this.getExtendsClause(node),
       implementsInterfaces: this.getImplementsClauses(node),
       filePath,
@@ -166,7 +204,8 @@ export class TypeScriptParser {
 
   private parseInterfaceDeclaration(
     node: ts.InterfaceDeclaration,
-    filePath: string
+    filePath: string,
+    exportedNames: Set<string>
   ): InterfaceMetadata {
     const name = node.name.getText();
     const description = this.extractJSDocComment(node);
@@ -181,7 +220,7 @@ export class TypeScriptParser {
       name,
       description,
       properties,
-      isExported: this.isExported(node),
+      isExported: this.isExported(node) || exportedNames.has(name),
       extendsInterfaces:
         node.heritageClauses
           ?.filter((clause) => clause.token === ts.SyntaxKind.ExtendsKeyword)
@@ -191,7 +230,7 @@ export class TypeScriptParser {
     };
   }
 
-  private parseTypeAliasDeclaration(node: ts.TypeAliasDeclaration, filePath: string): TypeMetadata {
+  private parseTypeAliasDeclaration(node: ts.TypeAliasDeclaration, filePath: string, exportedNames: Set<string>): TypeMetadata {
     const name = node.name.getText();
     const description = this.extractJSDocComment(node);
 
@@ -199,7 +238,7 @@ export class TypeScriptParser {
       name,
       description,
       type: node.type.getText(),
-      isExported: this.isExported(node),
+      isExported: this.isExported(node) || exportedNames.has(name),
       filePath,
       line: this.getLineNumber(node),
     };
@@ -396,6 +435,22 @@ export class TypeScriptParser {
     if (ts.isClassDeclaration(node) && node.name) return node.name.getText();
     if (ts.isInterfaceDeclaration(node)) return node.name.getText();
     if (ts.isTypeAliasDeclaration(node)) return node.name.getText();
+    return null;
+  }
+
+  private getExportAssignmentName(node: ts.ExportAssignment): string | null {
+    // Handle: export default App
+    if (ts.isIdentifier(node.expression)) {
+      return node.expression.getText();
+    }
+    // Handle: export default class Foo {}
+    if (ts.isClassExpression(node.expression) && node.expression.name) {
+      return node.expression.name.getText();
+    }
+    // Handle: export default function foo() {}
+    if (ts.isFunctionExpression(node.expression) && node.expression.name) {
+      return node.expression.name.getText();
+    }
     return null;
   }
 

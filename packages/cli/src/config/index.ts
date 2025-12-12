@@ -8,6 +8,7 @@ export interface CogniDocsConfig {
   output: string;
   theme: string;
   darkMode: boolean;
+  filePattern?: string; // Glob pattern for files to parse (default: '**/*.{ts,tsx,js,jsx}')
   coverage?: {
     enabled: boolean;
     thresholds: {
@@ -31,8 +32,9 @@ export const defaultConfig: CogniDocsConfig = {
   output: './docs',
   theme: 'gitbook',
   darkMode: true,
+  filePattern: '**/*.{ts,tsx,js,jsx}', // Parse TypeScript and JavaScript files
   frameworks: ['react'],
-  exclude: ['**/*.test.ts', '**/node_modules/**'],
+  exclude: ['**/*.test.ts', '**/*.test.js', '**/node_modules/**'],
 };
 
 import { cosmiconfig } from 'cosmiconfig';

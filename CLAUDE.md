@@ -130,17 +130,33 @@ examples/         # Sample projects for testing
 
 Implements full TypeScript Compiler API integration:
 
-- Parses `.ts` and `.tsx` files
+- Parses `.ts`, `.tsx`, `.js`, and `.jsx` files with appropriate ScriptKind detection
 - Extracts: functions, classes, interfaces, types, imports, exports
 - JSDoc comment extraction with tags (@param, @returns, @example)
 - Directory parsing with glob patterns
 - Line number tracking for all elements
+- **Comprehensive export detection** - Detects all JavaScript/TypeScript export patterns
+
+**Supported Export Patterns:**
+
+1. **Inline exports** - `export function foo() {}`, `export class Bar {}`
+2. **Named export lists** - `export { foo, bar, baz }`
+3. **Default exports** - `export default App`
+4. **Default exports (separate)** - `const App = ...; export default App;`
+5. **Re-exports** - `export * from './module'`
+6. **Named re-exports** - `export { Component as MyComponent } from './module'`
+7. **Renamed exports** - `export { foo as bar }`
+
+The parser uses a two-pass approach:
+- **First pass**: Collects all exported names from export statements and declarations
+- **Second pass**: Parses declarations and marks them as exported if their name is in the exported names set
 
 **Key Methods:**
 
 - `parseFile(filePath)` - Parse single file
 - `parseDirectory(dirPath, pattern)` - Parse directory with glob
 - `extractJSDoc(node)` - Extract JSDoc comments
+- `getExportAssignmentName(node)` - Extract name from default export statements
 
 ### React Component Parser
 

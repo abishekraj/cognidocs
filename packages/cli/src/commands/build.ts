@@ -53,14 +53,17 @@ export async function buildCommand(options: BuildOptions = {}): Promise<void> {
   const parseSpinner = ora('Parsing source files...').start();
 
   try {
-    const parseResults: ParseResult[] = await tsParser.parseDirectory(entryPath, '**/*.{ts,tsx}');
+    // Use filePattern from config, defaulting to TypeScript and JavaScript files
+    const filePattern = config.filePattern || '**/*.{ts,tsx,js,jsx}';
+    const parseResults: ParseResult[] = await tsParser.parseDirectory(entryPath, filePattern);
 
     parseSpinner.text = 'Extracting React components...';
 
     // Extract React components separately
     const allComponents: ComponentMetadata[] = [];
     for (const result of parseResults) {
-      if (result.filePath.endsWith('.tsx')) {
+      // Check for both TypeScript JSX (.tsx) and JavaScript JSX (.jsx) files
+      if (result.filePath.endsWith('.tsx') || result.filePath.endsWith('.jsx')) {
         const components = await reactParser.parseComponent(result.filePath);
         allComponents.push(...components);
 
