@@ -1,7 +1,0 @@
-# OrganizeImportsScope
-
-## Definition
-
-```typescript
-GetCombinedCodeFixScope;
-```

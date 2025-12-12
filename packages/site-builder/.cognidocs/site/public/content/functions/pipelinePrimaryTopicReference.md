@@ -1,3 +1,0 @@
-# pipelinePrimaryTopicReference
-
-**Return Type:** `PipelinePrimaryTopicReference`

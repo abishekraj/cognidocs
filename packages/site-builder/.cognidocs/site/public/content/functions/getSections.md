@@ -1,3 +1,0 @@
-# getSections
-
-**Return Type:** `any[]`

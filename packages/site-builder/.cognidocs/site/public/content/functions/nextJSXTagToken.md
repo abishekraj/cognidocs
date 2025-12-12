@@ -1,3 +1,0 @@
-# nextJSXTagToken
-
-**Return Type:** `void`

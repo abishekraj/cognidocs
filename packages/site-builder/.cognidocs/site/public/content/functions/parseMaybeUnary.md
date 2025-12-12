@@ -1,3 +1,0 @@
-# parseMaybeUnary
-
-**Return Type:** `boolean`

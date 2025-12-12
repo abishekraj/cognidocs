@@ -1,3 +1,0 @@
-# tsBigIntKeyword
-
-**Return Type:** `TSBigIntKeyword`

@@ -1,3 +1,0 @@
-# tsTryParseStatementContent
-
-**Return Type:** `boolean`

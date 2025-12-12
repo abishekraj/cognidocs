@@ -1,7 +1,0 @@
-# RestProperty
-
-## Definition
-
-```typescript
-RestElement;
-```

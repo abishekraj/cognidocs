@@ -1,3 +1,0 @@
-# parsePostMemberNameModifiers
-
-**Return Type:** `void`

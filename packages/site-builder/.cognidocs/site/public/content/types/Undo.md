@@ -1,7 +1,0 @@
-# Undo
-
-## Definition
-
-```typescript
-() => void
-```

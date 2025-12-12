@@ -1,3 +1,0 @@
-# ScaleDiverging
-
-Diverging scales, like sequential scales, are similar to continuous scales in that they map a continuous, numeric input domain to a continuous output range. However, unlike continuous scales, the input domain and output range of a diverging scale always has exactly three elements, and the output range is typically specified as an interpolator rather than an array of values. These scales do not expose invert and interpolate methods. The first generic corresponds to the data type of the interpolator return type. The second generic corresponds to the data type of the unknown value.

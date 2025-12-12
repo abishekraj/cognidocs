@@ -1,3 +1,0 @@
-# disableSticky
-
-**Return Type:** `void`

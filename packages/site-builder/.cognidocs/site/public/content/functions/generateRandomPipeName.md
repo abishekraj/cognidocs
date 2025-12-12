@@ -1,3 +1,0 @@
-# generateRandomPipeName
-
-**Return Type:** `string`

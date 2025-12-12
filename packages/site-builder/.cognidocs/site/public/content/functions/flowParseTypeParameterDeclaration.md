@@ -1,3 +1,0 @@
-# flowParseTypeParameterDeclaration
-
-**Return Type:** `void`

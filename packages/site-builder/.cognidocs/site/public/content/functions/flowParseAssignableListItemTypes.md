@@ -1,3 +1,0 @@
-# flowParseAssignableListItemTypes
-
-**Return Type:** `void`

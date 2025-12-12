@@ -1,7 +1,0 @@
-# LSPArray
-
-## Definition
-
-```typescript
-any[]
-```

@@ -1,7 +1,0 @@
-# TokenFormat
-
-## Definition
-
-```typescript
-'relative';
-```

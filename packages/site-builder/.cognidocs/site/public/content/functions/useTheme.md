@@ -1,3 +1,0 @@
-# useTheme
-
-**Return Type:** `void`

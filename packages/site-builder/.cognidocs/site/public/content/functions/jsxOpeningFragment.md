@@ -1,3 +1,0 @@
-# jsxOpeningFragment
-
-**Return Type:** `JSXOpeningFragment`

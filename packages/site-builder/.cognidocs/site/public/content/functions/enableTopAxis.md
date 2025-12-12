@@ -1,3 +1,0 @@
-# enableTopAxis
-
-**Return Type:** `void`

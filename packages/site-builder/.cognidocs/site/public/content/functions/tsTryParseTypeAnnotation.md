@@ -1,3 +1,0 @@
-# tsTryParseTypeAnnotation
-
-**Return Type:** `void`

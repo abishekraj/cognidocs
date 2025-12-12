@@ -1,3 +1,0 @@
-# flowParseVariance
-
-**Return Type:** `void`

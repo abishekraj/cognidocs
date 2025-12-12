@@ -1,3 +1,0 @@
-# localeData
-
-**Return Type:** `GlobalLocaleDataReturn`

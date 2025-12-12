@@ -1,3 +1,0 @@
-# parseExport
-
-**Return Type:** `void`

@@ -1,7 +1,0 @@
-# ProjectLanguageServiceStateEventName
-
-## Definition
-
-```typescript
-'projectLanguageServiceState';
-```

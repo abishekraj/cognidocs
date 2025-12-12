@@ -1,3 +1,0 @@
-# GeoIdentityTransform
-
-Geo Identity Transform

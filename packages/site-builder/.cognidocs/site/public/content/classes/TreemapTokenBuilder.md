@@ -1,3 +1,0 @@
-# TreemapTokenBuilder
-
-**Extends:** `AbstractMermaidTokenBuilder`

@@ -1,7 +1,0 @@
-# TypesInstallerInitializationFailedEventName
-
-## Definition
-
-```typescript
-'typesInstallerInitializationFailed';
-```

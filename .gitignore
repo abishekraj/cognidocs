@@ -65,9 +65,11 @@ guides/*
 scripts/*
 *.tsbuildinfo
 
-# Example project generated docs (for testing)
+# Generated documentation (for testing)
 examples/*/docs/
 examples/*/.cognidocs/
+packages/*/.cognidocs/
+packages/*/docs/
 
 
 # examples/

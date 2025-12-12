@@ -1,3 +1,0 @@
-# flowParseExportStar
-
-**Return Type:** `void`

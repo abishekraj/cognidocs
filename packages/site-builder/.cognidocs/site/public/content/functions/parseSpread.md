@@ -1,3 +1,0 @@
-# parseSpread
-
-**Return Type:** `void`

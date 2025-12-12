@@ -1,3 +1,0 @@
-# SocketMessageReader
-
-**Extends:** `ReadableStreamMessageReader`

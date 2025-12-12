@@ -1,3 +1,0 @@
-# tsBooleanKeyword
-
-**Return Type:** `TSBooleanKeyword`

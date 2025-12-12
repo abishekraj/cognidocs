@@ -1,3 +1,0 @@
-# StreamMessageWriter
-
-**Extends:** `WriteableStreamMessageWriter`

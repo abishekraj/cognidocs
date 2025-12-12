@@ -1,3 +1,0 @@
-# parseClassProperty
-
-**Return Type:** `void`

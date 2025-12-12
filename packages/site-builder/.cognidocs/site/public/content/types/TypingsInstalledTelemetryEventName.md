@@ -1,7 +1,0 @@
-# TypingsInstalledTelemetryEventName
-
-## Definition
-
-```typescript
-'typingsInstalled';
-```

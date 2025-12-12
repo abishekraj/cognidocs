@@ -1,3 +1,0 @@
-# clearRegExpParserCache
-
-**Return Type:** `void`

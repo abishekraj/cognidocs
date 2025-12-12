@@ -1,7 +1,0 @@
-# WatchKind
-
-## Definition
-
-```typescript
-uinteger;
-```

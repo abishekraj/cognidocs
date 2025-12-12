@@ -1,3 +1,0 @@
-# CycleException
-
-**Return Type:** `void`

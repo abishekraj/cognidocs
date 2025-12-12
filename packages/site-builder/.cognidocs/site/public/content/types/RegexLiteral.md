@@ -1,7 +1,0 @@
-# RegexLiteral
-
-## Definition
-
-```typescript
-RegExpLiteral;
-```

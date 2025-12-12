@@ -1,3 +1,0 @@
-# tsNullKeyword
-
-**Return Type:** `TSNullKeyword`

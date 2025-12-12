@@ -1,7 +1,0 @@
-# Operator
-
-## Definition
-
-```typescript
-'=' | '+=' | '?=' | undefined;
-```

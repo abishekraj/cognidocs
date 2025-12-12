@@ -1,7 +1,0 @@
-# NumberLiteral
-
-## Definition
-
-```typescript
-NumericLiteral;
-```

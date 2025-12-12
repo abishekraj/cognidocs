@@ -1,3 +1,0 @@
-# parseExprAtom
-
-**Return Type:** `boolean`

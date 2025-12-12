@@ -1,7 +1,0 @@
-# ErrorCodes
-
-## Definition
-
-```typescript
-integer;
-```

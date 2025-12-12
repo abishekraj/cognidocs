@@ -1,7 +1,0 @@
-# Accessor
-
-## Definition
-
-```typescript
-ClassAccessorProperty;
-```

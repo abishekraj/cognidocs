@@ -1,3 +1,0 @@
-# parseIdentifier
-
-**Return Type:** `void`

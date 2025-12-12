@@ -1,3 +1,0 @@
-# tsStartParseObjPropValue
-
-**Return Type:** `void`

@@ -1,3 +1,0 @@
-# argumentPlaceholder
-
-**Return Type:** `ArgumentPlaceholder`

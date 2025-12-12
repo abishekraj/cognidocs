@@ -1,3 +1,0 @@
-# jsxParseElement
-
-**Return Type:** `void`

@@ -1,7 +1,0 @@
-# removeCb
-
-## Definition
-
-```typescript
-() => void
-```

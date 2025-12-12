@@ -1,3 +1,0 @@
-# tsStringKeyword
-
-**Return Type:** `TSStringKeyword`

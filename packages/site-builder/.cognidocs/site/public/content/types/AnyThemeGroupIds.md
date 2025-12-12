@@ -1,7 +1,0 @@
-# AnyThemeGroupIds
-
-## Definition
-
-```typescript
-string;
-```

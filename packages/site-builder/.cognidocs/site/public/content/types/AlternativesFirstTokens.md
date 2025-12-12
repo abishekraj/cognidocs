@@ -1,7 +1,0 @@
-# AlternativesFirstTokens
-
-## Definition
-
-```typescript
-TokenType[][]
-```

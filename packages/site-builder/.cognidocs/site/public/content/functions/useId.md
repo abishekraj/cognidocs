@@ -1,3 +1,0 @@
-# useId
-
-**Return Type:** `string`

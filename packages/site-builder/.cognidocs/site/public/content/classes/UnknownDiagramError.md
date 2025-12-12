@@ -1,3 +1,0 @@
-# UnknownDiagramError
-
-**Extends:** `Error`

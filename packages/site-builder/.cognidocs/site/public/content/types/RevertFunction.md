@@ -1,7 +1,0 @@
-# RevertFunction
-
-## Definition
-
-```typescript
-() => void
-```

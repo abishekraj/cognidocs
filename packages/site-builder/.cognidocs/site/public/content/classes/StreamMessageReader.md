@@ -1,3 +1,0 @@
-# StreamMessageReader
-
-**Extends:** `ReadableStreamMessageReader`

@@ -1,3 +1,0 @@
-# enableInclusiveEndDates
-
-**Return Type:** `void`

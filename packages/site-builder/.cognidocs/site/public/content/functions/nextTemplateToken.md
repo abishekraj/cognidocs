@@ -1,3 +1,0 @@
-# nextTemplateToken
-
-**Return Type:** `void`

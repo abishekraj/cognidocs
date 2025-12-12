@@ -1,3 +1,0 @@
-# getCurrentBoundaryParse
-
-**Return Type:** `string`

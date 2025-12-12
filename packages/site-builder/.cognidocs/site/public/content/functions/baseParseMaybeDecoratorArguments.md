@@ -1,3 +1,0 @@
-# baseParseMaybeDecoratorArguments
-
-**Return Type:** `void`

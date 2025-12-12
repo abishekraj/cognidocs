@@ -1,3 +1,0 @@
-# ScaleOrdinal
-
-Unlike continuous scales, ordinal scales have a discrete domain and range. For example, an ordinal scale might map a set of named categories to a set of colors, or determine the horizontal positions of columns in a column chart. The first element in the domain will be mapped to the first element in range, the second domain value to the second range value, and so on. If there are fewer elements in the range than in the domain, the scale will reuse values from the start of the range. The first generic corresponds to the data type of domain values. The second generic corresponds to the data type of range values. The third generic corresponds to the data type of the unknown value.

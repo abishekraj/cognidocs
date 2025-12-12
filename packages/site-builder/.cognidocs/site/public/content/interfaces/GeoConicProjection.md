@@ -1,3 +1,0 @@
-# GeoConicProjection
-
-A Conic Projection

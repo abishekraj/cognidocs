@@ -1,3 +1,0 @@
-# getExcludes
-
-**Return Type:** `any[]`

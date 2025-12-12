@@ -1,7 +1,0 @@
-# TransitionFunction
-
-## Definition
-
-```typescript
-() => VoidOrUndefinedOnly;
-```

@@ -1,7 +1,0 @@
-# LSPObject
-
-## Definition
-
-```typescript
-object;
-```

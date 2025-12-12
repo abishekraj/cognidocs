@@ -1,3 +1,0 @@
-# tsIntrinsicKeyword
-
-**Return Type:** `TSIntrinsicKeyword`

@@ -1,7 +1,0 @@
-# ProjectLoadingStartEventName
-
-## Definition
-
-```typescript
-'projectLoadingStart';
-```

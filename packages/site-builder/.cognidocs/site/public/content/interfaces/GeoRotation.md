@@ -1,3 +1,0 @@
-# GeoRotation
-
-A Geo Rotation

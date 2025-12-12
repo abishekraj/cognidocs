@@ -1,7 +1,0 @@
-# Boundary
-
-## Definition
-
-```typescript
-any;
-```

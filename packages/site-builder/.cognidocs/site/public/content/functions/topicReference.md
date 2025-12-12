@@ -1,3 +1,0 @@
-# topicReference
-
-**Return Type:** `TopicReference`

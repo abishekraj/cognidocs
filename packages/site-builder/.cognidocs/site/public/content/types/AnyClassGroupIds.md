@@ -1,7 +1,0 @@
-# AnyClassGroupIds
-
-## Definition
-
-```typescript
-string;
-```

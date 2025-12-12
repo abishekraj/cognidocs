@@ -1,3 +1,0 @@
-# isWebKit
-
-**Return Type:** `boolean`

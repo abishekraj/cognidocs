@@ -1,3 +1,0 @@
-# inferredPredicate
-
-**Return Type:** `InferredPredicate`

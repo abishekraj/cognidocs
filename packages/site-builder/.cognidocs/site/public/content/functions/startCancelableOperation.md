@@ -1,3 +1,0 @@
-# startCancelableOperation
-
-**Return Type:** `AbstractCancellationTokenSource`

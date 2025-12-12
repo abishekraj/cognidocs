@@ -1,3 +1,0 @@
-# parseFile
-
-**Return Type:** `File`

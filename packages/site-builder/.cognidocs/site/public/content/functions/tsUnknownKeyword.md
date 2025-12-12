@@ -1,3 +1,0 @@
-# tsUnknownKeyword
-
-**Return Type:** `TSUnknownKeyword`

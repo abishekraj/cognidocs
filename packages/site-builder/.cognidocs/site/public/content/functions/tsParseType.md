@@ -1,3 +1,0 @@
-# tsParseType
-
-**Return Type:** `void`

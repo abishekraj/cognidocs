@@ -1,9 +1,0 @@
-# scaleDiverging
-
-**Return Type:** `ScaleDiverging<Output, Unknown>`
-
-## Parameters
-
-| Name           | Type                                          | Optional | Description |
-| :------------- | :-------------------------------------------- | :------- | :---------- |
-| `interpolator` | `((t: number) => Output) \| Iterable<Output>` | Yes      | -           |

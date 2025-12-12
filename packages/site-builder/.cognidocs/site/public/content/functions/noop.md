@@ -1,3 +1,0 @@
-# noop
-
-**Return Type:** `Noop`

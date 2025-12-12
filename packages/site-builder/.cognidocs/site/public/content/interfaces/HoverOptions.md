@@ -1,3 +1,0 @@
-# HoverOptions
-
-Hover options.

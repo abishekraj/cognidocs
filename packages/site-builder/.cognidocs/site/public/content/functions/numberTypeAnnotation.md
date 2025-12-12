@@ -1,3 +1,0 @@
-# numberTypeAnnotation
-
-**Return Type:** `NumberTypeAnnotation`

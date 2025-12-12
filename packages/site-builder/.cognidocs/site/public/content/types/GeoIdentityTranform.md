@@ -1,7 +1,0 @@
-# GeoIdentityTranform
-
-## Definition
-
-```typescript
-GeoIdentityTransform;
-```

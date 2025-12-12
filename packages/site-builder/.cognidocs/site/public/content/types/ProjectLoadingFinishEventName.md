@@ -1,7 +1,0 @@
-# ProjectLoadingFinishEventName
-
-## Definition
-
-```typescript
-'projectLoadingFinish';
-```

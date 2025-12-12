@@ -1,3 +1,0 @@
-# WorkerThreadParserWorker
-
-**Extends:** `ParserWorker`

@@ -1,3 +1,0 @@
-# flowAfterParseVarHead
-
-**Return Type:** `void`

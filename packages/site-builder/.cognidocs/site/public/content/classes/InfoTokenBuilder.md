@@ -1,3 +1,0 @@
-# InfoTokenBuilder
-
-**Extends:** `AbstractMermaidTokenBuilder`

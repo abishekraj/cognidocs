@@ -1,3 +1,0 @@
-# getIncludes
-
-**Return Type:** `any[]`

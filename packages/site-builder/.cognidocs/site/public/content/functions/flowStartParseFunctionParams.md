@@ -1,3 +1,0 @@
-# flowStartParseFunctionParams
-
-**Return Type:** `void`

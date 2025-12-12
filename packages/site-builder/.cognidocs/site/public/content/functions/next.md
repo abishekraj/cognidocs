@@ -1,3 +1,0 @@
-# next
-
-**Return Type:** `void`

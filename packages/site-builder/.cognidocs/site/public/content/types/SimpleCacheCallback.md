@@ -1,7 +1,0 @@
-# SimpleCacheCallback
-
-## Definition
-
-```typescript
-() => T;
-```

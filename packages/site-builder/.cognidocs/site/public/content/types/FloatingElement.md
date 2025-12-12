@@ -1,7 +1,0 @@
-# FloatingElement
-
-## Definition
-
-```typescript
-any;
-```

@@ -1,3 +1,0 @@
-# setConf
-
-**Return Type:** `void`

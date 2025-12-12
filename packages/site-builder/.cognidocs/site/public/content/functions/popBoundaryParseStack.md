@@ -1,3 +1,0 @@
-# popBoundaryParseStack
-
-**Return Type:** `void`

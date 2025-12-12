@@ -1,3 +1,0 @@
-# tsIsDeclarationStart
-
-**Return Type:** `boolean`

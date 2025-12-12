@@ -1,7 +1,0 @@
-# Cardinality
-
-## Definition
-
-```typescript
-'?' | '*' | '+' | undefined;
-```

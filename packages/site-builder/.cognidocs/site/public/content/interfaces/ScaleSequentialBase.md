@@ -1,3 +1,0 @@
-# ScaleSequentialBase
-
-Sequential scales are similar to continuous scales in that they map a continuous, numeric input domain to a continuous output range. However, unlike continuous scales, the input domain and output range of a sequential scale always has exactly two elements, and the output range is typically specified as an interpolator rather than an array of values. These scales do not expose invert and interpolate methods. The first generic corresponds to the data type of the output of the interpolator underlying the scale. The second generic corresponds to the data type of the unknown value.

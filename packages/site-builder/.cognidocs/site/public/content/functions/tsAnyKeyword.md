@@ -1,3 +1,0 @@
-# tsAnyKeyword
-
-**Return Type:** `TSAnyKeyword`

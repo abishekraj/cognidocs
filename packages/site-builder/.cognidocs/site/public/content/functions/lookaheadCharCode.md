@@ -1,3 +1,0 @@
-# lookaheadCharCode
-
-**Return Type:** `number`

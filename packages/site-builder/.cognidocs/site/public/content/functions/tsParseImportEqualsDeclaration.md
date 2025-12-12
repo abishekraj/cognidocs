@@ -1,3 +1,0 @@
-# tsParseImportEqualsDeclaration
-
-**Return Type:** `void`

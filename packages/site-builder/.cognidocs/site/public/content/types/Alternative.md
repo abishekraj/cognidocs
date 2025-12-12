@@ -1,7 +1,0 @@
-# Alternative
-
-## Definition
-
-```typescript
-TokenType[][]
-```

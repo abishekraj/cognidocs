@@ -1,3 +1,0 @@
-# months
-
-**Return Type:** `MonthNames`

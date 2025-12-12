@@ -1,3 +1,0 @@
-# flowStartParseObjPropValue
-
-**Return Type:** `void`

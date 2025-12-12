@@ -1,3 +1,0 @@
-# retokenizeSlashAsRegex
-
-**Return Type:** `void`

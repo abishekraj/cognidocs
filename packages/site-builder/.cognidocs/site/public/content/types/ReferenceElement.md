@@ -1,7 +1,0 @@
-# ReferenceElement
-
-## Definition
-
-```typescript
-any;
-```

@@ -1,7 +1,0 @@
-# Polygon
-
-## Definition
-
-```typescript
-Point[]
-```

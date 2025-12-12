@@ -1,3 +1,0 @@
-# voidPattern
-
-**Return Type:** `VoidPattern`

@@ -1,3 +1,0 @@
-# AxisTimeInterval
-
-A helper interface to describe the minimal contract to be met by a time interval which can be passed into the Axis.ticks(...) or Axis.tickArguments(...) methods when creating time series axes. Under normal circumstances the argument will be of type TimeInterval or CountableTimeInterval as defined in d3-time. NB: This helper interface has been created to avoid tight coupling of d3-axis to d3-time at the level of definition files. I.e. d3-time is not a dependency of d3-axis in the D3 Javascript implementation. This minimal contract is based on an analysis of how d3-axis passes a time interval argument into a time scale, if a time scale was set using Axis.scale(...). And in turn on how a time scale uses the time interval when creating ticks from it.

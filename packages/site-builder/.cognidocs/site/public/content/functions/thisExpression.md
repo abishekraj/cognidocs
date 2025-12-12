@@ -1,3 +1,0 @@
-# thisExpression
-
-**Return Type:** `ThisExpression`

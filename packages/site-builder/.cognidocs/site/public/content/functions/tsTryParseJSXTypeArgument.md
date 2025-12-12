@@ -1,3 +1,0 @@
-# tsTryParseJSXTypeArgument
-
-**Return Type:** `void`

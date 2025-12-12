@@ -1,3 +1,0 @@
-# emptyStatement
-
-**Return Type:** `EmptyStatement`

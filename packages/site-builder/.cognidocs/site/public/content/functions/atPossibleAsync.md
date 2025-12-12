@@ -1,3 +1,0 @@
-# atPossibleAsync
-
-**Return Type:** `boolean`

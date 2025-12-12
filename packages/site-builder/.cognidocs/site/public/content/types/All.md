@@ -1,7 +1,0 @@
-# All
-
-## Definition
-
-```typescript
-Globals;
-```

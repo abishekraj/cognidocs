@@ -1,7 +1,0 @@
-# LSPErrorCodes
-
-## Definition
-
-```typescript
-integer;
-```

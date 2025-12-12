@@ -1,7 +1,0 @@
-# MiddlewareArguments
-
-## Definition
-
-```typescript
-MiddlewareState;
-```

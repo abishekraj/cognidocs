@@ -1,3 +1,0 @@
-# stringTypeAnnotation
-
-**Return Type:** `StringTypeAnnotation`

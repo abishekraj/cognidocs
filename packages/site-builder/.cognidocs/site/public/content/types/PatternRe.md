@@ -1,7 +1,0 @@
-# PatternRe
-
-## Definition
-
-```typescript
-RegExp;
-```

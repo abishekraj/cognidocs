@@ -1,7 +1,0 @@
-# RequestCompletedEventName
-
-## Definition
-
-```typescript
-'requestCompleted';
-```

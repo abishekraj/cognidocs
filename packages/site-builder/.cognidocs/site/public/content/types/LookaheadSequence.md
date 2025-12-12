@@ -1,7 +1,0 @@
-# LookaheadSequence
-
-## Definition
-
-```typescript
-TokenType[][]
-```

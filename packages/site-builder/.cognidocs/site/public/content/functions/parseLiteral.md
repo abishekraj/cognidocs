@@ -1,3 +1,0 @@
-# parseLiteral
-
-**Return Type:** `void`

@@ -1,7 +1,0 @@
-# MyNumber
-
-## Definition
-
-```typescript
-number;
-```

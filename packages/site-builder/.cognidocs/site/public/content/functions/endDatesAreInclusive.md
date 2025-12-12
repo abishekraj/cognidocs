@@ -1,3 +1,0 @@
-# endDatesAreInclusive
-
-**Return Type:** `boolean`

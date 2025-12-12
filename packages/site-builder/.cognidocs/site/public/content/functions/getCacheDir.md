@@ -1,3 +1,0 @@
-# getCacheDir
-
-**Return Type:** `string`

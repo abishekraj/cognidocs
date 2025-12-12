@@ -1,3 +1,0 @@
-# tsNeverKeyword
-
-**Return Type:** `TSNeverKeyword`

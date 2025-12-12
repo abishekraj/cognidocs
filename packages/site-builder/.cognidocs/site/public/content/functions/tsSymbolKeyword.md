@@ -1,3 +1,0 @@
-# tsSymbolKeyword
-
-**Return Type:** `TSSymbolKeyword`

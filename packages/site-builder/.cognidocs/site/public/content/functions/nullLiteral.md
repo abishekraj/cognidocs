@@ -1,3 +1,0 @@
-# nullLiteral
-
-**Return Type:** `NullLiteral`

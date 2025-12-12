@@ -1,7 +1,0 @@
-# PatternSection
-
-## Definition
-
-```typescript
-PatternSegment[]
-```

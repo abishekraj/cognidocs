@@ -1,7 +1,0 @@
-# SuggestionDiagnosticsSyncResponse
-
-## Definition
-
-```typescript
-SemanticDiagnosticsSyncResponse;
-```

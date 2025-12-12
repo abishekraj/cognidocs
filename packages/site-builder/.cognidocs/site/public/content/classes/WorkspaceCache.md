@@ -1,3 +1,0 @@
-# WorkspaceCache
-
-**Extends:** `SimpleCache`

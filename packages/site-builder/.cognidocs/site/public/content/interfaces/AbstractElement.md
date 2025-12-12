@@ -1,9 +1,0 @@
-# AbstractElement
-
-## Properties
-
-| Name          | Type                                                                                                                                                                                                                                                                                                                  | Optional | Description |
-| :------------ | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------- | :---------- |
-| `$type`       | `'AbstractElement' \| 'Action' \| 'Alternatives' \| 'Assignment' \| 'CharacterRange' \| 'CrossReference' \| 'EndOfFile' \| 'Group' \| 'Keyword' \| 'NegatedToken' \| 'RegexToken' \| 'RuleCall' \| 'TerminalAlternatives' \| 'TerminalGroup' \| 'TerminalRuleCall' \| 'UnorderedGroup' \| 'UntilToken' \| 'Wildcard'` | No       | -           |
-| `cardinality` | `'*' \| '+' \| '?'`                                                                                                                                                                                                                                                                                                   | Yes      | -           |
-| `lookahead`   | `'?!' \| '?<!' \| '?<=' \| '?='`                                                                                                                                                                                                                                                                                      | Yes      | -           |

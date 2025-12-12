@@ -1,3 +1,0 @@
-# clearCache
-
-**Return Type:** `void`

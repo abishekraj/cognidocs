@@ -1,3 +1,0 @@
-# existsTypeAnnotation
-
-**Return Type:** `ExistsTypeAnnotation`

@@ -1,3 +1,0 @@
-# getTasks
-
-**Return Type:** `any[]`

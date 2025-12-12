@@ -1,3 +1,0 @@
-# getTitle
-
-**Return Type:** `string`

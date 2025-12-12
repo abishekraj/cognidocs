@@ -1,3 +1,0 @@
-# PacketTokenBuilder
-
-**Extends:** `AbstractMermaidTokenBuilder`

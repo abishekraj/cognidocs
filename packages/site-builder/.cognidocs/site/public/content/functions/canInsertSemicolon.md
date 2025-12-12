@@ -1,3 +1,0 @@
-# canInsertSemicolon
-
-**Return Type:** `boolean`

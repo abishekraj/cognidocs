@@ -1,3 +1,0 @@
-# voidTypeAnnotation
-
-**Return Type:** `VoidTypeAnnotation`

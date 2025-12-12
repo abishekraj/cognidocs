@@ -1,7 +1,0 @@
-# ClassDef
-
-## Definition
-
-```typescript
-string;
-```

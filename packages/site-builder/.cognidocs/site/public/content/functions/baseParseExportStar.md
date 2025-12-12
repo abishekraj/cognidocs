@@ -1,3 +1,0 @@
-# baseParseExportStar
-
-**Return Type:** `void`

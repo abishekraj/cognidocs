@@ -1,3 +1,0 @@
-# DefinedInfo
-
-**Extends:** `Info`

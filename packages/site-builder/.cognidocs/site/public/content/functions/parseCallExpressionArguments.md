@@ -1,3 +1,0 @@
-# parseCallExpressionArguments
-
-**Return Type:** `void`

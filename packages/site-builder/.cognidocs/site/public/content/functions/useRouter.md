@@ -1,3 +1,0 @@
-# useRouter
-
-**Return Type:** `RouteMatch`

@@ -1,3 +1,0 @@
-# PieTokenBuilder
-
-**Extends:** `AbstractMermaidTokenBuilder`

@@ -1,3 +1,0 @@
-# nextTokenStart
-
-**Return Type:** `number`

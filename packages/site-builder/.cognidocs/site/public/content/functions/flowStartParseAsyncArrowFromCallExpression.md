@@ -1,3 +1,0 @@
-# flowStartParseAsyncArrowFromCallExpression
-
-**Return Type:** `void`

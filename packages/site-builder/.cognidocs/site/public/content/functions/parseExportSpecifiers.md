@@ -1,3 +1,0 @@
-# parseExportSpecifiers
-
-**Return Type:** `void`

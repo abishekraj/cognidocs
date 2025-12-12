@@ -1,3 +1,0 @@
-# typedParseParenItem
-
-**Return Type:** `void`

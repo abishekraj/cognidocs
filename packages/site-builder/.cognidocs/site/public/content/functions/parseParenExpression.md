@@ -1,3 +1,0 @@
-# parseParenExpression
-
-**Return Type:** `void`

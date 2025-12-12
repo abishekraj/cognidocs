@@ -1,3 +1,0 @@
-# tsParseNonConditionalType
-
-**Return Type:** `void`

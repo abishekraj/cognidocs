@@ -1,7 +1,0 @@
-# GeometryObject
-
-## Definition
-
-```typescript
-Geometry;
-```

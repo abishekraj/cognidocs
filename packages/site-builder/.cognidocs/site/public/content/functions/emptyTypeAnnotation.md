@@ -1,3 +1,0 @@
-# emptyTypeAnnotation
-
-**Return Type:** `EmptyTypeAnnotation`

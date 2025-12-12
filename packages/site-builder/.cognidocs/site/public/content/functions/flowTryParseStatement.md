@@ -1,3 +1,0 @@
-# flowTryParseStatement
-
-**Return Type:** `boolean`

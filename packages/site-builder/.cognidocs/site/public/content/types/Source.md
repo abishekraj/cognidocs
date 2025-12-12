@@ -1,7 +1,0 @@
-# Source
-
-## Definition
-
-```typescript
-ReverseSegment[][]
-```
