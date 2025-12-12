@@ -142,5 +142,5 @@ export default ${JSON.stringify(config, null, 2)};
   console.log(chalk.blue('Next steps:'));
   console.log(chalk.gray('   1. Review and customize cognidocs.config.js'));
   console.log(chalk.gray('   2. Run: cognidocs build'));
-  console.log(chalk.gray('   3. [Phase 3] Run: cognidocs serve\n'));
+  console.log(chalk.gray('   3. Run: cognidocs serve\n'));
 }

@@ -247,7 +247,8 @@ export async function buildCommand(options: BuildOptions = {}): Promise<void> {
 
     console.log(chalk.green('\n✅ Documentation built successfully!\n'));
     console.log(chalk.gray(`   Output directory: ${outputPath}`));
-    console.log(chalk.gray(`   Run 'cognidocs serve' to view the site (coming soon)\n`));
+    console.log(chalk.gray(`   Site: ${outputPath}/site`));
+    console.log(chalk.gray(`   Run 'cognidocs serve' to view the documentation\n`));
 
     if (options.watch) {
       console.log(chalk.yellow('⚠️  Watch mode not yet implemented'));

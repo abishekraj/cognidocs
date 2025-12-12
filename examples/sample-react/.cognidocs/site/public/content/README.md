@@ -5,6 +5,7 @@ This is a sample React application used for testing CogniDocs parsing and docume
 ## Purpose
 
 This project contains:
+
 - React components with TypeScript
 - JSDoc comments
 - Props interfaces
@@ -30,6 +31,7 @@ cognidocs build
 ## Expected Output
 
 When parsed by CogniDocs, this should generate:
+
 - Component API documentation
 - Props tables
 - Type definitions

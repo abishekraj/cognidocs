@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generatedAt": "2025-12-12T03:02:50.448Z",
+    "generatedAt": "2025-12-12T04:37:56.694Z",
     "phase": "phase3-documentation",
     "config": {
       "entry": "./src",
@@ -453,7 +453,7 @@
           "isExported": true,
           "isAsync": true,
           "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/utils/api.ts",
-          "line": 134,
+          "line": 132,
           "jsdoc": {
             "examples": [
               {
@@ -501,7 +501,7 @@
           "isExported": true,
           "isAsync": true,
           "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/utils/api.ts",
-          "line": 191,
+          "line": 187,
           "jsdoc": {
             "examples": [
               {
@@ -543,7 +543,7 @@
           "isExported": true,
           "isAsync": false,
           "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/utils/api.ts",
-          "line": 230,
+          "line": 226,
           "jsdoc": {
             "examples": [
               {
@@ -1021,7 +1021,7 @@
           "parameters": [
             {
               "name": "user",
-              "type": "{ firstName?: string; lastName?: string; username: string }",
+              "type": "{\n  firstName?: string;\n  lastName?: string;\n  username: string;\n}",
               "optional": false
             }
           ],
@@ -1042,7 +1042,7 @@
           "isExported": true,
           "isAsync": false,
           "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/components/UserProfile.tsx",
-          "line": 61
+          "line": 65
         }
       ],
       "classes": [
@@ -1107,7 +1107,7 @@
           "isExported": true,
           "implementsInterfaces": [],
           "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/components/UserProfile.tsx",
-          "line": 65
+          "line": 69
         }
       ],
       "interfaces": [
@@ -1167,7 +1167,7 @@
           "isExported": true,
           "extendsInterfaces": [],
           "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/components/UserProfile.tsx",
-          "line": 89
+          "line": 93
         }
       ],
       "types": [
@@ -1176,14 +1176,14 @@
           "type": "'admin' | 'moderator' | 'user' | 'guest'",
           "isExported": true,
           "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/components/UserProfile.tsx",
-          "line": 95
+          "line": 99
         },
         {
           "name": "UserStatus",
           "type": "'active' | 'inactive' | 'suspended' | 'pending'",
           "isExported": true,
           "filePath": "/Users/abishekraj/Downloads/cognidocs/examples/sample-react/src/components/UserProfile.tsx",
-          "line": 97
+          "line": 101
         }
       ],
       "imports": [

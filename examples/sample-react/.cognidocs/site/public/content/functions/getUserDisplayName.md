@@ -5,4 +5,8 @@
 ## Parameters
 | Name | Type | Optional | Description |
 | :--- | :--- | :------- | :---------- |
-| `user` | `{ firstName?: string; lastName?: string; username: string }` | No | - |
+| `user` | `{
+  firstName?: string;
+  lastName?: string;
+  username: string;
+}` | No | - |

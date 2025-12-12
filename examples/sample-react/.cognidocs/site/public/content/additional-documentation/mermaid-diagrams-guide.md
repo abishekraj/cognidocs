@@ -203,6 +203,7 @@ The diagram will automatically render with the theme matching your current site 
 ## Theme Support
 
 Mermaid diagrams automatically adapt to your selected CogniDocs theme:
+
 - Light themes use the default Mermaid theme
 - Dark themes (Dracula, Monokai, Nord Dark, etc.) use the dark Mermaid theme
 - Colors are extracted from CSS variables for consistency
@@ -210,5 +211,6 @@ Mermaid diagrams automatically adapt to your selected CogniDocs theme:
 ## Learn More
 
 For complete Mermaid.js documentation and syntax, visit:
+
 - [Mermaid Official Docs](https://mermaid.js.org/)
 - [Mermaid Live Editor](https://mermaid.live/)
