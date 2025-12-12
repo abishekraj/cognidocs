@@ -15,7 +15,7 @@ const program = new Command();
 program
   .name('cognidocs')
   .description('AI-powered documentation tool for JavaScript/TypeScript projects')
-  .version('0.0.6')
+  .version('0.0.8')
   .addHelpText(
     'after',
     `

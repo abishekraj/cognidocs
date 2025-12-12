@@ -6,7 +6,6 @@ import {
   detectPackageManager,
   getInstallCommand,
   getBuildCommand,
-  getLockFileName,
   getPackageManagerDisplayName,
 } from './utils/packageManager.js';
 
@@ -39,6 +38,8 @@ export class SiteBuilder {
     try {
       // First, update vite.config.ts to use the correct outDir
       const viteConfigPath = path.join(this.siteDir, 'vite.config.ts');
+      // Convert Windows backslashes to forward slashes for Vite config
+      const normalizedOutDir = path.resolve(outputDir).replace(/\\/g, '/');
       const viteConfigContent = `import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
@@ -51,7 +52,7 @@ export default defineConfig({
     },
   },
   build: {
-    outDir: '${path.resolve(outputDir)}',
+    outDir: '${normalizedOutDir}',
     emptyOutDir: true,
   },
   base: './',
@@ -64,30 +65,12 @@ export default defineConfig({
       if (!(await fs.pathExists(nodeModulesPath))) {
         console.log('Installing dependencies...');
 
-        // Detect package manager and platform
+        // Detect package manager
         const pm = detectPackageManager(this.projectRoot);
-        const isWindows = process.platform === 'win32';
-
         console.log(`📦 Detected package manager: ${getPackageManagerDisplayName(pm)}`);
 
-        if (isWindows && pm === 'npm') {
-          console.log('💡 Windows detected: Applying compatibility fixes for Rollup...');
-        }
-
-        // Delete lock file if it exists and we're using npm on Windows
-        // This prevents the npm optional dependency bug
-        // See: https://github.com/npm/cli/issues/4828
-        if (pm === 'npm' && isWindows) {
-          const lockFile = getLockFileName(pm);
-          const lockFilePath = path.join(this.siteDir, lockFile);
-          if (await fs.pathExists(lockFilePath)) {
-            await fs.remove(lockFilePath);
-            console.log(`   ✓ Removed ${lockFile} (prevents npm optional dependency bug)`);
-          }
-        }
-
         // Get the appropriate install command for this package manager
-        const installCmd = getInstallCommand(pm, { isWindows });
+        const installCmd = getInstallCommand(pm);
 
         // Install dependencies
         try {
@@ -97,39 +80,11 @@ export default defineConfig({
             stdio: 'inherit',
           });
 
-          if (isWindows && pm === 'npm') {
-            console.log('   ✓ Dependencies installed successfully with --legacy-peer-deps');
-          } else {
-            console.log('   ✓ Dependencies installed successfully');
-          }
+          console.log('   ✓ Dependencies installed successfully');
         } catch (error) {
-          // Fallback for npm on Windows
-          if (pm === 'npm' && isWindows) {
-            console.error('\n⚠️  Installation with --legacy-peer-deps failed.');
-            console.error('   Trying standard npm install...\n');
-
-            try {
-              execSync('npm install', {
-                cwd: this.siteDir,
-                stdio: 'inherit',
-              });
-              console.log('   ✓ Dependencies installed with fallback method');
-            } catch (fallbackError) {
-              console.error('\n❌ Installation failed. This may be due to the Windows Rollup bug.');
-              console.error('   See: https://github.com/npm/cli/issues/4828\n');
-              console.error('📖 Troubleshooting steps:');
-              console.error('   1. Check WINDOWS_TROUBLESHOOTING.md in .cognidocs/site/');
-              console.error('   2. Try manually: cd .cognidocs/site && npm install --legacy-peer-deps');
-              console.error('   3. Alternative: Use pnpm instead of npm (recommended for Windows)');
-              console.error('      npm install -g pnpm && pnpm install\n');
-              throw fallbackError;
-            }
-          } else {
-            // For pnpm/yarn, just throw the error
-            console.error(`\n❌ Installation failed with ${pm}.`);
-            console.error('   Please check the error message above for details.\n');
-            throw error;
-          }
+          console.error(`\n❌ Installation failed with ${pm}.`);
+          console.error('   Please check the error message above for details.\n');
+          throw error;
         }
       }
 

@@ -38,30 +38,16 @@ export function detectPackageManager(projectRoot: string = process.cwd()): Packa
 
 /**
  * Gets the install command for the detected package manager
- * Includes platform-specific optimizations (e.g., --legacy-peer-deps for npm on Windows)
  */
-export function getInstallCommand(
-  pm: PackageManager,
-  options: {
-    isWindows?: boolean;
-    useLegacyPeerDeps?: boolean;
-  } = {}
-): string {
-  const { isWindows = process.platform === 'win32', useLegacyPeerDeps = isWindows } = options;
-
+export function getInstallCommand(pm: PackageManager): string {
   switch (pm) {
     case 'pnpm':
-      // pnpm handles optional dependencies well, no special flags needed
       return 'pnpm install';
-
     case 'yarn':
-      // yarn also handles optional dependencies well
       return 'yarn install';
-
     case 'npm':
     default:
-      // npm needs --legacy-peer-deps on Windows to handle Rollup optional dependencies
-      return useLegacyPeerDeps ? 'npm install --legacy-peer-deps' : 'npm install';
+      return 'npm install';
   }
 }
 

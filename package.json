@@ -1,6 +1,6 @@
 {
   "name": "cognidocs",
-  "version": "0.0.6",
+  "version": "0.0.8",
   "description": "Beautiful documentation for TypeScript & React projects — automatically generated from your code",
   "keywords": [
     "documentation",

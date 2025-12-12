@@ -1,12 +1,31 @@
 import { resolve, join } from 'path';
 import chalk from 'chalk';
-import { spawn } from 'child_process';
+import { createServer } from 'http';
+import { readFile } from 'fs/promises';
+import { existsSync } from 'fs';
+import { extname } from 'path';
 import { loadConfig } from '../config';
 
 export interface ServeOptions {
   config?: string;
   port?: number;
 }
+
+const mimeTypes: Record<string, string> = {
+  '.html': 'text/html',
+  '.js': 'text/javascript',
+  '.css': 'text/css',
+  '.json': 'application/json',
+  '.png': 'image/png',
+  '.jpg': 'image/jpg',
+  '.gif': 'image/gif',
+  '.svg': 'image/svg+xml',
+  '.ico': 'image/x-icon',
+  '.woff': 'font/woff',
+  '.woff2': 'font/woff2',
+  '.ttf': 'font/ttf',
+  '.eot': 'application/vnd.ms-fontobject',
+};
 
 export async function serveCommand(options: ServeOptions = {}): Promise<void> {
   console.log(chalk.blue('🌍 Starting CogniDocs server...\n'));
@@ -15,28 +34,89 @@ export async function serveCommand(options: ServeOptions = {}): Promise<void> {
   const outputDir = resolve(process.cwd(), config.output || 'docs');
   const siteDir = join(outputDir, 'site');
 
-  console.log(chalk.gray(`   Serving from: ${siteDir}`));
+  if (!existsSync(siteDir)) {
+    console.error(
+      chalk.red('\n❌ Site directory not found. Please run `cognidocs build` first.\n')
+    );
+    process.exit(1);
+  }
 
-  // Quick and dirty static server using 'preview' from vite, or just 'serve' package if we had it.
-  // Since we rely on SiteBuilder which uses Vite, we can try to use Vite's preview.
-  // But strictly, the `site-builder` package should export a `serve` function.
+  console.log(chalk.gray(`   Serving from: ${siteDir}\n`));
 
-  // For now, let's use a simple npx vite preview command pointing to the build output.
-  // This assumes the user has npx or we can run it.
+  const port = options.port || 4173;
 
-  console.log(chalk.green(`\n🚀 Server starting on http://localhost:${options.port || 4173}`));
+  const server = createServer(async (req, res) => {
+    try {
+      // Remove query string and decode URI
+      let filePath = decodeURIComponent(req.url?.split('?')[0] || '/');
 
-  const vitePreview = spawn(
-    'npx',
-    ['vite', 'preview', '--outDir', siteDir, '--port', String(options.port || 4173)],
-    {
-      stdio: 'inherit',
-      cwd: process.cwd(), // Run from project root
+      // Default to index.html for root and directory paths
+      if (filePath === '/' || filePath.endsWith('/')) {
+        filePath = join(filePath, 'index.html');
+      }
+
+      // Security: prevent directory traversal
+      const fullPath = resolve(siteDir, filePath.slice(1));
+      if (!fullPath.startsWith(siteDir)) {
+        res.writeHead(403);
+        res.end('Forbidden');
+        return;
+      }
+
+      // Check if file exists
+      if (!existsSync(fullPath)) {
+        // Try with .html extension
+        const htmlPath = fullPath + '.html';
+        if (existsSync(htmlPath)) {
+          const content = await readFile(htmlPath);
+          res.writeHead(200, { 'Content-Type': 'text/html' });
+          res.end(content);
+          return;
+        }
+
+        // Fallback to index.html for SPA routing
+        const indexPath = join(siteDir, 'index.html');
+        if (existsSync(indexPath)) {
+          const content = await readFile(indexPath);
+          res.writeHead(200, { 'Content-Type': 'text/html' });
+          res.end(content);
+          return;
+        }
+
+        res.writeHead(404);
+        res.end('Not Found');
+        return;
+      }
+
+      // Determine content type
+      const ext = extname(fullPath);
+      const contentType = mimeTypes[ext] || 'application/octet-stream';
+
+      // Read and serve file
+      const content = await readFile(fullPath);
+      res.writeHead(200, { 'Content-Type': contentType });
+      res.end(content);
+    } catch (error) {
+      console.error(chalk.red('Error serving file:'), error);
+      res.writeHead(500);
+      res.end('Internal Server Error');
     }
-  );
+  });
 
-  vitePreview.on('error', (err) => {
-    console.error(chalk.red('Failed to start server:'), err);
+  server.listen(port, () => {
+    console.log(chalk.green(`🚀 Server starting on http://localhost:${port}`));
+    console.log(chalk.cyan(`  ➜  Local:   http://localhost:${port}/`));
+    console.log(chalk.gray(`  ➜  Network: use --host to expose\n`));
+    console.log(chalk.gray('  Press Ctrl+C to stop\n'));
+  });
+
+  server.on('error', (err: NodeJS.ErrnoException) => {
+    if (err.code === 'EADDRINUSE') {
+      console.error(chalk.red(`\n❌ Port ${port} is already in use. Try a different port with --port\n`));
+    } else {
+      console.error(chalk.red('Failed to start server:'), err);
+    }
+    process.exit(1);
   });
 
   // Keep process alive

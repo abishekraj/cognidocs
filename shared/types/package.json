@@ -1,6 +1,6 @@
 {
   "name": "@cognidocs/types",
-  "version": "0.0.6",
+  "version": "0.0.8",
   "description": "Shared TypeScript types for CogniDocs",
   "main": "./dist/index.mjs",
   "types": "./dist/index.d.mts",
