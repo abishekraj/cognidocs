@@ -20,6 +20,7 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "cmdk": "^0.2.0",
+    "highlight.js": "^11.9.0",
     "lucide-react": "^0.556.0",
     "lunr": "^2.3.9",
     "mermaid": "^11.4.1",

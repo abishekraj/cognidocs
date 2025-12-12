@@ -1,6 +1,6 @@
 {
   "name": "@cognidocs/graph-viz",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "Interactive dependency graph visualization for CogniDocs",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
