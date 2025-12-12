@@ -10,6 +10,8 @@ build/
 .next/
 out/
 .turbo/
+.claude/
+
 
 # Testing
 coverage/
@@ -59,8 +61,8 @@ Thumbs.db
 # Output directories
 apps/
 docs/
-scripts/
-docs-test/
+guides/*
+scripts/*
 *.tsbuildinfo
 
 # Example project generated docs (for testing)
