@@ -1,5 +1,7 @@
 # InputOptionsWithPlugins
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `plugins` | `Plugin[]` | No | - |
+
+| Name      | Type       | Optional | Description |
+| :-------- | :--------- | :------- | :---------- |
+| `plugins` | `Plugin[]` | No       | -           |

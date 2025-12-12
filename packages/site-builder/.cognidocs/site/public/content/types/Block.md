@@ -1,5 +1,7 @@
 # Block
+
 ## Definition
+
 ```typescript
-BlockStatement | Program | TSModuleBlock
+BlockStatement | Program | TSModuleBlock;
 ```

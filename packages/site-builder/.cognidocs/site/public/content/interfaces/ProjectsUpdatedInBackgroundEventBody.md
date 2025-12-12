@@ -1,5 +1,7 @@
 # ProjectsUpdatedInBackgroundEventBody
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `openFiles` | `string[]` | No | - |
+
+| Name        | Type       | Optional | Description |
+| :---------- | :--------- | :------- | :---------- |
+| `openFiles` | `string[]` | No       | -           |

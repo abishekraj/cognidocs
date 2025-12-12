@@ -1,5 +1,7 @@
 # AstStreamOptions
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `range` | `Range` | Yes | - |
+
+| Name    | Type    | Optional | Description |
+| :------ | :------ | :------- | :---------- |
+| `range` | `Range` | Yes      | -           |

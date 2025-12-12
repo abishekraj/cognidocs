@@ -1,5 +1,7 @@
 # VerticalAlign
+
 ## Definition
+
 ```typescript
 | Globals
     | TLength

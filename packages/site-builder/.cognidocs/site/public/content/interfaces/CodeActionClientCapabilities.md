@@ -3,10 +3,12 @@
 The Client Capabilities of a {@link CodeActionRequest}.
 
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `dynamicRegistration` | `boolean` | Yes | - |
-| `codeActionLiteralSupport` | `{
+
+| Name                       | Type      | Optional | Description |
+| :------------------------- | :-------- | :------- | :---------- |
+| `dynamicRegistration`      | `boolean` | Yes      | -           |
+| `codeActionLiteralSupport` | `{        |
+
         /**
          * The code action kind is support with the following value
          * set.
@@ -21,6 +23,7 @@ The Client Capabilities of a {@link CodeActionRequest}.
             valueSet: CodeActionKind[];
         };
     }` | Yes | - |
+
 | `isPreferredSupport` | `boolean` | Yes | - |
 | `disabledSupport` | `boolean` | Yes | - |
 | `dataSupport` | `boolean` | Yes | - |

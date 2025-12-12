@@ -1,5 +1,7 @@
 # WebkitMaskRepeat
+
 ## Definition
+
 ```typescript
-Globals | DataType.RepeatStyle | (string & {})
+Globals | DataType.RepeatStyle | (string & {});
 ```

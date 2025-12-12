@@ -1,5 +1,7 @@
 # BlockStartState
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `end` | `BlockEndState` | No | - |
+
+| Name  | Type            | Optional | Description |
+| :---- | :-------------- | :------- | :---------- |
+| `end` | `BlockEndState` | No       | -           |

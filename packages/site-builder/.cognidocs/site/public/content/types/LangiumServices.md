@@ -1,5 +1,7 @@
 # LangiumServices
+
 ## Definition
+
 ```typescript
-LangiumCoreServices & LangiumLSPServices
+LangiumCoreServices & LangiumLSPServices;
 ```

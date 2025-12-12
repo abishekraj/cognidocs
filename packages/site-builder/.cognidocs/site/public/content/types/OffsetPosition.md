@@ -1,5 +1,7 @@
 # OffsetPosition
+
 ## Definition
+
 ```typescript
-Globals | DataType.Position<TLength> | "auto" | "normal"
+Globals | DataType.Position<TLength> | 'auto' | 'normal';
 ```

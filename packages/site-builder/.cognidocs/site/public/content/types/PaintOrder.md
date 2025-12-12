@@ -1,5 +1,7 @@
 # PaintOrder
+
 ## Definition
+
 ```typescript
-Globals | "fill" | "markers" | "normal" | "stroke" | (string & {})
+Globals | 'fill' | 'markers' | 'normal' | 'stroke' | (string & {});
 ```

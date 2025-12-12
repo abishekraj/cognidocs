@@ -1,5 +1,7 @@
 # ImportOrExportDeclaration
+
 ## Definition
+
 ```typescript
-ExportAllDeclaration | ExportDefaultDeclaration | ExportNamedDeclaration | ImportDeclaration
+ExportAllDeclaration | ExportDefaultDeclaration | ExportNamedDeclaration | ImportDeclaration;
 ```

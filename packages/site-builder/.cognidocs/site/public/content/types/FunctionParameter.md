@@ -1,5 +1,7 @@
 # FunctionParameter
+
 ## Definition
+
 ```typescript
-Identifier | RestElement | AssignmentPattern | ArrayPattern | ObjectPattern | VoidPattern
+Identifier | RestElement | AssignmentPattern | ArrayPattern | ObjectPattern | VoidPattern;
 ```

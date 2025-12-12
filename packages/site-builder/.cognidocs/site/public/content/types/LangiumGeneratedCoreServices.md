@@ -1,5 +1,7 @@
 # LangiumGeneratedCoreServices
+
 ## Definition
+
 ```typescript
 {
     readonly Grammar: Grammar

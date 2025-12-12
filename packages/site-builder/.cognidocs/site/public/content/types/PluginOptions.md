@@ -1,5 +1,7 @@
 # PluginOptions
+
 ## Definition
+
 ```typescript
-object | undefined | false
+object | undefined | false;
 ```

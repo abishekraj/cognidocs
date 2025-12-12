@@ -1,5 +1,7 @@
 # DiagramOrientation
+
 ## Definition
+
 ```typescript
-'LR' | 'TB' | 'BT'
+'LR' | 'TB' | 'BT';
 ```

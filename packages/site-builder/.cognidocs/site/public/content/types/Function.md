@@ -1,5 +1,7 @@
 # Function
+
 ## Definition
+
 ```typescript
-FunctionDeclaration | FunctionExpression | ArrowFunctionExpression
+FunctionDeclaration | FunctionExpression | ArrowFunctionExpression;
 ```

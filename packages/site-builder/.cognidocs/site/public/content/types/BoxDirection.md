@@ -1,5 +1,7 @@
 # BoxDirection
+
 ## Definition
+
 ```typescript
-Globals | "inherit" | "normal" | "reverse"
+Globals | 'inherit' | 'normal' | 'reverse';
 ```

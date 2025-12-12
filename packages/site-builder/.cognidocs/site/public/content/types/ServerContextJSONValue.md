@@ -1,5 +1,7 @@
 # ServerContextJSONValue
+
 ## Definition
+
 ```typescript
 | string
         | boolean

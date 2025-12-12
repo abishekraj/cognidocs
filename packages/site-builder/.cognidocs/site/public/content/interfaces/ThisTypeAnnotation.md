@@ -1,5 +1,7 @@
 # ThisTypeAnnotation
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `type` | `"ThisTypeAnnotation"` | No | - |
+
+| Name   | Type                   | Optional | Description |
+| :----- | :--------------------- | :------- | :---------- |
+| `type` | `"ThisTypeAnnotation"` | No       | -           |

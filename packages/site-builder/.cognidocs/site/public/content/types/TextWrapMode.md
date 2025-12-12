@@ -1,5 +1,7 @@
 # TextWrapMode
+
 ## Definition
+
 ```typescript
-Globals | "nowrap" | "wrap"
+Globals | 'nowrap' | 'wrap';
 ```

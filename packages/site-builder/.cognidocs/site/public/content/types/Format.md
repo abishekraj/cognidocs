@@ -1,5 +1,7 @@
 # Format
+
 ## Definition
+
 ```typescript
-'iife' | 'cjs' | 'esm'
+'iife' | 'cjs' | 'esm';
 ```

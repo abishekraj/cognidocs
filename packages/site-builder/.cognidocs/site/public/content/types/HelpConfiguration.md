@@ -1,5 +1,7 @@
 # HelpConfiguration
+
 ## Definition
+
 ```typescript
-Partial<Help>
+Partial<Help>;
 ```

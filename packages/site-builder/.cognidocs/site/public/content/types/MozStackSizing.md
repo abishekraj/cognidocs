@@ -1,5 +1,7 @@
 # MozStackSizing
+
 ## Definition
+
 ```typescript
-Globals | "ignore" | "stretch-to-fit"
+Globals | 'ignore' | 'stretch-to-fit';
 ```

@@ -1,5 +1,7 @@
 # OpSetType
+
 ## Definition
+
 ```typescript
-'path' | 'fillPath' | 'fillSketch'
+'path' | 'fillPath' | 'fillSketch';
 ```

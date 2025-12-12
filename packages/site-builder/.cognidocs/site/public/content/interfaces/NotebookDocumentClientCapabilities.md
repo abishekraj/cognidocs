@@ -3,6 +3,7 @@
 Capabilities specific to the notebook document support.
 
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `synchronization` | `NotebookDocumentSyncClientCapabilities` | No | - |
+
+| Name              | Type                                     | Optional | Description |
+| :---------------- | :--------------------------------------- | :------- | :---------- |
+| `synchronization` | `NotebookDocumentSyncClientCapabilities` | No       | -           |

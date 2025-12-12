@@ -1,5 +1,7 @@
 # FontKerning
+
 ## Definition
+
 ```typescript
-Globals | "auto" | "none" | "normal"
+Globals | 'auto' | 'none' | 'normal';
 ```

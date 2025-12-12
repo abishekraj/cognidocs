@@ -1,7 +1,9 @@
 # Interface
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `id` | `string` | No | - |
-| `label` | `string` | No | - |
-| `classId` | `string` | No | - |
+
+| Name      | Type     | Optional | Description |
+| :-------- | :------- | :------- | :---------- |
+| `id`      | `string` | No       | -           |
+| `label`   | `string` | No       | -           |
+| `classId` | `string` | No       | -           |

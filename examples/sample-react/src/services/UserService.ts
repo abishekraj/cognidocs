@@ -122,18 +122,11 @@ export class UserService {
    *
    * @since 1.0.0
    */
-  async updateUser(
-    userId: number,
-    updates: UpdateUserProfile
-  ): Promise<User> {
-    const response = await postData<UpdateUserProfile, User>(
-      `/users/${userId}`,
-      updates,
-      {
-        baseUrl: this.baseUrl,
-        headers: this.getHeaders(),
-      }
-    );
+  async updateUser(userId: number, updates: UpdateUserProfile): Promise<User> {
+    const response = await postData<UpdateUserProfile, User>(`/users/${userId}`, updates, {
+      baseUrl: this.baseUrl,
+      headers: this.getHeaders(),
+    });
 
     if (!response.success) {
       throw new Error(`Failed to update user: ${response.status}`);

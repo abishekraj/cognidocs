@@ -1,5 +1,7 @@
 # AdvancedPseudos
+
 ## Definition
+
 ```typescript
 | ":-moz-any()"
   | ":-moz-dir"

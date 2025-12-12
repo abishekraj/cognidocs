@@ -1,5 +1,7 @@
 # RootBoundary
+
 ## Definition
+
 ```typescript
-'viewport' | 'document' | Rect
+'viewport' | 'document' | Rect;
 ```

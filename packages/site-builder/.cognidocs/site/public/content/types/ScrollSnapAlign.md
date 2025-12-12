@@ -1,5 +1,7 @@
 # ScrollSnapAlign
+
 ## Definition
+
 ```typescript
-Globals | "center" | "end" | "none" | "start" | (string & {})
+Globals | 'center' | 'end' | 'none' | 'start' | (string & {});
 ```

@@ -1,5 +1,7 @@
 # ProjectsUpdatedInBackgroundEventName
+
 ## Definition
+
 ```typescript
-"projectsUpdatedInBackground"
+'projectsUpdatedInBackground';
 ```

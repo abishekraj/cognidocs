@@ -1,5 +1,7 @@
 # Formatter
+
 ## Definition
+
 ```typescript
-(input: string | number | null | undefined) => string
+(input: string | number | null | undefined) => string;
 ```

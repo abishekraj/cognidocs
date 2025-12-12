@@ -1,5 +1,7 @@
 # MozOrient
+
 ## Definition
+
 ```typescript
-Globals | "block" | "horizontal" | "inline" | "vertical"
+Globals | 'block' | 'horizontal' | 'inline' | 'vertical';
 ```

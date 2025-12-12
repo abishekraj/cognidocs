@@ -1,5 +1,7 @@
 # Postcss
+
 ## Definition
+
 ```typescript
-typeof postcss
+typeof postcss;
 ```

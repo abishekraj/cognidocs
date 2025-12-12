@@ -1,5 +1,7 @@
 # RadialLine
+
 ## Definition
+
 ```typescript
-LineRadial<Datum>
+LineRadial<Datum>;
 ```

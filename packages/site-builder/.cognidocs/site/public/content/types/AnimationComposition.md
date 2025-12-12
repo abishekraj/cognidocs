@@ -1,5 +1,7 @@
 # AnimationComposition
+
 ## Definition
+
 ```typescript
-Globals | DataType.SingleAnimationComposition | (string & {})
+Globals | DataType.SingleAnimationComposition | (string & {});
 ```

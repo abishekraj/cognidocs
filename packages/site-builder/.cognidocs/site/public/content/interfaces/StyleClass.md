@@ -1,7 +1,9 @@
 # StyleClass
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `id` | `string` | No | - |
-| `styles` | `string[]` | No | - |
-| `textStyles` | `string[]` | No | - |
+
+| Name         | Type       | Optional | Description |
+| :----------- | :--------- | :------- | :---------- |
+| `id`         | `string`   | No       | -           |
+| `styles`     | `string[]` | No       | -           |
+| `textStyles` | `string[]` | No       | -           |

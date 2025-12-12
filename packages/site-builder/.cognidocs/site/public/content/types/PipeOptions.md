@@ -3,6 +3,7 @@
 Configuration for piping.
 
 ## Definition
+
 ```typescript
 {
     /**

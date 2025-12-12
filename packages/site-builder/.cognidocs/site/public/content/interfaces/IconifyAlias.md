@@ -3,6 +3,7 @@
 Alias.
 
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `parent` | `string` | No | - |
+
+| Name     | Type     | Optional | Description |
+| :------- | :------- | :------- | :---------- |
+| `parent` | `string` | No       | -           |

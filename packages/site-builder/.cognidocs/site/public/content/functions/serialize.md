@@ -3,6 +3,7 @@
 **Return Type:** `string`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `segments` | `Segment[]` | No | - |
+
+| Name       | Type        | Optional | Description |
+| :--------- | :---------- | :------- | :---------- |
+| `segments` | `Segment[]` | No       | -           |

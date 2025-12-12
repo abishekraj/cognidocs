@@ -1,7 +1,12 @@
 # RenameInfoSuccess
+
 ## Definition
+
 ```typescript
-ChangePropertyTypes<ts.RenameInfoSuccess, {
-                triggerSpan: TextSpan;
-            }>
+ChangePropertyTypes<
+  ts.RenameInfoSuccess,
+  {
+    triggerSpan: TextSpan;
+  }
+>;
 ```

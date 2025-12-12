@@ -3,7 +3,8 @@
 **Return Type:** `boolean`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `node` | `AstNode \| undefined` | No | - |
-| `predicate` | `(n: AstNode) => boolean` | No | - |
+
+| Name        | Type                      | Optional | Description |
+| :---------- | :------------------------ | :------- | :---------- |
+| `node`      | `AstNode \| undefined`    | No       | -           |
+| `predicate` | `(n: AstNode) => boolean` | No       | -           |

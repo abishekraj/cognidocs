@@ -1,5 +1,7 @@
 # EntryItem
+
 ## Definition
+
 ```typescript
-string | Entry
+string | Entry;
 ```

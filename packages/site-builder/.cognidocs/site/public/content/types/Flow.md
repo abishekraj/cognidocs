@@ -1,5 +1,71 @@
 # Flow
+
 ## Definition
+
 ```typescript
-AnyTypeAnnotation | ArrayTypeAnnotation | BooleanTypeAnnotation | BooleanLiteralTypeAnnotation | NullLiteralTypeAnnotation | ClassImplements | DeclareClass | DeclareFunction | DeclareInterface | DeclareModule | DeclareModuleExports | DeclareTypeAlias | DeclareOpaqueType | DeclareVariable | DeclareExportDeclaration | DeclareExportAllDeclaration | DeclaredPredicate | ExistsTypeAnnotation | FunctionTypeAnnotation | FunctionTypeParam | GenericTypeAnnotation | InferredPredicate | InterfaceExtends | InterfaceDeclaration | InterfaceTypeAnnotation | IntersectionTypeAnnotation | MixedTypeAnnotation | EmptyTypeAnnotation | NullableTypeAnnotation | NumberLiteralTypeAnnotation | NumberTypeAnnotation | ObjectTypeAnnotation | ObjectTypeInternalSlot | ObjectTypeCallProperty | ObjectTypeIndexer | ObjectTypeProperty | ObjectTypeSpreadProperty | OpaqueType | QualifiedTypeIdentifier | StringLiteralTypeAnnotation | StringTypeAnnotation | SymbolTypeAnnotation | ThisTypeAnnotation | TupleTypeAnnotation | TypeofTypeAnnotation | TypeAlias | TypeAnnotation | TypeCastExpression | TypeParameter | TypeParameterDeclaration | TypeParameterInstantiation | UnionTypeAnnotation | Variance | VoidTypeAnnotation | EnumDeclaration | EnumBooleanBody | EnumNumberBody | EnumStringBody | EnumSymbolBody | EnumBooleanMember | EnumNumberMember | EnumStringMember | EnumDefaultedMember | IndexedAccessType | OptionalIndexedAccessType
+AnyTypeAnnotation |
+  ArrayTypeAnnotation |
+  BooleanTypeAnnotation |
+  BooleanLiteralTypeAnnotation |
+  NullLiteralTypeAnnotation |
+  ClassImplements |
+  DeclareClass |
+  DeclareFunction |
+  DeclareInterface |
+  DeclareModule |
+  DeclareModuleExports |
+  DeclareTypeAlias |
+  DeclareOpaqueType |
+  DeclareVariable |
+  DeclareExportDeclaration |
+  DeclareExportAllDeclaration |
+  DeclaredPredicate |
+  ExistsTypeAnnotation |
+  FunctionTypeAnnotation |
+  FunctionTypeParam |
+  GenericTypeAnnotation |
+  InferredPredicate |
+  InterfaceExtends |
+  InterfaceDeclaration |
+  InterfaceTypeAnnotation |
+  IntersectionTypeAnnotation |
+  MixedTypeAnnotation |
+  EmptyTypeAnnotation |
+  NullableTypeAnnotation |
+  NumberLiteralTypeAnnotation |
+  NumberTypeAnnotation |
+  ObjectTypeAnnotation |
+  ObjectTypeInternalSlot |
+  ObjectTypeCallProperty |
+  ObjectTypeIndexer |
+  ObjectTypeProperty |
+  ObjectTypeSpreadProperty |
+  OpaqueType |
+  QualifiedTypeIdentifier |
+  StringLiteralTypeAnnotation |
+  StringTypeAnnotation |
+  SymbolTypeAnnotation |
+  ThisTypeAnnotation |
+  TupleTypeAnnotation |
+  TypeofTypeAnnotation |
+  TypeAlias |
+  TypeAnnotation |
+  TypeCastExpression |
+  TypeParameter |
+  TypeParameterDeclaration |
+  TypeParameterInstantiation |
+  UnionTypeAnnotation |
+  Variance |
+  VoidTypeAnnotation |
+  EnumDeclaration |
+  EnumBooleanBody |
+  EnumNumberBody |
+  EnumStringBody |
+  EnumSymbolBody |
+  EnumBooleanMember |
+  EnumNumberMember |
+  EnumStringMember |
+  EnumDefaultedMember |
+  IndexedAccessType |
+  OptionalIndexedAccessType;
 ```

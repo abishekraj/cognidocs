@@ -3,6 +3,7 @@
 **Return Type:** `TSTypeAnnotation`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `typeAnnotation` | `TSType` | No | - |
+
+| Name             | Type     | Optional | Description |
+| :--------------- | :------- | :------- | :---------- |
+| `typeAnnotation` | `TSType` | No       | -           |

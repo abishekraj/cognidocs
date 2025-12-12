@@ -1,5 +1,7 @@
 # TouchAction
+
 ## Definition
+
 ```typescript
 | Globals
     | "-ms-manipulation"

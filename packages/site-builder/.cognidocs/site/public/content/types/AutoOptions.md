@@ -3,6 +3,7 @@
 Configuration for `highlightAuto`.
 
 ## Definition
+
 ```typescript
-Options & ExtraOptions
+Options & ExtraOptions;
 ```

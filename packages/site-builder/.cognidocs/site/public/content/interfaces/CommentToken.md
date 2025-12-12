@@ -1,6 +1,8 @@
 # CommentToken
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `type` | `TokenType.COMMENT` | No | - |
-| `data` | `string` | No | - |
+
+| Name   | Type                | Optional | Description |
+| :----- | :------------------ | :------- | :---------- |
+| `type` | `TokenType.COMMENT` | No       | -           |
+| `data` | `string`            | No       | -           |

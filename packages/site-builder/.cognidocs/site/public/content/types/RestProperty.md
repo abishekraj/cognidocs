@@ -1,5 +1,7 @@
 # RestProperty
+
 ## Definition
+
 ```typescript
-RestElement
+RestElement;
 ```

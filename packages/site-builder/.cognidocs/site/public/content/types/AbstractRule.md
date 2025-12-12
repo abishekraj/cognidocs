@@ -1,5 +1,7 @@
 # AbstractRule
+
 ## Definition
+
 ```typescript
-ParserRule | TerminalRule
+ParserRule | TerminalRule;
 ```

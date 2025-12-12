@@ -1,8 +1,10 @@
 # RuleArrayType
+
 ## Definition
+
 ```typescript
 {
-  kind: "rule";
+  kind: 'rule';
   name: string;
 }
 ```

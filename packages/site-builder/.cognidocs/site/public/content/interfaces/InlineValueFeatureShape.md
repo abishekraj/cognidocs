@@ -3,9 +3,11 @@
 Shape of the inline values feature
 
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `inlineValue` | `{
+
+| Name          | Type | Optional | Description |
+| :------------ | :--- | :------- | :---------- |
+| `inlineValue` | `{   |
+
         /**
          * Ask the client to refresh all inline values.
          */

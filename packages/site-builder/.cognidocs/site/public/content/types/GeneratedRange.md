@@ -1,5 +1,7 @@
 # GeneratedRange
+
 ## Definition
+
 ```typescript
 Mix<
   [Line, Column, Line, Column],
@@ -9,5 +11,5 @@ Mix<
     bindings: Binding[];
     isScope: boolean;
   }
->
+>;
 ```

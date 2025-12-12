@@ -1,5 +1,7 @@
 # AstTypeList
+
 ## Definition
+
 ```typescript
-Record<keyof T, AstNode>
+Record<keyof T, AstNode>;
 ```

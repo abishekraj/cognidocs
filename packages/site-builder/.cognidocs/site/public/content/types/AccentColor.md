@@ -1,5 +1,7 @@
 # AccentColor
+
 ## Definition
+
 ```typescript
-Globals | DataType.Color | "auto"
+Globals | DataType.Color | 'auto';
 ```

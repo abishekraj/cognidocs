@@ -1,5 +1,7 @@
 # BackgroundSize
+
 ## Definition
+
 ```typescript
-Globals | DataType.BgSize<TLength> | (string & {})
+Globals | DataType.BgSize<TLength> | (string & {});
 ```

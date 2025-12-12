@@ -3,6 +3,7 @@
 **Return Type:** `Graph`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `json` | `any` | No | - |
+
+| Name   | Type  | Optional | Description |
+| :----- | :---- | :------- | :---------- |
+| `json` | `any` | No       | -           |

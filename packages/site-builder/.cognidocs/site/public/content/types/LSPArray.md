@@ -1,5 +1,7 @@
 # LSPArray
+
 ## Definition
+
 ```typescript
 any[]
 ```

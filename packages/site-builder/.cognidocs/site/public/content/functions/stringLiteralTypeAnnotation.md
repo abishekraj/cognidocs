@@ -3,6 +3,7 @@
 **Return Type:** `StringLiteralTypeAnnotation`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `value` | `string` | No | - |
+
+| Name    | Type     | Optional | Description |
+| :------ | :------- | :------- | :---------- |
+| `value` | `string` | No       | -           |

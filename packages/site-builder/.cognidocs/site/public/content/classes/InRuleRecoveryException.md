@@ -1,2 +1,3 @@
 # InRuleRecoveryException
+
 **Extends:** `Error`

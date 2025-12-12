@@ -1,5 +1,7 @@
 # Config
+
 ## Definition
+
 ```typescript
-RequiredConfig & Partial<OptionalConfig>
+RequiredConfig & Partial<OptionalConfig>;
 ```

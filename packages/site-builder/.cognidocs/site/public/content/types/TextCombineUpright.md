@@ -1,5 +1,7 @@
 # TextCombineUpright
+
 ## Definition
+
 ```typescript
-Globals | "all" | "digits" | "none" | (string & {})
+Globals | 'all' | 'digits' | 'none' | (string & {});
 ```

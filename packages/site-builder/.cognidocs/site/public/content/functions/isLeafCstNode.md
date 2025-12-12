@@ -3,6 +3,7 @@
 **Return Type:** `node is LeafCstNode`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `node` | `unknown` | No | - |
+
+| Name   | Type      | Optional | Description |
+| :----- | :-------- | :------- | :---------- |
+| `node` | `unknown` | No       | -           |

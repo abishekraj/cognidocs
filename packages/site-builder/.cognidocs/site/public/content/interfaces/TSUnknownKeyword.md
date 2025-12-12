@@ -1,5 +1,7 @@
 # TSUnknownKeyword
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `type` | `"TSUnknownKeyword"` | No | - |
+
+| Name   | Type                 | Optional | Description |
+| :----- | :------------------- | :------- | :---------- |
+| `type` | `"TSUnknownKeyword"` | No       | -           |

@@ -1,5 +1,7 @@
 # RawOptions
+
 ## Definition
+
 ```typescript
-import('hast-util-raw').Options
+import('hast-util-raw').Options;
 ```

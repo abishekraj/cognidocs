@@ -1,5 +1,7 @@
 # BoxPack
+
 ## Definition
+
 ```typescript
-Globals | "center" | "end" | "justify" | "start"
+Globals | 'center' | 'end' | 'justify' | 'start';
 ```

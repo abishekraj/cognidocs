@@ -1,5 +1,7 @@
 # FontVariantEmoji
+
 ## Definition
+
 ```typescript
-Globals | "emoji" | "normal" | "text" | "unicode"
+Globals | 'emoji' | 'normal' | 'text' | 'unicode';
 ```

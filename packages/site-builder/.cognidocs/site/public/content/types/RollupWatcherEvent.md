@@ -1,5 +1,7 @@
 # RollupWatcherEvent
+
 ## Definition
+
 ```typescript
 | { code: 'START' }
 	| { code: 'BUNDLE_START'; input?: InputOption | undefined; output: readonly string[] }

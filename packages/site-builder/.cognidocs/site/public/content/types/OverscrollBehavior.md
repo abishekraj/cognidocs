@@ -1,5 +1,7 @@
 # OverscrollBehavior
+
 ## Definition
+
 ```typescript
-Globals | "auto" | "contain" | "none" | (string & {})
+Globals | 'auto' | 'contain' | 'none' | (string & {});
 ```

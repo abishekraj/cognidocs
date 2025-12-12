@@ -1,5 +1,7 @@
 # TransitionBehavior
+
 ## Definition
+
 ```typescript
-Globals | "allow-discrete" | "normal" | (string & {})
+Globals | 'allow-discrete' | 'normal' | (string & {});
 ```

@@ -1,5 +1,7 @@
 # MozForceBrokenImageIcon
+
 ## Definition
+
 ```typescript
-Globals | 0 | (string & {}) | 1
+Globals | 0 | (string & {}) | 1;
 ```

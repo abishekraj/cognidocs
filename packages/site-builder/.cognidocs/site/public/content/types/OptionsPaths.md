@@ -1,5 +1,7 @@
 # OptionsPaths
+
 ## Definition
+
 ```typescript
-Record<string, string> | ((id: string) => string)
+Record<string, string> | ((id: string) => string);
 ```

@@ -1,5 +1,7 @@
 # OpUnitType
+
 ## Definition
+
 ```typescript
-UnitType | "week" | "weeks" | 'w'
+UnitType | 'week' | 'weeks' | 'w';
 ```

@@ -1,6 +1,8 @@
 # ProjectsUpdatedInBackgroundEvent
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `event` | `ProjectsUpdatedInBackgroundEventName` | No | - |
-| `body` | `ProjectsUpdatedInBackgroundEventBody` | No | - |
+
+| Name    | Type                                   | Optional | Description |
+| :------ | :------------------------------------- | :------- | :---------- |
+| `event` | `ProjectsUpdatedInBackgroundEventName` | No       | -           |
+| `body`  | `ProjectsUpdatedInBackgroundEventBody` | No       | -           |

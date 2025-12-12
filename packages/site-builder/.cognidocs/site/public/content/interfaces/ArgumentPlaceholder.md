@@ -1,5 +1,7 @@
 # ArgumentPlaceholder
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `type` | `"ArgumentPlaceholder"` | No | - |
+
+| Name   | Type                    | Optional | Description |
+| :----- | :---------------------- | :------- | :---------- |
+| `type` | `"ArgumentPlaceholder"` | No       | -           |

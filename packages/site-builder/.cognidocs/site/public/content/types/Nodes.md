@@ -1,5 +1,7 @@
 # Nodes
+
 ## Definition
+
 ```typescript
-import('mdast').Nodes
+import('mdast').Nodes;
 ```

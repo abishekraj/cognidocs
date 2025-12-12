@@ -1,5 +1,7 @@
 # Run
+
 ## Definition
+
 ```typescript
-import('./lib/index.js').Run
+import('./lib/index.js').Run;
 ```

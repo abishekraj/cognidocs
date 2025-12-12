@@ -1,5 +1,7 @@
 # GapMode
+
 ## Definition
+
 ```typescript
-'padding' | 'margin'
+'padding' | 'margin';
 ```

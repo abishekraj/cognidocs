@@ -3,6 +3,7 @@
 **Return Type:** `void`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `type` | `TokenType` | No | - |
+
+| Name   | Type        | Optional | Description |
+| :----- | :---------- | :------- | :---------- |
+| `type` | `TokenType` | No       | -           |

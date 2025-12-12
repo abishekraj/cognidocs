@@ -1,5 +1,7 @@
 # MozWindowDragging
+
 ## Definition
+
 ```typescript
-Globals | "drag" | "no-drag"
+Globals | 'drag' | 'no-drag';
 ```

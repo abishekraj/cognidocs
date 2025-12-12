@@ -1,5 +1,7 @@
 # DefinitionAndBoundSpanRequest
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `command` | `CommandTypes.DefinitionAndBoundSpan` | No | - |
+
+| Name      | Type                                  | Optional | Description |
+| :-------- | :------------------------------------ | :------- | :---------- |
+| `command` | `CommandTypes.DefinitionAndBoundSpan` | No       | -           |

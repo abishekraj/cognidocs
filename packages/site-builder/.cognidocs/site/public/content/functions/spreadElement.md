@@ -3,6 +3,7 @@
 **Return Type:** `SpreadElement`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `argument` | `Expression` | No | - |
+
+| Name       | Type         | Optional | Description |
+| :--------- | :----------- | :------- | :---------- |
+| `argument` | `Expression` | No       | -           |

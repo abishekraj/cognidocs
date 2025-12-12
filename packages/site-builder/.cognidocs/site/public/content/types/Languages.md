@@ -1,5 +1,16 @@
 # Languages
+
 ## Definition
+
 ```typescript
-_Languages & CallHierarchy & SemanticTokensFeatureShape & LinkedEditingRangeFeatureShape & TypeHierarchyFeatureShape & InlineValueFeatureShape & InlayHintFeatureShape & DiagnosticFeatureShape & MonikerFeatureShape & FoldingRangeFeatureShape
+_Languages &
+  CallHierarchy &
+  SemanticTokensFeatureShape &
+  LinkedEditingRangeFeatureShape &
+  TypeHierarchyFeatureShape &
+  InlineValueFeatureShape &
+  InlayHintFeatureShape &
+  DiagnosticFeatureShape &
+  MonikerFeatureShape &
+  FoldingRangeFeatureShape;
 ```

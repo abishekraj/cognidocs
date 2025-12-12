@@ -1,5 +1,7 @@
 # FlexShrink
+
 ## Definition
+
 ```typescript
-Globals | (number & {}) | (string & {})
+Globals | (number & {}) | (string & {});
 ```

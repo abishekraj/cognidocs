@@ -1,5 +1,7 @@
 # BackgroundPosition
+
 ## Definition
+
 ```typescript
-Globals | DataType.BgPosition<TLength> | (string & {})
+Globals | DataType.BgPosition<TLength> | (string & {});
 ```

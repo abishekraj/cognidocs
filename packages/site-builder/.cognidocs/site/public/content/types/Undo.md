@@ -1,5 +1,7 @@
 # Undo
+
 ## Definition
+
 ```typescript
 () => void
 ```

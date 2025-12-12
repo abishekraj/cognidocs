@@ -1,8 +1,7 @@
 # ParallelPluginHooks
+
 ## Definition
+
 ```typescript
-Exclude<
-	keyof FunctionPluginHooks | AddonHooks,
-	FirstPluginHooks | SequentialPluginHooks
->
+Exclude<keyof FunctionPluginHooks | AddonHooks, FirstPluginHooks | SequentialPluginHooks>;
 ```

@@ -1,5 +1,7 @@
 # MapCodeRequestArgs
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `mapping` | `MapCodeRequestDocumentMapping` | No | - |
+
+| Name      | Type                            | Optional | Description |
+| :-------- | :------------------------------ | :------- | :---------- |
+| `mapping` | `MapCodeRequestDocumentMapping` | No       | -           |

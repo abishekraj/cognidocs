@@ -1,5 +1,7 @@
 # SourceMapMappings
+
 ## Definition
+
 ```typescript
 SourceMapLine[]
 ```

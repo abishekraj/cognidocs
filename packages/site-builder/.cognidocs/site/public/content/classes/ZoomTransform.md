@@ -3,13 +3,15 @@
 A zoom transform The zoom behavior stores the zoom state on the element to which the zoom behavior was applied, not on the zoom behavior itself. This is because the zoom behavior can be applied to many elements simultaneously, and each element can be zoomed independently. The zoom state can change either on user interaction or programmatically via zoom.transform. To retrieve the zoom state, use event.transform on the current zoom event within a zoom event listener (see zoom.on), or use d3.zoomTransform for a given node. The latter is particularly useful for modifying the zoom state programmatically, say to implement buttons for zooming in and out. For details see {@link https://github.com/d3/d3-zoom#zoom-transforms}
 
 ## Properties
-| Name | Type | Description |
-| :--- | :--- | :---------- |
-| `x` | `number` | - |
-| `y` | `number` | - |
-| `k` | `number` | - |
+
+| Name | Type     | Description |
+| :--- | :------- | :---------- |
+| `x`  | `number` | -           |
+| `y`  | `number` | -           |
+| `k`  | `number` | -           |
 
 ## Methods
+
 ### apply
 
 Return the transformation of the specified point which is a two-element array of numbers [x, y]. The returned point is equal to [xk + tx, yk + ty].

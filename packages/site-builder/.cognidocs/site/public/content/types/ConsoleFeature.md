@@ -1,5 +1,7 @@
 # ConsoleFeature
+
 ## Definition
+
 ```typescript
-Feature<RemoteConsole, P>
+Feature<RemoteConsole, P>;
 ```

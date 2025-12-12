@@ -3,6 +3,7 @@
 Parameters for a {@link ReferencesRequest}.
 
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `context` | `ReferenceContext` | No | - |
+
+| Name      | Type               | Optional | Description |
+| :-------- | :----------------- | :------- | :---------- |
+| `context` | `ReferenceContext` | No       | -           |

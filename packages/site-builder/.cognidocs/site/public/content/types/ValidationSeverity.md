@@ -1,5 +1,7 @@
 # ValidationSeverity
+
 ## Definition
+
 ```typescript
-'error' | 'warning' | 'info' | 'hint'
+'error' | 'warning' | 'info' | 'hint';
 ```

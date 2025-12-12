@@ -1,5 +1,7 @@
 # MapSource
+
 ## Definition
+
 ```typescript
 {
   map: TraceMap;

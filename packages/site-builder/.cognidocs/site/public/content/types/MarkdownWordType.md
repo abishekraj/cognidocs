@@ -1,5 +1,7 @@
 # MarkdownWordType
+
 ## Definition
+
 ```typescript
-'normal' | 'strong' | 'em'
+'normal' | 'strong' | 'em';
 ```

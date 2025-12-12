@@ -1,5 +1,7 @@
 # TokenFormat
+
 ## Definition
+
 ```typescript
-'relative'
+'relative';
 ```

@@ -1,5 +1,7 @@
 # MsFilter
+
 ## Definition
+
 ```typescript
-Globals | (string & {})
+Globals | (string & {});
 ```

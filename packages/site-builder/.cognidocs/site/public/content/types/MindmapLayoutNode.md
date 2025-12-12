@@ -1,5 +1,7 @@
 # MindmapLayoutNode
+
 ## Definition
+
 ```typescript
 Node & {
     level: number;

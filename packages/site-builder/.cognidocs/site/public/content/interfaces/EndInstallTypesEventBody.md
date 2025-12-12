@@ -1,5 +1,7 @@
 # EndInstallTypesEventBody
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `success` | `boolean` | No | - |
+
+| Name      | Type      | Optional | Description |
+| :-------- | :-------- | :------- | :---------- |
+| `success` | `boolean` | No       | -           |

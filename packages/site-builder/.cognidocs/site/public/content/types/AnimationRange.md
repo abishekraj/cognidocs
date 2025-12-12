@@ -1,5 +1,7 @@
 # AnimationRange
+
 ## Definition
+
 ```typescript
-Globals | DataType.TimelineRangeName | TLength | "normal" | (string & {})
+Globals | DataType.TimelineRangeName | TLength | 'normal' | (string & {});
 ```

@@ -1,5 +1,7 @@
 # Parents
+
 ## Definition
+
 ```typescript
-import('hast').Parents
+import('hast').Parents;
 ```

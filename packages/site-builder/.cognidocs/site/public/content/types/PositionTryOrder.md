@@ -1,5 +1,7 @@
 # PositionTryOrder
+
 ## Definition
+
 ```typescript
-Globals | DataType.TrySize | "normal"
+Globals | DataType.TrySize | 'normal';
 ```

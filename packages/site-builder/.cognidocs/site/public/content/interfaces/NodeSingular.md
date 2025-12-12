@@ -1,8 +1,11 @@
 # NodeSingular
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `_private` | `{
+
+| Name       | Type | Optional | Description |
+| :--------- | :--- | :------- | :---------- |
+| `_private` | `{   |
+
         bodyBounds: {
             h: number;
             w: number;

@@ -1,5 +1,7 @@
 # LogLevel
+
 ## Definition
+
 ```typescript
-'warn' | 'info' | 'debug'
+'warn' | 'info' | 'debug';
 ```

@@ -3,6 +3,7 @@
 **Return Type:** `UseFloatingReturn<RT>`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `options` | `UseFloatingOptions` | Yes | - |
+
+| Name      | Type                 | Optional | Description |
+| :-------- | :------------------- | :------- | :---------- |
+| `options` | `UseFloatingOptions` | Yes      | -           |

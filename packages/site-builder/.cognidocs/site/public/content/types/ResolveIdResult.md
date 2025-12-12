@@ -1,5 +1,7 @@
 # ResolveIdResult
+
 ## Definition
+
 ```typescript
-string | NullValue | false | PartialResolvedId
+string | NullValue | false | PartialResolvedId;
 ```

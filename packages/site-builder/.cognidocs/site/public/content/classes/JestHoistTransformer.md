@@ -5,18 +5,22 @@ Implementation of babel-plugin-jest-hoist, which hoists up some jest method call
 **Extends:** `Transformer`
 
 ## Properties
-| Name | Type | Description |
-| :--- | :--- | :---------- |
-| `rootTransformer` | `RootTransformer` | - |
-| `tokens` | `TokenProcessor` | - |
-| `nameManager` | `NameManager` | - |
-| `importProcessor` | `CJSImportProcessor \| null` | - |
-| `hoistedFunctionNames` | `any` | - |
-| `extractHoistedCalls` | `any` | - |
+
+| Name                   | Type                         | Description |
+| :--------------------- | :--------------------------- | :---------- |
+| `rootTransformer`      | `RootTransformer`            | -           |
+| `tokens`               | `TokenProcessor`             | -           |
+| `nameManager`          | `NameManager`                | -           |
+| `importProcessor`      | `CJSImportProcessor \| null` | -           |
+| `hoistedFunctionNames` | `any`                        | -           |
+| `extractHoistedCalls`  | `any`                        | -           |
 
 ## Methods
+
 ### process
+
 **Return:** `boolean`
 
 ### getHoistedCode
+
 **Return:** `string`

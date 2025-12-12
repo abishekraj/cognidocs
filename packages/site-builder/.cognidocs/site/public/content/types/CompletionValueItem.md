@@ -1,5 +1,7 @@
 # CompletionValueItem
+
 ## Definition
+
 ```typescript
 ({
     label?: string

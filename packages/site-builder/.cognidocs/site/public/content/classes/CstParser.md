@@ -5,6 +5,7 @@ A Parser that outputs a Concrete Syntax Tree. See: - https://chevrotain.io/docs/
 **Extends:** `BaseParser`
 
 ## Methods
+
 ### RULE
 
 Creates a Grammar Rule Note that any parameters of your implementation must be optional as it will be called without parameters during the grammar recording phase.
@@ -30,28 +31,37 @@ The Parsing DSL Method is used by one rule to call another. It is equivalent to 
 **Return:** `CstNode`
 
 ### SUBRULE1
+
 **Return:** `CstNode`
 
 ### SUBRULE2
+
 **Return:** `CstNode`
 
 ### SUBRULE3
+
 **Return:** `CstNode`
 
 ### SUBRULE4
+
 **Return:** `CstNode`
 
 ### SUBRULE5
+
 **Return:** `CstNode`
 
 ### SUBRULE6
+
 **Return:** `CstNode`
 
 ### SUBRULE7
+
 **Return:** `CstNode`
 
 ### SUBRULE8
+
 **Return:** `CstNode`
 
 ### SUBRULE9
+
 **Return:** `CstNode`

@@ -1,5 +1,7 @@
 # FlexWrap
+
 ## Definition
+
 ```typescript
-Globals | "nowrap" | "wrap" | "wrap-reverse"
+Globals | 'nowrap' | 'wrap' | 'wrap-reverse';
 ```

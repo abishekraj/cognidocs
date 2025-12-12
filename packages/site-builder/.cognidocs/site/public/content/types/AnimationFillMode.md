@@ -1,5 +1,7 @@
 # AnimationFillMode
+
 ## Definition
+
 ```typescript
-Globals | DataType.SingleAnimationFillMode | (string & {})
+Globals | DataType.SingleAnimationFillMode | (string & {});
 ```

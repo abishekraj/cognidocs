@@ -1,5 +1,7 @@
 # ListStyle
+
 ## Definition
+
 ```typescript
-Globals | "inside" | "none" | "outside" | (string & {})
+Globals | 'inside' | 'none' | 'outside' | (string & {});
 ```

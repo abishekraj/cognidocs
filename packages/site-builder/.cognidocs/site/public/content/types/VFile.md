@@ -1,5 +1,7 @@
 # VFile
+
 ## Definition
+
 ```typescript
-import('vfile').VFile
+import('vfile').VFile;
 ```

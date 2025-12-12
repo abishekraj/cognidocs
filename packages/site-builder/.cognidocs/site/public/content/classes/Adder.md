@@ -1,5 +1,7 @@
 # Adder
+
 ## Methods
+
 ### add
 
 Adds the specified number to the adder’s current value and returns the adder.

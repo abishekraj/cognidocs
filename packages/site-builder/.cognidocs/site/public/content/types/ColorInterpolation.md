@@ -1,5 +1,7 @@
 # ColorInterpolation
+
 ## Definition
+
 ```typescript
-Globals | "auto" | "linearRGB" | "sRGB"
+Globals | 'auto' | 'linearRGB' | 'sRGB';
 ```

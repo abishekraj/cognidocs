@@ -1,5 +1,7 @@
 # Align
+
 ## Definition
+
 ```typescript
-"center" | "left" | "none" | "right"
+'center' | 'left' | 'none' | 'right';
 ```

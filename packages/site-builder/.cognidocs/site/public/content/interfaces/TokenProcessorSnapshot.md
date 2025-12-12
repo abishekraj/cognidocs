@@ -1,6 +1,8 @@
 # TokenProcessorSnapshot
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `resultCode` | `string` | No | - |
-| `tokenIndex` | `number` | No | - |
+
+| Name         | Type     | Optional | Description |
+| :----------- | :------- | :------- | :---------- |
+| `resultCode` | `string` | No       | -           |
+| `tokenIndex` | `number` | No       | -           |

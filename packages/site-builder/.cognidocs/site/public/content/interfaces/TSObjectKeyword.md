@@ -1,5 +1,7 @@
 # TSObjectKeyword
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `type` | `"TSObjectKeyword"` | No | - |
+
+| Name   | Type                | Optional | Description |
+| :----- | :------------------ | :------- | :---------- |
+| `type` | `"TSObjectKeyword"` | No       | -           |

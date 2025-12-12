@@ -5,10 +5,13 @@ This walker only "walks" a single "TOP" level in the Grammar Ast, this means it 
 **Extends:** `RestWalker`
 
 ## Properties
-| Name | Type | Description |
-| :--- | :--- | :---------- |
-| `result` | `IFirstAfterRepetition` | - |
+
+| Name     | Type                    | Description |
+| :------- | :---------------------- | :---------- |
+| `result` | `IFirstAfterRepetition` | -           |
 
 ## Methods
+
 ### startWalking
+
 **Return:** `IFirstAfterRepetition`

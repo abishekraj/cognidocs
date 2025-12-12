@@ -1,5 +1,7 @@
 # ScrollMarginBlockStart
+
 ## Definition
+
 ```typescript
-Globals | TLength
+Globals | TLength;
 ```

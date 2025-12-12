@@ -1,5 +1,7 @@
 # Parse5Attribute
+
 ## Definition
+
 ```typescript
-Token.Attribute
+Token.Attribute;
 ```

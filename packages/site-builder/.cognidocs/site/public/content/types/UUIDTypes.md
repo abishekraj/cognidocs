@@ -1,5 +1,7 @@
 # UUIDTypes
+
 ## Definition
+
 ```typescript
-string | TBuf
+string | TBuf;
 ```

@@ -1,12 +1,15 @@
 # Argument
+
 ## Properties
-| Name | Type | Description |
-| :--- | :--- | :---------- |
-| `description` | `string` | - |
-| `required` | `boolean` | - |
-| `variadic` | `boolean` | - |
+
+| Name          | Type      | Description |
+| :------------ | :-------- | :---------- |
+| `description` | `string`  | -           |
+| `required`    | `boolean` | -           |
+| `variadic`    | `boolean` | -           |
 
 ## Methods
+
 ### name
 
 Return argument name.

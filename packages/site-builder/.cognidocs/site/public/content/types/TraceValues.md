@@ -1,5 +1,7 @@
 # TraceValues
+
 ## Definition
+
 ```typescript
-'off' | 'messages' | 'compact' | 'verbose'
+'off' | 'messages' | 'compact' | 'verbose';
 ```

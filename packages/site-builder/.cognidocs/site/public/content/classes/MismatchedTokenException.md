@@ -5,9 +5,10 @@ An exception of this type will be saved in {@link BaseParser.errors} when {@link
 **Extends:** `Error`
 
 ## Properties
-| Name | Type | Description |
-| :--- | :--- | :---------- |
-| `context` | `IRecognizerContext` | - |
-| `resyncedTokens` | `IToken[]` | - |
-| `token` | `IToken` | - |
-| `previousToken` | `IToken` | - |
+
+| Name             | Type                 | Description |
+| :--------------- | :------------------- | :---------- |
+| `context`        | `IRecognizerContext` | -           |
+| `resyncedTokens` | `IToken[]`           | -           |
+| `token`          | `IToken`             | -           |
+| `previousToken`  | `IToken`             | -           |

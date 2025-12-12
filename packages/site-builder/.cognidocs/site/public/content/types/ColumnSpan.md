@@ -1,5 +1,7 @@
 # ColumnSpan
+
 ## Definition
+
 ```typescript
-Globals | "all" | "none"
+Globals | 'all' | 'none';
 ```

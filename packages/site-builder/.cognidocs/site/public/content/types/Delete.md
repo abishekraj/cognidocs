@@ -1,5 +1,7 @@
 # Delete
+
 ## Definition
+
 ```typescript
-import('mdast').Delete
+import('mdast').Delete;
 ```

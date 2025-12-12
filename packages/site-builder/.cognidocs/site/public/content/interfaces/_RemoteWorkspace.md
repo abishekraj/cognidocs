@@ -1,8 +1,9 @@
-# _RemoteWorkspace
+# \_RemoteWorkspace
 
 Represents the workspace managed by the client.
 
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `connection` | `Connection` | No | - |
+
+| Name         | Type         | Optional | Description |
+| :----------- | :----------- | :------- | :---------- |
+| `connection` | `Connection` | No       | -           |

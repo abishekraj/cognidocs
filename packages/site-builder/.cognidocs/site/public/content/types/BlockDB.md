@@ -1,5 +1,7 @@
 # BlockDB
+
 ## Definition
+
 ```typescript
-typeof db & DiagramDB
+typeof db & DiagramDB;
 ```

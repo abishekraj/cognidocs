@@ -1,5 +1,7 @@
 # SurveyReadyEventBody
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `surveyId` | `string` | No | - |
+
+| Name       | Type     | Optional | Description |
+| :--------- | :------- | :------- | :---------- |
+| `surveyId` | `string` | No       | -           |

@@ -1,5 +1,7 @@
 # FontSynthesis
+
 ## Definition
+
 ```typescript
-Globals | "none" | "position" | "small-caps" | "style" | "weight" | (string & {})
+Globals | 'none' | 'position' | 'small-caps' | 'style' | 'weight' | (string & {});
 ```

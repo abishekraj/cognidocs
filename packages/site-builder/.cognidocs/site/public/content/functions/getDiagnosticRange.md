@@ -3,6 +3,7 @@
 **Return Type:** `Range`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `info` | `DiagnosticInfo<N, string>` | No | - |
+
+| Name   | Type                        | Optional | Description |
+| :----- | :-------------------------- | :------- | :---------- |
+| `info` | `DiagnosticInfo<N, string>` | No       | -           |

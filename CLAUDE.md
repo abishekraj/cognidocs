@@ -5,6 +5,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Project Status
 
 **Current Phase:** Phase 3.5 (Premium UI) - 🟢 COMPLETE ✅ **MVP READY**
+
 - ✅ Phase 1 (Foundation) - COMPLETE
 - ✅ Phase 2 (Analysis & Coverage) - COMPLETE
 - ✅ Phase 3 (Core Documentation) - COMPLETE
@@ -17,6 +18,7 @@ CogniDocs is a comprehensive JavaScript/TypeScript documentation tool combining 
 ## Essential Commands
 
 ### Development
+
 ```bash
 npm install                  # Install all dependencies
 npm run build               # Build all packages (required before first use)
@@ -25,6 +27,7 @@ npm run phase1              # Run Phase 1 packages only (CLI, Parser, Testing)
 ```
 
 ### CLI Usage (after building)
+
 ```bash
 npm link -w @cognidocs/cli  # Link CLI globally
 cognidocs init              # Initialize config (interactive)
@@ -38,6 +41,7 @@ cognidocs serve --port 3001 # Serve on custom port
 ```
 
 ### Testing
+
 ```bash
 npm test                              # Run all tests
 npm test --filter=@cognidocs/parser  # Test specific package
@@ -47,6 +51,7 @@ npm run format                        # Format with Prettier
 ```
 
 ### Package-Specific
+
 ```bash
 npm run build --filter=@cognidocs/cli     # Build single package
 npm run dev --filter=@cognidocs/parser    # Watch single package
@@ -58,23 +63,25 @@ CogniDocs uses a `cognidocs.config.js` file in the project root. Generate it wit
 
 ```javascript
 export default {
-  entry: './src',              // Entry point for parsing
-  output: './docs',            // Output directory for generated docs
-  theme: 'gitbook',            // Theme (gitbook, docs, modern, etc.)
-  darkMode: true,              // Enable dark mode
-  frameworks: ['react'],       // Frameworks to detect (react, vue, svelte, etc.)
-  exclude: [                   // Files/directories to exclude
+  entry: './src', // Entry point for parsing
+  output: './docs', // Output directory for generated docs
+  theme: 'gitbook', // Theme (gitbook, docs, modern, etc.)
+  darkMode: true, // Enable dark mode
+  frameworks: ['react'], // Frameworks to detect (react, vue, svelte, etc.)
+  exclude: [
+    // Files/directories to exclude
     '**/*.test.ts',
     '**/*.test.tsx',
     '**/node_modules/**',
-    '**/dist/**'
-  ]
+    '**/dist/**',
+  ],
 };
 ```
 
 ## Architecture Overview
 
 ### Monorepo Structure
+
 ```
 packages/          # Core library packages
 ├── cli/          # ✅ Command-line interface (Phase 1)
@@ -105,6 +112,7 @@ examples/         # Sample projects for testing
 ```
 
 ### Package Dependencies
+
 - CLI depends on: Parser, Analyzer, Coverage, Docs-Generator, Site-Builder, Plugin-Core, Types, Utils, Constants
 - Parser depends on: Types, Utils
 - Analyzer depends on: Types, Utils
@@ -117,9 +125,11 @@ examples/         # Sample projects for testing
 ## Phase 1 Implementation (COMPLETE)
 
 ### TypeScript Parser
+
 **File:** `packages/parser/src/parsers/typescript-parser.ts`
 
 Implements full TypeScript Compiler API integration:
+
 - Parses `.ts` and `.tsx` files
 - Extracts: functions, classes, interfaces, types, imports, exports
 - JSDoc comment extraction with tags (@param, @returns, @example)
@@ -127,14 +137,17 @@ Implements full TypeScript Compiler API integration:
 - Line number tracking for all elements
 
 **Key Methods:**
+
 - `parseFile(filePath)` - Parse single file
 - `parseDirectory(dirPath, pattern)` - Parse directory with glob
 - `extractJSDoc(node)` - Extract JSDoc comments
 
 ### React Component Parser
+
 **File:** `packages/parser/src/parsers/react-parser.ts`
 
 Specialized React component detection:
+
 - Function components (arrow and regular functions)
 - Class components extending React.Component
 - Props extraction from inline types and interfaces
@@ -142,19 +155,23 @@ Specialized React component detection:
 - JSX detection for component identification
 
 **Key Methods:**
+
 - `parseComponent(filePath)` - Returns array of ComponentMetadata
 - `extractHooks(node)` - Finds all hook usage
 - `extractPropsFromType(typeNode)` - Extracts props from TypeScript types
 
 ### CLI Commands
+
 **Files:** `packages/cli/src/commands/`
 
 **Init Command** (`init.ts`):
+
 - Interactive prompts using inquirer
 - Generates `cognidocs.config.js`
 - Options: --force (overwrite), --yes (skip prompts)
 
 **Build Command** (`build.ts`):
+
 - Loads configuration from `cognidocs.config.js`
 - Orchestrates TypeScript + React parsing
 - Outputs JSON files:
@@ -171,38 +188,46 @@ Specialized React component detection:
 ## Phase 2 Implementation (COMPLETE)
 
 ### Dependency Analyzer
+
 **File:** `packages/analyzer/src/DependencyAnalyzer.ts`
 
 Analyzes module dependencies and relationships:
+
 - Builds dependency graphs from parse results
 - Detects circular dependencies
 - Calculates module metrics (imports, exports, dependents)
 - Identifies orphaned modules
 
 **Key Methods:**
+
 - `analyze(parseResults)` - Returns DependencyGraph
 - `detectCircularDependencies()` - Finds circular import chains
 - `getModuleMetrics(modulePath)` - Get import/export counts
 
 ### Coverage Calculator
+
 **File:** `packages/coverage/src/CoverageCalculator.ts`
 
 Calculates documentation coverage metrics:
+
 - Function documentation coverage
 - Class/interface documentation coverage
 - Type coverage analysis
 - Overall project coverage scores
 
 **CLI Commands:**
+
 - `cognidocs analyze` - Generate dependency analysis
 - `cognidocs coverage` - Calculate documentation coverage
 
 ## Phase 3 & 3.5 Implementation (COMPLETE)
 
 ### Documentation Generator
+
 **File:** `packages/docs-generator/src/DocsGenerator.ts`
 
 Converts parsed metadata into structured documentation:
+
 - Generates markdown documentation files
 - Organizes content by categories (components, functions, classes, etc.)
 - Processes additional-documentation folder
@@ -210,6 +235,7 @@ Converts parsed metadata into structured documentation:
 - Supports multiple output formats
 
 **Recent Enhancement - Markdown Table Escaping:**
+
 - **File:** [packages/docs-generator/src/MarkdownGenerator.ts](packages/docs-generator/src/MarkdownGenerator.ts:19-22)
 - **Problem:** TypeScript union types (e.g., `'primary' | 'secondary' | 'danger'`) broke markdown tables because `|` is the table delimiter
 - **Solution:** Added `escapeMarkdownPipes()` method that replaces `|` with `\|` in all type strings
@@ -217,9 +243,11 @@ Converts parsed metadata into structured documentation:
 - **Result:** Union types now render properly in documentation tables
 
 ### Site Builder
+
 **File:** `packages/site-builder/src/SiteBuilder.ts`
 
 Builds premium static documentation sites:
+
 - **React + Vite + TypeScript** - Modern build stack
 - **Shadcn/ui + Tailwind CSS** - Premium UI components
 - **12 Professional Themes** - GitBook, GitHub, Nord, Dracula, Monokai, Solarized, One Dark, Material (with light/dark variants)
@@ -235,6 +263,7 @@ Builds premium static documentation sites:
 - **Project Branding** - Custom header with project name and version
 
 **Key Features:**
+
 - Hash-based routing for SPA navigation
 - Frontmatter stripping (YAML metadata hidden from rendered output)
 - Non-clickable section headers (TOC-only navigation)
@@ -282,14 +311,17 @@ Builds premium static documentation sites:
    - **Result:** Rich, visually appealing callouts that enhance documentation readability
 
 **CLI Commands:**
+
 - `cognidocs build` - Parse code and generate documentation site
 - `cognidocs serve` - Start development server on port 4173 (or next available)
 - `cognidocs serve --port <port>` - Use custom port
 
 ### Site Template Structure
+
 **Path:** `packages/site-builder/src/template/`
 
 **Key Components:**
+
 - `src/App.tsx` - Main application with hash-based routing
 - `src/Sidebar.tsx` - Navigation with search, theme switcher, hierarchical sections
 - `src/components/Layout.tsx` - Page layout with header, sidebar, content
@@ -304,6 +336,7 @@ Builds premium static documentation sites:
 - `src/pages/GraphPage.tsx` - Dependency graph visualization
 
 **Markdown Rendering Features:**
+
 - Frontmatter removal via regex `/^---\n[\s\S]*?\n---\n*/`
 - Custom heading components (h1-h4) without auto-links
 - Normalized table styling
@@ -311,9 +344,11 @@ Builds premium static documentation sites:
 - TOC heading extraction after frontmatter removal
 
 ### Graph Visualization
+
 **File:** `packages/graph-viz/src/DependencyGraph.tsx`
 
 React component for interactive dependency graphs:
+
 - D3.js force-directed graph visualization with force simulation
 - Node highlighting on hover
 - Zoom and pan controls (D3 zoom behavior)
@@ -323,9 +358,11 @@ React component for interactive dependency graphs:
 - Flexible edge property naming (source/target or from/to)
 
 ### Plugin System
+
 **File:** `packages/plugin-core/src/index.ts`
 
 Core plugin infrastructure:
+
 - Plugin lifecycle hooks
 - Type-safe plugin interfaces
 - Plugin loading and initialization (basic implementation)
@@ -333,12 +370,16 @@ Core plugin infrastructure:
 ## Output Format
 
 ### Phase 1-2 Output
+
 `cognidocs build` generates structured JSON files:
+
 - `docs/data.json` - Full parsed metadata including parse results, dependency graph, coverage metrics
 - `docs/components/*.json` - Individual component files
 
 ### Phase 3 & 3.5 Output
+
 `cognidocs build` + `cognidocs serve` generates:
+
 - **Premium documentation site** - React + Vite + TypeScript + Shadcn/ui
 - **Markdown documentation** - Auto-generated from code with frontmatter metadata
 - **Search index** - Lunr.js with Cmd+K command palette
@@ -348,6 +389,7 @@ Core plugin infrastructure:
 - **Static site ready for deployment** - Production build with optimized assets
 
 Example component JSON:
+
 ```json
 {
   "name": "Button",
@@ -371,6 +413,7 @@ Example component JSON:
 ## Phase Reference System
 
 When working on phases, reference them as:
+
 - "Let's implement Phase 4"
 - "Show me Phase 5 tasks"
 - "Complete the component preview from Phase 5"
@@ -380,12 +423,14 @@ Each package README indicates its phase and status (🟢 Complete, 🟡 In Progr
 ## Testing Approach
 
 Tests are in `packages/*/src/__tests__/`:
+
 - **Unit tests** for parsers (TypeScript, React)
 - **Integration tests** for CLI commands (planned)
 - **Fixtures** in `__test_files__` directories
 - Use Vitest as test framework
 
 Current test coverage focuses on:
+
 - Function/class/interface parsing
 - JSDoc extraction
 - React component detection
@@ -394,6 +439,7 @@ Current test coverage focuses on:
 ## Common Development Patterns
 
 ### Adding a New Parser Feature
+
 1. Add types to `packages/parser/src/types.ts`
 2. Implement extraction in appropriate parser file
 3. Update `visit()` method to detect new node types
@@ -401,6 +447,7 @@ Current test coverage focuses on:
 5. Update shared types if needed
 
 ### Adding a CLI Command
+
 1. Create command file in `packages/cli/src/commands/`
 2. Export command function with options interface
 3. Import and wire up in `packages/cli/src/cli.ts`
@@ -408,7 +455,9 @@ Current test coverage focuses on:
 5. Handle errors gracefully with try/catch
 
 ### Working with Types
+
 All metadata types are in `packages/parser/src/types.ts`:
+
 - `ParseResult` - Top-level parse output
 - `ComponentMetadata` - React component info
 - `FunctionMetadata` - Function details
@@ -418,11 +467,13 @@ All metadata types are in `packages/parser/src/types.ts`:
 ### Building and Developing
 
 **Turbo Build System:**
+
 - Turbo caches build outputs for fast incremental builds
 - Dependencies are built automatically (e.g., building CLI builds Parser first)
 - Use `--filter` to build specific packages: `npm run build --filter=@cognidocs/parser`
 
 **Common Workflows:**
+
 ```bash
 # Full rebuild after pulling changes
 npm run build
@@ -438,6 +489,7 @@ npm run build  # Rebuild dependents
 ```
 
 **tsup Configuration:**
+
 - All packages use tsup for bundling
 - Outputs both ESM (.mjs) and types (.d.ts)
 - Watch mode enabled in dev scripts
@@ -445,6 +497,7 @@ npm run build  # Rebuild dependents
 ## Known Limitations and Future Phases
 
 Current limitations and upcoming features:
+
 - Phase 4: Enhanced visual graphs and diagrams
 - Phase 5: Live component previews and playground
 - Phase 6: AI-powered features (doc generation, semantic search, chat)
@@ -453,27 +506,32 @@ Current limitations and upcoming features:
 ## Troubleshooting
 
 **"Cannot find module @cognidocs/...'"**
+
 ```bash
 npm run build  # Rebuild all packages
 ```
 
 **"cognidocs: command not found"**
+
 ```bash
 npm link -w @cognidocs/cli
 ```
 
 **TypeScript errors in imports**
+
 ```bash
 npm run typecheck  # Check for issues
 npm run build      # Rebuild
 ```
 
 **Parser not finding files**
+
 - Check `cognidocs.config.js` entry path
 - Ensure files match pattern `**/*.{ts,tsx}`
 - Files in `node_modules`, `dist`, `*.test.*` are excluded by default
 
 **Server not starting**
+
 ```bash
 # Make sure site is built first
 cognidocs build
@@ -485,6 +543,7 @@ cognidocs serve
 **Phase 3.5 is COMPLETE with all critical bugs fixed and UI polished.**
 
 ### What's Included in MVP:
+
 ✅ Full TypeScript/React parsing with JSDoc extraction
 ✅ Dependency analysis and coverage tracking
 ✅ Premium documentation site with 12 professional themes
@@ -497,7 +556,9 @@ cognidocs serve
 ✅ All critical bugs fixed (table escaping, focus overflow)
 
 ### MVP Deployment Ready:
+
 The generated documentation site is production-ready and can be deployed to:
+
 - **GitHub Pages** - Static site hosting
 - **Netlify** - Automatic deployments
 - **Vercel** - Optimized for React/Vite
@@ -507,6 +568,7 @@ The generated documentation site is production-ready and can be deployed to:
 ### Next Steps: Post-MVP Enhancements
 
 **Optional Polish Tasks (Not Critical):**
+
 - **Task 7:** Statistics & Metrics Dashboard - Display project metrics on overview page
 - **Task 8:** Mobile/Accessibility Audit - WCAG 2.1 AA verification
 - **Task 9:** Performance Optimization - Code splitting and bundle optimization
@@ -514,21 +576,25 @@ The generated documentation site is production-ready and can be deployed to:
 **Future Phase Options:**
 
 **Phase 4 - Enhanced Visualizations:**
+
 - Advanced graph layouts (hierarchical, circular)
 - Component relationship diagrams
 - Mermaid.js integration for diagrams in markdown
 
 **Phase 5 - Plugin System:**
+
 - Custom plugin development API
 - Plugin marketplace foundation
 - Theme plugin architecture
 
 **Phase 6 - Component Previews:**
+
 - Live component playground
 - Props editing interface
 - Multiple framework support (React, Vue, Svelte)
 
 **Phase 7 - AI Integration:**
+
 - OpenAI/Anthropic integration
 - Semantic search with vector embeddings
 - Auto-generate missing documentation

@@ -1,5 +1,7 @@
 # PreparePasteEditsResponse
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `body` | `boolean` | No | - |
+
+| Name   | Type      | Optional | Description |
+| :----- | :-------- | :------- | :---------- |
+| `body` | `boolean` | No       | -           |

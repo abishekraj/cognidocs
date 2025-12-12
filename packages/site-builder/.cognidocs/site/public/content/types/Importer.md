@@ -1,5 +1,7 @@
 # Importer
+
 ## Definition
+
 ```typescript
-() => Promise<DefaultOrNot<React.ComponentType<T>>>
+() => Promise<DefaultOrNot<React.ComponentType<T>>>;
 ```

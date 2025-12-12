@@ -3,6 +3,7 @@
 Response to "brace" request.
 
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `body` | `TextSpan[]` | Yes | - |
+
+| Name   | Type         | Optional | Description |
+| :----- | :----------- | :------- | :---------- |
+| `body` | `TextSpan[]` | Yes      | -           |

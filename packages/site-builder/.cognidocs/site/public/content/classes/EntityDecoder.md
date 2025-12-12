@@ -3,17 +3,20 @@
 Token decoder with support of writing partial entities.
 
 ## Properties
-| Name | Type | Description |
-| :--- | :--- | :---------- |
-| `state` | `any` | - |
-| `consumed` | `any` | - |
-| `result` | `any` | - |
-| `treeIndex` | `any` | - |
-| `excess` | `any` | - |
-| `decodeMode` | `any` | - |
+
+| Name         | Type  | Description |
+| :----------- | :---- | :---------- |
+| `state`      | `any` | -           |
+| `consumed`   | `any` | -           |
+| `result`     | `any` | -           |
+| `treeIndex`  | `any` | -           |
+| `excess`     | `any` | -           |
+| `decodeMode` | `any` | -           |
 
 ## Methods
+
 ### startEntity
+
 **Return:** `void`
 
 ### write
@@ -29,6 +32,7 @@ Switches between the numeric decimal and hexadecimal states. Equivalent to the `
 **Return:** `number`
 
 ### addToNumericResult
+
 **Return:** `void`
 
 ### stateNumericHex

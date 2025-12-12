@@ -1,5 +1,7 @@
 # CaretShape
+
 ## Definition
+
 ```typescript
-Globals | "auto" | "bar" | "block" | "underscore"
+Globals | 'auto' | 'bar' | 'block' | 'underscore';
 ```

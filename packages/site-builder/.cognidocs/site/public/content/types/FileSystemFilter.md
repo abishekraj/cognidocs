@@ -1,5 +1,7 @@
 # FileSystemFilter
+
 ## Definition
+
 ```typescript
-(node: FileSystemNode) => boolean
+(node: FileSystemNode) => boolean;
 ```

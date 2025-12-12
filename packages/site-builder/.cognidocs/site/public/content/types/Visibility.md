@@ -1,5 +1,7 @@
 # Visibility
+
 ## Definition
+
 ```typescript
-Globals | "collapse" | "hidden" | "visible"
+Globals | 'collapse' | 'hidden' | 'visible';
 ```

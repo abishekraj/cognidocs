@@ -10,6 +10,7 @@
 }`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `rule` | `Rule` | No | - |
+
+| Name   | Type   | Optional | Description |
+| :----- | :----- | :------- | :---------- |
+| `rule` | `Rule` | No       | -           |

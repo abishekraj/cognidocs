@@ -1,5 +1,7 @@
 # CoverageInfo
+
 ## Definition
+
 ```typescript
-Map<AbstractElement, boolean>
+Map<AbstractElement, boolean>;
 ```

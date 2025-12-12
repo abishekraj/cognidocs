@@ -1,5 +1,7 @@
 # ShapeOutside
+
 ## Definition
+
 ```typescript
-Globals | DataType.VisualBox | "margin-box" | "none" | (string & {})
+Globals | DataType.VisualBox | 'margin-box' | 'none' | (string & {});
 ```

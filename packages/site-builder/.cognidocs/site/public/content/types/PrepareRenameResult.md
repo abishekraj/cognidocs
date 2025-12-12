@@ -1,5 +1,7 @@
 # PrepareRenameResult
+
 ## Definition
+
 ```typescript
 Range | {
     range: Range;

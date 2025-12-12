@@ -3,9 +3,11 @@
 General client capabilities.
 
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `staleRequestSupport` | `{
+
+| Name                  | Type | Optional | Description |
+| :-------------------- | :--- | :------- | :---------- |
+| `staleRequestSupport` | `{   |
+
         /**
          * The client will actively cancel the request.
          */
@@ -17,6 +19,7 @@ General client capabilities.
          */
         retryOnContentModified: string[];
     }` | Yes | - |
+
 | `regularExpressions` | `RegularExpressionsClientCapabilities` | Yes | - |
 | `markdown` | `MarkdownClientCapabilities` | Yes | - |
 | `positionEncodings` | `PositionEncodingKind[]` | Yes | - |

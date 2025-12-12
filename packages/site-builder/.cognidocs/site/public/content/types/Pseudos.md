@@ -1,5 +1,7 @@
 # Pseudos
+
 ## Definition
+
 ```typescript
-AdvancedPseudos | SimplePseudos
+AdvancedPseudos | SimplePseudos;
 ```

@@ -1,5 +1,7 @@
 # HLJSPlugin
+
 ## Definition
+
 ```typescript
 {
         'after:highlight'?: (result: HighlightResult) => void,

@@ -1,6 +1,8 @@
 # IRecognizerContext
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `ruleStack` | `string[]` | No | - |
-| `ruleOccurrenceStack` | `number[]` | No | - |
+
+| Name                  | Type       | Optional | Description |
+| :-------------------- | :--------- | :------- | :---------- |
+| `ruleStack`           | `string[]` | No       | -           |
+| `ruleOccurrenceStack` | `number[]` | No       | -           |

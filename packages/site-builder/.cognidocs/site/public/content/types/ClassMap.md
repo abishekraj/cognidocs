@@ -1,5 +1,7 @@
 # ClassMap
+
 ## Definition
+
 ```typescript
-Map<string, ClassNode>
+Map<string, ClassNode>;
 ```

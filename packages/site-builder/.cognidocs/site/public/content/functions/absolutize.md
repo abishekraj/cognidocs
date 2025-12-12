@@ -3,6 +3,7 @@
 **Return Type:** `Segment[]`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `segments` | `Segment[]` | No | - |
+
+| Name       | Type        | Optional | Description |
+| :--------- | :---------- | :------- | :---------- |
+| `segments` | `Segment[]` | No       | -           |

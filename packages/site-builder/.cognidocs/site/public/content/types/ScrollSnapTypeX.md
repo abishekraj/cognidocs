@@ -1,5 +1,7 @@
 # ScrollSnapTypeX
+
 ## Definition
+
 ```typescript
-Globals | "mandatory" | "none" | "proximity"
+Globals | 'mandatory' | 'none' | 'proximity';
 ```

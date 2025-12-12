@@ -1,5 +1,7 @@
 # Accessor
+
 ## Definition
+
 ```typescript
-ClassAccessorProperty
+ClassAccessorProperty;
 ```

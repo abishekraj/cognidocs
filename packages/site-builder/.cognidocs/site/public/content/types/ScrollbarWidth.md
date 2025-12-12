@@ -1,5 +1,7 @@
 # ScrollbarWidth
+
 ## Definition
+
 ```typescript
-Globals | "auto" | "none" | "thin"
+Globals | 'auto' | 'none' | 'thin';
 ```

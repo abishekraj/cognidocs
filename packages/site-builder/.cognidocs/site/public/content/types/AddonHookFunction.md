@@ -1,8 +1,7 @@
 # AddonHookFunction
+
 ## Definition
+
 ```typescript
-(
-	this: PluginContext,
-	chunk: RenderedChunk
-) => string | Promise<string>
+(this: PluginContext, chunk: RenderedChunk) => string | Promise<string>;
 ```

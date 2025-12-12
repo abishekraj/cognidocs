@@ -9,6 +9,7 @@ Complete setup instructions for getting CogniDocs running locally.
 - **Git**: Latest version
 
 Check your versions:
+
 ```bash
 node --version   # Should be v18.0.0 or higher
 npm --version    # Should be v9.0.0 or higher
@@ -34,6 +35,7 @@ npm run build
 This builds all packages in the correct dependency order using Turbo.
 
 **Build order:**
+
 1. Shared packages (types, utils, constants)
 2. Parser
 3. CLI
@@ -55,11 +57,13 @@ cognidocs --version
 ### Running in Development Mode
 
 **Option 1: Run all packages**
+
 ```bash
 npm run dev
 ```
 
 **Option 2: Run specific phase**
+
 ```bash
 npm run phase1   # CLI, Parser, Testing only
 npm run phase2   # Analyzer, Coverage (when ready)
@@ -67,6 +71,7 @@ npm run phase3   # Docs Generator, Site Builder (when ready)
 ```
 
 **Option 3: Run specific package**
+
 ```bash
 npm run dev --filter=@cognidocs/cli
 npm run dev --filter=@cognidocs/parser
@@ -181,17 +186,20 @@ cognidocs/
 ### Currently: Phase 1 (Foundation) 🟡
 
 **Active packages:**
+
 - `@cognidocs/cli` - CLI implementation
 - `@cognidocs/parser` - TypeScript/React parsing
 - `@cognidocs/testing` - Test utilities
 
 **What to work on:**
+
 1. Complete TypeScript Compiler API integration
 2. Implement React component parsing
 3. JSDoc comment extraction
 4. Write tests with 80%+ coverage
 
 **Commands for Phase 1:**
+
 ```bash
 npm run phase1           # Start all Phase 1 packages
 npm run build --filter=@cognidocs/cli
@@ -201,10 +209,12 @@ npm run test --filter=@cognidocs/parser
 ### Phase 2: Analysis & Coverage (Not Started) 🔴
 
 **Packages:**
+
 - `@cognidocs/analyzer`
 - `@cognidocs/coverage`
 
 **To start Phase 2:**
+
 1. Complete Phase 1 first
 2. Review [PHASES.md](PHASES.md)
 3. Implement dependency graph generation
@@ -263,12 +273,14 @@ npm test --filter=@cognidocs/parser -- src/__tests__/parser.test.ts
 ### Debugging
 
 **VS Code:**
+
 1. Open project in VS Code
 2. Set breakpoints
 3. Use "JavaScript Debug Terminal"
 4. Run commands as normal
 
 **Console logging:**
+
 ```typescript
 console.log('[DEBUG]', yourVariable);
 ```
@@ -292,6 +304,7 @@ npm install
 ### "Cannot find module '@cognidocs/...'"
 
 **Solution:** Build the shared packages first
+
 ```bash
 npm run build --filter=@cognidocs/types
 npm run build --filter=@cognidocs/utils
@@ -301,6 +314,7 @@ npm run build --filter=@cognidocs/constants
 ### "command not found: cognidocs"
 
 **Solution:** Link the CLI package
+
 ```bash
 npm link -w @cognidocs/cli
 # Or use the full path
@@ -310,6 +324,7 @@ node packages/cli/dist/cli.js --help
 ### TypeScript errors in imports
 
 **Solution:** Check path aliases in tsconfig.json and rebuild
+
 ```bash
 npm run typecheck
 npm run build
@@ -318,6 +333,7 @@ npm run build
 ### Turbo cache issues
 
 **Solution:** Clear Turbo cache
+
 ```bash
 rm -rf .turbo
 npm run build
@@ -328,12 +344,14 @@ npm run build
 The project includes VS Code settings in [.vscode/settings.json](.vscode/settings.json).
 
 **Recommended extensions:**
+
 - ESLint
 - Prettier
 - TypeScript and JavaScript
 - Tailwind CSS (for future UI work)
 
 Install them:
+
 ```bash
 # VS Code will prompt to install recommended extensions
 # Or manually: Cmd+Shift+P -> "Extensions: Show Recommended Extensions"

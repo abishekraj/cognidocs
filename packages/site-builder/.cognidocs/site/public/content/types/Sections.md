@@ -1,5 +1,7 @@
 # Sections
+
 ## Definition
+
 ```typescript
-Map<string, number>
+Map<string, number>;
 ```

@@ -3,6 +3,7 @@
 Client workspace capabilities specific to inline values.
 
 ## Definition
+
 ```typescript
 {
     /**

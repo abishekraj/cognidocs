@@ -1,5 +1,7 @@
 # ArchitectureDirectionY
+
 ## Definition
+
 ```typescript
-Extract<ArchitectureDirection, 'T' | 'B'>
+Extract<ArchitectureDirection, 'T' | 'B'>;
 ```

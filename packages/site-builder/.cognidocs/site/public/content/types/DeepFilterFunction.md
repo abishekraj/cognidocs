@@ -1,5 +1,7 @@
 # DeepFilterFunction
+
 ## Definition
+
 ```typescript
-fsWalk.DeepFilterFunction
+fsWalk.DeepFilterFunction;
 ```

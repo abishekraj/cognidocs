@@ -1,6 +1,8 @@
 # NonClusterNode
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `shape` | `ShapeID` | Yes | - |
-| `isGroup` | `false` | No | - |
+
+| Name      | Type      | Optional | Description |
+| :-------- | :-------- | :------- | :---------- |
+| `shape`   | `ShapeID` | Yes      | -           |
+| `isGroup` | `false`   | No       | -           |

@@ -1,5 +1,7 @@
 # BoxOrdinalGroup
+
 ## Definition
+
 ```typescript
-Globals | (number & {}) | (string & {})
+Globals | (number & {}) | (string & {});
 ```

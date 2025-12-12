@@ -56,9 +56,7 @@ export const Callout: React.FC<CalloutProps> = ({ type, children, className = ''
         <Icon className={`${config.iconColor} h-5 w-5 flex-shrink-0 mt-0.5`} />
         <div className="flex-1">
           <div className="font-semibold mb-1">{config.title}</div>
-          <div className="text-sm leading-relaxed prose-sm max-w-none">
-            {children}
-          </div>
+          <div className="text-sm leading-relaxed prose-sm max-w-none">{children}</div>
         </div>
       </div>
     </div>

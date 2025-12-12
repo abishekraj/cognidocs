@@ -3,6 +3,7 @@
 **Return Type:** `Stream<ReferenceInfo>`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `node` | `AstNode` | No | - |
+
+| Name   | Type      | Optional | Description |
+| :----- | :-------- | :------- | :---------- |
+| `node` | `AstNode` | No       | -           |

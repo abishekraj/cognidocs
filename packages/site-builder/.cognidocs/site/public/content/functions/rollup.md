@@ -3,6 +3,7 @@
 **Return Type:** `Promise<RollupBuild>`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `options` | `RollupOptions` | No | - |
+
+| Name      | Type            | Optional | Description |
+| :-------- | :-------------- | :------- | :---------- |
+| `options` | `RollupOptions` | No       | -           |

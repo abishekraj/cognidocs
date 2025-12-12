@@ -1,27 +1,34 @@
 # NotebookDocuments
+
 ## Properties
-| Name | Type | Description |
-| :--- | :--- | :---------- |
-| `notebookDocuments` | `any` | - |
-| `notebookCellMap` | `any` | - |
-| `_onDidOpen` | `any` | - |
-| `_onDidSave` | `any` | - |
-| `_onDidChange` | `any` | - |
-| `_onDidClose` | `any` | - |
-| `_cellTextDocuments` | `any` | - |
-| `updateCellMap` | `any` | - |
+
+| Name                 | Type  | Description |
+| :------------------- | :---- | :---------- |
+| `notebookDocuments`  | `any` | -           |
+| `notebookCellMap`    | `any` | -           |
+| `_onDidOpen`         | `any` | -           |
+| `_onDidSave`         | `any` | -           |
+| `_onDidChange`       | `any` | -           |
+| `_onDidClose`        | `any` | -           |
+| `_cellTextDocuments` | `any` | -           |
+| `updateCellMap`      | `any` | -           |
 
 ## Methods
+
 ### getCellTextDocument
+
 **Return:** `T | undefined`
 
 ### getNotebookDocument
+
 **Return:** `NotebookDocument | undefined`
 
 ### getNotebookCell
+
 **Return:** `NotebookCell | undefined`
 
 ### findNotebookDocumentForCell
+
 **Return:** `NotebookDocument | undefined`
 
 ### listen

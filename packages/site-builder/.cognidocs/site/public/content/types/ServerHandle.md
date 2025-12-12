@@ -1,5 +1,7 @@
 # ServerHandle
+
 ## Definition
+
 ```typescript
-HandleFunction | http.Server
+HandleFunction | http.Server;
 ```

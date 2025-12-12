@@ -1,5 +1,7 @@
 # ChildNode
+
 ## Definition
+
 ```typescript
-AtRule.default | Comment | Declaration | Rule
+AtRule.default | Comment | Declaration | Rule;
 ```

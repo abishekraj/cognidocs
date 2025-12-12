@@ -1,5 +1,7 @@
 # TabSize
+
 ## Definition
+
 ```typescript
-Globals | TLength | (number & {}) | (string & {})
+Globals | TLength | (number & {}) | (string & {});
 ```

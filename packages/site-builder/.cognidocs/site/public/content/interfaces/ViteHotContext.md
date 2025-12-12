@@ -1,5 +1,7 @@
 # ViteHotContext
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `data` | `any` | No | - |
+
+| Name   | Type  | Optional | Description |
+| :----- | :---- | :------- | :---------- |
+| `data` | `any` | No       | -           |

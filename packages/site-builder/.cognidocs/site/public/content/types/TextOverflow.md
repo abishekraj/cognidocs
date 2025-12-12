@@ -1,5 +1,7 @@
 # TextOverflow
+
 ## Definition
+
 ```typescript
-Globals | "clip" | "ellipsis" | (string & {})
+Globals | 'clip' | 'ellipsis' | (string & {});
 ```

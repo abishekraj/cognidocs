@@ -1,8 +1,11 @@
 # DiagramLoader
+
 ## Definition
+
 ```typescript
-() => Promise<{
+() =>
+  Promise<{
     id: string;
     diagram: DiagramDefinition;
-}>
+  }>;
 ```

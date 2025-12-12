@@ -1,5 +1,7 @@
 # PropertyUnion
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `types` | `PropertyType[]` | No | - |
+
+| Name    | Type             | Optional | Description |
+| :------ | :--------------- | :------- | :---------- |
+| `types` | `PropertyType[]` | No       | -           |

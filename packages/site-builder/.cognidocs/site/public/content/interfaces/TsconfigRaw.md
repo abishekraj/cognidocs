@@ -1,8 +1,11 @@
 # TsconfigRaw
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `compilerOptions` | `{
+
+| Name              | Type | Optional | Description |
+| :---------------- | :--- | :------- | :---------- |
+| `compilerOptions` | `{   |
+
     alwaysStrict?: boolean
     baseUrl?: string
     experimentalDecorators?: boolean
@@ -17,4 +20,5 @@
     target?: string
     useDefineForClassFields?: boolean
     verbatimModuleSyntax?: boolean
-  }` | Yes | - |
+
+}` | Yes | - |

@@ -1,5 +1,7 @@
 # FontWidth
+
 ## Definition
+
 ```typescript
 | Globals
     | "condensed"

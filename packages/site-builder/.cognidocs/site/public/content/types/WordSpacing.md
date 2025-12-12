@@ -1,5 +1,7 @@
 # WordSpacing
+
 ## Definition
+
 ```typescript
-Globals | TLength | "normal"
+Globals | TLength | 'normal';
 ```

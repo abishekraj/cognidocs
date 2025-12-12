@@ -1,5 +1,7 @@
 # OutlineOffset
+
 ## Definition
+
 ```typescript
-Globals | TLength
+Globals | TLength;
 ```

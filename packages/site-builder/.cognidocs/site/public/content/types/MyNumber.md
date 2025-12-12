@@ -1,5 +1,7 @@
 # MyNumber
+
 ## Definition
+
 ```typescript
-number
+number;
 ```

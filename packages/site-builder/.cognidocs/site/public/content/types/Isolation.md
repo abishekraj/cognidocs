@@ -1,5 +1,7 @@
 # Isolation
+
 ## Definition
+
 ```typescript
-Globals | "auto" | "isolate"
+Globals | 'auto' | 'isolate';
 ```

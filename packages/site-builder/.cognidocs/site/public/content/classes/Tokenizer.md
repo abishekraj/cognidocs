@@ -1,340 +1,449 @@
 # Tokenizer
+
 ## Properties
-| Name | Type | Description |
-| :--- | :--- | :---------- |
-| `options` | `TokenizerOptions` | - |
-| `handler` | `TokenHandler` | - |
-| `preprocessor` | `Preprocessor` | - |
-| `paused` | `boolean` | - |
-| `inLoop` | `boolean` | - |
-| `inForeignNode` | `boolean` | - |
-| `lastStartTagName` | `string` | - |
-| `active` | `boolean` | - |
-| `state` | `State` | - |
-| `returnState` | `State` | - |
-| `entityDecoder` | `EntityDecoder` | - |
-| `entityStartPos` | `number` | - |
-| `consumedAfterSnapshot` | `number` | - |
-| `currentLocation` | `Location \| null` | - |
-| `currentCharacterToken` | `CharacterToken \| null` | - |
-| `currentToken` | `Token \| null` | - |
-| `currentAttr` | `Attribute` | - |
+
+| Name                    | Type                     | Description |
+| :---------------------- | :----------------------- | :---------- |
+| `options`               | `TokenizerOptions`       | -           |
+| `handler`               | `TokenHandler`           | -           |
+| `preprocessor`          | `Preprocessor`           | -           |
+| `paused`                | `boolean`                | -           |
+| `inLoop`                | `boolean`                | -           |
+| `inForeignNode`         | `boolean`                | -           |
+| `lastStartTagName`      | `string`                 | -           |
+| `active`                | `boolean`                | -           |
+| `state`                 | `State`                  | -           |
+| `returnState`           | `State`                  | -           |
+| `entityDecoder`         | `EntityDecoder`          | -           |
+| `entityStartPos`        | `number`                 | -           |
+| `consumedAfterSnapshot` | `number`                 | -           |
+| `currentLocation`       | `Location \| null`       | -           |
+| `currentCharacterToken` | `CharacterToken \| null` | -           |
+| `currentToken`          | `Token \| null`          | -           |
+| `currentAttr`           | `Attribute`              | -           |
 
 ## Methods
-### _err
+
+### \_err
+
 **Return:** `void`
 
 ### getCurrentLocation
+
 **Return:** `Location | null`
 
-### _runParsingLoop
+### \_runParsingLoop
+
 **Return:** `void`
 
 ### pause
+
 **Return:** `void`
 
 ### resume
+
 **Return:** `void`
 
 ### write
+
 **Return:** `void`
 
 ### insertHtmlAtCurrentPos
+
 **Return:** `void`
 
-### _ensureHibernation
+### \_ensureHibernation
+
 **Return:** `boolean`
 
-### _consume
+### \_consume
+
 **Return:** `number`
 
-### _advanceBy
+### \_advanceBy
+
 **Return:** `void`
 
-### _consumeSequenceIfMatch
+### \_consumeSequenceIfMatch
+
 **Return:** `boolean`
 
-### _createStartTagToken
+### \_createStartTagToken
+
 **Return:** `void`
 
-### _createEndTagToken
+### \_createEndTagToken
+
 **Return:** `void`
 
-### _createCommentToken
+### \_createCommentToken
+
 **Return:** `void`
 
-### _createDoctypeToken
+### \_createDoctypeToken
+
 **Return:** `void`
 
-### _createCharacterToken
+### \_createCharacterToken
+
 **Return:** `void`
 
-### _createAttr
+### \_createAttr
+
 **Return:** `void`
 
-### _leaveAttrName
+### \_leaveAttrName
+
 **Return:** `void`
 
-### _leaveAttrValue
+### \_leaveAttrValue
+
 **Return:** `void`
 
 ### prepareToken
+
 **Return:** `void`
 
 ### emitCurrentTagToken
+
 **Return:** `void`
 
 ### emitCurrentComment
+
 **Return:** `void`
 
 ### emitCurrentDoctype
+
 **Return:** `void`
 
-### _emitCurrentCharacterToken
+### \_emitCurrentCharacterToken
+
 **Return:** `void`
 
-### _emitEOFToken
+### \_emitEOFToken
+
 **Return:** `void`
 
-### _appendCharToCurrentCharacterToken
+### \_appendCharToCurrentCharacterToken
+
 **Return:** `void`
 
-### _emitCodePoint
+### \_emitCodePoint
+
 **Return:** `void`
 
-### _emitChars
+### \_emitChars
+
 **Return:** `void`
 
-### _startCharacterReference
+### \_startCharacterReference
+
 **Return:** `void`
 
-### _isCharacterReferenceInAttribute
+### \_isCharacterReferenceInAttribute
+
 **Return:** `boolean`
 
-### _flushCodePointConsumedAsCharacterReference
+### \_flushCodePointConsumedAsCharacterReference
+
 **Return:** `void`
 
-### _callState
+### \_callState
+
 **Return:** `void`
 
-### _stateData
+### \_stateData
+
 **Return:** `void`
 
-### _stateRcdata
+### \_stateRcdata
+
 **Return:** `void`
 
-### _stateRawtext
+### \_stateRawtext
+
 **Return:** `void`
 
-### _stateScriptData
+### \_stateScriptData
+
 **Return:** `void`
 
-### _statePlaintext
+### \_statePlaintext
+
 **Return:** `void`
 
-### _stateTagOpen
+### \_stateTagOpen
+
 **Return:** `void`
 
-### _stateEndTagOpen
+### \_stateEndTagOpen
+
 **Return:** `void`
 
-### _stateTagName
+### \_stateTagName
+
 **Return:** `void`
 
-### _stateRcdataLessThanSign
+### \_stateRcdataLessThanSign
+
 **Return:** `void`
 
-### _stateRcdataEndTagOpen
+### \_stateRcdataEndTagOpen
+
 **Return:** `void`
 
 ### handleSpecialEndTag
+
 **Return:** `boolean`
 
-### _stateRcdataEndTagName
+### \_stateRcdataEndTagName
+
 **Return:** `void`
 
-### _stateRawtextLessThanSign
+### \_stateRawtextLessThanSign
+
 **Return:** `void`
 
-### _stateRawtextEndTagOpen
+### \_stateRawtextEndTagOpen
+
 **Return:** `void`
 
-### _stateRawtextEndTagName
+### \_stateRawtextEndTagName
+
 **Return:** `void`
 
-### _stateScriptDataLessThanSign
+### \_stateScriptDataLessThanSign
+
 **Return:** `void`
 
-### _stateScriptDataEndTagOpen
+### \_stateScriptDataEndTagOpen
+
 **Return:** `void`
 
-### _stateScriptDataEndTagName
+### \_stateScriptDataEndTagName
+
 **Return:** `void`
 
-### _stateScriptDataEscapeStart
+### \_stateScriptDataEscapeStart
+
 **Return:** `void`
 
-### _stateScriptDataEscapeStartDash
+### \_stateScriptDataEscapeStartDash
+
 **Return:** `void`
 
-### _stateScriptDataEscaped
+### \_stateScriptDataEscaped
+
 **Return:** `void`
 
-### _stateScriptDataEscapedDash
+### \_stateScriptDataEscapedDash
+
 **Return:** `void`
 
-### _stateScriptDataEscapedDashDash
+### \_stateScriptDataEscapedDashDash
+
 **Return:** `void`
 
-### _stateScriptDataEscapedLessThanSign
+### \_stateScriptDataEscapedLessThanSign
+
 **Return:** `void`
 
-### _stateScriptDataEscapedEndTagOpen
+### \_stateScriptDataEscapedEndTagOpen
+
 **Return:** `void`
 
-### _stateScriptDataEscapedEndTagName
+### \_stateScriptDataEscapedEndTagName
+
 **Return:** `void`
 
-### _stateScriptDataDoubleEscapeStart
+### \_stateScriptDataDoubleEscapeStart
+
 **Return:** `void`
 
-### _stateScriptDataDoubleEscaped
+### \_stateScriptDataDoubleEscaped
+
 **Return:** `void`
 
-### _stateScriptDataDoubleEscapedDash
+### \_stateScriptDataDoubleEscapedDash
+
 **Return:** `void`
 
-### _stateScriptDataDoubleEscapedDashDash
+### \_stateScriptDataDoubleEscapedDashDash
+
 **Return:** `void`
 
-### _stateScriptDataDoubleEscapedLessThanSign
+### \_stateScriptDataDoubleEscapedLessThanSign
+
 **Return:** `void`
 
-### _stateScriptDataDoubleEscapeEnd
+### \_stateScriptDataDoubleEscapeEnd
+
 **Return:** `void`
 
-### _stateBeforeAttributeName
+### \_stateBeforeAttributeName
+
 **Return:** `void`
 
-### _stateAttributeName
+### \_stateAttributeName
+
 **Return:** `void`
 
-### _stateAfterAttributeName
+### \_stateAfterAttributeName
+
 **Return:** `void`
 
-### _stateBeforeAttributeValue
+### \_stateBeforeAttributeValue
+
 **Return:** `void`
 
-### _stateAttributeValueDoubleQuoted
+### \_stateAttributeValueDoubleQuoted
+
 **Return:** `void`
 
-### _stateAttributeValueSingleQuoted
+### \_stateAttributeValueSingleQuoted
+
 **Return:** `void`
 
-### _stateAttributeValueUnquoted
+### \_stateAttributeValueUnquoted
+
 **Return:** `void`
 
-### _stateAfterAttributeValueQuoted
+### \_stateAfterAttributeValueQuoted
+
 **Return:** `void`
 
-### _stateSelfClosingStartTag
+### \_stateSelfClosingStartTag
+
 **Return:** `void`
 
-### _stateBogusComment
+### \_stateBogusComment
+
 **Return:** `void`
 
-### _stateMarkupDeclarationOpen
+### \_stateMarkupDeclarationOpen
+
 **Return:** `void`
 
-### _stateCommentStart
+### \_stateCommentStart
+
 **Return:** `void`
 
-### _stateCommentStartDash
+### \_stateCommentStartDash
+
 **Return:** `void`
 
-### _stateComment
+### \_stateComment
+
 **Return:** `void`
 
-### _stateCommentLessThanSign
+### \_stateCommentLessThanSign
+
 **Return:** `void`
 
-### _stateCommentLessThanSignBang
+### \_stateCommentLessThanSignBang
+
 **Return:** `void`
 
-### _stateCommentLessThanSignBangDash
+### \_stateCommentLessThanSignBangDash
+
 **Return:** `void`
 
-### _stateCommentLessThanSignBangDashDash
+### \_stateCommentLessThanSignBangDashDash
+
 **Return:** `void`
 
-### _stateCommentEndDash
+### \_stateCommentEndDash
+
 **Return:** `void`
 
-### _stateCommentEnd
+### \_stateCommentEnd
+
 **Return:** `void`
 
-### _stateCommentEndBang
+### \_stateCommentEndBang
+
 **Return:** `void`
 
-### _stateDoctype
+### \_stateDoctype
+
 **Return:** `void`
 
-### _stateBeforeDoctypeName
+### \_stateBeforeDoctypeName
+
 **Return:** `void`
 
-### _stateDoctypeName
+### \_stateDoctypeName
+
 **Return:** `void`
 
-### _stateAfterDoctypeName
+### \_stateAfterDoctypeName
+
 **Return:** `void`
 
-### _stateAfterDoctypePublicKeyword
+### \_stateAfterDoctypePublicKeyword
+
 **Return:** `void`
 
-### _stateBeforeDoctypePublicIdentifier
+### \_stateBeforeDoctypePublicIdentifier
+
 **Return:** `void`
 
-### _stateDoctypePublicIdentifierDoubleQuoted
+### \_stateDoctypePublicIdentifierDoubleQuoted
+
 **Return:** `void`
 
-### _stateDoctypePublicIdentifierSingleQuoted
+### \_stateDoctypePublicIdentifierSingleQuoted
+
 **Return:** `void`
 
-### _stateAfterDoctypePublicIdentifier
+### \_stateAfterDoctypePublicIdentifier
+
 **Return:** `void`
 
-### _stateBetweenDoctypePublicAndSystemIdentifiers
+### \_stateBetweenDoctypePublicAndSystemIdentifiers
+
 **Return:** `void`
 
-### _stateAfterDoctypeSystemKeyword
+### \_stateAfterDoctypeSystemKeyword
+
 **Return:** `void`
 
-### _stateBeforeDoctypeSystemIdentifier
+### \_stateBeforeDoctypeSystemIdentifier
+
 **Return:** `void`
 
-### _stateDoctypeSystemIdentifierDoubleQuoted
+### \_stateDoctypeSystemIdentifierDoubleQuoted
+
 **Return:** `void`
 
-### _stateDoctypeSystemIdentifierSingleQuoted
+### \_stateDoctypeSystemIdentifierSingleQuoted
+
 **Return:** `void`
 
-### _stateAfterDoctypeSystemIdentifier
+### \_stateAfterDoctypeSystemIdentifier
+
 **Return:** `void`
 
-### _stateBogusDoctype
+### \_stateBogusDoctype
+
 **Return:** `void`
 
-### _stateCdataSection
+### \_stateCdataSection
+
 **Return:** `void`
 
-### _stateCdataSectionBracket
+### \_stateCdataSectionBracket
+
 **Return:** `void`
 
-### _stateCdataSectionEnd
+### \_stateCdataSectionEnd
+
 **Return:** `void`
 
-### _stateCharacterReference
+### \_stateCharacterReference
+
 **Return:** `void`
 
-### _stateAmbiguousAmpersand
+### \_stateAmbiguousAmpersand
+
 **Return:** `void`

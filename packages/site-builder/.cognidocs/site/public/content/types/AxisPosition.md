@@ -1,5 +1,7 @@
 # AxisPosition
+
 ## Definition
+
 ```typescript
-'left' | 'right' | 'top' | 'bottom'
+'left' | 'right' | 'top' | 'bottom';
 ```

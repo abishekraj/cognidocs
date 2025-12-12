@@ -3,6 +3,7 @@
 Things that can be passed to the constructor.
 
 ## Definition
+
 ```typescript
-Options | URL | VFile | Value
+Options | URL | VFile | Value;
 ```

@@ -119,10 +119,7 @@ export function MarkdownPage({ path }: MarkdownPageProps) {
         <article className="prose prose-slate dark:prose-invert max-w-none">
           <ReactMarkdown
             remarkPlugins={[remarkGfm, remarkDirective, remarkCallouts]}
-            rehypePlugins={[
-              rehypeHighlight,
-              rehypeSlug,
-            ]}
+            rehypePlugins={[rehypeHighlight, rehypeSlug]}
             components={{
               div: ({ node, className, children, ...props }: any) => {
                 // Handle callout divs
@@ -133,7 +130,11 @@ export function MarkdownPage({ path }: MarkdownPageProps) {
                   }
                 }
                 // Regular div
-                return <div className={className} {...props}>{children}</div>;
+                return (
+                  <div className={className} {...props}>
+                    {children}
+                  </div>
+                );
               },
               h1: ({ node, children, ...props }: any) => (
                 <h1 className="text-4xl font-bold text-foreground mb-4 mt-8 first:mt-0" {...props}>
@@ -141,7 +142,10 @@ export function MarkdownPage({ path }: MarkdownPageProps) {
                 </h1>
               ),
               h2: ({ node, children, ...props }: any) => (
-                <h2 className="text-3xl font-bold text-foreground mb-3 mt-6 border-b border-border pb-2" {...props}>
+                <h2
+                  className="text-3xl font-bold text-foreground mb-3 mt-6 border-b border-border pb-2"
+                  {...props}
+                >
                   {children}
                 </h2>
               ),
@@ -155,7 +159,9 @@ export function MarkdownPage({ path }: MarkdownPageProps) {
                   {children}
                 </h4>
               ),
-              p: ({ node, ...props }) => <p className="text-foreground mb-4 leading-7" {...props} />,
+              p: ({ node, ...props }) => (
+                <p className="text-foreground mb-4 leading-7" {...props} />
+              ),
               a: ({ node, ...props }) => (
                 <a className="text-primary hover:underline font-medium" {...props} />
               ),
@@ -169,7 +175,7 @@ export function MarkdownPage({ path }: MarkdownPageProps) {
                     if (typeof child === 'string') return child;
                     if (typeof child === 'number') return String(child);
                     if (Array.isArray(child)) {
-                      return child.map(c => extractText(c)).join('');
+                      return child.map((c) => extractText(c)).join('');
                     }
                     if (typeof child === 'object' && 'props' in child && child.props) {
                       if (typeof child.props.children === 'string') {
@@ -200,7 +206,7 @@ export function MarkdownPage({ path }: MarkdownPageProps) {
                   if (typeof child === 'number') return String(child);
 
                   if (Array.isArray(child)) {
-                    return child.map(c => extractText(c)).join('');
+                    return child.map((c) => extractText(c)).join('');
                   }
 
                   if (typeof child === 'object') {
@@ -225,11 +231,7 @@ export function MarkdownPage({ path }: MarkdownPageProps) {
                 const language = className?.replace(/language-/, '') || '';
 
                 return (
-                  <CodeBlock
-                    inline={inline}
-                    className={className}
-                    language={language}
-                  >
+                  <CodeBlock inline={inline} className={className} language={language}>
                     {code}
                   </CodeBlock>
                 );
@@ -240,8 +242,12 @@ export function MarkdownPage({ path }: MarkdownPageProps) {
                   {...props}
                 />
               ),
-              ul: ({ node, ...props }) => <ul className="list-disc list-inside mb-4 space-y-2" {...props} />,
-              ol: ({ node, ...props }) => <ol className="list-decimal list-inside mb-4 space-y-2" {...props} />,
+              ul: ({ node, ...props }) => (
+                <ul className="list-disc list-inside mb-4 space-y-2" {...props} />
+              ),
+              ol: ({ node, ...props }) => (
+                <ol className="list-decimal list-inside mb-4 space-y-2" {...props} />
+              ),
               li: ({ node, ...props }) => <li className="text-foreground" {...props} />,
               table: ({ node, ...props }) => (
                 <div className="overflow-x-auto mb-4">
@@ -250,7 +256,10 @@ export function MarkdownPage({ path }: MarkdownPageProps) {
               ),
               thead: ({ node, ...props }) => <thead {...props} />,
               th: ({ node, ...props }) => (
-                <th className="border border-border px-4 py-2 text-left font-semibold text-foreground" {...props} />
+                <th
+                  className="border border-border px-4 py-2 text-left font-semibold text-foreground"
+                  {...props}
+                />
               ),
               td: ({ node, children, ...props }: any) => {
                 // Helper function to extract text from code elements and strip styling
@@ -259,16 +268,19 @@ export function MarkdownPage({ path }: MarkdownPageProps) {
                   if (typeof child === 'string') return child;
                   if (typeof child === 'number') return String(child);
                   if (Array.isArray(child)) {
-                    return child.map(c => extractTextFromChild(c)).join('');
+                    return child.map((c) => extractTextFromChild(c)).join('');
                   }
 
                   // If it's a code element, extract its text content recursively
-                  if (child?.type === 'code' || (typeof child === 'object' && child?.props?.className?.includes('language-'))) {
+                  if (
+                    child?.type === 'code' ||
+                    (typeof child === 'object' && child?.props?.className?.includes('language-'))
+                  ) {
                     const codeChildren = child.props?.children;
                     if (typeof codeChildren === 'string') {
                       return codeChildren;
                     } else if (Array.isArray(codeChildren)) {
-                      return codeChildren.map(c => extractTextFromChild(c)).join('');
+                      return codeChildren.map((c) => extractTextFromChild(c)).join('');
                     } else if (codeChildren && typeof codeChildren === 'object') {
                       return extractTextFromChild(codeChildren);
                     }
@@ -279,7 +291,8 @@ export function MarkdownPage({ path }: MarkdownPageProps) {
                   if (typeof child === 'object' && child?.props?.children) {
                     const nested = child.props.children;
                     if (typeof nested === 'string') return nested;
-                    if (Array.isArray(nested)) return nested.map(c => extractTextFromChild(c)).join('');
+                    if (Array.isArray(nested))
+                      return nested.map((c) => extractTextFromChild(c)).join('');
                     return extractTextFromChild(nested);
                   }
 

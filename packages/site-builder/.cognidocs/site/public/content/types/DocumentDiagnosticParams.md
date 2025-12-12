@@ -3,6 +3,7 @@
 Parameters of the document diagnostic request.
 
 ## Definition
+
 ```typescript
 WorkDoneProgressParams & PartialResultParams & {
     /**

@@ -1,5 +1,7 @@
 # InvalidOriginalMapping
+
 ## Definition
+
 ```typescript
 {
   source: null;

@@ -1,5 +1,7 @@
 # FontVariantNumeric
+
 ## Definition
+
 ```typescript
 | Globals
     | "diagonal-fractions"

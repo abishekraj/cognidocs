@@ -1,5 +1,7 @@
 # MsBlockProgression
+
 ## Definition
+
 ```typescript
-Globals | "bt" | "lr" | "rl" | "tb"
+Globals | 'bt' | 'lr' | 'rl' | 'tb';
 ```

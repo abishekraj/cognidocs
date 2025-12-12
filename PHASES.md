@@ -9,6 +9,7 @@ This document provides a quick reference for each development phase and what to 
 **Phase 3.5 is COMPLETE** with all critical bugs fixed and UI fully polished. The documentation tool is production-ready and can be deployed.
 
 **What's Included:**
+
 - ✅ Full TypeScript/React parsing with JSDoc extraction
 - ✅ Dependency analysis and coverage tracking
 - ✅ Premium documentation site with 12 professional themes
@@ -154,6 +155,7 @@ cognidocs serve    # Start development server
 **IMPORTANT:** After completing each subtask or task, update this file to mark items as complete with `[x]` and update the status emojis (🟢 COMPLETE, 🟡 IN PROGRESS, 🔴 NOT STARTED).
 
 ### Current Status
+
 - ✅ Basic React site with Vite
 - ✅ Shadcn/ui integration with Tailwind CSS
 - ✅ Enhanced sidebar navigation with collapsible sections
@@ -178,6 +180,7 @@ cognidocs serve    # Start development server
 ### Task 1: Shadcn/UI Integration & Component Library Setup ✅ COMPLETE
 
 **Subtasks:**
+
 - [x] Install and configure shadcn/ui for the site-builder template
 - [x] Set up Tailwind CSS (required for shadcn)
 - [x] Install core shadcn components: Button, Card, Badge, Separator, ScrollArea, Collapsible, Input
@@ -186,12 +189,14 @@ cognidocs serve    # Start development server
 - [x] Set up CSS variables for theme customization
 
 **Files to Create/Modify:**
+
 - `packages/site-builder/src/template/tailwind.config.js`
 - `packages/site-builder/src/template/components.json` (shadcn config)
 - `packages/site-builder/src/template/src/components/ui/` (shadcn components)
 - `packages/site-builder/src/template/src/lib/utils.ts` (cn helper)
 
 **Deliverables:**
+
 - Working shadcn/ui setup with Tailwind
 - Core UI components available for use
 - Consistent theming system
@@ -201,6 +206,7 @@ cognidocs serve    # Start development server
 ### Task 2: Enhanced Sidebar Navigation (Compodoc-Style) ✅ COMPLETE
 
 **Subtasks:**
+
 - [x] Redesign sidebar with hierarchical collapsible sections
 - [x] Add category icons (FileCode, Box, Layers, BookOpen, Network, Home)
 - [x] Implement collapsible/expandable sections with animations
@@ -215,11 +221,13 @@ cognidocs serve    # Start development server
 - [x] Optimize for mobile with overlay and responsive design
 
 **Files to Create/Modify:**
+
 - `packages/site-builder/src/template/src/Sidebar.tsx` (major refactor)
 - `packages/site-builder/src/template/src/components/NavigationSection.tsx` (new)
 - `packages/site-builder/src/template/src/components/NavigationItem.tsx` (new)
 
 **Deliverables:**
+
 - Professional sidebar matching Compodoc quality
 - Smooth animations and transitions
 - Clear visual hierarchy
@@ -229,6 +237,7 @@ cognidocs serve    # Start development server
 ### Task 3: Advanced Search with Command Palette (Cmd+K) ✅ COMPLETE
 
 **Subtasks:**
+
 - [x] Implement Cmd+K / Ctrl+K keyboard shortcut
 - [x] Create Command Palette overlay using shadcn Command component
 - [x] Enhance search UI with:
@@ -243,12 +252,14 @@ cognidocs serve    # Start development server
 - [x] Add quick actions (Go to Introduction, View Dependency Graph)
 
 **Files Created/Modified:**
+
 - `packages/site-builder/src/template/src/components/CommandPalette.tsx` ✅ (new)
 - `packages/site-builder/src/template/src/components/ui/command.tsx` ✅ (new)
 - `packages/site-builder/src/template/src/components/ui/dialog.tsx` ✅ (new)
 - `packages/site-builder/src/template/src/components/Layout.tsx` ✅ (modified)
 
 **Deliverables:**
+
 - ✅ Fast, accessible search experience with Cmd+K shortcut
 - ✅ Keyboard-first interaction with full keyboard navigation
 - ✅ Professional search UI with shadcn Command component
@@ -261,6 +272,7 @@ cognidocs serve    # Start development server
 ### Task 4: Multi-Theme System (12 Themes) ✅ COMPLETE
 
 **Subtasks:**
+
 - [x] Design theme architecture supporting multiple color schemes
 - [x] Implement theme switcher UI component (dropdown with Select)
 - [x] Create 12 professional themes:
@@ -282,6 +294,7 @@ cognidocs serve    # Start development server
 - [ ] Apply themes to syntax highlighting (code blocks) - DEFERRED to Task 5
 
 **Files Created/Modified:**
+
 - `packages/site-builder/src/template/src/ThemeContext.tsx` ✅ (expanded with multi-theme support)
 - `packages/site-builder/src/template/src/themes/index.ts` ✅ (new - 12 theme definitions)
 - `packages/site-builder/src/template/src/components/ThemeSwitcher.tsx` ✅ (new - dropdown selector)
@@ -289,6 +302,7 @@ cognidocs serve    # Start development server
 - `packages/site-builder/src/template/src/Sidebar.tsx` ✅ (modified - integrated ThemeSwitcher)
 
 **Deliverables:**
+
 - ✅ 12 high-quality themes with light/dark variants
 - ✅ Smooth theme switching with instant CSS variable updates
 - ✅ Persistent user preference with localStorage
@@ -300,6 +314,7 @@ cognidocs serve    # Start development server
 ### Task 4.5: UI/Navigation Bug Fixes & Graph Improvements ✅ COMPLETE
 
 **Subtasks:**
+
 - [x] Remove duplicate Components section from sidebar
   - Components were incorrectly showing graph nodes (file-level) instead of actual component metadata
   - Cleaned up unused `graph` prop from Sidebar component
@@ -315,11 +330,13 @@ cognidocs serve    # Start development server
   - Navigation structure maintained through manifest.json
 
 **Files Modified:**
+
 - `packages/site-builder/src/template/src/Sidebar.tsx` ✅ (removed Components section, cleaned up props)
 - `packages/site-builder/src/template/src/components/Layout.tsx` ✅ (removed graph prop)
 - `packages/graph-viz/src/DependencyGraph.tsx` ✅ (fixed data format compatibility)
 
 **Deliverables:**
+
 - ✅ Clean sidebar navigation without duplicate sections
 - ✅ Dependency graph loads correctly without hanging
 - ✅ All documentation links route properly
@@ -330,6 +347,7 @@ cognidocs serve    # Start development server
 ### Task 5: Enhanced Content Rendering & Documentation Pages ✅ COMPLETE
 
 **Subtasks:**
+
 - [x] Implement proper routing system (hash-based routing implemented)
 - [x] Create dedicated page types:
   - [x] **Overview Page** (basic implementation exists)
@@ -390,6 +408,7 @@ cognidocs serve    # Start development server
 - [ ] Add prev/next navigation buttons - DEFERRED
 
 **Files Created/Modified:**
+
 - ✅ `packages/site-builder/src/template/src/App.tsx` (enhanced routing)
 - ✅ `packages/site-builder/src/template/src/components/Header.tsx` (new - project name + CogniDocs branding)
 - ✅ `packages/site-builder/src/template/src/pages/MarkdownPage.tsx` (complete rewrite with improvements)
@@ -403,6 +422,7 @@ cognidocs serve    # Start development server
 - ✅ `packages/site-builder/src/SiteBuilder.ts` (copy additional docs, parse frontmatter)
 
 **Deliverables:**
+
 - ✅ Rich, informative documentation pages with proper markdown rendering
 - ✅ Clear information hierarchy with normalized styling
 - ✅ Additional documentation support (Guides section above Documentation)
@@ -419,6 +439,7 @@ cognidocs serve    # Start development server
 ### Task 6: Syntax Highlighting & Code Display ✅ COMPLETE
 
 **Subtasks:**
+
 - [x] Integrate syntax highlighting (using rehype-highlight)
 - [x] Support multiple languages (TypeScript, JavaScript, JSX, TSX, JSON, CSS, HTML, etc.)
 - [x] Add line numbers to code blocks (optional, implemented in CodeBlock component)
@@ -432,10 +453,12 @@ cognidocs serve    # Start development server
 - [x] Optimize performance for large code blocks
 
 **Files Created/Modified:**
+
 - ✅ `packages/site-builder/src/template/src/components/CodeBlock.tsx` (new - with copy & language badge)
 - ✅ `packages/site-builder/src/template/src/pages/MarkdownPage.tsx` (ReactMarkdown with rehype-highlight)
 
 **Deliverables:**
+
 - ✅ Beautiful, readable code blocks with proper styling
 - ✅ Syntax highlighting via rehype-highlight
 - ✅ Developer-friendly copy-to-clipboard functionality
@@ -450,6 +473,7 @@ cognidocs serve    # Start development server
 **Goal:** Fix rendering issues and improve overall user experience based on testing feedback.
 
 **Subtasks:**
+
 - [x] **Sidebar Organization:**
   - [x] Rename "API Documentation" to "Documentation"
   - [x] Move "Guides" (additional-documentation) ABOVE "Documentation" section
@@ -482,11 +506,13 @@ cognidocs serve    # Start development server
   - [x] Verify heading regex `/^(#{1,6})\s+(.+)$/gm` works correctly
 
 **Files Modified:**
+
 - ✅ `packages/site-builder/src/template/src/Sidebar.tsx` (navigation reorganization)
 - ✅ `packages/site-builder/src/template/src/pages/MarkdownPage.tsx` (multiple rendering improvements)
 - ✅ `packages/site-builder/src/template/src/components/CodeBlock.tsx` (React element handling)
 
 **Issues Resolved:**
+
 1. ✅ Code blocks showing `[Object Object]` instead of actual code
 2. ✅ YAML frontmatter visible in rendered documentation
 3. ✅ Section headers causing 404 navigation errors when clicked
@@ -494,6 +520,7 @@ cognidocs serve    # Start development server
 5. ✅ Sidebar navigation order (Guides before Documentation)
 
 **Deliverables:**
+
 - ✅ Clean, professional documentation rendering without artifacts
 - ✅ Improved navigation UX (non-clickable headers, proper TOC-only navigation)
 - ✅ Normalized visual styling across all documentation pages
@@ -505,6 +532,7 @@ cognidocs serve    # Start development server
 ### Task 7: Statistics & Metrics Dashboard (Overview Page) ✅ COMPLETE
 
 **Subtasks:**
+
 - [x] Create Overview/Home page with project statistics
 - [x] Display key metrics:
   - [x] Total components, modules, functions, classes, interfaces, types
@@ -524,10 +552,12 @@ cognidocs serve    # Start development server
 - [x] Add "Project Overview" link to sidebar navigation
 
 **Files Created/Modified:**
+
 - ✅ `packages/site-builder/src/template/src/pages/OverviewPage.tsx` (enhanced with 6 coverage cards)
 - ✅ `packages/site-builder/src/template/src/Sidebar.tsx` (added Project Overview link)
 
 **Deliverables:**
+
 - ✅ Comprehensive landing page with documentation health metrics
 - ✅ Real-time coverage calculation from parsed data (all 6 categories)
 - ✅ Visual coverage indicators with progress bars
@@ -542,6 +572,7 @@ cognidocs serve    # Start development server
 ### Task 8: Mobile Responsiveness & Accessibility ✅ COMPLETE
 
 **Subtasks:**
+
 - [x] Audit current mobile responsiveness
   - [x] Examined Layout.tsx hamburger menu implementation
   - [x] Reviewed Sidebar.tsx mobile overlay and toggle behavior
@@ -578,6 +609,7 @@ cognidocs serve    # Start development server
   - [x] Decorative icons marked with `aria-hidden="true"`
 
 **Files Modified:**
+
 - ✅ `packages/site-builder/src/template/src/components/Layout.tsx` (hamburger menu accessibility)
 - ✅ `packages/site-builder/src/template/src/Sidebar.tsx` (keyboard navigation, ARIA labels)
 - ✅ `packages/site-builder/src/template/src/components/NavigationItem.tsx` (focus indicators, aria-current)
@@ -585,6 +617,7 @@ cognidocs serve    # Start development server
 - ✅ `packages/site-builder/src/template/src/pages/OverviewPage.tsx` (quick links accessibility)
 
 **Accessibility Compliance:**
+
 - ✅ **WCAG 2.1 Level AA** - All interactive elements meet minimum size requirements (44x44px)
 - ✅ **Keyboard Navigation** - All functionality accessible via keyboard
 - ✅ **Screen Reader Support** - Comprehensive ARIA labels and semantic HTML
@@ -592,6 +625,7 @@ cognidocs serve    # Start development server
 - ✅ **Mobile Accessibility** - Touch targets meet iOS/Android guidelines
 
 **Testing Results:**
+
 - ✅ Mobile sidebar opens/closes smoothly on small screens
 - ✅ Escape key closes sidebar as expected
 - ✅ Tab navigation works through all interactive elements
@@ -601,6 +635,7 @@ cognidocs serve    # Start development server
 - ✅ Responsive layout tested (mobile, tablet, desktop)
 
 **Deliverables:**
+
 - ✅ Fully accessible mobile navigation with ARIA support
 - ✅ Comprehensive keyboard navigation throughout the site
 - ✅ WCAG 2.1 Level AA compliant interactive elements
@@ -613,6 +648,7 @@ cognidocs serve    # Start development server
 ### Task 9: Performance Optimization ✅ COMPLETE
 
 **Subtasks:**
+
 - [x] Implement code splitting with React.lazy() for all pages
 - [x] Add Suspense boundaries with loading skeletons
 - [x] Optimize Vite build configuration with manual chunking
@@ -630,6 +666,7 @@ cognidocs serve    # Start development server
 - [x] Test and verify bundle size reduction
 
 **Files Created/Modified:**
+
 - ✅ `packages/site-builder/src/template/src/App.tsx` (React.lazy() for all pages, Suspense boundary)
 - ✅ `packages/site-builder/src/template/src/components/LoadingSkeleton.tsx` (new - loading state component)
 - ✅ `packages/site-builder/src/template/vite.config.ts` (manual chunking, terser config, optimizations)
@@ -637,6 +674,7 @@ cognidocs serve    # Start development server
 **Performance Results:**
 
 **Bundle Size Improvement:**
+
 - **Before:** Single bundle of 764.87 KB (237.00 KB gzipped)
 - **After:** Multiple optimized chunks:
   - Main bundle: 329.44 KB (103.21 KB gzipped) - **57% reduction** ✅
@@ -647,6 +685,7 @@ cognidocs serve    # Start development server
   - Component pages: 4.28 KB (1.37 KB gzipped) - lazy loaded
 
 **Key Improvements:**
+
 - ✅ **Initial load reduced by 57%** (237 KB → 103 KB gzipped)
 - ✅ Pages are lazy loaded only when visited
 - ✅ Heavy dependencies (Lunr, D3, Markdown) split into separate chunks
@@ -656,6 +695,7 @@ cognidocs serve    # Start development server
 - ✅ Smooth page transitions with Suspense
 
 **Deliverables:**
+
 - ✅ Fast initial load with 57% bundle size reduction
 - ✅ Code splitting for all major pages
 - ✅ Loading states for better UX
@@ -668,6 +708,7 @@ cognidocs serve    # Start development server
 ### Task 10: Additional Features & Polish ✅ COMPLETE
 
 **Subtasks:**
+
 - [x] **Copy-to-clipboard for code blocks** - Already implemented in CodeBlock component with Copy/Check icons
 - [x] **Scroll-to-top button** - Floating button appears after scrolling 300px
 - [x] **Copy link buttons for headings** - HeadingWithLink component created (ready for markdown integration)
@@ -678,6 +719,7 @@ cognidocs serve    # Start development server
 - [x] **Custom 404 page** - Already implemented in App.tsx with styled NotFoundPage
 
 **Deferred/Optional (not critical for MVP):**
+
 - [ ] Print-friendly styles - Can be added later if needed
 - [ ] Export to PDF functionality - Advanced feature for future
 - [ ] Analytics integration - Can be added via config later
@@ -685,6 +727,7 @@ cognidocs serve    # Start development server
 - [ ] "Edit on GitHub" links - Requires repository config
 
 **Files Created/Modified:**
+
 - ✅ `packages/site-builder/src/template/src/components/ScrollToTop.tsx` (new - floating scroll button)
 - ✅ `packages/site-builder/src/template/src/components/HeadingWithLink.tsx` (new - copy link for headings)
 - ✅ `packages/site-builder/src/template/src/components/Footer.tsx` (new - professional footer)
@@ -696,6 +739,7 @@ cognidocs serve    # Start development server
 **Features Implemented:**
 
 **1. Scroll-to-Top Button ([ScrollToTop.tsx](packages/site-builder/src/template/src/components/ScrollToTop.tsx))**
+
 - Floating button appears after scrolling 300px
 - Smooth scroll animation to top
 - Accessible with ARIA labels
@@ -703,6 +747,7 @@ cognidocs serve    # Start development server
 - Auto-hides when at top
 
 **2. Heading Link Copy ([HeadingWithLink.tsx](packages/site-builder/src/template/src/components/HeadingWithLink.tsx))**
+
 - Copy button appears on hover
 - Copies full URL with hash anchor
 - Check icon confirmation feedback
@@ -710,6 +755,7 @@ cognidocs serve    # Start development server
 - Proper scroll offset for sticky header
 
 **3. Professional Footer ([Footer.tsx](packages/site-builder/src/template/src/components/Footer.tsx))**
+
 - Three-column responsive layout
 - Quick links to Overview, Introduction, Graph
 - GitHub repository link
@@ -727,6 +773,7 @@ cognidocs serve    # Start development server
 **Description:** Final round of UI/UX improvements and critical bug fixes before MVP release.
 
 **Subtasks:**
+
 - [x] **Markdown table pipe escaping** - Fixed TypeScript union types breaking tables in documentation
 - [x] **Footer removal** - Removed professional footer for cleaner, more minimal design
 - [x] **Navigation reordering** - Placed Introduction before Project Overview in sidebar for better UX
@@ -735,6 +782,7 @@ cognidocs serve    # Start development server
 **Bug Fixes:**
 
 **1. Pipe Character Escaping in Markdown Tables**
+
 - **Problem:** Union types like `'primary' | 'secondary' | 'danger'` broke markdown tables (pipe is table delimiter)
 - **Files Affected:** Button.md, Card.md, Input.md, ButtonProps.md, CardProps.md, UserListParams.md, UserSettings.md
 - **Solution:** Added `escapeMarkdownPipes()` method to MarkdownGenerator.ts
@@ -742,6 +790,7 @@ cognidocs serve    # Start development server
 - **File:** [packages/docs-generator/src/MarkdownGenerator.ts](packages/docs-generator/src/MarkdownGenerator.ts)
 
 **2. Footer Component Removal**
+
 - **Rationale:** Cleaner, more minimal design aesthetic for MVP
 - **Files Modified:**
   - Removed Footer import and usage from [packages/site-builder/src/template/src/components/Layout.tsx](packages/site-builder/src/template/src/components/Layout.tsx)
@@ -749,6 +798,7 @@ cognidocs serve    # Start development server
 - **Result:** Cleaner page layout without footer clutter
 
 **3. Sidebar Navigation Reordering**
+
 - **Change:** Swapped Introduction and Project Overview order
 - **New Order:**
   1. Introduction (README)
@@ -758,6 +808,7 @@ cognidocs serve    # Start development server
 - **File:** [packages/site-builder/src/template/src/Sidebar.tsx](packages/site-builder/src/template/src/Sidebar.tsx:208-219)
 
 **4. Sidebar Item Focus Ring Overflow**
+
 - **Problem:** Selected sidebar items had focus rings extending beyond boundaries, causing visual cutoff
 - **Root Cause:** `focus:ring-offset-1` adds external spacing for focus indicators
 - **Solutions Applied:**
@@ -773,6 +824,7 @@ cognidocs serve    # Start development server
 **MVP Ready:** ✅ All critical bugs fixed, UI polished, ready for initial release
 
 **4. Enhanced Metadata ([index.html](packages/site-builder/src/template/index.html#L2-L17))**
+
 - `scroll-behavior: smooth` for smooth scrolling
 - Updated page title
 - Meta description for SEO
@@ -780,12 +832,14 @@ cognidocs serve    # Start development server
 - Twitter Card tags for Twitter sharing
 
 **5. Code Copy (Already Implemented)**
+
 - Copy button on all code blocks
 - Language badge display
 - Copied confirmation with check icon
 - Works for multi-line code blocks
 
 **Deliverables:**
+
 - ✅ Professional finishing touches throughout the site
 - ✅ Enhanced UX with scroll-to-top and link copying
 - ✅ Better social media presence with Open Graph tags
@@ -802,6 +856,7 @@ cognidocs serve    # Start development server
 **Subtasks:**
 
 **Advanced Visualization & Diagrams:**
+
 - [ ] **Architecture Diagrams:** Auto-generate architecture diagrams showing:
   - Component hierarchy tree view
   - Module dependency maps
@@ -825,6 +880,7 @@ cognidocs serve    # Start development server
 - [ ] **Minimap for Large Graphs:** Add minimap navigation for large dependency graphs
 
 **Enhanced Documentation Features:**
+
 - [ ] **Version Comparison:** Compare API changes between versions
 - [ ] **Deprecated Items Tracking:** Highlight deprecated components/functions
 - [ ] **Change Log Integration:** Auto-generate changelog from git commits
@@ -834,6 +890,7 @@ cognidocs serve    # Start development server
 - [ ] **Related Documentation Links:** Suggest related components/modules
 
 **Search Enhancements:**
+
 - [ ] **Search Filters:** Advanced filters for:
   - Type (component, function, class, interface, type)
   - Has documentation (yes/no)
@@ -845,6 +902,7 @@ cognidocs serve    # Start development server
 - [ ] **Regex Search:** Support regex patterns in search
 
 **Developer Experience:**
+
 - [ ] **Quick Actions Menu:** Add quick actions (Jump to source, View on GitHub, Copy import)
 - [ ] **Keyboard Shortcuts Overlay:** Show all shortcuts with `?` key
 - [ ] **Code Snippets:** Generate copy-paste ready import statements
@@ -854,6 +912,7 @@ cognidocs serve    # Start development server
 - [ ] **Source Code Blame:** Show git blame info for code sections (optional)
 
 **Collaboration & Sharing:**
+
 - [ ] **Shareable Links:** Deep links to specific sections with highlights
 - [ ] **Annotations/Comments:** Allow team comments on documentation (requires backend - Phase 7)
 - [ ] **Bookmark System:** Let users bookmark pages (localStorage)
@@ -861,6 +920,7 @@ cognidocs serve    # Start development server
 - [ ] **Share Snippets:** Generate shareable code snippet images
 
 **Content Enrichment:**
+
 - [ ] **JSDoc Rich Rendering:** Support @example, @see, @link, @tutorial tags with rich rendering
 - [ ] **Code Playground:** Embedded live code editor for examples (like CodeSandbox embed)
 - [ ] **Video Embeds:** Support YouTube/Vimeo embeds in additional docs
@@ -870,6 +930,7 @@ cognidocs serve    # Start development server
 - [ ] **Expandable Sections:** Support accordion/collapse in markdown
 
 **Configuration & Customization:**
+
 - [ ] **Custom CSS Injection:** Allow users to add custom styles
 - [ ] **Plugin System:** Support custom plugins for extending functionality
 - [ ] **Custom Templates:** Allow custom page templates
@@ -879,6 +940,7 @@ cognidocs serve    # Start development server
 - [ ] **Multi-Language Support:** i18n for UI (English, Spanish, French, German, Chinese)
 
 **Static Site Enhancements:**
+
 - [ ] **Static Site Export:** Export complete static site for hosting anywhere
 - [ ] **GitHub Pages Deploy:** One-command deploy to GitHub Pages
 - [ ] **Netlify/Vercel Integration:** Easy deploy buttons
@@ -887,6 +949,7 @@ cognidocs serve    # Start development server
 - [ ] **Offline Mode:** Progressive Web App (PWA) with service worker
 
 **Analytics & Insights:**
+
 - [ ] **Documentation Health Score:** Overall project documentation quality score
 - [ ] **Complexity Metrics:** Show cyclomatic complexity, maintainability index
 - [ ] **Documentation Trends:** Chart documentation coverage over time
@@ -895,15 +958,18 @@ cognidocs serve    # Start development server
 - [ ] **Bundle Size Analysis:** Show bundle impact of each module
 
 **Comparison Features:**
+
 - [ ] **Side-by-Side Comparison:** Compare two components/modules
 - [ ] **Version Diff:** Show API changes between versions
 - [ ] **Benchmark Display:** Show performance benchmarks if available
 
 **Files to Create/Modify:**
+
 - Too many to list - this is an extensive feature set
 - Would create new packages: `@cognidocs/diagrams`, `@cognidocs/insights`, `@cognidocs/playground`
 
 **Deliverables:**
+
 - Industry-leading documentation tool
 - Features exceeding Compodoc, Storybook, TypeDoc, and JSDoc combined
 - Unique selling points for CogniDocs
@@ -915,6 +981,7 @@ cognidocs serve    # Start development server
 ### Overall Deliverables for Phase 3.5
 
 **Core Features (Must-Have for MVP):**
+
 - ✅ Premium documentation site matching Compodoc quality
 - ✅ 12 professional themes with dark/light modes (GitBook, GitHub, Nord, Dracula, Monokai, Solarized, One Dark, Material)
 - ✅ Advanced search with Cmd+K command palette
@@ -934,6 +1001,7 @@ cognidocs serve    # Start development server
 - ✅ Sidebar organization (Guides above Documentation)
 
 **Premium Features (Nice-to-Have):**
+
 - 🎯 Select features from Task 11 based on priority
 - 🎯 Can be implemented in phases 4-6
 - 📋 Custom logo support (placeholder exists)
@@ -950,6 +1018,7 @@ cognidocs build && cognidocs serve
 ```
 
 ### Design Reference
+
 - **Compodoc:** https://compodoc.github.io/compodoc-demo-todomvc-angular/
 - **Shadcn/ui:** https://ui.shadcn.com/
 - **Tailwind:** https://tailwindcss.com/
@@ -989,6 +1058,7 @@ cognidocs build && cognidocs serve
 We are currently working on **Phase 3.5: Premium UI & Compodoc-Style Documentation**.
 
 **Priority Tasks:**
+
 1. Task 1: Shadcn/UI Integration & Component Library Setup
 2. Task 2: Enhanced Sidebar Navigation (Compodoc-Style)
 3. Task 4: Multi-Theme System (8+ Themes)
@@ -999,12 +1069,14 @@ We are currently working on **Phase 3.5: Premium UI & Compodoc-Style Documentati
 ### Next Steps
 
 Once Phase 3.5 is complete, we'll have:
+
 - **MVP READY FOR NPM PUBLISH**
 - Production-ready documentation tool
 - Premium UI matching industry standards
 - Complete feature parity with Compodoc + modern enhancements
 
 Then we can proceed to:
+
 - Phase 5: Enhanced Visualizations
 - Phase 6: Component Previews
 - Phase 7: AI Integration

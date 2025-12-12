@@ -1,5 +1,7 @@
 # NormalizedAmdOptions
+
 ## Definition
+
 ```typescript
 (
 	| {

@@ -3,6 +3,7 @@
 Theme group IDs included in the default configuration of tailwind-merge. If you want to use a scale that is not supported in the `ThemeObject` type, consider using `classGroups` instead of `theme`.
 
 ## Definition
+
 ```typescript
 | 'blur'
     | 'borderColor'

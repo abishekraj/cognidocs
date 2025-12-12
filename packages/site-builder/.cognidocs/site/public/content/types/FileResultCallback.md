@@ -1,5 +1,7 @@
 # FileResultCallback
+
 ## Definition
+
 ```typescript
-(err: Error | null, result: BabelFileResult | null) => any
+(err: Error | null, result: BabelFileResult | null) => any;
 ```

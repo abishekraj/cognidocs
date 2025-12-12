@@ -1,5 +1,7 @@
 # SourceMapInput
+
 ## Definition
+
 ```typescript
-ExistingRawSourceMap | string | null | { mappings: '' }
+ExistingRawSourceMap | string | null | { mappings: '' };
 ```

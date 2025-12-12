@@ -1,5 +1,7 @@
 # ChildProps
+
 ## Definition
+
 ```typescript
 | AtRuleProps
     | CommentProps

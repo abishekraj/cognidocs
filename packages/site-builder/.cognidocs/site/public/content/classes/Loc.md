@@ -1,6 +1,8 @@
 # Loc
+
 ## Properties
-| Name | Type | Description |
-| :--- | :--- | :---------- |
-| `line` | `number` | - |
-| `column` | `number` | - |
+
+| Name     | Type     | Description |
+| :------- | :------- | :---------- |
+| `line`   | `number` | -           |
+| `column` | `number` | -           |

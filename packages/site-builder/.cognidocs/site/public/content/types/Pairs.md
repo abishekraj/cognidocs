@@ -3,6 +3,7 @@
 All find and replaced.
 
 ## Definition
+
 ```typescript
-Array<Pair>
+Array<Pair>;
 ```

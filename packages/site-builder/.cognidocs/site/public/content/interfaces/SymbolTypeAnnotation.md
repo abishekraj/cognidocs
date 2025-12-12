@@ -1,5 +1,7 @@
 # SymbolTypeAnnotation
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `type` | `"SymbolTypeAnnotation"` | No | - |
+
+| Name   | Type                     | Optional | Description |
+| :----- | :----------------------- | :------- | :---------- |
+| `type` | `"SymbolTypeAnnotation"` | No       | -           |

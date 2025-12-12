@@ -1,5 +1,7 @@
 # WebkitTextStroke
+
 ## Definition
+
 ```typescript
-Globals | DataType.Color | TLength | (string & {})
+Globals | DataType.Color | TLength | (string & {});
 ```

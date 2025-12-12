@@ -1,5 +1,7 @@
 # GetEditsForRefactorResponse
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `body` | `RefactorEditInfo` | Yes | - |
+
+| Name   | Type               | Optional | Description |
+| :----- | :----------------- | :------- | :---------- |
+| `body` | `RefactorEditInfo` | Yes      | -           |

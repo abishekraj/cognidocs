@@ -1,5 +1,7 @@
 # EncodedSourceMap
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `mappings` | `string` | No | - |
+
+| Name       | Type     | Optional | Description |
+| :--------- | :------- | :------- | :---------- |
+| `mappings` | `string` | No       | -           |

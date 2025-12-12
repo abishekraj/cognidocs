@@ -1,5 +1,7 @@
 # FileDiagnosticPerformanceData
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `file` | `string` | No | - |
+
+| Name   | Type     | Optional | Description |
+| :----- | :------- | :------- | :---------- |
+| `file` | `string` | No       | -           |

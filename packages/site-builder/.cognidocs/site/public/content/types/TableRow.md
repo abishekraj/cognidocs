@@ -1,5 +1,7 @@
 # TableRow
+
 ## Definition
+
 ```typescript
-import('mdast').TableRow
+import('mdast').TableRow;
 ```

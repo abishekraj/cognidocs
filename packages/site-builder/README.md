@@ -7,6 +7,7 @@ Static site generator for documentation.
 **Status:** 🔴 Not Started
 
 This package will provide:
+
 - Static site generation
 - Navigation structure
 - Theme system (8+ themes)

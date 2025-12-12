@@ -1,5 +1,7 @@
 # AnimationTimeline
+
 ## Definition
+
 ```typescript
-Globals | DataType.SingleAnimationTimeline | (string & {})
+Globals | DataType.SingleAnimationTimeline | (string & {});
 ```

@@ -3,6 +3,7 @@
 **Return Type:** `void`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `wrapSetting` | `any` | No | - |
+
+| Name          | Type  | Optional | Description |
+| :------------ | :---- | :------- | :---------- |
+| `wrapSetting` | `any` | No       | -           |

@@ -1,5 +1,7 @@
 # HookEvent
+
 ## Definition
+
 ```typescript
-'preAction' | 'postAction'
+'preAction' | 'postAction';
 ```

@@ -1,5 +1,7 @@
 # CalloutType
+
 ## Definition
+
 ```typescript
-'info' | 'warning' | 'tip' | 'danger'
+'info' | 'warning' | 'tip' | 'danger';
 ```

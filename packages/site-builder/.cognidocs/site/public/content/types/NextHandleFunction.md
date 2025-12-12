@@ -1,5 +1,7 @@
 # NextHandleFunction
+
 ## Definition
+
 ```typescript
 (
     req: IncomingMessage,

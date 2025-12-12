@@ -1,5 +1,7 @@
 # TrustedScript
+
 ## Properties
-| Name | Type | Description |
-| :--- | :--- | :---------- |
-| `brand` | `true` | - |
+
+| Name    | Type   | Description |
+| :------ | :----- | :---------- |
+| `brand` | `true` | -           |

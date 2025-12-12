@@ -1,5 +1,7 @@
 # Plugin
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `api` | `A \| undefined` | Yes | - |
+
+| Name  | Type             | Optional | Description |
+| :---- | :--------------- | :------- | :---------- |
+| `api` | `A \| undefined` | Yes      | -           |

@@ -1,5 +1,7 @@
 # JITIOptions
+
 ## Definition
+
 ```typescript
 {
     transform?: (opts: TransformOptions) => TRANSFORM_RESULT;

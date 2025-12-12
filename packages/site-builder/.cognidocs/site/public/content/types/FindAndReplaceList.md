@@ -1,5 +1,7 @@
 # FindAndReplaceList
+
 ## Definition
+
 ```typescript
-import("./lib/index.js").FindAndReplaceList
+import('./lib/index.js').FindAndReplaceList;
 ```

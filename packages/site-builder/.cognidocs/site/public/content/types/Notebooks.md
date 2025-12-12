@@ -1,5 +1,7 @@
 # Notebooks
+
 ## Definition
+
 ```typescript
-_Notebooks & NotebookSyncFeatureShape
+_Notebooks & NotebookSyncFeatureShape;
 ```

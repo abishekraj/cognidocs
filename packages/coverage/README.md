@@ -7,6 +7,7 @@ Documentation and test coverage tracking.
 **Status:** 🔴 Not Started
 
 This package will provide:
+
 - Documentation coverage calculation
 - Test coverage import (Jest, Vitest)
 - Type coverage tracking

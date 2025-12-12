@@ -1,5 +1,7 @@
 # OldPlugin
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `postcss` | `Transformer` | No | - |
+
+| Name      | Type          | Optional | Description |
+| :-------- | :------------ | :------- | :---------- |
+| `postcss` | `Transformer` | No       | -           |

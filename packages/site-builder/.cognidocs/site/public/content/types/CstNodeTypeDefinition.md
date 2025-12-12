@@ -1,5 +1,7 @@
 # CstNodeTypeDefinition
+
 ## Definition
+
 ```typescript
 {
   name: string;

@@ -1,5 +1,7 @@
 # StrokeLinecap
+
 ## Definition
+
 ```typescript
-Globals | "butt" | "round" | "square"
+Globals | 'butt' | 'round' | 'square';
 ```

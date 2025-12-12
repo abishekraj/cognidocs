@@ -1,5 +1,7 @@
 # GlobalsOption
+
 ## Definition
+
 ```typescript
-Record<string, string> | ((name: string) => string)
+Record<string, string> | ((name: string) => string);
 ```

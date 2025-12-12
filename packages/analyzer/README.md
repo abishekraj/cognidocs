@@ -7,6 +7,7 @@ Code analysis and dependency graph generation.
 **Status:** 🔴 Not Started
 
 This package will provide:
+
 - Dependency graph generation
 - Route detection (Next.js, React Router)
 - Code metrics (complexity, maintainability)

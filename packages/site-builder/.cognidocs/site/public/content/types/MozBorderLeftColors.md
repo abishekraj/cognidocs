@@ -1,5 +1,7 @@
 # MozBorderLeftColors
+
 ## Definition
+
 ```typescript
-Globals | DataType.Color | "none" | (string & {})
+Globals | DataType.Color | 'none' | (string & {});
 ```

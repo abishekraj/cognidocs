@@ -1,5 +1,7 @@
 # GrammarAction
+
 ## Definition
+
 ```typescript
-() => OUT
+() => OUT;
 ```

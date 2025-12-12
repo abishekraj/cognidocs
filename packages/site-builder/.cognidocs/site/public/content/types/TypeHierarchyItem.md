@@ -1,5 +1,7 @@
 # TypeHierarchyItem
+
 ## Definition
+
 ```typescript
 {
     /**

@@ -1,5 +1,7 @@
 # TSNeverKeyword
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `type` | `"TSNeverKeyword"` | No | - |
+
+| Name   | Type               | Optional | Description |
+| :----- | :----------------- | :------- | :---------- |
+| `type` | `"TSNeverKeyword"` | No       | -           |

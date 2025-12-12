@@ -1,5 +1,7 @@
 # RegExpMatchObject
+
 ## Definition
+
 ```typescript
-import("./lib/index.js").RegExpMatchObject
+import('./lib/index.js').RegExpMatchObject;
 ```

@@ -1,5 +1,7 @@
 # LightOptions
+
 ## Definition
+
 ```typescript
-import('./lib/index.js').LightOptions
+import('./lib/index.js').LightOptions;
 ```

@@ -1,5 +1,7 @@
 # Strategy
+
 ## Definition
+
 ```typescript
-'absolute' | 'fixed'
+'absolute' | 'fixed';
 ```

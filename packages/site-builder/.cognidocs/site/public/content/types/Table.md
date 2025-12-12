@@ -1,5 +1,7 @@
 # Table
+
 ## Definition
+
 ```typescript
-import('mdast').Table
+import('mdast').Table;
 ```

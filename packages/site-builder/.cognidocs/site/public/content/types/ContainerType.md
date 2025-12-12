@@ -1,5 +1,7 @@
 # ContainerType
+
 ## Definition
+
 ```typescript
-Globals | "inline-size" | "normal" | "scroll-state" | "size" | (string & {})
+Globals | 'inline-size' | 'normal' | 'scroll-state' | 'size' | (string & {});
 ```

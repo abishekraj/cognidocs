@@ -1,5 +1,7 @@
 # ModuleSpecifier
+
 ## Definition
+
 ```typescript
-ImportSpecifier | ImportDefaultSpecifier | ImportNamespaceSpecifier | ExportSpecifier
+ImportSpecifier | ImportDefaultSpecifier | ImportNamespaceSpecifier | ExportSpecifier;
 ```

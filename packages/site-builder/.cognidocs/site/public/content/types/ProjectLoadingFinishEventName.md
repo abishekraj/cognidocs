@@ -1,5 +1,7 @@
 # ProjectLoadingFinishEventName
+
 ## Definition
+
 ```typescript
-"projectLoadingFinish"
+'projectLoadingFinish';
 ```

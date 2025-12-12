@@ -3,6 +3,7 @@
 **Return Type:** `item is Checkout`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `item` | `unknown` | No | - |
+
+| Name   | Type      | Optional | Description |
+| :----- | :-------- | :------- | :---------- |
+| `item` | `unknown` | No       | -           |

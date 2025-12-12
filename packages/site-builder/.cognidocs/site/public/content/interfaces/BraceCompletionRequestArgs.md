@@ -3,6 +3,7 @@
 Argument for BraceCompletionRequest request.
 
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `openingBrace` | `string` | No | - |
+
+| Name           | Type     | Optional | Description |
+| :------------- | :------- | :------- | :---------- |
+| `openingBrace` | `string` | No       | -           |

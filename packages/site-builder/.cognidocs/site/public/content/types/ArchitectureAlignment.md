@@ -1,5 +1,7 @@
 # ArchitectureAlignment
+
 ## Definition
+
 ```typescript
-'vertical' | 'horizontal' | 'bend'
+'vertical' | 'horizontal' | 'bend';
 ```

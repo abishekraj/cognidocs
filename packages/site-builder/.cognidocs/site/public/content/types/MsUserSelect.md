@@ -1,5 +1,7 @@
 # MsUserSelect
+
 ## Definition
+
 ```typescript
-Globals | "element" | "none" | "text"
+Globals | 'element' | 'none' | 'text';
 ```

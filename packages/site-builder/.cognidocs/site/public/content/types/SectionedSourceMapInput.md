@@ -1,5 +1,7 @@
 # SectionedSourceMapInput
+
 ## Definition
+
 ```typescript
-SourceMapInput | SectionedSourceMapXInput
+SourceMapInput | SectionedSourceMapXInput;
 ```

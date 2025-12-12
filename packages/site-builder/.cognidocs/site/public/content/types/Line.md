@@ -1,5 +1,7 @@
 # Line
+
 ## Definition
+
 ```typescript
-[Point, Point]
+[Point, Point];
 ```

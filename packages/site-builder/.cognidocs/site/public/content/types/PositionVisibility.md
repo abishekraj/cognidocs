@@ -1,5 +1,7 @@
 # PositionVisibility
+
 ## Definition
+
 ```typescript
-Globals | "always" | "anchors-valid" | "anchors-visible" | "no-overflow" | (string & {})
+Globals | 'always' | 'anchors-valid' | 'anchors-visible' | 'no-overflow' | (string & {});
 ```

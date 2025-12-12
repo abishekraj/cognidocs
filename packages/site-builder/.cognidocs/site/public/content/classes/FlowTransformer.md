@@ -1,15 +1,19 @@
 # FlowTransformer
+
 **Extends:** `Transformer`
 
 ## Properties
-| Name | Type | Description |
-| :--- | :--- | :---------- |
-| `rootTransformer` | `RootTransformer` | - |
-| `tokens` | `TokenProcessor` | - |
-| `isImportsTransformEnabled` | `boolean` | - |
+
+| Name                        | Type              | Description |
+| :-------------------------- | :---------------- | :---------- |
+| `rootTransformer`           | `RootTransformer` | -           |
+| `tokens`                    | `TokenProcessor`  | -           |
+| `isImportsTransformEnabled` | `boolean`         | -           |
 
 ## Methods
+
 ### process
+
 **Return:** `boolean`
 
 ### processNamedExportEnum

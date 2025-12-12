@@ -3,6 +3,7 @@
 Parameters of the workspace diagnostic request.
 
 ## Definition
+
 ```typescript
 WorkDoneProgressParams & PartialResultParams & {
     /**

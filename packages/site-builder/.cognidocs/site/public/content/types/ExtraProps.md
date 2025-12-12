@@ -1,5 +1,7 @@
 # ExtraProps
+
 ## Definition
+
 ```typescript
-import("./lib/index.js").ExtraProps
+import('./lib/index.js').ExtraProps;
 ```

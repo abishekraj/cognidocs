@@ -1,11 +1,15 @@
 # MiddlewareData
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `arrow` | `Partial<Coords> & {
+
+| Name    | Type                 | Optional | Description |
+| :------ | :------------------- | :------- | :---------- |
+| `arrow` | `Partial<Coords> & { |
+
         centerOffset: number;
         alignmentOffset?: number;
     }` | Yes | - |
+
 | `autoPlacement` | `{
         index?: number;
         overflows: Array<{

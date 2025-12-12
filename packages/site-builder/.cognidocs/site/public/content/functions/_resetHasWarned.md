@@ -1,3 +1,3 @@
-# _resetHasWarned
+# \_resetHasWarned
 
 **Return Type:** `void`

@@ -1,5 +1,7 @@
 # FontFamily
+
 ## Definition
+
 ```typescript
-Globals | DataType.GenericFamily | (string & {})
+Globals | DataType.GenericFamily | (string & {});
 ```

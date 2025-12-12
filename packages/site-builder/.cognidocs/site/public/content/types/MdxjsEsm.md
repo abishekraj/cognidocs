@@ -1,5 +1,7 @@
 # MdxjsEsm
+
 ## Definition
+
 ```typescript
-import('../index.js').MdxjsEsm
+import('../index.js').MdxjsEsm;
 ```

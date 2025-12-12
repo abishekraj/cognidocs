@@ -1,5 +1,7 @@
 # TraverseOptions
+
 ## Definition
+
 ```typescript
 {
     scope?: Scope;

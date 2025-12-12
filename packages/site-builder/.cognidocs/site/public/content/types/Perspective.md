@@ -1,5 +1,7 @@
 # Perspective
+
 ## Definition
+
 ```typescript
-Globals | TLength | "none"
+Globals | TLength | 'none';
 ```

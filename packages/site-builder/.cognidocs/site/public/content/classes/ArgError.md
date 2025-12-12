@@ -1,7 +1,9 @@
 # ArgError
+
 **Extends:** `Error`
 
 ## Properties
-| Name | Type | Description |
-| :--- | :--- | :---------- |
-| `code` | `string` | - |
+
+| Name   | Type     | Description |
+| :----- | :------- | :---------- |
+| `code` | `string` | -           |

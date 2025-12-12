@@ -1,5 +1,7 @@
 # TransitionProperty
+
 ## Definition
+
 ```typescript
-Globals | "all" | "none" | (string & {})
+Globals | 'all' | 'none' | (string & {});
 ```

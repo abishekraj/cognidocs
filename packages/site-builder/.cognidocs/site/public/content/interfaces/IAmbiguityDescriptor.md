@@ -1,6 +1,8 @@
 # IAmbiguityDescriptor
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `alts` | `number[]` | No | - |
-| `path` | `TokenType[]` | No | - |
+
+| Name   | Type          | Optional | Description |
+| :----- | :------------ | :------- | :---------- |
+| `alts` | `number[]`    | No       | -           |
+| `path` | `TokenType[]` | No       | -           |

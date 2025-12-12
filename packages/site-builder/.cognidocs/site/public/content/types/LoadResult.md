@@ -1,5 +1,7 @@
 # LoadResult
+
 ## Definition
+
 ```typescript
-SourceDescription | string | NullValue
+SourceDescription | string | NullValue;
 ```

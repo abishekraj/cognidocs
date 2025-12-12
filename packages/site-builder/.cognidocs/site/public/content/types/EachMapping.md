@@ -1,5 +1,7 @@
 # EachMapping
+
 ## Definition
+
 ```typescript
 | {
       generatedLine: number;

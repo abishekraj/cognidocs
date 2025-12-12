@@ -1,5 +1,7 @@
 # InitializeErrorCodes
+
 ## Definition
+
 ```typescript
-1
+1;
 ```

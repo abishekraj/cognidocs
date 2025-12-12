@@ -3,6 +3,7 @@
 Arguments for TodoCommentRequest request.
 
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `descriptors` | `TodoCommentDescriptor[]` | No | - |
+
+| Name          | Type                      | Optional | Description |
+| :------------ | :------------------------ | :------- | :---------- |
+| `descriptors` | `TodoCommentDescriptor[]` | No       | -           |

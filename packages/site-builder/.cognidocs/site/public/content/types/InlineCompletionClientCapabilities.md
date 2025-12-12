@@ -3,6 +3,7 @@
 Client capabilities specific to inline completions.
 
 ## Definition
+
 ```typescript
 {
     /**

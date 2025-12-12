@@ -1,5 +1,7 @@
 # Behavior
+
 ## Definition
+
 ```typescript
-import('./lib/index.js').Behavior
+import('./lib/index.js').Behavior;
 ```

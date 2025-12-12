@@ -1,5 +1,7 @@
 # SimpleCacheCallback
+
 ## Definition
+
 ```typescript
-() => T
+() => T;
 ```

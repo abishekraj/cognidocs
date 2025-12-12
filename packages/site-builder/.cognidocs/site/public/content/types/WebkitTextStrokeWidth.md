@@ -1,5 +1,7 @@
 # WebkitTextStrokeWidth
+
 ## Definition
+
 ```typescript
-Globals | TLength
+Globals | TLength;
 ```

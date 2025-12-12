@@ -1,5 +1,7 @@
 # RowGap
+
 ## Definition
+
 ```typescript
-Globals | TLength | "normal" | (string & {})
+Globals | TLength | 'normal' | (string & {});
 ```

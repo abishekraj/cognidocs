@@ -1,9 +1,12 @@
 # SemanticTokensClientCapabilities
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `dynamicRegistration` | `boolean` | Yes | - |
-| `requests` | `{
+
+| Name                  | Type      | Optional | Description |
+| :-------------------- | :-------- | :------- | :---------- |
+| `dynamicRegistration` | `boolean` | Yes      | -           |
+| `requests`            | `{        |
+
         /**
          * The client will send the `textDocument/semanticTokens/range` request if
          * the server provides a corresponding handler.
@@ -21,6 +24,7 @@
             delta?: boolean;
         };
     }` | No | - |
+
 | `tokenTypes` | `string[]` | No | - |
 | `tokenModifiers` | `string[]` | No | - |
 | `formats` | `TokenFormat[]` | No | - |

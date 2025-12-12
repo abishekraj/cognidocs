@@ -1,5 +1,7 @@
 # RadialLink
+
 ## Definition
+
 ```typescript
-LinkRadial<This, LinkDatum, NodeDatum>
+LinkRadial<This, LinkDatum, NodeDatum>;
 ```

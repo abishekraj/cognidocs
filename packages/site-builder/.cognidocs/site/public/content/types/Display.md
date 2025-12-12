@@ -1,5 +1,7 @@
 # Display
+
 ## Definition
+
 ```typescript
 | Globals
     | DataType.DisplayOutside

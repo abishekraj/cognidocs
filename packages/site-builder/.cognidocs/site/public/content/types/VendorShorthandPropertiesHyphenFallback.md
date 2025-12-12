@@ -1,5 +1,7 @@
 # VendorShorthandPropertiesHyphenFallback
+
 ## Definition
+
 ```typescript
-Fallback<VendorShorthandPropertiesHyphen<TLength, TTime>>
+Fallback<VendorShorthandPropertiesHyphen<TLength, TTime>>;
 ```

@@ -3,6 +3,7 @@
 A parameter literal used in inline value requests.
 
 ## Definition
+
 ```typescript
 WorkDoneProgressParams & {
     /**

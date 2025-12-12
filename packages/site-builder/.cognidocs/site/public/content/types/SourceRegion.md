@@ -1,5 +1,7 @@
 # SourceRegion
+
 ## Definition
+
 ```typescript
-TextRegion | TextRegion2 | DocumentSegmentWithFileURI
+TextRegion | TextRegion2 | DocumentSegmentWithFileURI;
 ```

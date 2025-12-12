@@ -1,5 +1,7 @@
 # PrepareCallHierarchyRequest
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `command` | `CommandTypes.PrepareCallHierarchy` | No | - |
+
+| Name      | Type                                | Optional | Description |
+| :-------- | :---------------------------------- | :------- | :---------- |
+| `command` | `CommandTypes.PrepareCallHierarchy` | No       | -           |

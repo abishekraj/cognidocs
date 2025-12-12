@@ -1,5 +1,7 @@
 # TelemetryFeature
+
 ## Definition
+
 ```typescript
-Feature<Telemetry, P>
+Feature<Telemetry, P>;
 ```

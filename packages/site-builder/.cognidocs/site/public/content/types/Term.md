@@ -1,5 +1,7 @@
 # Term
+
 ## Definition
+
 ```typescript
-Atom | Assertion
+Atom | Assertion;
 ```

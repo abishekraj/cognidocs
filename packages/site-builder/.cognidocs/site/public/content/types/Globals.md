@@ -1,5 +1,7 @@
 # Globals
+
 ## Definition
+
 ```typescript
-"-moz-initial" | "inherit" | "initial" | "revert" | "revert-layer" | "unset"
+'-moz-initial' | 'inherit' | 'initial' | 'revert' | 'revert-layer' | 'unset';
 ```

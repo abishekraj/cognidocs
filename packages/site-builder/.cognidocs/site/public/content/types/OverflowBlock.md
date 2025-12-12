@@ -1,5 +1,7 @@
 # OverflowBlock
+
 ## Definition
+
 ```typescript
-Globals | "auto" | "clip" | "hidden" | "scroll" | "visible"
+Globals | 'auto' | 'clip' | 'hidden' | 'scroll' | 'visible';
 ```

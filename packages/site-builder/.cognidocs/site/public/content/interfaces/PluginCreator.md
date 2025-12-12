@@ -1,5 +1,7 @@
 # PluginCreator
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `postcss` | `true` | No | - |
+
+| Name      | Type   | Optional | Description |
+| :-------- | :----- | :------- | :---------- |
+| `postcss` | `true` | No       | -           |

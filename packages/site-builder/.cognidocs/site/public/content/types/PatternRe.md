@@ -1,5 +1,7 @@
 # PatternRe
+
 ## Definition
+
 ```typescript
-RegExp
+RegExp;
 ```

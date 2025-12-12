@@ -3,6 +3,7 @@
 An unchanged document diagnostic report for a workspace diagnostic result.
 
 ## Definition
+
 ```typescript
 UnchangedDocumentDiagnosticReport & {
     /**

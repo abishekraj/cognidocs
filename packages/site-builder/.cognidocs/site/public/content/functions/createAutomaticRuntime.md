@@ -2,7 +2,6 @@
 
 Create an automatic runtime.
 
-
 **Return Type:** `{
     Fragment: null;
     jsxDEV: {
@@ -20,7 +19,7 @@ Create an automatic runtime.
          * @returns {Element}
          *
          * @param {string | null} type
-         *   Element name or `null` to get a root.
+         *   Element name or `null`to get a root.
          * @param {Properties & {children?: Child}} properties
          *   Properties.
          * @returns {Result}
@@ -43,7 +42,7 @@ Create an automatic runtime.
          * @returns {Element}
          *
          * @param {string | null} type
-         *   Element name or `null` to get a root.
+         *   Element name or`null`to get a root.
          * @param {Properties & {children?: Child}} properties
          *   Properties.
          * @returns {Result}
@@ -66,7 +65,7 @@ Create an automatic runtime.
          * @returns {Element}
          *
          * @param {string | null} type
-         *   Element name or `null` to get a root.
+         *   Element name or`null`to get a root.
          * @param {Properties & {children?: Child}} properties
          *   Properties.
          * @returns {Result}
@@ -86,7 +85,7 @@ Create an automatic runtime.
          * @returns {Element}
          *
          * @param {string | null} type
-         *   Element name or `null` to get a root.
+         *   Element name or`null`to get a root.
          * @param {Properties & {children?: Child}} properties
          *   Properties.
          * @returns {Result}
@@ -109,7 +108,7 @@ Create an automatic runtime.
          * @returns {Element}
          *
          * @param {string | null} type
-         *   Element name or `null` to get a root.
+         *   Element name or`null`to get a root.
          * @param {Properties & {children?: Child}} properties
          *   Properties.
          * @returns {Result}
@@ -129,7 +128,7 @@ Create an automatic runtime.
          * @returns {Element}
          *
          * @param {string | null} type
-         *   Element name or `null` to get a root.
+         *   Element name or`null`to get a root.
          * @param {Properties & {children?: Child}} properties
          *   Properties.
          * @returns {Result}
@@ -152,7 +151,7 @@ Create an automatic runtime.
          * @returns {Element}
          *
          * @param {string | null} type
-         *   Element name or `null` to get a root.
+         *   Element name or`null`to get a root.
          * @param {Properties & {children?: Child}} properties
          *   Properties.
          * @returns {Result}
@@ -172,7 +171,7 @@ Create an automatic runtime.
          * @returns {Element}
          *
          * @param {string | null} type
-         *   Element name or `null` to get a root.
+         *   Element name or`null`to get a root.
          * @param {Properties & {children?: Child}} properties
          *   Properties.
          * @returns {Result}
@@ -195,7 +194,7 @@ Create an automatic runtime.
          * @returns {Element}
          *
          * @param {string | null} type
-         *   Element name or `null` to get a root.
+         *   Element name or`null`to get a root.
          * @param {Properties & {children?: Child}} properties
          *   Properties.
          * @returns {Result}
@@ -215,7 +214,7 @@ Create an automatic runtime.
          * @returns {Element}
          *
          * @param {string | null} type
-         *   Element name or `null` to get a root.
+         *   Element name or`null` to get a root.
          * @param {Properties & {children?: Child}} properties
          *   Properties.
          * @returns {Result}
@@ -226,6 +225,7 @@ Create an automatic runtime.
 }`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `f` | `ReturnType<typeof CreateH>` | No | `h` function. |
+
+| Name | Type                         | Optional | Description   |
+| :--- | :--------------------------- | :------- | :------------ |
+| `f`  | `ReturnType<typeof CreateH>` | No       | `h` function. |

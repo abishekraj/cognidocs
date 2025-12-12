@@ -3,6 +3,7 @@
 **Return Type:** `number`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `line` | `Line` | No | - |
+
+| Name   | Type   | Optional | Description |
+| :----- | :----- | :------- | :---------- |
+| `line` | `Line` | No       | -           |

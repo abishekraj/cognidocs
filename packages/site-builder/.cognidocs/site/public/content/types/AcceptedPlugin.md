@@ -1,5 +1,7 @@
 # AcceptedPlugin
+
 ## Definition
+
 ```typescript
 | {
         postcss: Processor | TransformCallback

@@ -3,6 +3,7 @@
 Inlay hint options used during static registration.
 
 ## Definition
+
 ```typescript
 WorkDoneProgressOptions & {
     /**

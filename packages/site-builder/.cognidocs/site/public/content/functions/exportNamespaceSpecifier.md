@@ -3,6 +3,7 @@
 **Return Type:** `ExportNamespaceSpecifier`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `exported` | `Identifier` | No | - |
+
+| Name       | Type         | Optional | Description |
+| :--------- | :----------- | :------- | :---------- |
+| `exported` | `Identifier` | No       | -           |

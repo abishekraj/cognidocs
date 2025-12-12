@@ -1,15 +1,17 @@
 # StrictFunction
+
 ## Definition
+
 ```typescript
 (
   errorCode:
-    | "unknownSymbol"
-    | "unicodeTextInMathMode"
-    | "mathVsTextUnits"
-    | "commentAtEnd"
-    | "htmlExtension"
-    | "newLineInDisplayMode",
+    | 'unknownSymbol'
+    | 'unicodeTextInMathMode'
+    | 'mathVsTextUnits'
+    | 'commentAtEnd'
+    | 'htmlExtension'
+    | 'newLineInDisplayMode',
   errorMsg: string,
-  token: Token,
-) => boolean | "error" | "warn" | "ignore" | undefined
+  token: Token
+) => boolean | 'error' | 'warn' | 'ignore' | undefined;
 ```

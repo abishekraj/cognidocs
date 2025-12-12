@@ -3,7 +3,8 @@
 **Return Type:** `boolean`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `cardinality` | `Cardinality` | Yes | - |
-| `element` | `ast.AbstractElement` | Yes | - |
+
+| Name          | Type                  | Optional | Description |
+| :------------ | :-------------------- | :------- | :---------- |
+| `cardinality` | `Cardinality`         | Yes      | -           |
+| `element`     | `ast.AbstractElement` | Yes      | -           |

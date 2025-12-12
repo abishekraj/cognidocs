@@ -1,5 +1,7 @@
 # InitialLetterAlign
+
 ## Definition
+
 ```typescript
-Globals | "alphabetic" | "auto" | "hanging" | "ideographic"
+Globals | 'alphabetic' | 'auto' | 'hanging' | 'ideographic';
 ```

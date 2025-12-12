@@ -3,6 +3,7 @@
 **Return Type:** `tokenVocabulary is TokenTypeDictionary`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `tokenVocabulary` | `TokenVocabulary` | No | - |
+
+| Name              | Type              | Optional | Description |
+| :---------------- | :---------------- | :------- | :---------- |
+| `tokenVocabulary` | `TokenVocabulary` | No       | -           |

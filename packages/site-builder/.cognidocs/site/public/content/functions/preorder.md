@@ -3,7 +3,8 @@
 **Return Type:** `any[]`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `g` | `any` | No | - |
-| `vs` | `any` | No | - |
+
+| Name | Type  | Optional | Description |
+| :--- | :---- | :------- | :---------- |
+| `g`  | `any` | No       | -           |
+| `vs` | `any` | No       | -           |

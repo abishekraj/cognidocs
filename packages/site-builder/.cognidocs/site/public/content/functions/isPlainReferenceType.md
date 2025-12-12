@@ -3,6 +3,7 @@
 **Return Type:** `propertyType is PlainReferenceType`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `propertyType` | `PlainPropertyType` | No | - |
+
+| Name           | Type                | Optional | Description |
+| :------------- | :------------------ | :------- | :---------- |
+| `propertyType` | `PlainPropertyType` | No       | -           |

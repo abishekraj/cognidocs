@@ -3,6 +3,7 @@
 **Return Type:** `CoverageReport`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `info` | `CoverageInfo` | No | - |
+
+| Name   | Type           | Optional | Description |
+| :----- | :------------- | :------- | :---------- |
+| `info` | `CoverageInfo` | No       | -           |

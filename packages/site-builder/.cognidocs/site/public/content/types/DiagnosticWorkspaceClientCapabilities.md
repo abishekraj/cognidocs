@@ -3,6 +3,7 @@
 Workspace client capabilities specific to diagnostic pull requests.
 
 ## Definition
+
 ```typescript
 {
     /**

@@ -1,5 +1,7 @@
 # HookFilterExtension
+
 ## Definition
+
 ```typescript
 K extends 'transform'
 	? { filter?: HookFilter | undefined }

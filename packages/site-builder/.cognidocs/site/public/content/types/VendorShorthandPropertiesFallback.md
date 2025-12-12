@@ -1,5 +1,7 @@
 # VendorShorthandPropertiesFallback
+
 ## Definition
+
 ```typescript
-Fallback<VendorShorthandProperties<TLength, TTime>>
+Fallback<VendorShorthandProperties<TLength, TTime>>;
 ```

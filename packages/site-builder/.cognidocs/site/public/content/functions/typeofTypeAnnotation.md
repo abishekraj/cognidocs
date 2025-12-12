@@ -3,6 +3,7 @@
 **Return Type:** `TypeofTypeAnnotation`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `argument` | `FlowType` | No | - |
+
+| Name       | Type       | Optional | Description |
+| :--------- | :--------- | :------- | :---------- |
+| `argument` | `FlowType` | No       | -           |

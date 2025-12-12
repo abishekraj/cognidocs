@@ -1,5 +1,7 @@
 # ProvideCallHierarchyOutgoingCallsRequest
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `command` | `CommandTypes.ProvideCallHierarchyOutgoingCalls` | No | - |
+
+| Name      | Type                                             | Optional | Description |
+| :-------- | :----------------------------------------------- | :------- | :---------- |
+| `command` | `CommandTypes.ProvideCallHierarchyOutgoingCalls` | No       | -           |

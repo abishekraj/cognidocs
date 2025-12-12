@@ -1,5 +1,7 @@
 # ParentNode
+
 ## Definition
+
 ```typescript
-Document | DocumentFragment | Element | Template
+Document | DocumentFragment | Element | Template;
 ```

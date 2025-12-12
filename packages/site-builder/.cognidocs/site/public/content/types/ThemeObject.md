@@ -1,8 +1,7 @@
 # ThemeObject
+
 ## Definition
+
 ```typescript
-Record<
-    ThemeGroupIds,
-    ClassGroup<ThemeGroupIds>
->
+Record<ThemeGroupIds, ClassGroup<ThemeGroupIds>>;
 ```

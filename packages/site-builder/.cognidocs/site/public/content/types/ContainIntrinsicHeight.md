@@ -1,5 +1,7 @@
 # ContainIntrinsicHeight
+
 ## Definition
+
 ```typescript
-Globals | TLength | "none" | (string & {})
+Globals | TLength | 'none' | (string & {});
 ```

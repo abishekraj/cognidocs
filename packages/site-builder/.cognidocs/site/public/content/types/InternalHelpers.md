@@ -1,5 +1,7 @@
 # InternalHelpers
+
 ## Definition
+
 ```typescript
-typeof internalHelpers
+typeof internalHelpers;
 ```

@@ -3,9 +3,11 @@
 Shape of the inlay hints feature
 
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `inlayHint` | `{
+
+| Name        | Type | Optional | Description |
+| :---------- | :--- | :------- | :---------- |
+| `inlayHint` | `{   |
+
         /**
          * Ask the client to refresh all inlay hints.
          */

@@ -1,5 +1,7 @@
 # ZIndex
+
 ## Definition
+
 ```typescript
-Globals | "auto" | (number & {}) | (string & {})
+Globals | 'auto' | (number & {}) | (string & {});
 ```

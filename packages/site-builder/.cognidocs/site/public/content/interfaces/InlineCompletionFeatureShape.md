@@ -3,9 +3,11 @@
 Shape of the inline completions feature
 
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `inlineCompletion` | `{
+
+| Name               | Type | Optional | Description |
+| :----------------- | :--- | :------- | :---------- |
+| `inlineCompletion` | `{   |
+
         /**
          * Installs a handler for the inline completions request.
          *

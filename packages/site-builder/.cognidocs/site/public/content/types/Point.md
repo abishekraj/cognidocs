@@ -1,5 +1,7 @@
 # Point
+
 ## Definition
+
 ```typescript
-import('unist').Point
+import('unist').Point;
 ```

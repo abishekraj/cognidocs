@@ -1,5 +1,7 @@
 # PositionLike
+
 ## Definition
+
 ```typescript
 {
   start?: PointLike | null | undefined

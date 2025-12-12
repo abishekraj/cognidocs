@@ -1,5 +1,7 @@
 # BufferEncoding
+
 ## Definition
+
 ```typescript
 | 'ascii'
 	| 'utf8'

@@ -3,6 +3,7 @@
 A notebook cell text document filter denotes a cell text document by different properties.
 
 ## Definition
+
 ```typescript
 {
     /**

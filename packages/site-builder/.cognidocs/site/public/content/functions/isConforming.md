@@ -3,6 +3,7 @@
 **Return Type:** `boolean`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `token` | `DoctypeToken` | No | - |
+
+| Name    | Type           | Optional | Description |
+| :------ | :------------- | :------- | :---------- |
+| `token` | `DoctypeToken` | No       | -           |

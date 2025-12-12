@@ -1,5 +1,7 @@
 # BoxLines
+
 ## Definition
+
 ```typescript
-Globals | "multiple" | "single"
+Globals | 'multiple' | 'single';
 ```

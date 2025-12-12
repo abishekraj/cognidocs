@@ -1,5 +1,7 @@
 # DidChangeConfigurationRegistrationOptions
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `section` | `string \| string[]` | Yes | - |
+
+| Name      | Type                 | Optional | Description |
+| :-------- | :------------------- | :------- | :---------- |
+| `section` | `string \| string[]` | Yes      | -           |

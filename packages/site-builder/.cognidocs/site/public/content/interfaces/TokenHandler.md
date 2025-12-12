@@ -1,5 +1,7 @@
 # TokenHandler
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `onParseError` | `ParserErrorHandler \| null` | Yes | - |
+
+| Name           | Type                         | Optional | Description |
+| :------------- | :--------------------------- | :------- | :---------- |
+| `onParseError` | `ParserErrorHandler \| null` | Yes      | -           |

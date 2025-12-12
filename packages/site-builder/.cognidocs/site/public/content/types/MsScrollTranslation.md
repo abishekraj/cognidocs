@@ -1,5 +1,7 @@
 # MsScrollTranslation
+
 ## Definition
+
 ```typescript
-Globals | "none" | "vertical-to-horizontal"
+Globals | 'none' | 'vertical-to-horizontal';
 ```

@@ -3,6 +3,7 @@
 Class group IDs included in the default configuration of tailwind-merge.
 
 ## Definition
+
 ```typescript
 | 'accent'
     | 'align-content'

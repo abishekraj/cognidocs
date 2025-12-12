@@ -1,5 +1,7 @@
 # EntryTransformerFunction
+
 ## Definition
+
 ```typescript
-(entry: Entry) => EntryItem
+(entry: Entry) => EntryItem;
 ```

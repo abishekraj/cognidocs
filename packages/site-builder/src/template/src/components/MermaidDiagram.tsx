@@ -19,9 +19,7 @@ export const MermaidDiagram: React.FC<MermaidDiagramProps> = ({ chart, className
       try {
         // Helper to convert HSL values to proper color format
         const getColorValue = (cssVar: string, fallback: string): string => {
-          const value = getComputedStyle(document.documentElement)
-            .getPropertyValue(cssVar)
-            .trim();
+          const value = getComputedStyle(document.documentElement).getPropertyValue(cssVar).trim();
 
           if (!value) return fallback;
 
@@ -49,9 +47,9 @@ export const MermaidDiagram: React.FC<MermaidDiagramProps> = ({ chart, className
             secondaryColor: getColorValue('--secondary', '#f3f4f6'),
             tertiaryColor: getColorValue('--accent', '#fef3c7'),
           },
-          fontFamily: getComputedStyle(document.documentElement)
-            .getPropertyValue('font-family')
-            .trim() || 'system-ui, -apple-system, sans-serif',
+          fontFamily:
+            getComputedStyle(document.documentElement).getPropertyValue('font-family').trim() ||
+            'system-ui, -apple-system, sans-serif',
           securityLevel: 'strict',
           logLevel: 'error',
         });
@@ -75,7 +73,9 @@ export const MermaidDiagram: React.FC<MermaidDiagramProps> = ({ chart, className
 
   if (error) {
     return (
-      <div className={`border border-destructive/50 bg-destructive/10 rounded-lg p-4 my-4 ${className}`}>
+      <div
+        className={`border border-destructive/50 bg-destructive/10 rounded-lg p-4 my-4 ${className}`}
+      >
         <div className="flex items-start gap-2">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -100,7 +100,9 @@ export const MermaidDiagram: React.FC<MermaidDiagramProps> = ({ chart, className
 
   if (!svg) {
     return (
-      <div className={`flex items-center justify-center p-8 my-4 border border-border rounded-lg bg-muted/30 ${className}`}>
+      <div
+        className={`flex items-center justify-center p-8 my-4 border border-border rounded-lg bg-muted/30 ${className}`}
+      >
         <div className="flex items-center gap-2 text-muted-foreground">
           <svg
             className="animate-spin h-5 w-5"

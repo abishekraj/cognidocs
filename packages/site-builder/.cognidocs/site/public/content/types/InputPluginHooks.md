@@ -1,5 +1,7 @@
 # InputPluginHooks
+
 ## Definition
+
 ```typescript
-Exclude<keyof FunctionPluginHooks, OutputPluginHooks>
+Exclude<keyof FunctionPluginHooks, OutputPluginHooks>;
 ```

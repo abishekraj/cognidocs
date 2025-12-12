@@ -1,5 +1,7 @@
 # ExpectedWorkspaceSymbolsBase
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `query` | `string` | Yes | - |
+
+| Name    | Type     | Optional | Description |
+| :------ | :------- | :------- | :---------- |
+| `query` | `string` | Yes      | -           |

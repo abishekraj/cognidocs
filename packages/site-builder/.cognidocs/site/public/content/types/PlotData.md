@@ -1,5 +1,7 @@
 # PlotData
+
 ## Definition
+
 ```typescript
-LinePlotData | BarPlotData
+LinePlotData | BarPlotData;
 ```

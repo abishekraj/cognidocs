@@ -1,5 +1,7 @@
 # PrintColorAdjust
+
 ## Definition
+
 ```typescript
-Globals | "economy" | "exact"
+Globals | 'economy' | 'exact';
 ```

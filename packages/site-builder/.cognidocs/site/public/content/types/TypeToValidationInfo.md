@@ -1,5 +1,7 @@
 # TypeToValidationInfo
+
 ## Definition
+
 ```typescript
-Map<string, InferredInfo | DeclaredInfo | InferredInfo & DeclaredInfo>
+Map<string, InferredInfo | DeclaredInfo | (InferredInfo & DeclaredInfo)>;
 ```

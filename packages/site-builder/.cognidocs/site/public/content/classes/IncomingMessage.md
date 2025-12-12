@@ -1,7 +1,9 @@
 # IncomingMessage
+
 **Extends:** `http.IncomingMessage`
 
 ## Properties
-| Name | Type | Description |
-| :--- | :--- | :---------- |
-| `originalUrl` | `http.IncomingMessage['url'] \| undefined` | - |
+
+| Name          | Type                                       | Description |
+| :------------ | :----------------------------------------- | :---------- |
+| `originalUrl` | `http.IncomingMessage['url'] \| undefined` | -           |

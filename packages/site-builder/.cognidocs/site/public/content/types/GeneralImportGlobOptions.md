@@ -1,5 +1,7 @@
 # GeneralImportGlobOptions
+
 ## Definition
+
 ```typescript
-ImportGlobOptions<boolean, string>
+ImportGlobOptions<boolean, string>;
 ```

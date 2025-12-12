@@ -1,5 +1,7 @@
 # WindowFeature
+
 ## Definition
+
 ```typescript
-Feature<_RemoteWindow, P>
+Feature<_RemoteWindow, P>;
 ```

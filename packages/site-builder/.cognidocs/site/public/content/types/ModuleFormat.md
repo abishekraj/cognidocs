@@ -1,5 +1,7 @@
 # ModuleFormat
+
 ## Definition
+
 ```typescript
-InternalModuleFormat | 'commonjs' | 'esm' | 'module' | 'systemjs'
+InternalModuleFormat | 'commonjs' | 'esm' | 'module' | 'systemjs';
 ```

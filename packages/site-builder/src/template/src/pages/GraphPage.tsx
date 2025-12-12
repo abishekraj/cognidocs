@@ -42,7 +42,10 @@ export function GraphPage() {
           Visualize the relationships between your project's components and modules
         </p>
       </div>
-      <div className="border border-border rounded-lg overflow-hidden" style={{ height: 'calc(100% - 100px)' }}>
+      <div
+        className="border border-border rounded-lg overflow-hidden"
+        style={{ height: 'calc(100% - 100px)' }}
+      >
         <DependencyGraph data={graphData} />
       </div>
     </div>

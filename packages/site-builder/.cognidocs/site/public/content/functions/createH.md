@@ -91,8 +91,9 @@
 }`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `schema` | `Schema` | No | Schema to use. |
-| `defaultTagName` | `string` | No | Default tag name. |
-| `caseSensitive` | `ReadonlyArray<string> \| undefined` | Yes | - |
+
+| Name             | Type                                 | Optional | Description       |
+| :--------------- | :----------------------------------- | :------- | :---------------- |
+| `schema`         | `Schema`                             | No       | Schema to use.    |
+| `defaultTagName` | `string`                             | No       | Default tag name. |
+| `caseSensitive`  | `ReadonlyArray<string> \| undefined` | Yes      | -                 |

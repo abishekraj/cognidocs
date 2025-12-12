@@ -3,6 +3,7 @@
 **Return Type:** `Date`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `input` | `string` | No | - |
+
+| Name    | Type     | Optional | Description |
+| :------ | :------- | :------- | :---------- |
+| `input` | `string` | No       | -           |

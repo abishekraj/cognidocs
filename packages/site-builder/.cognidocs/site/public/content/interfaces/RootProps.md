@@ -1,5 +1,7 @@
 # RootProps
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `raws` | `RootRaws` | Yes | - |
+
+| Name   | Type       | Optional | Description |
+| :----- | :--------- | :------- | :---------- |
+| `raws` | `RootRaws` | Yes      | -           |

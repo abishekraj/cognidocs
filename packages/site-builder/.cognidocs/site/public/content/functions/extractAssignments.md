@@ -3,6 +3,7 @@
 **Return Type:** `ast.Assignment[]`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `element` | `ast.AbstractElement` | No | - |
+
+| Name      | Type                  | Optional | Description |
+| :-------- | :-------------------- | :------- | :---------- |
+| `element` | `ast.AbstractElement` | No       | -           |

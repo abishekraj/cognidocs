@@ -1,5 +1,7 @@
 # MarkupKind
+
 ## Definition
+
 ```typescript
-'plaintext' | 'markdown'
+'plaintext' | 'markdown';
 ```

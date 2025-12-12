@@ -1,5 +1,7 @@
 # CompileResultMap
+
 ## Definition
+
 ```typescript
-import('../index.js').CompileResultMap
+import('../index.js').CompileResultMap;
 ```

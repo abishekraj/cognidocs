@@ -1,5 +1,7 @@
 # BorderStyle
+
 ## Definition
+
 ```typescript
-Globals | DataType.LineStyle | (string & {})
+Globals | DataType.LineStyle | (string & {});
 ```

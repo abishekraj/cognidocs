@@ -1,5 +1,7 @@
 # Alternative
+
 ## Definition
+
 ```typescript
 TokenType[][]
 ```

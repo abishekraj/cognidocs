@@ -1,5 +1,7 @@
 # UrlTransform
+
 ## Definition
+
 ```typescript
-import("./lib/index.js").UrlTransform
+import('./lib/index.js').UrlTransform;
 ```

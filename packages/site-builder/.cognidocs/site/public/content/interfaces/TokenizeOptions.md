@@ -1,5 +1,7 @@
 # TokenizeOptions
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `mode` | `TokenizeMode` | Yes | - |
+
+| Name   | Type           | Optional | Description |
+| :----- | :------------- | :------- | :---------- |
+| `mode` | `TokenizeMode` | Yes      | -           |

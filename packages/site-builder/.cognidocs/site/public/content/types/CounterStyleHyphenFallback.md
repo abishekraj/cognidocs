@@ -1,5 +1,7 @@
 # CounterStyleHyphenFallback
+
 ## Definition
+
 ```typescript
-Fallback<CounterStyleHyphen<TLength, TTime>>
+Fallback<CounterStyleHyphen<TLength, TTime>>;
 ```

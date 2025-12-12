@@ -1,5 +1,7 @@
 # RuleProps
+
 ## Definition
+
 ```typescript
 {
     /** Information used to generate byte-to-byte equal node string as it was in the origin input. */

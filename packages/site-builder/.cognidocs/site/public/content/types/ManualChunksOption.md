@@ -1,5 +1,7 @@
 # ManualChunksOption
+
 ## Definition
+
 ```typescript
-Record<string, string[]> | GetManualChunk
+Record<string, string[]> | GetManualChunk;
 ```

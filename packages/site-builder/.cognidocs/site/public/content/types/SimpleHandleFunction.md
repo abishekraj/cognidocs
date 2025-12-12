@@ -1,5 +1,7 @@
 # SimpleHandleFunction
+
 ## Definition
+
 ```typescript
 (
     req: IncomingMessage,

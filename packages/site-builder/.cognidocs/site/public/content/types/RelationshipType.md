@@ -1,5 +1,7 @@
 # RelationshipType
+
 ## Definition
+
 ```typescript
-'contains' | 'copies' | 'derives' | 'satisfies' | 'verifies' | 'refines' | 'traces'
+'contains' | 'copies' | 'derives' | 'satisfies' | 'verifies' | 'refines' | 'traces';
 ```

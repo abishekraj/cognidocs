@@ -1,5 +1,7 @@
 # TextEmphasisPosition
+
 ## Definition
+
 ```typescript
-Globals | "auto" | "over" | "under" | (string & {})
+Globals | 'auto' | 'over' | 'under' | (string & {});
 ```

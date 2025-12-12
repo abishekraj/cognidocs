@@ -1,5 +1,7 @@
 # SyncPluginHooks
+
 ## Definition
+
 ```typescript
 | 'augmentChunkHash'
 	| 'onLog'

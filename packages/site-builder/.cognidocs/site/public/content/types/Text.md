@@ -1,5 +1,7 @@
 # Text
+
 ## Definition
+
 ```typescript
-import('hast').Text
+import('hast').Text;
 ```

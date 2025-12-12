@@ -1,6 +1,8 @@
 # BooleanLiteral
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `type` | `"BooleanLiteral"` | No | - |
-| `value` | `boolean` | No | - |
+
+| Name    | Type               | Optional | Description |
+| :------ | :----------------- | :------- | :---------- |
+| `type`  | `"BooleanLiteral"` | No       | -           |
+| `value` | `boolean`          | No       | -           |

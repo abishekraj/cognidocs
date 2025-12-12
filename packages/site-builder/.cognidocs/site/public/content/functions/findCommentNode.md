@@ -3,7 +3,8 @@
 **Return Type:** `CstNode | undefined`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `cstNode` | `CstNode \| undefined` | No | - |
-| `commentNames` | `string[]` | No | - |
+
+| Name           | Type                   | Optional | Description |
+| :------------- | :--------------------- | :------- | :---------- |
+| `cstNode`      | `CstNode \| undefined` | No       | -           |
+| `commentNames` | `string[]`             | No       | -           |

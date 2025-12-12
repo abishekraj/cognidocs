@@ -1,5 +1,7 @@
 # RegExpAstPart
+
 ## Definition
+
 ```typescript
 | RegExpPattern
   | RegExpFlags

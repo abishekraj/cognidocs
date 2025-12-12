@@ -3,6 +3,7 @@
 A notebook cell. A cell's document URI must be unique across ALL notebook cells and can therefore be used to uniquely identify a notebook cell or the cell's text document.
 
 ## Definition
+
 ```typescript
 {
     /**

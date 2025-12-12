@@ -1,5 +1,7 @@
 # ResolvedIdMap
+
 ## Definition
+
 ```typescript
-Record<string, ResolvedId>
+Record<string, ResolvedId>;
 ```

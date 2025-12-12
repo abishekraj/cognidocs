@@ -1,5 +1,7 @@
 # PropertyFallback
+
 ## Definition
+
 ```typescript
-Fallback<Property<TLength, TTime>>
+Fallback<Property<TLength, TTime>>;
 ```

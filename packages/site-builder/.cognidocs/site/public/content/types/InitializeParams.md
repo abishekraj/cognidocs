@@ -1,5 +1,7 @@
 # InitializeParams
+
 ## Definition
+
 ```typescript
-_InitializeParams & WorkspaceFoldersInitializeParams
+_InitializeParams & WorkspaceFoldersInitializeParams;
 ```

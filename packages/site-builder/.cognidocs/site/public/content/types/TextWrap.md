@@ -1,5 +1,7 @@
 # TextWrap
+
 ## Definition
+
 ```typescript
-Globals | "auto" | "balance" | "nowrap" | "pretty" | "stable" | "wrap" | (string & {})
+Globals | 'auto' | 'balance' | 'nowrap' | 'pretty' | 'stable' | 'wrap' | (string & {});
 ```

@@ -1,5 +1,7 @@
 # MemoState
+
 ## Definition
+
 ```typescript
 {
   lastKey: number;

@@ -1,5 +1,7 @@
 # LangiumDefaultSharedCoreServices
+
 ## Definition
+
 ```typescript
 {
     readonly ServiceRegistry: ServiceRegistry

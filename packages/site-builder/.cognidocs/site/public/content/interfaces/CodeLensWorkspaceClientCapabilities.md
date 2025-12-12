@@ -1,5 +1,7 @@
 # CodeLensWorkspaceClientCapabilities
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `refreshSupport` | `boolean` | Yes | - |
+
+| Name             | Type      | Optional | Description |
+| :--------------- | :-------- | :------- | :---------- |
+| `refreshSupport` | `boolean` | Yes      | -           |

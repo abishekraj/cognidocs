@@ -1,5 +1,7 @@
 # UpdateOperator
+
 ## Definition
+
 ```typescript
-"++" | "--"
+'++' | '--';
 ```

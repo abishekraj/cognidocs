@@ -3,6 +3,7 @@
 Handle a successful run.
 
 ## Definition
+
 ```typescript
-(construct: Construct, info: Info) => undefined
+(construct: Construct, info: Info) => undefined;
 ```

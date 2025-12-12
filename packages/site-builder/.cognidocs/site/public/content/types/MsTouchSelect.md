@@ -1,5 +1,7 @@
 # MsTouchSelect
+
 ## Definition
+
 ```typescript
-Globals | "grippers" | "none"
+Globals | 'grippers' | 'none';
 ```

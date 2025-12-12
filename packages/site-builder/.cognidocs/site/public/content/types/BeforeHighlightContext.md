@@ -1,5 +1,7 @@
 # BeforeHighlightContext
+
 ## Definition
+
 ```typescript
 {
         code: string,

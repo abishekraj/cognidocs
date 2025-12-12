@@ -1,7 +1,9 @@
 # Drawable
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `shape` | `string` | No | - |
-| `options` | `ResolvedOptions` | No | - |
-| `sets` | `OpSet[]` | No | - |
+
+| Name      | Type              | Optional | Description |
+| :-------- | :---------------- | :------- | :---------- |
+| `shape`   | `string`          | No       | -           |
+| `options` | `ResolvedOptions` | No       | -           |
+| `sets`    | `OpSet[]`         | No       | -           |

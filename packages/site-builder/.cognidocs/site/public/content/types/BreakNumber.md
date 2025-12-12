@@ -1,8 +1,9 @@
 # BreakNumber
 
-Specific break: *   `0` — space *   `1` — line ending *   `2` — blank line
+Specific break: _ `0` — space _ `1` — line ending \* `2` — blank line
 
 ## Definition
+
 ```typescript
-0 | 1 | 2
+0 | 1 | 2;
 ```

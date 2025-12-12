@@ -1,5 +1,7 @@
 # ProvideCallHierarchyIncomingCallsResponse
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `body` | `CallHierarchyIncomingCall[]` | No | - |
+
+| Name   | Type                          | Optional | Description |
+| :----- | :---------------------------- | :------- | :---------- |
+| `body` | `CallHierarchyIncomingCall[]` | No       | -           |

@@ -3,6 +3,7 @@
 Response object for a SignatureHelpRequest.
 
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `body` | `SignatureHelpItems` | Yes | - |
+
+| Name   | Type                 | Optional | Description |
+| :----- | :------------------- | :------- | :---------- |
+| `body` | `SignatureHelpItems` | Yes      | -           |

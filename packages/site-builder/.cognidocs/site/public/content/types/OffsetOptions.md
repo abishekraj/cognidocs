@@ -1,5 +1,7 @@
 # OffsetOptions
+
 ## Definition
+
 ```typescript
-OffsetValue | Derivable<OffsetValue>
+OffsetValue | Derivable<OffsetValue>;
 ```

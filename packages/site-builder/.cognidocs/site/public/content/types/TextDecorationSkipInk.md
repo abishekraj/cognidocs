@@ -1,5 +1,7 @@
 # TextDecorationSkipInk
+
 ## Definition
+
 ```typescript
-Globals | "all" | "auto" | "none"
+Globals | 'all' | 'auto' | 'none';
 ```

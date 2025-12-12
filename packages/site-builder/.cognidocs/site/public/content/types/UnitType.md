@@ -1,5 +1,7 @@
 # UnitType
+
 ## Definition
+
 ```typescript
-UnitTypeLong | UnitTypeLongPlural | UnitTypeShort
+UnitTypeLong | UnitTypeLongPlural | UnitTypeShort;
 ```

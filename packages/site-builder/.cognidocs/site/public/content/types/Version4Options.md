@@ -1,5 +1,7 @@
 # Version4Options
+
 ## Definition
+
 ```typescript
 {
     random?: Uint8Array;

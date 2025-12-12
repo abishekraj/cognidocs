@@ -1,5 +1,7 @@
 # EmitFile
+
 ## Definition
+
 ```typescript
-(emittedFile: EmittedFile) => string
+(emittedFile: EmittedFile) => string;
 ```

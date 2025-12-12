@@ -1,5 +1,7 @@
 # HtmlExtension
+
 ## Definition
+
 ```typescript
-import('micromark-util-types').HtmlExtension
+import('micromark-util-types').HtmlExtension;
 ```

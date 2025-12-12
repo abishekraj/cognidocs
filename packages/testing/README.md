@@ -7,6 +7,7 @@ Testing utilities and fixtures for CogniDocs.
 **Status:** 🟡 In Progress
 
 This package provides:
+
 - Test utilities
 - Mock data generators
 - Sample project fixtures

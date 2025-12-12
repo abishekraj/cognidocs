@@ -6,10 +6,11 @@
 }`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `elem` | `any` | No | - |
-| `actor` | `any` | No | - |
-| `minMenuWidth` | `any` | No | - |
-| `textAttrs` | `any` | No | - |
-| `forceMenus` | `any` | No | - |
+
+| Name           | Type  | Optional | Description |
+| :------------- | :---- | :------- | :---------- |
+| `elem`         | `any` | No       | -           |
+| `actor`        | `any` | No       | -           |
+| `minMenuWidth` | `any` | No       | -           |
+| `textAttrs`    | `any` | No       | -           |
+| `forceMenus`   | `any` | No       | -           |

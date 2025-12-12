@@ -6,6 +6,7 @@
 }`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `types` | `TypeOption[]` | No | - |
+
+| Name    | Type           | Optional | Description |
+| :------ | :------------- | :------- | :---------- |
+| `types` | `TypeOption[]` | No       | -           |

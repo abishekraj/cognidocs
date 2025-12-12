@@ -1,7 +1,11 @@
 # UseFloatingData
+
 ## Definition
+
 ```typescript
-Prettify<ComputePositionReturn & {
+Prettify<
+  ComputePositionReturn & {
     isPositioned: boolean;
-}>
+  }
+>;
 ```

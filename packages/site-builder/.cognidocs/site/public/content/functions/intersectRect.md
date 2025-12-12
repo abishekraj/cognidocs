@@ -6,7 +6,8 @@
 }`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `rect` | `any` | No | - |
-| `point` | `any` | No | - |
+
+| Name    | Type  | Optional | Description |
+| :------ | :---- | :------- | :---------- |
+| `rect`  | `any` | No       | -           |
+| `point` | `any` | No       | -           |

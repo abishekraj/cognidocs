@@ -1,5 +1,7 @@
 # ScriptKindName
+
 ## Definition
+
 ```typescript
-"TS" | "JS" | "TSX" | "JSX"
+'TS' | 'JS' | 'TSX' | 'JSX';
 ```

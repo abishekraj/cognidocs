@@ -1,5 +1,7 @@
 # SerializablePluginCache
+
 ## Definition
+
 ```typescript
-Record<string, [number, any]>
+Record<string, [number, any]>;
 ```

@@ -1,5 +1,7 @@
 # SpanOfEnclosingCommentRequestArgs
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `onlyMultiLine` | `boolean` | No | - |
+
+| Name            | Type      | Optional | Description |
+| :-------------- | :-------- | :------- | :---------- |
+| `onlyMultiLine` | `boolean` | No       | -           |

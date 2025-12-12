@@ -1,5 +1,7 @@
 # LogLevelOption
+
 ## Definition
+
 ```typescript
-LogLevel | 'silent'
+LogLevel | 'silent';
 ```

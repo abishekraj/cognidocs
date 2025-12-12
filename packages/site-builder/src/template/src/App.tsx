@@ -7,10 +7,16 @@ import { ScrollToTop } from './components/ScrollToTop';
 import { useRouter } from './Router';
 
 // Lazy load pages for code splitting
-const OverviewPage = lazy(() => import('./pages/OverviewPage').then(m => ({ default: m.OverviewPage })));
-const ComponentDetailPage = lazy(() => import('./pages/ComponentDetailPage').then(m => ({ default: m.ComponentDetailPage })));
-const MarkdownPage = lazy(() => import('./pages/MarkdownPage').then(m => ({ default: m.MarkdownPage })));
-const GraphPage = lazy(() => import('./pages/GraphPage').then(m => ({ default: m.GraphPage })));
+const OverviewPage = lazy(() =>
+  import('./pages/OverviewPage').then((m) => ({ default: m.OverviewPage }))
+);
+const ComponentDetailPage = lazy(() =>
+  import('./pages/ComponentDetailPage').then((m) => ({ default: m.ComponentDetailPage }))
+);
+const MarkdownPage = lazy(() =>
+  import('./pages/MarkdownPage').then((m) => ({ default: m.MarkdownPage }))
+);
+const GraphPage = lazy(() => import('./pages/GraphPage').then((m) => ({ default: m.GraphPage })));
 
 function AppContent() {
   const route = useRouter();
@@ -48,9 +54,7 @@ function AppContent() {
     <Layout>
       <PageHeader route={route} />
       <div className="px-6 py-6">
-        <Suspense fallback={<LoadingSkeleton />}>
-          {renderPage()}
-        </Suspense>
+        <Suspense fallback={<LoadingSkeleton />}>{renderPage()}</Suspense>
       </div>
       <ScrollToTop />
     </Layout>
@@ -62,9 +66,7 @@ function NotFoundPage() {
     <div className="flex flex-col items-center justify-center h-96">
       <h1 className="text-6xl font-bold text-muted-foreground mb-4">404</h1>
       <p className="text-xl text-foreground mb-2">Page Not Found</p>
-      <p className="text-muted-foreground mb-6">
-        The page you're looking for doesn't exist.
-      </p>
+      <p className="text-muted-foreground mb-6">The page you're looking for doesn't exist.</p>
       <a
         href="#/"
         className="px-4 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors"

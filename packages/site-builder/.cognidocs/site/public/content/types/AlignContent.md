@@ -1,5 +1,12 @@
 # AlignContent
+
 ## Definition
+
 ```typescript
-Globals | DataType.ContentDistribution | DataType.ContentPosition | "baseline" | "normal" | (string & {})
+Globals |
+  DataType.ContentDistribution |
+  DataType.ContentPosition |
+  'baseline' |
+  'normal' |
+  (string & {});
 ```

@@ -1,5 +1,7 @@
 # SvgAttributes
+
 ## Definition
+
 ```typescript
 | "[-khtml-opacity]"
   | "[-moz-opacity]"

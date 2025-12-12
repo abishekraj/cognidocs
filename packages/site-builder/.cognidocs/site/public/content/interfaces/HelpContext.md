@@ -1,5 +1,7 @@
 # HelpContext
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `error` | `boolean` | No | - |
+
+| Name    | Type      | Optional | Description |
+| :------ | :-------- | :------- | :---------- |
+| `error` | `boolean` | No       | -           |

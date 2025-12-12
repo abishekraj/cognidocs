@@ -1,5 +1,7 @@
 # FilterFunction
+
 ## Definition
+
 ```typescript
-(value: T) => boolean
+(value: T) => boolean;
 ```

@@ -1,5 +1,7 @@
 # TokenVocabulary
+
 ## Definition
+
 ```typescript
 | TokenTypeDictionary
   | TokenType[]

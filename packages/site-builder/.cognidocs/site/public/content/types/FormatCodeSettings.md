@@ -1,7 +1,12 @@
 # FormatCodeSettings
+
 ## Definition
+
 ```typescript
-ChangePropertyTypes<ts.FormatCodeSettings, {
-                indentStyle: IndentStyle | ts.IndentStyle;
-            }>
+ChangePropertyTypes<
+  ts.FormatCodeSettings,
+  {
+    indentStyle: IndentStyle | ts.IndentStyle;
+  }
+>;
 ```

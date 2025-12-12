@@ -3,6 +3,7 @@
 **Return Type:** `Pattern`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `filepath` | `string` | No | - |
+
+| Name       | Type     | Optional | Description |
+| :--------- | :------- | :------- | :---------- |
+| `filepath` | `string` | No       | -           |

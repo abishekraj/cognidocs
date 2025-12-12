@@ -1,5 +1,7 @@
 # MsContentZoomSnap
+
 ## Definition
+
 ```typescript
-Globals | "mandatory" | "none" | "proximity" | (string & {})
+Globals | 'mandatory' | 'none' | 'proximity' | (string & {});
 ```

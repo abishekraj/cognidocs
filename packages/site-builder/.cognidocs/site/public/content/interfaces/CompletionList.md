@@ -3,10 +3,12 @@
 Represents a collection of {@link CompletionItem completion items} to be presented in the editor.
 
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `isIncomplete` | `boolean` | No | - |
-| `itemDefaults` | `{
+
+| Name           | Type      | Optional | Description |
+| :------------- | :-------- | :------- | :---------- |
+| `isIncomplete` | `boolean` | No       | -           |
+| `itemDefaults` | `{        |
+
         /**
          * A default commit character set.
          *
@@ -41,4 +43,5 @@ Represents a collection of {@link CompletionItem completion items} to be present
          */
         data?: LSPAny;
     }` | Yes | - |
+
 | `items` | `CompletionItem[]` | No | - |

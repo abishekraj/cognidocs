@@ -1,6 +1,8 @@
 # EndInstallTypesEvent
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `event` | `EndInstallTypesEventName` | No | - |
-| `body` | `EndInstallTypesEventBody` | No | - |
+
+| Name    | Type                       | Optional | Description |
+| :------ | :------------------------- | :------- | :---------- |
+| `event` | `EndInstallTypesEventName` | No       | -           |
+| `body`  | `EndInstallTypesEventBody` | No       | -           |

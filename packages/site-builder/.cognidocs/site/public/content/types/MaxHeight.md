@@ -1,5 +1,7 @@
 # MaxHeight
+
 ## Definition
+
 ```typescript
 | Globals
     | TLength

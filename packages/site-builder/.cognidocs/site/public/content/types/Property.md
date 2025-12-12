@@ -1,5 +1,7 @@
 # Property
+
 ## Definition
+
 ```typescript
-ObjectProperty | ClassProperty | ClassAccessorProperty | ClassPrivateProperty
+ObjectProperty | ClassProperty | ClassAccessorProperty | ClassPrivateProperty;
 ```

@@ -3,6 +3,7 @@
 **Return Type:** `string | null`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `rootDir` | `string` | No | - |
+
+| Name      | Type     | Optional | Description |
+| :-------- | :------- | :------- | :---------- |
+| `rootDir` | `string` | No       | -           |

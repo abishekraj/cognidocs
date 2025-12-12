@@ -3,6 +3,7 @@
 **Return Type:** `T`
 
 ## Parameters
+
 | Name | Type | Optional | Description |
 | :--- | :--- | :------- | :---------- |
-| `n` | `T` | No | - |
+| `n`  | `T`  | No       | -           |

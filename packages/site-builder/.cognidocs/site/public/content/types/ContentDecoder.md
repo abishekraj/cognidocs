@@ -1,5 +1,7 @@
 # ContentDecoder
+
 ## Definition
+
 ```typescript
-FunctionContentDecoder | (FunctionContentDecoder & StreamContentDecoder)
+FunctionContentDecoder | (FunctionContentDecoder & StreamContentDecoder);
 ```

@@ -1,5 +1,7 @@
 # ScrollSnapStop
+
 ## Definition
+
 ```typescript
-Globals | "always" | "normal"
+Globals | 'always' | 'normal';
 ```

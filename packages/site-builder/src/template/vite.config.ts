@@ -15,7 +15,13 @@ export default defineConfig({
         manualChunks: {
           // Vendor chunks for better caching
           'react-vendor': ['react', 'react-dom'],
-          'ui-vendor': ['lucide-react', '@radix-ui/react-collapsible', '@radix-ui/react-select', '@radix-ui/react-scroll-area', '@radix-ui/react-separator'],
+          'ui-vendor': [
+            'lucide-react',
+            '@radix-ui/react-collapsible',
+            '@radix-ui/react-select',
+            '@radix-ui/react-scroll-area',
+            '@radix-ui/react-separator',
+          ],
           // Heavy dependencies in separate chunks
           'search-vendor': ['lunr'],
           'graph-vendor': ['d3', '@cognidocs/graph-viz'],

@@ -1,5 +1,7 @@
 # FontLanguageOverride
+
 ## Definition
+
 ```typescript
-Globals | "normal" | (string & {})
+Globals | 'normal' | (string & {});
 ```

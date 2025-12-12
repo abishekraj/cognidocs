@@ -1,5 +1,7 @@
 # Side
+
 ## Definition
+
 ```typescript
-'top' | 'right' | 'bottom' | 'left'
+'top' | 'right' | 'bottom' | 'left';
 ```

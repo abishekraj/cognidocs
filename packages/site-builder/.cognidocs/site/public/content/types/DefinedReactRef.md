@@ -1,5 +1,7 @@
 # DefinedReactRef
+
 ## Definition
+
 ```typescript
-RefCallback<T> | RefObject<T>
+RefCallback<T> | RefObject<T>;
 ```

@@ -1,5 +1,7 @@
 # NotebooksFeature
+
 ## Definition
+
 ```typescript
-Feature<_Notebooks, P>
+Feature<_Notebooks, P>;
 ```

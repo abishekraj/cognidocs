@@ -5,6 +5,7 @@ Error thrown by validation. Besides an informative message, it includes the path
 **Extends:** `Error`
 
 ## Properties
-| Name | Type | Description |
-| :--- | :--- | :---------- |
-| `path` | `string` | - |
+
+| Name   | Type     | Description |
+| :----- | :------- | :---------- |
+| `path` | `string` | -           |

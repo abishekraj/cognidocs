@@ -1,5 +1,7 @@
 # SourceMapSegmentObject
+
 ## Definition
+
 ```typescript
 {
   column: number;

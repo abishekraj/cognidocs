@@ -1,5 +1,7 @@
 # PageFallback
+
 ## Definition
+
 ```typescript
-Fallback<Page<TLength, TTime>>
+Fallback<Page<TLength, TTime>>;
 ```

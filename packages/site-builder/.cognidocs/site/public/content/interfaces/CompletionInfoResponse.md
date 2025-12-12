@@ -1,5 +1,7 @@
 # CompletionInfoResponse
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `body` | `CompletionInfo` | Yes | - |
+
+| Name   | Type             | Optional | Description |
+| :----- | :--------------- | :------- | :---------- |
+| `body` | `CompletionInfo` | Yes      | -           |

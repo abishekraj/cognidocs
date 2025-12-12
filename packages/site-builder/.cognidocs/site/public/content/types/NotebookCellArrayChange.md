@@ -3,6 +3,7 @@
 A change describing how to move a `NotebookCell` array from state S to S'.
 
 ## Definition
+
 ```typescript
 {
     /**

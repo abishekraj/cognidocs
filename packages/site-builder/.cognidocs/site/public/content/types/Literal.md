@@ -1,5 +1,7 @@
 # Literal
+
 ## Definition
+
 ```typescript
-SimpleLiteral | RegExpLiteral | BigIntLiteral
+SimpleLiteral | RegExpLiteral | BigIntLiteral;
 ```

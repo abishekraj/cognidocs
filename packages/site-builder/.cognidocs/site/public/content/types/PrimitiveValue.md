@@ -3,6 +3,7 @@
 Primitive property value.
 
 ## Definition
+
 ```typescript
-boolean | number | string | null | undefined
+boolean | number | string | null | undefined;
 ```

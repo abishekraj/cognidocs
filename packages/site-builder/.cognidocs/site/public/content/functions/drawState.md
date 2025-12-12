@@ -8,7 +8,8 @@
 }`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `elem` | `any` | No | - |
-| `stateDef` | `any` | No | - |
+
+| Name       | Type  | Optional | Description |
+| :--------- | :---- | :------- | :---------- |
+| `elem`     | `any` | No       | -           |
+| `stateDef` | `any` | No       | -           |

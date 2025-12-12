@@ -1,5 +1,12 @@
 # Terminatorless
+
 ## Definition
+
 ```typescript
-BreakStatement | ContinueStatement | ReturnStatement | ThrowStatement | YieldExpression | AwaitExpression
+BreakStatement |
+  ContinueStatement |
+  ReturnStatement |
+  ThrowStatement |
+  YieldExpression |
+  AwaitExpression;
 ```

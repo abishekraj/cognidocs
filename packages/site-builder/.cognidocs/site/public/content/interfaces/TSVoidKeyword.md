@@ -1,5 +1,7 @@
 # TSVoidKeyword
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `type` | `"TSVoidKeyword"` | No | - |
+
+| Name   | Type              | Optional | Description |
+| :----- | :---------------- | :------- | :---------- |
+| `type` | `"TSVoidKeyword"` | No       | -           |

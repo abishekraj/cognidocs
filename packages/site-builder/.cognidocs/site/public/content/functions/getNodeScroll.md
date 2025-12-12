@@ -6,6 +6,7 @@
 }`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `element` | `Element \| Window` | No | - |
+
+| Name      | Type                | Optional | Description |
+| :-------- | :------------------ | :------- | :---------- |
+| `element` | `Element \| Window` | No       | -           |

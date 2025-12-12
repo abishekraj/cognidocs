@@ -1,5 +1,7 @@
 # ArchitectureDirectionX
+
 ## Definition
+
 ```typescript
-Extract<ArchitectureDirection, 'L' | 'R'>
+Extract<ArchitectureDirection, 'L' | 'R'>;
 ```

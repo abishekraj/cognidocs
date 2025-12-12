@@ -1,5 +1,7 @@
 # JSDocElement
+
 ## Definition
+
 ```typescript
-JSDocParagraph | JSDocTag
+JSDocParagraph | JSDocTag;
 ```

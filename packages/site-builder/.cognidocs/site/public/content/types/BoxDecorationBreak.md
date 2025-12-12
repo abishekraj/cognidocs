@@ -1,5 +1,7 @@
 # BoxDecorationBreak
+
 ## Definition
+
 ```typescript
-Globals | "clone" | "slice"
+Globals | 'clone' | 'slice';
 ```

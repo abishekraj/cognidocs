@@ -1,5 +1,7 @@
 # LineHeight
+
 ## Definition
+
 ```typescript
-Globals | TLength | "normal" | (string & {}) | (number & {})
+Globals | TLength | 'normal' | (string & {}) | (number & {});
 ```

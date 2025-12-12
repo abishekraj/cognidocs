@@ -6,7 +6,8 @@
 }>`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `name` | `string` | No | - |
-| `dirname` | `string` | No | - |
+
+| Name      | Type     | Optional | Description |
+| :-------- | :------- | :------- | :---------- |
+| `name`    | `string` | No       | -           |
+| `dirname` | `string` | No       | -           |

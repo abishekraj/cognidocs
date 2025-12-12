@@ -1,5 +1,7 @@
 # AlignedPlacement
+
 ## Definition
+
 ```typescript
-`${Side}-${Alignment}`
+`${Side}-${Alignment}`;
 ```

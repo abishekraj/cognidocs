@@ -3,6 +3,7 @@
 Handle values that do not have a certain ID field.
 
 ## Definition
+
 ```typescript
 (
   value: unknown,

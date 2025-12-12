@@ -1,5 +1,7 @@
 # AnyNode
+
 ## Definition
+
 ```typescript
 | AtRule.default
     | Comment

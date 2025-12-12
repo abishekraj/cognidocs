@@ -3,6 +3,7 @@
 Diagnostic registration options.
 
 ## Definition
+
 ```typescript
-TextDocumentRegistrationOptions & DiagnosticOptions & StaticRegistrationOptions
+TextDocumentRegistrationOptions & DiagnosticOptions & StaticRegistrationOptions;
 ```

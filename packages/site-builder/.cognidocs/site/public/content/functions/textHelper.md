@@ -6,10 +6,11 @@
 }>`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `parent` | `D3Selection<T>` | No | - |
-| `node` | `any` | No | - |
-| `config` | `MermaidConfig` | No | - |
-| `useHtmlLabels` | `boolean` | No | - |
-| `GAP` | `number` | Yes | - |
+
+| Name            | Type             | Optional | Description |
+| :-------------- | :--------------- | :------- | :---------- |
+| `parent`        | `D3Selection<T>` | No       | -           |
+| `node`          | `any`            | No       | -           |
+| `config`        | `MermaidConfig`  | No       | -           |
+| `useHtmlLabels` | `boolean`        | No       | -           |
+| `GAP`           | `number`         | Yes      | -           |

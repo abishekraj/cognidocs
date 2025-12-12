@@ -1,5 +1,7 @@
 # VoidPattern
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `type` | `"VoidPattern"` | No | - |
+
+| Name   | Type            | Optional | Description |
+| :----- | :-------------- | :------- | :---------- |
+| `type` | `"VoidPattern"` | No       | -           |

@@ -1,5 +1,7 @@
 # ConfigPlugin
+
 ## Definition
+
 ```typescript
-Transformer | Plugin | Processor
+Transformer | Plugin | Processor;
 ```

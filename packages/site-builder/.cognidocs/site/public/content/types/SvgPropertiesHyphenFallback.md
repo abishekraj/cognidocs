@@ -1,5 +1,7 @@
 # SvgPropertiesHyphenFallback
+
 ## Definition
+
 ```typescript
-Fallback<SvgPropertiesHyphen<TLength, TTime>>
+Fallback<SvgPropertiesHyphen<TLength, TTime>>;
 ```

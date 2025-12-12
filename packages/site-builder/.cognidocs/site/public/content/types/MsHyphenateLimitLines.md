@@ -1,5 +1,7 @@
 # MsHyphenateLimitLines
+
 ## Definition
+
 ```typescript
-Globals | "no-limit" | (number & {}) | (string & {})
+Globals | 'no-limit' | (number & {}) | (string & {});
 ```

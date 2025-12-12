@@ -1,5 +1,7 @@
 # LoaderContext
+
 ## Definition
+
 ```typescript
 {
   readonly importer: string;

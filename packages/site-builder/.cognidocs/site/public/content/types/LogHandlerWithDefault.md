@@ -1,5 +1,7 @@
 # LogHandlerWithDefault
+
 ## Definition
+
 ```typescript
 (
 	level: LogLevel,

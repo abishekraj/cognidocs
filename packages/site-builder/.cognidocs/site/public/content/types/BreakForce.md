@@ -3,6 +3,7 @@
 Forced break.
 
 ## Definition
+
 ```typescript
-'\n'
+'\n';
 ```

@@ -1,5 +1,7 @@
 # TransformSync
+
 ## Definition
+
 ```typescript
-(result: LilconfigResult) => LilconfigResult
+(result: LilconfigResult) => LilconfigResult;
 ```

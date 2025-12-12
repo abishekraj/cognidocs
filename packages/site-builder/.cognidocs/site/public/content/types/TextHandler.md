@@ -1,5 +1,7 @@
 # TextHandler
+
 ## Definition
+
 ```typescript
 (
   this: Context,

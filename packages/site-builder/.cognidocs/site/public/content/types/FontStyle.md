@@ -1,5 +1,7 @@
 # FontStyle
+
 ## Definition
+
 ```typescript
-Globals | "italic" | "normal" | "oblique" | (string & {})
+Globals | 'italic' | 'normal' | 'oblique' | (string & {});
 ```

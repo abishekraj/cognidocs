@@ -1,5 +1,7 @@
 # CancellationId
+
 ## Definition
+
 ```typescript
-number | string
+number | string;
 ```

@@ -1,5 +1,7 @@
 # ArrowFunctionExpression
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `type` | `"ArrowFunctionExpression"` | No | - |
+
+| Name   | Type                        | Optional | Description |
+| :----- | :-------------------------- | :------- | :---------- |
+| `type` | `"ArrowFunctionExpression"` | No       | -           |

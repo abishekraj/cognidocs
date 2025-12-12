@@ -1,5 +1,7 @@
 # ProductionType
+
 ## Definition
+
 ```typescript
 | LookaheadProductionType
   | "NonTerminal"

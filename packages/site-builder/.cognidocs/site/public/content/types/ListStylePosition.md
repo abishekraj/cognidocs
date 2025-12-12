@@ -1,5 +1,7 @@
 # ListStylePosition
+
 ## Definition
+
 ```typescript
-Globals | "inside" | "outside"
+Globals | 'inside' | 'outside';
 ```

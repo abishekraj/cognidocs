@@ -1,5 +1,7 @@
 # Drop
+
 ## Definition
+
 ```typescript
-'console' | 'debugger'
+'console' | 'debugger';
 ```

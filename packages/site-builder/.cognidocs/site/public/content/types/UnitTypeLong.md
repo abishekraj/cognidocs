@@ -1,5 +1,7 @@
 # UnitTypeLong
+
 ## Definition
+
 ```typescript
-'millisecond' | 'second' | 'minute' | 'hour' | 'day' | 'month' | 'year' | 'date'
+'millisecond' | 'second' | 'minute' | 'hour' | 'day' | 'month' | 'year' | 'date';
 ```

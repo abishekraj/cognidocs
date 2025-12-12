@@ -1,12 +1,14 @@
-# _InitializeParams
+# \_InitializeParams
 
 The initialize parameters
 
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `processId` | `integer \| null` | No | - |
-| `clientInfo` | `{
+
+| Name         | Type              | Optional | Description |
+| :----------- | :---------------- | :------- | :---------- |
+| `processId`  | `integer \| null` | No       | -           |
+| `clientInfo` | `{                |
+
         /**
          * The name of the client as defined by the client.
          */
@@ -16,6 +18,7 @@ The initialize parameters
          */
         version?: string;
     }` | Yes | - |
+
 | `locale` | `string` | Yes | - |
 | `rootPath` | `string \| null` | Yes | - |
 | `rootUri` | `DocumentUri \| null` | No | - |

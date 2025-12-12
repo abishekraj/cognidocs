@@ -1,5 +1,7 @@
 # InlayHintKind
+
 ## Definition
+
 ```typescript
-1 | 2
+1 | 2;
 ```

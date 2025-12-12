@@ -1,5 +1,7 @@
 # FontWeight
+
 ## Definition
+
 ```typescript
-Globals | DataType.FontWeightAbsolute | "bolder" | "lighter"
+Globals | DataType.FontWeightAbsolute | 'bolder' | 'lighter';
 ```

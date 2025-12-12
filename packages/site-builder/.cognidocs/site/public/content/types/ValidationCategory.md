@@ -1,5 +1,7 @@
 # ValidationCategory
+
 ## Definition
+
 ```typescript
-'fast' | 'slow' | 'built-in'
+'fast' | 'slow' | 'built-in';
 ```

@@ -1,5 +1,7 @@
 # RadialArea
+
 ## Definition
+
 ```typescript
-AreaRadial<Datum>
+AreaRadial<Datum>;
 ```

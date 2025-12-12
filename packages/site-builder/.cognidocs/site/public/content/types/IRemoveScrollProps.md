@@ -1,5 +1,7 @@
 # IRemoveScrollProps
+
 ## Definition
+
 ```typescript
-IRemoveScrollSelfProps & (ChildrenForward | ChildrenNode)
+IRemoveScrollSelfProps & (ChildrenForward | ChildrenNode);
 ```

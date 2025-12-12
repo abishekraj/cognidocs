@@ -1,8 +1,9 @@
-# __disposeResources
+# \_\_disposeResources
 
 **Return Type:** `any`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `env` | `{ stack: { value?: unknown, dispose?: Function, async: boolean }[]; error: unknown; hasError: boolean; }` | No | A resource-tracking environment object. |
+
+| Name  | Type                                                                                                       | Optional | Description                             |
+| :---- | :--------------------------------------------------------------------------------------------------------- | :------- | :-------------------------------------- |
+| `env` | `{ stack: { value?: unknown, dispose?: Function, async: boolean }[]; error: unknown; hasError: boolean; }` | No       | A resource-tracking environment object. |

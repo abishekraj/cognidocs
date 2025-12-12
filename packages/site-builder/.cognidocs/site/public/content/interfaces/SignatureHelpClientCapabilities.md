@@ -3,10 +3,12 @@
 Client Capabilities for a {@link SignatureHelpRequest}.
 
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `dynamicRegistration` | `boolean` | Yes | - |
-| `signatureInformation` | `{
+
+| Name                   | Type      | Optional | Description |
+| :--------------------- | :-------- | :------- | :---------- |
+| `dynamicRegistration`  | `boolean` | Yes      | -           |
+| `signatureInformation` | `{        |
+
         /**
          * Client supports the following content formats for the documentation
          * property. The order describes the preferred format of the client.
@@ -32,4 +34,5 @@ Client Capabilities for a {@link SignatureHelpRequest}.
          */
         activeParameterSupport?: boolean;
     }` | Yes | - |
+
 | `contextSupport` | `boolean` | Yes | - |

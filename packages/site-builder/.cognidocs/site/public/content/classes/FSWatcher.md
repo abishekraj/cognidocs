@@ -1,12 +1,15 @@
 # FSWatcher
+
 **Extends:** `EventEmitter`
 
 ## Properties
-| Name | Type | Description |
-| :--- | :--- | :---------- |
-| `options` | `WatchOptions` | - |
+
+| Name      | Type           | Description |
+| :-------- | :------------- | :---------- |
+| `options` | `WatchOptions` | -           |
 
 ## Methods
+
 ### add
 
 Add files, directories, or glob patterns for tracking. Takes an array of strings or just one string.
@@ -34,9 +37,11 @@ Removes all listeners from watched files.
 **Return:** `Promise<void>`
 
 ### on
+
 **Return:** `this`
 
 ### on
+
 **Return:** `this`
 
 ### on
@@ -58,13 +63,17 @@ Fires when the initial scan is complete
 **Return:** `this`
 
 ### on
+
 **Return:** `this`
 
 ### on
+
 **Return:** `this`
 
 ### ref
+
 **Return:** `this`
 
 ### unref
+
 **Return:** `this`

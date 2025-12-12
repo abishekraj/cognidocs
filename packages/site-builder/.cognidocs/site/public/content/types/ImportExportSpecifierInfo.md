@@ -1,5 +1,7 @@
 # ImportExportSpecifierInfo
+
 ## Definition
+
 ```typescript
 {
     isType: false;

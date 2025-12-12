@@ -1,5 +1,7 @@
 # PacketWord
+
 ## Definition
+
 ```typescript
-Required<PacketBlock>[]
+Required < PacketBlock > [];
 ```

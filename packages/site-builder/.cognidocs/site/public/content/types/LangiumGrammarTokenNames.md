@@ -1,5 +1,7 @@
 # LangiumGrammarTokenNames
+
 ## Definition
+
 ```typescript
-LangiumGrammarTerminalNames | LangiumGrammarKeywordNames
+LangiumGrammarTerminalNames | LangiumGrammarKeywordNames;
 ```

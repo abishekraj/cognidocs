@@ -1,5 +1,7 @@
 # FontPalette
+
 ## Definition
+
 ```typescript
-Globals | "dark" | "light" | "normal" | (string & {})
+Globals | 'dark' | 'light' | 'normal' | (string & {});
 ```

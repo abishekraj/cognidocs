@@ -3,6 +3,7 @@
 **Return Type:** `ScaleIdentity<Unknown>`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `range` | `Iterable<NumberValue>` | Yes | - |
+
+| Name    | Type                    | Optional | Description |
+| :------ | :---------------------- | :------- | :---------- |
+| `range` | `Iterable<NumberValue>` | Yes      | -           |

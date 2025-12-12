@@ -1,5 +1,7 @@
 # MinHeight
+
 ## Definition
+
 ```typescript
 | Globals
     | TLength

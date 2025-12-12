@@ -1,5 +1,7 @@
 # All
+
 ## Definition
+
 ```typescript
-Globals
+Globals;
 ```

@@ -1,5 +1,7 @@
 # ArchitectureAdjacencyList
+
 ## Definition
+
 ```typescript
-Record<string, ArchitectureDirectionPairMap>
+Record<string, ArchitectureDirectionPairMap>;
 ```

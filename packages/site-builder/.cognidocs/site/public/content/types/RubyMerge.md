@@ -1,5 +1,7 @@
 # RubyMerge
+
 ## Definition
+
 ```typescript
-Globals | "auto" | "collapse" | "separate"
+Globals | 'auto' | 'collapse' | 'separate';
 ```

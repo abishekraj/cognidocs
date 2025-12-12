@@ -1,5 +1,7 @@
 # AllowElement
+
 ## Definition
+
 ```typescript
-import("./lib/index.js").AllowElement
+import('./lib/index.js').AllowElement;
 ```

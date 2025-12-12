@@ -3,6 +3,7 @@
 CamelCase options.
 
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `reactCompat` | `boolean` | Yes | - |
+
+| Name          | Type      | Optional | Description |
+| :------------ | :-------- | :------- | :---------- |
+| `reactCompat` | `boolean` | Yes      | -           |

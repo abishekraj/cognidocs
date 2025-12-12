@@ -1,5 +1,7 @@
 # PartialLangiumServices
+
 ## Definition
+
 ```typescript
-DeepPartial<LangiumServices>
+DeepPartial<LangiumServices>;
 ```

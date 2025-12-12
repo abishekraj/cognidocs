@@ -1,9 +1,10 @@
-# __makeTemplateObject
+# \_\_makeTemplateObject
 
 **Return Type:** `TemplateStringsArray`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `cooked` | `string[]` | No | The cooked possibly-sparse array. |
-| `raw` | `string[]` | No | The raw string content. |
+
+| Name     | Type       | Optional | Description                       |
+| :------- | :--------- | :------- | :-------------------------------- |
+| `cooked` | `string[]` | No       | The cooked possibly-sparse array. |
+| `raw`    | `string[]` | No       | The raw string content.           |

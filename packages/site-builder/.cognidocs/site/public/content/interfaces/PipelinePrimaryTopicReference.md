@@ -1,5 +1,7 @@
 # PipelinePrimaryTopicReference
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `type` | `"PipelinePrimaryTopicReference"` | No | - |
+
+| Name   | Type                              | Optional | Description |
+| :----- | :-------------------------------- | :------- | :---------- |
+| `type` | `"PipelinePrimaryTopicReference"` | No       | -           |

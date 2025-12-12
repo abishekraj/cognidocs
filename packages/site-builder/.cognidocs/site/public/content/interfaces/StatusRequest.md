@@ -1,5 +1,7 @@
 # StatusRequest
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `command` | `CommandTypes.Status` | No | - |
+
+| Name      | Type                  | Optional | Description |
+| :-------- | :-------------------- | :------- | :---------- |
+| `command` | `CommandTypes.Status` | No       | -           |

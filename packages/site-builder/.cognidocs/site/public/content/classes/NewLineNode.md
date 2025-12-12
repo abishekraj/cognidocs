@@ -1,6 +1,8 @@
 # NewLineNode
+
 ## Properties
-| Name | Type | Description |
-| :--- | :--- | :---------- |
-| `lineDelimiter` | `string` | - |
-| `ifNotEmpty` | `any` | - |
+
+| Name            | Type     | Description |
+| :-------------- | :------- | :---------- |
+| `lineDelimiter` | `string` | -           |
+| `ifNotEmpty`    | `any`    | -           |

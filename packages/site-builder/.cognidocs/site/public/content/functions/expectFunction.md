@@ -3,6 +3,7 @@
 **Return Type:** `void`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `functions` | `ExpectFunction` | No | - |
+
+| Name        | Type             | Optional | Description |
+| :---------- | :--------------- | :------- | :---------- |
+| `functions` | `ExpectFunction` | No       | -           |

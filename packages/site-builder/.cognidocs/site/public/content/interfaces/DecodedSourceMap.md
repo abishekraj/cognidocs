@@ -1,5 +1,7 @@
 # DecodedSourceMap
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `mappings` | `SourceMapSegment[][]` | No | - |
+
+| Name       | Type                   | Optional | Description |
+| :--------- | :--------------------- | :------- | :---------- |
+| `mappings` | `SourceMapSegment[][]` | No       | -           |

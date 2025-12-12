@@ -1,5 +1,7 @@
 # MsScrollRails
+
 ## Definition
+
 ```typescript
-Globals | "none" | "railed"
+Globals | 'none' | 'railed';
 ```

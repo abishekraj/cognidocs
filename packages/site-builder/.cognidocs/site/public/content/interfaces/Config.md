@@ -1,5 +1,7 @@
 # Config
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `options` | `Options` | Yes | - |
+
+| Name      | Type      | Optional | Description |
+| :-------- | :-------- | :------- | :---------- |
+| `options` | `Options` | Yes      | -           |

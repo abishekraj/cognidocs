@@ -1,16 +1,19 @@
 # MermaidConfig
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `theme` | `'default' \| 'base' \| 'dark' \| 'forest' \| 'neutral' \| 'null'` | Yes | - |
-| `themeVariables` | `any` | Yes | - |
-| `themeCSS` | `string` | Yes | - |
-| `look` | `'classic' \| 'handDrawn'` | Yes | - |
-| `handDrawnSeed` | `number` | Yes | - |
-| `layout` | `string` | Yes | - |
-| `maxTextSize` | `number` | Yes | - |
-| `maxEdges` | `number` | Yes | - |
-| `elk` | `{
+
+| Name             | Type                                                               | Optional | Description |
+| :--------------- | :----------------------------------------------------------------- | :------- | :---------- |
+| `theme`          | `'default' \| 'base' \| 'dark' \| 'forest' \| 'neutral' \| 'null'` | Yes      | -           |
+| `themeVariables` | `any`                                                              | Yes      | -           |
+| `themeCSS`       | `string`                                                           | Yes      | -           |
+| `look`           | `'classic' \| 'handDrawn'`                                         | Yes      | -           |
+| `handDrawnSeed`  | `number`                                                           | Yes      | -           |
+| `layout`         | `string`                                                           | Yes      | -           |
+| `maxTextSize`    | `number`                                                           | Yes      | -           |
+| `maxEdges`       | `number`                                                           | Yes      | -           |
+| `elk`            | `{                                                                 |
+
         /**
          * Elk specific option that allows edges to share path where it convenient. It can make for pretty diagrams but can also make it harder to read the diagram.
          *
@@ -37,6 +40,7 @@
          */
         considerModelOrder?: 'NONE' \| 'NODES_AND_EDGES' \| 'PREFER_EDGES' \| 'PREFER_NODES';
     }` | Yes | - |
+
 | `darkMode` | `boolean` | Yes | - |
 | `htmlLabels` | `boolean` | Yes | - |
 | `fontFamily` | `string` | Yes | - |

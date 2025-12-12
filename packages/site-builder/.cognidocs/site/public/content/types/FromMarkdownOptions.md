@@ -1,5 +1,7 @@
 # FromMarkdownOptions
+
 ## Definition
+
 ```typescript
-import('mdast-util-from-markdown').Options
+import('mdast-util-from-markdown').Options;
 ```

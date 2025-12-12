@@ -1,5 +1,7 @@
 # LoaderSync
+
 ## Definition
+
 ```typescript
-(filepath: string, content: string) => LoaderResult
+(filepath: string, content: string) => LoaderResult;
 ```

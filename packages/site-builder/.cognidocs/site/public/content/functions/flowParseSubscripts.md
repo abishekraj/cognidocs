@@ -3,7 +3,8 @@
 **Return Type:** `void`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `startTokenIndex` | `number` | No | - |
-| `noCalls` | `boolean` | Yes | - |
+
+| Name              | Type      | Optional | Description |
+| :---------------- | :-------- | :------- | :---------- |
+| `startTokenIndex` | `number`  | No       | -           |
+| `noCalls`         | `boolean` | Yes      | -           |

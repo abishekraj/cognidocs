@@ -1,5 +1,7 @@
 # JSDocLine
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `text` | `string` | No | - |
+
+| Name   | Type     | Optional | Description |
+| :----- | :------- | :------- | :---------- |
+| `text` | `string` | No       | -           |

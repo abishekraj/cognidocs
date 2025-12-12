@@ -1,5 +1,7 @@
 # RenderData
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `items` | `(Node \| Edge)[]` | No | - |
+
+| Name    | Type               | Optional | Description |
+| :------ | :----------------- | :------- | :---------- |
+| `items` | `(Node \| Edge)[]` | No       | -           |

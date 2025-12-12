@@ -1,5 +1,7 @@
 # TextVerticalPos
+
 ## Definition
+
 ```typescript
-'left' | 'center' | 'right'
+'left' | 'center' | 'right';
 ```

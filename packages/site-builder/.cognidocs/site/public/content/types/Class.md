@@ -1,5 +1,7 @@
 # Class
+
 ## Definition
+
 ```typescript
-ClassDeclaration | ClassExpression
+ClassDeclaration | ClassExpression;
 ```

@@ -1,5 +1,7 @@
 # Animation
+
 ## Definition
+
 ```typescript
-Globals | DataType.SingleAnimation<TTime> | (string & {})
+Globals | DataType.SingleAnimation<TTime> | (string & {});
 ```

@@ -1,5 +1,7 @@
 # TextDecorationStyle
+
 ## Definition
+
 ```typescript
-Globals | "dashed" | "dotted" | "double" | "solid" | "wavy"
+Globals | 'dashed' | 'dotted' | 'double' | 'solid' | 'wavy';
 ```

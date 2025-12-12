@@ -1,5 +1,7 @@
 # BorderCollapse
+
 ## Definition
+
 ```typescript
-Globals | "collapse" | "separate"
+Globals | 'collapse' | 'separate';
 ```

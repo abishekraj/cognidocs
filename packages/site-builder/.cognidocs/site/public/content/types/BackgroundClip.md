@@ -1,5 +1,7 @@
 # BackgroundClip
+
 ## Definition
+
 ```typescript
-Globals | DataType.BgClip | (string & {})
+Globals | DataType.BgClip | (string & {});
 ```

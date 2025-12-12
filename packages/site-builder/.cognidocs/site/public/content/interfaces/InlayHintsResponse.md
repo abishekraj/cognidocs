@@ -1,5 +1,7 @@
 # InlayHintsResponse
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `body` | `InlayHintItem[]` | Yes | - |
+
+| Name   | Type              | Optional | Description |
+| :----- | :---------------- | :------- | :---------- |
+| `body` | `InlayHintItem[]` | Yes      | -           |

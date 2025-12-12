@@ -1,5 +1,7 @@
 # WebkitOverflowScrolling
+
 ## Definition
+
 ```typescript
-Globals | "auto" | "touch"
+Globals | 'auto' | 'touch';
 ```

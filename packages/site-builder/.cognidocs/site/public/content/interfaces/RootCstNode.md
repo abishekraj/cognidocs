@@ -1,5 +1,7 @@
 # RootCstNode
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `fullText` | `string` | No | - |
+
+| Name       | Type     | Optional | Description |
+| :--------- | :------- | :------- | :---------- |
+| `fullText` | `string` | No       | -           |

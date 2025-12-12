@@ -1,5 +1,7 @@
 # GetModuleInfo
+
 ## Definition
+
 ```typescript
-(moduleId: string) => ModuleInfo | null
+(moduleId: string) => ModuleInfo | null;
 ```

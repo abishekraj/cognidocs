@@ -1,18 +1,23 @@
 # TypeScriptTransformer
+
 **Extends:** `Transformer`
 
 ## Properties
-| Name | Type | Description |
-| :--- | :--- | :---------- |
-| `rootTransformer` | `RootTransformer` | - |
-| `tokens` | `TokenProcessor` | - |
-| `isImportsTransformEnabled` | `boolean` | - |
+
+| Name                        | Type              | Description |
+| :-------------------------- | :---------------- | :---------- |
+| `rootTransformer`           | `RootTransformer` | -           |
+| `tokens`                    | `TokenProcessor`  | -           |
+| `isImportsTransformEnabled` | `boolean`         | -           |
 
 ## Methods
+
 ### process
+
 **Return:** `boolean`
 
 ### processEnum
+
 **Return:** `void`
 
 ### processEnumBody
@@ -32,7 +37,7 @@ Detect name information about this enum key, which will be used to determine whi
 
 ### processStringLiteralEnumMember
 
-Handle an enum member where the RHS is just a string literal (not omitted, not a number, and not a complex expression). This is the typical form for TS string enums, and in this case, we do *not* create a reverse mapping. This is called after deleting the key token, when the token processor is at the equals sign. Example 1: someKey = "some value" -> const someKey = "some value"; MyEnum["someKey"] = someKey; Example 2: "some key" = "some value" -> MyEnum["some key"] = "some value";
+Handle an enum member where the RHS is just a string literal (not omitted, not a number, and not a complex expression). This is the typical form for TS string enums, and in this case, we do _not_ create a reverse mapping. This is called after deleting the key token, when the token processor is at the equals sign. Example 1: someKey = "some value" -> const someKey = "some value"; MyEnum["someKey"] = someKey; Example 2: "some key" = "some value" -> MyEnum["some key"] = "some value";
 
 **Return:** `void`
 

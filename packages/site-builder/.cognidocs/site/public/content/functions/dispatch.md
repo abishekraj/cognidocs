@@ -3,6 +3,7 @@
 **Return Type:** `Dispatch<This, EventMap>`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `types` | `EventNames[]` | No | - |
+
+| Name    | Type           | Optional | Description |
+| :------ | :------------- | :------- | :---------- |
+| `types` | `EventNames[]` | No       | -           |

@@ -1,5 +1,7 @@
 # ClientRectObject
+
 ## Definition
+
 ```typescript
-Prettify<Rect & SideObject>
+Prettify<Rect & SideObject>;
 ```

@@ -1,5 +1,7 @@
 # InferredInfo
+
 ## Definition
+
 ```typescript
 {
     inferred: TypeOption,

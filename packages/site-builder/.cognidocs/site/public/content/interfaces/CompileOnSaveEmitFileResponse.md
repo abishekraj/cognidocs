@@ -1,5 +1,7 @@
 # CompileOnSaveEmitFileResponse
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `body` | `boolean \| EmitResult` | No | - |
+
+| Name   | Type                    | Optional | Description |
+| :----- | :---------------------- | :------- | :---------- |
+| `body` | `boolean \| EmitResult` | No       | -           |

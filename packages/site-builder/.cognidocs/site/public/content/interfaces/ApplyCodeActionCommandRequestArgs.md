@@ -1,5 +1,7 @@
 # ApplyCodeActionCommandRequestArgs
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `command` | `{}` | No | - |
+
+| Name      | Type | Optional | Description |
+| :-------- | :--- | :------- | :---------- |
+| `command` | `{}` | No       | -           |

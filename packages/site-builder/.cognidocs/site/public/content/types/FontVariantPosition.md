@@ -1,5 +1,7 @@
 # FontVariantPosition
+
 ## Definition
+
 ```typescript
-Globals | "normal" | "sub" | "super"
+Globals | 'normal' | 'sub' | 'super';
 ```

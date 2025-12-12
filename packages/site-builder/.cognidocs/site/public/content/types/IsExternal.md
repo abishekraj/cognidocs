@@ -1,9 +1,7 @@
 # IsExternal
+
 ## Definition
+
 ```typescript
-(
-	source: string,
-	importer: string | undefined,
-	isResolved: boolean
-) => boolean
+(source: string, importer: string | undefined, isResolved: boolean) => boolean;
 ```

@@ -1,5 +1,7 @@
 # HtmlAttributes
+
 ## Definition
+
 ```typescript
 | "[abbr]"
   | "[accept-charset]"

@@ -1,5 +1,7 @@
 # ErrorHandleFunction
+
 ## Definition
+
 ```typescript
 (
     err: any,

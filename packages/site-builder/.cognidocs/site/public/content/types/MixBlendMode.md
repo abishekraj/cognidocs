@@ -1,5 +1,7 @@
 # MixBlendMode
+
 ## Definition
+
 ```typescript
-Globals | DataType.BlendMode | "plus-darker" | "plus-lighter"
+Globals | DataType.BlendMode | 'plus-darker' | 'plus-lighter';
 ```

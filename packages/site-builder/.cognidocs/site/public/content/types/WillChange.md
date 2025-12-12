@@ -1,5 +1,7 @@
 # WillChange
+
 ## Definition
+
 ```typescript
-Globals | DataType.AnimateableFeature | "auto" | (string & {})
+Globals | DataType.AnimateableFeature | 'auto' | (string & {});
 ```

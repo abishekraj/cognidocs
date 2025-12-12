@@ -3,7 +3,8 @@
 **Return Type:** `boolean`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `cstNode` | `CstNode` | No | - |
-| `commentNames` | `string[]` | No | - |
+
+| Name           | Type       | Optional | Description |
+| :------------- | :--------- | :------- | :---------- |
+| `cstNode`      | `CstNode`  | No       | -           |
+| `commentNames` | `string[]` | No       | -           |

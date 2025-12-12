@@ -3,7 +3,8 @@
 The log message parameters.
 
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `type` | `MessageType` | No | - |
-| `message` | `string` | No | - |
+
+| Name      | Type          | Optional | Description |
+| :-------- | :------------ | :------- | :---------- |
+| `type`    | `MessageType` | No       | -           |
+| `message` | `string`      | No       | -           |

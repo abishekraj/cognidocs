@@ -1,5 +1,7 @@
 # PageHyphenFallback
+
 ## Definition
+
 ```typescript
-Fallback<PageHyphen<TLength, TTime>>
+Fallback<PageHyphen<TLength, TTime>>;
 ```

@@ -1,5 +1,7 @@
 # GeneratorNode
+
 ## Definition
+
 ```typescript
-CompositeGeneratorNode | IndentNode | NewLineNode
+CompositeGeneratorNode | IndentNode | NewLineNode;
 ```

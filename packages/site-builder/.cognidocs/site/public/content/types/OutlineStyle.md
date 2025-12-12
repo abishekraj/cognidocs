@@ -1,5 +1,7 @@
 # OutlineStyle
+
 ## Definition
+
 ```typescript
-Globals | DataType.OutlineLineStyle | "auto"
+Globals | DataType.OutlineLineStyle | 'auto';
 ```

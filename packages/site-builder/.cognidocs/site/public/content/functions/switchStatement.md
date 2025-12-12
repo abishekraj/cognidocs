@@ -3,7 +3,8 @@
 **Return Type:** `SwitchStatement`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `discriminant` | `Expression` | No | - |
-| `cases` | `Array<SwitchCase>` | No | - |
+
+| Name           | Type                | Optional | Description |
+| :------------- | :------------------ | :------- | :---------- |
+| `discriminant` | `Expression`        | No       | -           |
+| `cases`        | `Array<SwitchCase>` | No       | -           |

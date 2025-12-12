@@ -1,5 +1,7 @@
 # Args
+
 ## Definition
+
 ```typescript
-Parameters<NonNullable<Options[K]>>
+Parameters<NonNullable<Options[K]>>;
 ```

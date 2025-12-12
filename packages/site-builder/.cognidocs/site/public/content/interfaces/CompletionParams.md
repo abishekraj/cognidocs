@@ -3,6 +3,7 @@
 Completion parameters
 
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `context` | `CompletionContext` | Yes | - |
+
+| Name      | Type                | Optional | Description |
+| :-------- | :------------------ | :------- | :---------- |
+| `context` | `CompletionContext` | Yes      | -           |

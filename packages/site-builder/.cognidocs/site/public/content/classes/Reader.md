@@ -1,22 +1,30 @@
 # Reader
+
 ## Properties
-| Name | Type | Description |
-| :--- | :--- | :---------- |
-| `_settings` | `Settings` | - |
-| `_fsStatSettings` | `fsStat.Settings` | - |
+
+| Name              | Type              | Description |
+| :---------------- | :---------------- | :---------- |
+| `_settings`       | `Settings`        | -           |
+| `_fsStatSettings` | `fsStat.Settings` | -           |
 
 ## Methods
+
 ### dynamic
+
 **Return:** `T`
 
 ### static
+
 **Return:** `T`
 
-### _getFullEntryPath
+### \_getFullEntryPath
+
 **Return:** `string`
 
-### _makeEntry
+### \_makeEntry
+
 **Return:** `Entry`
 
-### _isFatalError
+### \_isFatalError
+
 **Return:** `boolean`

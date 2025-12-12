@@ -1,5 +1,7 @@
 # DefaultModuleContext
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `shared` | `LangiumSharedServices` | No | - |
+
+| Name     | Type                    | Optional | Description |
+| :------- | :---------------------- | :------- | :---------- |
+| `shared` | `LangiumSharedServices` | No       | -           |

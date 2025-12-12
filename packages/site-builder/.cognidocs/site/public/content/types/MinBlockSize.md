@@ -1,5 +1,7 @@
 # MinBlockSize
+
 ## Definition
+
 ```typescript
 | Globals
     | TLength

@@ -1,5 +1,7 @@
 # DocumentDiagnosticReportKind
+
 ## Definition
+
 ```typescript
-'full' | 'unchanged'
+'full' | 'unchanged';
 ```

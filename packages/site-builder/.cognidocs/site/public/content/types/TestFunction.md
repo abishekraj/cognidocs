@@ -1,5 +1,7 @@
 # TestFunction
+
 ## Definition
+
 ```typescript
-import("./lib/index.js").TestFunction
+import('./lib/index.js').TestFunction;
 ```

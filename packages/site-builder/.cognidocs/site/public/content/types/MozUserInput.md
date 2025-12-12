@@ -1,5 +1,7 @@
 # MozUserInput
+
 ## Definition
+
 ```typescript
-Globals | "auto" | "disabled" | "enabled" | "none"
+Globals | 'auto' | 'disabled' | 'enabled' | 'none';
 ```

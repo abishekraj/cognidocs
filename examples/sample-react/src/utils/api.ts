@@ -81,9 +81,7 @@ export async function fetchData<T>(
   try {
     const response = await fetch(fullUrl, {
       headers: config?.headers,
-      signal: config?.timeout
-        ? AbortSignal.timeout(config.timeout)
-        : undefined,
+      signal: config?.timeout ? AbortSignal.timeout(config.timeout) : undefined,
     });
 
     const data = await response.json();
@@ -146,9 +144,7 @@ export async function postData<T, R = T>(
         ...config?.headers,
       },
       body: JSON.stringify(data),
-      signal: config?.timeout
-        ? AbortSignal.timeout(config.timeout)
-        : undefined,
+      signal: config?.timeout ? AbortSignal.timeout(config.timeout) : undefined,
     });
 
     const responseData = await response.json();

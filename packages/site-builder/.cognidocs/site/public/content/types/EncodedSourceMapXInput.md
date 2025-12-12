@@ -1,5 +1,7 @@
 # EncodedSourceMapXInput
+
 ## Definition
+
 ```typescript
-EncodedSourceMap & XInput
+EncodedSourceMap & XInput;
 ```

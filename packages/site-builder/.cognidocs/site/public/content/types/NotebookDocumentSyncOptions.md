@@ -3,6 +3,7 @@
 Options specific to a notebook plus its cells to be synced to the server. If a selector provides a notebook document filter but no cell selector all cells of a matching notebook document will be synced. If a selector provides no notebook document filter but only a cell selector all notebook document that contain at least one matching cell will be synced.
 
 ## Definition
+
 ```typescript
 {
     /**

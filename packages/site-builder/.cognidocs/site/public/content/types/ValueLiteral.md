@@ -1,5 +1,7 @@
 # ValueLiteral
+
 ## Definition
+
 ```typescript
-ArrayLiteral | BooleanLiteral | NumberLiteral | StringLiteral
+ArrayLiteral | BooleanLiteral | NumberLiteral | StringLiteral;
 ```

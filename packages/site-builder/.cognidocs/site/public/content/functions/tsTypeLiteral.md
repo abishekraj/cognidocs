@@ -3,6 +3,7 @@
 **Return Type:** `TSTypeLiteral`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `members` | `Array<TSTypeElement>` | No | - |
+
+| Name      | Type                   | Optional | Description |
+| :-------- | :--------------------- | :------- | :---------- |
+| `members` | `Array<TSTypeElement>` | No       | -           |

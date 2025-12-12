@@ -1,5 +1,7 @@
 # EOFToken
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `type` | `TokenType.EOF` | No | - |
+
+| Name   | Type            | Optional | Description |
+| :----- | :-------------- | :------- | :---------- |
+| `type` | `TokenType.EOF` | No       | -           |

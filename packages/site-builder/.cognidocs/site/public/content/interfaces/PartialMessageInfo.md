@@ -1,6 +1,8 @@
 # PartialMessageInfo
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `messageToken` | `number` | No | - |
-| `waitingTime` | `number` | No | - |
+
+| Name           | Type     | Optional | Description |
+| :------------- | :------- | :------- | :---------- |
+| `messageToken` | `number` | No       | -           |
+| `waitingTime`  | `number` | No       | -           |

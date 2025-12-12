@@ -1,5 +1,7 @@
 # TextHorizontalPos
+
 ## Definition
+
 ```typescript
-'top' | 'middle' | 'bottom'
+'top' | 'middle' | 'bottom';
 ```

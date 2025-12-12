@@ -1,5 +1,7 @@
 # RenderedChunk
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `viteMetadata` | `ChunkMetadata` | Yes | - |
+
+| Name           | Type            | Optional | Description |
+| :------------- | :-------------- | :------- | :---------- |
+| `viteMetadata` | `ChunkMetadata` | Yes      | -           |

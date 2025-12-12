@@ -2,10 +2,10 @@
 
 Check if the given character code, or the character code at the first character, is alphanumerical.
 
-
 **Return Type:** `boolean`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `character` | `string \| number` | No | @returns {boolean} Whether `character` is alphanumerical. |
+
+| Name        | Type               | Optional | Description                                               |
+| :---------- | :----------------- | :------- | :-------------------------------------------------------- |
+| `character` | `string \| number` | No       | @returns {boolean} Whether `character` is alphanumerical. |

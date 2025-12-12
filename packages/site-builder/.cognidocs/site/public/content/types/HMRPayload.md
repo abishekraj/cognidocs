@@ -1,5 +1,7 @@
 # HMRPayload
+
 ## Definition
+
 ```typescript
 | ConnectedPayload
   | UpdatePayload

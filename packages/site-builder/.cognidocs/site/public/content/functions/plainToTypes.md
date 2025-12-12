@@ -3,6 +3,7 @@
 **Return Type:** `AstTypes`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `plain` | `PlainAstTypes` | No | - |
+
+| Name    | Type            | Optional | Description |
+| :------ | :-------------- | :------- | :---------- |
+| `plain` | `PlainAstTypes` | No       | -           |

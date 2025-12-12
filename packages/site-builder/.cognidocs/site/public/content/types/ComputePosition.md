@@ -1,5 +1,8 @@
 # ComputePosition
+
 ## Definition
+
 ```typescript
-(reference: unknown, floating: unknown, config: ComputePositionConfig) => Promise<ComputePositionReturn>
+(reference: unknown, floating: unknown, config: ComputePositionConfig) =>
+  Promise<ComputePositionReturn>;
 ```

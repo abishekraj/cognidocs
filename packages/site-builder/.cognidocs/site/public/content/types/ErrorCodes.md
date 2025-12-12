@@ -1,5 +1,7 @@
 # ErrorCodes
+
 ## Definition
+
 ```typescript
-integer
+integer;
 ```

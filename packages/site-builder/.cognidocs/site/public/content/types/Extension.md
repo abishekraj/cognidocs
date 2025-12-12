@@ -1,5 +1,7 @@
 # Extension
+
 ## Definition
+
 ```typescript
-import('micromark-util-types').Extension
+import('micromark-util-types').Extension;
 ```

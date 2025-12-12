@@ -3,6 +3,7 @@
 **Return Type:** `TSInferType`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `typeParameter` | `TSTypeParameter` | No | - |
+
+| Name            | Type              | Optional | Description |
+| :-------------- | :---------------- | :------- | :---------- |
+| `typeParameter` | `TSTypeParameter` | No       | -           |

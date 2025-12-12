@@ -1,5 +1,7 @@
 # Language
+
 ## Definition
+
 ```typescript
-LanguageDetail & Partial<Mode>
+LanguageDetail & Partial<Mode>;
 ```

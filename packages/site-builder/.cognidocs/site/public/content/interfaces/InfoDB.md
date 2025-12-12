@@ -1,5 +1,7 @@
 # InfoDB
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `getVersion` | `() => string` | No | - |
+
+| Name         | Type           | Optional | Description |
+| :----------- | :------------- | :------- | :---------- |
+| `getVersion` | `() => string` | No       | -           |

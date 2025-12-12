@@ -1,6 +1,8 @@
 # NullableTypeAnnotation
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `type` | `"NullableTypeAnnotation"` | No | - |
-| `typeAnnotation` | `FlowType` | No | - |
+
+| Name             | Type                       | Optional | Description |
+| :--------------- | :------------------------- | :------- | :---------- |
+| `type`           | `"NullableTypeAnnotation"` | No       | -           |
+| `typeAnnotation` | `FlowType`                 | No       | -           |

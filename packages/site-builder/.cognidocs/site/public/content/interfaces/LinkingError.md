@@ -1,6 +1,8 @@
 # LinkingError
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `message` | `string` | No | - |
-| `targetDescription` | `AstNodeDescription` | Yes | - |
+
+| Name                | Type                 | Optional | Description |
+| :------------------ | :------------------- | :------- | :---------- |
+| `message`           | `string`             | No       | -           |
+| `targetDescription` | `AstNodeDescription` | Yes      | -           |

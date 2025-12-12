@@ -1,5 +1,7 @@
 # SpreadProperty
+
 ## Definition
+
 ```typescript
-SpreadElement
+SpreadElement;
 ```

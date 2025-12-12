@@ -1,5 +1,7 @@
 # InvalidGeneratedMapping
+
 ## Definition
+
 ```typescript
 {
   line: null;

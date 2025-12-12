@@ -1,5 +1,7 @@
 # WorkspaceFeature
+
 ## Definition
+
 ```typescript
-Feature<_RemoteWorkspace, P>
+Feature<_RemoteWorkspace, P>;
 ```

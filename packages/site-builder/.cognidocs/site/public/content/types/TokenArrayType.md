@@ -1,5 +1,9 @@
 # TokenArrayType
+
 ## Definition
+
 ```typescript
-{ kind: "token" }
+{
+  kind: 'token';
+}
 ```

@@ -1,5 +1,11 @@
 # TSTypeElement
+
 ## Definition
+
 ```typescript
-TSCallSignatureDeclaration | TSConstructSignatureDeclaration | TSPropertySignature | TSMethodSignature | TSIndexSignature
+TSCallSignatureDeclaration |
+  TSConstructSignatureDeclaration |
+  TSPropertySignature |
+  TSMethodSignature |
+  TSIndexSignature;
 ```

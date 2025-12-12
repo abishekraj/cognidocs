@@ -1,5 +1,7 @@
 # MsScrollChaining
+
 ## Definition
+
 ```typescript
-Globals | "chained" | "none"
+Globals | 'chained' | 'none';
 ```

@@ -1,5 +1,7 @@
 # Generated
+
 ## Definition
+
 ```typescript
-GeneratorNode | string | undefined
+GeneratorNode | string | undefined;
 ```

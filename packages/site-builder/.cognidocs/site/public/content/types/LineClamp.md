@@ -1,5 +1,7 @@
 # LineClamp
+
 ## Definition
+
 ```typescript
-Globals | "none" | (number & {}) | (string & {})
+Globals | 'none' | (number & {}) | (string & {});
 ```

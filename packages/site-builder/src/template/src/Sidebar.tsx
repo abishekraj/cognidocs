@@ -1,14 +1,6 @@
 import * as React from 'react';
 import { useState } from 'react';
-import {
-  Search,
-  FileCode,
-  Layers,
-  BookOpen,
-  Network,
-  Home,
-  BarChart3,
-} from 'lucide-react';
+import { Search, FileCode, Layers, BookOpen, Network, Home, BarChart3 } from 'lucide-react';
 import { cn } from './lib/utils';
 import { Input } from './components/ui/input';
 import { ScrollArea } from './components/ui/scroll-area';
@@ -95,12 +87,7 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
     return items.map((item: any) => {
       if (item.type === 'directory') {
         return (
-          <NavigationSection
-            key={item.path}
-            title={item.name}
-            icon={Layers}
-            defaultOpen={false}
-          >
+          <NavigationSection key={item.path} title={item.name} icon={Layers} defaultOpen={false}>
             {renderTree(item.children)}
           </NavigationSection>
         );
@@ -158,7 +145,10 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
           {/* Search Input Section */}
           <div className="px-4 py-3">
             <div className="relative">
-              <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground pointer-events-none" aria-hidden="true" />
+              <Search
+                className="absolute left-2.5 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground pointer-events-none"
+                aria-hidden="true"
+              />
               <Input
                 type="text"
                 placeholder="Search documentation..."
@@ -209,7 +199,9 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
                   label="Introduction"
                   href="#/README"
                   icon={BookOpen}
-                  isActive={currentPath === '#/README' || currentPath === '' || currentPath === '#/'}
+                  isActive={
+                    currentPath === '#/README' || currentPath === '' || currentPath === '#/'
+                  }
                 />
                 <NavigationItem
                   label="Project Overview"
@@ -230,26 +222,30 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
               {/* Additional Documentation - Separate Section */}
               {manifest.find((item: any) => item.name === 'additional-documentation') && (
                 <>
-                  <NavigationSection
-                    title="Guides"
-                    icon={BookOpen}
-                    defaultOpen={true}
-                  >
-                    {renderTree(manifest.find((item: any) => item.name === 'additional-documentation')?.children || [])}
+                  <NavigationSection title="Guides" icon={BookOpen} defaultOpen={true}>
+                    {renderTree(
+                      manifest.find((item: any) => item.name === 'additional-documentation')
+                        ?.children || []
+                    )}
                   </NavigationSection>
                   <Separator className="my-2" />
                 </>
               )}
 
               {/* Documentation */}
-              {manifest.filter((item: any) => item.name !== 'additional-documentation').length > 0 && (
+              {manifest.filter((item: any) => item.name !== 'additional-documentation').length >
+                0 && (
                 <NavigationSection
                   title="Documentation"
                   icon={FileCode}
-                  count={manifest.filter((item: any) => item.name !== 'additional-documentation').length}
+                  count={
+                    manifest.filter((item: any) => item.name !== 'additional-documentation').length
+                  }
                   defaultOpen={true}
                 >
-                  {renderTree(manifest.filter((item: any) => item.name !== 'additional-documentation'))}
+                  {renderTree(
+                    manifest.filter((item: any) => item.name !== 'additional-documentation')
+                  )}
                 </NavigationSection>
               )}
             </nav>

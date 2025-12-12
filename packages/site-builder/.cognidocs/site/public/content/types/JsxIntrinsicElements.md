@@ -1,5 +1,7 @@
 # JsxIntrinsicElements
+
 ## Definition
+
 ```typescript
-JSX.IntrinsicElements
+JSX.IntrinsicElements;
 ```

@@ -3,6 +3,7 @@
 **Return Type:** `TSArrayType`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `elementType` | `TSType` | No | - |
+
+| Name          | Type     | Optional | Description |
+| :------------ | :------- | :------- | :---------- |
+| `elementType` | `TSType` | No       | -           |

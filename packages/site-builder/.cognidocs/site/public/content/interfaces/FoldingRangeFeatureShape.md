@@ -3,9 +3,11 @@
 Shape of the folding range feature
 
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `foldingRange` | `{
+
+| Name           | Type | Optional | Description |
+| :------------- | :--- | :------- | :---------- |
+| `foldingRange` | `{   |
+
         /**
          * Ask the client to refresh all folding ranges
          *

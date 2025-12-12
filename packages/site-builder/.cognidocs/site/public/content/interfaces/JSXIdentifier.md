@@ -1,6 +1,8 @@
 # JSXIdentifier
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `type` | `"JSXIdentifier"` | No | - |
-| `name` | `string` | No | - |
+
+| Name   | Type              | Optional | Description |
+| :----- | :---------------- | :------- | :---------- |
+| `type` | `"JSXIdentifier"` | No       | -           |
+| `name` | `string`          | No       | -           |

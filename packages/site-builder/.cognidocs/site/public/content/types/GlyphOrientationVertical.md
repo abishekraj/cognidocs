@@ -1,5 +1,7 @@
 # GlyphOrientationVertical
+
 ## Definition
+
 ```typescript
-Globals | "auto" | (string & {}) | (number & {})
+Globals | 'auto' | (string & {}) | (number & {});
 ```

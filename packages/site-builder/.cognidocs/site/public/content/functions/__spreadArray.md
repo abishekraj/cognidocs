@@ -1,10 +1,11 @@
-# __spreadArray
+# \_\_spreadArray
 
 **Return Type:** `any[]`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `to` | `any[]` | No | - |
-| `from` | `any[]` | No | - |
-| `pack` | `boolean` | Yes | Replace empty elements with `undefined`. |
+
+| Name   | Type      | Optional | Description                              |
+| :----- | :-------- | :------- | :--------------------------------------- |
+| `to`   | `any[]`   | No       | -                                        |
+| `from` | `any[]`   | No       | -                                        |
+| `pack` | `boolean` | Yes      | Replace empty elements with `undefined`. |

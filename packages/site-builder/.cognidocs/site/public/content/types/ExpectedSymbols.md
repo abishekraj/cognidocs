@@ -1,5 +1,7 @@
 # ExpectedSymbols
+
 ## Definition
+
 ```typescript
-ExpectedSymbolsList | ExpectedSymbolsCallback
+ExpectedSymbolsList | ExpectedSymbolsCallback;
 ```

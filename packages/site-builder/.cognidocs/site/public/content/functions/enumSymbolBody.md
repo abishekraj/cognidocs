@@ -3,6 +3,7 @@
 **Return Type:** `EnumSymbolBody`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `members` | `Array<EnumDefaultedMember>` | No | - |
+
+| Name      | Type                         | Optional | Description |
+| :-------- | :--------------------------- | :------- | :---------- |
+| `members` | `Array<EnumDefaultedMember>` | No       | -           |

@@ -3,6 +3,7 @@
 Format and format on key response message.
 
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `body` | `CodeEdit[]` | Yes | - |
+
+| Name   | Type         | Optional | Description |
+| :----- | :----------- | :------- | :---------- |
+| `body` | `CodeEdit[]` | Yes      | -           |

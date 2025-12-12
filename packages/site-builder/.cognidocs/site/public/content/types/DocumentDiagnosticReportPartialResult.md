@@ -3,6 +3,7 @@
 A partial result for a document diagnostic report.
 
 ## Definition
+
 ```typescript
 {
     relatedDocuments: {

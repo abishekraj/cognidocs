@@ -3,6 +3,7 @@
 Response to DocCommentTemplateRequest
 
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `body` | `TextInsertion` | Yes | - |
+
+| Name   | Type            | Optional | Description |
+| :----- | :-------------- | :------- | :---------- |
+| `body` | `TextInsertion` | Yes      | -           |

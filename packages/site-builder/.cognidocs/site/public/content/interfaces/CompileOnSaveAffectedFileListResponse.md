@@ -3,6 +3,7 @@
 Response for CompileOnSaveAffectedFileListRequest request;
 
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `body` | `CompileOnSaveAffectedFileListSingleProject[]` | No | - |
+
+| Name   | Type                                           | Optional | Description |
+| :----- | :--------------------------------------------- | :------- | :---------- |
+| `body` | `CompileOnSaveAffectedFileListSingleProject[]` | No       | -           |

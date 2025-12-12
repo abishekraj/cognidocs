@@ -1,5 +1,7 @@
 # PropertyTypeDefinition
+
 ## Definition
+
 ```typescript
 {
   name: string;

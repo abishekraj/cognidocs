@@ -1,9 +1,12 @@
 # ErrorPayload
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `type` | `'error'` | No | - |
-| `err` | `{
+
+| Name   | Type      | Optional | Description |
+| :----- | :-------- | :------- | :---------- |
+| `type` | `'error'` | No       | -           |
+| `err`  | `{        |
+
     [name: string]: any
     message: string
     stack: string
@@ -16,4 +19,5 @@
       line: number
       column: number
     }
-  }` | No | - |
+
+}` | No | - |

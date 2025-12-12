@@ -3,9 +3,7 @@
 Parents that are not phrasing, or similar.
 
 ## Definition
+
 ```typescript
-Exclude<
-  Parents,
-  PhrasingContent | TableCell | TableRow
->
+Exclude<Parents, PhrasingContent | TableCell | TableRow>;
 ```

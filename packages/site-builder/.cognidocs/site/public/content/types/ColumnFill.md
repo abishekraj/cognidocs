@@ -1,5 +1,7 @@
 # ColumnFill
+
 ## Definition
+
 ```typescript
-Globals | "auto" | "balance"
+Globals | 'auto' | 'balance';
 ```

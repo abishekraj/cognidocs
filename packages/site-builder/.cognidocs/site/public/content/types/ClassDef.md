@@ -1,5 +1,7 @@
 # ClassDef
+
 ## Definition
+
 ```typescript
-string
+string;
 ```

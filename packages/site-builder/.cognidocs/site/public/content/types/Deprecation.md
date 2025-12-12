@@ -3,6 +3,7 @@
 Deprecation.
 
 ## Definition
+
 ```typescript
 {
     /**

@@ -1,5 +1,7 @@
 # BackgroundBlendMode
+
 ## Definition
+
 ```typescript
-Globals | DataType.BlendMode | (string & {})
+Globals | DataType.BlendMode | (string & {});
 ```

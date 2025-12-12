@@ -35,16 +35,19 @@ Thank you for your interest in contributing to CogniDocs! We're excited to have 
      ```
 
 2. **Install dependencies**
+
    ```bash
    npm install
    ```
 
 3. **Build all packages**
+
    ```bash
    npm run build
    ```
 
 4. **Link CLI for testing**
+
    ```bash
    npm link -w @cognidocs/cli
    ```
@@ -151,6 +154,7 @@ git commit -m "test: add coverage for JSDoc parsing"
 ```
 
 **Commit Types:**
+
 - `feat:` - New feature
 - `fix:` - Bug fix
 - `docs:` - Documentation changes
@@ -168,6 +172,7 @@ git push origin feature/your-feature-name
 ```
 
 Then:
+
 1. Go to the original repository
 2. Click "New Pull Request"
 3. Select your branch
@@ -201,22 +206,27 @@ Please include:
 
 ```markdown
 ## What
+
 Adds support for parsing Vue 3 components with Composition API
 
 ## Why
+
 Users requested Vue support for their component libraries
 
 ## How
+
 - Extended parser to recognize Vue SFC format
 - Added Vue-specific AST traversal
 - Extracted component props from setup() function
 
 ## Testing
+
 - Added unit tests for Vue component parsing
 - Tested with real Vue 3 project
 - All existing tests still pass
 
 ## Screenshots
+
 ![Vue component parsed](link-to-screenshot.png)
 ```
 
@@ -238,6 +248,7 @@ A clear description of what the bug is.
 
 **To Reproduce**
 Steps to reproduce:
+
 1. Run `cognidocs build` on project X
 2. See error ...
 
@@ -248,6 +259,7 @@ What you expected to happen.
 What actually happened.
 
 **Environment:**
+
 - CogniDocs version: [e.g., 1.0.0]
 - Node.js version: [e.g., 18.16.0]
 - npm version: [e.g., 9.5.0]
@@ -341,6 +353,7 @@ cognidocs serve
 ### 4. Submit Theme PR
 
 Include:
+
 - CSS file
 - Screenshot of the theme
 - Description of the theme's inspiration
@@ -356,18 +369,14 @@ We use ESLint and Prettier to enforce code style.
 ```typescript
 // ✅ Good
 export function parseFile(filePath: string): ParseResult {
-  const sourceFile = ts.createSourceFile(
-    filePath,
-    content,
-    ts.ScriptTarget.Latest
-  );
+  const sourceFile = ts.createSourceFile(filePath, content, ts.ScriptTarget.Latest);
   return extractMetadata(sourceFile);
 }
 
 // ❌ Bad
-export function parseFile(filePath:string) {
-  let sourceFile = ts.createSourceFile(filePath, content, ts.ScriptTarget.Latest)
-  return extractMetadata(sourceFile)
+export function parseFile(filePath: string) {
+  let sourceFile = ts.createSourceFile(filePath, content, ts.ScriptTarget.Latest);
+  return extractMetadata(sourceFile);
 }
 ```
 

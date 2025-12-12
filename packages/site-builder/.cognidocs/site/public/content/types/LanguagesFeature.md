@@ -1,5 +1,7 @@
 # LanguagesFeature
+
 ## Definition
+
 ```typescript
-Feature<_Languages, P>
+Feature<_Languages, P>;
 ```

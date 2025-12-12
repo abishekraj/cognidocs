@@ -1,5 +1,7 @@
 # PageBreakInside
+
 ## Definition
+
 ```typescript
-Globals | "auto" | "avoid"
+Globals | 'auto' | 'avoid';
 ```

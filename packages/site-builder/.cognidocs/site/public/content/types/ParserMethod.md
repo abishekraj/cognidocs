@@ -1,5 +1,7 @@
 # ParserMethod
+
 ## Definition
+
 ```typescript
-(...args: ARGS) => R
+(...args: ARGS) => R;
 ```

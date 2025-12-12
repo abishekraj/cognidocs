@@ -3,6 +3,7 @@
 **Return Type:** `string[]`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `parentBoundary` | `any` | No | - |
+
+| Name             | Type  | Optional | Description |
+| :--------------- | :---- | :------- | :---------- |
+| `parentBoundary` | `any` | No       | -           |

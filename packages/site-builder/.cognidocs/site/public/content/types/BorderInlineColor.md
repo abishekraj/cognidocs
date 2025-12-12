@@ -1,5 +1,7 @@
 # BorderInlineColor
+
 ## Definition
+
 ```typescript
-Globals | DataType.Color | (string & {})
+Globals | DataType.Color | (string & {});
 ```

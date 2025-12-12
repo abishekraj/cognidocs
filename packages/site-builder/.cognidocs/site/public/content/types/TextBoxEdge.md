@@ -1,5 +1,7 @@
 # TextBoxEdge
+
 ## Definition
+
 ```typescript
-Globals | DataType.TextEdge | "auto"
+Globals | DataType.TextEdge | 'auto';
 ```

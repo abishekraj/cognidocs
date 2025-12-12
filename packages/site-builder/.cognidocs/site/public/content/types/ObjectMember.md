@@ -1,5 +1,7 @@
 # ObjectMember
+
 ## Definition
+
 ```typescript
-ObjectMethod | ObjectProperty
+ObjectMethod | ObjectProperty;
 ```

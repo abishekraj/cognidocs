@@ -1,5 +1,7 @@
 # FileOperationPatternKind
+
 ## Definition
+
 ```typescript
-'file' | 'folder'
+'file' | 'folder';
 ```

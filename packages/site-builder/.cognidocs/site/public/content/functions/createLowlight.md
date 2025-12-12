@@ -2,7 +2,6 @@
 
 Create a `lowlight` instance.
 
-
 **Return Type:** `{
     highlight: (language: string, value: string, options?: Readonly<Options> | null | undefined) => Root;
     highlightAuto: (value: string, options?: Readonly<AutoOptions> | null | undefined) => Root;
@@ -20,7 +19,7 @@ Create a `lowlight` instance.
          *
          *   lowlight.register({xml})
          *
-         *   // Note: `html` is an alias for `xml`.
+         *   // Note: `html`is an alias for`xml`.
          *   console.log(lowlight.highlight('html', '<em>Emphasis</em>'))
          *   ```
          *
@@ -59,7 +58,7 @@ Create a `lowlight` instance.
          *
          *   lowlight.register({xml})
          *
-         *   // Note: `html` is an alias for `xml`.
+         *   // Note: `html`is an alias for`xml`.
          *   console.log(lowlight.highlight('html', '<em>Emphasis</em>'))
          *   ```
          *
@@ -101,7 +100,7 @@ Create a `lowlight` instance.
          *   lowlight.register({markdown})
          *
          *   // lowlight.highlight('mdown', '<em>Emphasis</em>')
-         *   // ^ would throw: Error: Unknown language: `mdown` is not registered
+         *   // ^ would throw: Error: Unknown language: `mdown`is not registered
          *
          *   lowlight.registerAlias({markdown: ['mdown', 'mkdn', 'mdwn', 'ron']})
          *   lowlight.highlight('mdown', '<em>Emphasis</em>')
@@ -121,7 +120,7 @@ Create a `lowlight` instance.
          *   Map of programming language names to one or more aliases, or programming
          *   language name.
          * @param {ReadonlyArray<string> | string | undefined} [alias]
-         *   One or more aliases for the programming language, if with `name`.
+         *   One or more aliases for the programming language, if with`name`.
          * @returns {undefined}
          *   Nothing.
          */
@@ -139,7 +138,7 @@ Create a `lowlight` instance.
          *   lowlight.register({markdown})
          *
          *   // lowlight.highlight('mdown', '<em>Emphasis</em>')
-         *   // ^ would throw: Error: Unknown language: `mdown` is not registered
+         *   // ^ would throw: Error: Unknown language: `mdown`is not registered
          *
          *   lowlight.registerAlias({markdown: ['mdown', 'mkdn', 'mdwn', 'ron']})
          *   lowlight.highlight('mdown', '<em>Emphasis</em>')
@@ -159,7 +158,7 @@ Create a `lowlight` instance.
          *   Map of programming language names to one or more aliases, or programming
          *   language name.
          * @param {ReadonlyArray<string> | string | undefined} [alias]
-         *   One or more aliases for the programming language, if with `name`.
+         *   One or more aliases for the programming language, if with`name`.
          * @returns {undefined}
          *   Nothing.
          */
@@ -169,6 +168,7 @@ Create a `lowlight` instance.
 }`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `grammars` | `Readonly<Record<string, LanguageFn>> \| null \| undefined` | Yes | - |
+
+| Name       | Type                                                        | Optional | Description |
+| :--------- | :---------------------------------------------------------- | :------- | :---------- |
+| `grammars` | `Readonly<Record<string, LanguageFn>> \| null \| undefined` | Yes      | -           |

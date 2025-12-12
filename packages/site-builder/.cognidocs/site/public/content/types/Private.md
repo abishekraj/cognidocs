@@ -1,5 +1,7 @@
 # Private
+
 ## Definition
+
 ```typescript
-ClassPrivateProperty | ClassPrivateMethod | PrivateName
+ClassPrivateProperty | ClassPrivateMethod | PrivateName;
 ```

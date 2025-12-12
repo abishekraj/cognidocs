@@ -1,5 +1,7 @@
 # ValueType
+
 ## Definition
+
 ```typescript
-string | number | boolean | bigint | Date
+string | number | boolean | bigint | Date;
 ```

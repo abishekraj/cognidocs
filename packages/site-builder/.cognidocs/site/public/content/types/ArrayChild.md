@@ -3,6 +3,7 @@
 List of children.
 
 ## Definition
+
 ```typescript
-Array<ArrayChildNested | Nodes | PrimitiveChild>
+Array<ArrayChildNested | Nodes | PrimitiveChild>;
 ```

@@ -1,5 +1,7 @@
 # DiagnosticWithFileName
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `fileName` | `string` | No | - |
+
+| Name       | Type     | Optional | Description |
+| :--------- | :------- | :------- | :---------- |
+| `fileName` | `string` | No       | -           |

@@ -1,5 +1,7 @@
 # ClassValidator
+
 ## Definition
+
 ```typescript
-(classPart: string) => boolean
+(classPart: string) => boolean;
 ```

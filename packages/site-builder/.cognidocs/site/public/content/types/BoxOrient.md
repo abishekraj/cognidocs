@@ -1,5 +1,7 @@
 # BoxOrient
+
 ## Definition
+
 ```typescript
-Globals | "block-axis" | "horizontal" | "inherit" | "inline-axis" | "vertical"
+Globals | 'block-axis' | 'horizontal' | 'inherit' | 'inline-axis' | 'vertical';
 ```

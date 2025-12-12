@@ -1,5 +1,7 @@
 # ArchitectureNode
+
 ## Definition
+
 ```typescript
-ArchitectureService | ArchitectureJunction
+ArchitectureService | ArchitectureJunction;
 ```

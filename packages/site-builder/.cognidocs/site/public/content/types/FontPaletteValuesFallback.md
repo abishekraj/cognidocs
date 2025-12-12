@@ -1,5 +1,7 @@
 # FontPaletteValuesFallback
+
 ## Definition
+
 ```typescript
-Fallback<FontPaletteValues<TLength, TTime>>
+Fallback<FontPaletteValues<TLength, TTime>>;
 ```

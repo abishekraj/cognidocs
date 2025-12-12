@@ -1,5 +1,7 @@
 # SideCarComponent
+
 ## Definition
+
 ```typescript
-React.FunctionComponent<T & SideCarHOC<T>>
+React.FunctionComponent<T & SideCarHOC<T>>;
 ```

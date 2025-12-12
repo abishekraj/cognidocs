@@ -1,5 +1,7 @@
 # LLStarLookaheadOptions
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `logging` | `AmbiguityReport` | Yes | - |
+
+| Name      | Type              | Optional | Description |
+| :-------- | :---------------- | :------- | :---------- |
+| `logging` | `AmbiguityReport` | Yes      | -           |

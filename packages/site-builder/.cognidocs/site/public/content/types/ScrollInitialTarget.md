@@ -1,5 +1,7 @@
 # ScrollInitialTarget
+
 ## Definition
+
 ```typescript
-Globals | "nearest" | "none"
+Globals | 'nearest' | 'none';
 ```

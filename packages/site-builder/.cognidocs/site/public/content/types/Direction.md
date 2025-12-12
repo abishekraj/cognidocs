@@ -1,5 +1,7 @@
 # Direction
+
 ## Definition
+
 ```typescript
-Globals | "ltr" | "rtl"
+Globals | 'ltr' | 'rtl';
 ```

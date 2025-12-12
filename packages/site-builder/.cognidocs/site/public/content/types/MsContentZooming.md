@@ -1,5 +1,7 @@
 # MsContentZooming
+
 ## Definition
+
 ```typescript
-Globals | "none" | "zoom"
+Globals | 'none' | 'zoom';
 ```

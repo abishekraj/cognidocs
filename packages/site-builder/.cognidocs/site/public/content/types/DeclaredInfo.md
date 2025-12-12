@@ -1,5 +1,7 @@
 # DeclaredInfo
+
 ## Definition
+
 ```typescript
 {
     declared: TypeOption,

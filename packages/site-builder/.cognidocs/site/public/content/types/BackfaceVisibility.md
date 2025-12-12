@@ -1,5 +1,7 @@
 # BackfaceVisibility
+
 ## Definition
+
 ```typescript
-Globals | "hidden" | "visible"
+Globals | 'hidden' | 'visible';
 ```

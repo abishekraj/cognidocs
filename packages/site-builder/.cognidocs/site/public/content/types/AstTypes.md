@@ -1,5 +1,7 @@
 # AstTypes
+
 ## Definition
+
 ```typescript
 {
     interfaces: InterfaceType[],

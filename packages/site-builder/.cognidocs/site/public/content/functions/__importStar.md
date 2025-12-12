@@ -1,8 +1,9 @@
-# __importStar
+# \_\_importStar
 
 **Return Type:** `T`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `mod` | `T` | No | The CommonJS module exports object. |
+
+| Name  | Type | Optional | Description                         |
+| :---- | :--- | :------- | :---------------------------------- |
+| `mod` | `T`  | No       | The CommonJS module exports object. |

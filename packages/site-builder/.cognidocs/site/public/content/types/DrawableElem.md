@@ -1,5 +1,7 @@
 # DrawableElem
+
 ## Definition
+
 ```typescript
 {
     groupTexts: string[];

@@ -1,5 +1,7 @@
 # GridColumnStart
+
 ## Definition
+
 ```typescript
-Globals | DataType.GridLine
+Globals | DataType.GridLine;
 ```

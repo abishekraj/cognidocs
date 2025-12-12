@@ -1,18 +1,22 @@
 # FunctionPluginHooks
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `augmentChunkHash` | `(this: PluginContext, chunk: RenderedChunk) => string \| void` | No | - |
-| `buildEnd` | `(this: PluginContext, error?: Error) => void` | No | - |
-| `buildStart` | `(this: PluginContext, options: NormalizedInputOptions) => void` | No | - |
-| `closeBundle` | `(this: PluginContext, error?: Error) => void` | No | - |
-| `closeWatcher` | `(this: PluginContext) => void` | No | - |
-| `generateBundle` | `(
-		this: PluginContext,
-		options: NormalizedOutputOptions,
-		bundle: OutputBundle,
-		isWrite: boolean
-	) => void` | No | - |
+
+| Name               | Type                                                             | Optional | Description |
+| :----------------- | :--------------------------------------------------------------- | :------- | :---------- |
+| `augmentChunkHash` | `(this: PluginContext, chunk: RenderedChunk) => string \| void`  | No       | -           |
+| `buildEnd`         | `(this: PluginContext, error?: Error) => void`                   | No       | -           |
+| `buildStart`       | `(this: PluginContext, options: NormalizedInputOptions) => void` | No       | -           |
+| `closeBundle`      | `(this: PluginContext, error?: Error) => void`                   | No       | -           |
+| `closeWatcher`     | `(this: PluginContext) => void`                                  | No       | -           |
+| `generateBundle`   | `(                                                               |
+
+    	this: PluginContext,
+    	options: NormalizedOutputOptions,
+    	bundle: OutputBundle,
+    	isWrite: boolean
+    ) => void` | No | - |
+
 | `load` | `LoadHook` | No | - |
 | `moduleParsed` | `ModuleParsedHook` | No | - |
 | `onLog` | `(this: MinimalPluginContext, level: LogLevel, log: RollupLog) => boolean \| NullValue` | No | - |

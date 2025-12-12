@@ -1,5 +1,7 @@
 # Scale
+
 ## Definition
+
 ```typescript
-Globals | "none" | (string & {}) | (number & {})
+Globals | 'none' | (string & {}) | (number & {});
 ```

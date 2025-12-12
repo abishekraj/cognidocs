@@ -1,5 +1,7 @@
 # SelectionRangeRequestArgs
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `locations` | `Location[]` | No | - |
+
+| Name        | Type         | Optional | Description |
+| :---------- | :----------- | :------- | :---------- |
+| `locations` | `Location[]` | No       | -           |

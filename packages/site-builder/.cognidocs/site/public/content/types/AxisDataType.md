@@ -1,5 +1,7 @@
 # AxisDataType
+
 ## Definition
+
 ```typescript
-LinearAxisDataType | BandAxisDataType
+LinearAxisDataType | BandAxisDataType;
 ```

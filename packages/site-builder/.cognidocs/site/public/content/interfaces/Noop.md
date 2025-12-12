@@ -1,5 +1,7 @@
 # Noop
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `type` | `"Noop"` | No | - |
+
+| Name   | Type     | Optional | Description |
+| :----- | :------- | :------- | :---------- |
+| `type` | `"Noop"` | No       | -           |

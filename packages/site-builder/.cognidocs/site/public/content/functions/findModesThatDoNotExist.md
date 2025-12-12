@@ -3,7 +3,8 @@
 **Return Type:** `ILexerDefinitionError[]`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `tokenTypes` | `TokenType[]` | No | - |
-| `validModes` | `string[]` | No | - |
+
+| Name         | Type          | Optional | Description |
+| :----------- | :------------ | :------- | :---------- |
+| `tokenTypes` | `TokenType[]` | No       | -           |
+| `validModes` | `string[]`    | No       | -           |

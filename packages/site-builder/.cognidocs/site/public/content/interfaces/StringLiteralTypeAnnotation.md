@@ -1,6 +1,8 @@
 # StringLiteralTypeAnnotation
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `type` | `"StringLiteralTypeAnnotation"` | No | - |
-| `value` | `string` | No | - |
+
+| Name    | Type                            | Optional | Description |
+| :------ | :------------------------------ | :------- | :---------- |
+| `type`  | `"StringLiteralTypeAnnotation"` | No       | -           |
+| `value` | `string`                        | No       | -           |

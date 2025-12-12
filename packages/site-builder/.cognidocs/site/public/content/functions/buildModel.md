@@ -3,6 +3,7 @@
 **Return Type:** `CstNodeTypeDefinition[]`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `productions` | `Record<string, Rule>` | No | - |
+
+| Name          | Type                   | Optional | Description |
+| :------------ | :--------------------- | :------- | :---------- |
+| `productions` | `Record<string, Rule>` | No       | -           |

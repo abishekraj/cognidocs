@@ -1,5 +1,7 @@
 # ProjectLoadingFinishEventBody
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `projectName` | `string` | No | - |
+
+| Name          | Type     | Optional | Description |
+| :------------ | :------- | :------- | :---------- |
+| `projectName` | `string` | No       | -           |

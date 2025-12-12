@@ -3,6 +3,7 @@
 **Return Type:** `number`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `lines` | `string[]` | No | - |
+
+| Name    | Type       | Optional | Description |
+| :------ | :--------- | :------- | :---------- |
+| `lines` | `string[]` | No       | -           |

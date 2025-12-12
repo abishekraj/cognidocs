@@ -1,5 +1,7 @@
 # Method
+
 ## Definition
+
 ```typescript
-ObjectMethod | ClassMethod | ClassPrivateMethod
+ObjectMethod | ClassMethod | ClassPrivateMethod;
 ```

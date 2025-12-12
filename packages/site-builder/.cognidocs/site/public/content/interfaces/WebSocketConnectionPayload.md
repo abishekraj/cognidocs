@@ -1,5 +1,7 @@
 # WebSocketConnectionPayload
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `webSocket` | `WebSocket` | No | - |
+
+| Name        | Type        | Optional | Description |
+| :---------- | :---------- | :------- | :---------- |
+| `webSocket` | `WebSocket` | No       | -           |

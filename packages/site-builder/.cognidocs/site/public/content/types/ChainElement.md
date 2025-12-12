@@ -1,5 +1,7 @@
 # ChainElement
+
 ## Definition
+
 ```typescript
-SimpleCallExpression | MemberExpression
+SimpleCallExpression | MemberExpression;
 ```

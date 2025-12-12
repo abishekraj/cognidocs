@@ -1,5 +1,7 @@
 # JSDocLinkDisplayPart
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `target` | `FileSpan` | No | - |
+
+| Name     | Type       | Optional | Description |
+| :------- | :--------- | :------- | :---------- |
+| `target` | `FileSpan` | No       | -           |

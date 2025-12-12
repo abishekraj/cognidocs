@@ -1,5 +1,7 @@
 # Media
+
 ## Definition
+
 ```typescript
 {
     image?: boolean | undefined;

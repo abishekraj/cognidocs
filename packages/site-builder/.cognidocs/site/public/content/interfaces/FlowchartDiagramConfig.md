@@ -3,13 +3,16 @@
 The object containing configurations specific for flowcharts This interface was referenced by `MermaidConfig`'s JSON-Schema via the `definition` "FlowchartDiagramConfig".
 
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `titleTopMargin` | `number` | Yes | - |
-| `subGraphTitleMargin` | `{
+
+| Name                  | Type     | Optional | Description |
+| :-------------------- | :------- | :------- | :---------- |
+| `titleTopMargin`      | `number` | Yes      | -           |
+| `subGraphTitleMargin` | `{       |
+
         top?: number;
         bottom?: number;
     }` | Yes | - |
+
 | `arrowMarkerAbsolute` | `boolean` | Yes | - |
 | `diagramPadding` | `number` | Yes | - |
 | `htmlLabels` | `boolean` | Yes | - |

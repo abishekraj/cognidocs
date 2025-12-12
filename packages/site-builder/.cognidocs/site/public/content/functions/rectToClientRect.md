@@ -3,6 +3,7 @@
 **Return Type:** `ClientRectObject`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `rect` | `Rect` | No | - |
+
+| Name   | Type   | Optional | Description |
+| :----- | :----- | :------- | :---------- |
+| `rect` | `Rect` | No       | -           |

@@ -1,5 +1,7 @@
 # DecodedSourceMapOrMissing
+
 ## Definition
+
 ```typescript
 | {
 			missing: true;

@@ -1,5 +1,7 @@
 # WebkitAppearance
+
 ## Definition
+
 ```typescript
 | Globals
     | "-apple-pay-button"

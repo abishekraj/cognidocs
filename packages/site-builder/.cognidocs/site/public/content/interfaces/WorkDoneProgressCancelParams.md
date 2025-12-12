@@ -1,5 +1,7 @@
 # WorkDoneProgressCancelParams
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `token` | `ProgressToken` | No | - |
+
+| Name    | Type            | Optional | Description |
+| :------ | :-------------- | :------- | :---------- |
+| `token` | `ProgressToken` | No       | -           |

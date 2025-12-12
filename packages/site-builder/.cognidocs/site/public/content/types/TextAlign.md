@@ -1,5 +1,7 @@
 # TextAlign
+
 ## Definition
+
 ```typescript
 | Globals
     | "-khtml-center"

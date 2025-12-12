@@ -1,5 +1,7 @@
 # IParserUnresolvedRefDefinitionError
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `unresolvedRefName` | `string` | No | - |
+
+| Name                | Type     | Optional | Description |
+| :------------------ | :------- | :------- | :---------- |
+| `unresolvedRefName` | `string` | No       | -           |

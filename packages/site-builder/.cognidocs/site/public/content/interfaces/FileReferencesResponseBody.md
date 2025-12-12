@@ -1,6 +1,8 @@
 # FileReferencesResponseBody
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `refs` | `readonly ReferencesResponseItem[]` | No | - |
-| `symbolName` | `string` | No | - |
+
+| Name         | Type                                | Optional | Description |
+| :----------- | :---------------------------------- | :------- | :---------- |
+| `refs`       | `readonly ReferencesResponseItem[]` | No       | -           |
+| `symbolName` | `string`                            | No       | -           |

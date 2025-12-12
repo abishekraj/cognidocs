@@ -1,5 +1,7 @@
 # GeometryObject
+
 ## Definition
+
 ```typescript
-Geometry
+Geometry;
 ```

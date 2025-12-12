@@ -1,5 +1,7 @@
 # PartialResultParams
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `partialResultToken` | `ProgressToken` | Yes | - |
+
+| Name                 | Type            | Optional | Description |
+| :------------------- | :-------------- | :------- | :---------- |
+| `partialResultToken` | `ProgressToken` | Yes      | -           |

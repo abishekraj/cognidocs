@@ -7,6 +7,7 @@ Interactive dependency graph visualization.
 **Status:** 🔴 Not Started
 
 This package will provide:
+
 - Interactive dependency graphs
 - Module relationship diagrams
 - Component hierarchy trees

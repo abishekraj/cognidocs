@@ -1,5 +1,7 @@
 # Build
+
 ## Definition
+
 ```typescript
-import('./lib/index.js').Build
+import('./lib/index.js').Build;
 ```

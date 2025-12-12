@@ -1,5 +1,7 @@
 # MixedTypeAnnotation
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `type` | `"MixedTypeAnnotation"` | No | - |
+
+| Name   | Type                    | Optional | Description |
+| :----- | :---------------------- | :------- | :---------- |
+| `type` | `"MixedTypeAnnotation"` | No       | -           |

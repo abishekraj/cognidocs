@@ -1,5 +1,7 @@
 # TokenizeMode
+
 ## Definition
+
 ```typescript
-'full' | 'partial'
+'full' | 'partial';
 ```

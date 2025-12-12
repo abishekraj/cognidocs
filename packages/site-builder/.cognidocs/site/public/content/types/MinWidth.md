@@ -1,5 +1,7 @@
 # MinWidth
+
 ## Definition
+
 ```typescript
 | Globals
     | TLength

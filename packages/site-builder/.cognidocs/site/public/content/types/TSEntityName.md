@@ -1,5 +1,7 @@
 # TSEntityName
+
 ## Definition
+
 ```typescript
-Identifier | TSQualifiedName
+Identifier | TSQualifiedName;
 ```

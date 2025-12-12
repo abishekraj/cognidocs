@@ -1,7 +1,17 @@
 import React, { useState, useEffect } from 'react';
 
 export interface RouteMatch {
-  type: 'overview' | 'introduction' | 'component' | 'function' | 'interface' | 'type' | 'class' | 'content' | 'graph' | 'notfound';
+  type:
+    | 'overview'
+    | 'introduction'
+    | 'component'
+    | 'function'
+    | 'interface'
+    | 'type'
+    | 'class'
+    | 'content'
+    | 'graph'
+    | 'notfound';
   id?: string;
   path: string;
 }

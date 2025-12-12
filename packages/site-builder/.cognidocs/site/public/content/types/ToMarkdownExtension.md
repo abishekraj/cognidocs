@@ -1,5 +1,7 @@
 # ToMarkdownExtension
+
 ## Definition
+
 ```typescript
-import('mdast-util-to-markdown').Options
+import('mdast-util-to-markdown').Options;
 ```

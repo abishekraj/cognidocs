@@ -1,5 +1,7 @@
 # FontSynthesisPosition
+
 ## Definition
+
 ```typescript
-Globals | "auto" | "none"
+Globals | 'auto' | 'none';
 ```

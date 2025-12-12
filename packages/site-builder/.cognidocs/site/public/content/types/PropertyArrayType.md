@@ -1,5 +1,7 @@
 # PropertyArrayType
+
 ## Definition
+
 ```typescript
 | TokenArrayType
   | RuleArrayType

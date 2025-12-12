@@ -1,5 +1,7 @@
 # EnumMember
+
 ## Definition
+
 ```typescript
-EnumBooleanMember | EnumNumberMember | EnumStringMember | EnumDefaultedMember
+EnumBooleanMember | EnumNumberMember | EnumStringMember | EnumDefaultedMember;
 ```

@@ -1,22 +1,29 @@
 # Provider
+
 ## Properties
-| Name | Type | Description |
-| :--- | :--- | :---------- |
-| `_settings` | `Settings` | - |
-| `errorFilter` | `ErrorFilter` | - |
-| `entryFilter` | `EntryFilter` | - |
-| `deepFilter` | `DeepFilter` | - |
-| `entryTransformer` | `EntryTransformer` | - |
+
+| Name               | Type               | Description |
+| :----------------- | :----------------- | :---------- |
+| `_settings`        | `Settings`         | -           |
+| `errorFilter`      | `ErrorFilter`      | -           |
+| `entryFilter`      | `EntryFilter`      | -           |
+| `deepFilter`       | `DeepFilter`       | -           |
+| `entryTransformer` | `EntryTransformer` | -           |
 
 ## Methods
+
 ### read
+
 **Return:** `T`
 
-### _getRootDirectory
+### \_getRootDirectory
+
 **Return:** `string`
 
-### _getReaderOptions
+### \_getReaderOptions
+
 **Return:** `ReaderOptions`
 
-### _getMicromatchOptions
+### \_getMicromatchOptions
+
 **Return:** `MicromatchOptions`

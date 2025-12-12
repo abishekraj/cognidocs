@@ -1,5 +1,7 @@
 # Declaration
+
 ## Definition
+
 ```typescript
 | FunctionDeclaration
 | VariableDeclaration

@@ -1,5 +1,7 @@
 # SuspenseListTailMode
+
 ## Definition
+
 ```typescript
-"collapsed" | "hidden"
+'collapsed' | 'hidden';
 ```

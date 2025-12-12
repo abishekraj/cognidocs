@@ -1,5 +1,7 @@
 # Transition
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `target` | `ATNState` | No | - |
+
+| Name     | Type       | Optional | Description |
+| :------- | :--------- | :------- | :---------- |
+| `target` | `ATNState` | No       | -           |

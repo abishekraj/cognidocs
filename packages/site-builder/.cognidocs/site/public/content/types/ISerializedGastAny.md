@@ -1,5 +1,7 @@
 # ISerializedGastAny
+
 ## Definition
+
 ```typescript
 | ISerializedBasic
   | ISerializedGastRule

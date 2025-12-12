@@ -1,8 +1,7 @@
 # SourcemapIgnoreListOption
+
 ## Definition
+
 ```typescript
-(
-	relativeSourcePath: string,
-	sourcemapPath: string
-) => boolean
+(relativeSourcePath: string, sourcemapPath: string) => boolean;
 ```

@@ -1,38 +1,47 @@
 # JSXTransformer
+
 **Extends:** `Transformer`
 
 ## Properties
-| Name | Type | Description |
-| :--- | :--- | :---------- |
-| `rootTransformer` | `RootTransformer` | - |
-| `tokens` | `TokenProcessor` | - |
-| `importProcessor` | `CJSImportProcessor \| null` | - |
-| `nameManager` | `NameManager` | - |
-| `options` | `Options` | - |
-| `jsxPragmaInfo` | `JSXPragmaInfo` | - |
-| `jsxImportSource` | `string` | - |
-| `isAutomaticRuntime` | `boolean` | - |
-| `lastLineNumber` | `number` | - |
-| `lastIndex` | `number` | - |
-| `filenameVarName` | `string \| null` | - |
-| `esmAutomaticImportNameResolutions` | `{
+
+| Name                                | Type                         | Description |
+| :---------------------------------- | :--------------------------- | :---------- |
+| `rootTransformer`                   | `RootTransformer`            | -           |
+| `tokens`                            | `TokenProcessor`             | -           |
+| `importProcessor`                   | `CJSImportProcessor \| null` | -           |
+| `nameManager`                       | `NameManager`                | -           |
+| `options`                           | `Options`                    | -           |
+| `jsxPragmaInfo`                     | `JSXPragmaInfo`              | -           |
+| `jsxImportSource`                   | `string`                     | -           |
+| `isAutomaticRuntime`                | `boolean`                    | -           |
+| `lastLineNumber`                    | `number`                     | -           |
+| `lastIndex`                         | `number`                     | -           |
+| `filenameVarName`                   | `string \| null`             | -           |
+| `esmAutomaticImportNameResolutions` | `{                           |
+
         [name: string]: string;
     }` | - |
+
 | `cjsAutomaticModuleNameResolutions` | `{
         [path: string]: string;
     }` | - |
 
 ## Methods
+
 ### process
+
 **Return:** `boolean`
 
 ### getPrefixCode
+
 **Return:** `string`
 
 ### processJSXTag
+
 **Return:** `void`
 
 ### getElementLocationCode
+
 **Return:** `string`
 
 ### getLineNumberForIndex
@@ -78,6 +87,7 @@ Return code that invokes the given function. When the imports transform is enabl
 **Return:** `string`
 
 ### claimAutoImportedName
+
 **Return:** `string`
 
 ### processTagIntro
@@ -99,12 +109,15 @@ Transform the core part of the props, assuming that a { has already been inserte
 **Return:** `string | null`
 
 ### processPropName
+
 **Return:** `void`
 
 ### processPropValue
+
 **Return:** `void`
 
 ### processStringPropValue
+
 **Return:** `void`
 
 ### processAutomaticChildrenAndEndProps
@@ -126,7 +139,9 @@ Turn a JSX text element into a string literal, or nothing at all if the JSX text
 **Return:** `boolean`
 
 ### getDevSource
+
 **Return:** `string`
 
 ### getFilenameVarName
+
 **Return:** `string`

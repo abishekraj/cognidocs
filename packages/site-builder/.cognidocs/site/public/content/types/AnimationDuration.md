@@ -1,5 +1,7 @@
 # AnimationDuration
+
 ## Definition
+
 ```typescript
-Globals | TTime | "auto" | (string & {})
+Globals | TTime | 'auto' | (string & {});
 ```

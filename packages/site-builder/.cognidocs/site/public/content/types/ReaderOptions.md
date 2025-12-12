@@ -1,5 +1,7 @@
 # ReaderOptions
+
 ## Definition
+
 ```typescript
 fsWalk.Options & {
     transform(entry: Entry): EntryItem;

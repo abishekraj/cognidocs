@@ -1,5 +1,7 @@
 # OptionValueSource
+
 ## Definition
+
 ```typescript
-'default' | 'env' | 'config' | 'cli'
+'default' | 'env' | 'config' | 'cli';
 ```

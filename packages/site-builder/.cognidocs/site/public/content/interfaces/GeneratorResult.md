@@ -1,9 +1,12 @@
 # GeneratorResult
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `code` | `string` | No | - |
-| `map` | `{
+
+| Name   | Type     | Optional | Description |
+| :----- | :------- | :------- | :---------- |
+| `code` | `string` | No       | -           |
+| `map`  | `{       |
+
         version: number;
         sources: string[];
         names: string[];

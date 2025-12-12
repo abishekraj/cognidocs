@@ -3,6 +3,7 @@
 **Return Type:** `TSNamespaceExportDeclaration`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `id` | `Identifier` | No | - |
+
+| Name | Type         | Optional | Description |
+| :--- | :----------- | :------- | :---------- |
+| `id` | `Identifier` | No       | -           |

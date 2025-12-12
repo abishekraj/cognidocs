@@ -1,5 +1,7 @@
 # LangiumDocuments
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `all` | `Stream<LangiumDocument>` | No | - |
+
+| Name  | Type                      | Optional | Description |
+| :---- | :------------------------ | :------- | :---------- |
+| `all` | `Stream<LangiumDocument>` | No       | -           |

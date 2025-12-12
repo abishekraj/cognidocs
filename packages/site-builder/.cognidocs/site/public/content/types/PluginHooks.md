@@ -1,5 +1,7 @@
 # PluginHooks
+
 ## Definition
+
 ```typescript
 {
 	[K in keyof FunctionPluginHooks]: ObjectHook<

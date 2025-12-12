@@ -1,5 +1,7 @@
 # SemanticTokenAcceptorOptions
+
 ## Definition
+
 ```typescript
 ({
     line: number;

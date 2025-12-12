@@ -3,6 +3,7 @@
 Configuration for reporters.
 
 ## Definition
+
 ```typescript
-Record<string, unknown>
+Record<string, unknown>;
 ```

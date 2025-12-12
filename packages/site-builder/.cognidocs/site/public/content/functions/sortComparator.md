@@ -3,7 +3,8 @@
 **Return Type:** `number`
 
 ## Parameters
+
 | Name | Type | Optional | Description |
 | :--- | :--- | :------- | :---------- |
-| `a` | `T` | No | - |
-| `b` | `T` | No | - |
+| `a`  | `T`  | No       | -           |
+| `b`  | `T`  | No       | -           |

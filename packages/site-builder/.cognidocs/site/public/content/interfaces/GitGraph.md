@@ -1,5 +1,7 @@
 # GitGraph
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `statements` | `Statement[]` | No | - |
+
+| Name         | Type          | Optional | Description |
+| :----------- | :------------ | :------- | :---------- |
+| `statements` | `Statement[]` | No       | -           |

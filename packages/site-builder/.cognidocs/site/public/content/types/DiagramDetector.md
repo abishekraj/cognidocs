@@ -1,5 +1,7 @@
 # DiagramDetector
+
 ## Definition
+
 ```typescript
-(text: string, config?: MermaidConfig) => boolean
+(text: string, config?: MermaidConfig) => boolean;
 ```

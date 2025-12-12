@@ -1,11 +1,14 @@
 # FoldingRangeClientCapabilities
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `dynamicRegistration` | `boolean` | Yes | - |
-| `rangeLimit` | `uinteger` | Yes | - |
-| `lineFoldingOnly` | `boolean` | Yes | - |
-| `foldingRangeKind` | `{
+
+| Name                  | Type       | Optional | Description |
+| :-------------------- | :--------- | :------- | :---------- |
+| `dynamicRegistration` | `boolean`  | Yes      | -           |
+| `rangeLimit`          | `uinteger` | Yes      | -           |
+| `lineFoldingOnly`     | `boolean`  | Yes      | -           |
+| `foldingRangeKind`    | `{         |
+
         /**
          * The folding range kind values the client supports. When this
          * property exists the client also guarantees that it will
@@ -14,6 +17,7 @@
          */
         valueSet?: FoldingRangeKind[];
     }` | Yes | - |
+
 | `foldingRange` | `{
         /**
         * If set, the client signals that it supports setting collapsedText on

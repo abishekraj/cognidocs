@@ -1,12 +1,16 @@
 # Platform
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `getElementRects` | `(args: {
+
+| Name              | Type      | Optional | Description |
+| :---------------- | :-------- | :------- | :---------- |
+| `getElementRects` | `(args: { |
+
         reference: ReferenceElement;
         floating: FloatingElement;
         strategy: Strategy;
     }) => Promisable<ElementRects>` | No | - |
+
 | `getClippingRect` | `(args: {
         element: any;
         boundary: Boundary;

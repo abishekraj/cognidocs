@@ -1,5 +1,7 @@
 # RemoteWorkspace
+
 ## Definition
+
 ```typescript
-_RemoteWorkspace & Configuration & WorkspaceFolders & FileOperationsFeatureShape
+_RemoteWorkspace & Configuration & WorkspaceFolders & FileOperationsFeatureShape;
 ```

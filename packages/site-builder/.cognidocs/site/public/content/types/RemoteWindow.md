@@ -1,5 +1,7 @@
 # RemoteWindow
+
 ## Definition
+
 ```typescript
-_RemoteWindow & WindowProgress & ShowDocumentFeatureShape
+_RemoteWindow & WindowProgress & ShowDocumentFeatureShape;
 ```

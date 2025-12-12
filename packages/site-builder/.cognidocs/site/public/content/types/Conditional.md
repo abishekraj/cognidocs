@@ -1,5 +1,7 @@
 # Conditional
+
 ## Definition
+
 ```typescript
-ConditionalExpression | IfStatement
+ConditionalExpression | IfStatement;
 ```

@@ -1,5 +1,7 @@
 # LookaheadProductionType
+
 ## Definition
+
 ```typescript
-OptionalProductionType | "Alternation"
+OptionalProductionType | 'Alternation';
 ```

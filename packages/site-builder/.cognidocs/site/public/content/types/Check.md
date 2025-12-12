@@ -1,5 +1,7 @@
 # Check
+
 ## Definition
+
 ```typescript
-import("./lib/index.js").Check
+import('./lib/index.js').Check;
 ```

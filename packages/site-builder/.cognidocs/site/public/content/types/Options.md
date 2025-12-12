@@ -3,6 +3,7 @@
 Configuration (required).
 
 ## Definition
+
 ```typescript
 {
   /**

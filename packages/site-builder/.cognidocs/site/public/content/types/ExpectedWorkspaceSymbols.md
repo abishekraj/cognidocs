@@ -1,5 +1,7 @@
 # ExpectedWorkspaceSymbols
+
 ## Definition
+
 ```typescript
-ExpectedWorkspaceSymbolsList | ExpectedWorkspaceSymbolsCallback
+ExpectedWorkspaceSymbolsList | ExpectedWorkspaceSymbolsCallback;
 ```

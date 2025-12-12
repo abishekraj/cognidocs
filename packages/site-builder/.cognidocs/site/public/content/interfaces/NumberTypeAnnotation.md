@@ -1,5 +1,7 @@
 # NumberTypeAnnotation
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `type` | `"NumberTypeAnnotation"` | No | - |
+
+| Name   | Type                     | Optional | Description |
+| :----- | :----------------------- | :------- | :---------- |
+| `type` | `"NumberTypeAnnotation"` | No       | -           |

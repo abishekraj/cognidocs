@@ -3,6 +3,7 @@
 A parameter literal used in inline completion requests.
 
 ## Definition
+
 ```typescript
 WorkDoneProgressParams & TextDocumentPositionParams & {
     /**

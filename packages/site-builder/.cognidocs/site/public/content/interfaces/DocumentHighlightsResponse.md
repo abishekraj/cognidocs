@@ -3,6 +3,7 @@
 Response for a DocumentHighlightsRequest request.
 
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `body` | `DocumentHighlightsItem[]` | Yes | - |
+
+| Name   | Type                       | Optional | Description |
+| :----- | :------------------------- | :------- | :---------- |
+| `body` | `DocumentHighlightsItem[]` | Yes      | -           |

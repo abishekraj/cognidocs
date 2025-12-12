@@ -1,5 +1,7 @@
 # Sources
+
 ## Definition
+
 ```typescript
-OriginalSource | MapSource
+OriginalSource | MapSource;
 ```

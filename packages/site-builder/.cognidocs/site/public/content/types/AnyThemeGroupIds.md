@@ -1,5 +1,7 @@
 # AnyThemeGroupIds
+
 ## Definition
+
 ```typescript
-string
+string;
 ```

@@ -1,5 +1,7 @@
 # BooleanTypeAnnotation
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `type` | `"BooleanTypeAnnotation"` | No | - |
+
+| Name   | Type                      | Optional | Description |
+| :----- | :------------------------ | :------- | :---------- |
+| `type` | `"BooleanTypeAnnotation"` | No       | -           |

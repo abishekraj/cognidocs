@@ -1,5 +1,7 @@
 # NodeSingularData
+
 ## Definition
+
 ```typescript
 {
     type: 'service';

@@ -1,5 +1,7 @@
 # OriginalSource
+
 ## Definition
+
 ```typescript
 {
   map: null;

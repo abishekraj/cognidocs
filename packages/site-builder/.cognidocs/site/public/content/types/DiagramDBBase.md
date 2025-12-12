@@ -3,6 +3,7 @@
 DiagramDB with fields that is required for all new diagrams.
 
 ## Definition
+
 ```typescript
 {
     getConfig: () => Required<T>;

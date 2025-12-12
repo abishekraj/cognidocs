@@ -1,5 +1,7 @@
 # WordWrap
+
 ## Definition
+
 ```typescript
-Globals | "break-word" | "normal"
+Globals | 'break-word' | 'normal';
 ```

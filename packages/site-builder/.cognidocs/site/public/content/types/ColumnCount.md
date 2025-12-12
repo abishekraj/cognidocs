@@ -1,5 +1,7 @@
 # ColumnCount
+
 ## Definition
+
 ```typescript
-Globals | "auto" | (number & {}) | (string & {})
+Globals | 'auto' | (number & {}) | (string & {});
 ```

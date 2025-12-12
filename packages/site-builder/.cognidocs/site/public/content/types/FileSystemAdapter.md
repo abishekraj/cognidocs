@@ -1,5 +1,7 @@
 # FileSystemAdapter
+
 ## Definition
+
 ```typescript
-fsWalk.FileSystemAdapter
+fsWalk.FileSystemAdapter;
 ```

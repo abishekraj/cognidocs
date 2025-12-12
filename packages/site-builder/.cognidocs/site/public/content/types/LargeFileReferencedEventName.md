@@ -1,5 +1,7 @@
 # LargeFileReferencedEventName
+
 ## Definition
+
 ```typescript
-"largeFileReferenced"
+'largeFileReferenced';
 ```

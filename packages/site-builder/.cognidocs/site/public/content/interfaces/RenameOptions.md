@@ -3,6 +3,7 @@
 Provider options for a {@link RenameRequest}.
 
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `prepareProvider` | `boolean` | Yes | - |
+
+| Name              | Type      | Optional | Description |
+| :---------------- | :-------- | :------- | :---------- |
+| `prepareProvider` | `boolean` | Yes      | -           |

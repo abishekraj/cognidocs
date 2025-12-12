@@ -3,6 +3,7 @@
 A full document diagnostic report for a workspace diagnostic result.
 
 ## Definition
+
 ```typescript
 FullDocumentDiagnosticReport & {
     /**

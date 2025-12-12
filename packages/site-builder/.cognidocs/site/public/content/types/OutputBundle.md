@@ -1,5 +1,7 @@
 # OutputBundle
+
 ## Definition
+
 ```typescript
-Record<string, OutputAsset | OutputChunk>
+Record<string, OutputAsset | OutputChunk>;
 ```

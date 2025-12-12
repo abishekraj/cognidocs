@@ -7,9 +7,11 @@
 ## What Was Built
 
 ### 1. TypeScript Parser ✅
+
 **File:** [packages/parser/src/parsers/typescript-parser.ts](packages/parser/src/parsers/typescript-parser.ts)
 
 **Features:**
+
 - Full TypeScript Compiler API integration
 - Parses `.ts` and `.tsx` files
 - Extracts:
@@ -25,9 +27,11 @@
 - Error handling for invalid files
 
 ### 2. React Component Parser ✅
+
 **File:** [packages/parser/src/parsers/react-parser.ts](packages/parser/src/parsers/react-parser.ts)
 
 **Features:**
+
 - Detects React function components (arrow functions and function declarations)
 - Detects React class components
 - Extracts component props from:
@@ -38,9 +42,11 @@
 - Framework identification (marks as 'react')
 
 ### 3. CLI - Init Command ✅
+
 **File:** [packages/cli/src/commands/init.ts](packages/cli/src/commands/init.ts)
 
 **Features:**
+
 - Interactive prompts for configuration
 - Questions for:
   - Entry point directory
@@ -55,6 +61,7 @@
 - Beautiful terminal output with chalk colors
 
 **Usage:**
+
 ```bash
 cognidocs init                  # Interactive mode
 cognidocs init --yes            # Use defaults
@@ -62,9 +69,11 @@ cognidocs init --force --yes    # Overwrite existing
 ```
 
 ### 4. CLI - Build Command ✅
+
 **File:** [packages/cli/src/commands/build.ts](packages/cli/src/commands/build.ts)
 
 **Features:**
+
 - Loads configuration from `cognidocs.config.js`
 - Orchestrates parsing workflow:
   1. Parse TypeScript files
@@ -79,6 +88,7 @@ cognidocs init --force --yes    # Overwrite existing
 - Error handling with helpful messages
 
 **Usage:**
+
 ```bash
 cognidocs build                       # Build with default config
 cognidocs build --config custom.js    # Custom config
@@ -86,21 +96,25 @@ cognidocs build --output ./build      # Custom output dir
 ```
 
 **Output Format (Phase 1):**
+
 - JSON files with complete metadata
 - Ready for Phase 3 HTML generation
 
 ### 5. Shared Libraries ✅
 
 #### @cognidocs/types
+
 - Complete type definitions for all metadata structures
 - ParseResult, ComponentMetadata, FunctionMetadata, etc.
 
 #### @cognidocs/utils
+
 - File utilities (fileExists, ensureDir, readJsonFile, writeJsonFile)
 - Path utilities (normalizePathSeparators, getRelativePath, isTypeScriptFile)
 - String utilities (capitalize, camelToKebab, kebabToCamel, truncate)
 
 #### @cognidocs/constants
+
 - Supported frameworks list
 - Supported file extensions
 - Default themes
@@ -108,11 +122,14 @@ cognidocs build --output ./build      # Custom output dir
 - Config file names
 
 ### 6. Tests ✅
+
 **Files:**
-- [packages/parser/src/__tests__/typescript-parser.test.ts](packages/parser/src/__tests__/typescript-parser.test.ts)
-- [packages/parser/src/__tests__/react-parser.test.ts](packages/parser/src/__tests__/react-parser.test.ts)
+
+- [packages/parser/src/**tests**/typescript-parser.test.ts](packages/parser/src/__tests__/typescript-parser.test.ts)
+- [packages/parser/src/**tests**/react-parser.test.ts](packages/parser/src/__tests__/react-parser.test.ts)
 
 **Test Coverage:**
+
 - Function parsing with JSDoc
 - Interface parsing with optional properties
 - Class parsing with methods and properties
@@ -125,21 +142,25 @@ cognidocs build --output ./build      # Custom output dir
 ## How to Test
 
 ### 1. Install Dependencies
+
 ```bash
 npm install
 ```
 
 ### 2. Build Packages
+
 ```bash
 npm run build
 ```
 
 ### 3. Link CLI
+
 ```bash
 npm link -w @cognidocs/cli
 ```
 
 ### 4. Test with Sample Project
+
 ```bash
 cd examples/sample-react
 cognidocs init --yes
@@ -147,6 +168,7 @@ cognidocs build
 ```
 
 **Expected Output:**
+
 ```
 📚 Building CogniDocs documentation...
 
@@ -177,12 +199,14 @@ cognidocs build
 ```
 
 ### 5. Inspect Output
+
 ```bash
 cat docs/data.json                  # Full parsed data
 cat docs/components/Button.json     # Individual component
 ```
 
 ### 6. Run Tests
+
 ```bash
 npm test --filter=@cognidocs/parser
 ```
@@ -190,28 +214,33 @@ npm test --filter=@cognidocs/parser
 ## Phase 1 Achievements
 
 ✅ **Core Parsing**
+
 - TypeScript Compiler API fully integrated
 - React component detection working
 - JSDoc extraction complete
 
 ✅ **CLI Foundation**
+
 - Interactive init command
 - Build orchestration working
 - Error handling in place
 - Beautiful terminal output
 
 ✅ **Project Structure**
+
 - Monorepo with Turbo
 - All 10 phases scaffolded
 - TypeScript throughout
 - ESLint + Prettier configured
 
 ✅ **Testing**
+
 - Test framework (Vitest) set up
 - Parser tests written
 - Sample React project created
 
 ✅ **Documentation**
+
 - README.md with project overview
 - CLAUDE.md for future development
 - PHASES.md with phase breakdown
@@ -221,6 +250,7 @@ npm test --filter=@cognidocs/parser
 ## Limitations (By Design for Phase 1)
 
 ❌ **Not Yet Implemented (Coming in Later Phases):**
+
 - HTML documentation generation (Phase 3)
 - Dependency graphs (Phase 2)
 - Coverage calculation (Phase 2)
@@ -233,12 +263,14 @@ npm test --filter=@cognidocs/parser
 ## What Phase 1 Delivers
 
 **A working CLI** that can:
+
 1. Initialize a configuration file interactively
 2. Parse TypeScript/React projects
 3. Extract comprehensive metadata
 4. Output structured JSON data
 
 **The foundation** for:
+
 - Phase 2: Using this data to build dependency graphs
 - Phase 3: Converting JSON to beautiful HTML documentation
 - Future phases: All advanced features
@@ -246,12 +278,14 @@ npm test --filter=@cognidocs/parser
 ## Performance
 
 **Benchmarks (on example project):**
+
 - Parse 2 files: <50ms
 - Build complete: <100ms
 - Expected for 100 files: <1s
 - Expected for 1000 files: <10s
 
 **Memory:**
+
 - Efficient AST traversal
 - Streaming for large projects ready
 
@@ -260,6 +294,7 @@ npm test --filter=@cognidocs/parser
 **Goal:** Analysis & Coverage (Weeks 4-5)
 
 **Tasks:**
+
 1. Implement `@cognidocs/analyzer`
    - Build dependency graphs from parse results
    - Detect circular dependencies
@@ -277,6 +312,7 @@ npm test --filter=@cognidocs/parser
    - `cognidocs coverage` - Generate coverage report
 
 **To start Phase 2:**
+
 ```bash
 # Reference the phase
 "Let's implement Phase 2"
@@ -287,6 +323,7 @@ npm test --filter=@cognidocs/parser
 ## Files Changed/Created in Phase 1
 
 ### New Files
+
 - `packages/parser/src/parsers/typescript-parser.ts` (373 lines)
 - `packages/parser/src/parsers/react-parser.ts` (327 lines)
 - `packages/cli/src/commands/init.ts` (156 lines)
@@ -295,11 +332,13 @@ npm test --filter=@cognidocs/parser
 - `packages/parser/src/__tests__/react-parser.test.ts`
 
 ### Modified Files
+
 - `packages/cli/src/cli.ts` - Added real command handlers
 - `shared/types/src/index.ts` - Complete type definitions
 - `shared/utils/src/*.ts` - Utility functions implemented
 
 ### Total Lines of Code (Phase 1)
+
 - Parser: ~700 lines
 - CLI: ~300 lines
 - Tests: ~200 lines
@@ -320,6 +359,7 @@ npm test --filter=@cognidocs/parser
 Phase 1 is complete and ready for Phase 2!
 
 Try it out:
+
 ```bash
 cd examples/sample-react
 cognidocs init

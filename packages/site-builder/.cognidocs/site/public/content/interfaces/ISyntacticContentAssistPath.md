@@ -1,6 +1,8 @@
 # ISyntacticContentAssistPath
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `nextTokenType` | `TokenType` | No | - |
-| `nextTokenOccurrence` | `number` | No | - |
+
+| Name                  | Type        | Optional | Description |
+| :-------------------- | :---------- | :------- | :---------- |
+| `nextTokenType`       | `TokenType` | No       | -           |
+| `nextTokenOccurrence` | `number`    | No       | -           |

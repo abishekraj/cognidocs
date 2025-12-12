@@ -1,5 +1,7 @@
 # TSThisType
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `type` | `"TSThisType"` | No | - |
+
+| Name   | Type           | Optional | Description |
+| :----- | :------------- | :------- | :---------- |
+| `type` | `"TSThisType"` | No       | -           |

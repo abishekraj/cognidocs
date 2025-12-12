@@ -3,6 +3,7 @@
 List of children (deep).
 
 ## Definition
+
 ```typescript
-Array<Nodes | PrimitiveChild>
+Array<Nodes | PrimitiveChild>;
 ```

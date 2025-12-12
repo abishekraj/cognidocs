@@ -1,6 +1,8 @@
 # ExpectDiagnosticOffsetOptions
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `offset` | `number` | No | - |
-| `length` | `number` | No | - |
+
+| Name     | Type     | Optional | Description |
+| :------- | :------- | :------- | :---------- |
+| `offset` | `number` | No       | -           |
+| `length` | `number` | No       | -           |

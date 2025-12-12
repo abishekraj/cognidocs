@@ -1,5 +1,7 @@
 # FlipOptions
+
 ## Definition
+
 ```typescript
-Prettify<Omit<FlipOptions_2, 'boundary'> & DetectOverflowOptions>
+Prettify<Omit<FlipOptions_2, 'boundary'> & DetectOverflowOptions>;
 ```

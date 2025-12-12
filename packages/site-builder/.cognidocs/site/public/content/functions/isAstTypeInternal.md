@@ -3,7 +3,8 @@
 **Return Type:** `boolean`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `type` | `PropertyType` | No | - |
-| `visited` | `Map<PropertyType, boolean>` | No | - |
+
+| Name      | Type                         | Optional | Description |
+| :-------- | :--------------------------- | :------- | :---------- |
+| `type`    | `PropertyType`               | No       | -           |
+| `visited` | `Map<PropertyType, boolean>` | No       | -           |

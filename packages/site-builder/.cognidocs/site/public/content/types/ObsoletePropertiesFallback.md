@@ -1,5 +1,7 @@
 # ObsoletePropertiesFallback
+
 ## Definition
+
 ```typescript
-Fallback<ObsoleteProperties<TLength, TTime>>
+Fallback<ObsoleteProperties<TLength, TTime>>;
 ```

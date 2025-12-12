@@ -5,6 +5,7 @@ AST parser for extracting metadata from JavaScript/TypeScript code.
 ## Phase 1: Foundation
 
 This package provides:
+
 - TypeScript Compiler API integration
 - Babel parser for JavaScript files
 - Component metadata extraction (React, Vue, Svelte)

@@ -3,6 +3,7 @@
 **Return Type:** `TSExternalModuleReference`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `expression` | `StringLiteral` | No | - |
+
+| Name         | Type            | Optional | Description |
+| :----------- | :-------------- | :------- | :---------- |
+| `expression` | `StringLiteral` | No       | -           |

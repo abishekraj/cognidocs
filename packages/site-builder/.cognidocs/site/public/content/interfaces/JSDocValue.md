@@ -1,5 +1,7 @@
 # JSDocValue
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `range` | `Range` | No | - |
+
+| Name    | Type    | Optional | Description |
+| :------ | :------ | :------- | :---------- |
+| `range` | `Range` | No       | -           |

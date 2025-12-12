@@ -1,5 +1,7 @@
 # FindAndReplaceTuple
+
 ## Definition
+
 ```typescript
-import("./lib/index.js").FindAndReplaceTuple
+import('./lib/index.js').FindAndReplaceTuple;
 ```

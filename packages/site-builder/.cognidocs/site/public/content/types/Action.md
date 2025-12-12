@@ -3,6 +3,7 @@
 Union of the action types.
 
 ## Definition
+
 ```typescript
-"skip" | boolean
+'skip' | boolean;
 ```

@@ -1,5 +1,7 @@
-# _Languages
+# \_Languages
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `connection` | `Connection` | No | - |
+
+| Name         | Type         | Optional | Description |
+| :----------- | :----------- | :------- | :---------- |
+| `connection` | `Connection` | No       | -           |

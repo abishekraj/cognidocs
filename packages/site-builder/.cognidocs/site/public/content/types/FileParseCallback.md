@@ -1,5 +1,7 @@
 # FileParseCallback
+
 ## Definition
+
 ```typescript
-(err: Error | null, result: ParseResult | null) => any
+(err: Error | null, result: ParseResult | null) => any;
 ```

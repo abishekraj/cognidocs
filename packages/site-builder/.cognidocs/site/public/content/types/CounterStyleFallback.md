@@ -1,5 +1,7 @@
 # CounterStyleFallback
+
 ## Definition
+
 ```typescript
-Fallback<CounterStyle<TLength, TTime>>
+Fallback<CounterStyle<TLength, TTime>>;
 ```

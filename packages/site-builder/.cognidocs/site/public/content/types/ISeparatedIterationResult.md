@@ -1,5 +1,7 @@
 # ISeparatedIterationResult
+
 ## Definition
+
 ```typescript
 {
   values: OUT[];

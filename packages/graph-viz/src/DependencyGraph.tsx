@@ -20,7 +20,7 @@ export const DependencyGraph: React.FC<DependencyGraphProps> = ({ data }) => {
     : Object.values(data.nodes).map((n: any) => ({ ...n }));
   const links = data.edges.map((e: any) => ({
     source: e.source || e.from,
-    target: e.target || e.to
+    target: e.target || e.to,
   }));
 
   useEffect(() => {

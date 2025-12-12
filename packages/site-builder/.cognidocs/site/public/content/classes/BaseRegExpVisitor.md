@@ -1,5 +1,7 @@
 # BaseRegExpVisitor
+
 ## Methods
+
 ### visit
 
 The entry point visitor method. This will dispatch to the specific visitor method.
@@ -19,43 +21,57 @@ The specific visitor methods Override some of these of create custom visitors.
 **Return:** `void`
 
 ### visitFlags
+
 **Return:** `void`
 
 ### visitDisjunction
+
 **Return:** `void`
 
 ### visitAlternative
+
 **Return:** `void`
 
 ### visitStartAnchor
+
 **Return:** `void`
 
 ### visitEndAnchor
+
 **Return:** `void`
 
 ### visitWordBoundary
+
 **Return:** `void`
 
 ### visitNonWordBoundary
+
 **Return:** `void`
 
 ### visitLookahead
+
 **Return:** `void`
 
 ### visitNegativeLookahead
+
 **Return:** `void`
 
 ### visitCharacter
+
 **Return:** `void`
 
 ### visitSet
+
 **Return:** `void`
 
 ### visitGroup
+
 **Return:** `void`
 
 ### visitGroupBackReference
+
 **Return:** `void`
 
 ### visitQuantifier
+
 **Return:** `void`

@@ -1,5 +1,7 @@
 # AbstractCancellationTokenSource
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `token` | `CancellationToken` | No | - |
+
+| Name    | Type                | Optional | Description |
+| :------ | :------------------ | :------- | :---------- |
+| `token` | `CancellationToken` | No       | -           |

@@ -3,6 +3,7 @@
 **Return Type:** `string`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `node` | `Node \| Window` | No | - |
+
+| Name   | Type             | Optional | Description |
+| :----- | :--------------- | :------- | :---------- |
+| `node` | `Node \| Window` | No       | -           |

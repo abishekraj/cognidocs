@@ -1,5 +1,7 @@
 # VendorLonghandPropertiesFallback
+
 ## Definition
+
 ```typescript
-Fallback<VendorLonghandProperties<TLength, TTime>>
+Fallback<VendorLonghandProperties<TLength, TTime>>;
 ```

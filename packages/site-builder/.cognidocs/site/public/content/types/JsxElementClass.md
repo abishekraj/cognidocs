@@ -1,5 +1,7 @@
 # JsxElementClass
+
 ## Definition
+
 ```typescript
-JSX.ElementClass
+JSX.ElementClass;
 ```

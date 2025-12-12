@@ -1,6 +1,8 @@
 # FileWithProjectReferenceRedirectInfo
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `fileName` | `string` | No | - |
-| `isSourceOfProjectReferenceRedirect` | `boolean` | No | - |
+
+| Name                                 | Type      | Optional | Description |
+| :----------------------------------- | :-------- | :------- | :---------- |
+| `fileName`                           | `string`  | No       | -           |
+| `isSourceOfProjectReferenceRedirect` | `boolean` | No       | -           |

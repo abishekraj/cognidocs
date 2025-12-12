@@ -1,17 +1,20 @@
 # VFile
+
 ## Properties
-| Name | Type | Description |
-| :--- | :--- | :---------- |
-| `cwd` | `string` | - |
-| `data` | `Data` | - |
-| `history` | `Array<string>` | - |
-| `messages` | `Array<VFileMessage>` | - |
-| `value` | `Value` | - |
-| `map` | `Map \| null \| undefined` | - |
-| `result` | `unknown` | - |
-| `stored` | `boolean` | - |
+
+| Name       | Type                       | Description |
+| :--------- | :------------------------- | :---------- |
+| `cwd`      | `string`                   | -           |
+| `data`     | `Data`                     | -           |
+| `history`  | `Array<string>`            | -           |
+| `messages` | `Array<VFileMessage>`      | -           |
+| `value`    | `Value`                    | -           |
+| `map`      | `Map \| null \| undefined` | -           |
+| `result`   | `unknown`                  | -           |
+| `stored`   | `boolean`                  | -           |
 
 ## Methods
+
 ### fail
 
 Create a fatal message for `reason` associated with the file. The `fatal` field of the message is set to `true` (error; file not usable) and the `file` field is set to the current file path. The message is added to the `messages` field on `file`. > 🪦 **Note**: also has obsolete signatures.

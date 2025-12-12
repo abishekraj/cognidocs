@@ -3,6 +3,7 @@
 **Return Type:** `typeof window`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `node` | `any` | No | - |
+
+| Name   | Type  | Optional | Description |
+| :----- | :---- | :------- | :---------- |
+| `node` | `any` | No       | -           |

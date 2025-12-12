@@ -1,5 +1,7 @@
 # LangiumCoreAndPartialLSPServices
+
 ## Definition
+
 ```typescript
-Omit<LangiumCoreServices & PartialLangiumLSPServices, 'shared'>
+Omit<LangiumCoreServices & PartialLangiumLSPServices, 'shared'>;
 ```

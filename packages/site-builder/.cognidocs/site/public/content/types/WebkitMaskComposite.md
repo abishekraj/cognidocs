@@ -1,5 +1,7 @@
 # WebkitMaskComposite
+
 ## Definition
+
 ```typescript
-Globals | DataType.CompositeStyle | (string & {})
+Globals | DataType.CompositeStyle | (string & {});
 ```

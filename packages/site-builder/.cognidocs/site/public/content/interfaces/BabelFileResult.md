@@ -1,11 +1,14 @@
 # BabelFileResult
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `ast` | `t.File \| null \| undefined` | Yes | - |
-| `code` | `string \| null \| undefined` | Yes | - |
-| `ignored` | `boolean \| undefined` | Yes | - |
-| `map` | `\| {
+
+| Name      | Type                          | Optional | Description |
+| :-------- | :---------------------------- | :------- | :---------- |
+| `ast`     | `t.File \| null \| undefined` | Yes      | -           |
+| `code`    | `string \| null \| undefined` | Yes      | -           |
+| `ignored` | `boolean \| undefined`        | Yes      | -           |
+| `map`     | `\| {                         |
+
             version: number;
             sources: string[];
             names: string[];
@@ -16,4 +19,5 @@
         }
         \| null
         \| undefined` | Yes | - |
+
 | `metadata` | `BabelFileMetadata \| undefined` | Yes | - |

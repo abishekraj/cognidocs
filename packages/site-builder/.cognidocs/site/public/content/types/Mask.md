@@ -1,5 +1,7 @@
 # Mask
+
 ## Definition
+
 ```typescript
-Globals | DataType.MaskLayer<TLength> | (string & {})
+Globals | DataType.MaskLayer<TLength> | (string & {});
 ```

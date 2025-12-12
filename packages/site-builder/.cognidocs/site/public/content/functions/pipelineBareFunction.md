@@ -3,6 +3,7 @@
 **Return Type:** `PipelineBareFunction`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `callee` | `Expression` | No | - |
+
+| Name     | Type         | Optional | Description |
+| :------- | :----------- | :------- | :---------- |
+| `callee` | `Expression` | No       | -           |

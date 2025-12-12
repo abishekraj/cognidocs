@@ -1,5 +1,7 @@
 # PartialLangiumSharedCoreServices
+
 ## Definition
+
 ```typescript
-DeepPartial<LangiumSharedCoreServices>
+DeepPartial<LangiumSharedCoreServices>;
 ```

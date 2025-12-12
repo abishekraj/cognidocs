@@ -1,5 +1,7 @@
 # ReverseSegment
+
 ## Definition
+
 ```typescript
-[SourceColumn, GeneratedLine, GeneratedColumn]
+[SourceColumn, GeneratedLine, GeneratedColumn];
 ```

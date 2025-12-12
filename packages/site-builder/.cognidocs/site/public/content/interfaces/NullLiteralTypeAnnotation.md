@@ -1,5 +1,7 @@
 # NullLiteralTypeAnnotation
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `type` | `"NullLiteralTypeAnnotation"` | No | - |
+
+| Name   | Type                          | Optional | Description |
+| :----- | :---------------------------- | :------- | :---------- |
+| `type` | `"NullLiteralTypeAnnotation"` | No       | -           |

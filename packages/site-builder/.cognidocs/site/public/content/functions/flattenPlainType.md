@@ -3,6 +3,7 @@
 **Return Type:** `{ union: PlainPropertyType[], array: PlainPropertyType[] }`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `type` | `PlainPropertyType` | No | - |
+
+| Name   | Type                | Optional | Description |
+| :----- | :------------------ | :------- | :---------- |
+| `type` | `PlainPropertyType` | No       | -           |

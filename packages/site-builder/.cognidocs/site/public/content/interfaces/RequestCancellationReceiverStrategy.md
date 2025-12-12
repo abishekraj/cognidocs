@@ -1,5 +1,7 @@
 # RequestCancellationReceiverStrategy
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `kind` | `'request'` | No | - |
+
+| Name   | Type        | Optional | Description |
+| :----- | :---------- | :------- | :---------- |
+| `kind` | `'request'` | No       | -           |

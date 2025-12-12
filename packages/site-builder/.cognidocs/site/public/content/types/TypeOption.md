@@ -1,5 +1,7 @@
 # TypeOption
+
 ## Definition
+
 ```typescript
-InterfaceType | UnionType
+InterfaceType | UnionType;
 ```

@@ -1,8 +1,9 @@
-# __propKey
+# \_\_propKey
 
 **Return Type:** `string | symbol`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `x` | `any` | No | - |
+
+| Name | Type  | Optional | Description |
+| :--- | :---- | :------- | :---------- |
+| `x`  | `any` | No       | -           |

@@ -1,5 +1,7 @@
 # LoadersSync
+
 ## Definition
+
 ```typescript
-Record<string, LoaderSync>
+Record<string, LoaderSync>;
 ```

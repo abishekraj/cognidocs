@@ -7,6 +7,7 @@ API reference documentation generator.
 **Status:** 🔴 Not Started
 
 This package will provide:
+
 - API documentation generation
 - JSDoc formatting
 - Component reference pages

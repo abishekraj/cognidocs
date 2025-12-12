@@ -1,5 +1,7 @@
 # DiagnosticInfo
+
 ## Definition
+
 ```typescript
 {
     /** The AST node to which the diagnostic is attached. */

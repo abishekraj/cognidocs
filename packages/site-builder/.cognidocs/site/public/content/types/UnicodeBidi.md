@@ -1,5 +1,7 @@
 # UnicodeBidi
+
 ## Definition
+
 ```typescript
 | Globals
     | "-moz-isolate"

@@ -1,5 +1,7 @@
 # TSIntrinsicKeyword
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `type` | `"TSIntrinsicKeyword"` | No | - |
+
+| Name   | Type                   | Optional | Description |
+| :----- | :--------------------- | :------- | :---------- |
+| `type` | `"TSIntrinsicKeyword"` | No       | -           |

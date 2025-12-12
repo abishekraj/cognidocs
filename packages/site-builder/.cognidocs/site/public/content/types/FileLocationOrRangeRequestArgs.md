@@ -1,5 +1,7 @@
 # FileLocationOrRangeRequestArgs
+
 ## Definition
+
 ```typescript
-FileLocationRequestArgs | FileRangeRequestArgs
+FileLocationRequestArgs | FileRangeRequestArgs;
 ```

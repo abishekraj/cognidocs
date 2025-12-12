@@ -1,5 +1,7 @@
 # MsWrapThrough
+
 ## Definition
+
 ```typescript
-Globals | "none" | "wrap"
+Globals | 'none' | 'wrap';
 ```

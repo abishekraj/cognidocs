@@ -1,5 +1,7 @@
 # AnyClassGroupIds
+
 ## Definition
+
 ```typescript
-string
+string;
 ```

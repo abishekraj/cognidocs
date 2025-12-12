@@ -1,8 +1,11 @@
 # EdgeSingular
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `_private` | `{
+
+| Name       | Type | Optional | Description |
+| :--------- | :--- | :------- | :---------- |
+| `_private` | `{   |
+
         bodyBounds: unknown;
         rscratch: {
             startX: number;

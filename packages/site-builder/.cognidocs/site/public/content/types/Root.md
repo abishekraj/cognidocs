@@ -1,5 +1,7 @@
 # Root
+
 ## Definition
+
 ```typescript
-import('mdast').Root
+import('mdast').Root;
 ```

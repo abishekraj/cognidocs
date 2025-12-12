@@ -1,5 +1,7 @@
 # MaxWidth
+
 ## Definition
+
 ```typescript
 | Globals
     | TLength

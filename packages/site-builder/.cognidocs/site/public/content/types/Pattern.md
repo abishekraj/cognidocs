@@ -1,5 +1,7 @@
 # Pattern
+
 ## Definition
+
 ```typescript
 | Identifier
 | MemberExpression

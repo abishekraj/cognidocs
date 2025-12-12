@@ -1,5 +1,7 @@
 # OrganizeImportsScope
+
 ## Definition
+
 ```typescript
-GetCombinedCodeFixScope
+GetCombinedCodeFixScope;
 ```

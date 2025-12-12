@@ -1,16 +1,19 @@
 # Command
+
 ## Properties
-| Name | Type | Description |
-| :--- | :--- | :---------- |
-| `args` | `string[]` | - |
-| `processedArgs` | `any[]` | - |
-| `commands` | `Command[]` | - |
-| `parent` | `Command \| null` | - |
+
+| Name            | Type              | Description |
+| :-------------- | :---------------- | :---------- |
+| `args`          | `string[]`        | -           |
+| `processedArgs` | `any[]`           | -           |
+| `commands`      | `Command[]`       | -           |
+| `parent`        | `Command \| null` | -           |
 
 ## Methods
+
 ### version
 
-Set the program version to `str`. This method auto-registers the "-V, --version" flag which will print the version number when passed. You can optionally supply the  flags and description to override the defaults.
+Set the program version to `str`. This method auto-registers the "-V, --version" flag which will print the version number when passed. You can optionally supply the flags and description to override the defaults.
 
 **Return:** `this`
 
@@ -51,6 +54,7 @@ Define argument syntax for command. The default is that the argument is required
 **Return:** `this`
 
 ### argument
+
 **Return:** `this`
 
 ### addArgument
@@ -96,15 +100,17 @@ You can customise the help by overriding Help properties using configureHelp(), 
 **Return:** `this`
 
 ### configureHelp
+
 **Return:** `HelpConfiguration`
 
 ### configureOutput
 
-The default output goes to stdout and stderr. You can customise this for special applications. You can also customise the display of errors by overriding outputError. The configuration properties are all functions: ``` // functions to change where being written, stdout and stderr writeOut(str) writeErr(str) // matching functions to specify width for wrapping help getOutHelpWidth() getErrHelpWidth() // functions based on what is being written out outputError(str, write) // used for displaying errors, and not used for displaying help ```
+The default output goes to stdout and stderr. You can customise this for special applications. You can also customise the display of errors by overriding outputError. The configuration properties are all functions: `// functions to change where being written, stdout and stderr writeOut(str) writeErr(str) // matching functions to specify width for wrapping help getOutHelpWidth() getErrHelpWidth() // functions based on what is being written out outputError(str, write) // used for displaying errors, and not used for displaying help`
 
 **Return:** `this`
 
 ### configureOutput
+
 **Return:** `OutputConfiguration`
 
 ### copyInheritedSettings
@@ -138,9 +144,11 @@ Define option with `flags`, `description` and optional coercion `fn`. The `flags
 **Return:** `this`
 
 ### option
+
 **Return:** `this`
 
 ### option
+
 **Return:** `this`
 
 ### requiredOption
@@ -150,9 +158,11 @@ Define a required option, which must have a value after parsing. This usually me
 **Return:** `this`
 
 ### requiredOption
+
 **Return:** `this`
 
 ### requiredOption
+
 **Return:** `this`
 
 ### createOption
@@ -174,9 +184,11 @@ Whether to store option values as properties on command object, or store separat
 **Return:** `this & T`
 
 ### storeOptionsAsProperties
+
 **Return:** `this & T`
 
 ### storeOptionsAsProperties
+
 **Return:** `this`
 
 ### getOptionValue
@@ -264,6 +276,7 @@ Set the description.
 **Return:** `this`
 
 ### description
+
 **Return:** `this`
 
 ### description
@@ -327,6 +340,7 @@ Output help information for this command. Outputs built-in help, and custom text
 **Return:** `void`
 
 ### outputHelp
+
 **Return:** `void`
 
 ### helpInformation
@@ -348,6 +362,7 @@ Output help information and exit. Outputs built-in help, and custom text added u
 **Return:** `never`
 
 ### help
+
 **Return:** `never`
 
 ### addHelpText
@@ -357,6 +372,7 @@ Add additional text to be displayed with the built-in help. Position is 'before'
 **Return:** `this`
 
 ### addHelpText
+
 **Return:** `this`
 
 ### on

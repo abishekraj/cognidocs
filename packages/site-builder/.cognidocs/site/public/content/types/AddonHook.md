@@ -1,5 +1,7 @@
 # AddonHook
+
 ## Definition
+
 ```typescript
-string | AddonHookFunction
+string | AddonHookFunction;
 ```

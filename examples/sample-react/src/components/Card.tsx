@@ -106,9 +106,7 @@ export const Card: React.FC<CardProps> = ({
         <h3 className="card-title">{title}</h3>
         {subtitle && <p className="card-subtitle">{subtitle}</p>}
       </div>
-      <div className="card-body">
-        {loading ? <div className="loading-spinner" /> : children}
-      </div>
+      <div className="card-body">{loading ? <div className="loading-spinner" /> : children}</div>
       {isHovered && <div className="card-hover-effect" />}
     </div>
   );

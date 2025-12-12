@@ -1,5 +1,7 @@
 # SimpleCacheKey
+
 ## Definition
+
 ```typescript
-string | boolean | number | null | undefined
+string | boolean | number | null | undefined;
 ```

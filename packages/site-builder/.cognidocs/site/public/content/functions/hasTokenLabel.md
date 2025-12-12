@@ -3,6 +3,7 @@
 **Return Type:** `obj is TokenType & Pick<Required<TokenType>, "LABEL">`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `obj` | `TokenType` | No | - |
+
+| Name  | Type        | Optional | Description |
+| :---- | :---------- | :------- | :---------- |
+| `obj` | `TokenType` | No       | -           |

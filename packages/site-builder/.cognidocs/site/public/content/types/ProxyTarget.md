@@ -1,5 +1,7 @@
 # ProxyTarget
+
 ## Definition
+
 ```typescript
-ProxyTargetUrl | ProxyTargetDetailed
+ProxyTargetUrl | ProxyTargetDetailed;
 ```

@@ -1,5 +1,7 @@
 # VectorEffect
+
 ## Definition
+
 ```typescript
-Globals | "fixed-position" | "non-rotation" | "non-scaling-size" | "non-scaling-stroke" | "none"
+Globals | 'fixed-position' | 'non-rotation' | 'non-scaling-size' | 'non-scaling-stroke' | 'none';
 ```

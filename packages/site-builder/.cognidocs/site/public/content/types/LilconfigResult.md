@@ -1,5 +1,7 @@
 # LilconfigResult
+
 ## Definition
+
 ```typescript
 null | {
 	filepath: string;

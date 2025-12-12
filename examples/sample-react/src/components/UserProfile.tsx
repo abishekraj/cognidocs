@@ -51,7 +51,11 @@ export const UserProfile: React.FC<UserProfileProps> = ({
   );
 };
 
-export function getUserDisplayName(user: { firstName?: string; lastName?: string; username: string }) {
+export function getUserDisplayName(user: {
+  firstName?: string;
+  lastName?: string;
+  username: string;
+}) {
   if (user.firstName && user.lastName) {
     return `${user.firstName} ${user.lastName}`;
   }

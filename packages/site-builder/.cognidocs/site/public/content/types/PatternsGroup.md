@@ -1,5 +1,7 @@
 # PatternsGroup
+
 ## Definition
+
 ```typescript
-Record<string, Pattern[]>
+Record<string, Pattern[]>;
 ```

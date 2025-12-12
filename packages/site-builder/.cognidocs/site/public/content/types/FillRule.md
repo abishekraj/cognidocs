@@ -1,5 +1,7 @@
 # FillRule
+
 ## Definition
+
 ```typescript
-Globals | "evenodd" | "nonzero"
+Globals | 'evenodd' | 'nonzero';
 ```

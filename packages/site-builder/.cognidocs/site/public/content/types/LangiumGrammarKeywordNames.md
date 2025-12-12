@@ -1,5 +1,7 @@
 # LangiumGrammarKeywordNames
+
 ## Definition
+
 ```typescript
 | "!"
     | "&"

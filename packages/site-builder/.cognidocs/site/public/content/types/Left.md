@@ -1,5 +1,7 @@
 # Left
+
 ## Definition
+
 ```typescript
-Globals | TLength | "auto" | (string & {})
+Globals | TLength | 'auto' | (string & {});
 ```

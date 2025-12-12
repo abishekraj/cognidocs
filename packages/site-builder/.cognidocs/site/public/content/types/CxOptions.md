@@ -1,5 +1,7 @@
 # CxOptions
+
 ## Definition
+
 ```typescript
-Parameters<typeof clsx>
+Parameters<typeof clsx>;
 ```

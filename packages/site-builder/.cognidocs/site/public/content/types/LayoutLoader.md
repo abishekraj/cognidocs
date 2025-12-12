@@ -1,5 +1,7 @@
 # LayoutLoader
+
 ## Definition
+
 ```typescript
-() => Promise<LayoutAlgorithm>
+() => Promise<LayoutAlgorithm>;
 ```

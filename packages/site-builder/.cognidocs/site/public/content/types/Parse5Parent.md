@@ -1,5 +1,7 @@
 # Parse5Parent
+
 ## Definition
+
 ```typescript
-DefaultTreeAdapterMap["parentNode"]
+DefaultTreeAdapterMap['parentNode'];
 ```

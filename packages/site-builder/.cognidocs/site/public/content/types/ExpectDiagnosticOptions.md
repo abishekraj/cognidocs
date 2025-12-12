@@ -1,5 +1,7 @@
 # ExpectDiagnosticOptions
+
 ## Definition
+
 ```typescript
-ExpectDiagnosticContent & ExpectDiagnosticOptionsWithoutContent<T>
+ExpectDiagnosticContent & ExpectDiagnosticOptionsWithoutContent<T>;
 ```

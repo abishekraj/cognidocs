@@ -1,5 +1,7 @@
 # MindmapLayoutEdge
+
 ## Definition
+
 ```typescript
 Edge & {
     depth: number;

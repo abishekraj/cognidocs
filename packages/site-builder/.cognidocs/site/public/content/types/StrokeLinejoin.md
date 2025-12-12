@@ -1,5 +1,7 @@
 # StrokeLinejoin
+
 ## Definition
+
 ```typescript
-Globals | "arcs" | "bevel" | "miter" | "miter-clip" | "round"
+Globals | 'arcs' | 'bevel' | 'miter' | 'miter-clip' | 'round';
 ```

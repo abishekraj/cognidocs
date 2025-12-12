@@ -1,5 +1,7 @@
 # Middleware
+
 ## Definition
+
 ```typescript
-import('./lib/index.js').Middleware
+import('./lib/index.js').Middleware;
 ```

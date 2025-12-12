@@ -3,6 +3,7 @@
 **Return Type:** `Theme[]`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `mode` | `'light' \| 'dark'` | No | - |
+
+| Name   | Type                | Optional | Description |
+| :----- | :------------------ | :------- | :---------- |
+| `mode` | `'light' \| 'dark'` | No       | -           |

@@ -1,5 +1,7 @@
 # SelectionRangeResponse
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `body` | `SelectionRange[]` | Yes | - |
+
+| Name   | Type               | Optional | Description |
+| :----- | :----------------- | :------- | :---------- |
+| `body` | `SelectionRange[]` | Yes      | -           |

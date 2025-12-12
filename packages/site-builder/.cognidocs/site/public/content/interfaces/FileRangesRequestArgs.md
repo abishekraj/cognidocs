@@ -1,5 +1,7 @@
 # FileRangesRequestArgs
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `ranges` | `FileRange[]` | No | - |
+
+| Name     | Type          | Optional | Description |
+| :------- | :------------ | :------- | :---------- |
+| `ranges` | `FileRange[]` | No       | -           |

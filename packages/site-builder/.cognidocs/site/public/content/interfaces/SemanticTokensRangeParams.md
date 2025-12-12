@@ -1,6 +1,8 @@
 # SemanticTokensRangeParams
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `textDocument` | `TextDocumentIdentifier` | No | - |
-| `range` | `Range` | No | - |
+
+| Name           | Type                     | Optional | Description |
+| :------------- | :----------------------- | :------- | :---------- |
+| `textDocument` | `TextDocumentIdentifier` | No       | -           |
+| `range`        | `Range`                  | No       | -           |

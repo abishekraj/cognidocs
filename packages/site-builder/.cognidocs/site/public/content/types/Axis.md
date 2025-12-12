@@ -1,5 +1,7 @@
 # Axis
+
 ## Definition
+
 ```typescript
-'v' | 'h'
+'v' | 'h';
 ```

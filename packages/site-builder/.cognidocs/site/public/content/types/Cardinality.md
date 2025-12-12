@@ -1,5 +1,7 @@
 # Cardinality
+
 ## Definition
+
 ```typescript
-'?' | '*' | '+' | undefined
+'?' | '*' | '+' | undefined;
 ```

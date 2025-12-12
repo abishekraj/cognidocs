@@ -1,5 +1,7 @@
 # Properties
+
 ## Definition
+
 ```typescript
-import("./lib/create-h.js").Properties
+import('./lib/create-h.js').Properties;
 ```

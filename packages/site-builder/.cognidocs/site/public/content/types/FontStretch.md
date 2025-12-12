@@ -1,5 +1,7 @@
 # FontStretch
+
 ## Definition
+
 ```typescript
-Globals | DataType.FontStretchAbsolute
+Globals | DataType.FontStretchAbsolute;
 ```

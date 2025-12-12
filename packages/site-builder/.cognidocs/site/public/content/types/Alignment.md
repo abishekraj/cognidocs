@@ -1,5 +1,7 @@
 # Alignment
+
 ## Definition
+
 ```typescript
-'start' | 'end'
+'start' | 'end';
 ```

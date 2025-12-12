@@ -1,5 +1,7 @@
 # Operator
+
 ## Definition
+
 ```typescript
-'=' | '+=' | '?=' | undefined
+'=' | '+=' | '?=' | undefined;
 ```

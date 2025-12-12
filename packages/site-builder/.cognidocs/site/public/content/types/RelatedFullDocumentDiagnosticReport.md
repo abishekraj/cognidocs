@@ -3,6 +3,7 @@
 A full diagnostic report with a set of related documents.
 
 ## Definition
+
 ```typescript
 FullDocumentDiagnosticReport & {
     /**

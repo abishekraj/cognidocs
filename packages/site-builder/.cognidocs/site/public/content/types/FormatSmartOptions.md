@@ -1,5 +1,7 @@
 # FormatSmartOptions
+
 ## Definition
+
 ```typescript
 {
     /**

@@ -5,8 +5,9 @@
 }`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `grammarName` | `string` | No | - |
-| `ruleNames` | `string[]` | No | - |
-| `baseConstructor` | `Function` | No | - |
+
+| Name              | Type       | Optional | Description |
+| :---------------- | :--------- | :------- | :---------- |
+| `grammarName`     | `string`   | No       | -           |
+| `ruleNames`       | `string[]` | No       | -           |
+| `baseConstructor` | `Function` | No       | -           |

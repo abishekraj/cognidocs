@@ -3,19 +3,21 @@
 Checker implements validation of objects, and also includes accessors to validate method calls. Checkers should be created using `createCheckers()`.
 
 ## Properties
-| Name | Type | Description |
-| :--- | :--- | :---------- |
-| `suite` | `any` | - |
-| `ttype` | `any` | - |
-| `_path` | `any` | - |
-| `props` | `any` | - |
-| `checkerPlain` | `any` | - |
-| `checkerStrict` | `any` | - |
-| `_doCheck` | `any` | - |
-| `_doValidate` | `any` | - |
-| `_getMethod` | `any` | - |
+
+| Name            | Type  | Description |
+| :-------------- | :---- | :---------- |
+| `suite`         | `any` | -           |
+| `ttype`         | `any` | -           |
+| `_path`         | `any` | -           |
+| `props`         | `any` | -           |
+| `checkerPlain`  | `any` | -           |
+| `checkerStrict` | `any` | -           |
+| `_doCheck`      | `any` | -           |
+| `_doValidate`   | `any` | -           |
+| `_getMethod`    | `any` | -           |
 
 ## Methods
+
 ### setReportedPath
 
 Set the path to report in errors, instead of the default "value". (E.g. if the Checker is for a "person" interface, set path to "person" to report e.g. "person.name is not a string".)

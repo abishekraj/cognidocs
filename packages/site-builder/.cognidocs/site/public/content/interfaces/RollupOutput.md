@@ -1,5 +1,7 @@
 # RollupOutput
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `output` | `[OutputChunk, ...(OutputChunk \| OutputAsset)[]]` | No | - |
+
+| Name     | Type                                               | Optional | Description |
+| :------- | :------------------------------------------------- | :------- | :---------- |
+| `output` | `[OutputChunk, ...(OutputChunk \| OutputAsset)[]]` | No       | -           |

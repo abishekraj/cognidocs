@@ -1,5 +1,7 @@
 # AnimationIterationCount
+
 ## Definition
+
 ```typescript
-Globals | "infinite" | (string & {}) | (number & {})
+Globals | 'infinite' | (string & {}) | (number & {});
 ```

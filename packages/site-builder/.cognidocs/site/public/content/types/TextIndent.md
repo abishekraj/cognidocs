@@ -1,5 +1,7 @@
 # TextIndent
+
 ## Definition
+
 ```typescript
-Globals | TLength | (string & {})
+Globals | TLength | (string & {});
 ```

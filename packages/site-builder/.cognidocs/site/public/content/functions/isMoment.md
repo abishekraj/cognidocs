@@ -3,6 +3,7 @@
 **Return Type:** `boolean`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `input` | `any` | No | - |
+
+| Name    | Type  | Optional | Description |
+| :------ | :---- | :------- | :---------- |
+| `input` | `any` | No       | -           |

@@ -1,5 +1,7 @@
 # WarningHandler
+
 ## Definition
+
 ```typescript
 (
   this: Context,

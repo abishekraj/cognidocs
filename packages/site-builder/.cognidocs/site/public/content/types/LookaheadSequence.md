@@ -1,5 +1,7 @@
 # LookaheadSequence
+
 ## Definition
+
 ```typescript
 TokenType[][]
 ```

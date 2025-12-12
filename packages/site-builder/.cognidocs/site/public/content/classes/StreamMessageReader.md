@@ -1,2 +1,3 @@
 # StreamMessageReader
+
 **Extends:** `ReadableStreamMessageReader`

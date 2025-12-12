@@ -1,5 +1,7 @@
 # SimplePseudos
+
 ## Definition
+
 ```typescript
 | ":-khtml-any-link"
   | ":-moz-any-link"

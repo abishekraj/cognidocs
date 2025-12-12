@@ -1,5 +1,7 @@
 # SvgPropertiesFallback
+
 ## Definition
+
 ```typescript
-Fallback<SvgProperties<TLength, TTime>>
+Fallback<SvgProperties<TLength, TTime>>;
 ```

@@ -1,5 +1,7 @@
 # ElementContent
+
 ## Definition
+
 ```typescript
-import('hast').ElementContent
+import('hast').ElementContent;
 ```

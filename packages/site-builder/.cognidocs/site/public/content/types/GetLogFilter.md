@@ -1,5 +1,7 @@
 # GetLogFilter
+
 ## Definition
+
 ```typescript
-typeof getLogFilter
+typeof getLogFilter;
 ```

@@ -3,6 +3,7 @@
 An inlay hint label part allows for interactive and composite labels of inlay hints.
 
 ## Definition
+
 ```typescript
 {
     /**

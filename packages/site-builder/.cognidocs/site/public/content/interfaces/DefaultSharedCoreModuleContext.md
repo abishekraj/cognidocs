@@ -1,5 +1,7 @@
 # DefaultSharedCoreModuleContext
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `fileSystemProvider` | `(services: LangiumSharedCoreServices) => FileSystemProvider` | No | - |
+
+| Name                 | Type                                                          | Optional | Description |
+| :------------------- | :------------------------------------------------------------ | :------- | :---------- |
+| `fileSystemProvider` | `(services: LangiumSharedCoreServices) => FileSystemProvider` | No       | -           |

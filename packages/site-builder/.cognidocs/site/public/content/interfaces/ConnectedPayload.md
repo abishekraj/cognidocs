@@ -1,5 +1,7 @@
 # ConnectedPayload
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `type` | `'connected'` | No | - |
+
+| Name   | Type          | Optional | Description |
+| :----- | :------------ | :------- | :---------- |
+| `type` | `'connected'` | No       | -           |

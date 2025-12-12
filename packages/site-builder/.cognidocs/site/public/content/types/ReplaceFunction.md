@@ -1,5 +1,7 @@
 # ReplaceFunction
+
 ## Definition
+
 ```typescript
-import("./lib/index.js").ReplaceFunction
+import('./lib/index.js').ReplaceFunction;
 ```

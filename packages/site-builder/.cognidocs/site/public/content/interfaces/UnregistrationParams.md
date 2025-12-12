@@ -1,5 +1,7 @@
 # UnregistrationParams
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `unregisterations` | `Unregistration[]` | No | - |
+
+| Name               | Type               | Optional | Description |
+| :----------------- | :----------------- | :------- | :---------- |
+| `unregisterations` | `Unregistration[]` | No       | -           |

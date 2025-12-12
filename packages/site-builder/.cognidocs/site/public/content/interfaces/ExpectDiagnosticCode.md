@@ -1,5 +1,7 @@
 # ExpectDiagnosticCode
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `code` | `string` | Yes | - |
+
+| Name   | Type     | Optional | Description |
+| :----- | :------- | :------- | :---------- |
+| `code` | `string` | Yes      | -           |

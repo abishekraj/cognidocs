@@ -1,5 +1,7 @@
 # AbstractType
+
 ## Definition
+
 ```typescript
-InferredType | Interface | ParserRule | Type
+InferredType | Interface | ParserRule | Type;
 ```

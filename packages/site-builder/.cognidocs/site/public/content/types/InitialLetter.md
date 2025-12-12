@@ -1,5 +1,7 @@
 # InitialLetter
+
 ## Definition
+
 ```typescript
-Globals | "normal" | (string & {}) | (number & {})
+Globals | 'normal' | (string & {}) | (number & {});
 ```

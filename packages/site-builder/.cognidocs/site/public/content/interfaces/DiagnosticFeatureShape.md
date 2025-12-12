@@ -3,9 +3,11 @@
 Shape of the linked editing feature
 
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `diagnostics` | `{
+
+| Name          | Type | Optional | Description |
+| :------------ | :--- | :------- | :---------- |
+| `diagnostics` | `{   |
+
         /**
         * Asks the client to refresh all diagnostics provided by this server by
         * pull for the corresponding documents again.

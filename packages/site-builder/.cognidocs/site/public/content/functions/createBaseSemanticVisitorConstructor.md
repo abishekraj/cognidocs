@@ -5,7 +5,8 @@
 }`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `grammarName` | `string` | No | - |
-| `ruleNames` | `string[]` | No | - |
+
+| Name          | Type       | Optional | Description |
+| :------------ | :--------- | :------- | :---------- |
+| `grammarName` | `string`   | No       | -           |
+| `ruleNames`   | `string[]` | No       | -           |

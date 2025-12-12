@@ -1,5 +1,7 @@
 # OptionalProductionType
+
 ## Definition
+
 ```typescript
 | "Option"
   | "RepetitionMandatory"

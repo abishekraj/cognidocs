@@ -3,6 +3,7 @@
 **Return Type:** `TokenType[]`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `prod` | `IProduction` | No | - |
+
+| Name   | Type          | Optional | Description |
+| :----- | :------------ | :------- | :---------- |
+| `prod` | `IProduction` | No       | -           |

@@ -1,5 +1,7 @@
 # ConfigFunction
+
 ## Definition
+
 ```typescript
-(api: ConfigAPI) => TransformOptions
+(api: ConfigAPI) => TransformOptions;
 ```

@@ -3,17 +3,19 @@
 Voronoi regions
 
 ## Properties
-| Name | Type | Description |
-| :--- | :--- | :---------- |
-| `delaunay` | `Delaunay<P>` | - |
-| `circumcenters` | `Float64Array` | - |
-| `vectors` | `Float64Array` | - |
-| `xmin` | `number` | - |
-| `ymin` | `number` | - |
-| `xmax` | `number` | - |
-| `ymax` | `number` | - |
+
+| Name            | Type           | Description |
+| :-------------- | :------------- | :---------- |
+| `delaunay`      | `Delaunay<P>`  | -           |
+| `circumcenters` | `Float64Array` | -           |
+| `vectors`       | `Float64Array` | -           |
+| `xmin`          | `number`       | -           |
+| `ymin`          | `number`       | -           |
+| `xmax`          | `number`       | -           |
+| `ymax`          | `number`       | -           |
 
 ## Methods
+
 ### contains
 
 Returns true if the cell with the specified index i contains the specified point ⟨x, y⟩. (This method is not affected by the associated Voronoi diagram’s viewport bounds.)

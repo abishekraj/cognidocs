@@ -85,7 +85,9 @@ export function CodeBlock({
       )}
 
       {/* Code content */}
-      <pre className={`bg-muted border border-border p-4 overflow-x-auto ${isMultiLineCode && showCopyButton ? 'rounded-b-lg border-t-0' : 'rounded-lg'}`}>
+      <pre
+        className={`bg-muted border border-border p-4 overflow-x-auto ${isMultiLineCode && showCopyButton ? 'rounded-b-lg border-t-0' : 'rounded-lg'}`}
+      >
         <code className={`${className} block text-sm font-mono`}>
           {showLineNumbers ? (
             <table className="w-full border-collapse">

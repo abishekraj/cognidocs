@@ -1,5 +1,7 @@
 # MiddlewareArguments
+
 ## Definition
+
 ```typescript
-MiddlewareState
+MiddlewareState;
 ```

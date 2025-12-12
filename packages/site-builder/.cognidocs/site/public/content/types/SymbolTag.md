@@ -1,5 +1,7 @@
 # SymbolTag
+
 ## Definition
+
 ```typescript
-1
+1;
 ```

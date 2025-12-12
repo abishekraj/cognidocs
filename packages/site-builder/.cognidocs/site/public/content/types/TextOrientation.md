@@ -1,5 +1,7 @@
 # TextOrientation
+
 ## Definition
+
 ```typescript
-Globals | "mixed" | "sideways" | "sideways-right" | "upright"
+Globals | 'mixed' | 'sideways' | 'sideways-right' | 'upright';
 ```

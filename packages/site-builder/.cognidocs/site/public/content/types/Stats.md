@@ -1,5 +1,7 @@
 # Stats
+
 ## Definition
+
 ```typescript
-fs.Stats
+fs.Stats;
 ```

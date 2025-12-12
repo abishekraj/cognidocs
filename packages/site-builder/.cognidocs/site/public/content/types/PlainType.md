@@ -1,5 +1,7 @@
 # PlainType
+
 ## Definition
+
 ```typescript
-PlainInterface | PlainUnion
+PlainInterface | PlainUnion;
 ```

@@ -1,5 +1,7 @@
 # PreRenderedChunkWithFileName
+
 ## Definition
+
 ```typescript
-PreRenderedChunk & { fileName: string }
+PreRenderedChunk & { fileName: string };
 ```

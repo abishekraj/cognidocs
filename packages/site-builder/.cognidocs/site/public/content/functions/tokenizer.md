@@ -6,7 +6,8 @@
 }`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `input` | `string` | No | - |
-| `options` | `Options` | No | - |
+
+| Name      | Type      | Optional | Description |
+| :-------- | :-------- | :------- | :---------- |
+| `input`   | `string`  | No       | -           |
+| `options` | `Options` | No       | -           |

@@ -3,6 +3,7 @@
 **Return Type:** `RecordExpression`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `properties` | `Array<ObjectProperty \| SpreadElement>` | No | - |
+
+| Name         | Type                                     | Optional | Description |
+| :----------- | :--------------------------------------- | :------- | :---------- |
+| `properties` | `Array<ObjectProperty \| SpreadElement>` | No       | -           |

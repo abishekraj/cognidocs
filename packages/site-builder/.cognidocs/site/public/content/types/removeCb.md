@@ -1,5 +1,7 @@
 # removeCb
+
 ## Definition
+
 ```typescript
 () => void
 ```

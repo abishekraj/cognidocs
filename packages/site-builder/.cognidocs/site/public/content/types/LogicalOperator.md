@@ -1,5 +1,7 @@
 # LogicalOperator
+
 ## Definition
+
 ```typescript
-"||" | "&&" | "??"
+'||' | '&&' | '??';
 ```

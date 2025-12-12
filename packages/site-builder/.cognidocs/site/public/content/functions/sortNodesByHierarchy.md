@@ -3,6 +3,7 @@
 **Return Type:** `any`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `graph` | `any` | No | - |
+
+| Name    | Type  | Optional | Description |
+| :------ | :---- | :------- | :---------- |
+| `graph` | `any` | No       | -           |

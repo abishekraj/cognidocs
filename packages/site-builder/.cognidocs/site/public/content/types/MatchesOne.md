@@ -3,6 +3,7 @@
 Check whether a node matches a primitive check in the type system.
 
 ## Definition
+
 ```typescript
 (Check extends null | undefined ? Value : Value extends {
     type: Check;

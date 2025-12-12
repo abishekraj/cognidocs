@@ -1,5 +1,7 @@
 # TypesInstallerInitializationFailedEventBody
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `message` | `string` | No | - |
+
+| Name      | Type     | Optional | Description |
+| :-------- | :------- | :------- | :---------- |
+| `message` | `string` | No       | -           |

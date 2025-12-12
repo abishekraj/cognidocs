@@ -1,5 +1,7 @@
 # RegistrationParams
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `registrations` | `Registration[]` | No | - |
+
+| Name            | Type             | Optional | Description |
+| :-------------- | :--------------- | :------- | :---------- |
+| `registrations` | `Registration[]` | No       | -           |

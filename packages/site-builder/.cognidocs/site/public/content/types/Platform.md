@@ -1,5 +1,7 @@
 # Platform
+
 ## Definition
+
 ```typescript
-'browser' | 'node' | 'neutral'
+'browser' | 'node' | 'neutral';
 ```

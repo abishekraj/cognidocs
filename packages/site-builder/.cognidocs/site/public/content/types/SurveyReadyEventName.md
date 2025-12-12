@@ -1,5 +1,7 @@
 # SurveyReadyEventName
+
 ## Definition
+
 ```typescript
-"surveyReady"
+'surveyReady';
 ```

@@ -3,6 +3,7 @@
 **Return Type:** `TAG_ID`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `tagName` | `string` | No | - |
+
+| Name      | Type     | Optional | Description |
+| :-------- | :------- | :------- | :---------- |
+| `tagName` | `string` | No       | -           |

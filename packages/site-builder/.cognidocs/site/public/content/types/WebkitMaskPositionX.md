@@ -1,5 +1,7 @@
 # WebkitMaskPositionX
+
 ## Definition
+
 ```typescript
-Globals | TLength | "center" | "left" | "right" | (string & {})
+Globals | TLength | 'center' | 'left' | 'right' | (string & {});
 ```

@@ -1,5 +1,7 @@
 # OverflowClipMargin
+
 ## Definition
+
 ```typescript
-Globals | DataType.VisualBox | TLength | (string & {})
+Globals | DataType.VisualBox | TLength | (string & {});
 ```

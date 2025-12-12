@@ -1,7 +1,7 @@
 # ConfigContext
+
 ## Definition
+
 ```typescript
-Context &
-    ProcessOptionsPreload &
-    RemainingProcessOptions
+Context & ProcessOptionsPreload & RemainingProcessOptions;
 ```

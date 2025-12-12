@@ -1,5 +1,7 @@
 # JSXProps
+
 ## Definition
+
 ```typescript
-Record<string, Child | PropertyValue | Style>
+Record<string, Child | PropertyValue | Style>;
 ```

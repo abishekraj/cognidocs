@@ -3,10 +3,12 @@
 The result returned from an initialize request.
 
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `capabilities` | `ServerCapabilities<T>` | No | - |
-| `serverInfo` | `{
+
+| Name           | Type                    | Optional | Description |
+| :------------- | :---------------------- | :------- | :---------- |
+| `capabilities` | `ServerCapabilities<T>` | No       | -           |
+| `serverInfo`   | `{                      |
+
         /**
          * The name of the server as defined by the server.
          */

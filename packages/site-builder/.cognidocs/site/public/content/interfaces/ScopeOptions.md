@@ -1,5 +1,7 @@
 # ScopeOptions
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `caseInsensitive` | `boolean` | Yes | - |
+
+| Name              | Type      | Optional | Description |
+| :---------------- | :-------- | :------- | :---------- |
+| `caseInsensitive` | `boolean` | Yes      | -           |

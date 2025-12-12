@@ -3,6 +3,7 @@
 **Return Type:** `Theme | undefined`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `id` | `string` | No | - |
+
+| Name | Type     | Optional | Description |
+| :--- | :------- | :------- | :---------- |
+| `id` | `string` | No       | -           |

@@ -1,5 +1,7 @@
 # CloseFileWatcherEventBody
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `id` | `number` | No | - |
+
+| Name | Type     | Optional | Description |
+| :--- | :------- | :------- | :---------- |
+| `id` | `number` | No       | -           |

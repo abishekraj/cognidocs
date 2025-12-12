@@ -1,18 +1,22 @@
 # Marked
+
 ## Properties
-| Name | Type | Description |
-| :--- | :--- | :---------- |
-| `defaults` | `MarkedOptions<ParserOutput, RendererOutput>` | - |
-| `options` | `(opt: MarkedOptions<ParserOutput, RendererOutput>) => this` | - |
-| `parse` | `{
-		(src: string, options: MarkedOptions<ParserOutput, RendererOutput> & {
-			async: true;
-		}): Promise<ParserOutput>;
-		(src: string, options: MarkedOptions<ParserOutput, RendererOutput> & {
-			async: false;
-		}): ParserOutput;
-		(src: string, options?: MarkedOptions<ParserOutput, RendererOutput> \| null): ParserOutput \| Promise<ParserOutput>;
-	}` | - |
+
+| Name       | Type                                                         | Description |
+| :--------- | :----------------------------------------------------------- | :---------- |
+| `defaults` | `MarkedOptions<ParserOutput, RendererOutput>`                | -           |
+| `options`  | `(opt: MarkedOptions<ParserOutput, RendererOutput>) => this` | -           |
+| `parse`    | `{                                                           |
+
+    	(src: string, options: MarkedOptions<ParserOutput, RendererOutput> & {
+    		async: true;
+    	}): Promise<ParserOutput>;
+    	(src: string, options: MarkedOptions<ParserOutput, RendererOutput> & {
+    		async: false;
+    	}): ParserOutput;
+    	(src: string, options?: MarkedOptions<ParserOutput, RendererOutput> \| null): ParserOutput \| Promise<ParserOutput>;
+    }` | - |
+
 | `parseInline` | `{
 		(src: string, options: MarkedOptions<ParserOutput, RendererOutput> & {
 			async: true;
@@ -46,6 +50,7 @@
 | `onError` | `any` | - |
 
 ## Methods
+
 ### walkTokens
 
 Run callback for every token
@@ -53,13 +58,17 @@ Run callback for every token
 **Return:** `MaybePromise[]`
 
 ### use
+
 **Return:** `this`
 
 ### setOptions
+
 **Return:** `this`
 
 ### lexer
+
 **Return:** `TokensList`
 
 ### parser
+
 **Return:** `ParserOutput`

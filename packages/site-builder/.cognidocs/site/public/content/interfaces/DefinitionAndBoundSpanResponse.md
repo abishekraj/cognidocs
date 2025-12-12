@@ -1,5 +1,7 @@
 # DefinitionAndBoundSpanResponse
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `body` | `DefinitionInfoAndBoundSpan` | No | - |
+
+| Name   | Type                         | Optional | Description |
+| :----- | :--------------------------- | :------- | :---------- |
+| `body` | `DefinitionInfoAndBoundSpan` | No       | -           |

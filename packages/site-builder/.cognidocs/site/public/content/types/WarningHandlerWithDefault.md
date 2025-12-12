@@ -1,5 +1,7 @@
 # WarningHandlerWithDefault
+
 ## Definition
+
 ```typescript
 (
 	warning: RollupLog,

@@ -3,7 +3,8 @@
 **Return Type:** `void`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `functionStart` | `number` | No | - |
-| `funcContextId` | `number` | Yes | - |
+
+| Name            | Type     | Optional | Description |
+| :-------------- | :------- | :------- | :---------- |
+| `functionStart` | `number` | No       | -           |
+| `funcContextId` | `number` | Yes      | -           |

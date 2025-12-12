@@ -1,5 +1,7 @@
 # ContentTypeDecoderOptions
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `charset` | `RAL.MessageBufferEncoding` | No | - |
+
+| Name      | Type                        | Optional | Description |
+| :-------- | :-------------------------- | :------- | :---------- |
+| `charset` | `RAL.MessageBufferEncoding` | No       | -           |

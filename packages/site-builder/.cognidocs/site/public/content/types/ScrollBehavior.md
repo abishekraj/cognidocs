@@ -1,5 +1,7 @@
 # ScrollBehavior
+
 ## Definition
+
 ```typescript
-Globals | "auto" | "smooth"
+Globals | 'auto' | 'smooth';
 ```

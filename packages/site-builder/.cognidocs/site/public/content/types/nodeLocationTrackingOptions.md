@@ -1,5 +1,7 @@
 # nodeLocationTrackingOptions
+
 ## Definition
+
 ```typescript
 | "full"
   | "onlyOffset"

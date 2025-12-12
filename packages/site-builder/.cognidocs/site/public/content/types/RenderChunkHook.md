@@ -1,5 +1,7 @@
 # RenderChunkHook
+
 ## Definition
+
 ```typescript
 (
 	this: PluginContext,

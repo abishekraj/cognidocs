@@ -6,6 +6,7 @@
 }`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `context` | `DefaultSharedCoreModuleContext` | Yes | - |
+
+| Name      | Type                             | Optional | Description |
+| :-------- | :------------------------------- | :------- | :---------- |
+| `context` | `DefaultSharedCoreModuleContext` | Yes      | -           |

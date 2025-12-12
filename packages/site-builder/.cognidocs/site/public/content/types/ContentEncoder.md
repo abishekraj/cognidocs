@@ -1,5 +1,7 @@
 # ContentEncoder
+
 ## Definition
+
 ```typescript
-FunctionContentEncoder | (FunctionContentEncoder & StreamContentEncoder)
+FunctionContentEncoder | (FunctionContentEncoder & StreamContentEncoder);
 ```

@@ -1,5 +1,7 @@
 # Miscellaneous
+
 ## Definition
+
 ```typescript
-Noop | Placeholder | V8IntrinsicIdentifier
+Noop | Placeholder | V8IntrinsicIdentifier;
 ```

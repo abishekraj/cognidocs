@@ -1,5 +1,7 @@
 # DecisionState
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `decision` | `number` | No | - |
+
+| Name       | Type     | Optional | Description |
+| :--------- | :------- | :------- | :---------- |
+| `decision` | `number` | No       | -           |

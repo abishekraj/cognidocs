@@ -1,5 +1,7 @@
 # CompletionProvider
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `completionOptions` | `CompletionProviderOptions` | Yes | - |
+
+| Name                | Type                        | Optional | Description |
+| :------------------ | :-------------------------- | :------- | :---------- |
+| `completionOptions` | `CompletionProviderOptions` | Yes      | -           |

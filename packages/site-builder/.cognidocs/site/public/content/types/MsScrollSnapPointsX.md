@@ -1,5 +1,7 @@
 # MsScrollSnapPointsX
+
 ## Definition
+
 ```typescript
-Globals | (string & {})
+Globals | (string & {});
 ```

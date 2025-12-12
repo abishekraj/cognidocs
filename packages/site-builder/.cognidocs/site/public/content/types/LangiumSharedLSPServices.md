@@ -1,5 +1,7 @@
 # LangiumSharedLSPServices
+
 ## Definition
+
 ```typescript
 {
     readonly lsp: {

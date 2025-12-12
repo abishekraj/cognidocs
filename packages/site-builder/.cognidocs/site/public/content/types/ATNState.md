@@ -1,5 +1,7 @@
 # ATNState
+
 ## Definition
+
 ```typescript
 | BasicState
     | BasicBlockStartState

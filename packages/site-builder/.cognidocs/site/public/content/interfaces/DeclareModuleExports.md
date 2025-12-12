@@ -1,6 +1,8 @@
 # DeclareModuleExports
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `type` | `"DeclareModuleExports"` | No | - |
-| `typeAnnotation` | `TypeAnnotation` | No | - |
+
+| Name             | Type                     | Optional | Description |
+| :--------------- | :----------------------- | :------- | :---------- |
+| `type`           | `"DeclareModuleExports"` | No       | -           |
+| `typeAnnotation` | `TypeAnnotation`         | No       | -           |

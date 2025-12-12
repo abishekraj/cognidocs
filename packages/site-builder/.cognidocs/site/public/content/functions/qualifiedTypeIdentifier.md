@@ -3,7 +3,8 @@
 **Return Type:** `QualifiedTypeIdentifier`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `id` | `Identifier` | No | - |
-| `qualification` | `Identifier \| QualifiedTypeIdentifier` | No | - |
+
+| Name            | Type                                    | Optional | Description |
+| :-------------- | :-------------------------------------- | :------- | :---------- |
+| `id`            | `Identifier`                            | No       | -           |
+| `qualification` | `Identifier \| QualifiedTypeIdentifier` | No       | -           |

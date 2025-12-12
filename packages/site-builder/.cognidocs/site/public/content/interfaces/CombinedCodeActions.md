@@ -1,6 +1,8 @@
 # CombinedCodeActions
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `changes` | `readonly FileCodeEdits[]` | No | - |
-| `commands` | `readonly {}[]` | Yes | - |
+
+| Name       | Type                       | Optional | Description |
+| :--------- | :------------------------- | :------- | :---------- |
+| `changes`  | `readonly FileCodeEdits[]` | No       | -           |
+| `commands` | `readonly {}[]`            | Yes      | -           |

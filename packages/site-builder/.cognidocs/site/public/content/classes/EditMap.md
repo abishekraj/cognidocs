@@ -3,11 +3,13 @@
 Tracks a bunch of edits.
 
 ## Properties
-| Name | Type | Description |
-| :--- | :--- | :---------- |
-| `map` | `Array<Change>` | - |
+
+| Name  | Type            | Description |
+| :---- | :-------------- | :---------- |
+| `map` | `Array<Change>` | -           |
 
 ## Methods
+
 ### add
 
 Create an edit: a remove and/or add at a certain place.

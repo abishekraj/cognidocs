@@ -1,5 +1,7 @@
 # ErrorFilterFunction
+
 ## Definition
+
 ```typescript
-fsWalk.ErrorFilterFunction
+fsWalk.ErrorFilterFunction;
 ```

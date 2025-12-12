@@ -1,5 +1,7 @@
 # MediumCallback
+
 ## Definition
+
 ```typescript
-(data: T) => any
+(data: T) => any;
 ```

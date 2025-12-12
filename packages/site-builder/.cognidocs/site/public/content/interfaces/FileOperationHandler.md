@@ -1,5 +1,7 @@
 # FileOperationHandler
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `fileOperationOptions` | `FileOperationOptions` | No | - |
+
+| Name                   | Type                   | Optional | Description |
+| :--------------------- | :--------------------- | :------- | :---------- |
+| `fileOperationOptions` | `FileOperationOptions` | No       | -           |

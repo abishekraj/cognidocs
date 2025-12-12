@@ -1,5 +1,7 @@
 # ForcedColorAdjust
+
 ## Definition
+
 ```typescript
-Globals | "auto" | "none" | "preserve-parent-color"
+Globals | 'auto' | 'none' | 'preserve-parent-color';
 ```

@@ -1,5 +1,7 @@
 # ClassProp
+
 ## Definition
+
 ```typescript
 {
     class: ClassValue;

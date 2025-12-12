@@ -1,5 +1,7 @@
 # ThisExpression
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `type` | `"ThisExpression"` | No | - |
+
+| Name   | Type               | Optional | Description |
+| :----- | :----------------- | :------- | :---------- |
+| `type` | `"ThisExpression"` | No       | -           |

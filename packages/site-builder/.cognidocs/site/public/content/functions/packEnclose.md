@@ -3,6 +3,7 @@
 **Return Type:** `PackCircle`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `circles` | `Datum[]` | No | - |
+
+| Name      | Type      | Optional | Description |
+| :-------- | :-------- | :------- | :---------- |
+| `circles` | `Datum[]` | No       | -           |

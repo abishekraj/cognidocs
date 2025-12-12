@@ -1,5 +1,7 @@
 # LangiumSharedCoreServices
+
 ## Definition
+
 ```typescript
-LangiumDefaultSharedCoreServices & LangiumGeneratedSharedCoreServices
+LangiumDefaultSharedCoreServices & LangiumGeneratedSharedCoreServices;
 ```

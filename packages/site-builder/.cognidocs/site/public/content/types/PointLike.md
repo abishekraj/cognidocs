@@ -1,5 +1,7 @@
 # PointLike
+
 ## Definition
+
 ```typescript
 {
   line?: number | null | undefined

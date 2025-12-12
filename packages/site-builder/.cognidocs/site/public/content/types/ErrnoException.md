@@ -1,5 +1,7 @@
 # ErrnoException
+
 ## Definition
+
 ```typescript
-NodeJS.ErrnoException
+NodeJS.ErrnoException;
 ```

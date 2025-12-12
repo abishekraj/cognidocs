@@ -1,5 +1,7 @@
 # TextRendering
+
 ## Definition
+
 ```typescript
-Globals | "auto" | "geometricPrecision" | "optimizeLegibility" | "optimizeSpeed"
+Globals | 'auto' | 'geometricPrecision' | 'optimizeLegibility' | 'optimizeSpeed';
 ```

@@ -1,5 +1,7 @@
 # TreeshakingPreset
+
 ## Definition
+
 ```typescript
-'smallest' | 'safest' | 'recommended'
+'smallest' | 'safest' | 'recommended';
 ```

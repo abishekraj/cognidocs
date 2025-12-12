@@ -3,6 +3,7 @@
 API #1 [Custom Token Patterns](http://chevrotain.io/docs/guide/custom_token_patterns.html).
 
 ## Definition
+
 ```typescript
 (
   /**
@@ -22,6 +23,6 @@ API #1 [Custom Token Patterns](http://chevrotain.io/docs/guide/custom_token_patt
    */
   groups: {
     [groupName: string]: IToken[];
-  },
-) => CustomPatternMatcherReturn | RegExpExecArray | null
+  }
+) => CustomPatternMatcherReturn | RegExpExecArray | null;
 ```

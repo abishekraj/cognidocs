@@ -3,6 +3,7 @@
 **Return Type:** `string`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `diagnostics` | `Diagnostic[] \| undefined` | No | - |
+
+| Name          | Type                        | Optional | Description |
+| :------------ | :-------------------------- | :------- | :---------- |
+| `diagnostics` | `Diagnostic[] \| undefined` | No       | -           |

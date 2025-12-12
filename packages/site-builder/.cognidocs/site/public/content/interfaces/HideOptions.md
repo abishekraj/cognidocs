@@ -1,5 +1,7 @@
 # HideOptions
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `strategy` | `'referenceHidden' \| 'escaped'` | Yes | - |
+
+| Name       | Type                             | Optional | Description |
+| :--------- | :------------------------------- | :------- | :---------- |
+| `strategy` | `'referenceHidden' \| 'escaped'` | Yes      | -           |

@@ -6,8 +6,9 @@
 }`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `node` | `any` | No | - |
-| `rx` | `any` | No | - |
-| `point` | `any` | No | - |
+
+| Name    | Type  | Optional | Description |
+| :------ | :---- | :------- | :---------- |
+| `node`  | `any` | No       | -           |
+| `rx`    | `any` | No       | -           |
+| `point` | `any` | No       | -           |

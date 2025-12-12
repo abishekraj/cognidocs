@@ -69,8 +69,8 @@ export async function buildCommand(options: BuildOptions = {}): Promise<void> {
 
         // CRITICAL FIX: Remove component functions from the functions array to prevent duplicates
         // Component names that were identified as React components should not be documented as functions
-        const componentNames = new Set(components.map(c => c.name));
-        result.functions = result.functions.filter(func => !componentNames.has(func.name));
+        const componentNames = new Set(components.map((c) => c.name));
+        result.functions = result.functions.filter((func) => !componentNames.has(func.name));
       }
     }
 
@@ -182,11 +182,7 @@ export async function buildCommand(options: BuildOptions = {}): Promise<void> {
       },
     };
 
-    await writeFile(
-      join(outputPath, 'graph.json'),
-      JSON.stringify(graphData, null, 2),
-      'utf-8'
-    );
+    await writeFile(join(outputPath, 'graph.json'), JSON.stringify(graphData, null, 2), 'utf-8');
 
     // Phase 3: Build Static Site
     outputSpinner.text = 'Building static site...';

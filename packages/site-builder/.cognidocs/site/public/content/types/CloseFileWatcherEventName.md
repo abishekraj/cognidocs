@@ -1,5 +1,7 @@
 # CloseFileWatcherEventName
+
 ## Definition
+
 ```typescript
-"closeFileWatcher"
+'closeFileWatcher';
 ```

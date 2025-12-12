@@ -1,5 +1,7 @@
 # OffsetAnchor
+
 ## Definition
+
 ```typescript
-Globals | DataType.Position<TLength> | "auto"
+Globals | DataType.Position<TLength> | 'auto';
 ```

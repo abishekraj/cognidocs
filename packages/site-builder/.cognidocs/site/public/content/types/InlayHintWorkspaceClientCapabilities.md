@@ -3,6 +3,7 @@
 Client workspace capabilities specific to inlay hints.
 
 ## Definition
+
 ```typescript
 {
     /**

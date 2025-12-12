@@ -1,7 +1,9 @@
 # Server
+
 **Extends:** `events.EventEmitter`
 
 ## Methods
+
 ### web
 
 Used for proxying regular HTTP(S) requests
@@ -45,55 +47,73 @@ Creates the proxy server with specified options.
 **Return:** `Server`
 
 ### addListener
+
 **Return:** `this`
 
 ### on
+
 **Return:** `this`
 
 ### on
+
 **Return:** `this`
 
 ### on
+
 **Return:** `this`
 
 ### on
+
 **Return:** `this`
 
 ### on
+
 **Return:** `this`
 
 ### on
+
 **Return:** `this`
 
 ### on
+
 **Return:** `this`
 
 ### on
+
 **Return:** `this`
 
 ### on
+
 **Return:** `this`
 
 ### once
+
 **Return:** `this`
 
 ### removeListener
+
 **Return:** `this`
 
 ### removeAllListeners
+
 **Return:** `this`
 
 ### getMaxListeners
+
 **Return:** `number`
 
 ### setMaxListeners
+
 **Return:** `this`
 
 ### listeners
+
 **Return:** `Array<() => void>`
 
 ### emit
+
 **Return:** `boolean`
 
 ### listenerCount
+
 **Return:** `number`

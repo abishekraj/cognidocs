@@ -1,5 +1,7 @@
 # TypeDefinition
+
 ## Definition
+
 ```typescript
-ArrayType | ReferenceType | SimpleType | UnionType
+ArrayType | ReferenceType | SimpleType | UnionType;
 ```

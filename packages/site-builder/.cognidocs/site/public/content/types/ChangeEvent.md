@@ -1,5 +1,7 @@
 # ChangeEvent
+
 ## Definition
+
 ```typescript
-'create' | 'update' | 'delete'
+'create' | 'update' | 'delete';
 ```

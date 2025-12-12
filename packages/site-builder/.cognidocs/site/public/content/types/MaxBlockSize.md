@@ -1,5 +1,7 @@
 # MaxBlockSize
+
 ## Definition
+
 ```typescript
 | Globals
     | TLength

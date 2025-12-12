@@ -3,18 +3,20 @@
 A manager for simple text documents. The manager requires at a minimum that the server registered for the following text document sync events in the initialize handler or via dynamic registration: - open and close events. - change events. Registering for save and will save events is optional.
 
 ## Properties
-| Name | Type | Description |
-| :--- | :--- | :---------- |
-| `_configuration` | `any` | - |
-| `_syncedDocuments` | `any` | - |
-| `_onDidChangeContent` | `any` | - |
-| `_onDidOpen` | `any` | - |
-| `_onDidClose` | `any` | - |
-| `_onDidSave` | `any` | - |
-| `_onWillSave` | `any` | - |
-| `_willSaveWaitUntil` | `any` | - |
+
+| Name                  | Type  | Description |
+| :-------------------- | :---- | :---------- |
+| `_configuration`      | `any` | -           |
+| `_syncedDocuments`    | `any` | -           |
+| `_onDidChangeContent` | `any` | -           |
+| `_onDidOpen`          | `any` | -           |
+| `_onDidClose`         | `any` | -           |
+| `_onDidSave`          | `any` | -           |
+| `_onWillSave`         | `any` | -           |
+| `_willSaveWaitUntil`  | `any` | -           |
 
 ## Methods
+
 ### onWillSaveWaitUntil
 
 Sets a handler that will be called if a participant wants to provide edits during a text document save.

@@ -3,7 +3,8 @@
 **Return Type:** `WhileStatement`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `test` | `Expression` | No | - |
-| `body` | `Statement` | No | - |
+
+| Name   | Type         | Optional | Description |
+| :----- | :----------- | :------- | :---------- |
+| `test` | `Expression` | No       | -           |
+| `body` | `Statement`  | No       | -           |

@@ -1,5 +1,7 @@
 # MaskBorderRepeat
+
 ## Definition
+
 ```typescript
-Globals | "repeat" | "round" | "space" | "stretch" | (string & {})
+Globals | 'repeat' | 'round' | 'space' | 'stretch' | (string & {});
 ```

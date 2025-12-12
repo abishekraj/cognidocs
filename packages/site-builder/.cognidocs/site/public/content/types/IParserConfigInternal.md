@@ -1,5 +1,7 @@
 # IParserConfigInternal
+
 ## Definition
+
 ```typescript
-IParserConfig & { outputCst: boolean }
+IParserConfig & { outputCst: boolean };
 ```

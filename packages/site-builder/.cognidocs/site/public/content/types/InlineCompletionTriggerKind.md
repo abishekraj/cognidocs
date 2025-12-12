@@ -1,5 +1,7 @@
 # InlineCompletionTriggerKind
+
 ## Definition
+
 ```typescript
-0 | 1
+0 | 1;
 ```

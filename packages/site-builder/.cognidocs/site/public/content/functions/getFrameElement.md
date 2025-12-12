@@ -3,6 +3,7 @@
 **Return Type:** `Element | null`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `win` | `Window` | No | - |
+
+| Name  | Type     | Optional | Description |
+| :---- | :------- | :------- | :---------- |
+| `win` | `Window` | No       | -           |

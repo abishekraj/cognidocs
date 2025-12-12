@@ -1,5 +1,7 @@
 # MsImeAlign
+
 ## Definition
+
 ```typescript
-Globals | "after" | "auto"
+Globals | 'after' | 'auto';
 ```

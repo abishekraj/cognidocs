@@ -49,6 +49,7 @@ cognidocs build --output ./documentation
 ```
 
 This creates:
+
 - `docs/data.json` - Full parsed metadata
 - `docs/components/*.json` - Individual component files
 
@@ -65,22 +66,26 @@ cat docs/components/Button.json
 ## What Works Now
 
 ✅ **TypeScript Parsing**
+
 - Functions, classes, interfaces, types
 - JSDoc comments with tags
 - Imports and exports
 
 ✅ **React Components**
+
 - Function components (arrow and regular)
 - Class components
 - Props extraction
 - Hooks detection (useState, useEffect, etc.)
 
 ✅ **CLI Commands**
+
 - `cognidocs init` - Interactive setup
 - `cognidocs build` - Parse and generate JSON
 - `cognidocs --help` - Show all commands
 
 ✅ **Output**
+
 - Structured JSON with all metadata
 - Statistics (components, functions, classes, etc.)
 - Ready for Phase 3 HTML generation
@@ -88,6 +93,7 @@ cat docs/components/Button.json
 ## What's Next (Phase 2)
 
 Phase 2 will add:
+
 - `cognidocs analyze` - Dependency graphs
 - `cognidocs coverage` - Coverage reports
 - Circular dependency detection
@@ -96,11 +102,13 @@ Phase 2 will add:
 ## Troubleshooting
 
 **Command not found:**
+
 ```bash
 npm link -w @cognidocs/cli
 ```
 
 **Build errors:**
+
 ```bash
 npm run clean
 npm install
@@ -108,6 +116,7 @@ npm run build
 ```
 
 **Test it works:**
+
 ```bash
 cd examples/sample-react
 rm -rf docs

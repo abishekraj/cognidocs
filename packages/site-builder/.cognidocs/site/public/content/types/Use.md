@@ -1,5 +1,7 @@
 # Use
+
 ## Definition
+
 ```typescript
-import('./lib/index.js').Use
+import('./lib/index.js').Use;
 ```

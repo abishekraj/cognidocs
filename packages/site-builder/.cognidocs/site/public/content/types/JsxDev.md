@@ -3,6 +3,7 @@
 Create a development element.
 
 ## Definition
+
 ```typescript
 (
   // `any` because runtimes often have complex framework-specific types here.
@@ -13,5 +14,5 @@ Create a development element.
   isStaticChildren: boolean,
   source: Source,
   self: undefined
-) => JsxElement
+) => JsxElement;
 ```

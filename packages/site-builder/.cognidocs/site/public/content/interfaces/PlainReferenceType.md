@@ -1,5 +1,7 @@
 # PlainReferenceType
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `referenceType` | `PlainPropertyType` | No | - |
+
+| Name            | Type                | Optional | Description |
+| :-------------- | :------------------ | :------- | :---------- |
+| `referenceType` | `PlainPropertyType` | No       | -           |

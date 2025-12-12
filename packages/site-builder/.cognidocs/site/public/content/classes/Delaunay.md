@@ -3,15 +3,17 @@
 Delaunay triangulation
 
 ## Properties
-| Name | Type | Description |
-| :--- | :--- | :---------- |
-| `points` | `ArrayLike<number>` | - |
-| `halfedges` | `Int32Array` | - |
-| `hull` | `Uint32Array` | - |
-| `triangles` | `Uint32Array` | - |
-| `inedges` | `Int32Array` | - |
+
+| Name        | Type                | Description |
+| :---------- | :------------------ | :---------- |
+| `points`    | `ArrayLike<number>` | -           |
+| `halfedges` | `Int32Array`        | -           |
+| `hull`      | `Uint32Array`       | -           |
+| `triangles` | `Uint32Array`       | -           |
+| `inedges`   | `Int32Array`        | -           |
 
 ## Methods
+
 ### from
 
 Returns the Delaunay triangulation for the given array or iterable of points where each point is an array in the form: [x, y].

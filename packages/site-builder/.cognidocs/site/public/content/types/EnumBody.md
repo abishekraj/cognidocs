@@ -1,5 +1,7 @@
 # EnumBody
+
 ## Definition
+
 ```typescript
-EnumBooleanBody | EnumNumberBody | EnumStringBody | EnumSymbolBody
+EnumBooleanBody | EnumNumberBody | EnumStringBody | EnumSymbolBody;
 ```

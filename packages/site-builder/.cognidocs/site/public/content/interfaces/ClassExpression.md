@@ -1,5 +1,7 @@
 # ClassExpression
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `type` | `"ClassExpression"` | No | - |
+
+| Name   | Type                | Optional | Description |
+| :----- | :------------------ | :------- | :---------- |
+| `type` | `"ClassExpression"` | No       | -           |

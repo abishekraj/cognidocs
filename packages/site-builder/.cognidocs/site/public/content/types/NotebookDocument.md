@@ -3,6 +3,7 @@
 A notebook document.
 
 ## Definition
+
 ```typescript
 {
     /**

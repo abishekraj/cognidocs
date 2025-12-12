@@ -2,5 +2,4 @@
 
 The gnomonic projection.
 
-
 **Return Type:** `GeoProjection`

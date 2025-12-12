@@ -1,5 +1,7 @@
 # Boundary
+
 ## Definition
+
 ```typescript
-any
+any;
 ```

@@ -1,5 +1,7 @@
 # BorderLeftStyle
+
 ## Definition
+
 ```typescript
-Globals | DataType.LineStyle
+Globals | DataType.LineStyle;
 ```

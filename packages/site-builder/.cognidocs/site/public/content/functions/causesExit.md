@@ -3,6 +3,7 @@
 **Return Type:** `boolean`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `startTagToken` | `TagToken` | No | - |
+
+| Name            | Type       | Optional | Description |
+| :-------------- | :--------- | :------- | :---------- |
+| `startTagToken` | `TagToken` | No       | -           |

@@ -3,15 +3,16 @@
 Info.
 
 ## Definition
+
 ```typescript
 {
-    /**
-     *   Restore.
-     */
-    restore: Restore;
-    /**
-     *   From.
-     */
-    from: number;
+  /**
+   *   Restore.
+   */
+  restore: Restore;
+  /**
+   *   From.
+   */
+  from: number;
 }
 ```

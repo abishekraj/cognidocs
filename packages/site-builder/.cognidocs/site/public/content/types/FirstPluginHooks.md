@@ -1,5 +1,7 @@
 # FirstPluginHooks
+
 ## Definition
+
 ```typescript
 | 'load'
 	| 'renderDynamicImport'

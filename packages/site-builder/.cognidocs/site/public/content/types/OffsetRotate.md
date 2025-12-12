@@ -1,5 +1,7 @@
 # OffsetRotate
+
 ## Definition
+
 ```typescript
-Globals | "auto" | "reverse" | (string & {})
+Globals | 'auto' | 'reverse' | (string & {});
 ```

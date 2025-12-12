@@ -1,5 +1,7 @@
 # EntryFilterFunction
+
 ## Definition
+
 ```typescript
-fsWalk.EntryFilterFunction
+fsWalk.EntryFilterFunction;
 ```

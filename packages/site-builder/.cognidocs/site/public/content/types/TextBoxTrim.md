@@ -1,5 +1,7 @@
 # TextBoxTrim
+
 ## Definition
+
 ```typescript
-Globals | "none" | "trim-both" | "trim-end" | "trim-start"
+Globals | 'none' | 'trim-both' | 'trim-end' | 'trim-start';
 ```

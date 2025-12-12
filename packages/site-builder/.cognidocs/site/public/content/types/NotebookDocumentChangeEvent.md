@@ -1,5 +1,7 @@
 # NotebookDocumentChangeEvent
+
 ## Definition
+
 ```typescript
 {
     /**

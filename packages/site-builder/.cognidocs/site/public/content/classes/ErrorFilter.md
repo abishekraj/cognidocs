@@ -1,10 +1,14 @@
 # ErrorFilter
+
 ## Properties
-| Name | Type | Description |
-| :--- | :--- | :---------- |
-| `_settings` | `any` | - |
-| `_isNonFatalError` | `any` | - |
+
+| Name               | Type  | Description |
+| :----------------- | :---- | :---------- |
+| `_settings`        | `any` | -           |
+| `_isNonFatalError` | `any` | -           |
 
 ## Methods
+
 ### getFilter
+
 **Return:** `ErrorFilterFunction`

@@ -1,5 +1,7 @@
 # ThemeGetter
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `isThemeGetter` | `true` | No | - |
+
+| Name            | Type   | Optional | Description |
+| :-------------- | :----- | :------- | :---------- |
+| `isThemeGetter` | `true` | No       | -           |

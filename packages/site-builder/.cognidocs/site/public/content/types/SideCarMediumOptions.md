@@ -1,5 +1,7 @@
 # SideCarMediumOptions
+
 ## Definition
+
 ```typescript
 {
     async?: boolean;

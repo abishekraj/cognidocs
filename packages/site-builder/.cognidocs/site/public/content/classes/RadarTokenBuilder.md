@@ -1,2 +1,3 @@
 # RadarTokenBuilder
+
 **Extends:** `AbstractMermaidTokenBuilder`

@@ -1,5 +1,7 @@
 # ScrollbarGutter
+
 ## Definition
+
 ```typescript
-Globals | "auto" | "stable" | (string & {})
+Globals | 'auto' | 'stable' | (string & {});
 ```

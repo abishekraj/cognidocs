@@ -3,6 +3,7 @@
 Provider options for a {@link DocumentRangeFormattingRequest}.
 
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `rangesSupport` | `boolean` | Yes | - |
+
+| Name            | Type      | Optional | Description |
+| :-------------- | :-------- | :------- | :---------- |
+| `rangesSupport` | `boolean` | Yes      | -           |

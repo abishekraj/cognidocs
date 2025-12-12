@@ -1,5 +1,7 @@
 # GetInterop
+
 ## Definition
+
 ```typescript
-(id: string | null) => InteropType
+(id: string | null) => InteropType;
 ```

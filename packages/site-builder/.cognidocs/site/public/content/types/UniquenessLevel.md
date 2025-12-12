@@ -1,5 +1,7 @@
 # UniquenessLevel
+
 ## Definition
+
 ```typescript
-'document' | 'project' | 'group' | 'scheme' | 'global'
+'document' | 'project' | 'group' | 'scheme' | 'global';
 ```

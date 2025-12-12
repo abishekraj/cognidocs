@@ -1,5 +1,7 @@
 # Mapping
+
 ## Definition
+
 ```typescript
 | {
       generated: Pos;

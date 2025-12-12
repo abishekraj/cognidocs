@@ -1,5 +1,7 @@
 # PrepareSupportDefaultBehavior
+
 ## Definition
+
 ```typescript
-1
+1;
 ```

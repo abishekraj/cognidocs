@@ -1,5 +1,7 @@
 # PositionTryFallbacks
+
 ## Definition
+
 ```typescript
-Globals | DataType.TryTactic | DataType.PositionArea | "none" | (string & {})
+Globals | DataType.TryTactic | DataType.PositionArea | 'none' | (string & {});
 ```

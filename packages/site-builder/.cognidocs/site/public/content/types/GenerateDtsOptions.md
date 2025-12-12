@@ -1,5 +1,7 @@
 # GenerateDtsOptions
+
 ## Definition
+
 ```typescript
 {
   /**

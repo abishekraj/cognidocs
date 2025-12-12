@@ -93,11 +93,14 @@ export class TypeScriptParser {
     return results;
   }
 
-  private parseFunctionDeclaration(node: ts.FunctionDeclaration, filePath: string): FunctionMetadata {
+  private parseFunctionDeclaration(
+    node: ts.FunctionDeclaration,
+    filePath: string
+  ): FunctionMetadata {
     const name = node.name?.getText() || 'anonymous';
     const jsdoc = this.extractJSDoc(node);
     const description = this.extractJSDocComment(node);
-    const parameters = node.parameters.map(param => ({
+    const parameters = node.parameters.map((param) => ({
       name: param.name.getText(),
       type: param.type?.getText(),
       optional: !!param.questionToken,
@@ -110,7 +113,7 @@ export class TypeScriptParser {
       parameters,
       returnType: node.type?.getText(),
       isExported: this.isExported(node),
-      isAsync: !!node.modifiers?.some(m => m.kind === ts.SyntaxKind.AsyncKeyword),
+      isAsync: !!node.modifiers?.some((m) => m.kind === ts.SyntaxKind.AsyncKeyword),
       filePath,
       line: this.getLineNumber(node),
       jsdoc,
@@ -122,34 +125,30 @@ export class TypeScriptParser {
     const jsdoc = this.extractJSDoc(node);
     const description = this.extractJSDocComment(node);
 
-    const properties = node.members
-      .filter(ts.isPropertyDeclaration)
-      .map(prop => ({
-        name: prop.name.getText(),
-        type: prop.type?.getText(),
-        isPrivate: this.hasModifier(prop, ts.SyntaxKind.PrivateKeyword),
-        isStatic: this.hasModifier(prop, ts.SyntaxKind.StaticKeyword),
-      }));
+    const properties = node.members.filter(ts.isPropertyDeclaration).map((prop) => ({
+      name: prop.name.getText(),
+      type: prop.type?.getText(),
+      isPrivate: this.hasModifier(prop, ts.SyntaxKind.PrivateKeyword),
+      isStatic: this.hasModifier(prop, ts.SyntaxKind.StaticKeyword),
+    }));
 
-    const methods = node.members
-      .filter(ts.isMethodDeclaration)
-      .map(method => {
-        const methodJsdoc = this.extractJSDoc(method);
-        return {
-          name: method.name.getText(),
-          parameters: method.parameters.map(param => ({
-            name: param.name.getText(),
-            type: param.type?.getText(),
-            optional: !!param.questionToken,
-            description: methodJsdoc?.params?.[param.name.getText()],
-          })),
-          returnType: method.type?.getText(),
-          isPrivate: this.hasModifier(method, ts.SyntaxKind.PrivateKeyword),
-          isStatic: this.hasModifier(method, ts.SyntaxKind.StaticKeyword),
-          isAsync: !!method.modifiers?.some(m => m.kind === ts.SyntaxKind.AsyncKeyword),
-          description: methodJsdoc?.description,
-        };
-      });
+    const methods = node.members.filter(ts.isMethodDeclaration).map((method) => {
+      const methodJsdoc = this.extractJSDoc(method);
+      return {
+        name: method.name.getText(),
+        parameters: method.parameters.map((param) => ({
+          name: param.name.getText(),
+          type: param.type?.getText(),
+          optional: !!param.questionToken,
+          description: methodJsdoc?.params?.[param.name.getText()],
+        })),
+        returnType: method.type?.getText(),
+        isPrivate: this.hasModifier(method, ts.SyntaxKind.PrivateKeyword),
+        isStatic: this.hasModifier(method, ts.SyntaxKind.StaticKeyword),
+        isAsync: !!method.modifiers?.some((m) => m.kind === ts.SyntaxKind.AsyncKeyword),
+        description: methodJsdoc?.description,
+      };
+    });
 
     return {
       name,
@@ -165,26 +164,28 @@ export class TypeScriptParser {
     };
   }
 
-  private parseInterfaceDeclaration(node: ts.InterfaceDeclaration, filePath: string): InterfaceMetadata {
+  private parseInterfaceDeclaration(
+    node: ts.InterfaceDeclaration,
+    filePath: string
+  ): InterfaceMetadata {
     const name = node.name.getText();
     const description = this.extractJSDocComment(node);
-    
-    const properties = node.members
-      .filter(ts.isPropertySignature)
-      .map(prop => ({
-        name: prop.name?.getText() || '',
-        type: prop.type?.getText(),
-        optional: !!prop.questionToken,
-      }));
+
+    const properties = node.members.filter(ts.isPropertySignature).map((prop) => ({
+      name: prop.name?.getText() || '',
+      type: prop.type?.getText(),
+      optional: !!prop.questionToken,
+    }));
 
     return {
       name,
       description,
       properties,
       isExported: this.isExported(node),
-      extendsInterfaces: node.heritageClauses
-        ?.filter(clause => clause.token === ts.SyntaxKind.ExtendsKeyword)
-        .flatMap(clause => clause.types.map(type => type.expression.getText())) || [],
+      extendsInterfaces:
+        node.heritageClauses
+          ?.filter((clause) => clause.token === ts.SyntaxKind.ExtendsKeyword)
+          .flatMap((clause) => clause.types.map((type) => type.expression.getText())) || [],
       filePath,
       line: this.getLineNumber(node),
     };
@@ -224,7 +225,7 @@ export class TypeScriptParser {
         specifiers.push(importClause.namedBindings.name.getText());
         isNamespace = true;
       } else if (ts.isNamedImports(importClause.namedBindings)) {
-        importClause.namedBindings.elements.forEach(element => {
+        importClause.namedBindings.elements.forEach((element) => {
           specifiers.push(element.name.getText());
         });
       }
@@ -273,8 +274,8 @@ export class TypeScriptParser {
     if (descMatch) {
       const desc = descMatch[1]
         .split('\n')
-        .map(line => line.replace(/^\s*\*\s?/, '').trim())
-        .filter(line => line.length > 0)
+        .map((line) => line.replace(/^\s*\*\s?/, '').trim())
+        .filter((line) => line.length > 0)
         .join(' ');
       if (desc) metadata.description = desc;
     }
@@ -284,8 +285,8 @@ export class TypeScriptParser {
     for (const match of exampleMatches) {
       const exampleText = match[1]
         .split('\n')
-        .map(line => line.replace(/^\s*\*\s?/, ''))
-        .filter(line => line.trim().length > 0)
+        .map((line) => line.replace(/^\s*\*\s?/, ''))
+        .filter((line) => line.trim().length > 0)
         .join('\n');
 
       if (exampleText.trim()) {
@@ -331,13 +332,15 @@ export class TypeScriptParser {
     }
 
     // Extract @param tags
-    const paramMatches = commentText.matchAll(/@param\s+(?:\{[^}]+\}\s+)?(\w+)\s+-?\s*(.+?)(?=\n\s*(?:\*\s*@|\*\/))/gs);
+    const paramMatches = commentText.matchAll(
+      /@param\s+(?:\{[^}]+\}\s+)?(\w+)\s+-?\s*(.+?)(?=\n\s*(?:\*\s*@|\*\/))/gs
+    );
     for (const match of paramMatches) {
       const paramName = match[1];
       const paramDesc = match[2]
         .split('\n')
-        .map(line => line.replace(/^\s*\*\s?/, '').trim())
-        .filter(line => line.length > 0)
+        .map((line) => line.replace(/^\s*\*\s?/, '').trim())
+        .filter((line) => line.length > 0)
         .join(' ');
       if (metadata.params) {
         metadata.params[paramName] = paramDesc;
@@ -345,12 +348,14 @@ export class TypeScriptParser {
     }
 
     // Extract @returns tag
-    const returnsMatch = commentText.match(/@returns?\s+(?:\{[^}]+\}\s+)?(.+?)(?=\n\s*(?:\*\s*@|\*\/))/s);
+    const returnsMatch = commentText.match(
+      /@returns?\s+(?:\{[^}]+\}\s+)?(.+?)(?=\n\s*(?:\*\s*@|\*\/))/s
+    );
     if (returnsMatch) {
       metadata.returns = returnsMatch[1]
         .split('\n')
-        .map(line => line.replace(/^\s*\*\s?/, '').trim())
-        .filter(line => line.length > 0)
+        .map((line) => line.replace(/^\s*\*\s?/, '').trim())
+        .filter((line) => line.length > 0)
         .join(' ');
     }
 
@@ -359,8 +364,8 @@ export class TypeScriptParser {
     if (deprecatedMatch) {
       metadata.deprecated = deprecatedMatch[1]
         .split('\n')
-        .map(line => line.replace(/^\s*\*\s?/, '').trim())
-        .filter(line => line.length > 0)
+        .map((line) => line.replace(/^\s*\*\s?/, '').trim())
+        .filter((line) => line.length > 0)
         .join(' ');
     }
 
@@ -380,7 +385,10 @@ export class TypeScriptParser {
   }
 
   private isExported(node: ts.Node): boolean {
-    return !!ts.canHaveModifiers(node) && !!ts.getModifiers(node)?.some((m: ts.Modifier) => m.kind === ts.SyntaxKind.ExportKeyword);
+    return (
+      !!ts.canHaveModifiers(node) &&
+      !!ts.getModifiers(node)?.some((m: ts.Modifier) => m.kind === ts.SyntaxKind.ExportKeyword)
+    );
   }
 
   private getExportName(node: ts.Node): string | null {
@@ -392,21 +400,21 @@ export class TypeScriptParser {
   }
 
   private hasModifier(node: ts.Node, kind: ts.SyntaxKind): boolean {
-    return !!ts.canHaveModifiers(node) && !!ts.getModifiers(node)?.some(m => m.kind === kind);
+    return !!ts.canHaveModifiers(node) && !!ts.getModifiers(node)?.some((m) => m.kind === kind);
   }
 
   private getExtendsClause(node: ts.ClassDeclaration): string | undefined {
     const extendsClause = node.heritageClauses?.find(
-      clause => clause.token === ts.SyntaxKind.ExtendsKeyword
+      (clause) => clause.token === ts.SyntaxKind.ExtendsKeyword
     );
     return extendsClause?.types[0]?.expression.getText();
   }
 
   private getImplementsClauses(node: ts.ClassDeclaration): string[] {
     const implementsClause = node.heritageClauses?.find(
-      clause => clause.token === ts.SyntaxKind.ImplementsKeyword
+      (clause) => clause.token === ts.SyntaxKind.ImplementsKeyword
     );
-    return implementsClause?.types.map(type => type.expression.getText()) || [];
+    return implementsClause?.types.map((type) => type.expression.getText()) || [];
   }
 
   private getLineNumber(node: ts.Node): number {

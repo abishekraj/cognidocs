@@ -1,5 +1,7 @@
 # RubyAlign
+
 ## Definition
+
 ```typescript
-Globals | "center" | "space-around" | "space-between" | "start"
+Globals | 'center' | 'space-around' | 'space-between' | 'start';
 ```

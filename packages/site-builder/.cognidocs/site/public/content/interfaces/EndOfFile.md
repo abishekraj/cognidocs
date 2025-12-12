@@ -1,5 +1,7 @@
 # EndOfFile
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `$type` | `'EndOfFile'` | No | - |
+
+| Name    | Type          | Optional | Description |
+| :------ | :------------ | :------- | :---------- |
+| `$type` | `'EndOfFile'` | No       | -           |

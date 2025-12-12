@@ -3,7 +3,8 @@
 **Return Type:** `EncoderStream`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `encoding` | `string` | No | - |
-| `options` | `Options` | Yes | - |
+
+| Name       | Type      | Optional | Description |
+| :--------- | :-------- | :------- | :---------- |
+| `encoding` | `string`  | No       | -           |
+| `options`  | `Options` | Yes      | -           |

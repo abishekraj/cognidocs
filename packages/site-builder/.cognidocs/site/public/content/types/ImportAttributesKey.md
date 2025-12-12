@@ -1,5 +1,7 @@
 # ImportAttributesKey
+
 ## Definition
+
 ```typescript
-'with' | 'assert'
+'with' | 'assert';
 ```

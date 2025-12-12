@@ -1,24 +1,30 @@
 # RootTransformer
+
 ## Properties
-| Name | Type | Description |
-| :--- | :--- | :---------- |
-| `transformers` | `any` | - |
-| `nameManager` | `any` | - |
-| `tokens` | `any` | - |
-| `generatedVariables` | `any` | - |
-| `isImportsTransformEnabled` | `any` | - |
-| `isReactHotLoaderTransformEnabled` | `any` | - |
-| `disableESTransforms` | `any` | - |
-| `helperManager` | `any` | - |
+
+| Name                               | Type  | Description |
+| :--------------------------------- | :---- | :---------- |
+| `transformers`                     | `any` | -           |
+| `nameManager`                      | `any` | -           |
+| `tokens`                           | `any` | -           |
+| `generatedVariables`               | `any` | -           |
+| `isImportsTransformEnabled`        | `any` | -           |
+| `isReactHotLoaderTransformEnabled` | `any` | -           |
+| `disableESTransforms`              | `any` | -           |
+| `helperManager`                    | `any` | -           |
 
 ## Methods
+
 ### transform
+
 **Return:** `RootTransformerResult`
 
 ### processBalancedCode
+
 **Return:** `void`
 
 ### processToken
+
 **Return:** `void`
 
 ### processNamedClass
@@ -28,6 +34,7 @@ Skip past a class with a name and return that name.
 **Return:** `string`
 
 ### processClass
+
 **Return:** `void`
 
 ### processClassBody
@@ -37,6 +44,7 @@ We want to just handle class fields in all contexts, since TypeScript supports t
 **Return:** `void`
 
 ### makeConstructorInitCode
+
 **Return:** `string`
 
 ### processPossibleArrowParamEnd
@@ -52,7 +60,9 @@ An async arrow function might be of the form: async < T >() => {} in which case,
 **Return:** `boolean`
 
 ### processPossibleTypeRange
+
 **Return:** `boolean`
 
 ### shiftMappings
+
 **Return:** `Array<number | undefined>`

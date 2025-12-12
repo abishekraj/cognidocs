@@ -3,6 +3,7 @@
 **Return Type:** `LangiumParser`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `services` | `LangiumCoreServices` | No | - |
+
+| Name       | Type                  | Optional | Description |
+| :--------- | :-------------------- | :------- | :---------- |
+| `services` | `LangiumCoreServices` | No       | -           |

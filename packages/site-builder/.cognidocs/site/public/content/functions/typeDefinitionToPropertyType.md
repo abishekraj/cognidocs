@@ -3,6 +3,7 @@
 **Return Type:** `PlainPropertyType`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `type` | `TypeDefinition` | No | - |
+
+| Name   | Type             | Optional | Description |
+| :----- | :--------------- | :------- | :---------- |
+| `type` | `TypeDefinition` | No       | -           |

@@ -1,5 +1,7 @@
 # PluginItem
+
 ## Definition
+
 ```typescript
 | ConfigItem
     | PluginObj<any>

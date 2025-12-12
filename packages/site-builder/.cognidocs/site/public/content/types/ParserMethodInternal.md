@@ -1,5 +1,7 @@
 # ParserMethodInternal
+
 ## Definition
+
 ```typescript
 ParserMethod<
   ARGS,

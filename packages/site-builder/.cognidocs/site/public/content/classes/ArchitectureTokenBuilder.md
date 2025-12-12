@@ -1,2 +1,3 @@
 # ArchitectureTokenBuilder
+
 **Extends:** `AbstractMermaidTokenBuilder`

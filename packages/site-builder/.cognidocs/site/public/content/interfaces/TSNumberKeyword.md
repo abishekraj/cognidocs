@@ -1,5 +1,7 @@
 # TSNumberKeyword
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `type` | `"TSNumberKeyword"` | No | - |
+
+| Name   | Type                | Optional | Description |
+| :----- | :------------------ | :------- | :---------- |
+| `type` | `"TSNumberKeyword"` | No       | -           |

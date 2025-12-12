@@ -1,5 +1,7 @@
 # Usable
+
 ## Definition
+
 ```typescript
-PromiseLike<T> | Context<T>
+PromiseLike<T> | Context<T>;
 ```

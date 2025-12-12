@@ -1,7 +1,10 @@
 # ModuleNamespace
+
 ## Definition
+
 ```typescript
-Record<string, any> & {
-  [Symbol.toStringTag]: 'Module'
-}
+Record<string, any> &
+  {
+    [Symbol.toStringTag]: 'Module',
+  };
 ```

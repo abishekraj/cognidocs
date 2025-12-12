@@ -1,5 +1,7 @@
 # ForXStatement
+
 ## Definition
+
 ```typescript
-ForInStatement | ForOfStatement
+ForInStatement | ForOfStatement;
 ```

@@ -1,5 +1,7 @@
 # Binary
+
 ## Definition
+
 ```typescript
-BinaryExpression | LogicalExpression
+BinaryExpression | LogicalExpression;
 ```

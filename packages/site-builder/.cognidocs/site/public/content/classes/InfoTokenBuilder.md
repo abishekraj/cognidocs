@@ -1,2 +1,3 @@
 # InfoTokenBuilder
+
 **Extends:** `AbstractMermaidTokenBuilder`

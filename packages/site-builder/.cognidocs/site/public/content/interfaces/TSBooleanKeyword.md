@@ -1,5 +1,7 @@
 # TSBooleanKeyword
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `type` | `"TSBooleanKeyword"` | No | - |
+
+| Name   | Type                 | Optional | Description |
+| :----- | :------------------- | :------- | :---------- |
+| `type` | `"TSBooleanKeyword"` | No       | -           |

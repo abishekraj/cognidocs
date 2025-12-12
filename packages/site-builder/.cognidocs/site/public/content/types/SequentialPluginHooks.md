@@ -1,5 +1,7 @@
 # SequentialPluginHooks
+
 ## Definition
+
 ```typescript
 | 'augmentChunkHash'
 	| 'generateBundle'

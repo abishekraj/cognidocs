@@ -1,5 +1,7 @@
 # FindSourceDefinitionRequest
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `command` | `CommandTypes.FindSourceDefinition` | No | - |
+
+| Name      | Type                                | Optional | Description |
+| :-------- | :---------------------------------- | :------- | :---------- |
+| `command` | `CommandTypes.FindSourceDefinition` | No       | -           |

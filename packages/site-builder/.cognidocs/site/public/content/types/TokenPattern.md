@@ -1,5 +1,7 @@
 # TokenPattern
+
 ## Definition
+
 ```typescript
 | RegExp
   | string

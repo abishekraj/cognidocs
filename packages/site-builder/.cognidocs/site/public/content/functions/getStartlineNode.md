@@ -3,6 +3,7 @@
 **Return Type:** `CstNode`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `node` | `CstNode` | No | - |
+
+| Name   | Type      | Optional | Description |
+| :----- | :-------- | :------- | :---------- |
+| `node` | `CstNode` | No       | -           |

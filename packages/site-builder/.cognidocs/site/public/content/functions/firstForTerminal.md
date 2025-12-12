@@ -3,6 +3,7 @@
 **Return Type:** `TokenType[]`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `terminal` | `Terminal` | No | - |
+
+| Name       | Type       | Optional | Description |
+| :--------- | :--------- | :------- | :---------- |
+| `terminal` | `Terminal` | No       | -           |

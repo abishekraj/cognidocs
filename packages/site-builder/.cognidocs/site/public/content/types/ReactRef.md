@@ -1,5 +1,7 @@
 # ReactRef
+
 ## Definition
+
 ```typescript
-DefinedReactRef<T> | null
+DefinedReactRef<T> | null;
 ```

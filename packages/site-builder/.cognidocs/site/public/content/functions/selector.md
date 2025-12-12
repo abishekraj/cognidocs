@@ -3,6 +3,7 @@
 **Return Type:** `(this: BaseType) => DescElement`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `selector` | `string` | No | - |
+
+| Name       | Type     | Optional | Description |
+| :--------- | :------- | :------- | :---------- |
+| `selector` | `string` | No       | -           |

@@ -1,5 +1,7 @@
 # JSDocInline
+
 ## Definition
+
 ```typescript
-JSDocTag | JSDocLine
+JSDocTag | JSDocLine;
 ```

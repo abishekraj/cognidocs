@@ -1,5 +1,9 @@
 # ExpectDiagnosticOptionsWithoutContent
+
 ## Definition
+
 ```typescript
-ExpectDiagnosticCode & ExpectDiagnosticData & (ExpectDiagnosticAstOptions<T> | ExpectDiagnosticRangeOptions | ExpectDiagnosticOffsetOptions)
+ExpectDiagnosticCode &
+  ExpectDiagnosticData &
+  (ExpectDiagnosticAstOptions<T> | ExpectDiagnosticRangeOptions | ExpectDiagnosticOffsetOptions);
 ```

@@ -1,5 +1,7 @@
 # UnistNode
+
 ## Definition
+
 ```typescript
-import('unist').Node
+import('unist').Node;
 ```

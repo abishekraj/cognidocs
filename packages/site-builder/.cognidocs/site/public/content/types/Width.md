@@ -1,5 +1,7 @@
 # Width
+
 ## Definition
+
 ```typescript
 | Globals
     | TLength

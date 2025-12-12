@@ -38,12 +38,7 @@ export function Layout({ children }: LayoutProps) {
   return (
     <div className="container">
       {/* Command Palette with Cmd+K */}
-      <CommandPalette
-        searchIndex={searchIndex}
-        store={store}
-        manifest={manifest}
-        graph={graph}
-      />
+      <CommandPalette searchIndex={searchIndex} store={store} manifest={manifest} graph={graph} />
 
       <Sidebar isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} />
 

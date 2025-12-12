@@ -1,5 +1,7 @@
 # Callback
+
 ## Definition
+
 ```typescript
-import('./lib/index.js').Callback
+import('./lib/index.js').Callback;
 ```

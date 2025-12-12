@@ -1,5 +1,7 @@
 # CallExpression
+
 ## Definition
+
 ```typescript
-SimpleCallExpression | NewExpression
+SimpleCallExpression | NewExpression;
 ```

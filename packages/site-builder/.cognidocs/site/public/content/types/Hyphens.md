@@ -1,5 +1,7 @@
 # Hyphens
+
 ## Definition
+
 ```typescript
-Globals | "auto" | "manual" | "none"
+Globals | 'auto' | 'manual' | 'none';
 ```

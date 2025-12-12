@@ -3,6 +3,7 @@
 **Return Type:** `string`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `ranges` | `GeneratedRange[]` | No | - |
+
+| Name     | Type               | Optional | Description |
+| :------- | :----------------- | :------- | :---------- |
+| `ranges` | `GeneratedRange[]` | No       | -           |

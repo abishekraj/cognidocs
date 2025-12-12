@@ -1,5 +1,7 @@
 # EncodedSemanticClassificationsResponse
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `body` | `EncodedSemanticClassificationsResponseBody` | Yes | - |
+
+| Name   | Type                                         | Optional | Description |
+| :----- | :------------------------------------------- | :------- | :---------- |
+| `body` | `EncodedSemanticClassificationsResponseBody` | Yes      | -           |

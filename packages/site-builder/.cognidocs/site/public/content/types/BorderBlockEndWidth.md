@@ -1,5 +1,7 @@
 # BorderBlockEndWidth
+
 ## Definition
+
 ```typescript
-Globals | DataType.LineWidth<TLength>
+Globals | DataType.LineWidth<TLength>;
 ```

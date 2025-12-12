@@ -1,5 +1,7 @@
 # FailureHandlingKind
+
 ## Definition
+
 ```typescript
-'abort' | 'transactional' | 'undo' | 'textOnlyTransactional'
+'abort' | 'transactional' | 'undo' | 'textOnlyTransactional';
 ```

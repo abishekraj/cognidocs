@@ -1,5 +1,7 @@
 # ErrorCallback
+
 ## Definition
+
 ```typescript
 (
     err: Error,

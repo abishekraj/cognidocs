@@ -3,6 +3,7 @@
 **Return Type:** `DeclareVariable`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `id` | `Identifier` | No | - |
+
+| Name | Type         | Optional | Description |
+| :--- | :----------- | :------- | :---------- |
+| `id` | `Identifier` | No       | -           |

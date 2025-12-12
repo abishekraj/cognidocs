@@ -1,5 +1,7 @@
 # CheckFitFunction
+
 ## Definition
+
 ```typescript
-(text: MarkdownLine) => boolean
+(text: MarkdownLine) => boolean;
 ```

@@ -1,5 +1,7 @@
 # ObjectPosition
+
 ## Definition
+
 ```typescript
-Globals | DataType.Position<TLength>
+Globals | DataType.Position<TLength>;
 ```

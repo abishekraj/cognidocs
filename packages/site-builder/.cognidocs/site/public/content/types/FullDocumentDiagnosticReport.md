@@ -3,6 +3,7 @@
 A diagnostic report with a full set of problems.
 
 ## Definition
+
 ```typescript
 {
     /**

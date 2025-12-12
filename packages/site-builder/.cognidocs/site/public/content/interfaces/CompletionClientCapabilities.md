@@ -3,10 +3,12 @@
 Completion client capabilities
 
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `dynamicRegistration` | `boolean` | Yes | - |
-| `completionItem` | `{
+
+| Name                  | Type      | Optional | Description |
+| :-------------------- | :-------- | :------- | :---------- |
+| `dynamicRegistration` | `boolean` | Yes      | -           |
+| `completionItem`      | `{        |
+
         /**
          * Client supports snippets as insert text.
          *
@@ -85,6 +87,7 @@ Completion client capabilities
          */
         labelDetailsSupport?: boolean;
     }` | Yes | - |
+
 | `completionItemKind` | `{
         /**
          * The completion item kind values the client supports. When this
@@ -93,7 +96,7 @@ Completion client capabilities
          * to a default value when unknown.
          *
          * If this property is not present the client only supports
-         * the completion items kinds from `Text` to `Reference` as defined in
+         * the completion items kinds from `Text`to`Reference` as defined in
          * the initial version of the protocol.
          */
         valueSet?: CompletionItemKind[];

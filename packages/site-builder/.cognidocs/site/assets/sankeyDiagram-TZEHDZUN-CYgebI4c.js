@@ -1,1 +1,1237 @@
-var t,n,e;import{_ as i,o as s,p as r,s as o,g as l,b as a,a as c,c as h,y as u,T as f,x as y,j as d}from"./MarkdownPage-p1fdV9J8.js";import{s as p,o as g,G as _}from"./graph-vendor-BuQDEdtN.js";import"./ui-vendor-uWBPbD_0.js";import"./react-vendor-BI367zWJ.js";import"./index-oaZTyD6l.js";import"./markdown-vendor-DSh4w1Df.js";function x(t,n){let e;if(void 0===n)for(const i of t)null!=i&&(e<i||void 0===e&&i>=i)&&(e=i);else{let i=-1;for(let s of t)null!=(s=n(s,++i,t))&&(e<s||void 0===e&&s>=s)&&(e=s)}return e}function k(t,n){let e;if(void 0===n)for(const i of t)null!=i&&(e>i||void 0===e&&i>=i)&&(e=i);else{let i=-1;for(let s of t)null!=(s=n(s,++i,t))&&(e>s||void 0===e&&s>=s)&&(e=s)}return e}function m(t,n){let e=0;if(void 0===n)for(let i of t)(i=+i)&&(e+=i);else{let i=-1;for(let s of t)(s=+n(s,++i,t))&&(e+=s)}return e}function v(t){return t.target.depth}function b(t,n){return t.sourceLinks.length?t.depth:n-1}function w(t){return function(){return t}}function S(t,n){return L(t.source,n.source)||t.index-n.index}function E(t,n){return L(t.target,n.target)||t.index-n.index}function L(t,n){return t.y0-n.y0}function A(t){return t.value}function M(t){return t.index}function I(t){return t.nodes}function T(t){return t.links}function P(t,n){const e=t.get(n);if(!e)throw new Error("missing: "+n);return e}function j({nodes:t}){for(const n of t){let t=n.y0,e=t;for(const i of n.sourceLinks)i.y0=t+i.width/2,t+=i.width;for(const i of n.targetLinks)i.y1=e+i.width/2,e+=i.width}}function N(){let t,n,e,i=0,s=0,r=1,o=1,l=24,a=8,c=M,h=b,u=I,f=T,y=6;function d(){const d={nodes:u.apply(null,arguments),links:f.apply(null,arguments)};return function({nodes:t,links:n}){for(const[e,s]of t.entries())s.index=e,s.sourceLinks=[],s.targetLinks=[];const i=new Map(t.map((n,e)=>[c(n,e,t),n]));for(const[e,s]of n.entries()){s.index=e;let{source:t,target:n}=s;"object"!=typeof t&&(t=s.source=P(i,t)),"object"!=typeof n&&(n=s.target=P(i,n)),t.sourceLinks.push(s),n.targetLinks.push(s)}if(null!=e)for(const{sourceLinks:s,targetLinks:r}of t)s.sort(e),r.sort(e)}(d),function({nodes:t}){for(const n of t)n.value=void 0===n.fixedValue?Math.max(m(n.sourceLinks,A),m(n.targetLinks,A)):n.fixedValue}(d),function({nodes:t}){const n=t.length;let e=new Set(t),i=new Set,s=0;for(;e.size;){for(const t of e){t.depth=s;for(const{target:n}of t.sourceLinks)i.add(n)}if(++s>n)throw new Error("circular link");e=i,i=new Set}}(d),function({nodes:t}){const n=t.length;let e=new Set(t),i=new Set,s=0;for(;e.size;){for(const t of e){t.height=s;for(const{source:n}of t.targetLinks)i.add(n)}if(++s>n)throw new Error("circular link");e=i,i=new Set}}(d),function(e){const c=function({nodes:t}){const e=x(t,t=>t.depth)+1,s=(r-i-l)/(e-1),o=new Array(e);for(const n of t){const t=Math.max(0,Math.min(e-1,Math.floor(h.call(null,n,e))));n.layer=t,n.x0=i+t*s,n.x1=n.x0+l,o[t]?o[t].push(n):o[t]=[n]}if(n)for(const i of o)i.sort(n);return o}(e);t=Math.min(a,(o-s)/(x(c,t=>t.length)-1)),function(n){const e=k(n,n=>(o-s-(n.length-1)*t)/m(n,A));for(const i of n){let n=s;for(const s of i){s.y0=n,s.y1=n+s.value*e,n=s.y1+t;for(const t of s.sourceLinks)t.width=t.value*e}n=(o-n+t)/(i.length+1);for(let t=0;t<i.length;++t){const e=i[t];e.y0+=n*(t+1),e.y1+=n*(t+1)}C(i)}}(c);for(let t=0;t<y;++t){const n=Math.pow(.99,t),e=Math.max(1-n,(t+1)/y);g(c,n,e),p(c,n,e)}}(d),j(d),d}function p(t,e,i){for(let s=1,r=t.length;s<r;++s){const r=t[s];for(const t of r){let n=0,i=0;for(const{source:e,value:r}of t.targetLinks){let s=r*(t.layer-e.layer);n+=D(e,t)*s,i+=s}if(!(i>0))continue;let s=(n/i-t.y0)*e;t.y0+=s,t.y1+=s,O(t)}void 0===n&&r.sort(L),_(r,i)}}function g(t,e,i){for(let s=t.length-2;s>=0;--s){const r=t[s];for(const t of r){let n=0,i=0;for(const{target:e,value:r}of t.sourceLinks){let s=r*(e.layer-t.layer);n+=$(t,e)*s,i+=s}if(!(i>0))continue;let s=(n/i-t.y0)*e;t.y0+=s,t.y1+=s,O(t)}void 0===n&&r.sort(L),_(r,i)}}function _(n,e){const i=n.length>>1,r=n[i];N(n,r.y0-t,i-1,e),v(n,r.y1+t,i+1,e),N(n,o,n.length-1,e),v(n,s,0,e)}function v(n,e,i,s){for(;i<n.length;++i){const r=n[i],o=(e-r.y0)*s;o>1e-6&&(r.y0+=o,r.y1+=o),e=r.y1+t}}function N(n,e,i,s){for(;i>=0;--i){const r=n[i],o=(r.y1-e)*s;o>1e-6&&(r.y0-=o,r.y1-=o),e=r.y0-t}}function O({sourceLinks:t,targetLinks:n}){if(void 0===e){for(const{source:{sourceLinks:t}}of n)t.sort(E);for(const{target:{targetLinks:n}}of t)n.sort(S)}}function C(t){if(void 0===e)for(const{sourceLinks:n,targetLinks:e}of t)n.sort(E),e.sort(S)}function D(n,e){let i=n.y0-(n.sourceLinks.length-1)*t/2;for(const{target:s,width:r}of n.sourceLinks){if(s===e)break;i+=r+t}for(const{source:t,width:s}of e.targetLinks){if(t===n)break;i-=s}return i}function $(n,e){let i=e.y0-(e.targetLinks.length-1)*t/2;for(const{source:s,width:r}of e.targetLinks){if(s===n)break;i+=r+t}for(const{target:t,width:s}of n.sourceLinks){if(t===e)break;i-=s}return i}return d.update=function(t){return j(t),t},d.nodeId=function(t){return arguments.length?(c="function"==typeof t?t:w(t),d):c},d.nodeAlign=function(t){return arguments.length?(h="function"==typeof t?t:w(t),d):h},d.nodeSort=function(t){return arguments.length?(n=t,d):n},d.nodeWidth=function(t){return arguments.length?(l=+t,d):l},d.nodePadding=function(n){return arguments.length?(a=t=+n,d):a},d.nodes=function(t){return arguments.length?(u="function"==typeof t?t:w(t),d):u},d.links=function(t){return arguments.length?(f="function"==typeof t?t:w(t),d):f},d.linkSort=function(t){return arguments.length?(e=t,d):e},d.size=function(t){return arguments.length?(i=s=0,r=+t[0],o=+t[1],d):[r-i,o-s]},d.extent=function(t){return arguments.length?(i=+t[0][0],r=+t[1][0],s=+t[0][1],o=+t[1][1],d):[[i,s],[r,o]]},d.iterations=function(t){return arguments.length?(y=+t,d):y},d}var O=Math.PI,C=2*O,D=1e-6,$=C-D;function z(){this._x0=this._y0=this._x1=this._y1=null,this._=""}function F(){return new z}function U(t){return function(){return t}}function G(t){return t[0]}function W(t){return t[1]}z.prototype=F.prototype={constructor:z,moveTo:function(t,n){this._+="M"+(this._x0=this._x1=+t)+","+(this._y0=this._y1=+n)},closePath:function(){null!==this._x1&&(this._x1=this._x0,this._y1=this._y0,this._+="Z")},lineTo:function(t,n){this._+="L"+(this._x1=+t)+","+(this._y1=+n)},quadraticCurveTo:function(t,n,e,i){this._+="Q"+ +t+","+ +n+","+(this._x1=+e)+","+(this._y1=+i)},bezierCurveTo:function(t,n,e,i,s,r){this._+="C"+ +t+","+ +n+","+ +e+","+ +i+","+(this._x1=+s)+","+(this._y1=+r)},arcTo:function(t,n,e,i,s){t=+t,n=+n,e=+e,i=+i,s=+s;var r=this._x1,o=this._y1,l=e-t,a=i-n,c=r-t,h=o-n,u=c*c+h*h;if(s<0)throw new Error("negative radius: "+s);if(null===this._x1)this._+="M"+(this._x1=t)+","+(this._y1=n);else if(u>D)if(Math.abs(h*l-a*c)>D&&s){var f=e-r,y=i-o,d=l*l+a*a,p=f*f+y*y,g=Math.sqrt(d),_=Math.sqrt(u),x=s*Math.tan((O-Math.acos((d+u-p)/(2*g*_)))/2),k=x/_,m=x/g;Math.abs(k-1)>D&&(this._+="L"+(t+k*c)+","+(n+k*h)),this._+="A"+s+","+s+",0,0,"+ +(h*f>c*y)+","+(this._x1=t+m*l)+","+(this._y1=n+m*a)}else this._+="L"+(this._x1=t)+","+(this._y1=n);else;},arc:function(t,n,e,i,s,r){t=+t,n=+n,r=!!r;var o=(e=+e)*Math.cos(i),l=e*Math.sin(i),a=t+o,c=n+l,h=1^r,u=r?i-s:s-i;if(e<0)throw new Error("negative radius: "+e);null===this._x1?this._+="M"+a+","+c:(Math.abs(this._x1-a)>D||Math.abs(this._y1-c)>D)&&(this._+="L"+a+","+c),e&&(u<0&&(u=u%C+C),u>$?this._+="A"+e+","+e+",0,1,"+h+","+(t-o)+","+(n-l)+"A"+e+","+e+",0,1,"+h+","+(this._x1=a)+","+(this._y1=c):u>D&&(this._+="A"+e+","+e+",0,"+ +(u>=O)+","+h+","+(this._x1=t+e*Math.cos(s))+","+(this._y1=n+e*Math.sin(s))))},rect:function(t,n,e,i){this._+="M"+(this._x0=this._x1=+t)+","+(this._y0=this._y1=+n)+"h"+ +e+"v"+ +i+"h"+-e+"Z"},toString:function(){return this._}};var V=Array.prototype.slice;function X(t){return t.source}function q(t){return t.target}function Q(t,n,e,i,s){t.moveTo(n,e),t.bezierCurveTo(n=(n+i)/2,e,n,s,i,s)}function R(){return function(t){var n=X,e=q,i=G,s=W,r=null;function o(){var o,l=V.call(arguments),a=n.apply(this,l),c=e.apply(this,l);if(r||(r=o=F()),t(r,+i.apply(this,(l[0]=a,l)),+s.apply(this,l),+i.apply(this,(l[0]=c,l)),+s.apply(this,l)),o)return r=null,o+""||null}return o.source=function(t){return arguments.length?(n=t,o):n},o.target=function(t){return arguments.length?(e=t,o):e},o.x=function(t){return arguments.length?(i="function"==typeof t?t:U(+t),o):i},o.y=function(t){return arguments.length?(s="function"==typeof t?t:U(+t),o):s},o.context=function(t){return arguments.length?(r=null==t?null:t,o):r},o}(Q)}function Y(t){return[t.source.x1,t.y0]}function B(t){return[t.target.x0,t.y1]}var K=function(){var t=i(function(t,n,e,i){for(e=e||{},i=t.length;i--;e[t[i]]=n);return e},"o"),n=[1,9],e=[1,10],s=[1,5,10,12],r={trace:i(function(){},"trace"),yy:{},symbols_:{error:2,start:3,SANKEY:4,NEWLINE:5,csv:6,opt_eof:7,record:8,csv_tail:9,EOF:10,"field[source]":11,COMMA:12,"field[target]":13,"field[value]":14,field:15,escaped:16,non_escaped:17,DQUOTE:18,ESCAPED_TEXT:19,NON_ESCAPED_TEXT:20,$accept:0,$end:1},terminals_:{2:"error",4:"SANKEY",5:"NEWLINE",10:"EOF",11:"field[source]",12:"COMMA",13:"field[target]",14:"field[value]",18:"DQUOTE",19:"ESCAPED_TEXT",20:"NON_ESCAPED_TEXT"},productions_:[0,[3,4],[6,2],[9,2],[9,0],[7,1],[7,0],[8,5],[15,1],[15,1],[16,3],[17,1]],performAction:i(function(t,n,e,i,s,r,o){var l=r.length-1;switch(s){case 7:const t=i.findOrCreateNode(r[l-4].trim().replaceAll('""','"')),n=i.findOrCreateNode(r[l-2].trim().replaceAll('""','"')),e=parseFloat(r[l].trim());i.addLink(t,n,e);break;case 8:case 9:case 11:this.$=r[l];break;case 10:this.$=r[l-1]}},"anonymous"),table:[{3:1,4:[1,2]},{1:[3]},{5:[1,3]},{6:4,8:5,15:6,16:7,17:8,18:n,20:e},{1:[2,6],7:11,10:[1,12]},t(e,[2,4],{9:13,5:[1,14]}),{12:[1,15]},t(s,[2,8]),t(s,[2,9]),{19:[1,16]},t(s,[2,11]),{1:[2,1]},{1:[2,5]},t(e,[2,2]),{6:17,8:5,15:6,16:7,17:8,18:n,20:e},{15:18,16:7,17:8,18:n,20:e},{18:[1,19]},t(e,[2,3]),{12:[1,20]},t(s,[2,10]),{15:21,16:7,17:8,18:n,20:e},t([1,5,10],[2,7])],defaultActions:{11:[2,1],12:[2,5]},parseError:i(function(t,n){if(!n.recoverable){var e=new Error(t);throw e.hash=n,e}this.trace(t)},"parseError"),parse:i(function(t){var n=this,e=[0],s=[],r=[null],o=[],l=this.table,a="",c=0,h=0,u=o.slice.call(arguments,1),f=Object.create(this.lexer),y={yy:{}};for(var d in this.yy)Object.prototype.hasOwnProperty.call(this.yy,d)&&(y.yy[d]=this.yy[d]);f.setInput(t,y.yy),y.yy.lexer=f,y.yy.parser=this,void 0===f.yylloc&&(f.yylloc={});var p=f.yylloc;o.push(p);var g=f.options&&f.options.ranges;function _(){var t;return"number"!=typeof(t=s.pop()||f.lex()||1)&&(t instanceof Array&&(t=(s=t).pop()),t=n.symbols_[t]||t),t}"function"==typeof y.yy.parseError?this.parseError=y.yy.parseError:this.parseError=Object.getPrototypeOf(this).parseError,i(function(t){e.length=e.length-2*t,r.length=r.length-t,o.length=o.length-t},"popStack"),i(_,"lex");for(var x,k,m,v,b,w,S,E,L={};;){if(k=e[e.length-1],this.defaultActions[k]?m=this.defaultActions[k]:(null==x&&(x=_()),m=l[k]&&l[k][x]),void 0===m||!m.length||!m[0]){var A="";for(b in E=[],l[k])this.terminals_[b]&&b>2&&E.push("'"+this.terminals_[b]+"'");A=f.showPosition?"Parse error on line "+(c+1)+":\n"+f.showPosition()+"\nExpecting "+E.join(", ")+", got '"+(this.terminals_[x]||x)+"'":"Parse error on line "+(c+1)+": Unexpected "+(1==x?"end of input":"'"+(this.terminals_[x]||x)+"'"),this.parseError(A,{text:f.match,token:this.terminals_[x]||x,line:f.yylineno,loc:p,expected:E})}if(m[0]instanceof Array&&m.length>1)throw new Error("Parse Error: multiple actions possible at state: "+k+", token: "+x);switch(m[0]){case 1:e.push(x),r.push(f.yytext),o.push(f.yylloc),e.push(m[1]),x=null,h=f.yyleng,a=f.yytext,c=f.yylineno,p=f.yylloc;break;case 2:if(w=this.productions_[m[1]][1],L.$=r[r.length-w],L._$={first_line:o[o.length-(w||1)].first_line,last_line:o[o.length-1].last_line,first_column:o[o.length-(w||1)].first_column,last_column:o[o.length-1].last_column},g&&(L._$.range=[o[o.length-(w||1)].range[0],o[o.length-1].range[1]]),void 0!==(v=this.performAction.apply(L,[a,h,c,y.yy,m[1],r,o].concat(u))))return v;w&&(e=e.slice(0,-1*w*2),r=r.slice(0,-1*w),o=o.slice(0,-1*w)),e.push(this.productions_[m[1]][0]),r.push(L.$),o.push(L._$),S=l[e[e.length-2]][e[e.length-1]],e.push(S);break;case 3:return!0}}return!0},"parse")},o=function(){return{EOF:1,parseError:i(function(t,n){if(!this.yy.parser)throw new Error(t);this.yy.parser.parseError(t,n)},"parseError"),setInput:i(function(t,n){return this.yy=n||this.yy||{},this._input=t,this._more=this._backtrack=this.done=!1,this.yylineno=this.yyleng=0,this.yytext=this.matched=this.match="",this.conditionStack=["INITIAL"],this.yylloc={first_line:1,first_column:0,last_line:1,last_column:0},this.options.ranges&&(this.yylloc.range=[0,0]),this.offset=0,this},"setInput"),input:i(function(){var t=this._input[0];return this.yytext+=t,this.yyleng++,this.offset++,this.match+=t,this.matched+=t,t.match(/(?:\r\n?|\n).*/g)?(this.yylineno++,this.yylloc.last_line++):this.yylloc.last_column++,this.options.ranges&&this.yylloc.range[1]++,this._input=this._input.slice(1),t},"input"),unput:i(function(t){var n=t.length,e=t.split(/(?:\r\n?|\n)/g);this._input=t+this._input,this.yytext=this.yytext.substr(0,this.yytext.length-n),this.offset-=n;var i=this.match.split(/(?:\r\n?|\n)/g);this.match=this.match.substr(0,this.match.length-1),this.matched=this.matched.substr(0,this.matched.length-1),e.length-1&&(this.yylineno-=e.length-1);var s=this.yylloc.range;return this.yylloc={first_line:this.yylloc.first_line,last_line:this.yylineno+1,first_column:this.yylloc.first_column,last_column:e?(e.length===i.length?this.yylloc.first_column:0)+i[i.length-e.length].length-e[0].length:this.yylloc.first_column-n},this.options.ranges&&(this.yylloc.range=[s[0],s[0]+this.yyleng-n]),this.yyleng=this.yytext.length,this},"unput"),more:i(function(){return this._more=!0,this},"more"),reject:i(function(){return this.options.backtrack_lexer?(this._backtrack=!0,this):this.parseError("Lexical error on line "+(this.yylineno+1)+". You can only invoke reject() in the lexer when the lexer is of the backtracking persuasion (options.backtrack_lexer = true).\n"+this.showPosition(),{text:"",token:null,line:this.yylineno})},"reject"),less:i(function(t){this.unput(this.match.slice(t))},"less"),pastInput:i(function(){var t=this.matched.substr(0,this.matched.length-this.match.length);return(t.length>20?"...":"")+t.substr(-20).replace(/\n/g,"")},"pastInput"),upcomingInput:i(function(){var t=this.match;return t.length<20&&(t+=this._input.substr(0,20-t.length)),(t.substr(0,20)+(t.length>20?"...":"")).replace(/\n/g,"")},"upcomingInput"),showPosition:i(function(){var t=this.pastInput(),n=new Array(t.length+1).join("-");return t+this.upcomingInput()+"\n"+n+"^"},"showPosition"),test_match:i(function(t,n){var e,i,s;if(this.options.backtrack_lexer&&(s={yylineno:this.yylineno,yylloc:{first_line:this.yylloc.first_line,last_line:this.last_line,first_column:this.yylloc.first_column,last_column:this.yylloc.last_column},yytext:this.yytext,match:this.match,matches:this.matches,matched:this.matched,yyleng:this.yyleng,offset:this.offset,_more:this._more,_input:this._input,yy:this.yy,conditionStack:this.conditionStack.slice(0),done:this.done},this.options.ranges&&(s.yylloc.range=this.yylloc.range.slice(0))),(i=t[0].match(/(?:\r\n?|\n).*/g))&&(this.yylineno+=i.length),this.yylloc={first_line:this.yylloc.last_line,last_line:this.yylineno+1,first_column:this.yylloc.last_column,last_column:i?i[i.length-1].length-i[i.length-1].match(/\r?\n?/)[0].length:this.yylloc.last_column+t[0].length},this.yytext+=t[0],this.match+=t[0],this.matches=t,this.yyleng=this.yytext.length,this.options.ranges&&(this.yylloc.range=[this.offset,this.offset+=this.yyleng]),this._more=!1,this._backtrack=!1,this._input=this._input.slice(t[0].length),this.matched+=t[0],e=this.performAction.call(this,this.yy,this,n,this.conditionStack[this.conditionStack.length-1]),this.done&&this._input&&(this.done=!1),e)return e;if(this._backtrack){for(var r in s)this[r]=s[r];return!1}return!1},"test_match"),next:i(function(){if(this.done)return this.EOF;var t,n,e,i;this._input||(this.done=!0),this._more||(this.yytext="",this.match="");for(var s=this._currentRules(),r=0;r<s.length;r++)if((e=this._input.match(this.rules[s[r]]))&&(!n||e[0].length>n[0].length)){if(n=e,i=r,this.options.backtrack_lexer){if(!1!==(t=this.test_match(e,s[r])))return t;if(this._backtrack){n=!1;continue}return!1}if(!this.options.flex)break}return n?!1!==(t=this.test_match(n,s[i]))&&t:""===this._input?this.EOF:this.parseError("Lexical error on line "+(this.yylineno+1)+". Unrecognized text.\n"+this.showPosition(),{text:"",token:null,line:this.yylineno})},"next"),lex:i(function(){var t=this.next();return t||this.lex()},"lex"),begin:i(function(t){this.conditionStack.push(t)},"begin"),popState:i(function(){return this.conditionStack.length-1>0?this.conditionStack.pop():this.conditionStack[0]},"popState"),_currentRules:i(function(){return this.conditionStack.length&&this.conditionStack[this.conditionStack.length-1]?this.conditions[this.conditionStack[this.conditionStack.length-1]].rules:this.conditions.INITIAL.rules},"_currentRules"),topState:i(function(t){return(t=this.conditionStack.length-1-Math.abs(t||0))>=0?this.conditionStack[t]:"INITIAL"},"topState"),pushState:i(function(t){this.begin(t)},"pushState"),stateStackSize:i(function(){return this.conditionStack.length},"stateStackSize"),options:{"case-insensitive":!0},performAction:i(function(t,n,e,i){switch(e){case 0:case 1:return this.pushState("csv"),4;case 2:return 10;case 3:return 5;case 4:return 12;case 5:return this.pushState("escaped_text"),18;case 6:return 20;case 7:return this.popState("escaped_text"),18;case 8:return 19}},"anonymous"),rules:[/^(?:sankey-beta\b)/i,/^(?:sankey\b)/i,/^(?:$)/i,/^(?:((\u000D\u000A)|(\u000A)))/i,/^(?:(\u002C))/i,/^(?:(\u0022))/i,/^(?:([\u0020-\u0021\u0023-\u002B\u002D-\u007E])*)/i,/^(?:(\u0022)(?!(\u0022)))/i,/^(?:(([\u0020-\u0021\u0023-\u002B\u002D-\u007E])|(\u002C)|(\u000D)|(\u000A)|(\u0022)(\u0022))*)/i],conditions:{csv:{rules:[2,3,4,5,6,7,8],inclusive:!1},escaped_text:{rules:[7,8],inclusive:!1},INITIAL:{rules:[0,1,2,3,4,5,6,7,8],inclusive:!0}}}}();function l(){this.yy={}}return r.lexer=o,i(l,"Parser"),l.prototype=r,r.Parser=l,new l}();K.parser=K;var Z=K,H=[],J=[],tt=new Map,nt=i(()=>{H=[],J=[],tt=new Map,y()},"clear"),et=(i(t=class{constructor(t,n,e=0){this.source=t,this.target=n,this.value=e}},"SankeyLink"),t),it=i((t,n,e)=>{H.push(new et(t,n,e))},"addLink"),st=(i(n=class{constructor(t){this.ID=t}},"SankeyNode"),n),rt=i(t=>{t=d.sanitizeText(t,h());let n=tt.get(t);return void 0===n&&(n=new st(t),tt.set(t,n),J.push(n)),n},"findOrCreateNode"),ot=i(()=>J,"getNodes"),lt=i(()=>H,"getLinks"),at=i(()=>({nodes:J.map(t=>({id:t.ID})),links:H.map(t=>({source:t.source.ID,target:t.target.ID,value:t.value}))}),"getGraph"),ct={nodesMap:tt,getConfig:i(()=>h().sankey,"getConfig"),getNodes:ot,getLinks:lt,getGraph:at,addLink:it,findOrCreateNode:rt,getAccTitle:c,setAccTitle:a,getAccDescription:l,setAccDescription:o,getDiagramTitle:r,setDiagramTitle:s,clear:nt},ht=(i(e=class{static next(t){return new e(t+ ++e.count)}constructor(t){this.id=t,this.href=`#${t}`}toString(){return"url("+this.href+")"}},"Uid"),e.count=0,e),ut={left:function(t){return t.depth},right:function(t,n){return n-1-t.height},center:function(t){return t.targetLinks.length?t.depth:t.sourceLinks.length?k(t.sourceLinks,v)-1:0},justify:b},ft={draw:i(function(t,n,e,s){const{securityLevel:r,sankey:o}=h(),l=u.sankey;let a;"sandbox"===r&&(a=p("#i"+n));const c=p("sandbox"===r?a.nodes()[0].contentDocument.body:"body"),y="sandbox"===r?c.select(`[id="${n}"]`):p(`[id="${n}"]`),d=(null==o?void 0:o.width)??l.width,x=(null==o?void 0:o.height)??l.width,k=(null==o?void 0:o.useMaxWidth)??l.useMaxWidth,m=(null==o?void 0:o.nodeAlignment)??l.nodeAlignment,v=(null==o?void 0:o.prefix)??l.prefix,b=(null==o?void 0:o.suffix)??l.suffix,w=(null==o?void 0:o.showValues)??l.showValues,S=s.db.getGraph(),E=ut[m];N().nodeId(t=>t.id).nodeWidth(10).nodePadding(10+(w?15:0)).nodeAlign(E).extent([[0,0],[d,x]])(S);const L=g(_);y.append("g").attr("class","nodes").selectAll(".node").data(S.nodes).join("g").attr("class","node").attr("id",t=>(t.uid=ht.next("node-")).id).attr("transform",function(t){return"translate("+t.x0+","+t.y0+")"}).attr("x",t=>t.x0).attr("y",t=>t.y0).append("rect").attr("height",t=>t.y1-t.y0).attr("width",t=>t.x1-t.x0).attr("fill",t=>L(t.id));const A=i(({id:t,value:n})=>w?`${t}\n${v}${Math.round(100*n)/100}${b}`:t,"getText");y.append("g").attr("class","node-labels").attr("font-size",14).selectAll("text").data(S.nodes).join("text").attr("x",t=>t.x0<d/2?t.x1+6:t.x0-6).attr("y",t=>(t.y1+t.y0)/2).attr("dy",(w?"0":"0.35")+"em").attr("text-anchor",t=>t.x0<d/2?"start":"end").text(A);const M=y.append("g").attr("class","links").attr("fill","none").attr("stroke-opacity",.5).selectAll(".link").data(S.links).join("g").attr("class","link").style("mix-blend-mode","multiply"),I=(null==o?void 0:o.linkColor)??"gradient";if("gradient"===I){const t=M.append("linearGradient").attr("id",t=>(t.uid=ht.next("linearGradient-")).id).attr("gradientUnits","userSpaceOnUse").attr("x1",t=>t.source.x1).attr("x2",t=>t.target.x0);t.append("stop").attr("offset","0%").attr("stop-color",t=>L(t.source.id)),t.append("stop").attr("offset","100%").attr("stop-color",t=>L(t.target.id))}let T;switch(I){case"gradient":T=i(t=>t.uid,"coloring");break;case"source":T=i(t=>L(t.source.id),"coloring");break;case"target":T=i(t=>L(t.target.id),"coloring");break;default:T=I}M.append("path").attr("d",R().source(Y).target(B)).attr("stroke",T).attr("stroke-width",t=>Math.max(1,t.width)),f(void 0,y,0,k)},"draw")},yt=i(t=>t.replaceAll(/^[^\S\n\r]+|[^\S\n\r]+$/g,"").replaceAll(/([\n\r])+/g,"\n").trim(),"prepareTextForParsing"),dt=i(t=>`.label {\n      font-family: ${t.fontFamily};\n    }`,"getStyles"),pt=Z.parse.bind(Z);Z.parse=t=>pt(yt(t));var gt={styles:dt,parser:Z,db:ct,renderer:ft};export{gt as diagram};
+var t, n, e;
+import {
+  _ as i,
+  o as s,
+  p as r,
+  s as o,
+  g as l,
+  b as a,
+  a as c,
+  c as h,
+  y as u,
+  T as f,
+  x as y,
+  j as d,
+} from './MarkdownPage-p1fdV9J8.js';
+import { s as p, o as g, G as _ } from './graph-vendor-BuQDEdtN.js';
+import './ui-vendor-uWBPbD_0.js';
+import './react-vendor-BI367zWJ.js';
+import './index-oaZTyD6l.js';
+import './markdown-vendor-DSh4w1Df.js';
+function x(t, n) {
+  let e;
+  if (void 0 === n) for (const i of t) null != i && (e < i || (void 0 === e && i >= i)) && (e = i);
+  else {
+    let i = -1;
+    for (let s of t) null != (s = n(s, ++i, t)) && (e < s || (void 0 === e && s >= s)) && (e = s);
+  }
+  return e;
+}
+function k(t, n) {
+  let e;
+  if (void 0 === n) for (const i of t) null != i && (e > i || (void 0 === e && i >= i)) && (e = i);
+  else {
+    let i = -1;
+    for (let s of t) null != (s = n(s, ++i, t)) && (e > s || (void 0 === e && s >= s)) && (e = s);
+  }
+  return e;
+}
+function m(t, n) {
+  let e = 0;
+  if (void 0 === n) for (let i of t) (i = +i) && (e += i);
+  else {
+    let i = -1;
+    for (let s of t) (s = +n(s, ++i, t)) && (e += s);
+  }
+  return e;
+}
+function v(t) {
+  return t.target.depth;
+}
+function b(t, n) {
+  return t.sourceLinks.length ? t.depth : n - 1;
+}
+function w(t) {
+  return function () {
+    return t;
+  };
+}
+function S(t, n) {
+  return L(t.source, n.source) || t.index - n.index;
+}
+function E(t, n) {
+  return L(t.target, n.target) || t.index - n.index;
+}
+function L(t, n) {
+  return t.y0 - n.y0;
+}
+function A(t) {
+  return t.value;
+}
+function M(t) {
+  return t.index;
+}
+function I(t) {
+  return t.nodes;
+}
+function T(t) {
+  return t.links;
+}
+function P(t, n) {
+  const e = t.get(n);
+  if (!e) throw new Error('missing: ' + n);
+  return e;
+}
+function j({ nodes: t }) {
+  for (const n of t) {
+    let t = n.y0,
+      e = t;
+    for (const i of n.sourceLinks) ((i.y0 = t + i.width / 2), (t += i.width));
+    for (const i of n.targetLinks) ((i.y1 = e + i.width / 2), (e += i.width));
+  }
+}
+function N() {
+  let t,
+    n,
+    e,
+    i = 0,
+    s = 0,
+    r = 1,
+    o = 1,
+    l = 24,
+    a = 8,
+    c = M,
+    h = b,
+    u = I,
+    f = T,
+    y = 6;
+  function d() {
+    const d = { nodes: u.apply(null, arguments), links: f.apply(null, arguments) };
+    return (
+      (function ({ nodes: t, links: n }) {
+        for (const [e, s] of t.entries())
+          ((s.index = e), (s.sourceLinks = []), (s.targetLinks = []));
+        const i = new Map(t.map((n, e) => [c(n, e, t), n]));
+        for (const [e, s] of n.entries()) {
+          s.index = e;
+          let { source: t, target: n } = s;
+          ('object' != typeof t && (t = s.source = P(i, t)),
+            'object' != typeof n && (n = s.target = P(i, n)),
+            t.sourceLinks.push(s),
+            n.targetLinks.push(s));
+        }
+        if (null != e) for (const { sourceLinks: s, targetLinks: r } of t) (s.sort(e), r.sort(e));
+      })(d),
+      (function ({ nodes: t }) {
+        for (const n of t)
+          n.value =
+            void 0 === n.fixedValue
+              ? Math.max(m(n.sourceLinks, A), m(n.targetLinks, A))
+              : n.fixedValue;
+      })(d),
+      (function ({ nodes: t }) {
+        const n = t.length;
+        let e = new Set(t),
+          i = new Set(),
+          s = 0;
+        for (; e.size; ) {
+          for (const t of e) {
+            t.depth = s;
+            for (const { target: n } of t.sourceLinks) i.add(n);
+          }
+          if (++s > n) throw new Error('circular link');
+          ((e = i), (i = new Set()));
+        }
+      })(d),
+      (function ({ nodes: t }) {
+        const n = t.length;
+        let e = new Set(t),
+          i = new Set(),
+          s = 0;
+        for (; e.size; ) {
+          for (const t of e) {
+            t.height = s;
+            for (const { source: n } of t.targetLinks) i.add(n);
+          }
+          if (++s > n) throw new Error('circular link');
+          ((e = i), (i = new Set()));
+        }
+      })(d),
+      (function (e) {
+        const c = (function ({ nodes: t }) {
+          const e = x(t, (t) => t.depth) + 1,
+            s = (r - i - l) / (e - 1),
+            o = new Array(e);
+          for (const n of t) {
+            const t = Math.max(0, Math.min(e - 1, Math.floor(h.call(null, n, e))));
+            ((n.layer = t),
+              (n.x0 = i + t * s),
+              (n.x1 = n.x0 + l),
+              o[t] ? o[t].push(n) : (o[t] = [n]));
+          }
+          if (n) for (const i of o) i.sort(n);
+          return o;
+        })(e);
+        ((t = Math.min(a, (o - s) / (x(c, (t) => t.length) - 1))),
+          (function (n) {
+            const e = k(n, (n) => (o - s - (n.length - 1) * t) / m(n, A));
+            for (const i of n) {
+              let n = s;
+              for (const s of i) {
+                ((s.y0 = n), (s.y1 = n + s.value * e), (n = s.y1 + t));
+                for (const t of s.sourceLinks) t.width = t.value * e;
+              }
+              n = (o - n + t) / (i.length + 1);
+              for (let t = 0; t < i.length; ++t) {
+                const e = i[t];
+                ((e.y0 += n * (t + 1)), (e.y1 += n * (t + 1)));
+              }
+              C(i);
+            }
+          })(c));
+        for (let t = 0; t < y; ++t) {
+          const n = Math.pow(0.99, t),
+            e = Math.max(1 - n, (t + 1) / y);
+          (g(c, n, e), p(c, n, e));
+        }
+      })(d),
+      j(d),
+      d
+    );
+  }
+  function p(t, e, i) {
+    for (let s = 1, r = t.length; s < r; ++s) {
+      const r = t[s];
+      for (const t of r) {
+        let n = 0,
+          i = 0;
+        for (const { source: e, value: r } of t.targetLinks) {
+          let s = r * (t.layer - e.layer);
+          ((n += D(e, t) * s), (i += s));
+        }
+        if (!(i > 0)) continue;
+        let s = (n / i - t.y0) * e;
+        ((t.y0 += s), (t.y1 += s), O(t));
+      }
+      (void 0 === n && r.sort(L), _(r, i));
+    }
+  }
+  function g(t, e, i) {
+    for (let s = t.length - 2; s >= 0; --s) {
+      const r = t[s];
+      for (const t of r) {
+        let n = 0,
+          i = 0;
+        for (const { target: e, value: r } of t.sourceLinks) {
+          let s = r * (e.layer - t.layer);
+          ((n += $(t, e) * s), (i += s));
+        }
+        if (!(i > 0)) continue;
+        let s = (n / i - t.y0) * e;
+        ((t.y0 += s), (t.y1 += s), O(t));
+      }
+      (void 0 === n && r.sort(L), _(r, i));
+    }
+  }
+  function _(n, e) {
+    const i = n.length >> 1,
+      r = n[i];
+    (N(n, r.y0 - t, i - 1, e), v(n, r.y1 + t, i + 1, e), N(n, o, n.length - 1, e), v(n, s, 0, e));
+  }
+  function v(n, e, i, s) {
+    for (; i < n.length; ++i) {
+      const r = n[i],
+        o = (e - r.y0) * s;
+      (o > 1e-6 && ((r.y0 += o), (r.y1 += o)), (e = r.y1 + t));
+    }
+  }
+  function N(n, e, i, s) {
+    for (; i >= 0; --i) {
+      const r = n[i],
+        o = (r.y1 - e) * s;
+      (o > 1e-6 && ((r.y0 -= o), (r.y1 -= o)), (e = r.y0 - t));
+    }
+  }
+  function O({ sourceLinks: t, targetLinks: n }) {
+    if (void 0 === e) {
+      for (const {
+        source: { sourceLinks: t },
+      } of n)
+        t.sort(E);
+      for (const {
+        target: { targetLinks: n },
+      } of t)
+        n.sort(S);
+    }
+  }
+  function C(t) {
+    if (void 0 === e) for (const { sourceLinks: n, targetLinks: e } of t) (n.sort(E), e.sort(S));
+  }
+  function D(n, e) {
+    let i = n.y0 - ((n.sourceLinks.length - 1) * t) / 2;
+    for (const { target: s, width: r } of n.sourceLinks) {
+      if (s === e) break;
+      i += r + t;
+    }
+    for (const { source: t, width: s } of e.targetLinks) {
+      if (t === n) break;
+      i -= s;
+    }
+    return i;
+  }
+  function $(n, e) {
+    let i = e.y0 - ((e.targetLinks.length - 1) * t) / 2;
+    for (const { source: s, width: r } of e.targetLinks) {
+      if (s === n) break;
+      i += r + t;
+    }
+    for (const { target: t, width: s } of n.sourceLinks) {
+      if (t === e) break;
+      i -= s;
+    }
+    return i;
+  }
+  return (
+    (d.update = function (t) {
+      return (j(t), t);
+    }),
+    (d.nodeId = function (t) {
+      return arguments.length ? ((c = 'function' == typeof t ? t : w(t)), d) : c;
+    }),
+    (d.nodeAlign = function (t) {
+      return arguments.length ? ((h = 'function' == typeof t ? t : w(t)), d) : h;
+    }),
+    (d.nodeSort = function (t) {
+      return arguments.length ? ((n = t), d) : n;
+    }),
+    (d.nodeWidth = function (t) {
+      return arguments.length ? ((l = +t), d) : l;
+    }),
+    (d.nodePadding = function (n) {
+      return arguments.length ? ((a = t = +n), d) : a;
+    }),
+    (d.nodes = function (t) {
+      return arguments.length ? ((u = 'function' == typeof t ? t : w(t)), d) : u;
+    }),
+    (d.links = function (t) {
+      return arguments.length ? ((f = 'function' == typeof t ? t : w(t)), d) : f;
+    }),
+    (d.linkSort = function (t) {
+      return arguments.length ? ((e = t), d) : e;
+    }),
+    (d.size = function (t) {
+      return arguments.length ? ((i = s = 0), (r = +t[0]), (o = +t[1]), d) : [r - i, o - s];
+    }),
+    (d.extent = function (t) {
+      return arguments.length
+        ? ((i = +t[0][0]), (r = +t[1][0]), (s = +t[0][1]), (o = +t[1][1]), d)
+        : [
+            [i, s],
+            [r, o],
+          ];
+    }),
+    (d.iterations = function (t) {
+      return arguments.length ? ((y = +t), d) : y;
+    }),
+    d
+  );
+}
+var O = Math.PI,
+  C = 2 * O,
+  D = 1e-6,
+  $ = C - D;
+function z() {
+  ((this._x0 = this._y0 = this._x1 = this._y1 = null), (this._ = ''));
+}
+function F() {
+  return new z();
+}
+function U(t) {
+  return function () {
+    return t;
+  };
+}
+function G(t) {
+  return t[0];
+}
+function W(t) {
+  return t[1];
+}
+z.prototype = F.prototype = {
+  constructor: z,
+  moveTo: function (t, n) {
+    this._ += 'M' + (this._x0 = this._x1 = +t) + ',' + (this._y0 = this._y1 = +n);
+  },
+  closePath: function () {
+    null !== this._x1 && ((this._x1 = this._x0), (this._y1 = this._y0), (this._ += 'Z'));
+  },
+  lineTo: function (t, n) {
+    this._ += 'L' + (this._x1 = +t) + ',' + (this._y1 = +n);
+  },
+  quadraticCurveTo: function (t, n, e, i) {
+    this._ += 'Q' + +t + ',' + +n + ',' + (this._x1 = +e) + ',' + (this._y1 = +i);
+  },
+  bezierCurveTo: function (t, n, e, i, s, r) {
+    this._ +=
+      'C' + +t + ',' + +n + ',' + +e + ',' + +i + ',' + (this._x1 = +s) + ',' + (this._y1 = +r);
+  },
+  arcTo: function (t, n, e, i, s) {
+    ((t = +t), (n = +n), (e = +e), (i = +i), (s = +s));
+    var r = this._x1,
+      o = this._y1,
+      l = e - t,
+      a = i - n,
+      c = r - t,
+      h = o - n,
+      u = c * c + h * h;
+    if (s < 0) throw new Error('negative radius: ' + s);
+    if (null === this._x1) this._ += 'M' + (this._x1 = t) + ',' + (this._y1 = n);
+    else if (u > D)
+      if (Math.abs(h * l - a * c) > D && s) {
+        var f = e - r,
+          y = i - o,
+          d = l * l + a * a,
+          p = f * f + y * y,
+          g = Math.sqrt(d),
+          _ = Math.sqrt(u),
+          x = s * Math.tan((O - Math.acos((d + u - p) / (2 * g * _))) / 2),
+          k = x / _,
+          m = x / g;
+        (Math.abs(k - 1) > D && (this._ += 'L' + (t + k * c) + ',' + (n + k * h)),
+          (this._ +=
+            'A' +
+            s +
+            ',' +
+            s +
+            ',0,0,' +
+            +(h * f > c * y) +
+            ',' +
+            (this._x1 = t + m * l) +
+            ',' +
+            (this._y1 = n + m * a)));
+      } else this._ += 'L' + (this._x1 = t) + ',' + (this._y1 = n);
+    else;
+  },
+  arc: function (t, n, e, i, s, r) {
+    ((t = +t), (n = +n), (r = !!r));
+    var o = (e = +e) * Math.cos(i),
+      l = e * Math.sin(i),
+      a = t + o,
+      c = n + l,
+      h = 1 ^ r,
+      u = r ? i - s : s - i;
+    if (e < 0) throw new Error('negative radius: ' + e);
+    (null === this._x1
+      ? (this._ += 'M' + a + ',' + c)
+      : (Math.abs(this._x1 - a) > D || Math.abs(this._y1 - c) > D) && (this._ += 'L' + a + ',' + c),
+      e &&
+        (u < 0 && (u = (u % C) + C),
+        u > $
+          ? (this._ +=
+              'A' +
+              e +
+              ',' +
+              e +
+              ',0,1,' +
+              h +
+              ',' +
+              (t - o) +
+              ',' +
+              (n - l) +
+              'A' +
+              e +
+              ',' +
+              e +
+              ',0,1,' +
+              h +
+              ',' +
+              (this._x1 = a) +
+              ',' +
+              (this._y1 = c))
+          : u > D &&
+            (this._ +=
+              'A' +
+              e +
+              ',' +
+              e +
+              ',0,' +
+              +(u >= O) +
+              ',' +
+              h +
+              ',' +
+              (this._x1 = t + e * Math.cos(s)) +
+              ',' +
+              (this._y1 = n + e * Math.sin(s)))));
+  },
+  rect: function (t, n, e, i) {
+    this._ +=
+      'M' +
+      (this._x0 = this._x1 = +t) +
+      ',' +
+      (this._y0 = this._y1 = +n) +
+      'h' +
+      +e +
+      'v' +
+      +i +
+      'h' +
+      -e +
+      'Z';
+  },
+  toString: function () {
+    return this._;
+  },
+};
+var V = Array.prototype.slice;
+function X(t) {
+  return t.source;
+}
+function q(t) {
+  return t.target;
+}
+function Q(t, n, e, i, s) {
+  (t.moveTo(n, e), t.bezierCurveTo((n = (n + i) / 2), e, n, s, i, s));
+}
+function R() {
+  return (function (t) {
+    var n = X,
+      e = q,
+      i = G,
+      s = W,
+      r = null;
+    function o() {
+      var o,
+        l = V.call(arguments),
+        a = n.apply(this, l),
+        c = e.apply(this, l);
+      if (
+        (r || (r = o = F()),
+        t(
+          r,
+          +i.apply(this, ((l[0] = a), l)),
+          +s.apply(this, l),
+          +i.apply(this, ((l[0] = c), l)),
+          +s.apply(this, l)
+        ),
+        o)
+      )
+        return ((r = null), o + '' || null);
+    }
+    return (
+      (o.source = function (t) {
+        return arguments.length ? ((n = t), o) : n;
+      }),
+      (o.target = function (t) {
+        return arguments.length ? ((e = t), o) : e;
+      }),
+      (o.x = function (t) {
+        return arguments.length ? ((i = 'function' == typeof t ? t : U(+t)), o) : i;
+      }),
+      (o.y = function (t) {
+        return arguments.length ? ((s = 'function' == typeof t ? t : U(+t)), o) : s;
+      }),
+      (o.context = function (t) {
+        return arguments.length ? ((r = null == t ? null : t), o) : r;
+      }),
+      o
+    );
+  })(Q);
+}
+function Y(t) {
+  return [t.source.x1, t.y0];
+}
+function B(t) {
+  return [t.target.x0, t.y1];
+}
+var K = (function () {
+  var t = i(function (t, n, e, i) {
+      for (e = e || {}, i = t.length; i--; e[t[i]] = n);
+      return e;
+    }, 'o'),
+    n = [1, 9],
+    e = [1, 10],
+    s = [1, 5, 10, 12],
+    r = {
+      trace: i(function () {}, 'trace'),
+      yy: {},
+      symbols_: {
+        error: 2,
+        start: 3,
+        SANKEY: 4,
+        NEWLINE: 5,
+        csv: 6,
+        opt_eof: 7,
+        record: 8,
+        csv_tail: 9,
+        EOF: 10,
+        'field[source]': 11,
+        COMMA: 12,
+        'field[target]': 13,
+        'field[value]': 14,
+        field: 15,
+        escaped: 16,
+        non_escaped: 17,
+        DQUOTE: 18,
+        ESCAPED_TEXT: 19,
+        NON_ESCAPED_TEXT: 20,
+        $accept: 0,
+        $end: 1,
+      },
+      terminals_: {
+        2: 'error',
+        4: 'SANKEY',
+        5: 'NEWLINE',
+        10: 'EOF',
+        11: 'field[source]',
+        12: 'COMMA',
+        13: 'field[target]',
+        14: 'field[value]',
+        18: 'DQUOTE',
+        19: 'ESCAPED_TEXT',
+        20: 'NON_ESCAPED_TEXT',
+      },
+      productions_: [
+        0,
+        [3, 4],
+        [6, 2],
+        [9, 2],
+        [9, 0],
+        [7, 1],
+        [7, 0],
+        [8, 5],
+        [15, 1],
+        [15, 1],
+        [16, 3],
+        [17, 1],
+      ],
+      performAction: i(function (t, n, e, i, s, r, o) {
+        var l = r.length - 1;
+        switch (s) {
+          case 7:
+            const t = i.findOrCreateNode(r[l - 4].trim().replaceAll('""', '"')),
+              n = i.findOrCreateNode(r[l - 2].trim().replaceAll('""', '"')),
+              e = parseFloat(r[l].trim());
+            i.addLink(t, n, e);
+            break;
+          case 8:
+          case 9:
+          case 11:
+            this.$ = r[l];
+            break;
+          case 10:
+            this.$ = r[l - 1];
+        }
+      }, 'anonymous'),
+      table: [
+        { 3: 1, 4: [1, 2] },
+        { 1: [3] },
+        { 5: [1, 3] },
+        { 6: 4, 8: 5, 15: 6, 16: 7, 17: 8, 18: n, 20: e },
+        { 1: [2, 6], 7: 11, 10: [1, 12] },
+        t(e, [2, 4], { 9: 13, 5: [1, 14] }),
+        { 12: [1, 15] },
+        t(s, [2, 8]),
+        t(s, [2, 9]),
+        { 19: [1, 16] },
+        t(s, [2, 11]),
+        { 1: [2, 1] },
+        { 1: [2, 5] },
+        t(e, [2, 2]),
+        { 6: 17, 8: 5, 15: 6, 16: 7, 17: 8, 18: n, 20: e },
+        { 15: 18, 16: 7, 17: 8, 18: n, 20: e },
+        { 18: [1, 19] },
+        t(e, [2, 3]),
+        { 12: [1, 20] },
+        t(s, [2, 10]),
+        { 15: 21, 16: 7, 17: 8, 18: n, 20: e },
+        t([1, 5, 10], [2, 7]),
+      ],
+      defaultActions: { 11: [2, 1], 12: [2, 5] },
+      parseError: i(function (t, n) {
+        if (!n.recoverable) {
+          var e = new Error(t);
+          throw ((e.hash = n), e);
+        }
+        this.trace(t);
+      }, 'parseError'),
+      parse: i(function (t) {
+        var n = this,
+          e = [0],
+          s = [],
+          r = [null],
+          o = [],
+          l = this.table,
+          a = '',
+          c = 0,
+          h = 0,
+          u = o.slice.call(arguments, 1),
+          f = Object.create(this.lexer),
+          y = { yy: {} };
+        for (var d in this.yy)
+          Object.prototype.hasOwnProperty.call(this.yy, d) && (y.yy[d] = this.yy[d]);
+        (f.setInput(t, y.yy),
+          (y.yy.lexer = f),
+          (y.yy.parser = this),
+          void 0 === f.yylloc && (f.yylloc = {}));
+        var p = f.yylloc;
+        o.push(p);
+        var g = f.options && f.options.ranges;
+        function _() {
+          var t;
+          return (
+            'number' != typeof (t = s.pop() || f.lex() || 1) &&
+              (t instanceof Array && (t = (s = t).pop()), (t = n.symbols_[t] || t)),
+            t
+          );
+        }
+        ('function' == typeof y.yy.parseError
+          ? (this.parseError = y.yy.parseError)
+          : (this.parseError = Object.getPrototypeOf(this).parseError),
+          i(function (t) {
+            ((e.length = e.length - 2 * t), (r.length = r.length - t), (o.length = o.length - t));
+          }, 'popStack'),
+          i(_, 'lex'));
+        for (var x, k, m, v, b, w, S, E, L = {}; ; ) {
+          if (
+            ((k = e[e.length - 1]),
+            this.defaultActions[k]
+              ? (m = this.defaultActions[k])
+              : (null == x && (x = _()), (m = l[k] && l[k][x])),
+            void 0 === m || !m.length || !m[0])
+          ) {
+            var A = '';
+            for (b in ((E = []), l[k]))
+              this.terminals_[b] && b > 2 && E.push("'" + this.terminals_[b] + "'");
+            ((A = f.showPosition
+              ? 'Parse error on line ' +
+                (c + 1) +
+                ':\n' +
+                f.showPosition() +
+                '\nExpecting ' +
+                E.join(', ') +
+                ", got '" +
+                (this.terminals_[x] || x) +
+                "'"
+              : 'Parse error on line ' +
+                (c + 1) +
+                ': Unexpected ' +
+                (1 == x ? 'end of input' : "'" + (this.terminals_[x] || x) + "'")),
+              this.parseError(A, {
+                text: f.match,
+                token: this.terminals_[x] || x,
+                line: f.yylineno,
+                loc: p,
+                expected: E,
+              }));
+          }
+          if (m[0] instanceof Array && m.length > 1)
+            throw new Error(
+              'Parse Error: multiple actions possible at state: ' + k + ', token: ' + x
+            );
+          switch (m[0]) {
+            case 1:
+              (e.push(x),
+                r.push(f.yytext),
+                o.push(f.yylloc),
+                e.push(m[1]),
+                (x = null),
+                (h = f.yyleng),
+                (a = f.yytext),
+                (c = f.yylineno),
+                (p = f.yylloc));
+              break;
+            case 2:
+              if (
+                ((w = this.productions_[m[1]][1]),
+                (L.$ = r[r.length - w]),
+                (L._$ = {
+                  first_line: o[o.length - (w || 1)].first_line,
+                  last_line: o[o.length - 1].last_line,
+                  first_column: o[o.length - (w || 1)].first_column,
+                  last_column: o[o.length - 1].last_column,
+                }),
+                g && (L._$.range = [o[o.length - (w || 1)].range[0], o[o.length - 1].range[1]]),
+                void 0 !== (v = this.performAction.apply(L, [a, h, c, y.yy, m[1], r, o].concat(u))))
+              )
+                return v;
+              (w &&
+                ((e = e.slice(0, -1 * w * 2)), (r = r.slice(0, -1 * w)), (o = o.slice(0, -1 * w))),
+                e.push(this.productions_[m[1]][0]),
+                r.push(L.$),
+                o.push(L._$),
+                (S = l[e[e.length - 2]][e[e.length - 1]]),
+                e.push(S));
+              break;
+            case 3:
+              return !0;
+          }
+        }
+        return !0;
+      }, 'parse'),
+    },
+    o = (function () {
+      return {
+        EOF: 1,
+        parseError: i(function (t, n) {
+          if (!this.yy.parser) throw new Error(t);
+          this.yy.parser.parseError(t, n);
+        }, 'parseError'),
+        setInput: i(function (t, n) {
+          return (
+            (this.yy = n || this.yy || {}),
+            (this._input = t),
+            (this._more = this._backtrack = this.done = !1),
+            (this.yylineno = this.yyleng = 0),
+            (this.yytext = this.matched = this.match = ''),
+            (this.conditionStack = ['INITIAL']),
+            (this.yylloc = { first_line: 1, first_column: 0, last_line: 1, last_column: 0 }),
+            this.options.ranges && (this.yylloc.range = [0, 0]),
+            (this.offset = 0),
+            this
+          );
+        }, 'setInput'),
+        input: i(function () {
+          var t = this._input[0];
+          return (
+            (this.yytext += t),
+            this.yyleng++,
+            this.offset++,
+            (this.match += t),
+            (this.matched += t),
+            t.match(/(?:\r\n?|\n).*/g)
+              ? (this.yylineno++, this.yylloc.last_line++)
+              : this.yylloc.last_column++,
+            this.options.ranges && this.yylloc.range[1]++,
+            (this._input = this._input.slice(1)),
+            t
+          );
+        }, 'input'),
+        unput: i(function (t) {
+          var n = t.length,
+            e = t.split(/(?:\r\n?|\n)/g);
+          ((this._input = t + this._input),
+            (this.yytext = this.yytext.substr(0, this.yytext.length - n)),
+            (this.offset -= n));
+          var i = this.match.split(/(?:\r\n?|\n)/g);
+          ((this.match = this.match.substr(0, this.match.length - 1)),
+            (this.matched = this.matched.substr(0, this.matched.length - 1)),
+            e.length - 1 && (this.yylineno -= e.length - 1));
+          var s = this.yylloc.range;
+          return (
+            (this.yylloc = {
+              first_line: this.yylloc.first_line,
+              last_line: this.yylineno + 1,
+              first_column: this.yylloc.first_column,
+              last_column: e
+                ? (e.length === i.length ? this.yylloc.first_column : 0) +
+                  i[i.length - e.length].length -
+                  e[0].length
+                : this.yylloc.first_column - n,
+            }),
+            this.options.ranges && (this.yylloc.range = [s[0], s[0] + this.yyleng - n]),
+            (this.yyleng = this.yytext.length),
+            this
+          );
+        }, 'unput'),
+        more: i(function () {
+          return ((this._more = !0), this);
+        }, 'more'),
+        reject: i(function () {
+          return this.options.backtrack_lexer
+            ? ((this._backtrack = !0), this)
+            : this.parseError(
+                'Lexical error on line ' +
+                  (this.yylineno + 1) +
+                  '. You can only invoke reject() in the lexer when the lexer is of the backtracking persuasion (options.backtrack_lexer = true).\n' +
+                  this.showPosition(),
+                { text: '', token: null, line: this.yylineno }
+              );
+        }, 'reject'),
+        less: i(function (t) {
+          this.unput(this.match.slice(t));
+        }, 'less'),
+        pastInput: i(function () {
+          var t = this.matched.substr(0, this.matched.length - this.match.length);
+          return (t.length > 20 ? '...' : '') + t.substr(-20).replace(/\n/g, '');
+        }, 'pastInput'),
+        upcomingInput: i(function () {
+          var t = this.match;
+          return (
+            t.length < 20 && (t += this._input.substr(0, 20 - t.length)),
+            (t.substr(0, 20) + (t.length > 20 ? '...' : '')).replace(/\n/g, '')
+          );
+        }, 'upcomingInput'),
+        showPosition: i(function () {
+          var t = this.pastInput(),
+            n = new Array(t.length + 1).join('-');
+          return t + this.upcomingInput() + '\n' + n + '^';
+        }, 'showPosition'),
+        test_match: i(function (t, n) {
+          var e, i, s;
+          if (
+            (this.options.backtrack_lexer &&
+              ((s = {
+                yylineno: this.yylineno,
+                yylloc: {
+                  first_line: this.yylloc.first_line,
+                  last_line: this.last_line,
+                  first_column: this.yylloc.first_column,
+                  last_column: this.yylloc.last_column,
+                },
+                yytext: this.yytext,
+                match: this.match,
+                matches: this.matches,
+                matched: this.matched,
+                yyleng: this.yyleng,
+                offset: this.offset,
+                _more: this._more,
+                _input: this._input,
+                yy: this.yy,
+                conditionStack: this.conditionStack.slice(0),
+                done: this.done,
+              }),
+              this.options.ranges && (s.yylloc.range = this.yylloc.range.slice(0))),
+            (i = t[0].match(/(?:\r\n?|\n).*/g)) && (this.yylineno += i.length),
+            (this.yylloc = {
+              first_line: this.yylloc.last_line,
+              last_line: this.yylineno + 1,
+              first_column: this.yylloc.last_column,
+              last_column: i
+                ? i[i.length - 1].length - i[i.length - 1].match(/\r?\n?/)[0].length
+                : this.yylloc.last_column + t[0].length,
+            }),
+            (this.yytext += t[0]),
+            (this.match += t[0]),
+            (this.matches = t),
+            (this.yyleng = this.yytext.length),
+            this.options.ranges &&
+              (this.yylloc.range = [this.offset, (this.offset += this.yyleng)]),
+            (this._more = !1),
+            (this._backtrack = !1),
+            (this._input = this._input.slice(t[0].length)),
+            (this.matched += t[0]),
+            (e = this.performAction.call(
+              this,
+              this.yy,
+              this,
+              n,
+              this.conditionStack[this.conditionStack.length - 1]
+            )),
+            this.done && this._input && (this.done = !1),
+            e)
+          )
+            return e;
+          if (this._backtrack) {
+            for (var r in s) this[r] = s[r];
+            return !1;
+          }
+          return !1;
+        }, 'test_match'),
+        next: i(function () {
+          if (this.done) return this.EOF;
+          var t, n, e, i;
+          (this._input || (this.done = !0), this._more || ((this.yytext = ''), (this.match = '')));
+          for (var s = this._currentRules(), r = 0; r < s.length; r++)
+            if ((e = this._input.match(this.rules[s[r]])) && (!n || e[0].length > n[0].length)) {
+              if (((n = e), (i = r), this.options.backtrack_lexer)) {
+                if (!1 !== (t = this.test_match(e, s[r]))) return t;
+                if (this._backtrack) {
+                  n = !1;
+                  continue;
+                }
+                return !1;
+              }
+              if (!this.options.flex) break;
+            }
+          return n
+            ? !1 !== (t = this.test_match(n, s[i])) && t
+            : '' === this._input
+              ? this.EOF
+              : this.parseError(
+                  'Lexical error on line ' +
+                    (this.yylineno + 1) +
+                    '. Unrecognized text.\n' +
+                    this.showPosition(),
+                  { text: '', token: null, line: this.yylineno }
+                );
+        }, 'next'),
+        lex: i(function () {
+          var t = this.next();
+          return t || this.lex();
+        }, 'lex'),
+        begin: i(function (t) {
+          this.conditionStack.push(t);
+        }, 'begin'),
+        popState: i(function () {
+          return this.conditionStack.length - 1 > 0
+            ? this.conditionStack.pop()
+            : this.conditionStack[0];
+        }, 'popState'),
+        _currentRules: i(function () {
+          return this.conditionStack.length && this.conditionStack[this.conditionStack.length - 1]
+            ? this.conditions[this.conditionStack[this.conditionStack.length - 1]].rules
+            : this.conditions.INITIAL.rules;
+        }, '_currentRules'),
+        topState: i(function (t) {
+          return (t = this.conditionStack.length - 1 - Math.abs(t || 0)) >= 0
+            ? this.conditionStack[t]
+            : 'INITIAL';
+        }, 'topState'),
+        pushState: i(function (t) {
+          this.begin(t);
+        }, 'pushState'),
+        stateStackSize: i(function () {
+          return this.conditionStack.length;
+        }, 'stateStackSize'),
+        options: { 'case-insensitive': !0 },
+        performAction: i(function (t, n, e, i) {
+          switch (e) {
+            case 0:
+            case 1:
+              return (this.pushState('csv'), 4);
+            case 2:
+              return 10;
+            case 3:
+              return 5;
+            case 4:
+              return 12;
+            case 5:
+              return (this.pushState('escaped_text'), 18);
+            case 6:
+              return 20;
+            case 7:
+              return (this.popState('escaped_text'), 18);
+            case 8:
+              return 19;
+          }
+        }, 'anonymous'),
+        rules: [
+          /^(?:sankey-beta\b)/i,
+          /^(?:sankey\b)/i,
+          /^(?:$)/i,
+          /^(?:((\u000D\u000A)|(\u000A)))/i,
+          /^(?:(\u002C))/i,
+          /^(?:(\u0022))/i,
+          /^(?:([\u0020-\u0021\u0023-\u002B\u002D-\u007E])*)/i,
+          /^(?:(\u0022)(?!(\u0022)))/i,
+          /^(?:(([\u0020-\u0021\u0023-\u002B\u002D-\u007E])|(\u002C)|(\u000D)|(\u000A)|(\u0022)(\u0022))*)/i,
+        ],
+        conditions: {
+          csv: { rules: [2, 3, 4, 5, 6, 7, 8], inclusive: !1 },
+          escaped_text: { rules: [7, 8], inclusive: !1 },
+          INITIAL: { rules: [0, 1, 2, 3, 4, 5, 6, 7, 8], inclusive: !0 },
+        },
+      };
+    })();
+  function l() {
+    this.yy = {};
+  }
+  return ((r.lexer = o), i(l, 'Parser'), (l.prototype = r), (r.Parser = l), new l());
+})();
+K.parser = K;
+var Z = K,
+  H = [],
+  J = [],
+  tt = new Map(),
+  nt = i(() => {
+    ((H = []), (J = []), (tt = new Map()), y());
+  }, 'clear'),
+  et =
+    (i(
+      (t = class {
+        constructor(t, n, e = 0) {
+          ((this.source = t), (this.target = n), (this.value = e));
+        }
+      }),
+      'SankeyLink'
+    ),
+    t),
+  it = i((t, n, e) => {
+    H.push(new et(t, n, e));
+  }, 'addLink'),
+  st =
+    (i(
+      (n = class {
+        constructor(t) {
+          this.ID = t;
+        }
+      }),
+      'SankeyNode'
+    ),
+    n),
+  rt = i((t) => {
+    t = d.sanitizeText(t, h());
+    let n = tt.get(t);
+    return (void 0 === n && ((n = new st(t)), tt.set(t, n), J.push(n)), n);
+  }, 'findOrCreateNode'),
+  ot = i(() => J, 'getNodes'),
+  lt = i(() => H, 'getLinks'),
+  at = i(
+    () => ({
+      nodes: J.map((t) => ({ id: t.ID })),
+      links: H.map((t) => ({ source: t.source.ID, target: t.target.ID, value: t.value })),
+    }),
+    'getGraph'
+  ),
+  ct = {
+    nodesMap: tt,
+    getConfig: i(() => h().sankey, 'getConfig'),
+    getNodes: ot,
+    getLinks: lt,
+    getGraph: at,
+    addLink: it,
+    findOrCreateNode: rt,
+    getAccTitle: c,
+    setAccTitle: a,
+    getAccDescription: l,
+    setAccDescription: o,
+    getDiagramTitle: r,
+    setDiagramTitle: s,
+    clear: nt,
+  },
+  ht =
+    (i(
+      (e = class {
+        static next(t) {
+          return new e(t + ++e.count);
+        }
+        constructor(t) {
+          ((this.id = t), (this.href = `#${t}`));
+        }
+        toString() {
+          return 'url(' + this.href + ')';
+        }
+      }),
+      'Uid'
+    ),
+    (e.count = 0),
+    e),
+  ut = {
+    left: function (t) {
+      return t.depth;
+    },
+    right: function (t, n) {
+      return n - 1 - t.height;
+    },
+    center: function (t) {
+      return t.targetLinks.length ? t.depth : t.sourceLinks.length ? k(t.sourceLinks, v) - 1 : 0;
+    },
+    justify: b,
+  },
+  ft = {
+    draw: i(function (t, n, e, s) {
+      const { securityLevel: r, sankey: o } = h(),
+        l = u.sankey;
+      let a;
+      'sandbox' === r && (a = p('#i' + n));
+      const c = p('sandbox' === r ? a.nodes()[0].contentDocument.body : 'body'),
+        y = 'sandbox' === r ? c.select(`[id="${n}"]`) : p(`[id="${n}"]`),
+        d = (null == o ? void 0 : o.width) ?? l.width,
+        x = (null == o ? void 0 : o.height) ?? l.width,
+        k = (null == o ? void 0 : o.useMaxWidth) ?? l.useMaxWidth,
+        m = (null == o ? void 0 : o.nodeAlignment) ?? l.nodeAlignment,
+        v = (null == o ? void 0 : o.prefix) ?? l.prefix,
+        b = (null == o ? void 0 : o.suffix) ?? l.suffix,
+        w = (null == o ? void 0 : o.showValues) ?? l.showValues,
+        S = s.db.getGraph(),
+        E = ut[m];
+      N()
+        .nodeId((t) => t.id)
+        .nodeWidth(10)
+        .nodePadding(10 + (w ? 15 : 0))
+        .nodeAlign(E)
+        .extent([
+          [0, 0],
+          [d, x],
+        ])(S);
+      const L = g(_);
+      y.append('g')
+        .attr('class', 'nodes')
+        .selectAll('.node')
+        .data(S.nodes)
+        .join('g')
+        .attr('class', 'node')
+        .attr('id', (t) => (t.uid = ht.next('node-')).id)
+        .attr('transform', function (t) {
+          return 'translate(' + t.x0 + ',' + t.y0 + ')';
+        })
+        .attr('x', (t) => t.x0)
+        .attr('y', (t) => t.y0)
+        .append('rect')
+        .attr('height', (t) => t.y1 - t.y0)
+        .attr('width', (t) => t.x1 - t.x0)
+        .attr('fill', (t) => L(t.id));
+      const A = i(
+        ({ id: t, value: n }) => (w ? `${t}\n${v}${Math.round(100 * n) / 100}${b}` : t),
+        'getText'
+      );
+      y.append('g')
+        .attr('class', 'node-labels')
+        .attr('font-size', 14)
+        .selectAll('text')
+        .data(S.nodes)
+        .join('text')
+        .attr('x', (t) => (t.x0 < d / 2 ? t.x1 + 6 : t.x0 - 6))
+        .attr('y', (t) => (t.y1 + t.y0) / 2)
+        .attr('dy', (w ? '0' : '0.35') + 'em')
+        .attr('text-anchor', (t) => (t.x0 < d / 2 ? 'start' : 'end'))
+        .text(A);
+      const M = y
+          .append('g')
+          .attr('class', 'links')
+          .attr('fill', 'none')
+          .attr('stroke-opacity', 0.5)
+          .selectAll('.link')
+          .data(S.links)
+          .join('g')
+          .attr('class', 'link')
+          .style('mix-blend-mode', 'multiply'),
+        I = (null == o ? void 0 : o.linkColor) ?? 'gradient';
+      if ('gradient' === I) {
+        const t = M.append('linearGradient')
+          .attr('id', (t) => (t.uid = ht.next('linearGradient-')).id)
+          .attr('gradientUnits', 'userSpaceOnUse')
+          .attr('x1', (t) => t.source.x1)
+          .attr('x2', (t) => t.target.x0);
+        (t
+          .append('stop')
+          .attr('offset', '0%')
+          .attr('stop-color', (t) => L(t.source.id)),
+          t
+            .append('stop')
+            .attr('offset', '100%')
+            .attr('stop-color', (t) => L(t.target.id)));
+      }
+      let T;
+      switch (I) {
+        case 'gradient':
+          T = i((t) => t.uid, 'coloring');
+          break;
+        case 'source':
+          T = i((t) => L(t.source.id), 'coloring');
+          break;
+        case 'target':
+          T = i((t) => L(t.target.id), 'coloring');
+          break;
+        default:
+          T = I;
+      }
+      (M.append('path')
+        .attr('d', R().source(Y).target(B))
+        .attr('stroke', T)
+        .attr('stroke-width', (t) => Math.max(1, t.width)),
+        f(void 0, y, 0, k));
+    }, 'draw'),
+  },
+  yt = i(
+    (t) =>
+      t
+        .replaceAll(/^[^\S\n\r]+|[^\S\n\r]+$/g, '')
+        .replaceAll(/([\n\r])+/g, '\n')
+        .trim(),
+    'prepareTextForParsing'
+  ),
+  dt = i((t) => `.label {\n      font-family: ${t.fontFamily};\n    }`, 'getStyles'),
+  pt = Z.parse.bind(Z);
+Z.parse = (t) => pt(yt(t));
+var gt = { styles: dt, parser: Z, db: ct, renderer: ft };
+export { gt as diagram };

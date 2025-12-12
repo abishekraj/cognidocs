@@ -1,5 +1,7 @@
 # MergedRollupOptions
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `output` | `OutputOptions[]` | No | - |
+
+| Name     | Type              | Optional | Description |
+| :------- | :---------------- | :------- | :---------- |
+| `output` | `OutputOptions[]` | No       | -           |

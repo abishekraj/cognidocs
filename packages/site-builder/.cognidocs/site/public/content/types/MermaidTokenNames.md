@@ -1,5 +1,7 @@
 # MermaidTokenNames
+
 ## Definition
+
 ```typescript
-MermaidTerminalNames | MermaidKeywordNames
+MermaidTerminalNames | MermaidKeywordNames;
 ```

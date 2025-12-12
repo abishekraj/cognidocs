@@ -1,5 +1,7 @@
 # ObsoletePropertiesHyphenFallback
+
 ## Definition
+
 ```typescript
-Fallback<ObsoletePropertiesHyphen<TLength, TTime>>
+Fallback<ObsoletePropertiesHyphen<TLength, TTime>>;
 ```

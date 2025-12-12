@@ -1,5 +1,7 @@
 # StrokeDasharray
+
 ## Definition
+
 ```typescript
-Globals | DataType.Dasharray<TLength> | "none"
+Globals | DataType.Dasharray<TLength> | 'none';
 ```

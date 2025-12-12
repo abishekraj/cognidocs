@@ -1,5 +1,7 @@
 # PatternSection
+
 ## Definition
+
 ```typescript
 PatternSegment[]
 ```

@@ -1,5 +1,7 @@
 # MathShift
+
 ## Definition
+
 ```typescript
-Globals | "compact" | "normal"
+Globals | 'compact' | 'normal';
 ```

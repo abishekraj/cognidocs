@@ -1,5 +1,7 @@
 # ElementContext
+
 ## Definition
+
 ```typescript
-'reference' | 'floating'
+'reference' | 'floating';
 ```

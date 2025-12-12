@@ -1,5 +1,7 @@
 # FileReferencesResponse
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `body` | `FileReferencesResponseBody` | Yes | - |
+
+| Name   | Type                         | Optional | Description |
+| :----- | :--------------------------- | :------- | :---------- |
+| `body` | `FileReferencesResponseBody` | Yes      | -           |

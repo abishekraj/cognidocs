@@ -3,6 +3,7 @@
 **Return Type:** `ATN`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `rules` | `Rule[]` | No | - |
+
+| Name    | Type     | Optional | Description |
+| :------ | :------- | :------- | :---------- |
+| `rules` | `Rule[]` | No       | -           |

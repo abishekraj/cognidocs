@@ -1,6 +1,8 @@
 # ModuleExpression
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `type` | `"ModuleExpression"` | No | - |
-| `body` | `Program` | No | - |
+
+| Name   | Type                 | Optional | Description |
+| :----- | :------------------- | :------- | :---------- |
+| `type` | `"ModuleExpression"` | No       | -           |
+| `body` | `Program`            | No       | -           |

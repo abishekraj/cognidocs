@@ -1,5 +1,7 @@
 # MsWrapMargin
+
 ## Definition
+
 ```typescript
-Globals | TLength
+Globals | TLength;
 ```

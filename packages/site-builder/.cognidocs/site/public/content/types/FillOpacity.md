@@ -1,5 +1,7 @@
 # FillOpacity
+
 ## Definition
+
 ```typescript
-Globals | (string & {}) | (number & {})
+Globals | (string & {}) | (number & {});
 ```

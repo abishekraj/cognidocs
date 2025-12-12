@@ -1,5 +1,7 @@
 # TypeHierarchyClientCapabilities
+
 ## Definition
+
 ```typescript
 {
     /**

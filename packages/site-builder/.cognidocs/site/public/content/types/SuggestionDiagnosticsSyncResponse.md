@@ -1,5 +1,7 @@
 # SuggestionDiagnosticsSyncResponse
+
 ## Definition
+
 ```typescript
-SemanticDiagnosticsSyncResponse
+SemanticDiagnosticsSyncResponse;
 ```

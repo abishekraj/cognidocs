@@ -26,7 +26,10 @@ export class ReactParser {
     const visit = (node: ts.Node) => {
       // Check for function components
       if (this.isFunctionComponent(node)) {
-        const component = this.extractFunctionComponent(node as ts.FunctionDeclaration | ts.VariableStatement, sourceFile);
+        const component = this.extractFunctionComponent(
+          node as ts.FunctionDeclaration | ts.VariableStatement,
+          sourceFile
+        );
         if (component) {
           components.push(component);
         }
@@ -67,7 +70,10 @@ export class ReactParser {
       if (declaration.name && ts.isIdentifier(declaration.name)) {
         const name = declaration.name.getText();
         if (name[0] === name[0].toUpperCase() && declaration.initializer) {
-          if (ts.isArrowFunction(declaration.initializer) || ts.isFunctionExpression(declaration.initializer)) {
+          if (
+            ts.isArrowFunction(declaration.initializer) ||
+            ts.isFunctionExpression(declaration.initializer)
+          ) {
             return this.hasJSXReturn(declaration.initializer);
           }
         }
@@ -193,7 +199,7 @@ export class ReactParser {
     const line = sourceFile.getLineAndCharacterOfPosition(node.getStart()).line + 1;
 
     // Extract props from generic type parameter: class MyComponent extends Component<MyProps>
-    const heritage = node.heritageClauses?.find(h => h.token === ts.SyntaxKind.ExtendsKeyword);
+    const heritage = node.heritageClauses?.find((h) => h.token === ts.SyntaxKind.ExtendsKeyword);
     const propsType = heritage?.types[0]?.typeArguments?.[0];
     const props = propsType ? this.extractPropsFromType(propsType, sourceFile) : [];
 
@@ -213,7 +219,10 @@ export class ReactParser {
   /**
    * Extract props from TypeScript type
    */
-  private extractPropsFromType(typeNode: ts.TypeNode, sourceFile: ts.SourceFile): PropertyMetadata[] {
+  private extractPropsFromType(
+    typeNode: ts.TypeNode,
+    sourceFile: ts.SourceFile
+  ): PropertyMetadata[] {
     const props: PropertyMetadata[] = [];
 
     // Handle type reference (interface or type alias name)
@@ -225,7 +234,7 @@ export class ReactParser {
 
     // Handle inline type literal: { prop1: string; prop2?: number }
     if (ts.isTypeLiteralNode(typeNode)) {
-      typeNode.members.forEach(member => {
+      typeNode.members.forEach((member) => {
         if (ts.isPropertySignature(member) && member.name) {
           const jsDoc = this.extractJSDoc(member);
           props.push({
@@ -250,7 +259,7 @@ export class ReactParser {
 
     const visit = (node: ts.Node) => {
       if (ts.isInterfaceDeclaration(node) && node.name.getText() === interfaceName) {
-        node.members.forEach(member => {
+        node.members.forEach((member) => {
           if (ts.isPropertySignature(member) && member.name) {
             const jsDoc = this.extractJSDoc(member);
             props.push({
@@ -266,7 +275,7 @@ export class ReactParser {
 
       if (ts.isTypeAliasDeclaration(node) && node.name.getText() === interfaceName) {
         if (ts.isTypeLiteralNode(node.type)) {
-          node.type.members.forEach(member => {
+          node.type.members.forEach((member) => {
             if (ts.isPropertySignature(member) && member.name) {
               const jsDoc = this.extractJSDoc(member);
               props.push({
@@ -342,8 +351,8 @@ export class ReactParser {
     if (descMatch) {
       const desc = descMatch[1]
         .split('\n')
-        .map(line => line.replace(/^\s*\*\s?/, '').trim())
-        .filter(line => line.length > 0)
+        .map((line) => line.replace(/^\s*\*\s?/, '').trim())
+        .filter((line) => line.length > 0)
         .join(' ');
       if (desc) metadata.description = desc;
     }
@@ -353,8 +362,8 @@ export class ReactParser {
     for (const match of exampleMatches) {
       const exampleText = match[1]
         .split('\n')
-        .map(line => line.replace(/^\s*\*\s?/, ''))
-        .filter(line => line.trim().length > 0)
+        .map((line) => line.replace(/^\s*\*\s?/, ''))
+        .filter((line) => line.trim().length > 0)
         .join('\n');
 
       if (exampleText.trim()) {
@@ -400,13 +409,15 @@ export class ReactParser {
     }
 
     // Extract @param tags
-    const paramMatches = commentText.matchAll(/@param\s+(?:\{[^}]+\}\s+)?(\w+)\s+-?\s*(.+?)(?=\n\s*(?:\*\s*@|\*\/))/gs);
+    const paramMatches = commentText.matchAll(
+      /@param\s+(?:\{[^}]+\}\s+)?(\w+)\s+-?\s*(.+?)(?=\n\s*(?:\*\s*@|\*\/))/gs
+    );
     for (const match of paramMatches) {
       const paramName = match[1];
       const paramDesc = match[2]
         .split('\n')
-        .map(line => line.replace(/^\s*\*\s?/, '').trim())
-        .filter(line => line.length > 0)
+        .map((line) => line.replace(/^\s*\*\s?/, '').trim())
+        .filter((line) => line.length > 0)
         .join(' ');
       if (metadata.params) {
         metadata.params[paramName] = paramDesc;
@@ -414,12 +425,14 @@ export class ReactParser {
     }
 
     // Extract @returns tag
-    const returnsMatch = commentText.match(/@returns?\s+(?:\{[^}]+\}\s+)?(.+?)(?=\n\s*(?:\*\s*@|\*\/))/s);
+    const returnsMatch = commentText.match(
+      /@returns?\s+(?:\{[^}]+\}\s+)?(.+?)(?=\n\s*(?:\*\s*@|\*\/))/s
+    );
     if (returnsMatch) {
       metadata.returns = returnsMatch[1]
         .split('\n')
-        .map(line => line.replace(/^\s*\*\s?/, '').trim())
-        .filter(line => line.length > 0)
+        .map((line) => line.replace(/^\s*\*\s?/, '').trim())
+        .filter((line) => line.length > 0)
         .join(' ');
     }
 
@@ -428,8 +441,8 @@ export class ReactParser {
     if (deprecatedMatch) {
       metadata.deprecated = deprecatedMatch[1]
         .split('\n')
-        .map(line => line.replace(/^\s*\*\s?/, '').trim())
-        .filter(line => line.length > 0)
+        .map((line) => line.replace(/^\s*\*\s?/, '').trim())
+        .filter((line) => line.length > 0)
         .join(' ');
     }
 

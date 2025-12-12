@@ -3,6 +3,7 @@
 **Return Type:** `TypeParameterDeclaration`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `params` | `Array<TypeParameter>` | No | - |
+
+| Name     | Type                   | Optional | Description |
+| :------- | :--------------------- | :------- | :---------- |
+| `params` | `Array<TypeParameter>` | No       | -           |

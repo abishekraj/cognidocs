@@ -3,6 +3,7 @@
 **Return Type:** `void`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `toBecomeFast` | `any` | No | - |
+
+| Name           | Type  | Optional | Description |
+| :------------- | :---- | :------- | :---------- |
+| `toBecomeFast` | `any` | No       | -           |

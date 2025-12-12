@@ -1,5 +1,7 @@
 # HLJSApi
+
 ## Definition
+
 ```typescript
-PublicApi & ModesAPI
+PublicApi & ModesAPI;
 ```

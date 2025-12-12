@@ -3,6 +3,7 @@
 The params sent in a close notebook document notification.
 
 ## Definition
+
 ```typescript
 {
     /**

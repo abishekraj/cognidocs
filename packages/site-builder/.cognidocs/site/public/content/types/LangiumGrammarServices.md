@@ -1,5 +1,7 @@
 # LangiumGrammarServices
+
 ## Definition
+
 ```typescript
-LangiumServices & LangiumGrammarAddedServices
+LangiumServices & LangiumGrammarAddedServices;
 ```

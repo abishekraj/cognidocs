@@ -1,5 +1,7 @@
 # TextSizeAdjust
+
 ## Definition
+
 ```typescript
-Globals | "auto" | "none" | (string & {})
+Globals | 'auto' | 'none' | (string & {});
 ```

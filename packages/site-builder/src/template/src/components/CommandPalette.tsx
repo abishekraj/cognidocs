@@ -43,12 +43,7 @@ interface CommandPaletteProps {
 const RECENT_SEARCHES_KEY = 'cognidocs-recent-searches';
 const MAX_RECENT_SEARCHES = 5;
 
-export function CommandPalette({
-  searchIndex,
-  store,
-  manifest,
-  graph,
-}: CommandPaletteProps) {
+export function CommandPalette({ searchIndex, store, manifest, graph }: CommandPaletteProps) {
   const [open, setOpen] = React.useState(false);
   const [searchQuery, setSearchQuery] = React.useState('');
   const [recentSearches, setRecentSearches] = React.useState<string[]>([]);
@@ -71,10 +66,7 @@ export function CommandPalette({
     if (!query.trim()) return;
 
     setRecentSearches((prev) => {
-      const updated = [query, ...prev.filter((q) => q !== query)].slice(
-        0,
-        MAX_RECENT_SEARCHES
-      );
+      const updated = [query, ...prev.filter((q) => q !== query)].slice(0, MAX_RECENT_SEARCHES);
       try {
         localStorage.setItem(RECENT_SEARCHES_KEY, JSON.stringify(updated));
       } catch (e) {
@@ -118,9 +110,7 @@ export function CommandPalette({
                 category: 'documentation',
                 icon: FileCode,
                 href: `#/content/${doc.id}`,
-                preview: doc.content
-                  ? doc.content.substring(0, 120) + '...'
-                  : undefined,
+                preview: doc.content ? doc.content.substring(0, 120) + '...' : undefined,
               });
             }
           });
@@ -133,9 +123,7 @@ export function CommandPalette({
       if (graph?.nodes) {
         const lowerQuery = query.toLowerCase();
         graph.nodes
-          .filter((node: any) =>
-            node.name.toLowerCase().includes(lowerQuery)
-          )
+          .filter((node: any) => node.name.toLowerCase().includes(lowerQuery))
           .slice(0, 10)
           .forEach((node: any) => {
             results.push({
@@ -209,9 +197,7 @@ export function CommandPalette({
       }
 
       // Remove duplicates and filter by category
-      const uniqueResults = Array.from(
-        new Map(results.map((r) => [r.id, r])).values()
-      );
+      const uniqueResults = Array.from(new Map(results.map((r) => [r.id, r])).values());
 
       if (selectedCategory === 'all') {
         return uniqueResults;
@@ -326,10 +312,7 @@ export function CommandPalette({
         {searchQuery && searchResults.length > 0 && (
           <>
             <CommandGroup heading="Filter by Category">
-              <CommandItem
-                onSelect={() => setSelectedCategory('all')}
-                className="cursor-pointer"
-              >
+              <CommandItem onSelect={() => setSelectedCategory('all')} className="cursor-pointer">
                 <Hash className="mr-2 h-4 w-4" />
                 <span>All Results</span>
                 <Badge variant="outline" className="ml-auto">
@@ -373,9 +356,7 @@ export function CommandPalette({
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2">
                       <span className="font-medium">{result.title}</span>
-                      <Badge variant={getCategoryBadge(result.category)}>
-                        {result.category}
-                      </Badge>
+                      <Badge variant={getCategoryBadge(result.category)}>{result.category}</Badge>
                     </div>
                     {result.preview && (
                       <p className="text-xs text-muted-foreground truncate mt-1">
@@ -405,9 +386,7 @@ export function CommandPalette({
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2">
                       <span className="font-medium">{result.title}</span>
-                      <Badge variant={getCategoryBadge(result.category)}>
-                        component
-                      </Badge>
+                      <Badge variant={getCategoryBadge(result.category)}>component</Badge>
                     </div>
                     {result.preview && (
                       <p className="text-xs text-muted-foreground truncate mt-1">

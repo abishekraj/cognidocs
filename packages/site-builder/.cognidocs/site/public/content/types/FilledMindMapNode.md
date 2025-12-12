@@ -1,5 +1,7 @@
 # FilledMindMapNode
+
 ## Definition
+
 ```typescript
-RequiredDeep<MindmapNode>
+RequiredDeep<MindmapNode>;
 ```

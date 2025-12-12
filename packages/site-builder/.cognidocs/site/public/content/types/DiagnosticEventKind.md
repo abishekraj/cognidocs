@@ -1,5 +1,7 @@
 # DiagnosticEventKind
+
 ## Definition
+
 ```typescript
-"semanticDiag" | "syntaxDiag" | "suggestionDiag" | "regionSemanticDiag"
+'semanticDiag' | 'syntaxDiag' | 'suggestionDiag' | 'regionSemanticDiag';
 ```

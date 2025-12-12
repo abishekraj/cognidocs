@@ -1,5 +1,7 @@
 # TransformResult
+
 ## Definition
+
 ```typescript
-string | NullValue | Partial<SourceDescription>
+string | NullValue | Partial<SourceDescription>;
 ```

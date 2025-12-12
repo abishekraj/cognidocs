@@ -3,6 +3,7 @@
 Pad serialized markdown.
 
 ## Definition
+
 ```typescript
-(value: string, map: Map) => string
+(value: string, map: Map) => string;
 ```

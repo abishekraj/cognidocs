@@ -1,5 +1,7 @@
 # TopicReference
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `type` | `"TopicReference"` | No | - |
+
+| Name   | Type               | Optional | Description |
+| :----- | :----------------- | :------- | :---------- |
+| `type` | `"TopicReference"` | No       | -           |

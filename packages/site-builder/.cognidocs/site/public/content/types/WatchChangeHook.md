@@ -1,5 +1,7 @@
 # WatchChangeHook
+
 ## Definition
+
 ```typescript
 (
 	this: PluginContext,

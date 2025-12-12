@@ -1,5 +1,7 @@
 # Ro
+
 ## Definition
+
 ```typescript
 T extends Array<infer V>
     ? V[] | Readonly<V[]> | RoArray<V> | Readonly<RoArray<V>>

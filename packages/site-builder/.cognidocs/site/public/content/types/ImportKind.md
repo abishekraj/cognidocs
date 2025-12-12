@@ -1,5 +1,7 @@
 # ImportKind
+
 ## Definition
+
 ```typescript
 | 'entry-point'
 

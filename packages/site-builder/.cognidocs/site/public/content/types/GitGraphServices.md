@@ -1,5 +1,7 @@
 # GitGraphServices
+
 ## Definition
+
 ```typescript
-LangiumCoreServices & GitGraphAddedServices
+LangiumCoreServices & GitGraphAddedServices;
 ```

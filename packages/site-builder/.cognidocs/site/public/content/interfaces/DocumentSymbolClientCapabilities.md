@@ -3,10 +3,12 @@
 Client Capabilities for a {@link DocumentSymbolRequest}.
 
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `dynamicRegistration` | `boolean` | Yes | - |
-| `symbolKind` | `{
+
+| Name                  | Type      | Optional | Description |
+| :-------------------- | :-------- | :------- | :---------- |
+| `dynamicRegistration` | `boolean` | Yes      | -           |
+| `symbolKind`          | `{        |
+
         /**
          * The symbol kind values the client supports. When this
          * property exists the client also guarantees that it will
@@ -19,6 +21,7 @@ Client Capabilities for a {@link DocumentSymbolRequest}.
          */
         valueSet?: SymbolKind[];
     }` | Yes | - |
+
 | `hierarchicalDocumentSymbolSupport` | `boolean` | Yes | - |
 | `tagSupport` | `{
         /**

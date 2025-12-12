@@ -1,5 +1,7 @@
 # LangiumGrammarDocument
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `validationResources` | `ValidationResources` | Yes | - |
+
+| Name                  | Type                  | Optional | Description |
+| :-------------------- | :-------------------- | :------- | :---------- |
+| `validationResources` | `ValidationResources` | Yes      | -           |

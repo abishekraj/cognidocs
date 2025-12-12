@@ -3,6 +3,7 @@
 **Return Type:** `any`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `node` | `any` | No | - |
+
+| Name   | Type  | Optional | Description |
+| :----- | :---- | :------- | :---------- |
+| `node` | `any` | No       | -           |

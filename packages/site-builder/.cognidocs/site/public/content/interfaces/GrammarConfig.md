@@ -1,6 +1,8 @@
 # GrammarConfig
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `multilineCommentRules` | `string[]` | No | - |
-| `nameRegexp` | `RegExp` | No | - |
+
+| Name                    | Type       | Optional | Description |
+| :---------------------- | :--------- | :------- | :---------- |
+| `multilineCommentRules` | `string[]` | No       | -           |
+| `nameRegexp`            | `RegExp`   | No       | -           |

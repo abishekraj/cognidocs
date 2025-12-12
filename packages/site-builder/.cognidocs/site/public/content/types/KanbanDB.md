@@ -1,5 +1,7 @@
 # KanbanDB
+
 ## Definition
+
 ```typescript
-typeof kanbanDb
+typeof kanbanDb;
 ```

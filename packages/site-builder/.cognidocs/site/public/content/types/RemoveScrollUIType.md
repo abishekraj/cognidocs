@@ -1,5 +1,7 @@
 # RemoveScrollUIType
+
 ## Definition
+
 ```typescript
-RefForwarded<IRemoveScrollUIProps>
+RefForwarded<IRemoveScrollUIProps>;
 ```

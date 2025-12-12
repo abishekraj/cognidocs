@@ -5,6 +5,7 @@ A Parser that relies on end user's embedded actions to control its output. For m
 **Extends:** `BaseParser`
 
 ## Methods
+
 ### RULE
 
 Creates a Grammar Rule Note that any parameters of your implementation must be optional as it will be called without parameters during the grammar recording phase.
@@ -30,28 +31,37 @@ The Parsing DSL Method is used by one rule to call another. It is equivalent to 
 **Return:** `R`
 
 ### SUBRULE1
+
 **Return:** `R`
 
 ### SUBRULE2
+
 **Return:** `R`
 
 ### SUBRULE3
+
 **Return:** `R`
 
 ### SUBRULE4
+
 **Return:** `R`
 
 ### SUBRULE5
+
 **Return:** `R`
 
 ### SUBRULE6
+
 **Return:** `R`
 
 ### SUBRULE7
+
 **Return:** `R`
 
 ### SUBRULE8
+
 **Return:** `R`
 
 ### SUBRULE9
+
 **Return:** `R`

@@ -1,5 +1,7 @@
 # Replace
+
 ## Definition
+
 ```typescript
-import("./lib/index.js").Replace
+import('./lib/index.js').Replace;
 ```

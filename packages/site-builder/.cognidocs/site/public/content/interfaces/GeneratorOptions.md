@@ -1,23 +1,26 @@
 # GeneratorOptions
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `auxiliaryCommentBefore` | `string \| undefined` | Yes | - |
-| `auxiliaryCommentAfter` | `string \| undefined` | Yes | - |
-| `retainLines` | `boolean \| undefined` | Yes | - |
-| `retainFunctionParens` | `boolean \| undefined` | Yes | - |
-| `comments` | `boolean \| undefined` | Yes | - |
-| `compact` | `boolean \| "auto" \| undefined` | Yes | - |
-| `minified` | `boolean \| undefined` | Yes | - |
-| `concise` | `boolean \| undefined` | Yes | - |
-| `filename` | `string \| undefined` | Yes | - |
-| `sourceMaps` | `boolean \| undefined` | Yes | - |
-| `sourceRoot` | `string \| undefined` | Yes | - |
-| `sourceFileName` | `string \| undefined` | Yes | - |
-| `jsonCompatibleStrings` | `boolean \| undefined` | Yes | - |
-| `decoratorsBeforeExport` | `boolean \| undefined` | Yes | - |
-| `importAttributesKeyword` | `"with" \| "assert" \| "with-legacy"` | Yes | - |
-| `jsescOption` | `{
+
+| Name                      | Type                                  | Optional | Description |
+| :------------------------ | :------------------------------------ | :------- | :---------- |
+| `auxiliaryCommentBefore`  | `string \| undefined`                 | Yes      | -           |
+| `auxiliaryCommentAfter`   | `string \| undefined`                 | Yes      | -           |
+| `retainLines`             | `boolean \| undefined`                | Yes      | -           |
+| `retainFunctionParens`    | `boolean \| undefined`                | Yes      | -           |
+| `comments`                | `boolean \| undefined`                | Yes      | -           |
+| `compact`                 | `boolean \| "auto" \| undefined`      | Yes      | -           |
+| `minified`                | `boolean \| undefined`                | Yes      | -           |
+| `concise`                 | `boolean \| undefined`                | Yes      | -           |
+| `filename`                | `string \| undefined`                 | Yes      | -           |
+| `sourceMaps`              | `boolean \| undefined`                | Yes      | -           |
+| `sourceRoot`              | `string \| undefined`                 | Yes      | -           |
+| `sourceFileName`          | `string \| undefined`                 | Yes      | -           |
+| `jsonCompatibleStrings`   | `boolean \| undefined`                | Yes      | -           |
+| `decoratorsBeforeExport`  | `boolean \| undefined`                | Yes      | -           |
+| `importAttributesKeyword` | `"with" \| "assert" \| "with-legacy"` | Yes      | -           |
+| `jsescOption`             | `{                                    |
+
         /**
          * The default value for the quotes option is 'single'. This means that any occurrences of ' in the input
          * string are escaped as \', so that the output can be used in a string literal wrapped in single quotes.

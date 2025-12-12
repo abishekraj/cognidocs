@@ -1,5 +1,7 @@
 # FlowPredicate
+
 ## Definition
+
 ```typescript
-DeclaredPredicate | InferredPredicate
+DeclaredPredicate | InferredPredicate;
 ```

@@ -1,5 +1,7 @@
 # Rect
+
 ## Definition
+
 ```typescript
-Prettify<Coords & Dimensions>
+Prettify<Coords & Dimensions>;
 ```

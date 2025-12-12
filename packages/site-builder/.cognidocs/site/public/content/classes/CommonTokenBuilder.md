@@ -1,2 +1,3 @@
 # CommonTokenBuilder
+
 **Extends:** `AbstractMermaidTokenBuilder`

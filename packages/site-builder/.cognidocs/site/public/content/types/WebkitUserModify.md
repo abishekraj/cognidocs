@@ -1,5 +1,7 @@
 # WebkitUserModify
+
 ## Definition
+
 ```typescript
-Globals | "read-only" | "read-write" | "read-write-plaintext-only"
+Globals | 'read-only' | 'read-write' | 'read-write-plaintext-only';
 ```

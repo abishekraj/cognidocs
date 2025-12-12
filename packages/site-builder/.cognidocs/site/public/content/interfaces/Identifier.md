@@ -1,6 +1,8 @@
 # Identifier
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `type` | `"Identifier"` | No | - |
-| `name` | `string` | No | - |
+
+| Name   | Type           | Optional | Description |
+| :----- | :------------- | :------- | :---------- |
+| `type` | `"Identifier"` | No       | -           |
+| `name` | `string`       | No       | -           |

@@ -1,8 +1,10 @@
 # SourceLocation
+
 ## Definition
+
 ```typescript
 {
-    line: number;
-    column: number;
+  line: number;
+  column: number;
 }
 ```

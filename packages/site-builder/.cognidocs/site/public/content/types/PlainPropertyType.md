@@ -1,5 +1,7 @@
 # PlainPropertyType
+
 ## Definition
+
 ```typescript
 | PlainReferenceType
     | PlainArrayType

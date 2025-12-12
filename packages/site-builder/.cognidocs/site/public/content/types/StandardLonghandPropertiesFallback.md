@@ -1,5 +1,7 @@
 # StandardLonghandPropertiesFallback
+
 ## Definition
+
 ```typescript
-Fallback<StandardLonghandProperties<TLength, TTime>>
+Fallback<StandardLonghandProperties<TLength, TTime>>;
 ```

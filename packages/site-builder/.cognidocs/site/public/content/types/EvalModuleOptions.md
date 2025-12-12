@@ -1,10 +1,12 @@
 # EvalModuleOptions
+
 ## Definition
+
 ```typescript
 Partial<{
-    id: string;
-    filename: string;
-    ext: string;
-    cache: ModuleCache;
-}>
+  id: string;
+  filename: string;
+  ext: string;
+  cache: ModuleCache;
+}>;
 ```

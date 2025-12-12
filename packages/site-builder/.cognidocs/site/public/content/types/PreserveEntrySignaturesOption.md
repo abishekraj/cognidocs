@@ -1,5 +1,7 @@
 # PreserveEntrySignaturesOption
+
 ## Definition
+
 ```typescript
-false | 'strict' | 'allow-extension' | 'exports-only'
+false | 'strict' | 'allow-extension' | 'exports-only';
 ```

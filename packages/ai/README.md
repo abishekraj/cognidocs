@@ -7,6 +7,7 @@ AI-powered documentation features.
 **Status:** 🔴 Not Started
 
 This package will provide:
+
 - AI documentation generation
 - Semantic search with RAG
 - Conversational chatbot
@@ -27,6 +28,7 @@ This package will provide:
 ## Backend
 
 Will use **Supabase** for:
+
 - Vector storage (pgvector)
 - User management
 - Real-time features

@@ -1,5 +1,7 @@
 # Settings
+
 ## Definition
+
 ```typescript
-import('../index.js').Settings
+import('../index.js').Settings;
 ```

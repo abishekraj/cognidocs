@@ -1,5 +1,7 @@
 # GeneratedMapping
+
 ## Definition
+
 ```typescript
 {
   line: number;

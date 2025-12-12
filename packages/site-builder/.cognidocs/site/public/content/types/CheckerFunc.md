@@ -1,5 +1,7 @@
 # CheckerFunc
+
 ## Definition
+
 ```typescript
-(value: any, ctx: IContext) => boolean
+(value: any, ctx: IContext) => boolean;
 ```

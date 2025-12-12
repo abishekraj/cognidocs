@@ -1,7 +1,9 @@
 # ConnectionError
+
 **Extends:** `Error`
 
 ## Properties
-| Name | Type | Description |
-| :--- | :--- | :---------- |
-| `code` | `ConnectionErrors` | - |
+
+| Name   | Type               | Description |
+| :----- | :----------------- | :---------- |
+| `code` | `ConnectionErrors` | -           |

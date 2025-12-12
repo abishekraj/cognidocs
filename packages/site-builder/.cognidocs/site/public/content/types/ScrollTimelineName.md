@@ -1,5 +1,7 @@
 # ScrollTimelineName
+
 ## Definition
+
 ```typescript
-Globals | "none" | (string & {})
+Globals | 'none' | (string & {});
 ```

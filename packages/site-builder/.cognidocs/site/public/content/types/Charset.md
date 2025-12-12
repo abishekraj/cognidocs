@@ -1,5 +1,7 @@
 # Charset
+
 ## Definition
+
 ```typescript
-'ascii' | 'utf8'
+'ascii' | 'utf8';
 ```

@@ -3,6 +3,7 @@
 **Return Type:** `never`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `_` | `never` | No | - |
+
+| Name | Type    | Optional | Description |
+| :--- | :------ | :------- | :---------- |
+| `_`  | `never` | No       | -           |

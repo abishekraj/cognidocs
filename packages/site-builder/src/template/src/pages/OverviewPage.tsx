@@ -16,7 +16,7 @@ import {
   BarChart3,
   BookOpen,
   Code2,
-  FileJson
+  FileJson,
 } from 'lucide-react';
 
 interface ProjectData {
@@ -109,8 +109,14 @@ export function OverviewPage() {
       }
     });
 
-    const totalDocumented = documentedFunctions + documentedClasses + documentedInterfaces + documentedTypes + documentedComponents;
-    const totalItems = stats.functions + stats.classes + stats.interfaces + stats.types + stats.components;
+    const totalDocumented =
+      documentedFunctions +
+      documentedClasses +
+      documentedInterfaces +
+      documentedTypes +
+      documentedComponents;
+    const totalItems =
+      stats.functions + stats.classes + stats.interfaces + stats.types + stats.components;
     const overallCoverage = totalItems > 0 ? Math.round((totalDocumented / totalItems) * 100) : 0;
 
     return {
@@ -134,7 +140,9 @@ export function OverviewPage() {
     return 'text-red-500';
   };
 
-  const getCoverageBadgeVariant = (percentage: number): 'default' | 'secondary' | 'destructive' | 'outline' => {
+  const getCoverageBadgeVariant = (
+    percentage: number
+  ): 'default' | 'secondary' | 'destructive' | 'outline' => {
     if (percentage >= 80) return 'default';
     if (percentage >= 50) return 'secondary';
     return 'destructive';
@@ -201,7 +209,12 @@ export function OverviewPage() {
     },
   ];
 
-  const totalCodeElements = data.stats.components + data.stats.functions + data.stats.classes + data.stats.interfaces + data.stats.types;
+  const totalCodeElements =
+    data.stats.components +
+    data.stats.functions +
+    data.stats.classes +
+    data.stats.interfaces +
+    data.stats.types;
 
   return (
     <div className="space-y-6">
@@ -223,7 +236,9 @@ export function OverviewPage() {
                 <BarChart3 className="h-6 w-6 text-primary" />
                 Documentation Health
               </h2>
-              <p className="text-sm text-muted-foreground">Overall documentation coverage and quality metrics</p>
+              <p className="text-sm text-muted-foreground">
+                Overall documentation coverage and quality metrics
+              </p>
             </div>
             <Badge
               variant={getCoverageBadgeVariant(coverage.overallCoverage)}
@@ -240,13 +255,20 @@ export function OverviewPage() {
               </div>
               <div className="text-xs text-muted-foreground mt-1 font-semibold">Overall</div>
               <div className="text-xs text-muted-foreground">
-                {coverage.documentedFunctions + coverage.documentedClasses + coverage.documentedInterfaces + coverage.documentedTypes + coverage.documentedComponents}/{totalCodeElements}
+                {coverage.documentedFunctions +
+                  coverage.documentedClasses +
+                  coverage.documentedInterfaces +
+                  coverage.documentedTypes +
+                  coverage.documentedComponents}
+                /{totalCodeElements}
               </div>
             </div>
 
             {coverage.totalComponents > 0 && (
               <div className="text-center p-4 rounded-lg bg-background/50">
-                <div className={`text-3xl font-bold ${getCoverageColor(Math.round((coverage.documentedComponents / coverage.totalComponents) * 100))}`}>
+                <div
+                  className={`text-3xl font-bold ${getCoverageColor(Math.round((coverage.documentedComponents / coverage.totalComponents) * 100))}`}
+                >
                   {Math.round((coverage.documentedComponents / coverage.totalComponents) * 100)}%
                 </div>
                 <div className="text-xs text-muted-foreground mt-1">Components</div>
@@ -258,7 +280,9 @@ export function OverviewPage() {
 
             {coverage.totalFunctions > 0 && (
               <div className="text-center p-4 rounded-lg bg-background/50">
-                <div className={`text-3xl font-bold ${getCoverageColor(Math.round((coverage.documentedFunctions / coverage.totalFunctions) * 100))}`}>
+                <div
+                  className={`text-3xl font-bold ${getCoverageColor(Math.round((coverage.documentedFunctions / coverage.totalFunctions) * 100))}`}
+                >
                   {Math.round((coverage.documentedFunctions / coverage.totalFunctions) * 100)}%
                 </div>
                 <div className="text-xs text-muted-foreground mt-1">Functions</div>
@@ -270,7 +294,9 @@ export function OverviewPage() {
 
             {coverage.totalClasses > 0 && (
               <div className="text-center p-4 rounded-lg bg-background/50">
-                <div className={`text-3xl font-bold ${getCoverageColor(Math.round((coverage.documentedClasses / coverage.totalClasses) * 100))}`}>
+                <div
+                  className={`text-3xl font-bold ${getCoverageColor(Math.round((coverage.documentedClasses / coverage.totalClasses) * 100))}`}
+                >
                   {Math.round((coverage.documentedClasses / coverage.totalClasses) * 100)}%
                 </div>
                 <div className="text-xs text-muted-foreground mt-1">Classes</div>
@@ -282,7 +308,9 @@ export function OverviewPage() {
 
             {coverage.totalInterfaces > 0 && (
               <div className="text-center p-4 rounded-lg bg-background/50">
-                <div className={`text-3xl font-bold ${getCoverageColor(Math.round((coverage.documentedInterfaces / coverage.totalInterfaces) * 100))}`}>
+                <div
+                  className={`text-3xl font-bold ${getCoverageColor(Math.round((coverage.documentedInterfaces / coverage.totalInterfaces) * 100))}`}
+                >
                   {Math.round((coverage.documentedInterfaces / coverage.totalInterfaces) * 100)}%
                 </div>
                 <div className="text-xs text-muted-foreground mt-1">Interfaces</div>
@@ -294,7 +322,9 @@ export function OverviewPage() {
 
             {coverage.totalTypes > 0 && (
               <div className="text-center p-4 rounded-lg bg-background/50">
-                <div className={`text-3xl font-bold ${getCoverageColor(Math.round((coverage.documentedTypes / coverage.totalTypes) * 100))}`}>
+                <div
+                  className={`text-3xl font-bold ${getCoverageColor(Math.round((coverage.documentedTypes / coverage.totalTypes) * 100))}`}
+                >
                   {Math.round((coverage.documentedTypes / coverage.totalTypes) * 100)}%
                 </div>
                 <div className="text-xs text-muted-foreground mt-1">Types</div>
@@ -317,8 +347,8 @@ export function OverviewPage() {
                   coverage.overallCoverage >= 80
                     ? 'bg-green-500'
                     : coverage.overallCoverage >= 50
-                    ? 'bg-yellow-500'
-                    : 'bg-red-500'
+                      ? 'bg-yellow-500'
+                      : 'bg-red-500'
                 }`}
                 style={{ width: `${coverage.overallCoverage}%` }}
               />
@@ -364,7 +394,9 @@ export function OverviewPage() {
           <div className="space-y-3">
             <div className="flex items-center gap-2">
               <span className="text-sm text-muted-foreground min-w-[120px]">Entry Point:</span>
-              <code className="text-sm bg-muted px-2 py-1 rounded">{data.metadata.config.entry}</code>
+              <code className="text-sm bg-muted px-2 py-1 rounded">
+                {data.metadata.config.entry}
+              </code>
             </div>
             <div className="flex items-center gap-2">
               <span className="text-sm text-muted-foreground min-w-[120px]">Theme:</span>
@@ -403,8 +435,8 @@ export function OverviewPage() {
                     {coverage.overallCoverage >= 80
                       ? 'Excellent! Your project has great documentation coverage.'
                       : coverage.overallCoverage >= 50
-                      ? 'Good start! Consider documenting more code elements.'
-                      : 'Consider adding more documentation to improve clarity.'}
+                        ? 'Good start! Consider documenting more code elements.'
+                        : 'Consider adding more documentation to improve clarity.'}
                   </div>
                 </div>
               </div>
@@ -425,7 +457,8 @@ export function OverviewPage() {
                   <div>
                     <div className="text-sm font-medium">Component Library</div>
                     <div className="text-xs text-muted-foreground">
-                      {data.stats.components} reusable component{data.stats.components !== 1 ? 's' : ''} detected
+                      {data.stats.components} reusable component
+                      {data.stats.components !== 1 ? 's' : ''} detected
                     </div>
                   </div>
                 </div>

@@ -1,5 +1,7 @@
 # LoadConfigFile
+
 ## Definition
+
 ```typescript
-typeof loadConfigFile
+typeof loadConfigFile;
 ```

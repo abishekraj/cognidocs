@@ -1,5 +1,7 @@
 # DiagramStylesProvider
+
 ## Definition
+
 ```typescript
-(options?: any) => string
+(options?: any) => string;
 ```

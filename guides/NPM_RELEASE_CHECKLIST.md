@@ -50,6 +50,7 @@ All `package.json` files should have version `1.0.0` (not 0.1.0):
 - ⚠️ `shared/constants/package.json` - UPDATE NEEDED
 
 **Action:**
+
 ```bash
 # Find and replace in all package.json files:
 "version": "0.1.0" → "version": "1.0.0"
@@ -69,9 +70,10 @@ Replace `yourusername` with your actual GitHub username in ALL `package.json` fi
 ```
 
 **Files to update:**
+
 - Root package.json
-- All packages/*/package.json
-- All shared/*/package.json
+- All packages/\*/package.json
+- All shared/\*/package.json
 
 ---
 
@@ -107,11 +109,13 @@ rm NPM_RELEASE_CHECKLIST.md  # This file - delete after publishing
 The `apps/` directory contains SaaS platform code. Decide:
 
 **Option A: Remove entirely**
+
 ```bash
 rm -rf apps/
 ```
 
 **Option B: Keep but exclude from npm**
+
 - Add `apps/` to `.npmignore`
 - Keep for future development
 
@@ -138,14 +142,12 @@ Each package should specify what files to publish.
 
 ```json
 {
-  "files": [
-    "dist",
-    "README.md"
-  ]
+  "files": ["dist", "README.md"]
 }
 ```
 
 **Packages to update:**
+
 - packages/parser/package.json
 - packages/analyzer/package.json
 - packages/coverage/package.json
@@ -362,7 +364,8 @@ git push origin v1.0.0
 2. Select tag: v1.0.0
 3. Title: "v1.0.0 - Initial Public Release"
 4. Description:
-```markdown
+
+````markdown
 # 🎉 CogniDocs v1.0.0
 
 First public release of CogniDocs - Beautiful documentation for TypeScript & React projects!
@@ -381,6 +384,7 @@ First public release of CogniDocs - Beautiful documentation for TypeScript & Rea
 ```bash
 npm install -g @cognidocs/cli
 ```
+````
 
 ## 🚀 Quick Start
 
@@ -397,12 +401,14 @@ See [README.md](https://github.com/YOUR_USERNAME/cognidocs) for full documentati
 ## 🤝 Contributing
 
 We welcome contributions! See [CONTRIBUTING.md](https://github.com/YOUR_USERNAME/cognidocs/blob/main/CONTRIBUTING.md).
+
 ```
 
 ### 3. Announce on Social Media
 
 **Twitter/X:**
 ```
+
 🎉 Excited to announce CogniDocs v1.0.0!
 
 Beautiful documentation for TypeScript & React projects — automatically generated from your code.
@@ -415,7 +421,8 @@ Beautiful documentation for TypeScript & React projects — automatically genera
 npm install -g @cognidocs/cli
 
 #typescript #react #documentation
-```
+
+````
 
 **Reddit (r/javascript, r/typescript, r/reactjs):**
 ```markdown
@@ -440,7 +447,7 @@ npm install -g @cognidocs/cli
 cognidocs init
 cognidocs build
 cognidocs serve
-```
+````
 
 ## Links
 
@@ -450,7 +457,8 @@ cognidocs serve
 Open source (MIT) and welcoming contributions!
 
 Let me know what you think!
-```
+
+````
 
 **Dev.to:**
 Create a blog post with:
@@ -473,7 +481,7 @@ npm info @cognidocs/cli
 
 # Check downloads
 https://npmtrends.com/@cognidocs/cli
-```
+````
 
 ### Monitor Issues
 

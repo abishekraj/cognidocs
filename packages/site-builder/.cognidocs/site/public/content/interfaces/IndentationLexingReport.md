@@ -1,5 +1,7 @@
 # IndentationLexingReport
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `remainingDedents` | `IToken[]` | No | - |
+
+| Name               | Type       | Optional | Description |
+| :----------------- | :--------- | :------- | :---------- |
+| `remainingDedents` | `IToken[]` | No       | -           |

@@ -1,5 +1,7 @@
 # DocumentBuilder
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `updateBuildOptions` | `BuildOptions` | No | - |
+
+| Name                 | Type           | Optional | Description |
+| :------------------- | :------------- | :------- | :---------- |
+| `updateBuildOptions` | `BuildOptions` | No       | -           |

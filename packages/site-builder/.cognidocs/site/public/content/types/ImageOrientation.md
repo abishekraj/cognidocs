@@ -1,5 +1,7 @@
 # ImageOrientation
+
 ## Definition
+
 ```typescript
-Globals | "flip" | "from-image" | (string & {})
+Globals | 'flip' | 'from-image' | (string & {});
 ```

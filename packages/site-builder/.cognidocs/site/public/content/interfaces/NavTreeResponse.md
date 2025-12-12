@@ -1,5 +1,7 @@
 # NavTreeResponse
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `body` | `NavigationTree` | Yes | - |
+
+| Name   | Type             | Optional | Description |
+| :----- | :--------------- | :------- | :---------- |
+| `body` | `NavigationTree` | Yes      | -           |

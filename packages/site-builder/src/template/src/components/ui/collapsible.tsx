@@ -7,9 +7,7 @@ interface CollapsibleContextValue {
   toggle: () => void;
 }
 
-const CollapsibleContext = React.createContext<CollapsibleContextValue | undefined>(
-  undefined
-);
+const CollapsibleContext = React.createContext<CollapsibleContextValue | undefined>(undefined);
 
 const useCollapsible = () => {
   const context = React.useContext(CollapsibleContext);
@@ -56,41 +54,34 @@ interface CollapsibleTriggerProps extends React.HTMLAttributes<HTMLButtonElement
   asChild?: boolean;
 }
 
-const CollapsibleTrigger = React.forwardRef<
-  HTMLButtonElement,
-  CollapsibleTriggerProps
->(({ children, className, asChild, ...props }, ref) => {
-  const { isOpen, toggle } = useCollapsible();
+const CollapsibleTrigger = React.forwardRef<HTMLButtonElement, CollapsibleTriggerProps>(
+  ({ children, className, asChild, ...props }, ref) => {
+    const { isOpen, toggle } = useCollapsible();
 
-  if (asChild && React.isValidElement(children)) {
-    return React.cloneElement(children as React.ReactElement<any>, {
-      onClick: toggle,
-      'aria-expanded': isOpen,
-    });
+    if (asChild && React.isValidElement(children)) {
+      return React.cloneElement(children as React.ReactElement<any>, {
+        onClick: toggle,
+        'aria-expanded': isOpen,
+      });
+    }
+
+    return (
+      <button
+        ref={ref}
+        type="button"
+        className={cn('flex w-full items-center justify-between', className)}
+        onClick={toggle}
+        aria-expanded={isOpen}
+        {...props}
+      >
+        {children}
+        <ChevronRight
+          className={cn('h-4 w-4 transition-transform duration-200', isOpen && 'rotate-90')}
+        />
+      </button>
+    );
   }
-
-  return (
-    <button
-      ref={ref}
-      type="button"
-      className={cn(
-        'flex w-full items-center justify-between',
-        className
-      )}
-      onClick={toggle}
-      aria-expanded={isOpen}
-      {...props}
-    >
-      {children}
-      <ChevronRight
-        className={cn(
-          'h-4 w-4 transition-transform duration-200',
-          isOpen && 'rotate-90'
-        )}
-      />
-    </button>
-  );
-});
+);
 CollapsibleTrigger.displayName = 'CollapsibleTrigger';
 
 interface CollapsibleContentProps extends React.HTMLAttributes<HTMLDivElement> {

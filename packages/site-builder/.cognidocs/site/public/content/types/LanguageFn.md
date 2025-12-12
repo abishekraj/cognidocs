@@ -1,5 +1,7 @@
 # LanguageFn
+
 ## Definition
+
 ```typescript
-(hljs: HLJSApi) => Language
+(hljs: HLJSApi) => Language;
 ```

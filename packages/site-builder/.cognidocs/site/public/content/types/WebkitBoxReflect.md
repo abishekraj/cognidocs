@@ -1,5 +1,7 @@
 # WebkitBoxReflect
+
 ## Definition
+
 ```typescript
-Globals | TLength | "above" | "below" | "left" | "right" | (string & {})
+Globals | TLength | 'above' | 'below' | 'left' | 'right' | (string & {});
 ```

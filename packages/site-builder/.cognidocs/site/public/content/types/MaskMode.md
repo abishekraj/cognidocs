@@ -1,5 +1,7 @@
 # MaskMode
+
 ## Definition
+
 ```typescript
-Globals | DataType.MaskingMode | (string & {})
+Globals | DataType.MaskingMode | (string & {});
 ```

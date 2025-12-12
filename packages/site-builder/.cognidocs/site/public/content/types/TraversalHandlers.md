@@ -1,5 +1,7 @@
 # TraversalHandlers
+
 ## Definition
+
 ```typescript
 {
   enter?: TraversalHandler<T>,

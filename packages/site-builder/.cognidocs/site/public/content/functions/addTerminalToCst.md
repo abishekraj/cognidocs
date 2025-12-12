@@ -3,8 +3,9 @@
 **Return Type:** `void`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `node` | `CstNode` | No | - |
-| `token` | `IToken` | No | - |
-| `tokenTypeName` | `string` | No | - |
+
+| Name            | Type      | Optional | Description |
+| :-------------- | :-------- | :------- | :---------- |
+| `node`          | `CstNode` | No       | -           |
+| `token`         | `IToken`  | No       | -           |
+| `tokenTypeName` | `string`  | No       | -           |

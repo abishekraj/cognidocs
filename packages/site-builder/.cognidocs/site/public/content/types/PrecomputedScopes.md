@@ -1,5 +1,7 @@
 # PrecomputedScopes
+
 ## Definition
+
 ```typescript
-MultiMap<AstNode, AstNodeDescription>
+MultiMap<AstNode, AstNodeDescription>;
 ```

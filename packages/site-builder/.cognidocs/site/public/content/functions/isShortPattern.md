@@ -3,6 +3,7 @@
 **Return Type:** `number | false`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `pattern` | `any` | No | - |
+
+| Name      | Type  | Optional | Description |
+| :-------- | :---- | :------- | :---------- |
+| `pattern` | `any` | No       | -           |

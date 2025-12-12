@@ -1,5 +1,7 @@
 # ShapeRendering
+
 ## Definition
+
 ```typescript
-Globals | "auto" | "crispEdges" | "geometricPrecision" | "optimizeSpeed"
+Globals | 'auto' | 'crispEdges' | 'geometricPrecision' | 'optimizeSpeed';
 ```

@@ -1,5 +1,7 @@
 # AsyncPluginHooks
+
 ## Definition
+
 ```typescript
-Exclude<keyof FunctionPluginHooks, SyncPluginHooks>
+Exclude<keyof FunctionPluginHooks, SyncPluginHooks>;
 ```

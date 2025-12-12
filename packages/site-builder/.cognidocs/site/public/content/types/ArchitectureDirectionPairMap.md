@@ -1,5 +1,7 @@
 # ArchitectureDirectionPairMap
+
 ## Definition
+
 ```typescript
-Partial<Record<ArchitectureDirectionPair, string>>
+Partial<Record<ArchitectureDirectionPair, string>>;
 ```

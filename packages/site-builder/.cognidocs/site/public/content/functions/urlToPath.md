@@ -3,6 +3,7 @@
 **Return Type:** `string`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `path` | `URL \| string` | No | File URL. |
+
+| Name   | Type            | Optional | Description |
+| :----- | :-------------- | :------- | :---------- |
+| `path` | `URL \| string` | No       | File URL.   |

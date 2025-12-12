@@ -1,5 +1,7 @@
 # StringFilter
+
 ## Definition
+
 ```typescript
 | MaybeArray<Value>
 	| {

@@ -48,6 +48,7 @@ Show real-world usage with syntax-highlighted, copy-to-clipboard code examples.
     }
 
 **Rendering**: Each example gets its own card with:
+
 - Optional description text
 - Syntax-highlighted code block
 - Copy-to-clipboard button
@@ -69,6 +70,7 @@ Document function parameters with descriptions that appear in the props table.
     }
 
 **Rendering**: Parameter descriptions appear in:
+
 - Props tables for components
 - Function parameter lists
 - Inline documentation
@@ -107,6 +109,7 @@ Link to related documentation, components, or external resources.
     }
 
 **Rendering**: Creates an interactive "See Also" section with:
+
 - Clickable links for URLs
 - Internal component references
 - External link icons
@@ -170,6 +173,7 @@ Warn users about deprecated features.
     }
 
 **Rendering**: Shows a prominent warning card with:
+
 - Alert icon in destructive color
 - "Deprecated" heading
 - Deprecation message with migration guidance
@@ -337,6 +341,7 @@ Here's a complete example showing all tags working together:
     };
 
 This will generate beautiful, interactive documentation with:
+
 - Rich description with proper formatting
 - Parameter table with all descriptions
 - Return value documentation

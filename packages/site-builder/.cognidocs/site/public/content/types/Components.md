@@ -1,5 +1,7 @@
 # Components
+
 ## Definition
+
 ```typescript
-import("./lib/index.js").Components
+import('./lib/index.js').Components;
 ```

@@ -1,7 +1,9 @@
 # TypeResolutionError
+
 **Extends:** `Error`
 
 ## Properties
-| Name | Type | Description |
-| :--- | :--- | :---------- |
-| `target` | `CstNode \| undefined` | - |
+
+| Name     | Type                   | Description |
+| :------- | :--------------------- | :---------- |
+| `target` | `CstNode \| undefined` | -           |

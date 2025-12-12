@@ -1,5 +1,7 @@
 # Test
+
 ## Definition
+
 ```typescript
-import("./lib/index.js").Test
+import('./lib/index.js').Test;
 ```

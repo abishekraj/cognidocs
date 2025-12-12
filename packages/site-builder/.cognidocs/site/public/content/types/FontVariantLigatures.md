@@ -1,5 +1,7 @@
 # FontVariantLigatures
+
 ## Definition
+
 ```typescript
 | Globals
     | "common-ligatures"

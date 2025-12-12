@@ -3,6 +3,7 @@
 Configuration.
 
 ## Definition
+
 ```typescript
-Options
+Options;
 ```

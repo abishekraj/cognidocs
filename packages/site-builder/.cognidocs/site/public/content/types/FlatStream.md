@@ -1,5 +1,7 @@
 # FlatStream
+
 ## Definition
+
 ```typescript
 {
     'done': Stream<T>,

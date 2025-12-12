@@ -1,5 +1,7 @@
 # BackgroundOrigin
+
 ## Definition
+
 ```typescript
-Globals | DataType.VisualBox | (string & {})
+Globals | DataType.VisualBox | (string & {});
 ```

@@ -1,5 +1,7 @@
 # Loaders
+
 ## Definition
+
 ```typescript
-Record<string, Loader>
+Record<string, Loader>;
 ```

@@ -1,5 +1,7 @@
 # MicromatchOptions
+
 ## Definition
+
 ```typescript
 {
     dot?: boolean;

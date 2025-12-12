@@ -1,5 +1,7 @@
 # AnimationPlayState
+
 ## Definition
+
 ```typescript
-Globals | "paused" | "running" | (string & {})
+Globals | 'paused' | 'running' | (string & {});
 ```

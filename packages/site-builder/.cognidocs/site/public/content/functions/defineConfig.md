@@ -3,6 +3,7 @@
 **Return Type:** `RollupOptions`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `options` | `RollupOptions` | No | - |
+
+| Name      | Type            | Optional | Description |
+| :-------- | :-------------- | :------- | :---------- |
+| `options` | `RollupOptions` | No       | -           |

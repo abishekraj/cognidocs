@@ -1,5 +1,7 @@
 # PhrasingContent
+
 ## Definition
+
 ```typescript
-import('mdast').PhrasingContent
+import('mdast').PhrasingContent;
 ```

@@ -3,6 +3,7 @@
 Sharable configuration. They can contain plugins and settings.
 
 ## Definition
+
 ```typescript
 {
     /**

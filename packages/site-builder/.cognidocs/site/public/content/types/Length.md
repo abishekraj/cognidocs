@@ -1,5 +1,7 @@
 # Length
+
 ## Definition
+
 ```typescript
-'width' | 'height'
+'width' | 'height';
 ```

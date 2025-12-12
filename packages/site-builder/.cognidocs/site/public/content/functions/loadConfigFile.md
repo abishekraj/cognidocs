@@ -6,8 +6,9 @@
 }>`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `fileName` | `string` | No | - |
-| `commandOptions` | `any` | No | - |
-| `watchMode` | `boolean` | Yes | - |
+
+| Name             | Type      | Optional | Description |
+| :--------------- | :-------- | :------- | :---------- |
+| `fileName`       | `string`  | No       | -           |
+| `commandOptions` | `any`     | No       | -           |
+| `watchMode`      | `boolean` | Yes      | -           |

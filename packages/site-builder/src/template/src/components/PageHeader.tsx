@@ -125,9 +125,7 @@ export function PageHeader({ route }: PageHeaderProps) {
         {/* Right: Version & CogniDocs Branding */}
         <div className="flex items-center gap-4">
           {projectConfig.version && (
-            <span className="text-sm text-muted-foreground">
-              v{projectConfig.version}
-            </span>
+            <span className="text-sm text-muted-foreground">v{projectConfig.version}</span>
           )}
           <div className="flex items-center gap-2 border-l pl-4 border-border">
             <span className="text-xs font-medium text-muted-foreground">Powered by</span>

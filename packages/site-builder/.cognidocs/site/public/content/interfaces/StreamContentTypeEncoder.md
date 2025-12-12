@@ -1,5 +1,7 @@
 # StreamContentTypeEncoder
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `name` | `string` | No | - |
+
+| Name   | Type     | Optional | Description |
+| :----- | :------- | :------- | :---------- |
+| `name` | `string` | No       | -           |

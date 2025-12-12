@@ -3,6 +3,7 @@
 Provide an inline value through an expression evaluation. If only a range is specified, the expression will be extracted from the underlying document. An optional expression can be used to override the extracted expression.
 
 ## Definition
+
 ```typescript
 {
     /**

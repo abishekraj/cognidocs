@@ -1,7 +1,9 @@
 # RootCstNodeImpl
+
 **Extends:** `CompositeCstNodeImpl`
 
 ## Properties
-| Name | Type | Description |
-| :--- | :--- | :---------- |
-| `_text` | `any` | - |
+
+| Name    | Type  | Description |
+| :------ | :---- | :---------- |
+| `_text` | `any` | -           |

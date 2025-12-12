@@ -54,7 +54,7 @@ export default defineConfig({
 
       // Install dependencies if node_modules doesn't exist
       const nodeModulesPath = path.join(this.siteDir, 'node_modules');
-      if (!await fs.pathExists(nodeModulesPath)) {
+      if (!(await fs.pathExists(nodeModulesPath))) {
         console.log('Installing dependencies...');
         execSync('npm install', {
           cwd: this.siteDir,
@@ -172,11 +172,15 @@ export default defineConfig({
       // Use defaults if package.json reading fails
       await writeFile(
         path.join(outputDir, 'project.json'),
-        JSON.stringify({
-          name: 'Documentation',
-          description: 'Project Documentation',
-          version: '1.0.0',
-        }, null, 2)
+        JSON.stringify(
+          {
+            name: 'Documentation',
+            description: 'Project Documentation',
+            version: '1.0.0',
+          },
+          null,
+          2
+        )
       );
     }
   }

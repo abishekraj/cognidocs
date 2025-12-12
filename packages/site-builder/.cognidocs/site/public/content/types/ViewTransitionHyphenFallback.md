@@ -1,5 +1,7 @@
 # ViewTransitionHyphenFallback
+
 ## Definition
+
 ```typescript
-Fallback<ViewTransitionHyphen<TLength, TTime>>
+Fallback<ViewTransitionHyphen<TLength, TTime>>;
 ```

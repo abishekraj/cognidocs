@@ -1,5 +1,7 @@
 # CompletionStatement
+
 ## Definition
+
 ```typescript
-BreakStatement | ContinueStatement | ReturnStatement | ThrowStatement
+BreakStatement | ContinueStatement | ReturnStatement | ThrowStatement;
 ```

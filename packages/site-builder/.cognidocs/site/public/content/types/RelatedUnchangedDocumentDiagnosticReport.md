@@ -3,6 +3,7 @@
 An unchanged diagnostic report with a set of related documents.
 
 ## Definition
+
 ```typescript
 UnchangedDocumentDiagnosticReport & {
     /**

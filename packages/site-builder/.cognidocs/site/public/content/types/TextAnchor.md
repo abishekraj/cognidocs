@@ -1,5 +1,7 @@
 # TextAnchor
+
 ## Definition
+
 ```typescript
-Globals | "end" | "middle" | "start"
+Globals | 'end' | 'middle' | 'start';
 ```

@@ -3,6 +3,7 @@
 **Return Type:** `WeekdayNames`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `localOrder` | `boolean` | Yes | - |
+
+| Name         | Type      | Optional | Description |
+| :----------- | :-------- | :------- | :---------- |
+| `localOrder` | `boolean` | Yes      | -           |

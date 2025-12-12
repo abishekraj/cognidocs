@@ -1,5 +1,7 @@
 # PatternInfo
+
 ## Definition
+
 ```typescript
 {
     /**

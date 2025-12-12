@@ -1,5 +1,7 @@
 # Derivable
+
 ## Definition
+
 ```typescript
-(state: MiddlewareState) => T
+(state: MiddlewareState) => T;
 ```

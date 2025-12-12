@@ -3,7 +3,8 @@
 **Return Type:** `void`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `obj` | `{}` | No | - |
-| `nameValue` | `string` | No | - |
+
+| Name        | Type     | Optional | Description |
+| :---------- | :------- | :------- | :---------- |
+| `obj`       | `{}`     | No       | -           |
+| `nameValue` | `string` | No       | -           |

@@ -1,5 +1,7 @@
 # VerifyType
+
 ## Definition
+
 ```typescript
-'Analysis' | 'Demonstration' | 'Inspection' | 'Test'
+'Analysis' | 'Demonstration' | 'Inspection' | 'Test';
 ```

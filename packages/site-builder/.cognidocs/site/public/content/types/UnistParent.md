@@ -1,5 +1,7 @@
 # UnistParent
+
 ## Definition
+
 ```typescript
-import('unist').Parent
+import('unist').Parent;
 ```

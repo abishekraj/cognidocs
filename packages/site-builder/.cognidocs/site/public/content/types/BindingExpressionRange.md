@@ -1,5 +1,7 @@
 # BindingExpressionRange
+
 ## Definition
+
 ```typescript
-[Name] | [Name, Line, Column]
+[Name] | [Name, Line, Column];
 ```

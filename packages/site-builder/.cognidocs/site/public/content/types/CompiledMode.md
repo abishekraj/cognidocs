@@ -1,5 +1,7 @@
 # CompiledMode
+
 ## Definition
+
 ```typescript
 Omit<Mode, 'contains'> &
         {

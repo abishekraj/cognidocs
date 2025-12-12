@@ -3,6 +3,7 @@
 **Return Type:** `obj is T`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `obj` | `any` | No | - |
+
+| Name  | Type  | Optional | Description |
+| :---- | :---- | :------- | :---------- |
+| `obj` | `any` | No       | -           |

@@ -1,5 +1,7 @@
 # Paragraph
+
 ## Definition
+
 ```typescript
-import('mdast').Paragraph
+import('mdast').Paragraph;
 ```

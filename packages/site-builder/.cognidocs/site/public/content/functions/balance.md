@@ -5,7 +5,8 @@
 }`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `xss` | `any` | No | - |
-| `align` | `any` | No | - |
+
+| Name    | Type  | Optional | Description |
+| :------ | :---- | :------- | :---------- |
+| `xss`   | `any` | No       | -           |
+| `align` | `any` | No       | -           |

@@ -1,5 +1,7 @@
 # HasModuleSideEffects
+
 ## Definition
+
 ```typescript
-(id: string, external: boolean) => boolean
+(id: string, external: boolean) => boolean;
 ```

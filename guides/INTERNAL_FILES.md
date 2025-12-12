@@ -46,6 +46,7 @@ apps/
 **Reason:** These are commercial features not part of the open-source core.
 
 **Action:** Either:
+
 1. Remove `apps/` directory entirely, OR
 2. Add to `.gitignore` and `.npmignore`
 
@@ -193,10 +194,7 @@ __tests__/
 
 ```json
 {
-  "files": [
-    "dist",
-    "README.md"
-  ]
+  "files": ["dist", "README.md"]
 }
 ```
 
@@ -261,6 +259,7 @@ npm pack --dry-run
 ## 📊 Summary
 
 ### EXCLUDE (Internal):
+
 - CLAUDE.md, PHASES.md, PHASE1_COMPLETE.md, PROJECT_STRUCTURE.md, agents.md, SETUP.md
 - apps/ directory (SaaS platform)
 - All `.turbo/` and build artifacts
@@ -268,6 +267,7 @@ npm pack --dry-run
 - Test files in published packages
 
 ### KEEP (Public):
+
 - README.md, LICENSE, CONTRIBUTING.md, PUBLISHING.md
 - All packages/ and shared/ source code
 - examples/ directory (useful for testing)

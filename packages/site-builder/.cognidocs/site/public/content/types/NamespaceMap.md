@@ -1,5 +1,7 @@
 # NamespaceMap
+
 ## Definition
+
 ```typescript
-Map<string, NamespaceNode>
+Map<string, NamespaceNode>;
 ```

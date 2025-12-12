@@ -1,5 +1,7 @@
 # AmdOptions
+
 ## Definition
+
 ```typescript
 (
 	| {

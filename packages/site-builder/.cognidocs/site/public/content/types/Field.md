@@ -3,6 +3,7 @@
 Property field.
 
 ## Definition
+
 ```typescript
-[string, Value]
+[string, Value];
 ```

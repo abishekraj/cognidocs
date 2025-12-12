@@ -1,6 +1,8 @@
 # SemanticTokensDeltaParams
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `textDocument` | `TextDocumentIdentifier` | No | - |
-| `previousResultId` | `string` | No | - |
+
+| Name               | Type                     | Optional | Description |
+| :----------------- | :----------------------- | :------- | :---------- |
+| `textDocument`     | `TextDocumentIdentifier` | No       | -           |
+| `previousResultId` | `string`                 | No       | -           |

@@ -1,5 +1,7 @@
 # For
+
 ## Definition
+
 ```typescript
-ForInStatement | ForStatement | ForOfStatement
+ForInStatement | ForStatement | ForOfStatement;
 ```

@@ -1,5 +1,7 @@
 # PacketData
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `packet` | `PacketWord[]` | No | - |
+
+| Name     | Type           | Optional | Description |
+| :------- | :------------- | :------- | :---------- |
+| `packet` | `PacketWord[]` | No       | -           |

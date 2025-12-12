@@ -1,5 +1,7 @@
 # StringOrRegExp
+
 ## Definition
+
 ```typescript
-string | RegExp
+string | RegExp;
 ```

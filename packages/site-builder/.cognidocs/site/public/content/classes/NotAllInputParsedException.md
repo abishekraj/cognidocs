@@ -5,8 +5,9 @@ An exception of this type will be saved in {@link BaseParser.errors} when the pa
 **Extends:** `Error`
 
 ## Properties
-| Name | Type | Description |
-| :--- | :--- | :---------- |
-| `context` | `IRecognizerContext` | - |
-| `resyncedTokens` | `IToken[]` | - |
-| `token` | `IToken` | - |
+
+| Name             | Type                 | Description |
+| :--------------- | :------------------- | :---------- |
+| `context`        | `IRecognizerContext` | -           |
+| `resyncedTokens` | `IToken[]`           | -           |
+| `token`          | `IToken`             | -           |

@@ -3,6 +3,7 @@
 **Return Type:** `boolean`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `operator` | `Operator` | Yes | - |
+
+| Name       | Type       | Optional | Description |
+| :--------- | :--------- | :------- | :---------- |
+| `operator` | `Operator` | Yes      | -           |

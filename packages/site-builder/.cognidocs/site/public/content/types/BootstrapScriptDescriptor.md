@@ -1,5 +1,7 @@
 # BootstrapScriptDescriptor
+
 ## Definition
+
 ```typescript
 {
     src: string;

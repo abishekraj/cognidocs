@@ -1,5 +1,7 @@
 # PatternSegment
+
 ## Definition
+
 ```typescript
-StaticPatternSegment | DynamicPatternSegment
+StaticPatternSegment | DynamicPatternSegment;
 ```

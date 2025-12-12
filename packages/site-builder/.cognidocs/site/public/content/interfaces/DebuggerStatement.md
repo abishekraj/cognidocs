@@ -1,5 +1,7 @@
 # DebuggerStatement
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `type` | `"DebuggerStatement"` | No | - |
+
+| Name   | Type                  | Optional | Description |
+| :----- | :-------------------- | :------- | :---------- |
+| `type` | `"DebuggerStatement"` | No       | -           |

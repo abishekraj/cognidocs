@@ -3,6 +3,7 @@
 **Return Type:** `item is TypeDefinition`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `item` | `unknown` | No | - |
+
+| Name   | Type      | Optional | Description |
+| :----- | :-------- | :------- | :---------- |
+| `item` | `unknown` | No       | -           |

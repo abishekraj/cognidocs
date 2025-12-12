@@ -3,6 +3,7 @@
 **Return Type:** `ObjectTypeSpreadProperty`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `argument` | `FlowType` | No | - |
+
+| Name       | Type       | Optional | Description |
+| :--------- | :--------- | :------- | :---------- |
+| `argument` | `FlowType` | No       | -           |

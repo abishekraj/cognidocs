@@ -1,6 +1,8 @@
 # Section
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `offset` | `{ line: number; column: number }` | No | - |
-| `map` | `EncodedSourceMap \| DecodedSourceMap \| SectionedSourceMap` | No | - |
+
+| Name     | Type                                                         | Optional | Description |
+| :------- | :----------------------------------------------------------- | :------- | :---------- |
+| `offset` | `{ line: number; column: number }`                           | No       | -           |
+| `map`    | `EncodedSourceMap \| DecodedSourceMap \| SectionedSourceMap` | No       | -           |

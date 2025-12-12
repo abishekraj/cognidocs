@@ -1,5 +1,7 @@
 # NumberArray
+
 ## Definition
+
 ```typescript
-TypedArray | DataView
+TypedArray | DataView;
 ```

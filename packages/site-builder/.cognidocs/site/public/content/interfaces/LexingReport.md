@@ -1,5 +1,7 @@
 # LexingReport
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `diagnostics` | `LexingDiagnostic[]` | No | - |
+
+| Name          | Type                 | Optional | Description |
+| :------------ | :------------------- | :------- | :---------- |
+| `diagnostics` | `LexingDiagnostic[]` | No       | -           |

@@ -1,8 +1,13 @@
 # InlayHintItem
+
 ## Definition
+
 ```typescript
-ChangePropertyTypes<ts.InlayHint, {
-                position: Location;
-                displayParts: InlayHintItemDisplayPart[];
-            }>
+ChangePropertyTypes<
+  ts.InlayHint,
+  {
+    position: Location;
+    displayParts: InlayHintItemDisplayPart[];
+  }
+>;
 ```

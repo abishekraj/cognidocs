@@ -1,6 +1,8 @@
 # File
+
 ## Properties
-| Name | Type | Description |
-| :--- | :--- | :---------- |
-| `tokens` | `Array<Token>` | - |
-| `scopes` | `Array<Scope>` | - |
+
+| Name     | Type           | Description |
+| :------- | :------------- | :---------- |
+| `tokens` | `Array<Token>` | -           |
+| `scopes` | `Array<Scope>` | -           |

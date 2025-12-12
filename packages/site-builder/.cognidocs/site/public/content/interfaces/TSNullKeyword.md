@@ -1,5 +1,7 @@
 # TSNullKeyword
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `type` | `"TSNullKeyword"` | No | - |
+
+| Name   | Type              | Optional | Description |
+| :----- | :---------------- | :------- | :---------- |
+| `type` | `"TSNullKeyword"` | No       | -           |

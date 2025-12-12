@@ -3,6 +3,7 @@
 Quickinfo response message.
 
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `body` | `QuickInfoResponseBody` | Yes | - |
+
+| Name   | Type                    | Optional | Description |
+| :----- | :---------------------- | :------- | :---------- |
+| `body` | `QuickInfoResponseBody` | Yes      | -           |

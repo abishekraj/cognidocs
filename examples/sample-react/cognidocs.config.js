@@ -4,17 +4,10 @@
  */
 
 export default {
-  "entry": "./src",
-  "output": "./docs",
-  "theme": "gitbook",
-  "darkMode": true,
-  "frameworks": [
-    "react"
-  ],
-  "exclude": [
-    "**/*.test.ts",
-    "**/*.test.tsx",
-    "**/node_modules/**",
-    "**/dist/**"
-  ]
+  entry: './src',
+  output: './docs',
+  theme: 'gitbook',
+  darkMode: true,
+  frameworks: ['react'],
+  exclude: ['**/*.test.ts', '**/*.test.tsx', '**/node_modules/**', '**/dist/**'],
 };

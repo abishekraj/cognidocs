@@ -1,6 +1,8 @@
 # CallHierarchyIncomingCall
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `from` | `CallHierarchyItem` | No | - |
-| `fromSpans` | `TextSpan[]` | No | - |
+
+| Name        | Type                | Optional | Description |
+| :---------- | :------------------ | :------- | :---------- |
+| `from`      | `CallHierarchyItem` | No       | -           |
+| `fromSpans` | `TextSpan[]`        | No       | -           |

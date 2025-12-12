@@ -3,6 +3,7 @@
 **Return Type:** `BooleanLiteral`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `value` | `boolean` | No | - |
+
+| Name    | Type      | Optional | Description |
+| :------ | :-------- | :------- | :---------- |
+| `value` | `boolean` | No       | -           |

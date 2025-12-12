@@ -1,5 +1,7 @@
 # CaptionSide
+
 ## Definition
+
 ```typescript
-Globals | "bottom" | "top"
+Globals | 'bottom' | 'top';
 ```

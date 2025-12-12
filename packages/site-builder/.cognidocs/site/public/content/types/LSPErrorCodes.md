@@ -1,5 +1,7 @@
 # LSPErrorCodes
+
 ## Definition
+
 ```typescript
-integer
+integer;
 ```

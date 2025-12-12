@@ -1,5 +1,7 @@
 # StatSynchronousMethod
+
 ## Definition
+
 ```typescript
-(path: string) => fs.Stats
+(path: string) => fs.Stats;
 ```

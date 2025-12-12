@@ -5,13 +5,16 @@ Transformer supporting the optional chaining and nullish coalescing operators. T
 **Extends:** `Transformer`
 
 ## Properties
-| Name | Type | Description |
-| :--- | :--- | :---------- |
-| `tokens` | `TokenProcessor` | - |
-| `nameManager` | `NameManager` | - |
+
+| Name          | Type             | Description |
+| :------------ | :--------------- | :---------- |
+| `tokens`      | `TokenProcessor` | -           |
+| `nameManager` | `NameManager`    | -           |
 
 ## Methods
+
 ### process
+
 **Return:** `boolean`
 
 ### isLastSubscriptInChain

@@ -1,5 +1,7 @@
 # StandardShorthandPropertiesHyphenFallback
+
 ## Definition
+
 ```typescript
-Fallback<StandardShorthandPropertiesHyphen<TLength, TTime>>
+Fallback<StandardShorthandPropertiesHyphen<TLength, TTime>>;
 ```

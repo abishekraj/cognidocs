@@ -1,5 +1,7 @@
 # TextDecorationThickness
+
 ## Definition
+
 ```typescript
-Globals | TLength | "auto" | "from-font" | (string & {})
+Globals | TLength | 'auto' | 'from-font' | (string & {});
 ```

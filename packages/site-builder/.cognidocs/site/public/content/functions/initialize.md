@@ -2,10 +2,10 @@
 
 This configures the browser-based version of esbuild. It is necessary to call this first and wait for the returned promise to be resolved before making other API calls when using esbuild in the browser. - Works in node: yes - Works in browser: yes ("options" is required) Documentation: https://esbuild.github.io/api/#browser
 
-
 **Return Type:** `Promise<void>`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `options` | `InitializeOptions` | No | - |
+
+| Name      | Type                | Optional | Description |
+| :-------- | :------------------ | :------- | :---------- |
+| `options` | `InitializeOptions` | No       | -           |

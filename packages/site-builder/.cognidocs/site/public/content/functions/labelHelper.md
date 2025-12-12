@@ -8,9 +8,10 @@
 }>`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `parent` | `any` | No | - |
-| `node` | `any` | No | - |
-| `_classes` | `any` | No | - |
-| `isNode` | `any` | No | - |
+
+| Name       | Type  | Optional | Description |
+| :--------- | :---- | :------- | :---------- |
+| `parent`   | `any` | No       | -           |
+| `node`     | `any` | No       | -           |
+| `_classes` | `any` | No       | -           |
+| `isNode`   | `any` | No       | -           |

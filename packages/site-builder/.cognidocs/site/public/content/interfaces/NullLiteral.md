@@ -1,5 +1,7 @@
 # NullLiteral
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `type` | `"NullLiteral"` | No | - |
+
+| Name   | Type            | Optional | Description |
+| :----- | :-------------- | :------- | :---------- |
+| `type` | `"NullLiteral"` | No       | -           |

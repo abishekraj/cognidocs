@@ -3,6 +3,7 @@
 **Return Type:** `Rule[]`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `definition` | `IProduction[]` | No | - |
+
+| Name         | Type            | Optional | Description |
+| :----------- | :-------------- | :------- | :---------- |
+| `definition` | `IProduction[]` | No       | -           |

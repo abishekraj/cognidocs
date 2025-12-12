@@ -11,7 +11,8 @@
 })[]`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `g` | `any` | No | - |
-| `movable` | `any` | No | - |
+
+| Name      | Type  | Optional | Description |
+| :-------- | :---- | :------- | :---------- |
+| `g`       | `any` | No       | -           |
+| `movable` | `any` | No       | -           |

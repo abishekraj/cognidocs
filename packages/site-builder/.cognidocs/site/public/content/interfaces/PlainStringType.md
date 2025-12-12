@@ -1,5 +1,7 @@
 # PlainStringType
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `string` | `string` | No | - |
+
+| Name     | Type     | Optional | Description |
+| :------- | :------- | :------- | :---------- |
+| `string` | `string` | No       | -           |

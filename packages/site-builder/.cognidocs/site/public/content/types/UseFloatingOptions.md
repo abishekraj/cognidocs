@@ -1,7 +1,10 @@
 # UseFloatingOptions
+
 ## Definition
+
 ```typescript
-Prettify<Partial<ComputePositionConfig> & {
+Prettify<
+  Partial<ComputePositionConfig> & {
     /**
      * A callback invoked when both the reference and floating elements are
      * mounted, and cleaned up when either is unmounted. This is useful for
@@ -12,8 +15,8 @@ Prettify<Partial<ComputePositionConfig> & {
      * Object containing the reference and floating elements.
      */
     elements?: {
-        reference?: RT | null;
-        floating?: HTMLElement | null;
+      reference?: RT | null;
+      floating?: HTMLElement | null;
     };
     /**
      * The `open` state of the floating element to synchronize with the
@@ -27,5 +30,6 @@ Prettify<Partial<ComputePositionConfig> & {
      * @default true
      */
     transform?: boolean;
-}>
+  }
+>;
 ```

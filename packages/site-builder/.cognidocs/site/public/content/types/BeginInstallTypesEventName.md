@@ -1,5 +1,7 @@
 # BeginInstallTypesEventName
+
 ## Definition
+
 ```typescript
-"beginInstallTypes"
+'beginInstallTypes';
 ```

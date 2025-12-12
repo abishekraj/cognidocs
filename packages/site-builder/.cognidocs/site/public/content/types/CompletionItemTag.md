@@ -1,5 +1,7 @@
 # CompletionItemTag
+
 ## Definition
+
 ```typescript
-1
+1;
 ```

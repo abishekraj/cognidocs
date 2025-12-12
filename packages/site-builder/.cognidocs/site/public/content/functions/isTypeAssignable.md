@@ -3,7 +3,8 @@
 **Return Type:** `boolean`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `from` | `PropertyType` | No | - |
-| `to` | `PropertyType` | No | - |
+
+| Name   | Type           | Optional | Description |
+| :----- | :------------- | :------- | :---------- |
+| `from` | `PropertyType` | No       | -           |
+| `to`   | `PropertyType` | No       | -           |

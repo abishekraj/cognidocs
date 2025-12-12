@@ -3,6 +3,7 @@
 **Return Type:** `string`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `url` | `string` | Yes | - |
+
+| Name  | Type     | Optional | Description |
+| :---- | :------- | :------- | :---------- |
+| `url` | `string` | Yes      | -           |

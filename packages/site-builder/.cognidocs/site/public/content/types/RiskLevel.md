@@ -1,5 +1,7 @@
 # RiskLevel
+
 ## Definition
+
 ```typescript
-'Low' | 'Medium' | 'High'
+'Low' | 'Medium' | 'High';
 ```

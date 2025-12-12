@@ -1,5 +1,7 @@
 # While
+
 ## Definition
+
 ```typescript
-DoWhileStatement | WhileStatement
+DoWhileStatement | WhileStatement;
 ```

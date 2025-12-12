@@ -3,7 +3,8 @@
 **Return Type:** `void`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `charCodes` | `number[]` | No | - |
-| `pattern` | `RegExp \| string` | No | - |
+
+| Name        | Type               | Optional | Description |
+| :---------- | :----------------- | :------- | :---------- |
+| `charCodes` | `number[]`         | No       | -           |
+| `pattern`   | `RegExp \| string` | No       | -           |

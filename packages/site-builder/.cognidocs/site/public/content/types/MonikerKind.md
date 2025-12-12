@@ -1,5 +1,7 @@
 # MonikerKind
+
 ## Definition
+
 ```typescript
-'import' | 'export' | 'local'
+'import' | 'export' | 'local';
 ```

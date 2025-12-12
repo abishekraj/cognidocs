@@ -1,5 +1,7 @@
 # ViewTransitionFallback
+
 ## Definition
+
 ```typescript
-Fallback<ViewTransition<TLength, TTime>>
+Fallback<ViewTransition<TLength, TTime>>;
 ```

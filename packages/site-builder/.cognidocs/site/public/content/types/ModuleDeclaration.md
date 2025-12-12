@@ -1,5 +1,7 @@
 # ModuleDeclaration
+
 ## Definition
+
 ```typescript
 | ImportDeclaration
 | ExportNamedDeclaration

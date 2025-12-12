@@ -1,5 +1,7 @@
 # MaskType
+
 ## Definition
+
 ```typescript
-Globals | "alpha" | "luminance"
+Globals | 'alpha' | 'luminance';
 ```

@@ -1,6 +1,8 @@
 # TSExportAssignment
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `type` | `"TSExportAssignment"` | No | - |
-| `expression` | `Expression` | No | - |
+
+| Name         | Type                   | Optional | Description |
+| :----------- | :--------------------- | :------- | :---------- |
+| `type`       | `"TSExportAssignment"` | No       | -           |
+| `expression` | `Expression`           | No       | -           |

@@ -1,5 +1,7 @@
 # FontVariant
+
 ## Definition
+
 ```typescript
 | Globals
     | DataType.EastAsianVariantValues

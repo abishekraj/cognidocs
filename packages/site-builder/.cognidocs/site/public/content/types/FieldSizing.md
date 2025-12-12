@@ -1,5 +1,7 @@
 # FieldSizing
+
 ## Definition
+
 ```typescript
-Globals | "content" | "fixed"
+Globals | 'content' | 'fixed';
 ```

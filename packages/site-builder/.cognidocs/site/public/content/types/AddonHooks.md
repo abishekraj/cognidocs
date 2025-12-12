@@ -1,5 +1,7 @@
 # AddonHooks
+
 ## Definition
+
 ```typescript
-'banner' | 'footer' | 'intro' | 'outro'
+'banner' | 'footer' | 'intro' | 'outro';
 ```

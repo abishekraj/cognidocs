@@ -1,5 +1,7 @@
 # ConfigurationProvider
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `ready` | `Promise<void>` | No | - |
+
+| Name    | Type            | Optional | Description |
+| :------ | :-------------- | :------- | :---------- |
+| `ready` | `Promise<void>` | No       | -           |

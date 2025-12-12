@@ -1,5 +1,7 @@
 # ProgressToken
+
 ## Definition
+
 ```typescript
-number | string
+number | string;
 ```

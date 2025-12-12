@@ -1,5 +1,7 @@
 # PropertyHyphenFallback
+
 ## Definition
+
 ```typescript
-Fallback<PropertyHyphen<TLength, TTime>>
+Fallback<PropertyHyphen<TLength, TTime>>;
 ```

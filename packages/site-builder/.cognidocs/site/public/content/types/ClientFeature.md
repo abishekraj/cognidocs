@@ -1,5 +1,7 @@
 # ClientFeature
+
 ## Definition
+
 ```typescript
-Feature<RemoteClient, P>
+Feature<RemoteClient, P>;
 ```

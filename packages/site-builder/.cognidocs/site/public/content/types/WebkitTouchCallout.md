@@ -1,5 +1,7 @@
 # WebkitTouchCallout
+
 ## Definition
+
 ```typescript
-Globals | "default" | "none"
+Globals | 'default' | 'none';
 ```

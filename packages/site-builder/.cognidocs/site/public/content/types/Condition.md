@@ -1,5 +1,7 @@
 # Condition
+
 ## Definition
+
 ```typescript
-BooleanLiteral | Conjunction | Disjunction | Negation | ParameterReference
+BooleanLiteral | Conjunction | Disjunction | Negation | ParameterReference;
 ```

@@ -1,5 +1,7 @@
 # ArchitectureSpatialMap
+
 ## Definition
+
 ```typescript
-Record<string, number[]>
+Record<string, number[]>;
 ```

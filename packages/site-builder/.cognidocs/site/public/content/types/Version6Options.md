@@ -1,5 +1,7 @@
 # Version6Options
+
 ## Definition
+
 ```typescript
-Version1Options
+Version1Options;
 ```

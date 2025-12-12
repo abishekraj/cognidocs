@@ -1,5 +1,7 @@
 # ExpectedCompletion
+
 ## Definition
+
 ```typescript
-ExpectedCompletionItems | ExpectedCompletionCallback
+ExpectedCompletionItems | ExpectedCompletionCallback;
 ```

@@ -1,5 +1,7 @@
 # ASTNode
+
 ## Definition
+
 ```typescript
 | RegExpPattern
   | Disjunction

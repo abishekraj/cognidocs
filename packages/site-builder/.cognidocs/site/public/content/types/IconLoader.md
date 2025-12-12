@@ -1,5 +1,7 @@
 # IconLoader
+
 ## Definition
+
 ```typescript
-AsyncIconLoader | SyncIconLoader
+AsyncIconLoader | SyncIconLoader;
 ```

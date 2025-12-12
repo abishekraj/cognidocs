@@ -1,12 +1,15 @@
 # ConfigItem
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `name` | `string \| undefined` | Yes | - |
-| `value` | `object \| ((...args: any[]) => any)` | No | - |
-| `options` | `object \| false \| undefined` | Yes | - |
-| `dirname` | `string` | No | - |
-| `file` | `\| {
+
+| Name      | Type                                  | Optional | Description |
+| :-------- | :------------------------------------ | :------- | :---------- |
+| `name`    | `string \| undefined`                 | Yes      | -           |
+| `value`   | `object \| ((...args: any[]) => any)` | No       | -           |
+| `options` | `object \| false \| undefined`        | Yes      | -           |
+| `dirname` | `string`                              | No       | -           |
+| `file`    | `\| {                                 |
+
             /**
              * The file that the user requested, e.g. `"@babel/env"`
              */

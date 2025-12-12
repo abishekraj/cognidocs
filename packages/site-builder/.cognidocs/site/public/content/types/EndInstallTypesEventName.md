@@ -1,5 +1,7 @@
 # EndInstallTypesEventName
+
 ## Definition
+
 ```typescript
-"endInstallTypes"
+'endInstallTypes';
 ```

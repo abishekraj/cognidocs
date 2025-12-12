@@ -3,6 +3,7 @@
 Handle one token.
 
 ## Definition
+
 ```typescript
-(this: CompileContext, token: Token) => undefined
+(this: CompileContext, token: Token) => undefined;
 ```

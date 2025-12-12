@@ -1,5 +1,7 @@
 # ValueType
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `value` | `TypeOption` | No | - |
+
+| Name    | Type         | Optional | Description |
+| :------ | :----------- | :------- | :---------- |
+| `value` | `TypeOption` | No       | -           |

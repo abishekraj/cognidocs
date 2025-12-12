@@ -1,5 +1,7 @@
 # MsContentZoomSnapPoints
+
 ## Definition
+
 ```typescript
-Globals | (string & {})
+Globals | (string & {});
 ```

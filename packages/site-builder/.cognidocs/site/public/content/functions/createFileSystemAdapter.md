@@ -3,6 +3,7 @@
 **Return Type:** `FileSystemAdapter`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `fsMethods` | `Partial<FileSystemAdapter>` | Yes | - |
+
+| Name        | Type                         | Optional | Description |
+| :---------- | :--------------------------- | :------- | :---------- |
+| `fsMethods` | `Partial<FileSystemAdapter>` | Yes      | -           |

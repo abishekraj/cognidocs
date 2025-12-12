@@ -1,5 +1,7 @@
 # CommentTypeShorthand
+
 ## Definition
+
 ```typescript
-'leading' | 'inner' | 'trailing'
+'leading' | 'inner' | 'trailing';
 ```

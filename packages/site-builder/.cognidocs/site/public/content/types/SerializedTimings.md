@@ -1,5 +1,7 @@
 # SerializedTimings
+
 ## Definition
+
 ```typescript
-Record<string, [number, number, number]>
+Record<string, [number, number, number]>;
 ```

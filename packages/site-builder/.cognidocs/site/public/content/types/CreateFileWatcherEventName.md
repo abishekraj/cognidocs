@@ -1,5 +1,7 @@
 # CreateFileWatcherEventName
+
 ## Definition
+
 ```typescript
-"createFileWatcher"
+'createFileWatcher';
 ```

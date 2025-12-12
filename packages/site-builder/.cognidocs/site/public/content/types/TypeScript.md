@@ -1,5 +1,73 @@
 # TypeScript
+
 ## Definition
+
 ```typescript
-TSParameterProperty | TSDeclareFunction | TSDeclareMethod | TSQualifiedName | TSCallSignatureDeclaration | TSConstructSignatureDeclaration | TSPropertySignature | TSMethodSignature | TSIndexSignature | TSAnyKeyword | TSBooleanKeyword | TSBigIntKeyword | TSIntrinsicKeyword | TSNeverKeyword | TSNullKeyword | TSNumberKeyword | TSObjectKeyword | TSStringKeyword | TSSymbolKeyword | TSUndefinedKeyword | TSUnknownKeyword | TSVoidKeyword | TSThisType | TSFunctionType | TSConstructorType | TSTypeReference | TSTypePredicate | TSTypeQuery | TSTypeLiteral | TSArrayType | TSTupleType | TSOptionalType | TSRestType | TSNamedTupleMember | TSUnionType | TSIntersectionType | TSConditionalType | TSInferType | TSParenthesizedType | TSTypeOperator | TSIndexedAccessType | TSMappedType | TSTemplateLiteralType | TSLiteralType | TSExpressionWithTypeArguments | TSInterfaceDeclaration | TSInterfaceBody | TSTypeAliasDeclaration | TSInstantiationExpression | TSAsExpression | TSSatisfiesExpression | TSTypeAssertion | TSEnumBody | TSEnumDeclaration | TSEnumMember | TSModuleDeclaration | TSModuleBlock | TSImportType | TSImportEqualsDeclaration | TSExternalModuleReference | TSNonNullExpression | TSExportAssignment | TSNamespaceExportDeclaration | TSTypeAnnotation | TSTypeParameterInstantiation | TSTypeParameterDeclaration | TSTypeParameter
+TSParameterProperty |
+  TSDeclareFunction |
+  TSDeclareMethod |
+  TSQualifiedName |
+  TSCallSignatureDeclaration |
+  TSConstructSignatureDeclaration |
+  TSPropertySignature |
+  TSMethodSignature |
+  TSIndexSignature |
+  TSAnyKeyword |
+  TSBooleanKeyword |
+  TSBigIntKeyword |
+  TSIntrinsicKeyword |
+  TSNeverKeyword |
+  TSNullKeyword |
+  TSNumberKeyword |
+  TSObjectKeyword |
+  TSStringKeyword |
+  TSSymbolKeyword |
+  TSUndefinedKeyword |
+  TSUnknownKeyword |
+  TSVoidKeyword |
+  TSThisType |
+  TSFunctionType |
+  TSConstructorType |
+  TSTypeReference |
+  TSTypePredicate |
+  TSTypeQuery |
+  TSTypeLiteral |
+  TSArrayType |
+  TSTupleType |
+  TSOptionalType |
+  TSRestType |
+  TSNamedTupleMember |
+  TSUnionType |
+  TSIntersectionType |
+  TSConditionalType |
+  TSInferType |
+  TSParenthesizedType |
+  TSTypeOperator |
+  TSIndexedAccessType |
+  TSMappedType |
+  TSTemplateLiteralType |
+  TSLiteralType |
+  TSExpressionWithTypeArguments |
+  TSInterfaceDeclaration |
+  TSInterfaceBody |
+  TSTypeAliasDeclaration |
+  TSInstantiationExpression |
+  TSAsExpression |
+  TSSatisfiesExpression |
+  TSTypeAssertion |
+  TSEnumBody |
+  TSEnumDeclaration |
+  TSEnumMember |
+  TSModuleDeclaration |
+  TSModuleBlock |
+  TSImportType |
+  TSImportEqualsDeclaration |
+  TSExternalModuleReference |
+  TSNonNullExpression |
+  TSExportAssignment |
+  TSNamespaceExportDeclaration |
+  TSTypeAnnotation |
+  TSTypeParameterInstantiation |
+  TSTypeParameterDeclaration |
+  TSTypeParameter;
 ```

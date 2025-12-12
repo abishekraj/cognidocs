@@ -1,5 +1,7 @@
 # OutputPluginHooks
+
 ## Definition
+
 ```typescript
 | 'augmentChunkHash'
 	| 'generateBundle'

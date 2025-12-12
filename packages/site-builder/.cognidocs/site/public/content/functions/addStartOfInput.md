@@ -3,6 +3,7 @@
 **Return Type:** `RegExp`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `pattern` | `RegExp` | No | - |
+
+| Name      | Type     | Optional | Description |
+| :-------- | :------- | :------- | :---------- |
+| `pattern` | `RegExp` | No       | -           |

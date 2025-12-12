@@ -1,5 +1,7 @@
 # MinInlineSize
+
 ## Definition
+
 ```typescript
 | Globals
     | TLength

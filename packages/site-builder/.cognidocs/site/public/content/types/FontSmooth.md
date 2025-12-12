@@ -1,5 +1,7 @@
 # FontSmooth
+
 ## Definition
+
 ```typescript
-Globals | DataType.AbsoluteSize | TLength | "always" | "auto" | "never"
+Globals | DataType.AbsoluteSize | TLength | 'always' | 'auto' | 'never';
 ```

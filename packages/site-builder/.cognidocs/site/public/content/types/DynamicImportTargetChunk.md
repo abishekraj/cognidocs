@@ -1,5 +1,7 @@
 # DynamicImportTargetChunk
+
 ## Definition
+
 ```typescript
-ImportedInternalChunk | ImportedExternalChunk
+ImportedInternalChunk | ImportedExternalChunk;
 ```

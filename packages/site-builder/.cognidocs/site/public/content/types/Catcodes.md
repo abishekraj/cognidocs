@@ -1,5 +1,7 @@
 # Catcodes
+
 ## Definition
+
 ```typescript
-Record<string, number>
+Record<string, number>;
 ```

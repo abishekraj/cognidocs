@@ -1,5 +1,7 @@
 # GetApplicableRefactorsRequestArgs
+
 ## Definition
+
 ```typescript
 FileLocationOrRangeRequestArgs & {
                 triggerReason?: RefactorTriggerReason;

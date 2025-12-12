@@ -1,5 +1,7 @@
 # JSXClosingFragment
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `type` | `"JSXClosingFragment"` | No | - |
+
+| Name   | Type                   | Optional | Description |
+| :----- | :--------------------- | :------- | :---------- |
+| `type` | `"JSXClosingFragment"` | No       | -           |

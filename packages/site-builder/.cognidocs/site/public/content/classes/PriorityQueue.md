@@ -3,12 +3,14 @@
 A min-priority queue data structure. This algorithm is derived from Cormen, et al., "Introduction to Algorithms". The basic idea of a min-priority queue is that you can efficiently (in O(1) time) get the smallest key in the queue. Adding and removing elements takes O(log n) time. A key can have its priority decreased in O(log n) time.
 
 ## Properties
-| Name | Type | Description |
-| :--- | :--- | :---------- |
-| `_arr` | `any[]` | - |
-| `_keyIndices` | `{}` | - |
+
+| Name          | Type    | Description |
+| :------------ | :------ | :---------- |
+| `_arr`        | `any[]` | -           |
+| `_keyIndices` | `{}`    | -           |
 
 ## Methods
+
 ### size
 
 Returns the number of elements in the queue. Takes `O(1)` time.
@@ -57,11 +59,14 @@ Decreases the priority for **key** to **priority**. If the new priority is great
 
 **Return:** `void`
 
-### _heapify
+### \_heapify
+
 **Return:** `void`
 
-### _decrease
+### \_decrease
+
 **Return:** `void`
 
-### _swap
+### \_swap
+
 **Return:** `void`

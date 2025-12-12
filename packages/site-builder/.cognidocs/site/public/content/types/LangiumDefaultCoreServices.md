@@ -1,5 +1,7 @@
 # LangiumDefaultCoreServices
+
 ## Definition
+
 ```typescript
 {
     readonly parser: {

@@ -59,6 +59,7 @@ Thumbs.db
 # Output directories
 apps/
 docs/
+scripts/
 docs-test/
 *.tsbuildinfo
 

@@ -1,5 +1,7 @@
 # SuspenseListProps
+
 ## Definition
+
 ```typescript
-DirectionalSuspenseListProps | NonDirectionalSuspenseListProps
+DirectionalSuspenseListProps | NonDirectionalSuspenseListProps;
 ```

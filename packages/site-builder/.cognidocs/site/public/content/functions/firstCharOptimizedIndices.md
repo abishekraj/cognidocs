@@ -3,8 +3,9 @@
 **Return Type:** `number[]`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `ast` | `ASTNode` | No | - |
-| `result` | `{ [charCode: number]: number }` | No | - |
-| `ignoreCase` | `boolean` | No | - |
+
+| Name         | Type                             | Optional | Description |
+| :----------- | :------------------------------- | :------- | :---------- |
+| `ast`        | `ASTNode`                        | No       | -           |
+| `result`     | `{ [charCode: number]: number }` | No       | -           |
+| `ignoreCase` | `boolean`                        | No       | -           |

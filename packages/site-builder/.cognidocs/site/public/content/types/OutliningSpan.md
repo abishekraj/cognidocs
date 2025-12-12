@@ -1,8 +1,13 @@
 # OutliningSpan
+
 ## Definition
+
 ```typescript
-ChangePropertyTypes<ts.OutliningSpan, {
-                textSpan: TextSpan;
-                hintSpan: TextSpan;
-            }>
+ChangePropertyTypes<
+  ts.OutliningSpan,
+  {
+    textSpan: TextSpan;
+    hintSpan: TextSpan;
+  }
+>;
 ```

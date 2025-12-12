@@ -3,7 +3,8 @@
 HTML document type.
 
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `type` | `"doctype"` | No | - |
-| `data` | `DoctypeData \| undefined` | Yes | - |
+
+| Name   | Type                       | Optional | Description |
+| :----- | :------------------------- | :------- | :---------- |
+| `type` | `"doctype"`                | No       | -           |
+| `data` | `DoctypeData \| undefined` | Yes      | -           |

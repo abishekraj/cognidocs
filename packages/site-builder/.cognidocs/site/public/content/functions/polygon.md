@@ -3,7 +3,8 @@
 **Return Type:** `OpSet`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `points` | `Point[]` | No | - |
-| `o` | `ResolvedOptions` | No | - |
+
+| Name     | Type              | Optional | Description |
+| :------- | :---------------- | :------- | :---------- |
+| `points` | `Point[]`         | No       | -           |
+| `o`      | `ResolvedOptions` | No       | -           |

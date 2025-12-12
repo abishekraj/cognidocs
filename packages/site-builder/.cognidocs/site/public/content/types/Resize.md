@@ -1,5 +1,7 @@
 # Resize
+
 ## Definition
+
 ```typescript
-Globals | "block" | "both" | "horizontal" | "inline" | "none" | "vertical"
+Globals | 'block' | 'both' | 'horizontal' | 'inline' | 'none' | 'vertical';
 ```

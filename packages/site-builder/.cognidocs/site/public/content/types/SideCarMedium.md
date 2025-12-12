@@ -1,5 +1,7 @@
 # SideCarMedium
+
 ## Definition
+
 ```typescript
-SideMedium<React.ComponentType<T>>
+SideMedium<React.ComponentType<T>>;
 ```

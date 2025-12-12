@@ -1,5 +1,7 @@
 # OriginalMapping
+
 ## Definition
+
 ```typescript
 {
   source: string | null;

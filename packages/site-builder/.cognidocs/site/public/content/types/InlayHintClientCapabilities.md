@@ -3,6 +3,7 @@
 Inlay hint client capabilities.
 
 ## Definition
+
 ```typescript
 {
     /**

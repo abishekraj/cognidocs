@@ -1,5 +1,7 @@
 # HyphenateCharacter
+
 ## Definition
+
 ```typescript
-Globals | "auto" | (string & {})
+Globals | 'auto' | (string & {});
 ```

@@ -5,17 +5,20 @@ Implementation of babel-plugin-transform-react-display-name, which adds a displa
 **Extends:** `Transformer`
 
 ## Properties
-| Name | Type | Description |
-| :--- | :--- | :---------- |
-| `rootTransformer` | `RootTransformer` | - |
-| `tokens` | `TokenProcessor` | - |
-| `importProcessor` | `CJSImportProcessor \| null` | - |
-| `options` | `Options` | - |
-| `tryProcessCreateClassCall` | `any` | - |
-| `findDisplayName` | `any` | - |
-| `getDisplayNameFromFilename` | `any` | - |
-| `classNeedsDisplayName` | `any` | - |
+
+| Name                         | Type                         | Description |
+| :--------------------------- | :--------------------------- | :---------- |
+| `rootTransformer`            | `RootTransformer`            | -           |
+| `tokens`                     | `TokenProcessor`             | -           |
+| `importProcessor`            | `CJSImportProcessor \| null` | -           |
+| `options`                    | `Options`                    | -           |
+| `tryProcessCreateClassCall`  | `any`                        | -           |
+| `findDisplayName`            | `any`                        | -           |
+| `getDisplayNameFromFilename` | `any`                        | -           |
+| `classNeedsDisplayName`      | `any`                        | -           |
 
 ## Methods
+
 ### process
+
 **Return:** `boolean`

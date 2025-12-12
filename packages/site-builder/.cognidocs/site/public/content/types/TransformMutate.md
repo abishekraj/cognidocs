@@ -3,6 +3,7 @@
 Mutate-mode. Further transformers run on the hast tree.
 
 ## Definition
+
 ```typescript
-(tree: MdastRoot, file: VFile) => HastRoot
+(tree: MdastRoot, file: VFile) => HastRoot;
 ```

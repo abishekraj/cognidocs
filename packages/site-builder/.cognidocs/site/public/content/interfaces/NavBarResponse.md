@@ -1,5 +1,7 @@
 # NavBarResponse
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `body` | `NavigationBarItem[]` | Yes | - |
+
+| Name   | Type                  | Optional | Description |
+| :----- | :-------------------- | :------- | :---------- |
+| `body` | `NavigationBarItem[]` | Yes      | -           |

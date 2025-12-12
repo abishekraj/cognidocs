@@ -3,6 +3,7 @@
 **Return Type:** `obj is Character`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `obj` | `{ type: string }` | No | - |
+
+| Name  | Type               | Optional | Description |
+| :---- | :----------------- | :------- | :---------- |
+| `obj` | `{ type: string }` | No       | -           |

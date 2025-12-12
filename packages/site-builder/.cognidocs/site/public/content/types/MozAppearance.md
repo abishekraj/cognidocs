@@ -1,5 +1,7 @@
 # MozAppearance
+
 ## Definition
+
 ```typescript
 | Globals
     | "-moz-mac-unified-toolbar"

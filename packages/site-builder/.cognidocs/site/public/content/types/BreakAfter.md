@@ -1,5 +1,7 @@
 # BreakAfter
+
 ## Definition
+
 ```typescript
 | Globals
     | "all"

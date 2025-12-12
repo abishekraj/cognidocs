@@ -3,6 +3,7 @@
 **Return Type:** `ExportDefaultSpecifier`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `exported` | `Identifier` | No | - |
+
+| Name       | Type         | Optional | Description |
+| :--------- | :----------- | :------- | :---------- |
+| `exported` | `Identifier` | No       | -           |

@@ -1,5 +1,7 @@
 # ExternalOption
+
 ## Definition
+
 ```typescript
 | (string | RegExp)[]
 	| string

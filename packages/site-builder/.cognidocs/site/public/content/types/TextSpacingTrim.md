@@ -1,5 +1,7 @@
 # TextSpacingTrim
+
 ## Definition
+
 ```typescript
-Globals | "normal" | "space-all" | "space-first" | "trim-start"
+Globals | 'normal' | 'space-all' | 'space-first' | 'trim-start';
 ```

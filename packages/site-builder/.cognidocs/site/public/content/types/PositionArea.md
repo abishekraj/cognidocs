@@ -1,5 +1,7 @@
 # PositionArea
+
 ## Definition
+
 ```typescript
-Globals | DataType.PositionArea | "none"
+Globals | DataType.PositionArea | 'none';
 ```

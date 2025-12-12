@@ -1,5 +1,7 @@
 # Comment
+
 ## Definition
+
 ```typescript
-import('hast').Comment
+import('hast').Comment;
 ```

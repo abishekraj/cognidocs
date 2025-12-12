@@ -1,5 +1,7 @@
 # JSXOpeningFragment
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `type` | `"JSXOpeningFragment"` | No | - |
+
+| Name   | Type                   | Optional | Description |
+| :----- | :--------------------- | :------- | :---------- |
+| `type` | `"JSXOpeningFragment"` | No       | -           |

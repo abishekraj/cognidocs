@@ -1,5 +1,7 @@
 # NormalizedJsxOptions
+
 ## Definition
+
 ```typescript
 | NormalizedJsxPreserveOptions
 	| NormalizedJsxClassicOptions

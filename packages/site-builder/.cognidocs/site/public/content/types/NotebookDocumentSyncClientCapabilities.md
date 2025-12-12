@@ -3,6 +3,7 @@
 Notebook specific client capabilities.
 
 ## Definition
+
 ```typescript
 {
     /**

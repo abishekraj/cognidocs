@@ -3,6 +3,7 @@
 Diagnostic options.
 
 ## Definition
+
 ```typescript
 WorkDoneProgressOptions & {
     /**

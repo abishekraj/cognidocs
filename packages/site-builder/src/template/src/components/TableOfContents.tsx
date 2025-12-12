@@ -94,10 +94,7 @@ export function TableOfContents({
   const stickyClass = sticky ? 'sticky top-24 max-h-[calc(100vh-7rem)] overflow-y-auto' : '';
 
   return (
-    <nav
-      className={`w-64 ${stickyClass} ${className}`}
-      aria-label="Table of Contents"
-    >
+    <nav className={`w-64 ${stickyClass} ${className}`} aria-label="Table of Contents">
       <div className="flex items-center gap-2 mb-4 pb-2 border-b border-border">
         <BookOpen className="h-4 w-4 text-muted-foreground" />
         <h4 className="text-sm font-semibold text-foreground">On This Page</h4>

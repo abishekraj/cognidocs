@@ -1,5 +1,7 @@
 # RemoveScrollType
+
 ## Definition
+
 ```typescript
-RefForwarded<IRemoveScrollProps>
+RefForwarded<IRemoveScrollProps>;
 ```

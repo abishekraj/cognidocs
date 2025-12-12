@@ -3,6 +3,7 @@
 Inlay hint information.
 
 ## Definition
+
 ```typescript
 {
     /**

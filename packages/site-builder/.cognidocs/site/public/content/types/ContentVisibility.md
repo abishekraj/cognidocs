@@ -1,5 +1,7 @@
 # ContentVisibility
+
 ## Definition
+
 ```typescript
-Globals | "auto" | "hidden" | "visible"
+Globals | 'auto' | 'hidden' | 'visible';
 ```

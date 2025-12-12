@@ -1,5 +1,7 @@
 # WebkitMaskRepeatX
+
 ## Definition
+
 ```typescript
-Globals | "no-repeat" | "repeat" | "round" | "space"
+Globals | 'no-repeat' | 'repeat' | 'round' | 'space';
 ```

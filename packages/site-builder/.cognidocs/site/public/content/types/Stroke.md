@@ -1,5 +1,7 @@
 # Stroke
+
 ## Definition
+
 ```typescript
-Globals | DataType.Paint
+Globals | DataType.Paint;
 ```

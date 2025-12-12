@@ -1,5 +1,7 @@
 # GridAutoFlow
+
 ## Definition
+
 ```typescript
-Globals | "column" | "dense" | "row" | (string & {})
+Globals | 'column' | 'dense' | 'row' | (string & {});
 ```

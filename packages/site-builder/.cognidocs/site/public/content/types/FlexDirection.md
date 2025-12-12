@@ -1,5 +1,7 @@
 # FlexDirection
+
 ## Definition
+
 ```typescript
-Globals | "column" | "column-reverse" | "row" | "row-reverse"
+Globals | 'column' | 'column-reverse' | 'row' | 'row-reverse';
 ```

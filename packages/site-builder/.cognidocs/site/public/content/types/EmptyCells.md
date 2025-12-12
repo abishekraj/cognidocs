@@ -1,5 +1,7 @@
 # EmptyCells
+
 ## Definition
+
 ```typescript
-Globals | "hide" | "show"
+Globals | 'hide' | 'show';
 ```

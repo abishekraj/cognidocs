@@ -1,5 +1,7 @@
 # JSXEmptyExpression
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `type` | `"JSXEmptyExpression"` | No | - |
+
+| Name   | Type                   | Optional | Description |
+| :----- | :--------------------- | :------- | :---------- |
+| `type` | `"JSXEmptyExpression"` | No       | -           |

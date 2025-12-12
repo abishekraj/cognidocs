@@ -1,5 +1,7 @@
 # UnaryLike
+
 ## Definition
+
 ```typescript
-UnaryExpression | SpreadElement
+UnaryExpression | SpreadElement;
 ```

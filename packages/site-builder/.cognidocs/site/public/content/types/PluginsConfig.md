@@ -1,5 +1,7 @@
 # PluginsConfig
+
 ## Definition
+
 ```typescript
 (
   | PluginCreator

@@ -1,5 +1,7 @@
 # EmittedFile
+
 ## Definition
+
 ```typescript
-EmittedAsset | EmittedChunk | EmittedPrebuiltChunk
+EmittedAsset | EmittedChunk | EmittedPrebuiltChunk;
 ```

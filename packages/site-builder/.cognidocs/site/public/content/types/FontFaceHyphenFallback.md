@@ -1,5 +1,7 @@
 # FontFaceHyphenFallback
+
 ## Definition
+
 ```typescript
-Fallback<FontFaceHyphen<TLength, TTime>>
+Fallback<FontFaceHyphen<TLength, TTime>>;
 ```

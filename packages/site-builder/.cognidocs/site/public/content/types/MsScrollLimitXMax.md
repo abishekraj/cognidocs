@@ -1,5 +1,7 @@
 # MsScrollLimitXMax
+
 ## Definition
+
 ```typescript
-Globals | TLength | "auto"
+Globals | TLength | 'auto';
 ```

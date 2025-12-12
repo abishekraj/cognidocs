@@ -1,9 +1,12 @@
 # PluginBuild
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `initialOptions` | `BuildOptions` | No | - |
-| `esbuild` | `{
+
+| Name             | Type           | Optional | Description |
+| :--------------- | :------------- | :------- | :---------- |
+| `initialOptions` | `BuildOptions` | No       | -           |
+| `esbuild`        | `{             |
+
     context: typeof context,
     build: typeof build,
     buildSync: typeof buildSync,
@@ -15,4 +18,5 @@
     analyzeMetafileSync: typeof analyzeMetafileSync,
     initialize: typeof initialize,
     version: typeof version,
-  }` | No | - |
+
+}` | No | - |

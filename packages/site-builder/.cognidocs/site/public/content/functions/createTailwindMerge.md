@@ -3,7 +3,8 @@
 **Return Type:** `TailwindMerge`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `createConfigFirst` | `CreateConfigFirst` | No | - |
-| `createConfigRest` | `CreateConfigSubsequent[]` | No | - |
+
+| Name                | Type                       | Optional | Description |
+| :------------------ | :------------------------- | :------- | :---------- |
+| `createConfigFirst` | `CreateConfigFirst`        | No       | -           |
+| `createConfigRest`  | `CreateConfigSubsequent[]` | No       | -           |

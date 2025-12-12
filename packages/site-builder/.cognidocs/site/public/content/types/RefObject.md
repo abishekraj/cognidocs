@@ -1,5 +1,7 @@
 # RefObject
+
 ## Definition
+
 ```typescript
-React.MutableRefObject<T | null>
+React.MutableRefObject<T | null>;
 ```

@@ -1,5 +1,7 @@
 # TableLayout
+
 ## Definition
+
 ```typescript
-Globals | "auto" | "fixed"
+Globals | 'auto' | 'fixed';
 ```

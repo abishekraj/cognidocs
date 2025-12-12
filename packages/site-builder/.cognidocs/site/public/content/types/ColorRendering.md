@@ -1,5 +1,7 @@
 # ColorRendering
+
 ## Definition
+
 ```typescript
-Globals | "auto" | "optimizeQuality" | "optimizeSpeed"
+Globals | 'auto' | 'optimizeQuality' | 'optimizeSpeed';
 ```

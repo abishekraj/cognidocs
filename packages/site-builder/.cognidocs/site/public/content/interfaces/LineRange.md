@@ -1,5 +1,7 @@
 # LineRange
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `lastColumn` | `number` | No | - |
+
+| Name         | Type     | Optional | Description |
+| :----------- | :------- | :------- | :---------- |
+| `lastColumn` | `number` | No       | -           |

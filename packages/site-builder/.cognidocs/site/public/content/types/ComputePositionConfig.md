@@ -1,7 +1,10 @@
 # ComputePositionConfig
+
 ## Definition
+
 ```typescript
-Prettify<Omit<ComputePositionConfig_2, 'middleware' | 'platform'> & {
+Prettify<
+  Omit<ComputePositionConfig_2, 'middleware' | 'platform'> & {
     /**
      * Array of middleware objects to modify the positioning or provide data for
      * rendering.
@@ -11,5 +14,6 @@ Prettify<Omit<ComputePositionConfig_2, 'middleware' | 'platform'> & {
      * Custom or extended platform object.
      */
     platform?: Platform;
-}>
+  }
+>;
 ```

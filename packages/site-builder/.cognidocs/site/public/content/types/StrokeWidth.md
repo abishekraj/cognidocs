@@ -1,5 +1,7 @@
 # StrokeWidth
+
 ## Definition
+
 ```typescript
-Globals | TLength | (string & {}) | (number & {})
+Globals | TLength | (string & {}) | (number & {});
 ```

@@ -1,5 +1,7 @@
 # LangiumCoreServices
+
 ## Definition
+
 ```typescript
-LangiumGeneratedCoreServices & LangiumDefaultCoreServices
+LangiumGeneratedCoreServices & LangiumDefaultCoreServices;
 ```

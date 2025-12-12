@@ -1,5 +1,7 @@
 # ClassValue
+
 ## Definition
+
 ```typescript
-CLSX.ClassValue
+CLSX.ClassValue;
 ```

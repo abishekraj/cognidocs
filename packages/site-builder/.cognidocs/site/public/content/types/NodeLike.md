@@ -1,5 +1,7 @@
 # NodeLike
+
 ## Definition
+
 ```typescript
 object & {
     type: string;

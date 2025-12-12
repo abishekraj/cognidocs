@@ -1,5 +1,7 @@
 # MsAccelerator
+
 ## Definition
+
 ```typescript
-Globals | "false" | "true"
+Globals | 'false' | 'true';
 ```

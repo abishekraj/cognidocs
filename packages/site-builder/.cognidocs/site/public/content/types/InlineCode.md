@@ -1,5 +1,7 @@
 # InlineCode
+
 ## Definition
+
 ```typescript
-import('mdast').InlineCode
+import('mdast').InlineCode;
 ```

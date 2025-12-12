@@ -3,6 +3,7 @@
 A parameter literal used in inlay hint requests.
 
 ## Definition
+
 ```typescript
 WorkDoneProgressParams & {
     /**

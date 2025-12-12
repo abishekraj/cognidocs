@@ -1,5 +1,7 @@
 # InputPluginOption
+
 ## Definition
+
 ```typescript
-MaybePromise<Plugin | NullValue | false | InputPluginOption[]>
+MaybePromise<Plugin | NullValue | false | InputPluginOption[]>;
 ```

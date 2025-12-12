@@ -1,5 +1,7 @@
 # ClassPropKey
+
 ## Definition
+
 ```typescript
-"class" | "className"
+'class' | 'className';
 ```

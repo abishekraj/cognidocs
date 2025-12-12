@@ -3,6 +3,7 @@
 **Return Type:** `string`
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `points` | `Point[]` | No | - |
+
+| Name     | Type      | Optional | Description |
+| :------- | :-------- | :------- | :---------- |
+| `points` | `Point[]` | No       | -           |

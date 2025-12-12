@@ -1,5 +1,7 @@
 # ArrayInterpolator
+
 ## Definition
+
 ```typescript
-(t: number) => A
+(t: number) => A;
 ```

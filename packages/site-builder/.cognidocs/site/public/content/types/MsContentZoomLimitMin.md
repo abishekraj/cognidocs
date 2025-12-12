@@ -1,5 +1,7 @@
 # MsContentZoomLimitMin
+
 ## Definition
+
 ```typescript
-Globals | (string & {})
+Globals | (string & {});
 ```

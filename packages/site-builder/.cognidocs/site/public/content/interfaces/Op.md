@@ -1,6 +1,8 @@
 # Op
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `op` | `OpType` | No | - |
-| `data` | `number[]` | No | - |
+
+| Name   | Type       | Optional | Description |
+| :----- | :--------- | :------- | :---------- |
+| `op`   | `OpType`   | No       | -           |
+| `data` | `number[]` | No       | -           |

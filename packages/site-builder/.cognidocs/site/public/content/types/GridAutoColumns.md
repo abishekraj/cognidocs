@@ -1,5 +1,7 @@
 # GridAutoColumns
+
 ## Definition
+
 ```typescript
-Globals | DataType.TrackBreadth<TLength> | (string & {})
+Globals | DataType.TrackBreadth<TLength> | (string & {});
 ```

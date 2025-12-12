@@ -1,5 +1,7 @@
 # TypedArray
+
 ## Definition
+
 ```typescript
 | Int8Array
     | Uint8Array

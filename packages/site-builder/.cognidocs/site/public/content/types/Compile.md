@@ -3,6 +3,7 @@
 Serialize micromark events as HTML.
 
 ## Definition
+
 ```typescript
-(events: Array<Event>) => string
+(events: Array<Event>) => string;
 ```

@@ -1,6 +1,8 @@
 # ClusterNode
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `shape` | `ClusterShapeID` | Yes | - |
-| `isGroup` | `true` | No | - |
+
+| Name      | Type             | Optional | Description |
+| :-------- | :--------------- | :------- | :---------- |
+| `shape`   | `ClusterShapeID` | Yes      | -           |
+| `isGroup` | `true`           | No       | -           |

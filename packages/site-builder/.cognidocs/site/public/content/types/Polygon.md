@@ -1,5 +1,7 @@
 # Polygon
+
 ## Definition
+
 ```typescript
 Point[]
 ```

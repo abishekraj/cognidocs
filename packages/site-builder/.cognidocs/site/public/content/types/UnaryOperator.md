@@ -1,5 +1,7 @@
 # UnaryOperator
+
 ## Definition
+
 ```typescript
-"-" | "+" | "!" | "~" | "typeof" | "void" | "delete"
+'-' | '+' | '!' | '~' | 'typeof' | 'void' | 'delete';
 ```

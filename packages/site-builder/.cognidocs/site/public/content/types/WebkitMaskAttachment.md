@@ -1,5 +1,7 @@
 # WebkitMaskAttachment
+
 ## Definition
+
 ```typescript
-Globals | DataType.Attachment | (string & {})
+Globals | DataType.Attachment | (string & {});
 ```

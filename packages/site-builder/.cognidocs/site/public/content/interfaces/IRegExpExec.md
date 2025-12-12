@@ -1,5 +1,7 @@
 # IRegExpExec
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `exec` | `CustomPatternMatcherFunc` | No | - |
+
+| Name   | Type                       | Optional | Description |
+| :----- | :------------------------- | :------- | :---------- |
+| `exec` | `CustomPatternMatcherFunc` | No       | -           |

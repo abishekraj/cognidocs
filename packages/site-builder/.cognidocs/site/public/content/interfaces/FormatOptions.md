@@ -1,17 +1,21 @@
 # FormatOptions
+
 ## Properties
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `ascii_only` | `boolean` | Yes | - |
-| `beautify` | `boolean` | Yes | - |
-| `braces` | `boolean` | Yes | - |
-| `comments` | `boolean \| 'all' \| 'some' \| RegExp \| ( (node: any, comment: {
+
+| Name         | Type                                                              | Optional | Description |
+| :----------- | :---------------------------------------------------------------- | :------- | :---------- |
+| `ascii_only` | `boolean`                                                         | Yes      | -           |
+| `beautify`   | `boolean`                                                         | Yes      | -           |
+| `braces`     | `boolean`                                                         | Yes      | -           |
+| `comments`   | `boolean \| 'all' \| 'some' \| RegExp \| ( (node: any, comment: { |
+
         value: string,
         type: 'comment1' \| 'comment2' \| 'comment3' \| 'comment4',
         pos: number,
         line: number,
         col: number,
     }) => boolean )` | Yes | - |
+
 | `ecma` | `ECMA` | Yes | - |
 | `ie8` | `boolean` | Yes | - |
 | `keep_numbers` | `boolean` | Yes | - |
