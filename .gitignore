@@ -63,6 +63,7 @@ apps/
 docs/
 guides/*
 scripts/*
+!scripts/update-version.sh
 *.tsbuildinfo
 
 # Generated documentation (for testing)

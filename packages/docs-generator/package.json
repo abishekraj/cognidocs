@@ -1,6 +1,6 @@
 {
   "name": "@cognidocs/docs-generator",
-  "version": "0.0.3",
+  "version": "0.0.6",
   "comment": "Phase 3: Core Documentation",
   "main": "./dist/index.mjs",
   "types": "./dist/index.d.mts",
@@ -11,16 +11,16 @@
     "lint": "eslint src"
   },
   "dependencies": {
+    "@cognidocs/constants": "*",
     "@cognidocs/types": "*",
     "@cognidocs/utils": "*",
-    "@cognidocs/constants": "*",
     "fs-extra": "^11.2.0"
   },
   "devDependencies": {
+    "@types/fs-extra": "^11.0.4",
     "tsup": "^8.0.1",
     "typescript": "^5.3.0",
-    "vitest": "^1.0.0",
-    "@types/fs-extra": "^11.0.4"
+    "vitest": "^1.0.0"
   },
   "keywords": [
     "documentation",

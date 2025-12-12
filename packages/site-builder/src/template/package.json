@@ -1,7 +1,7 @@
 {
   "name": "cognidocs-site-template",
   "private": true,
-  "version": "0.1.0",
+  "version": "0.0.6",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -9,15 +9,17 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@cognidocs/graph-viz": "file:../../../../graph-viz",
+    "@cognidocs/graph-viz": "^0.0.3",
     "@radix-ui/react-collapsible": "^1.1.12",
     "@radix-ui/react-dialog": "^1.1.15",
     "@radix-ui/react-dropdown-menu": "^2.1.16",
     "@radix-ui/react-scroll-area": "^1.2.10",
+    "@radix-ui/react-select": "^2.1.2",
     "@radix-ui/react-separator": "^1.1.8",
     "@radix-ui/react-slot": "^1.0.2",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
+    "cmdk": "^0.2.0",
     "lucide-react": "^0.556.0",
     "lunr": "^2.3.9",
     "mermaid": "^11.4.1",
