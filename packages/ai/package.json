@@ -1,6 +1,6 @@
 {
   "name": "@cognidocs/ai",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "AI-powered documentation features - Phase 6",
   "main": "./dist/index.mjs",
   "types": "./dist/index.d.mts",
