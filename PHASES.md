@@ -1038,7 +1038,507 @@ cognidocs build && cognidocs serve
 
 ---
 
-## Phase 4: Plugin System 🟡 IN PROGRESS
+## Phase 4: Multi-Framework & Backend Support 🔴 NOT STARTED
+
+**Goal:** Comprehensive support for Next.js, Vue, Svelte, and backend frameworks (Node.js, Express, NestJS, etc.)
+
+**Key Requirements:**
+- Single framework selection (no multi-select) in `cognidocs init`
+- Support for frontend frameworks: React, Next.js (Page + App Router), Vue, Svelte
+- Support for backend frameworks: Node.js, Express, NestJS, Fastify
+- Generic project types: TypeScript, JavaScript
+- API route documentation (Next.js API routes, Express routes, NestJS controllers)
+- Server component detection (Next.js App Router)
+- Vue SFC (Single File Component) parsing
+- Svelte component parsing
+
+### Packages to Modify/Create
+
+- `@cognidocs/parser` - Add new parsers (Vue, Svelte, API routes)
+- `@cognidocs/cli` - Update init command for single framework selection
+- `shared/constants` - Expand framework definitions and categorization
+- `examples/sample-nextjs` - Next.js example with both routers
+- `examples/sample-vue` - Vue 3 example project
+- `examples/sample-svelte` - Svelte example project
+- `examples/sample-express` - Express backend example
+
+---
+
+### Task 4.1: Framework Selection Refactor (CLI) 🔴 NOT STARTED
+
+**Goal:** Update CLI to support single framework selection with categorized options
+
+**Subtasks:**
+
+- [ ] Define framework categories in `shared/constants`:
+  - Frontend: React, Next.js, Vue, Svelte
+  - Backend: Node.js, Express, NestJS, Fastify
+  - Generic: TypeScript, JavaScript
+- [ ] Update `init.ts` command to use `list` instead of `checkbox` for framework selection
+- [ ] Add framework category grouping in prompts (Frontend, Backend, Generic)
+- [ ] Update config type to support `framework: string` (single value) instead of `frameworks: string[]`
+- [ ] Add framework-specific configuration options based on selection
+- [ ] Update help text and examples to reflect single framework selection
+
+**Files to Modify:**
+
+- `packages/cli/src/commands/init.ts` - Change framework prompt to single selection
+- `shared/constants/src/index.ts` - Add framework categories and metadata
+- `packages/cli/src/config/index.ts` - Update config types
+- `CLAUDE.md` - Update configuration examples
+
+**Deliverables:**
+
+- ✅ Single framework selection in CLI
+- ✅ Categorized framework options (Frontend/Backend/Generic)
+- ✅ Framework-specific configuration prompts
+- ✅ Updated documentation
+
+---
+
+### Task 4.2: Next.js Parser Implementation 🔴 NOT STARTED
+
+**Goal:** Full Next.js support for Page Router, App Router, and API routes
+
+**Subtasks:**
+
+**Page Router Support:**
+- [ ] Detect `pages/` directory structure
+- [ ] Parse page components (`pages/*.tsx`, `pages/**/*.tsx`)
+- [ ] Extract `getStaticProps`, `getServerSideProps`, `getStaticPaths`
+- [ ] Document page-level exports and metadata
+
+**App Router Support:**
+- [ ] Detect `app/` directory structure
+- [ ] Parse Server Components (default in App Router)
+- [ ] Parse Client Components (with `'use client'` directive)
+- [ ] Extract route handlers (`route.ts`)
+- [ ] Parse layout components (`layout.tsx`)
+- [ ] Parse loading/error/not-found components
+- [ ] Extract metadata exports (`metadata`, `generateMetadata`)
+- [ ] Document route segments and dynamic routes
+
+**API Routes:**
+- [ ] Parse `pages/api/**/*.ts` (Page Router API routes)
+- [ ] Parse `app/**/route.ts` (App Router route handlers)
+- [ ] Extract HTTP method handlers (GET, POST, PUT, DELETE, PATCH)
+- [ ] Document request/response types
+- [ ] Extract route parameters and query params from JSDoc
+- [ ] Support middleware detection
+
+**Files to Create/Modify:**
+
+- `packages/parser/src/parsers/nextjs-parser.ts` (new)
+- `packages/parser/src/parsers/api-route-parser.ts` (new)
+- `packages/parser/src/types.ts` - Add Next.js-specific types:
+  - `NextPageMetadata`
+  - `NextLayoutMetadata`
+  - `NextRouteHandlerMetadata`
+  - `NextServerComponentMetadata`
+  - `ApiRouteMetadata`
+
+**Deliverables:**
+
+- ✅ Full Page Router parsing
+- ✅ Full App Router parsing
+- ✅ API route documentation
+- ✅ Server/Client component differentiation
+- ✅ Metadata extraction
+
+---
+
+### Task 4.3: Vue Parser Implementation 🔴 NOT STARTED
+
+**Goal:** Vue 3 Single File Component (SFC) parsing with Composition API and Options API support
+
+**Subtasks:**
+
+- [ ] Install and configure `@vue/compiler-sfc` for parsing
+- [ ] Parse `.vue` files (SFC structure):
+  - `<template>` section
+  - `<script>` section (JavaScript/TypeScript)
+  - `<script setup>` section (Composition API)
+  - `<style>` section (optional documentation)
+- [ ] Extract component props (Composition API with `defineProps`)
+- [ ] Extract component props (Options API with `props` object)
+- [ ] Extract emits (Composition API with `defineEmits`)
+- [ ] Extract emits (Options API with `emits` array/object)
+- [ ] Parse composables (Vue hooks in `composables/` directory)
+- [ ] Extract lifecycle hooks usage
+- [ ] Support TypeScript in `<script lang="ts">`
+- [ ] Extract JSDoc from script sections
+
+**Files to Create/Modify:**
+
+- `packages/parser/src/parsers/vue-parser.ts` (new)
+- `packages/parser/src/types.ts` - Add Vue-specific types:
+  - `VueComponentMetadata`
+  - `VuePropsMetadata`
+  - `VueEmitsMetadata`
+  - `VueComposableMetadata`
+- `package.json` - Add `@vue/compiler-sfc` dependency
+
+**Deliverables:**
+
+- ✅ Full SFC parsing (template, script, style)
+- ✅ Composition API support
+- ✅ Options API support
+- ✅ Composables documentation
+- ✅ TypeScript support in Vue files
+
+---
+
+### Task 4.4: Svelte Parser Implementation 🔴 NOT STARTED
+
+**Goal:** Svelte component parsing with props, events, and stores
+
+**Subtasks:**
+
+- [ ] Install and configure `svelte/compiler` for parsing
+- [ ] Parse `.svelte` files (component structure):
+  - `<script>` section
+  - Template section (HTML)
+  - `<style>` section (optional)
+- [ ] Extract component props (export let syntax)
+- [ ] Extract component events (createEventDispatcher)
+- [ ] Parse Svelte stores usage (writable, readable, derived)
+- [ ] Extract reactive statements (`$:`)
+- [ ] Support TypeScript in `<script lang="ts">`
+- [ ] Extract JSDoc from script sections
+
+**Files to Create/Modify:**
+
+- `packages/parser/src/parsers/svelte-parser.ts` (new)
+- `packages/parser/src/types.ts` - Add Svelte-specific types:
+  - `SvelteComponentMetadata`
+  - `SveltePropsMetadata`
+  - `SvelteEventMetadata`
+  - `SvelteStoreMetadata`
+- `package.json` - Add `svelte/compiler` dependency
+
+**Deliverables:**
+
+- ✅ Full Svelte component parsing
+- ✅ Props and events extraction
+- ✅ Stores documentation
+- ✅ Reactive statements tracking
+- ✅ TypeScript support
+
+---
+
+### Task 4.5: Backend Framework Support (Express, NestJS, Fastify) 🔴 NOT STARTED
+
+**Goal:** Document backend API endpoints, controllers, and middleware
+
+**Subtasks:**
+
+**Express Support:**
+- [ ] Detect Express route definitions (`app.get()`, `app.post()`, `router.get()`)
+- [ ] Extract route paths and HTTP methods
+- [ ] Document route handlers and middleware
+- [ ] Extract request/response types from JSDoc
+- [ ] Support route parameters (`:id`, etc.)
+
+**NestJS Support:**
+- [ ] Parse NestJS controllers (`@Controller()` decorator)
+- [ ] Parse route handlers (`@Get()`, `@Post()`, etc. decorators)
+- [ ] Extract DTOs (Data Transfer Objects)
+- [ ] Document services (`@Injectable()` decorator)
+- [ ] Parse guards, interceptors, and pipes
+- [ ] Extract dependency injection metadata
+
+**Fastify Support:**
+- [ ] Parse Fastify route definitions
+- [ ] Extract schema validation (Fastify schemas)
+- [ ] Document route handlers and hooks
+
+**Generic Node.js/TypeScript:**
+- [ ] Parse function exports in backend files
+- [ ] Document utility functions
+- [ ] Extract type definitions
+
+**Files to Create/Modify:**
+
+- `packages/parser/src/parsers/express-parser.ts` (new)
+- `packages/parser/src/parsers/nestjs-parser.ts` (new)
+- `packages/parser/src/parsers/fastify-parser.ts` (new)
+- `packages/parser/src/types.ts` - Add backend types:
+  - `ApiEndpointMetadata`
+  - `ControllerMetadata`
+  - `MiddlewareMetadata`
+  - `DTOMetadata`
+
+**Deliverables:**
+
+- ✅ Express API documentation
+- ✅ NestJS controllers and services documentation
+- ✅ Fastify routes documentation
+- ✅ Generic Node.js/TypeScript support
+
+---
+
+### Task 4.6: Build Command Refactor for Multi-Framework 🔴 NOT STARTED
+
+**Goal:** Update build command to use framework-specific parsers
+
+**Subtasks:**
+
+- [ ] Refactor `build.ts` to detect framework from config
+- [ ] Implement parser strategy pattern:
+  - React: Use existing ReactParser
+  - Next.js: Use NextJsParser (combines React + API routes)
+  - Vue: Use VueParser
+  - Svelte: Use SvelteParser
+  - Express/NestJS/Fastify: Use backend parsers
+  - TypeScript/JavaScript: Use TypeScriptParser only
+- [ ] Update file pattern detection based on framework:
+  - Next.js: `pages/**/*.tsx`, `app/**/*.tsx`, `pages/api/**/*.ts`, `app/**/route.ts`
+  - Vue: `**/*.vue`, `composables/**/*.ts`
+  - Svelte: `**/*.svelte`, `src/lib/**/*.ts`
+  - Backend: `routes/**/*.ts`, `controllers/**/*.ts`, `src/**/*.ts`
+- [ ] Merge parse results from multiple parsers (for hybrid frameworks like Next.js)
+- [ ] Update statistics output to show framework-specific metrics
+
+**Files to Modify:**
+
+- `packages/cli/src/commands/build.ts` - Add parser selection logic
+- `packages/parser/src/index.ts` - Export all new parsers
+- `packages/parser/src/ParserFactory.ts` (new) - Factory for parser selection
+
+**Deliverables:**
+
+- ✅ Automatic parser selection based on framework
+- ✅ Framework-specific file pattern detection
+- ✅ Unified parse results format
+- ✅ Accurate statistics per framework
+
+---
+
+### Task 4.7: Documentation Generator Updates 🔴 NOT STARTED
+
+**Goal:** Generate framework-specific documentation with proper categorization
+
+**Subtasks:**
+
+- [ ] Update `DocsGenerator.ts` to handle framework-specific metadata
+- [ ] Create framework-specific markdown templates:
+  - Next.js: Page, Layout, Route Handler, Server Component, API Route
+  - Vue: Component, Composable
+  - Svelte: Component, Store
+  - Backend: API Endpoint, Controller, Service, Middleware
+- [ ] Add framework-specific sections to documentation:
+  - Next.js: "Pages", "Layouts", "API Routes", "Route Handlers"
+  - Vue: "Components", "Composables"
+  - Svelte: "Components", "Stores"
+  - Backend: "API Endpoints", "Controllers", "Services"
+- [ ] Generate API reference tables for backend endpoints (Method, Path, Description, Parameters)
+- [ ] Update sidebar navigation to show framework-specific categories
+
+**Files to Modify:**
+
+- `packages/docs-generator/src/DocsGenerator.ts` - Add framework-specific generation
+- `packages/docs-generator/src/templates/` (new directory) - Framework templates
+- `packages/site-builder/src/template/src/Sidebar.tsx` - Dynamic sidebar based on framework
+
+**Deliverables:**
+
+- ✅ Framework-specific documentation layout
+- ✅ API endpoint tables (for backend frameworks)
+- ✅ Next.js-specific documentation sections
+- ✅ Vue/Svelte component documentation
+- ✅ Dynamic sidebar navigation
+
+---
+
+### Task 4.8: Example Projects 🔴 NOT STARTED
+
+**Goal:** Create comprehensive example projects for each supported framework
+
+**Subtasks:**
+
+**Next.js Example (`examples/sample-nextjs`):**
+- [ ] Set up Next.js 14+ project with App Router
+- [ ] Create example pages in `app/` directory
+- [ ] Create example layouts (`app/layout.tsx`)
+- [ ] Create API routes in `app/api/` directory
+- [ ] Create server components and client components
+- [ ] Add JSDoc comments to all files
+- [ ] Include `cognidocs.config.js` with `framework: 'nextjs'`
+
+**Vue Example (`examples/sample-vue`):**
+- [ ] Set up Vue 3 project with Vite
+- [ ] Create example components (Composition API)
+- [ ] Create example components (Options API)
+- [ ] Create composables in `composables/` directory
+- [ ] Add JSDoc comments to all files
+- [ ] Include `cognidocs.config.js` with `framework: 'vue'`
+
+**Svelte Example (`examples/sample-svelte`):**
+- [ ] Set up Svelte project with Vite
+- [ ] Create example components
+- [ ] Create Svelte stores
+- [ ] Add JSDoc comments to all files
+- [ ] Include `cognidocs.config.js` with `framework: 'svelte'`
+
+**Express Example (`examples/sample-express`):**
+- [ ] Set up Express + TypeScript project
+- [ ] Create example routes with JSDoc
+- [ ] Create middleware with documentation
+- [ ] Include `cognidocs.config.js` with `framework: 'express'`
+
+**Files to Create:**
+
+- `examples/sample-nextjs/` - Complete Next.js project
+- `examples/sample-vue/` - Complete Vue 3 project
+- `examples/sample-svelte/` - Complete Svelte project
+- `examples/sample-express/` - Complete Express project
+
+**Deliverables:**
+
+- ✅ Working Next.js example with full documentation
+- ✅ Working Vue example with SFC documentation
+- ✅ Working Svelte example with component documentation
+- ✅ Working Express example with API documentation
+- ✅ All examples have comprehensive JSDoc comments
+
+---
+
+### Task 4.9: Site Builder Enhancements for Multi-Framework 🔴 NOT STARTED
+
+**Goal:** Update documentation site to display framework-specific content
+
+**Subtasks:**
+
+- [ ] Add framework detection to site template
+- [ ] Create framework-specific page components:
+  - `NextJsPageDetail.tsx` - Display Next.js page metadata
+  - `ApiEndpointDetail.tsx` - Display API endpoint documentation
+  - `VueComponentDetail.tsx` - Display Vue component
+  - `SvelteComponentDetail.tsx` - Display Svelte component
+- [ ] Add HTTP method badges for API endpoints (GET, POST, PUT, DELETE)
+- [ ] Create route path display with parameter highlighting
+- [ ] Add "Try it out" section for API endpoints (optional, future enhancement)
+- [ ] Update overview page to show framework-specific metrics:
+  - Next.js: Pages, Layouts, API Routes, Server Components
+  - Vue: Components, Composables
+  - Svelte: Components, Stores
+  - Backend: API Endpoints, Controllers, Services
+
+**Files to Create/Modify:**
+
+- `packages/site-builder/src/template/src/pages/NextJsPageDetail.tsx` (new)
+- `packages/site-builder/src/template/src/pages/ApiEndpointDetail.tsx` (new)
+- `packages/site-builder/src/template/src/pages/VueComponentDetail.tsx` (new)
+- `packages/site-builder/src/template/src/pages/SvelteComponentDetail.tsx` (new)
+- `packages/site-builder/src/template/src/pages/OverviewPage.tsx` - Add framework-specific stats
+- `packages/site-builder/src/template/src/App.tsx` - Route to framework-specific pages
+
+**Deliverables:**
+
+- ✅ Framework-specific detail pages
+- ✅ API endpoint documentation with HTTP methods
+- ✅ Framework-aware overview statistics
+- ✅ Clean navigation between framework-specific content
+
+---
+
+### Task 4.10: Testing & Documentation 🔴 NOT STARTED
+
+**Goal:** Comprehensive testing and documentation for multi-framework support
+
+**Subtasks:**
+
+- [ ] Write unit tests for each new parser:
+  - `nextjs-parser.test.ts`
+  - `vue-parser.test.ts`
+  - `svelte-parser.test.ts`
+  - `express-parser.test.ts`
+  - `nestjs-parser.test.ts`
+- [ ] Create test fixtures for each framework
+- [ ] Integration tests for build command with each framework
+- [ ] Update CLAUDE.md with:
+  - Multi-framework support documentation
+  - Framework selection guide
+  - Framework-specific configuration examples
+  - Parser architecture explanation
+- [ ] Update README.md with framework support matrix
+- [ ] Create framework-specific guides in `/additional-documentation/`:
+  - `guides/nextjs-setup.md`
+  - `guides/vue-setup.md`
+  - `guides/svelte-setup.md`
+  - `guides/backend-setup.md`
+
+**Files to Create/Modify:**
+
+- `packages/parser/src/__tests__/nextjs-parser.test.ts` (new)
+- `packages/parser/src/__tests__/vue-parser.test.ts` (new)
+- `packages/parser/src/__tests__/svelte-parser.test.ts` (new)
+- `packages/parser/src/__tests__/express-parser.test.ts` (new)
+- `CLAUDE.md` - Add multi-framework section
+- `README.md` - Update features list
+- `additional-documentation/guides/` - Framework guides
+
+**Deliverables:**
+
+- ✅ 80%+ test coverage for all new parsers
+- ✅ Comprehensive framework documentation
+- ✅ Setup guides for each framework
+- ✅ Updated project README
+
+---
+
+### Overall Deliverables for Phase 4
+
+**Must-Have:**
+
+- ✅ Single framework selection in `cognidocs init`
+- ✅ Full Next.js support (Page Router + App Router + API routes)
+- ✅ Full Vue 3 support (SFC with Composition API and Options API)
+- ✅ Full Svelte support (components and stores)
+- ✅ Backend framework support (Express, NestJS, Fastify)
+- ✅ Generic TypeScript/JavaScript support
+- ✅ Framework-specific documentation generation
+- ✅ API endpoint documentation with HTTP methods
+- ✅ Working example projects for all frameworks
+- ✅ Updated documentation site with framework-aware UI
+- ✅ Comprehensive testing
+
+**Nice-to-Have (Future Enhancements):**
+
+- 📋 API playground (interactive testing for API endpoints)
+- 📋 Vue Devtools integration hints
+- 📋 Svelte REPL links
+- 📋 Next.js Image optimization detection
+- 📋 Middleware chain visualization
+
+### Commands
+
+```bash
+# Initialize with framework selection
+cognidocs init  # Interactive prompt with single framework selection
+
+# Examples for different frameworks
+cd examples/sample-nextjs && cognidocs build
+cd examples/sample-vue && cognidocs build
+cd examples/sample-svelte && cognidocs build
+cd examples/sample-express && cognidocs build
+```
+
+### Framework Support Matrix
+
+| Framework | Status | Pages | Components | API Routes | Stores | Services |
+|-----------|--------|-------|------------|------------|--------|----------|
+| React | ✅ Complete | N/A | ✅ | N/A | N/A | N/A |
+| Next.js | 🔴 Planned | ✅ | ✅ | ✅ | N/A | N/A |
+| Vue 3 | 🔴 Planned | N/A | ✅ | N/A | ✅ (Pinia) | N/A |
+| Svelte | 🔴 Planned | N/A | ✅ | N/A | ✅ | N/A |
+| Express | 🔴 Planned | N/A | N/A | ✅ | N/A | N/A |
+| NestJS | 🔴 Planned | N/A | N/A | ✅ | N/A | ✅ |
+| TypeScript | ✅ Complete | N/A | N/A | N/A | N/A | ✅ |
+
+---
+
+## Phase 5: Plugin System 🟡 IN PROGRESS
 
 **Goal:** Allow users to extend functionality.
 
@@ -1101,7 +1601,7 @@ cognidocs build && cognidocs serve
 
 ---
 
-## Phase 5: Graph Visualization (Weeks 8-9) 🟢 COMPLETE
+## Phase 6: Graph Visualization (Weeks 8-9) 🟢 COMPLETE
 
 **Goal:** Interactive dependency graphs
 
@@ -1140,7 +1640,7 @@ cognidocs build && cognidocs serve
 
 ---
 
-## Phase 6: Component Previews (Weeks 10-11) 🔴 NOT STARTED
+## Phase 7: Component Previews (Weeks 10-11) 🔴 NOT STARTED
 
 **Goal:** Live component demonstrations
 
@@ -1167,7 +1667,7 @@ cognidocs build && cognidocs serve
 
 ---
 
-## Phase 7: AI Integration (Weeks 12-14) 🔴 NOT STARTED
+## Phase 8: AI Integration (Weeks 12-14) 🔴 NOT STARTED
 
 **Goal:** AI-powered documentation features
 
@@ -1218,7 +1718,7 @@ cognidocs ai chat
 
 ---
 
-## Phase 8: SaaS Platform (Weeks 15-17) 🔴 NOT STARTED
+## Phase 9: SaaS Platform (Weeks 15-17) 🔴 NOT STARTED
 
 **Goal:** Launch cloud platform with teams
 
@@ -1294,7 +1794,7 @@ OPENAI_API_KEY=
 
 ---
 
-## Phase 9: Enterprise Features (Weeks 18-20) 🔴 NOT STARTED
+## Phase 10: Enterprise Features (Weeks 18-20) 🔴 NOT STARTED
 
 **Goal:** Enterprise-ready features
 
@@ -1311,7 +1811,7 @@ OPENAI_API_KEY=
 
 ---
 
-## Phase 10: Marketplace & Plugins (Weeks 21-22) 🔴 NOT STARTED
+## Phase 11: Marketplace & Plugins (Weeks 21-22) 🔴 NOT STARTED
 
 **Goal:** Theme and plugin ecosystem
 
@@ -1332,7 +1832,7 @@ OPENAI_API_KEY=
 
 ---
 
-## Phase 11: Polish & Launch (Weeks 23-24) 🔴 NOT STARTED
+## Phase 12: Polish & Launch (Weeks 23-24) 🔴 NOT STARTED
 
 **Goal:** Production-ready and public launch
 
