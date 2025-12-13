@@ -59,7 +59,11 @@ export class TypeScriptParser {
       }
 
       // Handle named export lists: export { foo, bar }
-      if (ts.isExportDeclaration(node) && node.exportClause && ts.isNamedExports(node.exportClause)) {
+      if (
+        ts.isExportDeclaration(node) &&
+        node.exportClause &&
+        ts.isNamedExports(node.exportClause)
+      ) {
         node.exportClause.elements.forEach((element) => {
           exportedNames.add(element.name.getText());
         });
@@ -114,8 +118,16 @@ export class TypeScriptParser {
     return result;
   }
 
-  async parseDirectory(dirPath: string, pattern: string = '**/*.{ts,tsx,js,jsx}'): Promise<ParseResult[]> {
-    const files = await glob(pattern, { cwd: dirPath, absolute: true });
+  async parseDirectory(
+    dirPath: string,
+    pattern: string = '**/*.{ts,tsx,js,jsx}',
+    exclude: string[] = ['**/node_modules/**']
+  ): Promise<ParseResult[]> {
+    const files = await glob(pattern, {
+      cwd: dirPath,
+      absolute: true,
+      ignore: exclude,
+    });
     const results: ParseResult[] = [];
 
     for (const file of files) {
@@ -158,7 +170,11 @@ export class TypeScriptParser {
     };
   }
 
-  private parseClassDeclaration(node: ts.ClassDeclaration, filePath: string, exportedNames: Set<string>): ClassMetadata {
+  private parseClassDeclaration(
+    node: ts.ClassDeclaration,
+    filePath: string,
+    exportedNames: Set<string>
+  ): ClassMetadata {
     const name = node.name?.getText() || 'Anonymous';
     const jsdoc = this.extractJSDoc(node);
     const description = this.extractJSDocComment(node);
@@ -230,7 +246,11 @@ export class TypeScriptParser {
     };
   }
 
-  private parseTypeAliasDeclaration(node: ts.TypeAliasDeclaration, filePath: string, exportedNames: Set<string>): TypeMetadata {
+  private parseTypeAliasDeclaration(
+    node: ts.TypeAliasDeclaration,
+    filePath: string,
+    exportedNames: Set<string>
+  ): TypeMetadata {
     const name = node.name.getText();
     const description = this.extractJSDocComment(node);
 

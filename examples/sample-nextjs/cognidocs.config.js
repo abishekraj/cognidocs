@@ -4,17 +4,10 @@
  */
 
 export default {
-  entry: './src',
+  entry: './',
   output: './docs',
   theme: 'gitbook',
   darkMode: true,
-  frameworks: ['react'],
+  frameworks: ['nextjs'],
   exclude: ['**/*.test.ts', '**/*.test.tsx', '**/node_modules/**', '**/dist/**'],
-  coverage: {
-    enabled: true,
-    thresholds: {
-      docs: 80,
-      types: 90,
-    },
-  },
 };

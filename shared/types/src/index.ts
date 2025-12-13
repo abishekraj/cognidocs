@@ -139,7 +139,7 @@ export interface ExportMetadata {
 export interface ComponentMetadata {
   name: string;
   type: 'function' | 'class';
-  framework: 'react' | 'vue' | 'svelte' | 'solid';
+  framework: 'react' | 'nextjs' | 'vue' | 'svelte' | 'solid';
   description?: string;
   props?: PropertyMetadata[];
   hooks?: string[];
@@ -148,6 +148,11 @@ export interface ComponentMetadata {
   line?: number;
   examples?: string[];
   jsdoc?: JSDocMetadata;
+  isPage?: boolean;
+  isLayout?: boolean;
+  isApiRoute?: boolean;
+  routePath?: string;
+  routerType?: 'app' | 'page';
 }
 
 export interface ParseResult {

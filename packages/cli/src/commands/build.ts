@@ -8,7 +8,7 @@ import { writeFile, mkdir } from 'fs/promises';
 import chalk from 'chalk';
 import ora from 'ora';
 import { loadConfig } from '../config';
-import { TypeScriptParser, ReactParser } from '@cognidocs/parser';
+import { TypeScriptParser, ReactParser, NextJsParser } from '@cognidocs/parser';
 // import { fileExists } from '@cognidocs/utils';
 import type { ParseResult, ComponentMetadata } from '@cognidocs/types';
 
@@ -35,6 +35,7 @@ export async function buildCommand(options: BuildOptions = {}): Promise<void> {
   // Initialize parsers
   const tsParser = new TypeScriptParser();
   const reactParser = new ReactParser();
+  const nextJsParser = new NextJsParser();
 
   // Plugin Support
   const { PluginManager } = await import('../PluginManager');
@@ -53,18 +54,47 @@ export async function buildCommand(options: BuildOptions = {}): Promise<void> {
   const parseSpinner = ora('Parsing source files...').start();
 
   try {
+    // Check framework
+    const isNextJs = config.frameworks?.includes('nextjs');
+
     // Use filePattern from config, defaulting to TypeScript and JavaScript files
     const filePattern = config.filePattern || '**/*.{ts,tsx,js,jsx}';
-    const parseResults: ParseResult[] = await tsParser.parseDirectory(entryPath, filePattern);
+    const exclude = config.exclude || ['**/node_modules/**'];
 
-    parseSpinner.text = 'Extracting React components...';
+    // Ensure output directory is excluded to prevent recursive parsing
+    if (config.output) {
+      const relativeOutput = config.output.replace(/^\.\//, '');
+      exclude.push(`**/${relativeOutput}/**`);
+    }
 
-    // Extract React components separately
+    const parseResults: ParseResult[] = await tsParser.parseDirectory(
+      entryPath,
+      filePattern,
+      exclude
+    );
+
+    parseSpinner.text = isNextJs
+      ? 'Extracting Next.js pages and components...'
+      : 'Extracting React components...';
+
+    // Extract React/Next.js components separately
     const allComponents: ComponentMetadata[] = [];
     for (const result of parseResults) {
-      // Check for both TypeScript JSX (.tsx) and JavaScript JSX (.jsx) files
-      if (result.filePath.endsWith('.tsx') || result.filePath.endsWith('.jsx')) {
-        const components = await reactParser.parseComponent(result.filePath);
+      let components: ComponentMetadata[] = [];
+
+      if (isNextJs) {
+        // For Next.js, try to parse all JS/TS files as potential pages/api routes or components
+        if (/\.(ts|tsx|js|jsx)$/.test(result.filePath)) {
+          components = await nextJsParser.parseNextJsFile(result.filePath);
+        }
+      } else {
+        // Fallback to standard React behavior (mostly TSX/JSX)
+        if (result.filePath.endsWith('.tsx') || result.filePath.endsWith('.jsx')) {
+          components = await reactParser.parseComponent(result.filePath);
+        }
+      }
+
+      if (components.length > 0) {
         allComponents.push(...components);
 
         // Merge components into parse result
@@ -95,6 +125,11 @@ export async function buildCommand(options: BuildOptions = {}): Promise<void> {
     const stats = {
       files: parseResults.length,
       components: allComponents.length,
+      // API Routes are components with isApiRoute: true.
+      // We should count them separately for clarity, though they are inside 'components' count too depending on how parsers work.
+      // ReactParser only returns components. NextJsParser returns components which can be pages or api routes.
+      // API routes should ideally be distinct.
+      apiRoutes: allComponents.filter((c: any) => c.isApiRoute).length,
       functions: parseResults.reduce((sum, r) => sum + r.functions.length, 0),
       classes: parseResults.reduce((sum, r) => sum + r.classes.length, 0),
       interfaces: parseResults.reduce((sum, r) => sum + r.interfaces.length, 0),
@@ -103,6 +138,9 @@ export async function buildCommand(options: BuildOptions = {}): Promise<void> {
 
     console.log(chalk.gray('\n   Statistics:'));
     console.log(chalk.gray(`   • ${stats.components} components`));
+    if (stats.apiRoutes > 0) {
+      console.log(chalk.gray(`   • ${stats.apiRoutes} API routes`));
+    }
     console.log(chalk.gray(`   • ${stats.functions} functions`));
     console.log(chalk.gray(`   • ${stats.classes} classes`));
     console.log(chalk.gray(`   • ${stats.interfaces} interfaces`));

@@ -115,6 +115,7 @@ program
   .description('Start documentation server')
   .option('-c, --config <path>', 'Path to config file')
   .option('-p, --port <number>', 'Port to listen on', parseInt)
+  .option('-h, --host', 'Expose to network')
   .action(async (options) => {
     try {
       await serveCommand(options);

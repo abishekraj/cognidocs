@@ -219,7 +219,19 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
 
               <Separator className="my-2" />
 
-              {/* Additional Documentation - Separate Section */}
+              {/* API Routes - Separate Section */}
+              {manifest.find((item: any) => item.name === 'api-routes') && (
+                <>
+                  <NavigationSection title="API Routes" icon={Network} defaultOpen={true}>
+                    {renderTree(
+                      manifest.find((item: any) => item.name === 'api-routes')?.children || []
+                    )}
+                  </NavigationSection>
+                  <Separator className="my-2" />
+                </>
+              )}
+
+              {/* Guides / Additional Documentation */}
               {manifest.find((item: any) => item.name === 'additional-documentation') && (
                 <>
                   <NavigationSection title="Guides" icon={BookOpen} defaultOpen={true}>
@@ -233,18 +245,26 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
               )}
 
               {/* Documentation */}
-              {manifest.filter((item: any) => item.name !== 'additional-documentation').length >
-                0 && (
+              {manifest.filter(
+                (item: any) =>
+                  item.name !== 'additional-documentation' && item.name !== 'api-routes'
+              ).length > 0 && (
                 <NavigationSection
                   title="Documentation"
                   icon={FileCode}
                   count={
-                    manifest.filter((item: any) => item.name !== 'additional-documentation').length
+                    manifest.filter(
+                      (item: any) =>
+                        item.name !== 'additional-documentation' && item.name !== 'api-routes'
+                    ).length
                   }
                   defaultOpen={true}
                 >
                   {renderTree(
-                    manifest.filter((item: any) => item.name !== 'additional-documentation')
+                    manifest.filter(
+                      (item: any) =>
+                        item.name !== 'additional-documentation' && item.name !== 'api-routes'
+                    )
                   )}
                 </NavigationSection>
               )}

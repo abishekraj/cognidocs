@@ -17,6 +17,7 @@ import {
   BookOpen,
   Code2,
   FileJson,
+  Network,
 } from 'lucide-react';
 
 interface ProjectData {
@@ -208,6 +209,30 @@ export function OverviewPage() {
       bgColor: 'bg-cyan-100 dark:bg-cyan-950',
     },
   ];
+
+  // Calculate API Route stats
+  let apiRoutesCount = 0;
+  if (data.results) {
+    data.results.forEach((file) => {
+      if (file.components) {
+        file.components.forEach((comp: any) => {
+          if (comp.isApiRoute) {
+            apiRoutesCount++;
+          }
+        });
+      }
+    });
+  }
+
+  if (apiRoutesCount > 0) {
+    stats.push({
+      label: 'API Routes',
+      value: apiRoutesCount,
+      icon: Network,
+      color: 'text-pink-500',
+      bgColor: 'bg-pink-100 dark:bg-pink-950',
+    });
+  }
 
   const totalCodeElements =
     data.stats.components +

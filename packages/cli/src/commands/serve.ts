@@ -5,10 +5,12 @@ import { readFile } from 'fs/promises';
 import { existsSync } from 'fs';
 import { extname } from 'path';
 import { loadConfig } from '../config';
+import * as os from 'os';
 
 export interface ServeOptions {
   config?: string;
   port?: number;
+  host?: boolean;
 }
 
 const mimeTypes: Record<string, string> = {
@@ -44,6 +46,7 @@ export async function serveCommand(options: ServeOptions = {}): Promise<void> {
   console.log(chalk.gray(`   Serving from: ${siteDir}\n`));
 
   const port = options.port || 4173;
+  const host = options.host ? '0.0.0.0' : 'localhost';
 
   const server = createServer(async (req, res) => {
     try {
@@ -103,16 +106,38 @@ export async function serveCommand(options: ServeOptions = {}): Promise<void> {
     }
   });
 
-  server.listen(port, () => {
-    console.log(chalk.green(`🚀 Server starting on http://localhost:${port}`));
+  server.listen(port, host, () => {
+    // Bind to specified host
+    console.log(
+      chalk.green(`🚀 Server starting on http://${host === '0.0.0.0' ? 'localhost' : host}:${port}`)
+    );
     console.log(chalk.cyan(`  ➜  Local:   http://localhost:${port}/`));
-    console.log(chalk.gray(`  ➜  Network: use --host to expose\n`));
+    if (host === '0.0.0.0') {
+      // Attempt to get a network IP address for convenience
+      const networkInterfaces = os.networkInterfaces();
+      let networkAddress = '...';
+      for (const interfaceName in networkInterfaces) {
+        const iface = networkInterfaces[interfaceName];
+        if (iface) {
+          for (const alias of iface) {
+            if (alias.family === 'IPv4' && !alias.internal) {
+              networkAddress = alias.address;
+              break;
+            }
+          }
+        }
+        if (networkAddress !== '...') break;
+      }
+      console.log(chalk.cyan(`  ➜  Network: http://${networkAddress}:${port}/`));
+    }
     console.log(chalk.gray('  Press Ctrl+C to stop\n'));
   });
 
   server.on('error', (err: NodeJS.ErrnoException) => {
     if (err.code === 'EADDRINUSE') {
-      console.error(chalk.red(`\n❌ Port ${port} is already in use. Try a different port with --port\n`));
+      console.error(
+        chalk.red(`\n❌ Port ${port} is already in use. Try a different port with --port\n`)
+      );
     } else {
       console.error(chalk.red('Failed to start server:'), err);
     }

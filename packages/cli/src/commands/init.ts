@@ -87,15 +87,16 @@ export async function initCommand(options: InitOptions = {}): Promise<void> {
         default: true,
       },
       {
-        type: 'checkbox',
-        name: 'frameworks',
-        message: 'Select frameworks to support:',
+        type: 'list',
+        name: 'framework',
+        message: 'Select framework to support:',
         choices: [
-          { name: 'React', value: 'react', checked: true },
+          { name: 'React', value: 'react' },
           { name: 'Next.js', value: 'nextjs' },
           { name: 'Vue', value: 'vue' },
           { name: 'Svelte', value: 'svelte' },
         ],
+        default: 'react',
       },
       {
         type: 'confirm',
@@ -110,7 +111,7 @@ export async function initCommand(options: InitOptions = {}): Promise<void> {
       output: answers.output,
       theme: answers.theme,
       darkMode: answers.darkMode,
-      frameworks: answers.frameworks,
+      frameworks: [answers.framework],
       exclude: ['**/*.test.ts', '**/*.test.tsx', '**/node_modules/**', '**/dist/**'],
     };
 

@@ -25,7 +25,14 @@ export class MarkdownGenerator {
     await ensureDir(this.outputDir);
 
     // Clean up old documentation folders to prevent stale files
-    const foldersToClean = ['components', 'functions', 'classes', 'interfaces', 'types'];
+    const foldersToClean = [
+      'components',
+      'functions',
+      'classes',
+      'interfaces',
+      'types',
+      'api-routes',
+    ];
     for (const folder of foldersToClean) {
       const folderPath = join(this.outputDir, folder);
       // Remove and recreate to ensure clean state
@@ -44,12 +51,31 @@ export class MarkdownGenerator {
       classes: new Set<string>(),
       interfaces: new Set<string>(),
       types: new Set<string>(),
+      apiRoutes: new Set<string>(),
     };
 
     for (const result of results) {
       if (result.components) {
         for (const component of result.components) {
-          if (!documentedItems.components.has(component.name)) {
+          if (component.isApiRoute) {
+            // Document API Route
+            // Use same naming logic as generateApiRouteDoc to ensure consistency in summary link
+            const method = component.name === 'default' ? 'Handler' : component.name;
+            const safeRoute = (component.routePath || 'route')
+              .replace(/\//g, '-')
+              .replace(/^-/, '')
+              .replace(/-$/, '');
+            const filename = `${safeRoute}-${method}`.toLowerCase();
+
+            // Check uniqueness based on filename
+            if (!documentedItems.apiRoutes.has(filename)) {
+              await this.generateApiRouteDoc(component);
+              summary.push(
+                `- [${method} ${component.routePath}](./api-routes/${filename}.md) (API Route)`
+              );
+              documentedItems.apiRoutes.add(filename);
+            }
+          } else if (!documentedItems.components.has(component.name)) {
             await this.generateComponentDoc(component);
             summary.push(`- [${component.name}](./components/${component.name}.md) (Component)`);
             documentedItems.components.add(component.name);
@@ -104,8 +130,69 @@ export class MarkdownGenerator {
     await writeFile(join(this.outputDir, 'README.md'), summary.join('\n'));
   }
 
+  private async generateApiRouteDoc(component: ComponentMetadata): Promise<void> {
+    const method = component.name === 'default' ? 'Handler' : component.name;
+    const title = `${component.routePath || ''} ${method}`;
+    const lines: string[] = [`# ${title}`];
+
+    // Add Method Badge/Callout
+    lines.push(
+      `\n:::info\n**Method:** \`${method.toUpperCase()}\`  \n**Route:** \`${component.routePath}\`\n:::\n`
+    );
+
+    if (component.description) {
+      lines.push(`\n${component.description}\n`);
+    }
+
+    lines.push(
+      `\n**Source:** \`${component.filePath}${component.line ? `:${component.line}` : ''}\`\n`
+    );
+
+    if (component.jsdoc?.params && Object.keys(component.jsdoc.params).length > 0) {
+      lines.push('## Parameters');
+      lines.push('| Name | Description |');
+      lines.push('| :--- | :---------- |');
+      for (const [name, desc] of Object.entries(component.jsdoc.params)) {
+        lines.push(`| \`${name}\` | ${desc} |`);
+      }
+    }
+
+    if (component.examples && component.examples.length > 0) {
+      lines.push('## Examples');
+      component.examples.forEach((example) => {
+        const hasCodeFence = example.trim().startsWith('```');
+        if (hasCodeFence) {
+          lines.push(`\n${example}\n`);
+        } else {
+          lines.push(`\n\`\`\`ts\n${example}\n\`\`\`\n`);
+        }
+      });
+    }
+
+    // Generate unique filename to facilitate multiple methods per route
+    const safeRoute = (component.routePath || 'route')
+      .replace(/\//g, '-')
+      .replace(/^-/, '')
+      .replace(/-$/, '');
+    const filename = `${safeRoute}-${method}`.toLowerCase(); // e.g., api-users-get.md
+
+    await writeFile(join(this.outputDir, 'api-routes', `${filename}.md`), lines.join('\n'));
+  }
+
   private async generateComponentDoc(component: ComponentMetadata): Promise<void> {
     const lines: string[] = [`# ${component.name}`];
+
+    if (component.isPage) {
+      lines.push(`\n> [!NOTE]
+> This is a Next.js Page component.\n`);
+      if (component.routePath) {
+        lines.push(`**Route:** \`${component.routePath}\`\n`);
+      }
+    }
+    if (component.isLayout) {
+      lines.push(`\n> [!NOTE]
+> This is a Next.js Layout component.\n`);
+    }
 
     if (component.description) {
       lines.push(`\n${component.description}\n`);

@@ -798,6 +798,38 @@ cognidocs serve    # Start development server
 - **Files Affected:** Button.md, Card.md, Input.md, ButtonProps.md, CardProps.md, UserListParams.md, UserSettings.md
 - **Solution:** Added `escapeMarkdownPipes()` method to MarkdownGenerator.ts
 - **Implementation:** Replace all `|` with `\|` in type strings across all table generation methods
+
+---
+
+## Phase 4: Next.js & Framework Support (Week 8) 🟡 IN PROGRESS
+
+**Goal:** Implement robust support for Next.js (App & Page Router) and architect the CLI for future framework expansion.
+
+### Tasks
+
+- [ ] **CLI Enhancements**
+  - [ ] Enforce single framework selection in `cognidocs init`
+  - [ ] Update config generation to store selected framework
+- [ ] **Next.js Parser Implementation**
+  - [ ] Create `NextJsParser` class
+  - [ ] Detect App Router structure (`app/` directory)
+  - [ ] Detect Page Router structure (`pages/` directory)
+  - [ ] Parse API routes (`app/api` and `pages/api`)
+  - [ ] Extract route metadata (methods, paths)
+- [ ] **Documentation Generation Updates**
+  - [ ] Handle "Pages" and "API Routes" in manifest
+  - [ ] Render distinct sections for Routes in the UI
+- [ ] **Verification**
+  - [ ] Test with `sample-nextjs`
+  - [ ] Regression test with `sample-react`
+
+### Deliverables
+
+- ✅ CLI enforces single framework selection
+- ✅ Next.js App Router support
+- ✅ Next.js Page Router support
+- ✅ API Route documentation
+
 - **File:** [packages/docs-generator/src/MarkdownGenerator.ts](packages/docs-generator/src/MarkdownGenerator.ts)
 
 **2. Footer Component Removal**
@@ -1043,6 +1075,7 @@ cognidocs build && cognidocs serve
 **Goal:** Comprehensive support for Next.js, Vue, Svelte, and backend frameworks (Node.js, Express, NestJS, etc.)
 
 **Key Requirements:**
+
 - Single framework selection (no multi-select) in `cognidocs init`
 - Support for frontend frameworks: React, Next.js (Page + App Router), Vue, Svelte
 - Support for backend frameworks: Node.js, Express, NestJS, Fastify
@@ -1103,12 +1136,14 @@ cognidocs build && cognidocs serve
 **Subtasks:**
 
 **Page Router Support:**
+
 - [ ] Detect `pages/` directory structure
 - [ ] Parse page components (`pages/*.tsx`, `pages/**/*.tsx`)
 - [ ] Extract `getStaticProps`, `getServerSideProps`, `getStaticPaths`
 - [ ] Document page-level exports and metadata
 
 **App Router Support:**
+
 - [ ] Detect `app/` directory structure
 - [ ] Parse Server Components (default in App Router)
 - [ ] Parse Client Components (with `'use client'` directive)
@@ -1119,6 +1154,7 @@ cognidocs build && cognidocs serve
 - [ ] Document route segments and dynamic routes
 
 **API Routes:**
+
 - [ ] Parse `pages/api/**/*.ts` (Page Router API routes)
 - [ ] Parse `app/**/route.ts` (App Router route handlers)
 - [ ] Extract HTTP method handlers (GET, POST, PUT, DELETE, PATCH)
@@ -1233,6 +1269,7 @@ cognidocs build && cognidocs serve
 **Subtasks:**
 
 **Express Support:**
+
 - [ ] Detect Express route definitions (`app.get()`, `app.post()`, `router.get()`)
 - [ ] Extract route paths and HTTP methods
 - [ ] Document route handlers and middleware
@@ -1240,6 +1277,7 @@ cognidocs build && cognidocs serve
 - [ ] Support route parameters (`:id`, etc.)
 
 **NestJS Support:**
+
 - [ ] Parse NestJS controllers (`@Controller()` decorator)
 - [ ] Parse route handlers (`@Get()`, `@Post()`, etc. decorators)
 - [ ] Extract DTOs (Data Transfer Objects)
@@ -1248,11 +1286,13 @@ cognidocs build && cognidocs serve
 - [ ] Extract dependency injection metadata
 
 **Fastify Support:**
+
 - [ ] Parse Fastify route definitions
 - [ ] Extract schema validation (Fastify schemas)
 - [ ] Document route handlers and hooks
 
 **Generic Node.js/TypeScript:**
+
 - [ ] Parse function exports in backend files
 - [ ] Document utility functions
 - [ ] Extract type definitions
@@ -1357,6 +1397,7 @@ cognidocs build && cognidocs serve
 **Subtasks:**
 
 **Next.js Example (`examples/sample-nextjs`):**
+
 - [ ] Set up Next.js 14+ project with App Router
 - [ ] Create example pages in `app/` directory
 - [ ] Create example layouts (`app/layout.tsx`)
@@ -1366,6 +1407,7 @@ cognidocs build && cognidocs serve
 - [ ] Include `cognidocs.config.js` with `framework: 'nextjs'`
 
 **Vue Example (`examples/sample-vue`):**
+
 - [ ] Set up Vue 3 project with Vite
 - [ ] Create example components (Composition API)
 - [ ] Create example components (Options API)
@@ -1374,6 +1416,7 @@ cognidocs build && cognidocs serve
 - [ ] Include `cognidocs.config.js` with `framework: 'vue'`
 
 **Svelte Example (`examples/sample-svelte`):**
+
 - [ ] Set up Svelte project with Vite
 - [ ] Create example components
 - [ ] Create Svelte stores
@@ -1381,6 +1424,7 @@ cognidocs build && cognidocs serve
 - [ ] Include `cognidocs.config.js` with `framework: 'svelte'`
 
 **Express Example (`examples/sample-express`):**
+
 - [ ] Set up Express + TypeScript project
 - [ ] Create example routes with JSDoc
 - [ ] Create middleware with documentation
@@ -1526,15 +1570,15 @@ cd examples/sample-express && cognidocs build
 
 ### Framework Support Matrix
 
-| Framework | Status | Pages | Components | API Routes | Stores | Services |
-|-----------|--------|-------|------------|------------|--------|----------|
-| React | ✅ Complete | N/A | ✅ | N/A | N/A | N/A |
-| Next.js | 🔴 Planned | ✅ | ✅ | ✅ | N/A | N/A |
-| Vue 3 | 🔴 Planned | N/A | ✅ | N/A | ✅ (Pinia) | N/A |
-| Svelte | 🔴 Planned | N/A | ✅ | N/A | ✅ | N/A |
-| Express | 🔴 Planned | N/A | N/A | ✅ | N/A | N/A |
-| NestJS | 🔴 Planned | N/A | N/A | ✅ | N/A | ✅ |
-| TypeScript | ✅ Complete | N/A | N/A | N/A | N/A | ✅ |
+| Framework  | Status      | Pages | Components | API Routes | Stores     | Services |
+| ---------- | ----------- | ----- | ---------- | ---------- | ---------- | -------- |
+| React      | ✅ Complete | N/A   | ✅         | N/A        | N/A        | N/A      |
+| Next.js    | 🔴 Planned  | ✅    | ✅         | ✅         | N/A        | N/A      |
+| Vue 3      | 🔴 Planned  | N/A   | ✅         | N/A        | ✅ (Pinia) | N/A      |
+| Svelte     | 🔴 Planned  | N/A   | ✅         | N/A        | ✅         | N/A      |
+| Express    | 🔴 Planned  | N/A   | N/A        | ✅         | N/A        | N/A      |
+| NestJS     | 🔴 Planned  | N/A   | N/A        | ✅         | N/A        | ✅       |
+| TypeScript | ✅ Complete | N/A   | N/A        | N/A        | N/A        | ✅       |
 
 ---
 
