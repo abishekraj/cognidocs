@@ -807,25 +807,25 @@ cognidocs serve    # Start development server
 
 ### Tasks
 
-- [ ] **CLI Enhancements**
-  - [ ] Enforce single framework selection in `cognidocs init`
-  - [ ] Update config generation to store selected framework
-- [ ] **Next.js Parser Implementation**
-  - [ ] Create `NextJsParser` class
-  - [ ] Detect App Router structure (`app/` directory)
-  - [ ] Detect Page Router structure (`pages/` directory)
-  - [ ] Parse API routes (`app/api` and `pages/api`)
-  - [ ] Extract route metadata (methods, paths)
-- [ ] **Documentation Generation Updates**
-  - [ ] Handle "Pages" and "API Routes" in manifest
-  - [ ] Render distinct sections for Routes in the UI
-- [ ] **Verification**
-  - [ ] Test with `sample-nextjs`
-  - [ ] Regression test with `sample-react`
+- [x] **CLI Enhancements**
+  - [x] Enforce single framework selection in `cognidocs init`
+  - [x] Update config generation to store selected framework
+- [x] **Next.js Parser Implementation**
+  - [x] Create `NextJsParser` class
+  - [x] Detect App Router structure (`app/` directory)
+  - [x] Detect Page Router structure (`pages/` directory)
+  - [x] Parse API routes (`app/api` and `pages/api`)
+  - [x] Extract route metadata (methods, paths)
+- [x] **Documentation Generation Updates**
+  - [x] Handle "Pages" and "API Routes" in manifest
+  - [x] Render distinct sections for Routes in the UI
+- [x] **Verification**
+  - [x] Test with `sample-nextjs`
+  - [x] Regression test with `sample-react`
 
 ### Deliverables
 
-- ✅ CLI enforces single framework selection
+- [ ] CLI enforces single framework selection
 - ✅ Next.js App Router support
 - ✅ Next.js Page Router support
 - ✅ API Route documentation
