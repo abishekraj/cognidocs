@@ -155,11 +155,41 @@ export interface ComponentMetadata {
   line?: number;
   examples?: string[];
   jsdoc?: JSDocMetadata;
+  // Next.js-specific
   isPage?: boolean;
   isLayout?: boolean;
   isApiRoute?: boolean;
   routePath?: string;
   routerType?: 'app' | 'page';
+  // Vue-specific
+  emits?: VueEmitMetadata[];
+  slots?: VueSlotMetadata[];
+  compositionApi?: boolean;
+  scriptSetup?: boolean;
+}
+
+// Vue-specific types
+export interface VueEmitMetadata {
+  name: string;
+  description?: string;
+  payload?: string;
+}
+
+export interface VueSlotMetadata {
+  name: string;
+  description?: string;
+  props?: string;
+}
+
+export interface VueComposableMetadata {
+  name: string;
+  description?: string;
+  parameters: ParameterMetadata[];
+  returnType?: string;
+  isExported: boolean;
+  filePath: string;
+  line?: number;
+  jsdoc?: JSDocMetadata;
 }
 
 export interface ParseResult {

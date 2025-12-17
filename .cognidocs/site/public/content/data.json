@@ -1,0 +1,32 @@
+{
+  "metadata": {
+    "generatedAt": "2025-12-17T10:06:37.644Z",
+    "phase": "phase3-documentation",
+    "config": {
+      "entry": "./src",
+      "output": "./docs",
+      "theme": "gitbook",
+      "darkMode": true,
+      "filePattern": "**/*.{ts,tsx,js,jsx}",
+      "frameworks": [
+        "react"
+      ],
+      "exclude": [
+        "**/*.test.ts",
+        "**/*.test.js",
+        "**/node_modules/**",
+        "**/docs/**"
+      ]
+    }
+  },
+  "stats": {
+    "files": 0,
+    "components": 0,
+    "apiRoutes": 0,
+    "functions": 0,
+    "classes": 0,
+    "interfaces": 0,
+    "types": 0
+  },
+  "results": []
+}
