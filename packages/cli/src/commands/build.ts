@@ -8,7 +8,7 @@ import { writeFile, mkdir } from 'fs/promises';
 import chalk from 'chalk';
 import ora from 'ora';
 import { loadConfig } from '../config';
-import { TypeScriptParser, ReactParser, NextJsParser } from '@cognidocs/parser';
+import { TypeScriptParser, ReactParser, NextJsParser, VueParser } from '@cognidocs/parser';
 // import { fileExists } from '@cognidocs/utils';
 import type { ParseResult, ComponentMetadata } from '@cognidocs/types';
 
@@ -36,6 +36,7 @@ export async function buildCommand(options: BuildOptions = {}): Promise<void> {
   const tsParser = new TypeScriptParser();
   const reactParser = new ReactParser();
   const nextJsParser = new NextJsParser();
+  const vueParser = new VueParser();
 
   // Plugin Support
   const { PluginManager } = await import('../PluginManager');
@@ -56,9 +57,14 @@ export async function buildCommand(options: BuildOptions = {}): Promise<void> {
   try {
     // Check framework
     const isNextJs = config.frameworks?.includes('nextjs');
+    const isVue = config.frameworks?.includes('vue');
 
     // Use filePattern from config, defaulting to TypeScript and JavaScript files
-    const filePattern = config.filePattern || '**/*.{ts,tsx,js,jsx}';
+    // Add .vue files if Vue is detected
+    let filePattern = config.filePattern || '**/*.{ts,tsx,js,jsx}';
+    if (isVue) {
+      filePattern = config.filePattern || '**/*.{ts,tsx,js,jsx,vue}';
+    }
     const exclude = config.exclude || ['**/node_modules/**'];
 
     // Ensure output directory is excluded to prevent recursive parsing
@@ -75,12 +81,53 @@ export async function buildCommand(options: BuildOptions = {}): Promise<void> {
 
     parseSpinner.text = isNextJs
       ? 'Extracting Next.js pages and components...'
-      : 'Extracting React components...';
+      : isVue
+        ? 'Extracting Vue components...'
+        : 'Extracting React components...';
 
-    // Extract React/Next.js components separately
+    // Extract React/Next.js/Vue components separately
     const allComponents: ComponentMetadata[] = [];
+
+    // For Vue, also manually find and parse .vue files since tsParser doesn't handle them
+    if (isVue) {
+      const { glob } = await import('glob');
+      const vueFiles = await glob('**/*.vue', {
+        cwd: entryPath,
+        ignore: exclude,
+        absolute: true,
+      });
+
+      for (const vueFilePath of vueFiles) {
+        try {
+          const components = await vueParser.parseComponent(vueFilePath);
+          if (components.length > 0) {
+            allComponents.push(...components);
+
+            // Create a parse result entry for this Vue file
+            parseResults.push({
+              filePath: vueFilePath,
+              components,
+              functions: [],
+              classes: [],
+              interfaces: [],
+              types: [],
+              imports: [],
+              exports: [],
+            });
+          }
+        } catch (error) {
+          console.warn(`Failed to parse Vue component ${vueFilePath}:`, error);
+        }
+      }
+    }
+
     for (const result of parseResults) {
       let components: ComponentMetadata[] = [];
+
+      // Skip Vue files if already processed above
+      if (result.filePath.endsWith('.vue') && isVue) {
+        continue;
+      }
 
       if (isNextJs) {
         // For Next.js, try to parse all JS/TS files as potential pages/api routes or components
@@ -117,8 +164,9 @@ export async function buildCommand(options: BuildOptions = {}): Promise<void> {
       },
     });
 
+    const frameworkName = isVue ? 'Vue' : isNextJs ? 'Next.js' : 'React';
     parseSpinner.succeed(
-      `Parsed ${parseResults.length} files, found ${allComponents.length} React components`
+      `Parsed ${parseResults.length} files, found ${allComponents.length} ${frameworkName} components`
     );
 
     // Generate statistics

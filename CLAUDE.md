@@ -4,16 +4,17 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Status
 
-**Current Phase:** Phase 3.5 (Premium UI) - 🟢 COMPLETE ✅ **MVP READY**
+**Current Phase:** Phase 4 (Next.js Support) - 🟢 COMPLETE ✅
 
 - ✅ Phase 1 (Foundation) - COMPLETE
 - ✅ Phase 2 (Analysis & Coverage) - COMPLETE
 - ✅ Phase 3 (Core Documentation) - COMPLETE
 - ✅ Phase 3.5 (Premium UI & Compodoc-Style Documentation) - COMPLETE
+- ✅ Phase 4 (Next.js Support) - COMPLETE
 
 CogniDocs is a comprehensive JavaScript/TypeScript documentation tool combining features from Compodoc and Storybook with AI capabilities. The project uses a monorepo architecture with Turbo, organized into 10 development phases.
 
-**Latest Milestone:** 🎉 **MVP RELEASE** - Production-ready documentation site with premium UI, 12 themes, advanced search (Cmd+K), comprehensive content rendering, and polished UX with all critical bugs fixed.
+**Latest Milestone:** 🎉 **Next.js Support Complete** - Full support for Next.js App Router, Pages Router, and API Routes documentation. Production-ready documentation site with premium UI, 12 themes, advanced search (Cmd+K), comprehensive content rendering, and polished UX.
 
 ## Essential Commands
 
@@ -534,14 +535,151 @@ npm run build  # Rebuild dependents
 - Outputs both ESM (.mjs) and types (.d.ts)
 - Watch mode enabled in dev scripts
 
+## Phase 4 Implementation (COMPLETE)
+
+### Next.js Parser
+
+**File:** `packages/parser/src/parsers/nextjs-parser.ts`
+
+Full Next.js support for App Router, Pages Router, and API Routes:
+
+**App Router Support:**
+- Detects `app/**/page.tsx` - Page components with route metadata
+- Detects `app/**/layout.tsx` - Layout components
+- Detects `app/**/route.ts` - API route handlers (GET, POST, PUT, DELETE, PATCH, HEAD, OPTIONS)
+- Extracts route paths from directory structure
+- Identifies Server Components and Client Components
+
+**Pages Router Support:**
+- Detects `pages/**/*.tsx` - Page components
+- Detects `pages/api/**/*.ts` - API routes with default export handlers
+- Handles dynamic routes (e.g., `[id].tsx`, `[...slug].tsx`)
+- Extracts route paths and metadata
+
+**API Route Documentation:**
+- Parses JSDoc `@response` tags for API documentation
+- Extracts HTTP methods, status codes, and response types
+- Supports both App Router (`export async function GET()`) and Pages Router (`export default function handler()`)
+- Documents request/response parameters from JSDoc
+
+**Key Methods:**
+
+- `parseNextJsFile(filePath)` - Parse any Next.js file (page, layout, or API route)
+- `analyzeNextJsPath(filePath)` - Determine if file is a page, layout, or API route
+- `extractApiRoute(filePath, routePath, routerType)` - Extract API route metadata
+
+**Metadata Added to Components:**
+- `isPage: boolean` - True if component is a Next.js page
+- `isLayout: boolean` - True if component is a layout
+- `isApiRoute: boolean` - True if file is an API route
+- `routePath: string` - The route path (e.g., `/`, `/about`, `/api/hello`)
+- `routerType: 'app' | 'page'` - Which router is used
+
+### Documentation Generator Updates
+
+**File:** `packages/docs-generator/src/MarkdownGenerator.ts`
+
+Added API route documentation generation:
+
+- Creates `api-routes/` directory in output
+- Generates markdown files for each API route with:
+  - HTTP method badge (GET, POST, etc.)
+  - Route path
+  - Description from JSDoc
+  - Request parameters table
+  - Response documentation table (from `@response` tags)
+  - Source file location
+
+**Example API Route Markdown:**
+
+```markdown
+# /api/hello GET
+
+:::info
+**Method:** `GET`
+**Route:** `/api/hello`
+:::
+
+API Handler for GET method
+
+**Source:** `app/api/hello/route.ts:4`
+
+## Responses
+| Status | Description | Type |
+| :--- | :---------- | :--- |
+| **200** | Returns hello message | `string` |
+```
+
+### Site Builder UI Updates
+
+**File:** `packages/site-builder/src/template/src/Sidebar.tsx` (lines 222-232)
+
+Added dedicated "API Routes" section in sidebar navigation:
+
+- Appears between "Overview" and "Guides" sections
+- Shows all API routes grouped together
+- Uses Network icon for visual identification
+- Only displayed when API routes are present in the project
+
+**File:** `packages/site-builder/src/template/src/pages/ComponentDetailPage.tsx` (lines 119-164)
+
+Added Next.js metadata card for pages, layouts, and API routes:
+
+- Displays highlighted card with primary border and background
+- Shows component type badge (Page Component, Layout Component, API Route)
+- Displays route path with syntax highlighting
+- Shows router type (App Router or Pages Router)
+- Only shown for Next.js components with relevant metadata
+
+### Testing & Verification
+
+**Example Project:** `examples/sample-nextjs/`
+
+Test coverage includes:
+- App Router page: `app/page.tsx`
+- App Router layout: `app/layout.tsx`
+- App Router API routes: `app/api/hello/route.ts`, `app/api/auth/[...nextauth]/route.ts`
+- Pages Router page: `pages/about.tsx`
+- Pages Router API routes: `pages/api/posts.ts`, `pages/api/user.ts`
+
+**Build Output:**
+```
+Statistics:
+• 8 components (includes pages and layouts)
+• 5 API routes (3 App Router + 2 Pages Router)
+• 2 functions
+• 1 classes
+• 0 interfaces
+• 1 types
+```
+
+### JSDoc `@response` Tag Support
+
+Added support for documenting API responses:
+
+```typescript
+/**
+ * @response 200 {string} Returns hello message
+ * @response 404 {object} Not found error
+ * @response 500 {Error} Internal server error
+ */
+export async function GET(request: Request) {
+  return new Response('Hello, Next.js!');
+}
+```
+
+These tags are parsed and rendered in the API route documentation markdown.
+
 ## Known Limitations and Future Phases
 
 Current limitations and upcoming features:
 
-- Phase 4: Enhanced visual graphs and diagrams
-- Phase 5: Live component previews and playground
-- Phase 6: AI-powered features (doc generation, semantic search, chat)
-- Phase 7+: SaaS platform, team collaboration, marketplace
+- Phase 4 (Multi-Framework): Vue, Svelte, Express, NestJS parsers - Future expansion
+- Phase 5 (Plugin System): Advanced plugin API and marketplace foundation
+- Phase 6 (Enhanced Visualizations): Interactive component hierarchy, architecture diagrams
+- Phase 7 (Component Previews): Live component playground with props editing
+- Phase 8 (AI Integration): AI-powered doc generation, semantic search, chatbot
+- Phase 9+: SaaS platform, team collaboration, marketplace
 
 ## Troubleshooting
 

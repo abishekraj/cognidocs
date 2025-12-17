@@ -20,6 +20,9 @@ export type {
   JSDocExample,
   JSDocLink,
   JSDocTag,
+  VueEmitMetadata,
+  VueSlotMetadata,
+  VueComposableMetadata,
 } from '@cognidocs/types';
 
 // Alias for compatibility
