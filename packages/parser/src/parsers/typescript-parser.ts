@@ -306,7 +306,7 @@ export class TypeScriptParser {
   /**
    * Extract comprehensive JSDoc metadata including all tags
    */
-  private extractJSDoc(node: ts.Node): JSDocMetadata | undefined {
+  public extractJSDoc(node: ts.Node): JSDocMetadata | undefined {
     const sourceFile = node.getSourceFile();
     const fullText = sourceFile.getFullText();
     const commentRanges = ts.getLeadingCommentRanges(fullText, node.getFullStart());
@@ -438,6 +438,25 @@ export class TypeScriptParser {
     const authorMatches = commentText.matchAll(/@author\s+(.+?)(?=\n|$)/g);
     for (const match of authorMatches) {
       metadata.author?.push(match[1].trim());
+    }
+
+    // Extract @response tags
+    // Format: @response 200 {Object} Description
+    // Or: @response 200 Description
+    const responseMatches = commentText.matchAll(
+      /@response\s+(\S+)(?:\s+(?:\{([^}]+)\}\s+)?(.+))?(?=\n\s*(?:\*\s*@|\*\/)|$)/g
+    );
+    for (const match of responseMatches) {
+      const status = match[1];
+      const type = match[2];
+      const description = match[3]?.trim();
+
+      if (!metadata.responses) metadata.responses = [];
+      metadata.responses.push({
+        status,
+        type,
+        description: description || '',
+      });
     }
 
     return metadata;

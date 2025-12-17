@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 
-type Post = {
+export type Post = {
   id: number;
   title: string;
 };
@@ -11,6 +11,9 @@ type Post = {
  *
  * @param req - The Next.js API request
  * @param res - The Next.js API response
+ * @response 200 {Post[]} Returns list of posts
+ * @response 201 {object} Post created successfully
+ * @response 405 {object} Method Not Allowed
  */
 export default function handler(
   req: NextApiRequest,

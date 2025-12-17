@@ -9,11 +9,15 @@ import { sep } from 'path';
 import { ReactParser } from './react-parser';
 import type { ComponentMetadata } from '../types';
 
+import { TypeScriptParser } from './typescript-parser';
+
 export class NextJsParser {
   private reactParser: ReactParser;
+  private tsParser: TypeScriptParser;
 
   constructor() {
     this.reactParser = new ReactParser();
+    this.tsParser = new TypeScriptParser();
   }
 
   /**
@@ -155,11 +159,13 @@ export class NextJsParser {
             isExported &&
             ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'HEAD', 'OPTIONS'].includes(name)
           ) {
+            const jsDoc = this.tsParser.extractJSDoc(node);
             apiFunctions.push({
               name,
               type: 'function',
               props: [],
-              description: `API Handler for ${name} method`,
+              description: jsDoc?.description || `API Handler for ${name} method`,
+              jsdoc: jsDoc,
               filePath,
               line: sourceFile.getLineAndCharacterOfPosition(node.getStart()).line + 1,
               framework: 'nextjs',
@@ -186,11 +192,13 @@ export class NextJsParser {
 
         // Handle: export default function handler() {}
         if (ts.isFunctionDeclaration(node) && isDefaultExport(node)) {
+          const jsDoc = this.tsParser.extractJSDoc(node);
           apiFunctions.push({
             name: node.name?.getText() || 'default',
             type: 'function',
             props: [],
-            description: 'API Route Handler',
+            description: jsDoc?.description || 'API Route Handler',
+            jsdoc: jsDoc,
             filePath,
             line: sourceFile.getLineAndCharacterOfPosition(node.getStart()).line + 1,
             framework: 'nextjs',
@@ -204,11 +212,13 @@ export class NextJsParser {
         }
         // Handle: export default handler; or export default (req, res) => {}
         else if (ts.isExportAssignment(node)) {
+          const jsDoc = this.tsParser.extractJSDoc(node); // Also extract for export assignment if comments exist there
           apiFunctions.push({
             name: 'default',
             type: 'function',
             props: [],
-            description: 'API Route Handler',
+            description: jsDoc?.description || 'API Route Handler',
+            jsdoc: jsDoc,
             filePath,
             line: sourceFile.getLineAndCharacterOfPosition(node.getStart()).line + 1,
             framework: 'nextjs',

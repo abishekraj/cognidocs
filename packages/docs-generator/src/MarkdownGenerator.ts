@@ -169,6 +169,19 @@ export class MarkdownGenerator {
       });
     }
 
+    if (component.jsdoc?.responses && component.jsdoc.responses.length > 0) {
+      lines.push('## Responses');
+      lines.push('| Status | Description | Type |');
+      lines.push('| :--- | :---------- | :--- |');
+      for (const response of component.jsdoc.responses) {
+        const typeStr = response.type ? `\`${this.escapeMarkdownPipes(response.type)}\`` : '-';
+        lines.push(
+          `| **${response.status}** | ${this.escapeMarkdownPipes(response.description)} | ${typeStr} |`
+        );
+      }
+      lines.push('');
+    }
+
     // Generate unique filename to facilitate multiple methods per route
     const safeRoute = (component.routePath || 'route')
       .replace(/\//g, '-')

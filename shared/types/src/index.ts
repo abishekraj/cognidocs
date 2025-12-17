@@ -33,6 +33,12 @@ export interface JSDocLink {
   target?: string;
 }
 
+export interface JSDocResponse {
+  status: string;
+  description: string;
+  type?: string;
+}
+
 export interface JSDocMetadata {
   description?: string;
   examples?: JSDocExample[];
@@ -44,6 +50,7 @@ export interface JSDocMetadata {
   since?: string;
   author?: string[];
   tags?: JSDocTag[];
+  responses?: JSDocResponse[];
 }
 
 // Parser types (used by @cognidocs/parser package)
