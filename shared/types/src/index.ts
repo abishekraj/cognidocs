@@ -228,3 +228,43 @@ export interface DocumentationMetadata {
   generatedAt: string;
   phase: Phase;
 }
+
+// Svelte-specific types (Phase 4)
+export interface SveltePropsMetadata {
+  name: string;
+  type?: string;
+  defaultValue?: string;
+  description?: string;
+  required: boolean;
+}
+
+export interface SvelteEventMetadata {
+  name: string;
+  detail?: string;
+  description?: string;
+}
+
+export interface SvelteStoreMetadata {
+  name: string;
+  type: 'writable' | 'readable' | 'derived' | 'custom';
+  valueType?: string;
+  description?: string;
+  filePath: string;
+  isExported: boolean;
+  line?: number;
+}
+
+export interface SvelteReactiveStatement {
+  expression: string;
+  dependencies: string[];
+  line?: number;
+}
+
+export interface SvelteComponentMetadata extends Omit<ComponentMetadata, 'slots'> {
+  framework: 'svelte';
+  props?: SveltePropsMetadata[];
+  events?: SvelteEventMetadata[];
+  reactiveStatements?: SvelteReactiveStatement[];
+  svelteSlots?: string[];
+  stores?: string[];
+}

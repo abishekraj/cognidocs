@@ -23,6 +23,12 @@ export type {
   VueEmitMetadata,
   VueSlotMetadata,
   VueComposableMetadata,
+  // Svelte types
+  SvelteComponentMetadata,
+  SveltePropsMetadata,
+  SvelteEventMetadata,
+  SvelteStoreMetadata,
+  SvelteReactiveStatement,
 } from '@cognidocs/types';
 
 // Alias for compatibility

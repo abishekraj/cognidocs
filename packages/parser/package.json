@@ -21,6 +21,7 @@
     "@cognidocs/utils": "*",
     "@vue/compiler-sfc": "^3.5.25",
     "glob": "^10.3.10",
+    "svelte": "^4.2.19",
     "typescript": "^5.3.0"
   },
   "devDependencies": {

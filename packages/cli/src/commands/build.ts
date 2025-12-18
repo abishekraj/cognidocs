@@ -8,7 +8,7 @@ import { writeFile, mkdir } from 'fs/promises';
 import chalk from 'chalk';
 import ora from 'ora';
 import { loadConfig } from '../config';
-import { TypeScriptParser, ReactParser, NextJsParser, VueParser } from '@cognidocs/parser';
+import { TypeScriptParser, ReactParser, NextJsParser, VueParser, SvelteParser } from '@cognidocs/parser';
 // import { fileExists } from '@cognidocs/utils';
 import type { ParseResult, ComponentMetadata } from '@cognidocs/types';
 
@@ -37,6 +37,7 @@ export async function buildCommand(options: BuildOptions = {}): Promise<void> {
   const reactParser = new ReactParser();
   const nextJsParser = new NextJsParser();
   const vueParser = new VueParser();
+  const svelteParser = new SvelteParser();
 
   // Plugin Support
   const { PluginManager } = await import('../PluginManager');
@@ -58,12 +59,16 @@ export async function buildCommand(options: BuildOptions = {}): Promise<void> {
     // Check framework
     const isNextJs = config.frameworks?.includes('nextjs');
     const isVue = config.frameworks?.includes('vue');
+    const isSvelte = config.frameworks?.includes('svelte');
 
     // Use filePattern from config, defaulting to TypeScript and JavaScript files
-    // Add .vue files if Vue is detected
+    // Add .vue files if Vue is detected, .svelte files if Svelte is detected
     let filePattern = config.filePattern || '**/*.{ts,tsx,js,jsx}';
     if (isVue) {
       filePattern = config.filePattern || '**/*.{ts,tsx,js,jsx,vue}';
+    }
+    if (isSvelte) {
+      filePattern = config.filePattern || '**/*.{ts,tsx,js,jsx,svelte}';
     }
     const exclude = config.exclude || ['**/node_modules/**'];
 
@@ -83,7 +88,9 @@ export async function buildCommand(options: BuildOptions = {}): Promise<void> {
       ? 'Extracting Next.js pages and components...'
       : isVue
         ? 'Extracting Vue components...'
-        : 'Extracting React components...';
+        : isSvelte
+          ? 'Extracting Svelte components...'
+          : 'Extracting React components...';
 
     // Extract React/Next.js/Vue components separately
     const allComponents: ComponentMetadata[] = [];
@@ -121,11 +128,44 @@ export async function buildCommand(options: BuildOptions = {}): Promise<void> {
       }
     }
 
+    // For Svelte, also manually find and parse .svelte files since tsParser doesn't handle them
+    if (isSvelte) {
+      const { glob } = await import('glob');
+      const svelteFiles = await glob('**/*.svelte', {
+        cwd: entryPath,
+        ignore: exclude,
+        absolute: true,
+      });
+
+      for (const svelteFilePath of svelteFiles) {
+        try {
+          const components = await svelteParser.parseComponent(svelteFilePath);
+          if (components.length > 0) {
+            allComponents.push(...components);
+
+            // Create a parse result entry for this Svelte file
+            parseResults.push({
+              filePath: svelteFilePath,
+              components,
+              functions: [],
+              classes: [],
+              interfaces: [],
+              types: [],
+              imports: [],
+              exports: [],
+            });
+          }
+        } catch (error) {
+          console.warn(`Failed to parse Svelte component ${svelteFilePath}:`, error);
+        }
+      }
+    }
+
     for (const result of parseResults) {
       let components: ComponentMetadata[] = [];
 
-      // Skip Vue files if already processed above
-      if (result.filePath.endsWith('.vue') && isVue) {
+      // Skip Vue/Svelte files if already processed above
+      if ((result.filePath.endsWith('.vue') && isVue) || (result.filePath.endsWith('.svelte') && isSvelte)) {
         continue;
       }
 
@@ -164,7 +204,7 @@ export async function buildCommand(options: BuildOptions = {}): Promise<void> {
       },
     });
 
-    const frameworkName = isVue ? 'Vue' : isNextJs ? 'Next.js' : 'React';
+    const frameworkName = isSvelte ? 'Svelte' : isVue ? 'Vue' : isNextJs ? 'Next.js' : 'React';
     parseSpinner.succeed(
       `Parsed ${parseResults.length} files, found ${allComponents.length} ${frameworkName} components`
     );
