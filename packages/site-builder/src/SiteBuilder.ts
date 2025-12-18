@@ -60,24 +60,32 @@ export default defineConfig({
 `;
       await fs.writeFile(viteConfigPath, viteConfigContent, 'utf-8');
 
-      // Install dependencies if node_modules doesn't exist
+      // Always check and apply npm fix, even if node_modules exists
       const nodeModulesPath = path.join(this.siteDir, 'node_modules');
+      const pm = detectPackageManager(this.projectRoot);
+
+      // Apply npm Rollup fix for all platforms (not just Windows)
+      // This fixes the optional dependencies bug: https://github.com/npm/cli/issues/4828
+      if (pm === 'npm') {
+        const packageLockPath = path.join(this.siteDir, 'package-lock.json');
+        const nodeModulesExists = await fs.pathExists(nodeModulesPath);
+
+        if (await fs.pathExists(packageLockPath)) {
+          console.log('   Removing package-lock.json (npm Rollup fix)...');
+          await fs.remove(packageLockPath);
+        }
+
+        // Also remove node_modules if it exists with npm to force clean install
+        if (nodeModulesExists) {
+          console.log('   Removing node_modules for clean install (npm Rollup fix)...');
+          await fs.remove(nodeModulesPath);
+        }
+      }
+
+      // Install dependencies if node_modules doesn't exist (or was just removed)
       if (!(await fs.pathExists(nodeModulesPath))) {
         console.log('Installing dependencies...');
-
-        // Detect package manager
-        const pm = detectPackageManager(this.projectRoot);
         console.log(`📦 Detected package manager: ${getPackageManagerDisplayName(pm)}`);
-
-        // Apply npm Rollup fix for all platforms (not just Windows)
-        // This fixes the optional dependencies bug: https://github.com/npm/cli/issues/4828
-        if (pm === 'npm') {
-          const packageLockPath = path.join(this.siteDir, 'package-lock.json');
-          if (await fs.pathExists(packageLockPath)) {
-            console.log('   Removing package-lock.json (npm Rollup fix)...');
-            await fs.remove(packageLockPath);
-          }
-        }
 
         // Get the appropriate install command for this package manager
         let installCmd = getInstallCommand(pm);
@@ -104,7 +112,6 @@ export default defineConfig({
       }
 
       // Run build with the detected package manager
-      const pm = detectPackageManager(this.projectRoot);
       const buildCmd = getBuildCommand(pm);
 
       console.log(`   Running: ${buildCmd}`);
