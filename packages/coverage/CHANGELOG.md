@@ -1,5 +1,14 @@
 # @cognidocs/coverage
 
+## 0.0.12
+
+### Patch Changes
+
+- version bump
+- Updated dependencies
+  - @cognidocs/types@0.0.12
+  - @cognidocs/utils@0.0.12
+
 ## 0.0.11
 
 ### Patch Changes
