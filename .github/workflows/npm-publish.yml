@@ -39,12 +39,17 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 8
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '18'
           registry-url: 'https://registry.npmjs.org'
-          cache: 'npm'
+          cache: 'pnpm'
 
       - name: Configure Git
         run: |
@@ -52,22 +57,22 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
       - name: Install dependencies
-        run: npm install
+        run: pnpm install
 
       - name: Build packages
-        run: npm run build
+        run: pnpm run build
 
       - name: Run tests
-        run: npm test
+        run: pnpm test
 
       - name: Bump version
         if: inputs.version-bump != 'none'
         run: |
           if [ "${{ inputs.package }}" = "all" ]; then
-            npm version ${{ inputs.version-bump }} --workspaces --no-git-tag-version
+            pnpm -r exec npm version ${{ inputs.version-bump }} --no-git-tag-version
             npm version ${{ inputs.version-bump }} --no-git-tag-version
           else
-            npm version ${{ inputs.version-bump }} --workspace=${{ inputs.package }} --no-git-tag-version
+            pnpm --filter ${{ inputs.package }} exec npm version ${{ inputs.version-bump }} --no-git-tag-version
           fi
 
       - name: Publish to NPM
@@ -75,9 +80,9 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
           if [ "${{ inputs.package }}" = "all" ]; then
-            npm publish --workspaces --access public
+            pnpm -r publish --access public --no-git-checks
           else
-            npm publish --workspace=${{ inputs.package }} --access public
+            pnpm --filter ${{ inputs.package }} publish --access public --no-git-checks
           fi
 
       - name: Commit version changes
