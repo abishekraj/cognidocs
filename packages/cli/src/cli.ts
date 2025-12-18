@@ -64,6 +64,7 @@ program
   .option('-c, --config <path>', 'Path to config file')
   .option('-o, --output <path>', 'Output directory')
   .option('-w, --watch', 'Watch mode with hot reload')
+  .option('-b, --base-path <path>', 'Base path for the site (e.g., /cognidocs/ for GitHub Pages)')
   .action(async (options) => {
     try {
       await buildCommand(options);

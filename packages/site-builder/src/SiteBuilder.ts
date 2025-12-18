@@ -20,7 +20,8 @@ export class SiteBuilder {
 
   constructor(
     _projectRoot: string,
-    private docsDir: string
+    private docsDir: string,
+    private basePath: string = './'
   ) {
     this.projectRoot = _projectRoot;
     // __dirname points to dist/ directory, template is at dist/template
@@ -55,7 +56,7 @@ export default defineConfig({
     outDir: '${normalizedOutDir}',
     emptyOutDir: true,
   },
-  base: './',
+  base: '${this.basePath}',
 });
 `;
       await fs.writeFile(viteConfigPath, viteConfigContent, 'utf-8');
