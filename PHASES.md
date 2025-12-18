@@ -8,13 +8,14 @@ This document provides a quick reference for each development phase and what to 
 
 **Phase 3.5 is COMPLETE** with all critical bugs fixed and UI fully polished. The documentation tool is production-ready and can be deployed.
 
-**Phase 4 Progress:** Next.js ✅ | Vue 3 ✅ | Svelte 🔴 | Backend Frameworks 🔴
+**Phase 4 Progress:** Next.js ✅ | Vue 3 ✅ | Svelte ✅ | Backend Frameworks 🔴
 
 **What's Included in Current Release:**
 
 - ✅ Full TypeScript/React parsing with JSDoc extraction
 - ✅ **Next.js support** - App Router, Page Router, API routes
 - ✅ **Vue 3 support** - SFC with Composition API and Options API
+- ✅ **Svelte support** - Full component parsing with props, events, stores, and reactive statements
 - ✅ **JavaScript support** - Parse .js and .jsx files with JSDoc
 - ✅ **Comprehensive export detection** - All export patterns (default, named, re-exports)
 - ✅ Configurable file patterns for custom project structures
@@ -145,6 +146,7 @@ cognidocs coverage
 - [x] Markdown rendering with react-markdown
 - [x] Responsive sidebar navigation
 - [x] Multi-theme support with localStorage persistence
+- [x] **JSDoc Rich Rendering** (@example, @see, @link, @tutorial, @deprecated)
 
 ### Deliverables
 
@@ -520,6 +522,9 @@ cognidocs serve    # Start development server
   - [x] Extract headings after frontmatter removal
   - [x] Ensure only heading lines are matched (not content text)
   - [x] Verify heading regex `/^(#{1,6})\s+(.+)$/gm` works correctly
+- [x] **UI Layout Fixes:**
+  - [x] Horizontal scrolling issues resolved (Flexbox refactor)
+  - [x] Fixed "Duplicate Sidebar" glitch (Layout component correction)
 
 **Files Modified:**
 
@@ -733,6 +738,7 @@ cognidocs serve    # Start development server
 - [x] **Open Graph meta tags** - Added for better social media sharing
 - [x] **Loading states** - Suspense boundaries and LoadingSkeleton already in place
 - [x] **Custom 404 page** - Already implemented in App.tsx with styled NotFoundPage
+- [x] **Favicon** - Added CogniDocs favicon to documentation site template
 
 **Deferred/Optional (not critical for MVP):**
 
@@ -835,13 +841,12 @@ cognidocs serve    # Start development server
   - [x] Test with `sample-nextjs` (8 components, 5 API routes detected)
   - [x] Regression test with `sample-react`
   - [x] Verify end-to-end documentation generation works
-  - [x] Confirm API routes appear in sidebar with proper navigation 
+  - [x] Confirm API routes appear in sidebar with proper navigation
 
 ### In Progress 🚧
 
-- [ ] **Svelte Parser Implementation** - Next priority
 - [ ] **Backend Framework Support** (Express, NestJS, Fastify) - Planned
-- [ ] **Multi-framework example projects** - Partial (sample-nextjs exists)
+- [ ] **Multi-framework example projects** - Partial (sample-nextjs, sample-vue, sample-svelte exist)
 
 ### Deliverables
 
@@ -885,9 +890,11 @@ The Next.js integration is **production-ready** with the following features:
 ### Files Modified/Created
 
 **New Files:**
+
 - `packages/parser/src/parsers/nextjs-parser.ts` - Next.js parser implementation
 
 **Modified Files:**
+
 - `packages/cli/src/commands/build.ts` - Added Next.js parser integration
 - `packages/docs-generator/src/DocsGenerator.ts` - Added API routes generation
 - `packages/docs-generator/src/MarkdownGenerator.ts` - Added API route markdown templates
@@ -895,6 +902,7 @@ The Next.js integration is **production-ready** with the following features:
 - `packages/site-builder/src/template/src/pages/ComponentDetailPage.tsx` - Added Next.js metadata display (lines 119-164)
 
 **Example Project:**
+
 - `examples/sample-nextjs/` - Working Next.js example with App Router, Pages Router, and API routes
 
 ### Next Steps (Phase 4 Full - Multi-Framework Support)
@@ -1154,6 +1162,7 @@ cognidocs build && cognidocs serve
 ### Current Limitations (Phase 4 - In Progress)
 
 **Vue Parser:**
+
 - ✅ Composition API and Options API fully supported
 - ✅ Props and emits extraction working
 - ⚠️ **Limitation:** Complex TypeScript generic types in `defineProps<T>()` may not be fully resolved
@@ -1161,6 +1170,7 @@ cognidocs build && cognidocs serve
 - ⚠️ **Limitation:** Template expression analysis is basic (no prop usage tracking in template)
 
 **Next.js Parser:**
+
 - ✅ App Router and Page Router fully supported
 - ✅ API routes documentation working
 - ⚠️ **Limitation:** Dynamic route parameter type inference is basic
@@ -1168,12 +1178,14 @@ cognidocs build && cognidocs serve
 - ⚠️ **Limitation:** Next.js middleware not yet documented
 
 **React Parser:**
+
 - ✅ Function and class components fully supported
 - ⚠️ **Limitation:** React Context usage not tracked
 - ⚠️ **Limitation:** Render prop patterns not explicitly documented
 - ⚠️ **Limitation:** Higher-order components (HOCs) not identified separately
 
 **General Parsers:**
+
 - ⚠️ **Limitation:** Circular type references may cause parsing slowdowns
 - ⚠️ **Limitation:** Very large files (>10,000 LOC) may have slower parse times
 - ⚠️ **Limitation:** Dynamic imports are tracked but not deeply analyzed
@@ -1181,6 +1193,7 @@ cognidocs build && cognidocs serve
 ### Planned Improvements (Future Phases)
 
 **Parser Enhancements:**
+
 - [ ] Deep TypeScript type resolution with full generics support
 - [ ] Template expression analysis for Vue components
 - [ ] React Context Provider/Consumer tracking
@@ -1188,12 +1201,14 @@ cognidocs build && cognidocs serve
 - [ ] Middleware and guard documentation
 
 **Documentation Generation:**
+
 - [ ] Interactive API playground for testing components
 - [ ] Visual component hierarchy diagrams
 - [ ] Real-time preview updates
 - [ ] Multi-version documentation support
 
 **Performance:**
+
 - [ ] Parallel file parsing for faster builds
 - [ ] Incremental parsing (only parse changed files)
 - [ ] Caching layer for parsed results
@@ -1202,18 +1217,20 @@ cognidocs build && cognidocs serve
 ### Workarounds for Current Limitations
 
 **Complex TypeScript Types:**
+
 ```typescript
 // Instead of inline generics:
-defineProps<{ count: number }>()
+defineProps<{ count: number }>();
 
 // Use interface for better parsing:
 interface Props {
-  count: number
+  count: number;
 }
-defineProps<Props>()
+defineProps<Props>();
 ```
 
 **Vue Template Prop Usage:**
+
 ```vue
 <!-- Add JSDoc comments to document prop usage -->
 <script setup>
@@ -1226,6 +1243,7 @@ defineProps<{ title: string }>()
 ```
 
 **Dynamic Routes in Next.js:**
+
 ```typescript
 // Add JSDoc to describe route parameters
 /**
@@ -1404,33 +1422,58 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
 
 ---
 
-### Task 4.4: Svelte Parser Implementation 🔴 NOT STARTED
+### Task 4.4: Svelte Parser Implementation ✅ COMPLETE
 
 **Goal:** Svelte component parsing with props, events, and stores
 
 **Subtasks:**
 
-- [ ] Install and configure `svelte/compiler` for parsing
-- [ ] Parse `.svelte` files (component structure):
+- [x] Install and configure `svelte/compiler` for parsing
+- [x] Parse `.svelte` files (component structure):
   - `<script>` section
   - Template section (HTML)
   - `<style>` section (optional)
-- [ ] Extract component props (export let syntax)
-- [ ] Extract component events (createEventDispatcher)
-- [ ] Parse Svelte stores usage (writable, readable, derived)
-- [ ] Extract reactive statements (`$:`)
-- [ ] Support TypeScript in `<script lang="ts">`
-- [ ] Extract JSDoc from script sections
+- [x] Extract component props (export let syntax)
+- [x] Extract component events (createEventDispatcher)
+- [x] Parse Svelte stores usage (writable, readable, derived)
+- [x] Extract reactive statements (`$:`)
+- [x] Support TypeScript in `<script lang="ts">`
+- [x] Extract JSDoc from script sections
+- [x] CLI integration with framework detection
+- [x] Create sample-svelte example project
 
-**Files to Create/Modify:**
+**Files Created/Modified:**
 
-- `packages/parser/src/parsers/svelte-parser.ts` (new)
-- `packages/parser/src/types.ts` - Add Svelte-specific types:
+- ✅ `packages/parser/src/parsers/svelte-parser.ts` (new - full component parsing)
+- ✅ `packages/parser/src/types.ts` - Added Svelte-specific types:
   - `SvelteComponentMetadata`
   - `SveltePropsMetadata`
   - `SvelteEventMetadata`
   - `SvelteStoreMetadata`
-- `package.json` - Add `svelte/compiler` dependency
+  - `SvelteReactiveStatement`
+- ✅ `packages/parser/package.json` - Added `svelte` dependency (v4.2.19)
+- ✅ `packages/cli/src/commands/build.ts` - Integrated SvelteParser with glob parsing
+- ✅ `examples/sample-svelte/` - Complete Svelte example with Button, Card, Counter components
+
+**Implementation Details:**
+
+- **Component Parsing:** Uses `svelte/compiler` to parse `.svelte` files
+- **Script Extraction:** Extracts raw script content from file using AST location data (start/end positions)
+- **TypeScript Support:** Detects `<script lang="ts">` and uses appropriate ScriptKind
+- **Props Extraction:** Parses `export let` statements with default values and types
+- **Events Extraction:** Detects `createEventDispatcher()` and `dispatch()` calls
+- **Reactive Statements:** Extracts reactive statements using `$:` syntax
+- **Store References:** Identifies variables starting with `$` (Svelte store syntax)
+- **Slots Detection:** Extracts slot names from template
+- **JSDoc Support:** Parses JSDoc comments from script sections
+
+**Testing & Verification:**
+
+- ✅ Successfully parses 3 Svelte components (Button, Card, Counter)
+- ✅ Extracts 4 functions from stores.ts (writable, readable, derived stores)
+- ✅ Props correctly extracted with types (variant, size, disabled, label)
+- ✅ Documentation renders properly in generated site
+- ✅ Framework detection works (`frameworks: ['svelte']`)
 
 **Deliverables:**
 
@@ -1439,6 +1482,8 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
 - ✅ Stores documentation
 - ✅ Reactive statements tracking
 - ✅ TypeScript support
+- ✅ CLI integration
+- ✅ Sample project with comprehensive examples
 
 ---
 
@@ -1718,25 +1763,24 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
 - ✅ Single framework selection in `cognidocs init`
 - ✅ Full Next.js support (Page Router + App Router + API routes)
 - ✅ Full Vue 3 support (SFC with Composition API and Options API)
+- ✅ Full Svelte support (components, props, events, stores, reactive statements)
 - ✅ Generic TypeScript/JavaScript support
-- ✅ Framework-specific documentation generation (Next.js, Vue)
+- ✅ Framework-specific documentation generation (Next.js, Vue, Svelte)
 - ✅ API endpoint documentation with HTTP methods (Next.js API routes)
-- ✅ Working example project for Next.js (`sample-nextjs`)
+- ✅ Working example projects: `sample-nextjs`, `sample-vue`, `sample-svelte`
 - ✅ Vue composables detection and documentation
+- ✅ Svelte stores and reactive statements documentation
 
 **In Progress 🚧:**
 
-- 🚧 Svelte component and store parsing
 - 🚧 Backend framework support (Express, NestJS, Fastify)
-- 🚧 Working example projects (sample-vue, sample-svelte, sample-express)
-- 🚧 Updated documentation site with framework-aware UI
+- 🚧 Working example project (sample-express)
 - 🚧 Comprehensive testing for all parsers
 
 **Planned for Completion 📋:**
 
-- 📋 Full Svelte support (components and stores)
 - 📋 Express/NestJS/Fastify API documentation
-- 📋 Framework-specific documentation templates
+- 📋 Framework-specific documentation templates for backend
 - 📋 Multi-framework testing suite
 - 📋 Performance optimization for large codebases
 
@@ -1765,15 +1809,15 @@ cd examples/sample-express && cognidocs build
 
 ### Framework Support Matrix
 
-| Framework  | Status       | Pages | Components | API Routes | Stores/Composables | Services |
-| ---------- | ------------ | ----- | ---------- | ---------- | ------------------ | -------- |
-| React      | ✅ Complete  | N/A   | ✅         | N/A        | N/A                | N/A      |
-| Next.js    | ✅ Complete  | ✅    | ✅         | ✅         | N/A                | N/A      |
-| Vue 3      | ✅ Complete  | N/A   | ✅         | N/A        | ✅ (Composables)   | N/A      |
-| Svelte     | 🔴 Planned   | N/A   | ✅         | N/A        | ✅                 | N/A      |
-| Express    | 🔴 Planned   | N/A   | N/A        | ✅         | N/A                | N/A      |
-| NestJS     | 🔴 Planned   | N/A   | N/A        | ✅         | N/A                | ✅       |
-| TypeScript | ✅ Complete  | N/A   | N/A        | N/A        | N/A                | ✅       |
+| Framework  | Status      | Pages | Components | API Routes | Stores/Composables | Services |
+| ---------- | ----------- | ----- | ---------- | ---------- | ------------------ | -------- |
+| React      | ✅ Complete | N/A   | ✅         | N/A        | N/A                | N/A      |
+| Next.js    | ✅ Complete | ✅    | ✅         | ✅         | N/A                | N/A      |
+| Vue 3      | ✅ Complete | N/A   | ✅         | N/A        | ✅ (Composables)   | N/A      |
+| Svelte     | ✅ Complete | N/A   | ✅         | N/A        | ✅ (Stores)        | N/A      |
+| Express    | 🔴 Planned  | N/A   | N/A        | ✅         | N/A                | N/A      |
+| NestJS     | 🔴 Planned  | N/A   | N/A        | ✅         | N/A                | ✅       |
+| TypeScript | ✅ Complete | N/A   | N/A        | N/A        | N/A                | ✅       |
 
 ---
 
