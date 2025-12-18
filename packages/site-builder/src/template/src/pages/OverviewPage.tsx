@@ -242,7 +242,7 @@ export function OverviewPage() {
     data.stats.types;
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 min-w-0">
       {/* Header */}
       <div>
         <h1 className="text-4xl font-bold text-foreground mb-2">Project Overview</h1>

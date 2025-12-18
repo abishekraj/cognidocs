@@ -224,6 +224,7 @@ export class TypeScriptParser {
     exportedNames: Set<string>
   ): InterfaceMetadata {
     const name = node.name.getText();
+    const jsdoc = this.extractJSDoc(node);
     const description = this.extractJSDocComment(node);
 
     const properties = node.members.filter(ts.isPropertySignature).map((prop) => ({
@@ -235,6 +236,8 @@ export class TypeScriptParser {
     return {
       name,
       description,
+      jsdoc,
+
       properties,
       isExported: this.isExported(node) || exportedNames.has(name),
       extendsInterfaces:
@@ -252,11 +255,14 @@ export class TypeScriptParser {
     exportedNames: Set<string>
   ): TypeMetadata {
     const name = node.name.getText();
+    const jsdoc = this.extractJSDoc(node);
     const description = this.extractJSDocComment(node);
 
     return {
       name,
       description,
+      jsdoc,
+
       type: node.type.getText(),
       isExported: this.isExported(node) || exportedNames.has(name),
       filePath,
@@ -323,6 +329,7 @@ export class TypeScriptParser {
       examples: [],
       see: [],
       links: [],
+      tutorials: [],
       params: {},
       author: [],
       tags: [],
@@ -340,7 +347,8 @@ export class TypeScriptParser {
     }
 
     // Extract @example tags
-    const exampleMatches = commentText.matchAll(/@example\s*\n((?:(?!\s*@).*\n)*)/g);
+    // Fix: Updated regex to properly handle multiple examples by checking for * followed by @
+    const exampleMatches = commentText.matchAll(/@example\s*\n((?:(?!\s*(?:\*\s*)?@).*\n)*)/g);
     for (const match of exampleMatches) {
       const exampleText = match[1]
         .split('\n')
@@ -379,6 +387,14 @@ export class TypeScriptParser {
           target: match[3],
         });
       }
+    }
+
+    // Extract @tutorial tags
+    const tutorialMatches = commentText.matchAll(/@tutorial\s+(.+?)(?=\n\s*(?:\*\s*@|\*\/)|$)/g);
+    for (const match of tutorialMatches) {
+      metadata.tutorials?.push({
+        text: match[1].trim(),
+      });
     }
 
     // Extract inline @link tags

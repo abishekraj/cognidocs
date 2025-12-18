@@ -115,7 +115,7 @@ export function MarkdownPage({ path }: MarkdownPageProps) {
   return (
     <div className="flex gap-6">
       {/* Main Content */}
-      <div className={`flex-1 ${showTOC ? 'max-w-4xl' : 'max-w-5xl'}`}>
+      <div className={`flex-1 min-w-0 ${showTOC ? 'max-w-4xl' : 'max-w-5xl'}`}>
         <article className="prose prose-slate dark:prose-invert max-w-none">
           <ReactMarkdown
             remarkPlugins={[remarkGfm, remarkDirective, remarkCallouts]}

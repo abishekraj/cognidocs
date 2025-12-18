@@ -350,6 +350,7 @@ export class ReactParser {
       examples: [],
       see: [],
       links: [],
+      tutorials: [],
       params: {},
       author: [],
       tags: [],
@@ -367,7 +368,8 @@ export class ReactParser {
     }
 
     // Extract @example tags
-    const exampleMatches = commentText.matchAll(/@example\s*\n((?:(?!\s*@).*\n)*)/g);
+    // Fix: Updated regex to properly handle multiple examples by checking for * followed by @
+    const exampleMatches = commentText.matchAll(/@example\s*\n((?:(?!\s*(?:\*\s*)?@).*\n)*)/g);
     for (const match of exampleMatches) {
       const exampleText = match[1]
         .split('\n')
@@ -406,6 +408,14 @@ export class ReactParser {
           target: match[3],
         });
       }
+    }
+
+    // Extract @tutorial tags
+    const tutorialMatches = commentText.matchAll(/@tutorial\s+(.+?)(?=\n\s*(?:\*\s*@|\*\/)|$)/g);
+    for (const match of tutorialMatches) {
+      metadata.tutorials?.push({
+        text: match[1].trim(),
+      });
     }
 
     // Extract inline @link tags

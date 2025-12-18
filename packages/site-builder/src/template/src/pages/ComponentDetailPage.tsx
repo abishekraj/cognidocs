@@ -100,7 +100,7 @@ export function ComponentDetailPage({ id }: ComponentDetailPageProps) {
   }
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 min-w-0">
       {/* Header */}
       <div>
         <div className="flex items-center gap-3 mb-2">

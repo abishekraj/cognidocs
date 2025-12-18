@@ -44,6 +44,7 @@ export interface JSDocMetadata {
   examples?: JSDocExample[];
   see?: JSDocLink[];
   links?: JSDocLink[];
+  tutorials?: JSDocLink[];
   params?: Record<string, string>;
   returns?: string;
   deprecated?: string;
@@ -119,6 +120,7 @@ export interface InterfaceMetadata {
   extendsInterfaces?: string[];
   filePath: string;
   line?: number;
+  jsdoc?: JSDocMetadata;
 }
 
 export interface TypeMetadata {
@@ -128,6 +130,7 @@ export interface TypeMetadata {
   isExported: boolean;
   filePath: string;
   line?: number;
+  jsdoc?: JSDocMetadata;
 }
 
 export interface ImportMetadata {

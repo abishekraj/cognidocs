@@ -8,6 +8,7 @@ import type {
   ClassMetadata,
   InterfaceMetadata,
   TypeMetadata,
+  JSDocMetadata,
 } from '@cognidocs/types';
 
 export class MarkdownGenerator {
@@ -19,6 +20,59 @@ export class MarkdownGenerator {
   private escapeMarkdownPipes(text: string): string {
     if (!text) return text;
     return text.replace(/\|/g, '\\|');
+  }
+
+  /**
+   * Render common JSDoc sections (Examples, See Also, Tutorials, Deprecated)
+   */
+  private renderJSDocCommon(jsdoc?: JSDocMetadata): string[] {
+    const lines: string[] = [];
+    if (!jsdoc) return lines;
+
+    // Deprecated
+    if (jsdoc.deprecated) {
+      lines.push(`\n:::danger Deprecated\n${jsdoc.deprecated}\n:::\n`);
+    }
+
+    // Examples
+    if (jsdoc.examples && jsdoc.examples.length > 0) {
+      lines.push('## Examples');
+      jsdoc.examples.forEach((example) => {
+        if (example.description && example.description !== example.code) {
+          lines.push(`\n${example.description}\n`);
+        }
+        const code = example.code.trim();
+        // Check if already fenced
+        if (code.startsWith('```')) {
+          lines.push(`\n${code}\n`);
+        } else {
+          lines.push(`\n\`\`\`ts\n${code}\n\`\`\`\n`);
+        }
+      });
+    }
+
+    // See Also
+    if (jsdoc.see && jsdoc.see.length > 0) {
+      lines.push('## See Also');
+      const links = jsdoc.see.map((s) => {
+        if (s.url) return `- [${s.text}](${s.url})`;
+        return `- ${s.text}`;
+      });
+      lines.push(links.join('\n'));
+      lines.push('');
+    }
+
+    // Tutorials
+    if (jsdoc.tutorials && jsdoc.tutorials.length > 0) {
+      lines.push('## Tutorials');
+      const links = jsdoc.tutorials.map((t) => {
+        return `- ${t.text}`;
+      });
+      lines.push(links.join('\n'));
+      lines.push('');
+    }
+
+    return lines;
   }
 
   async generate(results: ParseResult[]): Promise<void> {
@@ -157,17 +211,8 @@ export class MarkdownGenerator {
       }
     }
 
-    if (component.examples && component.examples.length > 0) {
-      lines.push('## Examples');
-      component.examples.forEach((example) => {
-        const hasCodeFence = example.trim().startsWith('```');
-        if (hasCodeFence) {
-          lines.push(`\n${example}\n`);
-        } else {
-          lines.push(`\n\`\`\`ts\n${example}\n\`\`\`\n`);
-        }
-      });
-    }
+    // Add common JSDoc sections
+    lines.push(...this.renderJSDocCommon(component.jsdoc));
 
     if (component.jsdoc?.responses && component.jsdoc.responses.length > 0) {
       lines.push('## Responses');
@@ -216,19 +261,8 @@ export class MarkdownGenerator {
       `**Source:** \`${component.filePath}${component.line ? `:${component.line}` : ''}\`\n`
     );
 
-    if (component.examples && component.examples.length > 0) {
-      lines.push('## Examples');
-      component.examples.forEach((example) => {
-        // Check if the example already contains code fences
-        // If it does, use it as-is. Otherwise, wrap it with code fences.
-        const hasCodeFence = example.trim().startsWith('```');
-        if (hasCodeFence) {
-          lines.push(`\n${example}\n`);
-        } else {
-          lines.push(`\n\`\`\`tsx\n${example}\n\`\`\`\n`);
-        }
-      });
-    }
+    // Add common JSDoc sections
+    lines.push(...this.renderJSDocCommon(component.jsdoc));
 
     if (component.props && component.props.length > 0) {
       lines.push('## Props');
@@ -254,6 +288,9 @@ export class MarkdownGenerator {
     }
 
     lines.push(`\n**Return Type:** \`${func.returnType || 'void'}\`\n`);
+
+    // Add common JSDoc sections
+    lines.push(...this.renderJSDocCommon(func.jsdoc));
 
     if (func.parameters && func.parameters.length > 0) {
       lines.push('## Parameters');
@@ -281,6 +318,9 @@ export class MarkdownGenerator {
     if (cls.extendsClass) {
       lines.push(`**Extends:** \`${cls.extendsClass}\`\n`);
     }
+
+    // Add common JSDoc sections
+    lines.push(...this.renderJSDocCommon(cls.jsdoc));
 
     if (cls.properties && cls.properties.length > 0) {
       lines.push('## Properties');
@@ -311,6 +351,9 @@ export class MarkdownGenerator {
     const lines: string[] = [`# ${iface.name}`];
     if (iface.description) lines.push(`\n${iface.description}\n`);
 
+    // Add common JSDoc sections
+    lines.push(...this.renderJSDocCommon(iface.jsdoc));
+
     if (iface.properties && iface.properties.length > 0) {
       lines.push('## Properties');
       lines.push('| Name | Type | Optional | Description |');
@@ -329,6 +372,9 @@ export class MarkdownGenerator {
   private async generateTypeDoc(type: TypeMetadata): Promise<void> {
     const lines: string[] = [`# ${type.name}`];
     if (type.description) lines.push(`\n${type.description}\n`);
+
+    // Add common JSDoc sections
+    lines.push(...this.renderJSDocCommon(type.jsdoc));
 
     lines.push('## Definition');
     lines.push('```typescript');

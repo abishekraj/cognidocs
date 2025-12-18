@@ -32,6 +32,12 @@ export interface ButtonProps {
    * Button content
    */
   children: React.ReactNode;
+
+  /**
+   * A deprecated property for testing purposes
+   * @deprecated Use `variant` instead
+   */
+  oldVariant?: string;
 }
 
 /**
@@ -72,8 +78,19 @@ export interface ButtonProps {
  * </Button>
  * ```
  *
+ * @example
+ * Usage with deprecated prop (should show warning)
+ * ```tsx
+ * <Button oldVariant="legacy" onClick={() => {}}>
+ *   Legacy Button
+ * </Button>
+ * ```
+ *
  * @see {@link https://react.dev/reference/react-dom/components/button} React Button Documentation
  * @see ButtonProps - Props interface definition
+ *
+ * @tutorial getting-started
+ * @tutorial button-customization
  *
  * @since 1.0.0
  * @author CogniDocs Team
