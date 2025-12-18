@@ -42,11 +42,14 @@ jobs:
       - name: Build all packages
         run: pnpm run build
 
+      - name: Link CLI globally
+        run: pnpm --filter @cognidocs/cli link --global
+
       - name: Generate documentation for sample-react
         working-directory: examples/sample-react
         run: |
           pnpm install
-          pnpm exec cognidocs build
+          cognidocs build
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
