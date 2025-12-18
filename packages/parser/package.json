@@ -1,6 +1,6 @@
 {
   "name": "@cognidocs/parser",
-  "version": "0.0.9",
+  "version": "0.0.11",
   "description": "AST parser for extracting metadata from JavaScript/TypeScript code",
   "main": "./dist/index.mjs",
   "types": "./dist/index.d.mts",

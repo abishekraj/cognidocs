@@ -1,6 +1,6 @@
 {
   "name": "cognidocs",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "Beautiful documentation for TypeScript & React projects — automatically generated from your code",
   "keywords": [
     "documentation",
@@ -42,9 +42,11 @@
     "phase1": "turbo run dev --filter=@cognidocs/cli --filter=@cognidocs/parser --filter=@cognidocs/testing",
     "phase2": "turbo run dev --filter=@cognidocs/analyzer --filter=@cognidocs/coverage",
     "phase3": "turbo run build --filter=./packages/* && cd examples/sample-react && cognidocs build",
-    "phase3-ui": "turbo run build --filter=@cognidocs/site-builder && cd examples/sample-react && cognidocs serve"
+    "phase3-ui": "turbo run build --filter=@cognidocs/site-builder && cd examples/sample-react && cognidocs serve",
+    "release": "changeset publish"
   },
   "devDependencies": {
+    "@changesets/cli": "^2.29.8",
     "@types/node": "^20.10.0",
     "@typescript-eslint/eslint-plugin": "^6.13.0",
     "@typescript-eslint/parser": "^6.13.0",
