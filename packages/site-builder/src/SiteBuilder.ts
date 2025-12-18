@@ -69,8 +69,23 @@ export default defineConfig({
         const pm = detectPackageManager(this.projectRoot);
         console.log(`📦 Detected package manager: ${getPackageManagerDisplayName(pm)}`);
 
+        // Apply npm Rollup fix for all platforms (not just Windows)
+        // This fixes the optional dependencies bug: https://github.com/npm/cli/issues/4828
+        if (pm === 'npm') {
+          const packageLockPath = path.join(this.siteDir, 'package-lock.json');
+          if (await fs.pathExists(packageLockPath)) {
+            console.log('   Removing package-lock.json (npm Rollup fix)...');
+            await fs.remove(packageLockPath);
+          }
+        }
+
         // Get the appropriate install command for this package manager
-        const installCmd = getInstallCommand(pm);
+        let installCmd = getInstallCommand(pm);
+
+        // Add --legacy-peer-deps for npm to fix Rollup optional dependencies issue
+        if (pm === 'npm') {
+          installCmd = 'npm install --legacy-peer-deps';
+        }
 
         // Install dependencies
         try {
