@@ -1,0 +1,139 @@
+name: Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      action:
+        description: 'Action to perform'
+        required: true
+        type: choice
+        options:
+          - deploy-demo
+          - publish-npm
+          - both
+      version-bump:
+        description: 'Version bump (for NPM publish)'
+        type: choice
+        options:
+          - patch
+          - minor
+          - major
+          - none
+        default: 'none'
+      package:
+        description: 'Package to publish (for NPM)'
+        type: choice
+        options:
+          - all
+          - '@cognidocs/cli'
+          - '@cognidocs/parser'
+          - '@cognidocs/analyzer'
+          - '@cognidocs/coverage'
+          - '@cognidocs/docs-generator'
+          - '@cognidocs/site-builder'
+          - '@cognidocs/graph-viz'
+          - '@cognidocs/plugin-core'
+          - '@cognidocs/ai'
+        default: 'all'
+
+jobs:
+  deploy-demo:
+    if: inputs.action == 'deploy-demo' || inputs.action == 'both'
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build all packages
+        run: npm run build
+
+      - name: Generate documentation for sample-react
+        working-directory: examples/sample-react
+        run: |
+          npm install
+          npx cognidocs build
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: 'examples/sample-react/.cognidocs/site/dist'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+  publish-npm:
+    if: inputs.action == 'publish-npm' || inputs.action == 'both'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          registry-url: 'https://registry.npmjs.org'
+          cache: 'npm'
+
+      - name: Configure Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build packages
+        run: npm run build
+
+      - name: Run tests
+        run: npm test
+
+      - name: Bump version
+        if: inputs.version-bump != 'none'
+        run: |
+          if [ "${{ inputs.package }}" = "all" ]; then
+            npm version ${{ inputs.version-bump }} --workspaces --no-git-tag-version
+            npm version ${{ inputs.version-bump }} --no-git-tag-version
+          else
+            npm version ${{ inputs.version-bump }} --workspace=${{ inputs.package }} --no-git-tag-version
+          fi
+
+      - name: Publish to NPM
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          if [ "${{ inputs.package }}" = "all" ]; then
+            npm publish --workspaces --access public
+          else
+            npm publish --workspace=${{ inputs.package }} --access public
+          fi
+
+      - name: Commit version changes
+        if: inputs.version-bump != 'none'
+        run: |
+          git add .
+          git commit -m "chore: bump version to $(node -p "require('./package.json').version")"
+          git push

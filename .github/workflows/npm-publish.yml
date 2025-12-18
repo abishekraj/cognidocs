@@ -1,0 +1,88 @@
+name: Publish to NPM
+
+# Manual trigger only
+on:
+  workflow_dispatch:
+    inputs:
+      package:
+        description: 'Package to publish'
+        required: true
+        type: choice
+        options:
+          - all
+          - '@cognidocs/cli'
+          - '@cognidocs/parser'
+          - '@cognidocs/analyzer'
+          - '@cognidocs/coverage'
+          - '@cognidocs/docs-generator'
+          - '@cognidocs/site-builder'
+          - '@cognidocs/graph-viz'
+          - '@cognidocs/plugin-core'
+          - '@cognidocs/ai'
+      version-bump:
+        description: 'Version bump type'
+        required: true
+        type: choice
+        options:
+          - patch
+          - minor
+          - major
+          - none
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          registry-url: 'https://registry.npmjs.org'
+          cache: 'npm'
+
+      - name: Configure Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build packages
+        run: npm run build
+
+      - name: Run tests
+        run: npm test
+
+      - name: Bump version
+        if: inputs.version-bump != 'none'
+        run: |
+          if [ "${{ inputs.package }}" = "all" ]; then
+            npm version ${{ inputs.version-bump }} --workspaces --no-git-tag-version
+            npm version ${{ inputs.version-bump }} --no-git-tag-version
+          else
+            npm version ${{ inputs.version-bump }} --workspace=${{ inputs.package }} --no-git-tag-version
+          fi
+
+      - name: Publish to NPM
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          if [ "${{ inputs.package }}" = "all" ]; then
+            npm publish --workspaces --access public
+          else
+            npm publish --workspace=${{ inputs.package }} --access public
+          fi
+
+      - name: Commit version changes
+        if: inputs.version-bump != 'none'
+        run: |
+          git add .
+          git commit -m "chore: bump version to $(node -p "require('./package.json').version")"
+          git push
