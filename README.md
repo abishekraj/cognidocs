@@ -8,6 +8,8 @@
 
 CogniDocs is a comprehensive documentation tool for JavaScript and TypeScript. Point it at your codebase, and it generates a stunning, premium documentation site with interactive dependency graphs, detailed coverage reports, and 12 professional themes.
 
+**[🌐 View Live Demo](https://abishekraj.github.io/cognidocs/)** — See CogniDocs in action!
+
 ---
 
 ## 📸 Preview
