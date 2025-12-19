@@ -6,9 +6,11 @@ This document provides a quick reference for each development phase and what to 
 
 ## 🎉 MVP STATUS: READY FOR RELEASE ✅ | Phase 4: Multi-Framework Support 🟡 IN PROGRESS
 
-**Phase 3.5 is COMPLETE** with all critical bugs fixed and UI fully polished. The documentation tool is production-ready and can be deployed.
+**Phase 3.5 is COMPLETE** with all critical bugs fixed and UI fully polished. The documentation tool is production-ready and deployed.
 
 **Phase 4 Progress:** Next.js ✅ | Vue 3 ✅ | Svelte ✅ | Backend Frameworks 🔴
+
+**🌐 Live Demo:** [https://abishekraj.github.io/cognidocs/](https://abishekraj.github.io/cognidocs/)
 
 **What's Included in Current Release:**
 
@@ -26,6 +28,8 @@ This document provides a quick reference for each development phase and what to 
 - ✅ Responsive design with accessible navigation
 - ✅ Markdown documentation with proper table rendering
 - ✅ Clean, minimal UI with all bugs fixed
+- ✅ **GitHub Pages deployment** - Live demo with automated CI/CD workflows
+- ✅ **Configurable base path** - Support for subdirectory deployments
 
 **See [CLAUDE.md](CLAUDE.md) for full MVP details and deployment options.**
 **See "Known Limitations & Future Improvements" section below for current parser limitations.**
@@ -800,6 +804,129 @@ cognidocs serve    # Start development server
 - [x] **Footer removal** - Removed professional footer for cleaner, more minimal design
 - [x] **Navigation reordering** - Placed Introduction before Project Overview in sidebar for better UX
 - [x] **Sidebar overflow fixes** - Fixed focus ring cutoff on selected items with `ring-inset` and padding adjustments
+
+---
+
+### Task 10.6: GitHub Pages Deployment & CI/CD (COMPLETE) ✅
+
+**Status:** 🟢 Complete
+**Priority:** High (Production Deployment)
+**Description:** Set up automated deployment to GitHub Pages with manual workflow triggers and configurable base path support.
+
+**Subtasks:**
+
+- [x] **GitHub Actions Workflows:**
+  - [x] `deploy-demo.yml` - Deploy sample-react documentation to GitHub Pages
+  - [x] `npm-publish.yml` - Publish packages to NPM with version bumping
+  - [x] `release.yml` - Combined workflow for both deployment and publishing
+  - [x] All workflows use manual triggers (`workflow_dispatch`)
+  - [x] Hybrid package manager support (pnpm for install, npm for linking)
+  - [x] Node.js 20 for Rollup compatibility
+- [x] **Configurable Base Path:**
+  - [x] Added `--base-path` CLI option to `cognidocs build`
+  - [x] Updated SiteBuilder to accept base path parameter (defaults to `'./'`)
+  - [x] Vite config generation uses configurable base path
+  - [x] Workflows pass `--base-path /cognidocs/` for GitHub Pages deployment
+- [x] **Content Path Fixes:**
+  - [x] Updated all fetch calls to use `import.meta.env.BASE_URL`
+  - [x] Fixed 7 template files (MarkdownPage, PageHeader, Layout, Sidebar, ComponentDetailPage, OverviewPage, GraphPage)
+  - [x] Ensures content loads from correct subdirectory on GitHub Pages
+- [x] **npm Rollup Bug Workaround:**
+  - [x] Automatic package-lock.json and node_modules removal before npm install
+  - [x] Uses `--legacy-peer-deps` flag for npm install
+  - [x] Fixes optional dependencies bug on Linux CI environments
+- [x] **Live Demo:**
+  - [x] Deployed to: [https://abishekraj.github.io/cognidocs/](https://abishekraj.github.io/cognidocs/)
+  - [x] Added demo link to README.md
+
+**Bug Fixes:**
+
+**1. Base Path Configuration**
+- **Problem:** Site built with `base: './'` expected root serving, but GitHub Pages serves from `/cognidocs/` subdirectory
+- **Solution:** Made base path configurable via CLI option
+- **Files Modified:**
+  - `packages/site-builder/src/SiteBuilder.ts` - Added basePath parameter
+  - `packages/cli/src/commands/build.ts` - Added --base-path option
+  - `packages/cli/src/cli.ts` - Added CLI option definition
+  - `.github/workflows/deploy-demo.yml` - Uses `--base-path /cognidocs/`
+  - `.github/workflows/release.yml` - Uses `--base-path /cognidocs/`
+
+**2. Content Fetch Paths**
+- **Problem:** All content fetches used hardcoded `/content/...` paths which don't work in subdirectories
+- **Solution:** Use Vite's `import.meta.env.BASE_URL` for all fetch calls
+- **Files Modified:**
+  - `packages/site-builder/src/template/src/pages/MarkdownPage.tsx` (line 53-54)
+  - `packages/site-builder/src/template/src/components/PageHeader.tsx` (line 27-28)
+  - `packages/site-builder/src/template/src/components/Layout.tsx` (line 19-24)
+  - `packages/site-builder/src/template/src/Sidebar.tsx` (line 28-32)
+  - `packages/site-builder/src/template/src/pages/ComponentDetailPage.tsx` (line 66-67)
+  - `packages/site-builder/src/template/src/pages/OverviewPage.tsx` (line 69-70)
+  - `packages/site-builder/src/template/src/pages/GraphPage.tsx` (line 9-10)
+
+**3. GitHub Actions Package Manager**
+- **Problem:** pnpm doesn't support global CLI linking like npm
+- **Solution:** Hybrid approach - pnpm for installation, npm link for CLI
+- **Implementation:**
+  ```yaml
+  - name: Setup pnpm
+    uses: pnpm/action-setup@v3
+    with:
+      version: 8
+
+  - name: Install dependencies
+    run: pnpm install
+
+  - name: Link CLI globally with npm
+    working-directory: packages/cli
+    run: npm link
+  ```
+
+**4. npm Rollup Optional Dependencies Bug**
+- **Problem:** `Cannot find module @rollup/rollup-linux-x64-gnu` on Linux CI
+- **Cause:** npm bug with optional dependencies ([npm/cli#4828](https://github.com/npm/cli/issues/4828))
+- **Solution:** Automatic cleanup and legacy peer deps flag
+- **Files Modified:**
+  - `packages/site-builder/src/SiteBuilder.ts` (lines 63-112)
+
+**Deliverables:**
+
+- ✅ Live documentation demo on GitHub Pages
+- ✅ Automated deployment workflow with manual triggers
+- ✅ NPM publishing workflow with version bumping
+- ✅ Configurable base path for flexible deployment
+- ✅ All content loads correctly in subdirectory deployments
+- ✅ Cross-platform CI/CD compatibility (pnpm + npm hybrid)
+- ✅ Rollup bug workaround for reliable builds
+- ✅ Comprehensive workflow documentation
+
+**Workflow Usage:**
+
+```bash
+# Trigger GitHub Pages deployment
+gh workflow run deploy-demo.yml --field environment=production
+
+# Trigger NPM publish (with version bump)
+gh workflow run npm-publish.yml \
+  --field package=all \
+  --field version-bump=patch
+
+# Combined release workflow
+gh workflow run release.yml \
+  --field deploy-demo=true \
+  --field publish-npm=true \
+  --field package=all \
+  --field version-bump=minor
+```
+
+**Local Testing:**
+
+```bash
+# Build with custom base path
+cognidocs build --base-path /cognidocs/
+
+# Build for local development (default)
+cognidocs build
+```
 
 **Bug Fixes:**
 
