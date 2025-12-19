@@ -63,7 +63,8 @@ export function ComponentDetailPage({ id }: ComponentDetailPageProps) {
 
   useEffect(() => {
     // Load component data from data.json
-    fetch('/content/data.json')
+    const basePath = import.meta.env.BASE_URL || '/';
+    fetch(`${basePath}content/data.json`)
       .then((res) => res.json())
       .then((data) => {
         // Find the component in results

@@ -66,7 +66,8 @@ export function OverviewPage() {
   const [coverage, setCoverage] = useState<CoverageMetrics | null>(null);
 
   useEffect(() => {
-    fetch('/content/data.json')
+    const basePath = import.meta.env.BASE_URL || '/';
+    fetch(`${basePath}content/data.json`)
       .then((res) => res.json())
       .then((d) => {
         setData(d);

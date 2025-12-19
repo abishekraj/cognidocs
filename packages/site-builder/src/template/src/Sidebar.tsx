@@ -25,10 +25,11 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
 
   // Load Search Index and Manifest
   React.useEffect(() => {
+    const basePath = import.meta.env.BASE_URL || '/';
     Promise.all([
-      fetch('/content/search-index.json').then((res) => res.json()),
-      fetch('/content/search-data.json').then((res) => res.json()),
-      fetch('/content/manifest.json').then((res) => res.json()),
+      fetch(`${basePath}content/search-index.json`).then((res) => res.json()),
+      fetch(`${basePath}content/search-data.json`).then((res) => res.json()),
+      fetch(`${basePath}content/manifest.json`).then((res) => res.json()),
     ])
       .then(async ([idxData, data, manifestData]) => {
         const lunr = await import('lunr').then((m) => m.default || m);

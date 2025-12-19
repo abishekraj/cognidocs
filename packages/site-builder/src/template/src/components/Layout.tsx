@@ -16,11 +16,12 @@ export function Layout({ children }: LayoutProps) {
 
   useEffect(() => {
     // Fetch all data needed for search and navigation
+    const basePath = import.meta.env.BASE_URL || '/';
     Promise.all([
-      fetch('/content/graph.json').then((res) => res.json()),
-      fetch('/content/search-index.json').then((res) => res.json()),
-      fetch('/content/search-data.json').then((res) => res.json()),
-      fetch('/content/manifest.json').then((res) => res.json()),
+      fetch(`${basePath}content/graph.json`).then((res) => res.json()),
+      fetch(`${basePath}content/search-index.json`).then((res) => res.json()),
+      fetch(`${basePath}content/search-data.json`).then((res) => res.json()),
+      fetch(`${basePath}content/manifest.json`).then((res) => res.json()),
     ])
       .then(async ([graphData, idxData, storeData, manifestData]) => {
         setGraph(graphData);

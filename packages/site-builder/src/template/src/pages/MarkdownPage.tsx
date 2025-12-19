@@ -49,7 +49,9 @@ export function MarkdownPage({ path }: MarkdownPageProps) {
   const [headings, setHeadings] = useState<Heading[]>([]);
 
   useEffect(() => {
-    const filePath = `/content/${path}.md`;
+    // Use relative path to work with different base paths
+    const basePath = import.meta.env.BASE_URL || '/';
+    const filePath = `${basePath}content/${path}.md`;
     fetch(filePath)
       .then((res) => {
         if (!res.ok) throw new Error('Not found');
