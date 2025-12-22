@@ -11,6 +11,8 @@ build/
 out/
 .turbo/
 .claude/
+.agent/*
+.changeset/*
 
 
 # Testing

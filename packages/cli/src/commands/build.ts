@@ -342,7 +342,9 @@ export async function buildCommand(options: BuildOptions = {}): Promise<void> {
       // Let's instantiate SiteBuilder with the current directory as project root
       // and the current `outputPath` as the source of docs.
       const basePath = options.basePath || './';
-      const builder = new SiteBuilder(process.cwd(), outputPath, basePath);
+      const builder = new SiteBuilder(process.cwd(), outputPath, basePath, {
+        enableComponentPreview: config.enableComponentPreview
+      });
 
       // We build the site into `outputPath`... wait, that would overwrite the markdown files if we clear it.
       // Let's put the site in `outputPath` and move markdown to `outputPath/content`?

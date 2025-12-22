@@ -1,5 +1,0 @@
-{
-  "entry": "./src",
-  "output": "./docs",
-  "plugins": ["../test-plugin.mjs"]
-}

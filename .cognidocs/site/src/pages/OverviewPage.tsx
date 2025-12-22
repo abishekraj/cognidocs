@@ -66,7 +66,8 @@ export function OverviewPage() {
   const [coverage, setCoverage] = useState<CoverageMetrics | null>(null);
 
   useEffect(() => {
-    fetch('/content/data.json')
+    const basePath = import.meta.env.BASE_URL || '/';
+    fetch(`${basePath}content/data.json`)
       .then((res) => res.json())
       .then((d) => {
         setData(d);
@@ -242,7 +243,7 @@ export function OverviewPage() {
     data.stats.types;
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 min-w-0">
       {/* Header */}
       <div>
         <h1 className="text-4xl font-bold text-foreground mb-2">Project Overview</h1>

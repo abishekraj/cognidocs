@@ -21,7 +21,8 @@ export class SiteBuilder {
   constructor(
     _projectRoot: string,
     private docsDir: string,
-    private basePath: string = './'
+    private basePath: string = './',
+    private config?: { enableComponentPreview?: boolean }
   ) {
     this.projectRoot = _projectRoot;
     // __dirname points to dist/ directory, template is at dist/template
@@ -89,7 +90,8 @@ export default defineConfig({
         console.log(`📦 Detected package manager: ${getPackageManagerDisplayName(pm)}`);
 
         // Get the appropriate install command for this package manager
-        let installCmd = getInstallCommand(pm);
+        // Use ignoreWorkspace option for pnpm to prevent workspace hoisting
+        let installCmd = getInstallCommand(pm, { ignoreWorkspace: pm === 'pnpm' });
 
         // Add --legacy-peer-deps for npm to fix Rollup optional dependencies issue
         if (pm === 'npm') {
@@ -212,7 +214,11 @@ export default defineConfig({
           homepage: packageJson.homepage,
           repository: packageJson.repository?.url || packageJson.repository,
           license: packageJson.license,
+          enableComponentPreview: this.config?.enableComponentPreview || false,
         };
+      } else {
+        // Add enableComponentPreview to defaults too
+        projectMetadata.enableComponentPreview = this.config?.enableComponentPreview || false;
       }
 
       // Save project metadata
@@ -230,6 +236,7 @@ export default defineConfig({
             name: 'Documentation',
             description: 'Project Documentation',
             version: '1.0.0',
+            enableComponentPreview: this.config?.enableComponentPreview || false,
           },
           null,
           2

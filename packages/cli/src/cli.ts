@@ -26,9 +26,22 @@ ${chalk.bold('Installation:')}
   ${chalk.cyan('npx @cognidocs/cli init')}              # Use without installation
 
 ${chalk.bold('Quick Start:')}
-  ${chalk.cyan('cognidocs init')}                       # Initialize configuration
-  ${chalk.cyan('cognidocs build')}                      # Generate documentation
-  ${chalk.cyan('cognidocs serve')}                      # Start dev server
+  ${chalk.cyan('cognidocs init')}                       # Initialize configuration (interactive)
+  ${chalk.cyan('cognidocs init --yes')}                 # Initialize with defaults
+  ${chalk.cyan('cognidocs build')}                      # Parse code and generate docs
+  ${chalk.cyan('cognidocs build --base-path /docs/')}   # Build for GitHub Pages subdirectory
+  ${chalk.cyan('cognidocs serve')}                      # Start dev server (port 4173)
+  ${chalk.cyan('cognidocs serve --port 3000')}          # Serve on custom port
+
+${chalk.bold('Features:')}
+  ${chalk.green('✓')} TypeScript/JavaScript/React/Next.js parsing
+  ${chalk.green('✓')} 12 professional themes (GitBook, GitHub, Nord, Dracula, Material, etc.)
+  ${chalk.green('✓')} Interactive dependency graphs with D3.js
+  ${chalk.green('✓')} Advanced search with Cmd+K command palette
+  ${chalk.green('✓')} Mermaid.js diagram support
+  ${chalk.green('✓')} Live component preview ${chalk.yellow('(experimental)')}
+  ${chalk.green('✓')} Dark mode support
+  ${chalk.green('✓')} Documentation coverage tracking
 
 ${chalk.bold('Package Manager Support:')}
   CogniDocs automatically detects and uses npm, pnpm, or yarn based on your project's lock files.
@@ -37,6 +50,15 @@ ${chalk.bold('Package Manager Support:')}
 ${chalk.bold('Windows Users:')}
   We recommend using ${chalk.cyan('pnpm')} for the best experience on Windows.
   It handles optional dependencies better than npm, avoiding common Rollup errors.
+
+${chalk.bold('Configuration:')}
+  Create ${chalk.cyan('cognidocs.config.js')} with:
+    ${chalk.gray('• entry')}           - Source directory (default: ./src)
+    ${chalk.gray('• output')}          - Docs output directory (default: ./docs)
+    ${chalk.gray('• theme')}           - UI theme (gitbook, github, nord, dracula, etc.)
+    ${chalk.gray('• darkMode')}        - Enable dark mode (default: true)
+    ${chalk.gray('• frameworks')}      - Framework support (react, nextjs, vue, svelte)
+    ${chalk.gray('• enableComponentPreview')} - Live component preview ${chalk.yellow('(experimental)')}
 
 ${chalk.bold('Documentation:')}
   ${chalk.cyan('https://github.com/yourusername/cognidocs')}

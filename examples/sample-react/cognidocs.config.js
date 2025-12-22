@@ -17,6 +17,7 @@ export default {
     "**/node_modules/**",
     "**/dist/**"
   ],
+  "enableComponentPreview": true, // Enable experimental live component preview
   "coverage": {
     "enabled": true,
     "thresholds": {

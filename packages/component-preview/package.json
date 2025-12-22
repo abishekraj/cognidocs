@@ -1,0 +1,57 @@
+{
+  "name": "@cognidocs/component-preview",
+  "version": "0.0.12",
+  "description": "Live component preview and playground system with type-aware props editor",
+  "main": "./dist/index.mjs",
+  "types": "./dist/index.d.mts",
+  "scripts": {
+    "dev": "tsup --watch",
+    "build": "tsup",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint src",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "@cognidocs/types": "*",
+    "@cognidocs/utils": "*",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-live": "^4.1.7",
+    "sucrase": "^3.35.0",
+    "error-stack-parser": "^2.1.4"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "@types/error-stack-parser": "^2.0.2",
+    "tsup": "^8.0.1",
+    "typescript": "^5.3.0",
+    "vitest": "^1.0.0"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  },
+  "keywords": [
+    "component",
+    "preview",
+    "playground",
+    "sandbox",
+    "live",
+    "react",
+    "props-editor"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/abishekraj/cognidocs.git",
+    "directory": "packages/component-preview"
+  },
+  "bugs": {
+    "url": "https://github.com/abishekraj/cognidocs/issues"
+  },
+  "homepage": "https://github.com/abishekraj/cognidocs#readme",
+  "author": "Abishek Raj <abishek.abi07@gmail.com>",
+  "license": "MIT"
+}

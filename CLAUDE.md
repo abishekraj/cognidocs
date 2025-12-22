@@ -4,33 +4,40 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Status
 
-**Current Phase:** Phase 4 (Next.js Support) - 🟢 COMPLETE ✅
+**Current Phase:** Phase 6 (Component Previews) - 🟢 COMPLETE ✅
 
 - ✅ Phase 1 (Foundation) - COMPLETE
 - ✅ Phase 2 (Analysis & Coverage) - COMPLETE
 - ✅ Phase 3 (Core Documentation) - COMPLETE
 - ✅ Phase 3.5 (Premium UI & Compodoc-Style Documentation) - COMPLETE
 - ✅ Phase 4 (Next.js Support) - COMPLETE
+- ✅ Phase 6 (Component Previews) - COMPLETE
 
 CogniDocs is a comprehensive JavaScript/TypeScript documentation tool combining features from Compodoc and Storybook with AI capabilities. The project uses a monorepo architecture with Turbo, organized into 10 development phases.
 
-**Latest Milestone:** 🎉 **Next.js Support Complete** - Full support for Next.js App Router, Pages Router, and API Routes documentation. Production-ready documentation site with premium UI, 12 themes, advanced search (Cmd+K), comprehensive content rendering, and polished UX.
+**Latest Milestone:** 🎉 **Component Preview System Complete** - Live component playground with interactive props editing, sandboxed execution, and type-aware prop editors. Full integration with documentation site including 2000+ lines of code across 20+ files.
 
 ## Essential Commands
 
 ### Development
 
+**Important:** This is a monorepo project. **Use pnpm** for development to ensure proper workspace management.
+
 ```bash
-npm install                  # Install all dependencies
-npm run build               # Build all packages (required before first use)
-npm run dev                 # Run all packages in watch mode
-npm run phase1              # Run Phase 1 packages only (CLI, Parser, Testing)
+pnpm install                # Install all dependencies (REQUIRED for monorepo)
+pnpm run build              # Build all packages (required before first use)
+pnpm run dev                # Run all packages in watch mode
+pnpm run phase1             # Run Phase 1 packages only (CLI, Parser, Testing)
 ```
+
+> **⚠️ Note:** While npm is supported for end-user CLI usage, **pnpm is required for monorepo development** due to workspace dependencies and proper dependency hoisting.
 
 ### CLI Usage (after building)
 
 ```bash
-npm link -w @cognidocs/cli  # Link CLI globally (or use pnpm/yarn)
+pnpm link -g @cognidocs/cli  # Link CLI globally
+# OR
+npm link -w @cognidocs/cli   # Link with npm
 
 # Get help with installation instructions
 cognidocs --help            # Shows installation, quick start, and package manager info
@@ -46,24 +53,24 @@ cognidocs serve             # Start development server (Phase 3)
 cognidocs serve --port 3001 # Serve on custom port
 ```
 
-**Package Manager Support:**
+**Package Manager Support for End Users:**
 The CLI automatically detects and uses npm, pnpm, or yarn based on your project's lock files. No configuration needed!
 
 ### Testing
 
 ```bash
-npm test                              # Run all tests
-npm test --filter=@cognidocs/parser  # Test specific package
-npm run typecheck                     # TypeScript type checking
-npm run lint                          # Run ESLint
-npm run format                        # Format with Prettier
+pnpm test                              # Run all tests
+pnpm test --filter=@cognidocs/parser   # Test specific package
+pnpm run typecheck                     # TypeScript type checking
+pnpm run lint                          # Run ESLint
+pnpm run format                        # Format with Prettier
 ```
 
 ### Package-Specific
 
 ```bash
-npm run build --filter=@cognidocs/cli     # Build single package
-npm run dev --filter=@cognidocs/parser    # Watch single package
+pnpm run build --filter=@cognidocs/cli     # Build single package
+pnpm run dev --filter=@cognidocs/parser    # Watch single package
 ```
 
 ## Configuration
@@ -101,7 +108,7 @@ packages/          # Core library packages
 ├── site-builder/    # ✅ Static site builder (Phase 3.5)
 ├── graph-viz/       # ✅ Visualizations (Phase 3.5)
 ├── plugin-core/     # ✅ Plugin system (Phase 3-4)
-├── component-preview/  # 🔴 Live previews (Phase 6)
+├── component-preview/  # ✅ Live previews (Phase 6) - COMPLETE
 ├── ai/              # 🔴 AI integration (Phase 7)
 └── testing/         # ✅ Test utilities (Phase 1)
 
@@ -407,6 +414,129 @@ Core plugin infrastructure:
 - Plugin lifecycle hooks
 - Type-safe plugin interfaces
 - Plugin loading and initialization (basic implementation)
+
+## Phase 6 Implementation (COMPLETE)
+
+### Component Preview System
+
+**Package:** `@cognidocs/component-preview`
+
+Full-featured live component playground with interactive props editing, sandboxed execution, and type-aware prop editors.
+
+**Key Components:**
+
+1. **PreviewRenderer** (`packages/component-preview/src/PreviewRenderer.tsx`)
+   - Component lifecycle and rendering management
+   - Sandboxed iframe execution
+   - Real-time prop updates
+   - Error boundary integration
+
+2. **PropsEditor** (`packages/component-preview/src/PropsEditor.tsx`)
+   - Type-aware UI for real-time prop editing
+   - Support for all prop types: string, number, boolean, enum, object, array, function
+   - Automatic type detection from TypeScript type strings
+   - Validation and error handling
+   - Reset to defaults functionality
+
+3. **Individual Editors:**
+   - `StringEditor.tsx` - Text input for string props
+   - `NumberEditor.tsx` - Number input with validation
+   - `BooleanEditor.tsx` - Checkbox for boolean props
+   - `EnumEditor.tsx` - Dropdown for union types ('a' | 'b' | 'c')
+   - `ObjectEditor.tsx` - JSON editor for object props with Format button
+   - `ArrayEditor.tsx` - JSON editor for array props
+
+4. **Sandbox Environment** (`packages/component-preview/src/sandbox/`)
+   - `PreviewSandbox.tsx` - Secure iframe wrapper component
+   - `sandboxRuntime.ts` - Runtime code generation and execution
+   - `securityPolicies.ts` - CSP policies and security utilities
+   - PostMessage communication protocol
+   - 5-second execution timeout
+   - Error sanitization and validation
+
+5. **Code Generation & Dependencies** (`packages/component-preview/src/utils/`)
+   - `codeGenerator.ts` - Props to executable code conversion (350+ lines)
+   - `dependencyResolver.ts` - Import handling and CDN mapping (290+ lines)
+   - TypeScript stripping for runtime execution
+   - Component validation
+   - Default props generation
+   - Mock value generation
+
+6. **Hooks:**
+   - `usePreviewState.ts` - State management for preview props
+   - `useComponentLoader.ts` - Component loading with file support
+   - `useDependencyCheck.ts` - Dependency validation
+
+**Integration with Site Builder:**
+
+**File:** `packages/site-builder/src/template/src/components/PreviewTab.tsx`
+
+The PreviewTab component provides a split-pane layout:
+- Left: Props editor (2/5 width) with type-aware controls
+- Right: Live preview (3/5 width) with sandboxed component rendering
+
+**Features:**
+- Tab navigation between Documentation and Live Preview
+- Component source extraction from parser
+- Responsive design with dark mode support
+- Error display with stack traces
+- Loading states and status indicators
+- Graceful fallback when source unavailable
+
+**UI Architecture:**
+```
+┌─────────────────────────────────────┐
+│ [Documentation] [Live Preview] ←Tabs│
+├──────────────┬──────────────────────┤
+│ Props Editor │ Live Preview Sandbox │
+│ • String     │ • Component render   │
+│ • Number     │ • Real-time updates  │
+│ • Boolean    │ • Error boundaries   │
+│ • Enum       │ • Sandbox isolation  │
+│ • Object/Array│• Loading states     │
+│ [Reset]      │ Status: Ready        │
+└──────────────┴──────────────────────┘
+```
+
+**Security Features:**
+- Sandboxed iframe with restricted permissions
+- Content Security Policy (CSP) headers
+- Message origin validation
+- Error message sanitization
+- Execution timeout (5s max)
+- No access to parent window
+
+**Source Bundling:**
+The component-preview source is bundled directly into the site template at build time (`packages/site-builder/src/template/src/component-preview/`), eliminating the need for npm package installation and ensuring zero external dependencies.
+
+**Component Source Extraction:**
+
+**Critical Fix:** Component source code extraction for live preview
+
+- **Files Modified:**
+  - `packages/parser/src/parsers/react-parser.ts` - Added source extraction at lines 184, 223
+  - `shared/types/src/index.ts` - Added `source?: string` field to ComponentMetadata (line 65)
+
+- **How It Works:**
+  - React parser extracts full component source using `node.getText(sourceFile)`
+  - Source is added to both function and class component metadata
+  - Source is stored in `data.json` and made available to the preview system
+  - PreviewRenderer uses the source to render components in sandboxed iframe
+
+- **Development Note:**
+  When developing in the monorepo with pnpm, the virtual store at `node_modules/.pnpm/@cognidocs+parser@*/` caches the parser build. After rebuilding the parser, you must copy the new dist to the virtual store:
+  ```bash
+  pnpm run build --filter=@cognidocs/parser
+  cp packages/parser/dist/index.mjs node_modules/.pnpm/@cognidocs+parser@*/node_modules/@cognidocs/parser/dist/
+  ```
+  Or rebuild all packages and run `pnpm install` to refresh the virtual store.
+
+**Key Methods:**
+
+- `propertyToPropEditorConfig()` - Converts component props to editor configs
+- `usePreviewState()` - Manages preview prop values and updates
+- `PreviewRenderer()` - Renders component in sandbox using extracted source
+- `PropsEditor()` - Renders type-aware prop editors
 
 ## Output Format
 

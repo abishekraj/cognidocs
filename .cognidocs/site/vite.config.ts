@@ -10,7 +10,7 @@ export default defineConfig({
     },
   },
   build: {
-    outDir: '/Users/abishekraj/.claude-worktrees/cognidocs/festive-grothendieck/docs/site',
+    outDir: '/Users/abishekraj/Downloads/cognidocs/docs/site',
     emptyOutDir: true,
   },
   base: './',

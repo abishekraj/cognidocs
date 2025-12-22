@@ -6,7 +6,8 @@ export function GraphPage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('/content/graph.json')
+    const basePath = import.meta.env.BASE_URL || '/';
+    fetch(`${basePath}content/graph.json`)
       .then((res) => res.json())
       .then((data) => {
         setGraphData(data);

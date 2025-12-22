@@ -158,6 +158,7 @@ export interface ComponentMetadata {
   line?: number;
   examples?: string[];
   jsdoc?: JSDocMetadata;
+  source?: string; // Component source code for preview
   // Next.js-specific
   isPage?: boolean;
   isLayout?: boolean;
@@ -270,4 +271,51 @@ export interface SvelteComponentMetadata extends Omit<ComponentMetadata, 'slots'
   reactiveStatements?: SvelteReactiveStatement[];
   svelteSlots?: string[];
   stores?: string[];
+}
+
+// Phase 6: Component Preview Types
+export interface PreviewMetadata {
+  componentName: string;
+  filePath: string;
+  props: PropertyMetadata[];
+  dependencies: string[];
+  framework: Framework;
+  source?: string; // Component source code for preview rendering
+}
+
+export interface PreviewState {
+  props: Record<string, unknown>;
+  error: Error | null;
+  loading: boolean;
+}
+
+export type PropEditorType =
+  | 'string'
+  | 'number'
+  | 'boolean'
+  | 'enum'
+  | 'object'
+  | 'array'
+  | 'function'
+  | 'react-node';
+
+export interface PropEditorConfig {
+  name: string;
+  type: PropEditorType;
+  defaultValue?: unknown;
+  enumValues?: string[];
+  required?: boolean;
+  description?: string;
+}
+
+export interface PreviewError {
+  message: string;
+  stack?: string;
+  line?: number;
+  column?: number;
+}
+
+export interface SandboxMessage {
+  type: 'UPDATE_PROPS' | 'PREVIEW_ERROR' | 'PREVIEW_READY' | 'PREVIEW_RENDER';
+  payload?: unknown;
 }

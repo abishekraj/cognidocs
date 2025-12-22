@@ -38,11 +38,17 @@ export function detectPackageManager(projectRoot: string = process.cwd()): Packa
 
 /**
  * Gets the install command for the detected package manager
+ * @param pm Package manager type
+ * @param options Additional options
  */
-export function getInstallCommand(pm: PackageManager): string {
+export function getInstallCommand(
+  pm: PackageManager,
+  options?: { ignoreWorkspace?: boolean }
+): string {
   switch (pm) {
     case 'pnpm':
-      return 'pnpm install';
+      // Add --ignore-workspace flag when installing in subdirectory to prevent workspace hoisting
+      return options?.ignoreWorkspace ? 'pnpm install --ignore-workspace' : 'pnpm install';
     case 'yarn':
       return 'yarn install';
     case 'npm':

@@ -24,7 +24,8 @@ export function PageHeader({ route }: PageHeaderProps) {
 
   useEffect(() => {
     // Load project metadata from project.json
-    fetch('/content/project.json')
+    const basePath = import.meta.env.BASE_URL || '/';
+    fetch(`${basePath}content/project.json`)
       .then((res) => res.json())
       .then((data) => {
         setProjectConfig(data);

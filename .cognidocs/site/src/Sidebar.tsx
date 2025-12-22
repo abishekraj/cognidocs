@@ -1,6 +1,16 @@
 import * as React from 'react';
 import { useState } from 'react';
-import { Search, FileCode, Layers, BookOpen, Network, Home, BarChart3 } from 'lucide-react';
+import {
+  Search,
+  FileCode,
+  Layers,
+  BookOpen,
+  Network,
+  Home,
+  BarChart3,
+  Eye,
+  FileText,
+} from 'lucide-react';
 import { cn } from './lib/utils';
 import { Input } from './components/ui/input';
 import { ScrollArea } from './components/ui/scroll-area';
@@ -25,10 +35,11 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
 
   // Load Search Index and Manifest
   React.useEffect(() => {
+    const basePath = import.meta.env.BASE_URL || '/';
     Promise.all([
-      fetch('/content/search-index.json').then((res) => res.json()),
-      fetch('/content/search-data.json').then((res) => res.json()),
-      fetch('/content/manifest.json').then((res) => res.json()),
+      fetch(`${basePath}content/search-index.json`).then((res) => res.json()),
+      fetch(`${basePath}content/search-data.json`).then((res) => res.json()),
+      fetch(`${basePath}content/manifest.json`).then((res) => res.json()),
     ])
       .then(async ([idxData, data, manifestData]) => {
         const lunr = await import('lunr').then((m) => m.default || m);
@@ -92,7 +103,20 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
           </NavigationSection>
         );
       }
-      const href = `#/content/${item.path.replace('.md', '')}`;
+
+      // Check if this is a component file to use specialized route
+      // Robust check: any markdown file inside a top-level 'components' directory or parent is 'components'
+      const pathParts = item.path.split('/');
+      const isComponent = (item.path.includes('components/') || pathParts[0] === 'components') && item.path.endsWith('.md');
+      let href = `#/content/${item.path.replace('.md', '')}`;
+
+      if (isComponent) {
+        // use #/component/Name instead of #/content/components/Name
+        // Extract just the component name (last part of path without .md)
+        const componentName = item.name || item.path.split('/').pop()?.replace('.md', '') || '';
+        href = `#/component/${componentName}`;
+      }
+
       return (
         <NavigationItem
           key={item.path}
@@ -272,6 +296,11 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
           )}
         </ScrollArea>
       </aside>
+      {/* Hidden div to force Eye and FileText icons into bundle for ComponentDetailPage tabs */}
+      <div style={{ display: 'none' }} aria-hidden="true">
+        <Eye />
+        <FileText />
+      </div>
     </>
   );
 }

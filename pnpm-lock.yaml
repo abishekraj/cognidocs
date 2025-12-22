@@ -45,7 +45,7 @@ importers:
   packages/ai:
     dependencies:
       '@cognidocs/types':
-        specifier: ^0.0.10
+        specifier: '*'
         version: 0.0.10
       openai:
         specifier: ^4.20.0
@@ -64,10 +64,10 @@ importers:
   packages/analyzer:
     dependencies:
       '@cognidocs/types':
-        specifier: ^0.0.10
+        specifier: '*'
         version: 0.0.10
       '@cognidocs/utils':
-        specifier: ^0.0.10
+        specifier: '*'
         version: 0.0.10
     devDependencies:
       tsup:
@@ -83,31 +83,31 @@ importers:
   packages/cli:
     dependencies:
       '@cognidocs/analyzer':
-        specifier: ^0.0.10
-        version: 0.0.10
+        specifier: '*'
+        version: 0.0.12
       '@cognidocs/constants':
-        specifier: ^0.0.10
+        specifier: '*'
         version: 0.0.10
       '@cognidocs/coverage':
-        specifier: ^0.0.10
-        version: 0.0.10
+        specifier: '*'
+        version: 0.0.12
       '@cognidocs/docs-generator':
-        specifier: ^0.0.10
-        version: 0.0.10
+        specifier: '*'
+        version: 0.0.12
       '@cognidocs/parser':
-        specifier: ^0.0.10
-        version: 0.0.10
+        specifier: '*'
+        version: 0.0.12
       '@cognidocs/plugin-core':
-        specifier: ^0.0.10
-        version: 0.0.10
+        specifier: '*'
+        version: 0.0.12
       '@cognidocs/site-builder':
-        specifier: ^0.0.10
-        version: 0.0.10(@types/node@20.19.26)(@types/react-dom@19.2.3(@types/react@18.3.27))(@types/react@18.3.27)
+        specifier: '*'
+        version: 0.0.12(@types/node@20.19.26)(@types/react-dom@19.2.3(@types/react@18.3.27))(@types/react@18.3.27)
       '@cognidocs/types':
-        specifier: ^0.0.10
+        specifier: '*'
         version: 0.0.10
       '@cognidocs/utils':
-        specifier: ^0.0.10
+        specifier: '*'
         version: 0.0.10
       chalk:
         specifier: ^5.3.0
@@ -147,13 +147,56 @@ importers:
         specifier: ^1.0.0
         version: 1.6.1(@types/node@20.19.26)
 
+  packages/component-preview:
+    dependencies:
+      '@cognidocs/types':
+        specifier: '*'
+        version: 0.0.10
+      '@cognidocs/utils':
+        specifier: '*'
+        version: 0.0.10
+      error-stack-parser:
+        specifier: ^2.1.4
+        version: 2.1.4
+      react:
+        specifier: ^18.2.0
+        version: 18.3.1
+      react-dom:
+        specifier: ^18.2.0
+        version: 18.3.1(react@18.3.1)
+      react-live:
+        specifier: ^4.1.7
+        version: 4.1.8(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      sucrase:
+        specifier: ^3.35.0
+        version: 3.35.1
+    devDependencies:
+      '@types/error-stack-parser':
+        specifier: ^2.0.2
+        version: 2.0.2
+      '@types/react':
+        specifier: ^18.2.0
+        version: 18.3.27
+      '@types/react-dom':
+        specifier: ^18.2.0
+        version: 18.3.7(@types/react@18.3.27)
+      tsup:
+        specifier: ^8.0.1
+        version: 8.5.1(jiti@1.21.7)(postcss@8.5.6)(typescript@5.9.3)
+      typescript:
+        specifier: ^5.3.0
+        version: 5.9.3
+      vitest:
+        specifier: ^1.0.0
+        version: 1.6.1(@types/node@20.19.26)
+
   packages/coverage:
     dependencies:
       '@cognidocs/types':
-        specifier: ^0.0.10
+        specifier: '*'
         version: 0.0.10
       '@cognidocs/utils':
-        specifier: ^0.0.10
+        specifier: '*'
         version: 0.0.10
     devDependencies:
       tsup:
@@ -169,13 +212,13 @@ importers:
   packages/docs-generator:
     dependencies:
       '@cognidocs/constants':
-        specifier: ^0.0.10
+        specifier: '*'
         version: 0.0.10
       '@cognidocs/types':
-        specifier: ^0.0.10
+        specifier: '*'
         version: 0.0.10
       '@cognidocs/utils':
-        specifier: ^0.0.10
+        specifier: '*'
         version: 0.0.10
       fs-extra:
         specifier: ^11.2.0
@@ -240,10 +283,10 @@ importers:
         specifier: ^7.23.5
         version: 7.28.5
       '@cognidocs/types':
-        specifier: ^0.0.10
+        specifier: '*'
         version: 0.0.10
       '@cognidocs/utils':
-        specifier: ^0.0.10
+        specifier: '*'
         version: 0.0.10
       '@vue/compiler-sfc':
         specifier: ^3.5.25
@@ -271,7 +314,7 @@ importers:
   packages/plugin-core:
     dependencies:
       '@cognidocs/utils':
-        specifier: ^0.0.10
+        specifier: '*'
         version: 0.0.10
     devDependencies:
       tsup:
@@ -287,10 +330,10 @@ importers:
   packages/site-builder:
     dependencies:
       '@cognidocs/graph-viz':
-        specifier: ^0.0.10
+        specifier: '*'
         version: 0.0.10(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@cognidocs/utils':
-        specifier: ^0.0.10
+        specifier: '*'
         version: 0.0.10
       '@radix-ui/react-dialog':
         specifier: ^1.1.15
@@ -557,17 +600,17 @@ packages:
   '@changesets/write@0.4.0':
     resolution: {integrity: sha512-CdTLvIOPiCNuH71pyDu3rA+Q0n65cmAbXnwWH84rKGiFumFzkmHNT8KHTMEchcxN+Kl8I54xGUhJ7l3E7X396Q==}
 
-  '@cognidocs/analyzer@0.0.10':
-    resolution: {integrity: sha512-VICR7cIlNHc8OeFYwZUVkEgby+qAyjOQeXHB9R/wda+GPJWpgDOrZ69lhtCIergSo+ctquLq49Qjl3hDWNU+PA==}
+  '@cognidocs/analyzer@0.0.12':
+    resolution: {integrity: sha512-/l6eABXZ0fS/ug1CfIA2LD3RHO60pnhAvDViUoiFxS9mwTTCQ+V7/g3qfpAtucpmCesa/jG+WrQpRnPRRkFWKA==}
 
   '@cognidocs/constants@0.0.10':
     resolution: {integrity: sha512-FX6k4qDGyU/A79UMCHBR5O5jdAd1DyXITDEzTjGRRRusyG9ONE3APgRCQ8Q2v2FnIL6QmPy7p2WJWMumsoYlHw==}
 
-  '@cognidocs/coverage@0.0.10':
-    resolution: {integrity: sha512-gVvxumte/jIOk8WoWrpxaXtcEGvJV0xATwLFh2RRwavnSrPkR0NpORjvnXcH5oR2mDfCFg8aOO+KfQhXomuuZA==}
+  '@cognidocs/coverage@0.0.12':
+    resolution: {integrity: sha512-mnQYIyu6lcxSJzYElG7qS34U6QkyJvk7QR6vgtO5Fpg5vRIRUwDVZGgv9aVfA5rd0gII2biM3eQMNsGBB2NCFg==}
 
-  '@cognidocs/docs-generator@0.0.10':
-    resolution: {integrity: sha512-KzgPznfYHLSE8ffj3NXz3j0BJ6gu7qMTdw88qWn/o6x/h+EXxlNi047BXQrG43AkZTNEunYlBK0IaAB2wwaI4Q==}
+  '@cognidocs/docs-generator@0.0.12':
+    resolution: {integrity: sha512-Tq4BlE67ojcd7PG3QQ5XbisQzd7cadb8ajq6hPTEZUHWXm4szRgIN1EvDSzFbE9ZIoLOOr1znY+Hje3C5S4FUw==}
 
   '@cognidocs/graph-viz@0.0.10':
     resolution: {integrity: sha512-JXCE3oGB/rv9iiAMCQ/HAwSbC7SQ+XB84dlByhZGrZEc+bIFePqgv+TNqaapCKfWs3mg7+7bS5lCGOaUqQ4NPw==}
@@ -575,14 +618,14 @@ packages:
       react: ^18.2.0
       react-dom: ^18.2.0
 
-  '@cognidocs/parser@0.0.10':
-    resolution: {integrity: sha512-K0Y9FXA2K+76DLx1UU628VRhL9GIpw+6QryObz2BQ0ESz3YOMheszKrkBMl6ZsuGB46a+WWJL1qWSBt4K/ToMQ==}
+  '@cognidocs/parser@0.0.12':
+    resolution: {integrity: sha512-MLRMZVnHFms6udWJ4ryrNxDP1k/zh56jKBVnZEpQVomfJjjpY9r+8ecJtehe4BGW+3z0+HidMaEquWEljqD4+w==}
 
-  '@cognidocs/plugin-core@0.0.10':
-    resolution: {integrity: sha512-Q07NvZjYvmXbdjV2uA6m2e7WwJX/ylsS1R+o1/TCsleiK2RE2lL821Ib1G/1X43gYD+rEXeU2zGZxbMsKDMDIA==}
+  '@cognidocs/plugin-core@0.0.12':
+    resolution: {integrity: sha512-oIZGMbA8hdQV0bROkNjhCjp7ZP28jYjQLf1KESOevFIYeT1PCdQZF/us5cuy63l4pQ3Pxby748MJcv58wKJX9Q==}
 
-  '@cognidocs/site-builder@0.0.10':
-    resolution: {integrity: sha512-KzMDsvSI7Pw7ehzKW3f4qCr/mw+1UzyTdBvYILpOR2q25imSkybAn4cYjhTmG2pRE92SH2JMV64zNqvVr4RYGA==}
+  '@cognidocs/site-builder@0.0.12':
+    resolution: {integrity: sha512-JJ4mEVKBercmrZ5ozUg8vk14IUKt4CYUXLpI3iVQ5d+QT0z3sclKoJCI7I0KQXlpg69zZktxL5Elmm5abbfo8A==}
 
   '@cognidocs/types@0.0.10':
     resolution: {integrity: sha512-0AIftJ2RaPLkLS4Ywn1A1/8XD3pJ2/neAN4c3t8mq52wLEhZf6RI9Pb6KFYN+mRADkioeuwJ08lLnsz0pFTwXg==}
@@ -1595,6 +1638,10 @@ packages:
   '@types/debug@4.1.12':
     resolution: {integrity: sha512-vIChWdVG3LG1SMxEvI/AK+FWJthlrqlTu7fbrlywTkkaONwk/UAGaULXRlf8vkzFBLVm0zkMdCquhL5aOjhXPQ==}
 
+  '@types/error-stack-parser@2.0.2':
+    resolution: {integrity: sha512-+IYOrjG/a0ppZD9XFf7fHxC6v4hp4OCXuWXlfYKFyaPk8sT4vS+Qf8iDWwK9LQvTImHnEMHyrpyqRf7w8XujjQ==}
+    deprecated: This is a stub types definition. error-stack-parser provides its own type definitions, so you do not need this installed.
+
   '@types/estree-jsx@1.0.5':
     resolution: {integrity: sha512-52CcUVNFyfb1A2ALocQw/Dd1BQFNmSdkuC3BkZ6iqhdMfQz7JWOFRuJFloOzjk+6WijU56m9oKXFAXc7o3Towg==}
 
@@ -1643,8 +1690,16 @@ packages:
   '@types/node@20.19.26':
     resolution: {integrity: sha512-0l6cjgF0XnihUpndDhk+nyD3exio3iKaYROSgvh/qSevPXax3L8p5DBRFjbvalnwatGgHEQn2R88y2fA3g4irg==}
 
+  '@types/prismjs@1.26.5':
+    resolution: {integrity: sha512-AUZTa7hQ2KY5L7AmtSiqxlhWxb4ina0yd8hNbl4TWuqnv/pFP0nDMb3YrfSBf4hJVGLh2YEIBfKaBW/9UEl6IQ==}
+
   '@types/prop-types@15.7.15':
     resolution: {integrity: sha512-F6bEyamV9jKGAFBEmlQnesRPGOQqS2+Uwi0Em15xenOxHaf2hv6L8YCVn3rPdPJOiJfPiCnLIRyvwVaqMY3MIw==}
+
+  '@types/react-dom@18.3.7':
+    resolution: {integrity: sha512-MEe3UeoENYVFXzoXEWsvcpg6ZvlrFNlOQ7EOsvhI3CfAXwzPfO8Qwuxd40nepsYKqyyVQnTdEfv68q91yLcKrQ==}
+    peerDependencies:
+      '@types/react': ^18.0.0
 
   '@types/react-dom@19.2.3':
     resolution: {integrity: sha512-jp2L/eY6fn+KgVVQAOqYItbF0VY/YApe5Mz2F0aykSO8gx31bYCZyvSeYxCHKvzHG5eZjc+zyaS5BrBWya2+kQ==}
@@ -2391,6 +2446,9 @@ packages:
 
   error-ex@1.3.4:
     resolution: {integrity: sha512-sqQamAnR14VgCr1A618A3sGrygcpK+HEbenA/HiEAkkUwcZIIB/tgWqHFxWgOyDh4nB4JCRimh79dR5Ywc9MDQ==}
+
+  error-stack-parser@2.1.4:
+    resolution: {integrity: sha512-Sk5V6wVazPhq5MhpO+AUxJn5x7XSXGl1R93Vn7i+zS15KDVxQijejNCrz8340/2bgLBjR9GtEG8ZVKONDjcqGQ==}
 
   es-abstract@1.24.0:
     resolution: {integrity: sha512-WSzPgsdLtTcQwm4CROfS5ju2Wa1QQcVeT37jFjYzdFz1r9ahadC8B8/a4qxJxM+09F18iumCdRmlr96ZYkQvEg==}
@@ -3605,6 +3663,11 @@ packages:
     resolution: {integrity: sha512-Pdlw/oPxN+aXdmM9R00JVC9WVFoCLTKJvDVLgmJ+qAffBMxsV85l/Lu7sNx4zSzPyoL2euImuEwHhOXdEgNFZQ==}
     engines: {node: ^14.15.0 || ^16.10.0 || >=18.0.0}
 
+  prism-react-renderer@2.4.1:
+    resolution: {integrity: sha512-ey8Ls/+Di31eqzUxC46h8MksNuGx/n0AAC8uKpwFau4RPDYLuE3EXTp8N8G2vX2N7UC/+IXeNUnlWBGGcAG+Ig==}
+    peerDependencies:
+      react: '>=16.0.0'
+
   property-information@7.1.0:
     resolution: {integrity: sha512-TwEZ+X+yCJmYfL7TPUOcvBZ4QfoT5YenQiJuX//0th53DE6w0xxLEtfK3iyryQFddXuvkIk51EEgrJQ0WJkOmQ==}
 
@@ -3625,6 +3688,13 @@ packages:
 
   react-is@18.3.1:
     resolution: {integrity: sha512-/LLMVyas0ljjAtoYiPqYiL8VWXzUUdThrmU5+n20DZv+a+ClRoevUzw5JxU+Ieh5/c87ytoTBV9G1FiKfNJdmg==}
+
+  react-live@4.1.8:
+    resolution: {integrity: sha512-B2SgNqwPuS2ekqj4lcxi5TibEcjWkdVyYykBEUBshPAPDQ527x2zPEZg560n8egNtAjUpwXFQm7pcXV65aAYmg==}
+    engines: {node: '>= 0.12.0', npm: '>= 2.0.0'}
+    peerDependencies:
+      react: '>=18.0.0'
+      react-dom: '>=18.0.0'
 
   react-markdown@9.1.0:
     resolution: {integrity: sha512-xaijuJB0kzGiUdG7nc2MOMDUDBWPyGAjZtUrow9XxUeua8IqeP+VlIfAZ3bphpcLTnSZXz6z9jcVC/TCwbfgdw==}
@@ -3878,6 +3948,9 @@ packages:
 
   stackback@0.0.2:
     resolution: {integrity: sha512-1XMJE5fQo1jGH6Y/7ebnwPOBEkIEnT4QF32d5R1+VXdXveM0IBMJt8zfaxX1P3QhVwrYe+576+jkANtSS2mBbw==}
+
+  stackframe@1.3.4:
+    resolution: {integrity: sha512-oeVtt7eWQS+Na6F//S4kJ2K2VbRlS9D43mAlMyVpVWovy9o+jfgH8O9agzANzaiLjclA0oYzUXEM4PurhSUChw==}
 
   std-env@3.10.0:
     resolution: {integrity: sha512-5GS12FdOZNliM5mAOxFRg7Ir0pWz8MdpYm6AY6VPkGpbA7ZzmbzNcBJQ0GPvvyWgcY7QAhCgf9Uy89I03faLkg==}
@@ -4194,6 +4267,11 @@ packages:
     peerDependenciesMeta:
       '@types/react':
         optional: true
+
+  use-editable@2.3.3:
+    resolution: {integrity: sha512-7wVD2JbfAFJ3DK0vITvXBdpd9JAz5BcKAAolsnLBuBn6UDDwBGuCIAGvR3yA2BNKm578vAMVHFCWaOcA+BhhiA==}
+    peerDependencies:
+      react: '>= 16.8.0'
 
   use-sidecar@1.1.3:
     resolution: {integrity: sha512-Fedw0aZvkhynoPYlA5WXrMCAMm+nSWdZt6lzJQ7Ok8S6Q+VsHmHpRWndVRJ8Be0ZbkfPc5LRYH+5XrzXcEeLRQ==}
@@ -4622,19 +4700,19 @@ snapshots:
       human-id: 4.1.3
       prettier: 2.8.8
 
-  '@cognidocs/analyzer@0.0.10':
+  '@cognidocs/analyzer@0.0.12':
     dependencies:
       '@cognidocs/types': 0.0.10
       '@cognidocs/utils': 0.0.10
 
   '@cognidocs/constants@0.0.10': {}
 
-  '@cognidocs/coverage@0.0.10':
+  '@cognidocs/coverage@0.0.12':
     dependencies:
       '@cognidocs/types': 0.0.10
       '@cognidocs/utils': 0.0.10
 
-  '@cognidocs/docs-generator@0.0.10':
+  '@cognidocs/docs-generator@0.0.12':
     dependencies:
       '@cognidocs/constants': 0.0.10
       '@cognidocs/types': 0.0.10
@@ -4649,7 +4727,7 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-  '@cognidocs/parser@0.0.10':
+  '@cognidocs/parser@0.0.12':
     dependencies:
       '@babel/parser': 7.28.5
       '@babel/traverse': 7.28.5
@@ -4663,11 +4741,11 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@cognidocs/plugin-core@0.0.10':
+  '@cognidocs/plugin-core@0.0.12':
     dependencies:
       '@cognidocs/utils': 0.0.10
 
-  '@cognidocs/site-builder@0.0.10(@types/node@20.19.26)(@types/react-dom@19.2.3(@types/react@18.3.27))(@types/react@18.3.27)':
+  '@cognidocs/site-builder@0.0.12(@types/node@20.19.26)(@types/react-dom@19.2.3(@types/react@18.3.27))(@types/react@18.3.27)':
     dependencies:
       '@cognidocs/graph-viz': 0.0.10(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@cognidocs/utils': 0.0.10
@@ -5574,6 +5652,10 @@ snapshots:
     dependencies:
       '@types/ms': 2.1.0
 
+  '@types/error-stack-parser@2.0.2':
+    dependencies:
+      error-stack-parser: 2.1.4
+
   '@types/estree-jsx@1.0.5':
     dependencies:
       '@types/estree': 1.0.8
@@ -5627,7 +5709,13 @@ snapshots:
     dependencies:
       undici-types: 6.21.0
 
+  '@types/prismjs@1.26.5': {}
+
   '@types/prop-types@15.7.15': {}
+
+  '@types/react-dom@18.3.7(@types/react@18.3.27)':
+    dependencies:
+      '@types/react': 18.3.27
 
   '@types/react-dom@19.2.3(@types/react@18.3.27)':
     dependencies:
@@ -6454,6 +6542,10 @@ snapshots:
   error-ex@1.3.4:
     dependencies:
       is-arrayish: 0.2.1
+
+  error-stack-parser@2.1.4:
+    dependencies:
+      stackframe: 1.3.4
 
   es-abstract@1.24.0:
     dependencies:
@@ -7935,6 +8027,12 @@ snapshots:
       ansi-styles: 5.2.0
       react-is: 18.3.1
 
+  prism-react-renderer@2.4.1(react@18.3.1):
+    dependencies:
+      '@types/prismjs': 1.26.5
+      clsx: 2.1.1
+      react: 18.3.1
+
   property-information@7.1.0: {}
 
   punycode@2.3.1: {}
@@ -7950,6 +8048,14 @@ snapshots:
       scheduler: 0.23.2
 
   react-is@18.3.1: {}
+
+  react-live@4.1.8(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+    dependencies:
+      prism-react-renderer: 2.4.1(react@18.3.1)
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
+      sucrase: 3.35.1
+      use-editable: 2.3.3(react@18.3.1)
 
   react-markdown@9.1.0(@types/react@18.3.27)(react@18.3.1):
     dependencies:
@@ -8267,6 +8373,8 @@ snapshots:
   sprintf-js@1.0.3: {}
 
   stackback@0.0.2: {}
+
+  stackframe@1.3.4: {}
 
   std-env@3.10.0: {}
 
@@ -8646,6 +8754,10 @@ snapshots:
       tslib: 2.8.1
     optionalDependencies:
       '@types/react': 18.3.27
+
+  use-editable@2.3.3(react@18.3.1):
+    dependencies:
+      react: 18.3.1
 
   use-sidecar@1.1.3(@types/react@18.3.27)(react@18.3.1):
     dependencies:

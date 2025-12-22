@@ -49,7 +49,9 @@ export function MarkdownPage({ path }: MarkdownPageProps) {
   const [headings, setHeadings] = useState<Heading[]>([]);
 
   useEffect(() => {
-    const filePath = `/content/${path}.md`;
+    // Use relative path to work with different base paths
+    const basePath = import.meta.env.BASE_URL || '/';
+    const filePath = `${basePath}content/${path}.md`;
     fetch(filePath)
       .then((res) => {
         if (!res.ok) throw new Error('Not found');
@@ -115,7 +117,7 @@ export function MarkdownPage({ path }: MarkdownPageProps) {
   return (
     <div className="flex gap-6">
       {/* Main Content */}
-      <div className={`flex-1 ${showTOC ? 'max-w-4xl' : 'max-w-5xl'}`}>
+      <div className={`flex-1 min-w-0 ${showTOC ? 'max-w-4xl' : 'max-w-5xl'}`}>
         <article className="prose prose-slate dark:prose-invert max-w-none">
           <ReactMarkdown
             remarkPlugins={[remarkGfm, remarkDirective, remarkCallouts]}

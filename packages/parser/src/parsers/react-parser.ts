@@ -180,6 +180,18 @@ export class ReactParser {
 
     const hooks = this.extractHooks(functionNode);
 
+    // Extract source code for preview and transpile it to plain JS (CommonJS)
+    const rawSource = node.getText(sourceFile);
+    const transpileResult = ts.transpileModule(rawSource, {
+      compilerOptions: {
+        module: ts.ModuleKind.CommonJS,
+        target: ts.ScriptTarget.ES2020,
+        jsx: ts.JsxEmit.React,
+        removeComments: false,
+      },
+    });
+    const source = transpileResult.outputText;
+
     return {
       name,
       type: 'function',
@@ -191,6 +203,7 @@ export class ReactParser {
       framework: 'react',
       isExported: true,
       jsdoc,
+      source,
     };
   }
 
@@ -212,6 +225,18 @@ export class ReactParser {
     const propsType = heritage?.types[0]?.typeArguments?.[0];
     const props = propsType ? this.extractPropsFromType(propsType, sourceFile) : [];
 
+    // Extract source code for preview and transpile it to plain JS (CommonJS)
+    const rawSource = node.getText(sourceFile);
+    const transpileResult = ts.transpileModule(rawSource, {
+      compilerOptions: {
+        module: ts.ModuleKind.CommonJS,
+        target: ts.ScriptTarget.ES2020,
+        jsx: ts.JsxEmit.React,
+        removeComments: false,
+      },
+    });
+    const source = transpileResult.outputText;
+
     return {
       name,
       type: 'class',
@@ -222,6 +247,7 @@ export class ReactParser {
       framework: 'react',
       isExported: true,
       jsdoc,
+      source,
     };
   }
 

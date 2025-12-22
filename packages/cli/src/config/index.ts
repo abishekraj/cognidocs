@@ -9,6 +9,7 @@ export interface CogniDocsConfig {
   theme: string;
   darkMode: boolean;
   filePattern?: string; // Glob pattern for files to parse (default: '**/*.{ts,tsx,js,jsx}')
+  enableComponentPreview?: boolean; // Enable live component preview (experimental)
   coverage?: {
     enabled: boolean;
     thresholds: {
@@ -33,6 +34,7 @@ export const defaultConfig: CogniDocsConfig = {
   theme: 'gitbook',
   darkMode: true,
   filePattern: '**/*.{ts,tsx,js,jsx}', // Parse TypeScript and JavaScript files
+  enableComponentPreview: false, // Disabled by default (experimental)
   frameworks: ['react'],
   exclude: ['**/*.test.ts', '**/*.test.js', '**/node_modules/**'],
 };

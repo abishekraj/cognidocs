@@ -109,15 +109,17 @@ CogniDocs handles the specific patterns of your favorite frameworks:
 Choose your preferred package manager:
 
 ```bash
+# pnpm (Recommended - especially for monorepo projects)
+pnpm add -g @cognidocs/cli
+
 # npm
 npm install -g @cognidocs/cli
-
-# pnpm (Recommended)
-pnpm add -g @cognidocs/cli
 
 # npx (Try without installing)
 npx @cognidocs/cli init
 ```
+
+> **💡 Tip:** For **monorepo/workspace projects**, we strongly recommend using **pnpm** as it provides superior workspace management and dependency handling.
 
 ### Usage
 

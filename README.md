@@ -23,6 +23,9 @@ _Detailed component documentation with props tables and source code view._
 ![Mermaid Diagram](assets/SCR-20251219-ccxb.png)
 _Mermaid.js diagrams for visualizing complex logic._
 
+![Live Component Preview](assets/component-preview.png)
+_Interactive component playground with live prop editing and real-time updates._
+
 ---
 
 ## ⚡ Features at a Glance
@@ -39,6 +42,100 @@ _Mermaid.js diagrams for visualizing complex logic._
 - **Coverage Reports** - Track documentation health across 6 categories: Components, Modules, Functions, Classes, Interfaces, and Types.
 - **Project Metrics** - Get instant insights into your project's complexity and structure.
 - **Zero Configuration** - Intelligent defaults that work out of the box.
+
+### 🎮 Live Component Previews
+
+- **Interactive Playground** - Preview React components directly in the documentation with live prop editing.
+- **Type-Aware Editors** - Automatic editor selection based on TypeScript types (string, number, boolean, enums, objects, arrays).
+- **Sandboxed Execution** - Secure iframe-based rendering with Content Security Policy and timeout protection.
+- **Real-Time Updates** - See component changes instantly as you edit props.
+- **Zero Configuration** - Works automatically for all exported React components.
+
+---
+
+## 🎮 Live Component Previews
+
+CogniDocs includes a powerful **live component preview system** that allows you to interact with your React components directly in the documentation.
+
+### How It Works
+
+1. **Automatic Detection** - CogniDocs automatically detects all exported React components in your codebase.
+2. **Live Preview Tab** - Each component page includes a "Live Preview" tab alongside the documentation.
+3. **Interactive Props Editor** - Edit component props in real-time with type-aware editors.
+4. **Instant Rendering** - See your component update immediately as you change props.
+
+### Supported Prop Types
+
+The preview system automatically generates the appropriate editor based on your TypeScript prop types:
+
+| TypeScript Type | Editor Type | Example |
+|----------------|-------------|---------|
+| `string` | Text Input | `label: string` |
+| `number` | Number Input | `count: number` |
+| `boolean` | Checkbox | `disabled: boolean` |
+| `'a' \| 'b' \| 'c'` | Dropdown | `variant: 'sm' \| 'md' \| 'lg'` |
+| `object` | JSON Editor | `config: { x: number }` |
+| `array` | JSON Editor | `items: string[]` |
+| `function` | Mock Function | `onClick: () => void` |
+
+### Example Component
+
+```tsx
+/**
+ * A button component with multiple variants
+ */
+interface ButtonProps {
+  /** Button label */
+  label: string;
+  /** Visual style variant */
+  variant?: 'primary' | 'secondary' | 'danger';
+  /** Disabled state */
+  disabled?: boolean;
+  /** Click handler */
+  onClick?: () => void;
+}
+
+export function Button({ label, variant = 'primary', disabled = false, onClick }: ButtonProps) {
+  return (
+    <button
+      className={`btn-${variant}`}
+      disabled={disabled}
+      onClick={onClick}
+    >
+      {label}
+    </button>
+  );
+}
+```
+
+This component will automatically get:
+- A text input for `label`
+- A dropdown for `variant` (primary/secondary/danger)
+- A checkbox for `disabled`
+- A mock function for `onClick`
+
+### Security & Performance
+
+- **Sandboxed Execution** - Components run in isolated iframes with Content Security Policy headers
+- **5-Second Timeout** - Prevents infinite loops and blocking operations
+- **Error Boundaries** - Graceful error handling with detailed error messages
+- **No External Access** - Components cannot make network requests or access parent window
+
+### Best Practices
+
+✅ **DO:**
+- Use TypeScript for clear prop types
+- Provide default values for optional props
+- Add JSDoc comments for prop descriptions
+- Keep components pure and self-contained
+
+❌ **DON'T:**
+- Use external API calls in components
+- Require context providers
+- Access `window` or `document` directly
+- Use heavy computations
+
+For a comprehensive guide, see the [Component Preview Guide](examples/sample-react/additional-documentation/guides/component-preview-guide.md) in the examples folder.
 
 ---
 
@@ -111,15 +208,17 @@ CogniDocs handles the specific patterns of your favorite frameworks:
 Choose your preferred package manager:
 
 ```bash
+# pnpm (Recommended - especially for monorepo projects)
+pnpm add -g @cognidocs/cli
+
 # npm
 npm install -g @cognidocs/cli
-
-# pnpm (Recommended)
-pnpm add -g @cognidocs/cli
 
 # npx (Try without installing)
 npx @cognidocs/cli init
 ```
+
+> **💡 Tip:** For monorepo/workspace projects, we strongly recommend using **pnpm** as it provides superior workspace management and dependency handling.
 
 ### Usage
 

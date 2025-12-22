@@ -27,7 +27,6 @@
   "license": "MIT",
   "workspaces": [
     "packages/*",
-    "apps/*",
     "shared/*"
   ],
   "scripts": {

@@ -1,9 +1,10 @@
 {
   "name": "cognidocs",
   "description": "Beautiful documentation for TypeScript & React projects — automatically generated from your code",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "author": "Your Name <your.email@example.com>",
   "homepage": "https://github.com/yourusername/cognidocs#readme",
   "repository": "https://github.com/yourusername/cognidocs.git",
-  "license": "MIT"
+  "license": "MIT",
+  "enableComponentPreview": false
 }

@@ -52,7 +52,8 @@ function parseHash(hash: string): RouteMatch {
   }
 
   // Pattern: /component/{id}
-  const componentMatch = path.match(/^component\/(.+)$/);
+  // Match component detail routes (support both singular and plural for robustness)
+  const componentMatch = path.match(/^(?:components?)\/(.+)$/);
   if (componentMatch) {
     return { type: 'component', id: componentMatch[1], path };
   }
@@ -81,10 +82,27 @@ function parseHash(hash: string): RouteMatch {
     return { type: 'class', id: classMatch[1], path };
   }
 
+  // Intercept legacy/generic content component paths EARLY
+  // e.g. content/components/Button -> component/Button
+  const legacyComponentMatch = path.match(/^content\/components\/([^/]+)$/);
+  if (legacyComponentMatch) {
+    console.log('[Router] Redirecting legacy component path:', path);
+    return { type: 'component', id: legacyComponentMatch[1], path };
+  }
+
   // Pattern: /content/{path}
   const contentMatch = path.match(/^content\/(.+)$/);
   if (contentMatch) {
-    return { type: 'content', id: contentMatch[1], path };
+    const contentPath = contentMatch[1];
+
+    // Intercept legacy/generic component paths (e.g., content/components/Button)
+    // and redirect them to the rich component view
+    const componentPathMatch = contentPath.match(/^components\/([^/]+)$/);
+    if (componentPathMatch) {
+      return { type: 'component', id: componentPathMatch[1], path };
+    }
+
+    return { type: 'content', id: contentPath, path };
   }
 
   return { type: 'notfound', path };

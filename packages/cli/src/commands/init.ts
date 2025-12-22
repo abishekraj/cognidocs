@@ -52,6 +52,7 @@ export async function initCommand(options: InitOptions = {}): Promise<void> {
       darkMode: true,
       frameworks: ['react'],
       exclude: ['**/*.test.ts', '**/*.test.tsx', '**/node_modules/**', '**/dist/**'],
+      enableComponentPreview: false, // Experimental feature disabled by default
     };
   } else {
     // Interactive prompts
@@ -73,8 +74,16 @@ export async function initCommand(options: InitOptions = {}): Promise<void> {
         name: 'theme',
         message: 'Choose a theme:',
         choices: [
-          { name: 'Gitbook (recommended)', value: 'gitbook' },
-          { name: 'Material', value: 'material' },
+          { name: 'GitBook (recommended)', value: 'gitbook' },
+          { name: 'GitHub', value: 'github' },
+          { name: 'Nord', value: 'nord' },
+          { name: 'Dracula', value: 'dracula' },
+          { name: 'Monokai', value: 'monokai' },
+          { name: 'Solarized Light', value: 'solarized-light' },
+          { name: 'Solarized Dark', value: 'solarized-dark' },
+          { name: 'One Dark', value: 'one-dark' },
+          { name: 'Material Light', value: 'material-light' },
+          { name: 'Material Dark', value: 'material-dark' },
           { name: 'Read the Docs', value: 'readthedocs' },
           { name: 'Stripe', value: 'stripe' },
         ],
@@ -104,6 +113,12 @@ export async function initCommand(options: InitOptions = {}): Promise<void> {
         message: 'Enable coverage tracking?',
         default: true,
       },
+      {
+        type: 'confirm',
+        name: 'enableComponentPreview',
+        message: 'Enable live component preview? (experimental)',
+        default: false,
+      },
     ]);
 
     config = {
@@ -113,6 +128,7 @@ export async function initCommand(options: InitOptions = {}): Promise<void> {
       darkMode: answers.darkMode,
       frameworks: [answers.framework],
       exclude: ['**/*.test.ts', '**/*.test.tsx', '**/node_modules/**', '**/dist/**'],
+      enableComponentPreview: answers.enableComponentPreview,
     };
 
     if (answers.coverage) {
