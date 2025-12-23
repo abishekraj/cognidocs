@@ -1,6 +1,6 @@
 {
   "name": "@cognidocs/utils",
-  "version": "0.0.12",
+  "version": "1.0.0",
   "description": "Shared utility functions for CogniDocs",
   "main": "./dist/index.mjs",
   "types": "./dist/index.d.mts",

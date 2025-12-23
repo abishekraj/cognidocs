@@ -1,5 +1,18 @@
 # @cognidocs/docs-generator
 
+## 1.0.0
+
+### Major Changes
+
+- Initial softlauch of cognidocs - with base features
+
+### Patch Changes
+
+- Updated dependencies
+  - @cognidocs/constants@1.0.0
+  - @cognidocs/types@1.0.0
+  - @cognidocs/utils@1.0.0
+
 ## 0.0.12
 
 ### Patch Changes

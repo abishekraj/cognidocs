@@ -1,5 +1,17 @@
 # @cognidocs/site-builder
 
+## 1.0.0
+
+### Major Changes
+
+- Initial softlauch of cognidocs - with base features
+
+### Patch Changes
+
+- Updated dependencies
+  - @cognidocs/graph-viz@1.0.0
+  - @cognidocs/utils@1.0.0
+
 ## 0.0.12
 
 ### Patch Changes

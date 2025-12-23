@@ -1,6 +1,6 @@
 {
   "name": "@cognidocs/cli",
-  "version": "0.0.12",
+  "version": "1.0.0",
   "description": "Beautiful documentation for TypeScript & React projects — CLI tool",
   "main": "./dist/index.mjs",
   "types": "./dist/index.d.mts",

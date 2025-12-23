@@ -1,5 +1,24 @@
 # @cognidocs/cli
 
+## 1.0.0
+
+### Major Changes
+
+- Initial softlauch of cognidocs - with base features
+
+### Patch Changes
+
+- Updated dependencies
+  - @cognidocs/analyzer@1.0.0
+  - @cognidocs/coverage@1.0.0
+  - @cognidocs/docs-generator@1.0.0
+  - @cognidocs/parser@1.0.0
+  - @cognidocs/plugin-core@1.0.0
+  - @cognidocs/site-builder@1.0.0
+  - @cognidocs/constants@1.0.0
+  - @cognidocs/types@1.0.0
+  - @cognidocs/utils@1.0.0
+
 ## 0.0.12
 
 ### Patch Changes

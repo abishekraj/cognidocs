@@ -1,5 +1,11 @@
 # @cognidocs/types
 
+## 1.0.0
+
+### Major Changes
+
+- Initial softlauch of cognidocs - with base features
+
 ## 0.0.12
 
 ### Patch Changes
