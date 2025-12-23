@@ -31,17 +31,11 @@ const handleClick = () => {
 
 <template>
   <div>
-    <Button variant="primary" @click="handleClick">
-      Primary Button
-    </Button>
+    <Button variant="primary" @click="handleClick"> Primary Button </Button>
 
-    <Button variant="secondary" disabled>
-      Disabled Button
-    </Button>
+    <Button variant="secondary" disabled> Disabled Button </Button>
 
-    <Button variant="danger" :loading="true">
-      Loading...
-    </Button>
+    <Button variant="danger" :loading="true"> Loading... </Button>
   </div>
 </template>
 ```

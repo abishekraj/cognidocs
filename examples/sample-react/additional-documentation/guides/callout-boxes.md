@@ -17,7 +17,7 @@ Callout boxes use the directive syntax with three colons:
     Your content goes here
     :::
 
-Replace `type` with one of: `info`, `warning`, `tip`, or `danger`.
+Replace 'type' with one of: 'info', 'warning', 'tip', or 'danger'.
 
 ## Available Callout Types
 
@@ -84,11 +84,11 @@ This is a danger callout. Use it for critical warnings about destructive actions
 When documenting an API endpoint, you might use multiple callout types:
 
 :::info
-The `/api/users` endpoint supports pagination. Use the `page` and `limit` query parameters to control the response size.
+The '/api/users/' endpoint supports pagination. Use the 'page' and 'limit' query parameters to control the response size.
 :::
 
 :::warning
-This endpoint requires authentication. Make sure to include a valid JWT token in the `Authorization` header.
+This endpoint requires authentication. Make sure to include a valid JWT token in the 'Authorization' header.
 :::
 
 :::tip
@@ -102,15 +102,15 @@ Never expose user passwords or sensitive personal information through this endpo
 ### Example 2: Configuration Guide
 
 :::info
-CogniDocs uses a `cognidocs.config.js` file in your project root for configuration.
+CogniDocs uses a 'cognidocs.config.js' file in your project root for configuration.
 :::
 
 :::tip
-You can generate a default configuration file by running `cognidocs init` in your terminal.
+You can generate a default configuration file by running 'cognidocs init' in your terminal.
 :::
 
 :::warning
-If you change the `entry` path in your configuration, make sure the path exists and contains valid source files.
+If you change the 'entry' path in your configuration, make sure the path exists and contains valid source files.
 :::
 
 ### Example 3: Installation Instructions
@@ -120,7 +120,7 @@ CogniDocs requires Node.js version 16 or higher.
 :::
 
 :::tip
-Using a Node version manager like `nvm` makes it easy to switch between different Node.js versions for different projects.
+Using a Node version manager like 'nvm' makes it easy to switch between different Node.js versions for different projects.
 :::
 
 :::danger

@@ -10,9 +10,7 @@ import { useRouter } from './Router';
 const OverviewPage = lazy(() =>
   import('./pages/OverviewPage').then((m) => ({ default: m.OverviewPage }))
 );
-const ComponentDetailPage = lazy(() =>
-  import('./pages/ComponentDetailPage').then((m) => ({ default: m.ComponentDetailPage }))
-);
+// MarkdownPage is now used for everything except overview/graph
 const MarkdownPage = lazy(() =>
   import('./pages/MarkdownPage').then((m) => ({ default: m.MarkdownPage }))
 );
@@ -30,13 +28,19 @@ function AppContent() {
         return <MarkdownPage path="README" />;
 
       case 'component':
-        return route.id ? <ComponentDetailPage id={route.id} /> : <NotFoundPage />;
+        return route.id ? <MarkdownPage path={`components/${route.id}`} /> : <NotFoundPage />;
 
       case 'function':
+        return route.id ? <MarkdownPage path={`functions/${route.id}`} /> : <NotFoundPage />;
+
       case 'interface':
+        return route.id ? <MarkdownPage path={`interfaces/${route.id}`} /> : <NotFoundPage />;
+
       case 'type':
+        return route.id ? <MarkdownPage path={`types/${route.id}`} /> : <NotFoundPage />;
+
       case 'class':
-        return <DetailPlaceholderPage type={route.type} id={route.id || 'Unknown'} />;
+        return route.id ? <MarkdownPage path={`classes/${route.id}`} /> : <NotFoundPage />;
 
       case 'content':
         return route.id ? <MarkdownPage path={route.id} /> : <NotFoundPage />;

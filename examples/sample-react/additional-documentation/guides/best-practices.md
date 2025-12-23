@@ -18,19 +18,22 @@ Follow these best practices to maintain code quality and consistency.
 
 ## Component Design
 
-1. **Keep components small and focused**
-   - Each component should do one thing well
-   - Extract logic into custom hooks
+### Keep components small and focused
 
-2. **Avoid prop drilling**
-   - Use Context API for global state
-   - Consider state management libraries for complex apps
+- Each component should do one thing well
+- Extract logic into custom hooks
 
-3. **Performance optimization**
-   - Use `React.memo()` for expensive renders
-   - Implement `useMemo()` and `useCallback()` appropriately
+### Avoid prop drilling
 
-## Testing
+- Use Context API for global state
+- Consider state management libraries for complex apps
+
+### Performance optimization
+
+- Use 'React.memo()' for expensive renders
+- Implement 'useMemo()' and 'useCallback()' appropriately
+
+### Testing
 
 Always write tests for your components:
 
@@ -50,7 +53,7 @@ describe('Button', () => {
 });
 ```
 
-## Documentation
+### Documentation
 
 - Add JSDoc comments to all exported functions
 - Document props interfaces

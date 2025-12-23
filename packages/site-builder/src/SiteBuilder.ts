@@ -169,6 +169,9 @@ export default defineConfig({
     // 7. Generate content manifest (excluding 'site' directory)
     const manifest = await this.generateManifest(this.docsDir);
 
+    // 7.2 Disambiguate names in manifest if multiple items have same title
+    this.disambiguateManifest(manifest);
+
     // 7.5. Add additional-documentation to manifest if it exists
     if (await fs.pathExists(additionalDocsPath)) {
       const additionalDocsManifest = await this.generateManifest(
@@ -341,6 +344,40 @@ export default defineConfig({
     });
 
     return manifest;
+  }
+
+  private disambiguateManifest(items: any[]): void {
+    const nameGroups = new Map<string, any[]>();
+
+    // Group items by their display name
+    items.forEach((item) => {
+      const name = item.name;
+      if (!nameGroups.has(name)) nameGroups.set(name, []);
+      nameGroups.get(name)?.push(item);
+
+      // Recursively handle directories
+      if (item.type === 'directory' && item.children) {
+        this.disambiguateManifest(item.children);
+      }
+    });
+
+    // Disambiguate groups with more than one item
+    nameGroups.forEach((group, name) => {
+      if (group.length > 1) {
+        group.forEach((item) => {
+          if (item.path_title) {
+            // Use path_title if available (from frontmatter if we added it, but let's derive from path)
+            item.name = `${name} (${item.path_title})`;
+          } else if (item.path) {
+            // Derive a short hint from the source path if available
+            const sourcePath = item.path;
+            const parts = sourcePath.split(/[\\/]/);
+            const hint = parts.length > 1 ? parts[parts.length - 2] : 'root';
+            item.name = `${name} (${hint})`;
+          }
+        });
+      }
+    });
   }
 
   private async parseFrontmatter(filePath: string): Promise<Record<string, any>> {

@@ -122,17 +122,21 @@ export class MarkdownGenerator {
             const filename = `${safeRoute}-${method}`.toLowerCase();
 
             // Check uniqueness based on filename
-            if (!documentedItems.apiRoutes.has(filename)) {
-              await this.generateApiRouteDoc(component);
-              summary.push(
-                `- [${method} ${component.routePath}](./api-routes/${filename}.md) (API Route)`
-              );
-              documentedItems.apiRoutes.add(filename);
-            }
+            const uniqueFilename = this.getUniqueFilename(filename, documentedItems.apiRoutes);
+
+            await this.generateApiRouteDoc(component, uniqueFilename);
+            summary.push(
+              `- [${method} ${component.routePath}](./api-routes/${uniqueFilename}.md) (API Route)`
+            );
+            documentedItems.apiRoutes.add(uniqueFilename);
           } else if (!documentedItems.components.has(component.name)) {
-            await this.generateComponentDoc(component);
-            summary.push(`- [${component.name}](./components/${component.name}.md) (Component)`);
-            documentedItems.components.add(component.name);
+            const uniqueFilename = this.getUniqueFilename(
+              component.name,
+              documentedItems.components
+            );
+            await this.generateComponentDoc(component, uniqueFilename);
+            summary.push(`- [${component.name}](./components/${uniqueFilename}.md) (Component)`);
+            documentedItems.components.add(uniqueFilename);
           } else {
             console.warn(`⚠️  Skipping duplicate component documentation: ${component.name}`);
           }
@@ -141,42 +145,38 @@ export class MarkdownGenerator {
 
       for (const func of result.functions) {
         // Only document exported functions and prevent duplicates
-        if (func.isExported && !documentedItems.functions.has(func.name)) {
-          await this.generateFunctionDoc(func);
-          summary.push(`- [${func.name}](./functions/${func.name}.md) (Function)`);
-          documentedItems.functions.add(func.name);
-        } else if (func.isExported && documentedItems.functions.has(func.name)) {
-          console.warn(`⚠️  Skipping duplicate function documentation: ${func.name}`);
+        if (func.isExported) {
+          const uniqueFilename = this.getUniqueFilename(func.name, documentedItems.functions);
+          await this.generateFunctionDoc(func, uniqueFilename);
+          summary.push(`- [${func.name}](./functions/${uniqueFilename}.md) (Function)`);
+          documentedItems.functions.add(uniqueFilename);
         }
       }
 
       for (const cls of result.classes) {
-        if (cls.isExported && !documentedItems.classes.has(cls.name)) {
-          await this.generateClassDoc(cls);
-          summary.push(`- [${cls.name}](./classes/${cls.name}.md) (Class)`);
-          documentedItems.classes.add(cls.name);
-        } else if (cls.isExported && documentedItems.classes.has(cls.name)) {
-          console.warn(`⚠️  Skipping duplicate class documentation: ${cls.name}`);
+        if (cls.isExported) {
+          const uniqueFilename = this.getUniqueFilename(cls.name, documentedItems.classes);
+          await this.generateClassDoc(cls, uniqueFilename);
+          summary.push(`- [${cls.name}](./classes/${uniqueFilename}.md) (Class)`);
+          documentedItems.classes.add(uniqueFilename);
         }
       }
 
       for (const iface of result.interfaces) {
-        if (iface.isExported && !documentedItems.interfaces.has(iface.name)) {
-          await this.generateInterfaceDoc(iface);
-          summary.push(`- [${iface.name}](./interfaces/${iface.name}.md) (Interface)`);
-          documentedItems.interfaces.add(iface.name);
-        } else if (iface.isExported && documentedItems.interfaces.has(iface.name)) {
-          console.warn(`⚠️  Skipping duplicate interface documentation: ${iface.name}`);
+        if (iface.isExported) {
+          const uniqueFilename = this.getUniqueFilename(iface.name, documentedItems.interfaces);
+          await this.generateInterfaceDoc(iface, uniqueFilename);
+          summary.push(`- [${iface.name}](./interfaces/${uniqueFilename}.md) (Interface)`);
+          documentedItems.interfaces.add(uniqueFilename);
         }
       }
 
       for (const type of result.types) {
-        if (type.isExported && !documentedItems.types.has(type.name)) {
-          await this.generateTypeDoc(type);
-          summary.push(`- [${type.name}](./types/${type.name}.md) (Type)`);
-          documentedItems.types.add(type.name);
-        } else if (type.isExported && documentedItems.types.has(type.name)) {
-          console.warn(`⚠️  Skipping duplicate type documentation: ${type.name}`);
+        if (type.isExported) {
+          const uniqueFilename = this.getUniqueFilename(type.name, documentedItems.types);
+          await this.generateTypeDoc(type, uniqueFilename);
+          summary.push(`- [${type.name}](./types/${uniqueFilename}.md) (Type)`);
+          documentedItems.types.add(uniqueFilename);
         }
       }
     }
@@ -184,10 +184,33 @@ export class MarkdownGenerator {
     await writeFile(join(this.outputDir, 'README.md'), summary.join('\n'));
   }
 
-  private async generateApiRouteDoc(component: ComponentMetadata): Promise<void> {
+  private getUniqueFilename(name: string, documented: Set<string>): string {
+    let filename = name;
+    let counter = 1;
+    while (documented.has(filename)) {
+      filename = `${name}_${counter}`;
+      counter++;
+    }
+    return filename;
+  }
+
+  private generateFrontmatter(title: string, metadata: Record<string, any> = {}): string {
+    const lines = ['---', `title: ${title}`];
+    for (const [key, value] of Object.entries(metadata)) {
+      if (value !== undefined && value !== null) {
+        lines.push(`${key}: ${value}`);
+      }
+    }
+    lines.push('---', '');
+    return lines.join('\n');
+  }
+
+  private async generateApiRouteDoc(component: ComponentMetadata, filename: string): Promise<void> {
     const method = component.name === 'default' ? 'Handler' : component.name;
     const title = `${component.routePath || ''} ${method}`;
-    const lines: string[] = [`# ${title}`];
+    const lines: string[] = [this.generateFrontmatter(title, { path: component.filePath })];
+    lines.push(`# ${title}`);
+    // ... rest same
 
     // Add Method Badge/Callout
     lines.push(
@@ -227,18 +250,18 @@ export class MarkdownGenerator {
       lines.push('');
     }
 
-    // Generate unique filename to facilitate multiple methods per route
-    const safeRoute = (component.routePath || 'route')
-      .replace(/\//g, '-')
-      .replace(/^-/, '')
-      .replace(/-$/, '');
-    const filename = `${safeRoute}-${method}`.toLowerCase(); // e.g., api-users-get.md
-
+    // No need to redeclare filename here, it's passed as an argument
     await writeFile(join(this.outputDir, 'api-routes', `${filename}.md`), lines.join('\n'));
   }
 
-  private async generateComponentDoc(component: ComponentMetadata): Promise<void> {
-    const lines: string[] = [`# ${component.name}`];
+  private async generateComponentDoc(
+    component: ComponentMetadata,
+    filename: string
+  ): Promise<void> {
+    const lines: string[] = [
+      this.generateFrontmatter(component.name, { path: component.filePath }),
+    ];
+    lines.push(`# ${component.name}`);
 
     if (component.isPage) {
       lines.push(`\n> [!NOTE]
@@ -277,11 +300,12 @@ export class MarkdownGenerator {
       }
     }
 
-    await writeFile(join(this.outputDir, 'components', `${component.name}.md`), lines.join('\n'));
+    await writeFile(join(this.outputDir, 'components', `${filename}.md`), lines.join('\n'));
   }
 
-  private async generateFunctionDoc(func: FunctionMetadata): Promise<void> {
-    const lines: string[] = [`# ${func.name}`];
+  private async generateFunctionDoc(func: FunctionMetadata, filename: string): Promise<void> {
+    const lines: string[] = [this.generateFrontmatter(func.name, { path: func.filePath })];
+    lines.push(`# ${func.name}`);
 
     if (func.description) {
       lines.push(`\n${func.description}\n`);
@@ -305,11 +329,12 @@ export class MarkdownGenerator {
       }
     }
 
-    await writeFile(join(this.outputDir, 'functions', `${func.name}.md`), lines.join('\n'));
+    await writeFile(join(this.outputDir, 'functions', `${filename}.md`), lines.join('\n'));
   }
 
-  private async generateClassDoc(cls: ClassMetadata): Promise<void> {
-    const lines: string[] = [`# ${cls.name}`];
+  private async generateClassDoc(cls: ClassMetadata, filename: string): Promise<void> {
+    const lines: string[] = [this.generateFrontmatter(cls.name, { path: cls.filePath })];
+    lines.push(`# ${cls.name}`);
 
     if (cls.description) {
       lines.push(`\n${cls.description}\n`);
@@ -344,11 +369,12 @@ export class MarkdownGenerator {
       }
     }
 
-    await writeFile(join(this.outputDir, 'classes', `${cls.name}.md`), lines.join('\n'));
+    await writeFile(join(this.outputDir, 'classes', `${filename}.md`), lines.join('\n'));
   }
 
-  private async generateInterfaceDoc(iface: InterfaceMetadata): Promise<void> {
-    const lines: string[] = [`# ${iface.name}`];
+  private async generateInterfaceDoc(iface: InterfaceMetadata, filename: string): Promise<void> {
+    const lines: string[] = [this.generateFrontmatter(iface.name, { path: iface.filePath })];
+    lines.push(`# ${iface.name}`);
     if (iface.description) lines.push(`\n${iface.description}\n`);
 
     // Add common JSDoc sections
@@ -366,11 +392,12 @@ export class MarkdownGenerator {
       }
     }
 
-    await writeFile(join(this.outputDir, 'interfaces', `${iface.name}.md`), lines.join('\n'));
+    await writeFile(join(this.outputDir, 'interfaces', `${filename}.md`), lines.join('\n'));
   }
 
-  private async generateTypeDoc(type: TypeMetadata): Promise<void> {
-    const lines: string[] = [`# ${type.name}`];
+  private async generateTypeDoc(type: TypeMetadata, filename: string): Promise<void> {
+    const lines: string[] = [this.generateFrontmatter(type.name, { path: type.filePath })];
+    lines.push(`# ${type.name}`);
     if (type.description) lines.push(`\n${type.description}\n`);
 
     // Add common JSDoc sections
@@ -381,6 +408,6 @@ export class MarkdownGenerator {
     lines.push(type.type); // This might be the raw type string
     lines.push('```');
 
-    await writeFile(join(this.outputDir, 'types', `${type.name}.md`), lines.join('\n'));
+    await writeFile(join(this.outputDir, 'types', `${filename}.md`), lines.join('\n'));
   }
 }

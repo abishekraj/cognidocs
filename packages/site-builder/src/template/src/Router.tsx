@@ -51,58 +51,21 @@ function parseHash(hash: string): RouteMatch {
     return { type: 'graph', path };
   }
 
-  // Pattern: /component/{id}
-  // Match component detail routes (support both singular and plural for robustness)
-  const componentMatch = path.match(/^(?:components?)\/(.+)$/);
-  if (componentMatch) {
-    return { type: 'component', id: componentMatch[1], path };
-  }
-
-  // Pattern: /function/{id}
-  const functionMatch = path.match(/^function\/(.+)$/);
-  if (functionMatch) {
-    return { type: 'function', id: functionMatch[1], path };
-  }
-
-  // Pattern: /interface/{id}
-  const interfaceMatch = path.match(/^interface\/(.+)$/);
-  if (interfaceMatch) {
-    return { type: 'interface', id: interfaceMatch[1], path };
-  }
-
-  // Pattern: /type/{id}
-  const typeMatch = path.match(/^type\/(.+)$/);
-  if (typeMatch) {
-    return { type: 'type', id: typeMatch[1], path };
-  }
-
-  // Pattern: /class/{id}
-  const classMatch = path.match(/^class\/(.+)$/);
-  if (classMatch) {
-    return { type: 'class', id: classMatch[1], path };
-  }
-
-  // Intercept legacy/generic content component paths EARLY
-  // e.g. content/components/Button -> component/Button
-  const legacyComponentMatch = path.match(/^content\/components\/([^/]+)$/);
-  if (legacyComponentMatch) {
-    console.log('[Router] Redirecting legacy component path:', path);
-    return { type: 'component', id: legacyComponentMatch[1], path };
-  }
-
-  // Pattern: /content/{path}
+  // Catch-all for content (everything under #/content/)
   const contentMatch = path.match(/^content\/(.+)$/);
   if (contentMatch) {
-    const contentPath = contentMatch[1];
+    const fullPath = contentMatch[1];
+    const parts = fullPath.split('/');
 
-    // Intercept legacy/generic component paths (e.g., content/components/Button)
-    // and redirect them to the rich component view
-    const componentPathMatch = contentPath.match(/^components\/([^/]+)$/);
-    if (componentPathMatch) {
-      return { type: 'component', id: componentPathMatch[1], path };
-    }
+    // Determine type based on folder
+    if (parts[0] === 'components') return { type: 'component', id: parts[1], path };
+    if (parts[0] === 'functions') return { type: 'function', id: parts[1], path };
+    if (parts[0] === 'interfaces') return { type: 'interface', id: parts[1], path };
+    if (parts[0] === 'types') return { type: 'type', id: parts[1], path };
+    if (parts[0] === 'classes') return { type: 'class', id: parts[1], path };
+    if (parts[0] === 'api-routes') return { type: 'content', id: fullPath, path };
 
-    return { type: 'content', id: contentPath, path };
+    return { type: 'content', id: fullPath, path };
   }
 
   return { type: 'notfound', path };

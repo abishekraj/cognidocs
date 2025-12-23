@@ -104,18 +104,7 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
         );
       }
 
-      // Check if this is a component file to use specialized route
-      // Robust check: any markdown file inside a top-level 'components' directory or parent is 'components'
-      const pathParts = item.path.split('/');
-      const isComponent = (item.path.includes('components/') || pathParts[0] === 'components') && item.path.endsWith('.md');
-      let href = `#/content/${item.path.replace('.md', '')}`;
-
-      if (isComponent) {
-        // use #/component/Name instead of #/content/components/Name
-        // Extract just the component name (last part of path without .md)
-        const componentName = item.name || item.path.split('/').pop()?.replace('.md', '') || '';
-        href = `#/component/${componentName}`;
-      }
+      const href = `#/content/${item.path.replace('.md', '')}`;
 
       return (
         <NavigationItem

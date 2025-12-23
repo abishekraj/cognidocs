@@ -14,17 +14,21 @@ This is a sample Vue 3 project demonstrating CogniDocs documentation generation 
 ## Components
 
 ### Button
+
 A reusable button component with multiple variants and loading state.
 
 **Props:**
-- `variant` - The button style (primary, secondary, danger, ghost)
-- `disabled` - Whether the button is disabled
-- `loading` - Whether to show loading spinner
+
+- 'variant' - The button style (primary, secondary, danger, ghost)
+- 'disabled' - Whether the button is disabled
+- 'loading' - Whether to show loading spinner
 
 **Events:**
-- `click` - Emitted when button is clicked
+
+- 'click' - Emitted when button is clicked
 
 **Usage:**
+
 ```vue
 <Button variant="primary" @click="handleSubmit">
   Submit Form
@@ -32,18 +36,22 @@ A reusable button component with multiple variants and loading state.
 ```
 
 ### Card
+
 A flexible card component with header, body, and footer slots.
 
 **Props:**
-- `title` - Card title
-- `interactive` - Enable hover effects
+
+- 'title' - Card title
+- 'interactive' - Enable hover effects
 
 **Slots:**
-- `header` - Card header content
-- `default` - Card body content
-- `footer` - Card footer content
+
+- 'header' - Card header content
+- 'default' - Card body content
+- 'footer' - Card footer content
 
 **Usage:**
+
 ```vue
 <Card title="My Card">
   <template #header>
@@ -59,17 +67,20 @@ A flexible card component with header, body, and footer slots.
 ## Composables
 
 ### useCounter
+
 A composable for managing counter state with increment, decrement, and reset functionality.
 
 **Returns:**
-- `count` - The current count value
-- `increment()` - Increment the counter
-- `decrement()` - Decrement the counter
-- `reset()` - Reset to initial value
-- `isZero` - Computed boolean indicating if count is zero
-- `isPositive` - Computed boolean indicating if count is positive
+
+- 'count' - The current count value
+- 'increment'() - Increment the counter
+- 'decrement'() - Decrement the counter
+- 'reset'() - Reset to initial value
+- 'isZero' - Computed boolean indicating if count is zero
+- 'isPositive' - Computed boolean indicating if count is positive
 
 **Usage:**
+
 ```ts
 const { count, increment, decrement, reset } = useCounter(0);
 ```

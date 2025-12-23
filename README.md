@@ -1,6 +1,6 @@
 # CogniDocs
 
-> 🚀 Premium documentation for TypeScript & React, Next.js, Vue, and Svelte — automatically generated from your code.
+> 🚀 Premium documentation for React, Next.js, Vue, and Svelte — automatically generated from your code.
 
 [![npm version](https://badge.fury.io/js/@cognidocs%2Fcli.svg)](https://www.npmjs.com/package/@cognidocs/cli)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -9,6 +9,20 @@
 CogniDocs is a comprehensive documentation tool for JavaScript and TypeScript. Point it at your codebase, and it generates a stunning, premium documentation site with interactive dependency graphs, detailed coverage reports, and 12 professional themes.
 
 **[🌐 View Live Demo](https://abishekraj.github.io/cognidocs/)** — See CogniDocs in action!
+
+---
+
+## 📖 Table of Contents
+
+- [Quick Start](#-quick-start-in-60-seconds)
+- [Features](#-features-at-a-glance)
+- [Supported Frameworks](#-supported-frameworks)
+- [Documenting Your Code](#-documenting-your-code-jsdoc)
+- [Configuration](#-configuration)
+- [CLI Commands](#-cli-commands)
+- [Custom Documentation](#-custom-documentation-guides)
+- [Advanced Markdown](#-advanced-markdown-features)
+- [Contributing](#-contributing--community)
 
 ---
 
@@ -22,6 +36,42 @@ _Detailed component documentation with props tables and source code view._
 
 ![Mermaid Diagram](assets/SCR-20251219-ccxb.png)
 _Mermaid.js diagrams for visualizing complex logic._
+
+---
+
+## 🚀 Quick Start in 60 Seconds
+
+### Installation
+
+Choose your preferred package manager:
+
+```bash
+# pnpm (Recommended - especially for monorepo projects)
+pnpm add -g @cognidocs/cli
+
+# npm
+npm install -g @cognidocs/cli
+
+# npx (Try without installing)
+npx @cognidocs/cli init
+```
+
+> **💡 Tip:** For monorepo/workspace projects, we strongly recommend using **pnpm** as it provides superior workspace management and dependency handling.
+
+### Usage
+
+```bash
+# 1. Initialize your project
+cognidocs init
+
+# 2. Build your documentation
+cognidocs build
+
+# 3. Preview locally
+cognidocs serve
+```
+
+Your documentation site will be generated in the `./docs` directory.
 
 ---
 
@@ -39,6 +89,19 @@ _Mermaid.js diagrams for visualizing complex logic._
 - **Coverage Reports** - Track documentation health across 6 categories: Components, Modules, Functions, Classes, Interfaces, and Types.
 - **Project Metrics** - Get instant insights into your project's complexity and structure.
 - **Zero Configuration** - Intelligent defaults that work out of the box.
+
+---
+
+## 🛠 Supported Frameworks
+
+CogniDocs handles the specific patterns of your favorite frameworks:
+
+| Framework   | Support Details                                                                    |
+| :---------- | :--------------------------------------------------------------------------------- |
+| **React**   | Function & Class components, Hooks extraction, Props detection, JSX/TSX support.   |
+| **Next.js** | Full support for App Router & Page Router, API route documentation.                |
+| **Vue 3**   | Single File Components (SFC), Composition API (`<script setup>`), and Options API. |
+| **Svelte**  | Component props, events, stores, and reactive statements (`$:`) extraction.        |
 
 ---
 
@@ -91,55 +154,6 @@ export function calculateTotal(price: number, tax: number): number {
 
 ---
 
-## 🛠 Supported Frameworks
-
-CogniDocs handles the specific patterns of your favorite frameworks:
-
-| Framework   | Support Details                                                                    |
-| ----------- | ---------------------------------------------------------------------------------- |
-| **React**   | Function & Class components, Hooks extraction, Props detection, JSX/TSX support.   |
-| **Next.js** | Full support for App Router & Page Router, API route documentation.                |
-| **Vue 3**   | Single File Components (SFC), Composition API (`<script setup>`), and Options API. |
-| **Svelte**  | Component props, events, stores, and reactive statements (`$:`) extraction.        |
-
----
-
-## 🚀 Quick Start in 60 Seconds
-
-### Installation
-
-Choose your preferred package manager:
-
-```bash
-# pnpm (Recommended - especially for monorepo projects)
-pnpm add -g @cognidocs/cli
-
-# npm
-npm install -g @cognidocs/cli
-
-# npx (Try without installing)
-npx @cognidocs/cli init
-```
-
-> **💡 Tip:** For monorepo/workspace projects, we strongly recommend using **pnpm** as it provides superior workspace management and dependency handling.
-
-### Usage
-
-```bash
-# 1. Initialize your project
-cognidocs init
-
-# 2. Build your documentation
-cognidocs build
-
-# 3. Preview locally
-cognidocs serve
-```
-
-Your documentation site will be generated in the `./docs` directory.
-
----
-
 ## ⚙️ Configuration
 
 Create a `cognidocs.config.js` in your root:
@@ -172,7 +186,7 @@ export default {
 ## 📋 CLI Commands
 
 | Command              | Description                                            |
-| -------------------- | ------------------------------------------------------ |
+| :------------------- | :----------------------------------------------------- |
 | `cognidocs init`     | Initialize configuration (use `-y` for defaults)       |
 | `cognidocs build`    | Generate the documentation site                        |
 | `cognidocs serve`    | Start dev server with live reload (default port: 4173) |
@@ -246,21 +260,6 @@ This is a critical danger callout.
 :::
 
 ---
-
-## 📁 Output Structure
-
-The `build` command generates a production-ready static site:
-
-```text
-docs/
-├── index.html              # Main SPA
-├── assets/                 # Optimized JS/CSS chunks
-├── content/                # Generated documentation data
-│   ├── manifest.json       # Navigation structure
-│   ├── components/         # Parsed component documentation
-│   └── guides/             # Custom .md files
-└── data.json              # Full project metadata
-```
 
 ## 🤝 Contributing & Community
 
