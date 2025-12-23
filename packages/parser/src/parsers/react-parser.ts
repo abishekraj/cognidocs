@@ -182,6 +182,9 @@ export class ReactParser {
 
     // Extract source code for preview and transpile it to plain JS (CommonJS)
     const rawSource = node.getText(sourceFile);
+    console.log(`[ReactParser] Extracting source for component: ${name}`);
+    console.log(`[ReactParser] Raw source length: ${rawSource.length}`);
+
     const transpileResult = ts.transpileModule(rawSource, {
       compilerOptions: {
         module: ts.ModuleKind.CommonJS,
@@ -191,6 +194,10 @@ export class ReactParser {
       },
     });
     const source = transpileResult.outputText;
+    console.log(`[ReactParser] Transpiled source length: ${source.length}`);
+    if (source.length < 100) {
+      console.log(`[ReactParser] SHORT SOURCE DETECTED for ${name}:`, source);
+    }
 
     return {
       name,
@@ -227,6 +234,9 @@ export class ReactParser {
 
     // Extract source code for preview and transpile it to plain JS (CommonJS)
     const rawSource = node.getText(sourceFile);
+    console.log(`[ReactParser] Extracting source for class component: ${name}`);
+    console.log(`[ReactParser] Raw source length: ${rawSource.length}`);
+
     const transpileResult = ts.transpileModule(rawSource, {
       compilerOptions: {
         module: ts.ModuleKind.CommonJS,
@@ -236,6 +246,7 @@ export class ReactParser {
       },
     });
     const source = transpileResult.outputText;
+    console.log(`[ReactParser] Transpiled source length: ${source.length}`);
 
     return {
       name,

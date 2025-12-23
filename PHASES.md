@@ -4,9 +4,7 @@ This document provides a quick reference for each development phase and what to 
 
 ---
 
-## 🎉 MVP STATUS: READY FOR RELEASE ✅ | Phase 6: Component Previews 🟢 COMPLETE
-
-**Phase 6 is COMPLETE** - Live component preview with interactive props editing is now fully integrated!
+## 🎉 MVP STATUS: READY FOR RELEASE ✅
 
 **Phase 4 Progress:** Next.js ✅ | Vue 3 ✅ | Svelte ✅ | Backend Frameworks 🔴
 
@@ -25,9 +23,6 @@ This document provides a quick reference for each development phase and what to 
 - ✅ Premium documentation site with 12 professional themes
 - ✅ Advanced search with Cmd+K command palette
 - ✅ Interactive dependency graphs with D3.js
-- ✅ **Live Component Previews** - Interactive playground with props editing
-- ✅ **Type-Aware Props Editor** - String, number, boolean, enum, object, array editors
-- ✅ **Sandboxed Execution** - Secure iframe-based component rendering
 - ✅ Responsive design with accessible navigation
 - ✅ Markdown documentation with proper table rendering
 - ✅ Clean, minimal UI with all bugs fixed
@@ -61,8 +56,10 @@ When working with Claude Code, you can reference phases like:
 4. Add implementation notes or file references for future reference
 
 **Example:**
+
 ```markdown
 ### Tasks
+
 - [x] Create package.json for @cognidocs/component-preview
 - [x] Set up TypeScript configuration
 - [ ] Implement PreviewRenderer component
@@ -866,6 +863,7 @@ cognidocs serve    # Start development server
 **Bug Fixes:**
 
 **1. Base Path Configuration**
+
 - **Problem:** Site built with `base: './'` expected root serving, but GitHub Pages serves from `/cognidocs/` subdirectory
 - **Solution:** Made base path configurable via CLI option
 - **Files Modified:**
@@ -876,6 +874,7 @@ cognidocs serve    # Start development server
   - `.github/workflows/release.yml` - Uses `--base-path /cognidocs/`
 
 **2. Content Fetch Paths**
+
 - **Problem:** All content fetches used hardcoded `/content/...` paths which don't work in subdirectories
 - **Solution:** Use Vite's `import.meta.env.BASE_URL` for all fetch calls
 - **Files Modified:**
@@ -888,9 +887,11 @@ cognidocs serve    # Start development server
   - `packages/site-builder/src/template/src/pages/GraphPage.tsx` (line 9-10)
 
 **3. GitHub Actions Package Manager**
+
 - **Problem:** pnpm doesn't support global CLI linking like npm
 - **Solution:** Hybrid approach - pnpm for installation, npm link for CLI
 - **Implementation:**
+
   ```yaml
   - name: Setup pnpm
     uses: pnpm/action-setup@v3
@@ -906,6 +907,7 @@ cognidocs serve    # Start development server
   ```
 
 **4. npm Rollup Optional Dependencies Bug**
+
 - **Problem:** `Cannot find module @rollup/rollup-linux-x64-gnu` on Linux CI
 - **Cause:** npm bug with optional dependencies ([npm/cli#4828](https://github.com/npm/cli/issues/4828))
 - **Solution:** Automatic cleanup and legacy peer deps flag
@@ -2019,6 +2021,7 @@ cd examples/sample-express && cognidocs build
 ### Architecture Overview
 
 **Three-Layer System:**
+
 1. **Preview Renderer** - Component lifecycle and rendering management
 2. **Props Editor** - Type-aware UI for real-time prop editing
 3. **Sandbox Environment** - Isolated iframe with security boundaries
@@ -2088,6 +2091,7 @@ cognidocs build && cognidocs serve
 ### Architecture
 
 **Three-Layer System:**
+
 1. **Preview Renderer** - Component lifecycle and rendering management
 2. **Props Editor** - Type-aware UI for real-time prop editing
 3. **Sandbox Environment** - Isolated iframe with security boundaries
@@ -2095,6 +2099,7 @@ cognidocs build && cognidocs serve
 ### Phase 6.1: Core Preview Package Setup 🟢 COMPLETE
 
 **Tasks:**
+
 - [x] Create package.json for @cognidocs/component-preview
 - [x] Set up TypeScript configuration and tsup build
 - [x] Add dependencies (react-live, sucrase, error-stack-parser)
@@ -2103,6 +2108,7 @@ cognidocs build && cognidocs serve
 - [x] Create ErrorBoundary component
 
 **Files Created:**
+
 - `packages/component-preview/package.json` - Package configuration with all dependencies
 - `packages/component-preview/tsup.config.ts` - Build configuration with React externals
 - `packages/component-preview/tsconfig.json` - TypeScript config with JSX support
@@ -2112,6 +2118,7 @@ cognidocs build && cognidocs serve
 - `shared/types/src/index.ts` - Added Phase 6 types (PreviewMetadata, PreviewState, PropEditorType, etc.)
 
 **Dependencies:**
+
 - react, react-dom (^18.2.0)
 - react-live (^4.1.7)
 - sucrase (^3.35.0)
@@ -2122,6 +2129,7 @@ cognidocs build && cognidocs serve
 ### Phase 6.2: Props Editor System 🟢 COMPLETE
 
 **Tasks:**
+
 - [x] Implement propTypeParser utility (TypeScript type → editor type)
 - [x] Create StringEditor component
 - [x] Create NumberEditor component
@@ -2134,6 +2142,7 @@ cognidocs build && cognidocs serve
 - [x] Add prop validation and error handling
 
 **Files Created:**
+
 - `packages/component-preview/src/PropsEditor.tsx` - Main orchestration component with validation
 - `packages/component-preview/src/utils/propTypeParser.ts` - TypeScript type parsing and validation utilities
 - `packages/component-preview/src/editors/StringEditor.tsx` - Text input editor for string props
@@ -2145,6 +2154,7 @@ cognidocs build && cognidocs serve
 - `packages/component-preview/src/hooks/usePreviewState.ts` - State management hook for preview props
 
 **Implementation Notes:**
+
 - Type-aware prop editors based on TypeScript type strings
 - Real-time JSON validation for object and array editors
 - Comprehensive prop value validation system
@@ -2158,6 +2168,7 @@ cognidocs build && cognidocs serve
 ### Phase 6.3: Sandbox Environment 🟢 COMPLETE
 
 **Tasks:**
+
 - [x] Create PreviewSandbox component with iframe wrapper
 - [x] Implement sandbox security policies (CSP headers, sandbox attributes)
 - [x] Build sandboxRuntime.ts for iframe execution context
@@ -2166,11 +2177,13 @@ cognidocs build && cognidocs serve
 - [x] Add timeout handling for long-running code (5s max)
 
 **Files Created:**
+
 - `packages/component-preview/src/sandbox/PreviewSandbox.tsx` - Secure iframe-based sandbox component
 - `packages/component-preview/src/sandbox/sandboxRuntime.ts` - Runtime code generation and message handling
 - `packages/component-preview/src/sandbox/securityPolicies.ts` - CSP policies and security utilities
 
 **Implementation Notes:**
+
 - Sandboxed iframe with `allow-scripts allow-same-origin` only
 - Content Security Policy headers restricting script execution
 - Blob URL generation for iframe src (no external dependencies)
@@ -2184,6 +2197,7 @@ cognidocs build && cognidocs serve
 - Automatic cleanup of blob URLs on unmount
 
 **Security Features Implemented:**
+
 - CSP policy limiting script sources to inline and CDN only
 - Sandbox attributes restricting iframe capabilities
 - Message origin validation (localhost allowed in development)
@@ -2196,6 +2210,7 @@ cognidocs build && cognidocs serve
 ### Phase 6.4: Code Generation & Dependency Resolution 🟢 COMPLETE
 
 **Tasks:**
+
 - [x] Implement codeGenerator.ts (props → executable component code)
 - [x] Create dependencyResolver.ts for handling imports
 - [x] Add support for React hooks (useState, useEffect, etc.)
@@ -2204,11 +2219,13 @@ cognidocs build && cognidocs serve
 - [x] Implement useComponentLoader hook
 
 **Files Created:**
+
 - `packages/component-preview/src/utils/codeGenerator.ts` - Code generation utilities (350+ lines)
 - `packages/component-preview/src/utils/dependencyResolver.ts` - Dependency resolution and CDN mapping (290+ lines)
 - `packages/component-preview/src/hooks/useComponentLoader.ts` - Component loading hook with state management (300+ lines)
 
 **Implementation Notes:**
+
 - **Code Generation:**
   - `propValueToCode()` - Converts JavaScript values to executable code strings
   - `generatePropsObject()` - Creates props object from key-value pairs
@@ -2223,7 +2240,7 @@ cognidocs build && cognidocs serve
 - **Dependency Resolution:**
   - `extractImports()` - Parses import statements using regex
   - `resolveToCDN()` - Maps npm packages to CDN URLs
-  - `replaceImportsWithGlobals()` - Converts imports to window.* references
+  - `replaceImportsWithGlobals()` - Converts imports to window.\* references
   - `checkDependencies()` - Validates dependency availability
   - `generateFallbackCode()` - Creates placeholders for missing dependencies
   - `processComponentSource()` - Complete source processing pipeline
@@ -2246,6 +2263,7 @@ cognidocs build && cognidocs serve
 ### Phase 6.5: Integration with Site Builder 🟢 COMPLETE
 
 **Tasks:**
+
 - [x] Modify ComponentDetailPage to add "Preview" tab
 - [x] Create PreviewTab component with split-pane layout
 - [x] Add preview toggle in component header
@@ -2256,15 +2274,18 @@ cognidocs build && cognidocs serve
 - [x] Test preview functionality with sample components
 
 **Files Modified:**
+
 - `packages/site-builder/src/template/src/pages/ComponentDetailPage.tsx` - Added tab navigation and preview integration
 - `packages/site-builder/src/template/src/components/PreviewTab.tsx` - **UPDATED** to use actual preview components (PreviewRenderer, PropsEditor, usePreviewState)
 
 **Files Created:**
+
 - `packages/site-builder/src/template/src/components/PreviewTab.tsx` - Full split-pane layout with working props editor and live preview
 - `packages/site-builder/src/template/src/components/PreviewControls.tsx` - Control buttons for preview (refresh, fullscreen)
 - `packages/site-builder/src/template/src/component-preview/` - **BUNDLED** component-preview source (PreviewRenderer, PropsEditor, editors, hooks, utils, sandbox)
 
 **Implementation Notes:**
+
 - **Tab Navigation:** Added Documentation/Live Preview tabs to ComponentDetailPage
 - **Split-Pane Layout:** 2/5 props editor (left), 3/5 live preview (right)
 - **Props Editor Integration:** Uses usePreviewState hook for real-time prop management
@@ -2277,6 +2298,7 @@ cognidocs build && cognidocs serve
 - **Source Availability Check:** Graceful fallback when component source unavailable
 
 **UI Layout:**
+
 ```
 ┌─────────────────────────────────────┐
 │ [Documentation] [Live Preview] ←Tabs│
@@ -2297,6 +2319,7 @@ cognidocs build && cognidocs serve
 ### Phase 6.6: Enhanced Features 🔴
 
 **Tasks:**
+
 - [ ] Add code export functionality (copy preview code)
 - [ ] Implement fullscreen preview mode
 - [ ] Add responsive preview with device frames (mobile/tablet/desktop)
@@ -2306,11 +2329,13 @@ cognidocs build && cognidocs serve
 - [ ] Add "Download as HTML" feature
 
 **Files to Create:**
+
 - `packages/component-preview/src/components/DeviceFrames.tsx`
 - `packages/component-preview/src/components/CodeExport.tsx`
 - `packages/component-preview/src/components/ExampleSelector.tsx`
 
 **Advanced Features:**
+
 - Device frame simulation (mobile/tablet/desktop)
 - Export to CodeSandbox/StackBlitz
 - Download standalone HTML file
@@ -2330,16 +2355,19 @@ cognidocs build && cognidocs serve
 ### Testing Strategy
 
 **Unit Tests:**
+
 - propTypeParser.ts - Type string parsing accuracy
 - codeGenerator.ts - Code generation from props
 - Each editor component - Input validation
 
 **Integration Tests:**
+
 - PreviewRenderer - Full preview lifecycle
 - PropsEditor - Prop updates trigger re-render
 - Sandbox communication - postMessage protocol
 
 **E2E Tests (Playwright):**
+
 - Navigate to component → Preview tab → Edit props → Verify update
 - Test error boundary with broken component
 - Test code export functionality

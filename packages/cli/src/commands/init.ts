@@ -52,7 +52,6 @@ export async function initCommand(options: InitOptions = {}): Promise<void> {
       darkMode: true,
       frameworks: ['react'],
       exclude: ['**/*.test.ts', '**/*.test.tsx', '**/node_modules/**', '**/dist/**'],
-      enableComponentPreview: false, // Experimental feature disabled by default
     };
   } else {
     // Interactive prompts
@@ -113,12 +112,6 @@ export async function initCommand(options: InitOptions = {}): Promise<void> {
         message: 'Enable coverage tracking?',
         default: true,
       },
-      {
-        type: 'confirm',
-        name: 'enableComponentPreview',
-        message: 'Enable live component preview? (experimental)',
-        default: false,
-      },
     ]);
 
     config = {
@@ -128,7 +121,6 @@ export async function initCommand(options: InitOptions = {}): Promise<void> {
       darkMode: answers.darkMode,
       frameworks: [answers.framework],
       exclude: ['**/*.test.ts', '**/*.test.tsx', '**/node_modules/**', '**/dist/**'],
-      enableComponentPreview: answers.enableComponentPreview,
     };
 
     if (answers.coverage) {

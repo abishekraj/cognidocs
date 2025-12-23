@@ -2,10 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { Card } from '../components/ui/card';
 import { Badge } from '../components/ui/badge';
 import { Separator } from '../components/ui/separator';
-import { Box, FileCode, Hash, Link as LinkIcon, AlertCircle, Eye, FileText } from 'lucide-react';
+import { Box, FileCode, Hash, Link as LinkIcon, AlertCircle, FileText } from 'lucide-react';
 import { JSDocExample } from '../components/JSDocExample';
 import { JSDocLinks } from '../components/JSDocLinks';
-import { PreviewTab } from '../components/PreviewTab';
 
 interface JSDocExample {
   code: string;
@@ -62,20 +61,8 @@ interface ComponentDetailPageProps {
 export function ComponentDetailPage({ id }: ComponentDetailPageProps) {
   const [component, setComponent] = useState<ComponentData | null>(null);
   const [loading, setLoading] = useState(true);
-  const [activeTab, setActiveTab] = useState<'documentation' | 'preview'>('documentation');
-  const [enableComponentPreview, setEnableComponentPreview] = useState(false);
-
   useEffect(() => {
-    // Load project config first to check if component preview is enabled
     const basePath = import.meta.env.BASE_URL || '/';
-    fetch(`${basePath}content/project.json`)
-      .then((res) => res.json())
-      .then((projectData) => {
-        setEnableComponentPreview(projectData.enableComponentPreview || false);
-      })
-      .catch((err) => {
-        console.warn('Failed to load project config, disabling component preview', err);
-      });
 
     // Load component data from data.json
     fetch(`${basePath}content/data.json`)
@@ -137,53 +124,6 @@ export function ComponentDetailPage({ id }: ComponentDetailPageProps) {
 
       <Separator />
 
-      {/* Tab Navigation */}
-      <div className="border-b border-border">
-        <nav className="-mb-px flex space-x-8" aria-label="Tabs">
-          <button
-            onClick={() => setActiveTab('documentation')}
-            className={`
-              flex items-center gap-2 whitespace-nowrap border-b-2 py-4 px-1 text-sm font-medium
-              ${
-                activeTab === 'documentation'
-                  ? 'border-primary text-primary'
-                  : 'border-transparent text-muted-foreground hover:border-gray-300 hover:text-foreground'
-              }
-            `}
-          >
-            <FileText className="h-4 w-4" />
-            Documentation
-          </button>
-          {enableComponentPreview && (
-            <button
-              onClick={() => setActiveTab('preview')}
-              className={`
-                flex items-center gap-2 whitespace-nowrap border-b-2 py-4 px-1 text-sm font-medium
-                ${
-                  activeTab === 'preview'
-                    ? 'border-primary text-primary'
-                    : 'border-transparent text-muted-foreground hover:border-gray-300 hover:text-foreground'
-                }
-              `}
-            >
-              <Eye className="h-4 w-4" />
-              Live Preview
-              <Badge variant="outline" className="text-[10px] px-1 py-0 ml-1">
-                experimental
-              </Badge>
-            </button>
-          )}
-        </nav>
-      </div>
-
-      {/* Tab Content */}
-      {activeTab === 'preview' && enableComponentPreview ? (
-        <div className="min-h-[600px]">
-          {console.log('[ComponentDetailPage] Rendering PreviewTab with source:', !!component.source)}
-          <PreviewTab component={component} componentSource={component.source} />
-        </div>
-      ) : (
-        <>
       {/* Next.js Metadata (if applicable) */}
       {component.framework === 'nextjs' &&
         (component.isPage || component.isLayout || component.isApiRoute) && (
@@ -380,8 +320,6 @@ export function ComponentDetailPage({ id }: ComponentDetailPageProps) {
           </pre>
         </div>
       </Card>
-        </>
-      )}
     </div>
   );
 }

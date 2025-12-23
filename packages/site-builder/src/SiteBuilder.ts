@@ -21,8 +21,7 @@ export class SiteBuilder {
   constructor(
     _projectRoot: string,
     private docsDir: string,
-    private basePath: string = './',
-    private config?: { enableComponentPreview?: boolean }
+    private basePath: string = './'
   ) {
     this.projectRoot = _projectRoot;
     // __dirname points to dist/ directory, template is at dist/template
@@ -214,11 +213,14 @@ export default defineConfig({
           homepage: packageJson.homepage,
           repository: packageJson.repository?.url || packageJson.repository,
           license: packageJson.license,
-          enableComponentPreview: this.config?.enableComponentPreview || false,
         };
       } else {
-        // Add enableComponentPreview to defaults too
-        projectMetadata.enableComponentPreview = this.config?.enableComponentPreview || false;
+        // Use defaults
+        projectMetadata = {
+          name: 'Documentation',
+          description: 'Project Documentation',
+          version: '1.0.0',
+        };
       }
 
       // Save project metadata
@@ -236,7 +238,6 @@ export default defineConfig({
             name: 'Documentation',
             description: 'Project Documentation',
             version: '1.0.0',
-            enableComponentPreview: this.config?.enableComponentPreview || false,
           },
           null,
           2

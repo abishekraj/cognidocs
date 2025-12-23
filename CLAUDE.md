@@ -4,18 +4,18 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Status
 
-**Current Phase:** Phase 6 (Component Previews) - 🟢 COMPLETE ✅
+**Current Phase:** Phase 6 (Enhanced Visualizations) - 🟡 IN PROGRESS
 
 - ✅ Phase 1 (Foundation) - COMPLETE
 - ✅ Phase 2 (Analysis & Coverage) - COMPLETE
 - ✅ Phase 3 (Core Documentation) - COMPLETE
 - ✅ Phase 3.5 (Premium UI & Compodoc-Style Documentation) - COMPLETE
 - ✅ Phase 4 (Next.js Support) - COMPLETE
-- ✅ Phase 6 (Component Previews) - COMPLETE
+- 🔴 Phase 6 (Component Previews) - BACKLOG
 
 CogniDocs is a comprehensive JavaScript/TypeScript documentation tool combining features from Compodoc and Storybook with AI capabilities. The project uses a monorepo architecture with Turbo, organized into 10 development phases.
 
-**Latest Milestone:** 🎉 **Component Preview System Complete** - Live component playground with interactive props editing, sandboxed execution, and type-aware prop editors. Full integration with documentation site including 2000+ lines of code across 20+ files.
+**Latest Milestone:** 🎉 **Next.js & Multi-Framework Support** - Full support for Next.js App Router and Pages Router, plus preview-ready architecture for Vue and Svelte.
 
 ## Essential Commands
 
@@ -98,7 +98,7 @@ export default {
 
 ### Monorepo Structure
 
-```
+```text
 packages/          # Core library packages
 ├── cli/          # ✅ Command-line interface (Phase 1)
 ├── parser/       # ✅ TypeScript/React AST parser (Phase 1)
@@ -108,7 +108,7 @@ packages/          # Core library packages
 ├── site-builder/    # ✅ Static site builder (Phase 3.5)
 ├── graph-viz/       # ✅ Visualizations (Phase 3.5)
 ├── plugin-core/     # ✅ Plugin system (Phase 3-4)
-├── component-preview/  # ✅ Live previews (Phase 6) - COMPLETE
+├── component-preview/  # 🔴 Live previews (Phase 6) - BACKLOG
 ├── ai/              # 🔴 AI integration (Phase 7)
 └── testing/         # ✅ Test utilities (Phase 1)
 
@@ -164,6 +164,7 @@ Implements full TypeScript Compiler API integration:
 7. **Renamed exports** - `export { foo as bar }`
 
 The parser uses a two-pass approach:
+
 - **First pass**: Collects all exported names from export statements and declarations
 - **Second pass**: Parses declarations and marks them as exported if their name is in the exported names set
 
@@ -415,9 +416,11 @@ Core plugin infrastructure:
 - Type-safe plugin interfaces
 - Plugin loading and initialization (basic implementation)
 
-## Phase 6 Implementation (COMPLETE)
+## Phase 6 Implementation (BACKLOG)
 
 ### Component Preview System
+
+> **Note:** This feature has been moved to the backlog to prioritize core stability and multi-framework support.
 
 **Package:** `@cognidocs/component-preview`
 
@@ -472,10 +475,12 @@ Full-featured live component playground with interactive props editing, sandboxe
 **File:** `packages/site-builder/src/template/src/components/PreviewTab.tsx`
 
 The PreviewTab component provides a split-pane layout:
+
 - Left: Props editor (2/5 width) with type-aware controls
 - Right: Live preview (3/5 width) with sandboxed component rendering
 
 **Features:**
+
 - Tab navigation between Documentation and Live Preview
 - Component source extraction from parser
 - Responsive design with dark mode support
@@ -484,7 +489,8 @@ The PreviewTab component provides a split-pane layout:
 - Graceful fallback when source unavailable
 
 **UI Architecture:**
-```
+
+```text
 ┌─────────────────────────────────────┐
 │ [Documentation] [Live Preview] ←Tabs│
 ├──────────────┬──────────────────────┤
@@ -499,6 +505,7 @@ The PreviewTab component provides a split-pane layout:
 ```
 
 **Security Features:**
+
 - Sandboxed iframe with restricted permissions
 - Content Security Policy (CSP) headers
 - Message origin validation
@@ -525,11 +532,14 @@ The component-preview source is bundled directly into the site template at build
 
 - **Development Note:**
   When developing in the monorepo with pnpm, the virtual store at `node_modules/.pnpm/@cognidocs+parser@*/` caches the parser build. After rebuilding the parser, you must copy the new dist to the virtual store:
-  ```bash
-  pnpm run build --filter=@cognidocs/parser
-  cp packages/parser/dist/index.mjs node_modules/.pnpm/@cognidocs+parser@*/node_modules/@cognidocs/parser/dist/
-  ```
-  Or rebuild all packages and run `pnpm install` to refresh the virtual store.
+
+```bash
+pnpm run build --filter=@cognidocs/parser
+
+cp packages/parser/dist/index.mjs node_modules/.pnpm/@cognidocs+parser@*/node_modules/@cognidocs/parser/dist/
+```
+
+Or rebuild all packages and run `pnpm install` to refresh the virtual store.
 
 **Key Methods:**
 
@@ -674,6 +684,7 @@ npm run build  # Rebuild dependents
 Full Next.js support for App Router, Pages Router, and API Routes:
 
 **App Router Support:**
+
 - Detects `app/**/page.tsx` - Page components with route metadata
 - Detects `app/**/layout.tsx` - Layout components
 - Detects `app/**/route.ts` - API route handlers (GET, POST, PUT, DELETE, PATCH, HEAD, OPTIONS)
@@ -681,12 +692,14 @@ Full Next.js support for App Router, Pages Router, and API Routes:
 - Identifies Server Components and Client Components
 
 **Pages Router Support:**
+
 - Detects `pages/**/*.tsx` - Page components
 - Detects `pages/api/**/*.ts` - API routes with default export handlers
 - Handles dynamic routes (e.g., `[id].tsx`, `[...slug].tsx`)
 - Extracts route paths and metadata
 
 **API Route Documentation:**
+
 - Parses JSDoc `@response` tags for API documentation
 - Extracts HTTP methods, status codes, and response types
 - Supports both App Router (`export async function GET()`) and Pages Router (`export default function handler()`)
@@ -699,6 +712,7 @@ Full Next.js support for App Router, Pages Router, and API Routes:
 - `extractApiRoute(filePath, routePath, routerType)` - Extract API route metadata
 
 **Metadata Added to Components:**
+
 - `isPage: boolean` - True if component is a Next.js page
 - `isLayout: boolean` - True if component is a layout
 - `isApiRoute: boolean` - True if file is an API route
@@ -735,8 +749,9 @@ API Handler for GET method
 **Source:** `app/api/hello/route.ts:4`
 
 ## Responses
-| Status | Description | Type |
-| :--- | :---------- | :--- |
+
+| Status  | Description           | Type     |
+| :------ | :-------------------- | :------- |
 | **200** | Returns hello message | `string` |
 ```
 
@@ -766,6 +781,7 @@ Added Next.js metadata card for pages, layouts, and API routes:
 **Example Project:** `examples/sample-nextjs/`
 
 Test coverage includes:
+
 - App Router page: `app/page.tsx`
 - App Router layout: `app/layout.tsx`
 - App Router API routes: `app/api/hello/route.ts`, `app/api/auth/[...nextauth]/route.ts`
@@ -773,6 +789,7 @@ Test coverage includes:
 - Pages Router API routes: `pages/api/posts.ts`, `pages/api/user.ts`
 
 **Build Output:**
+
 ```
 Statistics:
 • 8 components (includes pages and layouts)
@@ -849,18 +866,21 @@ cognidocs serve
 **Windows: Rollup optional dependency error**
 
 If you encounter an error like:
-```
+
+```text
 Error: Cannot find module @rollup/rollup-win32-x64-msvc
 ```
 
 This is a known npm bug with optional dependencies on Windows (see [npm/cli#4828](https://github.com/npm/cli/issues/4828)).
 
 **Fixes applied in CogniDocs:**
+
 - The site builder automatically removes `package-lock.json` before installing
 - Uses `--legacy-peer-deps` flag for npm install
 - Includes `.npmrc` with `legacy-peer-deps=true` in template
 
 **Manual fix if issue persists:**
+
 ```bash
 # Navigate to the generated site directory
 cd .cognidocs/site
@@ -878,6 +898,7 @@ cognidocs build
 
 **Alternative for Windows users:**
 Consider using [pnpm](https://pnpm.io/) or [yarn](https://yarnpkg.com/) instead of npm, as they handle optional dependencies better:
+
 ```bash
 # Using pnpm (recommended for Windows)
 pnpm install

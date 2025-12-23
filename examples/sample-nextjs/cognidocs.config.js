@@ -4,25 +4,18 @@
  */
 
 export default {
-  "entry": "./app",
-  "output": "./docs",
-  "theme": "dracula",
-  "darkMode": true,
-  "frameworks": [
-    "nextjs"
-  ],
-  "exclude": [
-    "**/*.test.ts",
-    "**/*.test.tsx",
-    "**/node_modules/**",
-    "**/dist/**"
-  ],
-  "enableComponentPreview": false,
-  "coverage": {
-    "enabled": true,
-    "thresholds": {
-      "docs": 80,
-      "types": 90
-    }
-  }
+  entry: './app',
+  output: './docs',
+  theme: 'dracula',
+  darkMode: true,
+  frameworks: ['nextjs'],
+  exclude: ['**/*.test.ts', '**/*.test.tsx', '**/node_modules/**', '**/dist/**'],
+
+  coverage: {
+    enabled: true,
+    thresholds: {
+      docs: 80,
+      types: 90,
+    },
+  },
 };

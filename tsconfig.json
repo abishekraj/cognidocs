@@ -32,7 +32,7 @@
       "@cognidocs/ai": ["./packages/ai/src"],
       "@cognidocs/docs-generator": ["./packages/docs-generator/src"],
       "@cognidocs/graph-viz": ["./packages/graph-viz/src"],
-      "@cognidocs/component-preview": ["./packages/component-preview/src"],
+
       "@cognidocs/site-builder": ["./packages/site-builder/src"],
       "@cognidocs/types": ["./shared/types/src"],
       "@cognidocs/utils": ["./shared/utils/src"],

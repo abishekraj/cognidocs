@@ -8,7 +8,13 @@ import { writeFile, mkdir } from 'fs/promises';
 import chalk from 'chalk';
 import ora from 'ora';
 import { loadConfig } from '../config';
-import { TypeScriptParser, ReactParser, NextJsParser, VueParser, SvelteParser } from '@cognidocs/parser';
+import {
+  TypeScriptParser,
+  ReactParser,
+  NextJsParser,
+  VueParser,
+  SvelteParser,
+} from '@cognidocs/parser';
 // import { fileExists } from '@cognidocs/utils';
 import type { ParseResult, ComponentMetadata } from '@cognidocs/types';
 
@@ -166,7 +172,10 @@ export async function buildCommand(options: BuildOptions = {}): Promise<void> {
       let components: ComponentMetadata[] = [];
 
       // Skip Vue/Svelte files if already processed above
-      if ((result.filePath.endsWith('.vue') && isVue) || (result.filePath.endsWith('.svelte') && isSvelte)) {
+      if (
+        (result.filePath.endsWith('.vue') && isVue) ||
+        (result.filePath.endsWith('.svelte') && isSvelte)
+      ) {
         continue;
       }
 
@@ -342,9 +351,7 @@ export async function buildCommand(options: BuildOptions = {}): Promise<void> {
       // Let's instantiate SiteBuilder with the current directory as project root
       // and the current `outputPath` as the source of docs.
       const basePath = options.basePath || './';
-      const builder = new SiteBuilder(process.cwd(), outputPath, basePath, {
-        enableComponentPreview: config.enableComponentPreview
-      });
+      const builder = new SiteBuilder(process.cwd(), outputPath, basePath);
 
       // We build the site into `outputPath`... wait, that would overwrite the markdown files if we clear it.
       // Let's put the site in `outputPath` and move markdown to `outputPath/content`?

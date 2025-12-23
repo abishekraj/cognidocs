@@ -39,7 +39,7 @@ ${chalk.bold('Features:')}
   ${chalk.green('✓')} Interactive dependency graphs with D3.js
   ${chalk.green('✓')} Advanced search with Cmd+K command palette
   ${chalk.green('✓')} Mermaid.js diagram support
-  ${chalk.green('✓')} Live component preview ${chalk.yellow('(experimental)')}
+
   ${chalk.green('✓')} Dark mode support
   ${chalk.green('✓')} Documentation coverage tracking
 
@@ -58,7 +58,7 @@ ${chalk.bold('Configuration:')}
     ${chalk.gray('• theme')}           - UI theme (gitbook, github, nord, dracula, etc.)
     ${chalk.gray('• darkMode')}        - Enable dark mode (default: true)
     ${chalk.gray('• frameworks')}      - Framework support (react, nextjs, vue, svelte)
-    ${chalk.gray('• enableComponentPreview')} - Live component preview ${chalk.yellow('(experimental)')}
+
 
 ${chalk.bold('Documentation:')}
   ${chalk.cyan('https://github.com/yourusername/cognidocs')}
