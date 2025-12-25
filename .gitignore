@@ -13,6 +13,10 @@ out/
 .claude/
 .agent/*
 
+#Claude
+CLAUDE.md
+
+
 #Playwright
 playwright-report/
 test-results/   
