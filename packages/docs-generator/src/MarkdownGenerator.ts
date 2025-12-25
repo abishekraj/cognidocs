@@ -144,40 +144,35 @@ export class MarkdownGenerator {
       }
 
       for (const func of result.functions) {
-        // Only document exported functions and prevent duplicates
-        if (func.isExported) {
-          const uniqueFilename = this.getUniqueFilename(func.name, documentedItems.functions);
-          await this.generateFunctionDoc(func, uniqueFilename);
-          summary.push(`- [${func.name}](./functions/${uniqueFilename}.md) (Function)`);
-          documentedItems.functions.add(uniqueFilename);
-        }
+        // Document all functions and prevent duplicates
+        const uniqueFilename = this.getUniqueFilename(func.name, documentedItems.functions);
+        await this.generateFunctionDoc(func, uniqueFilename);
+        summary.push(`- [${func.name}](./functions/${uniqueFilename}.md) (Function)`);
+        documentedItems.functions.add(uniqueFilename);
       }
 
       for (const cls of result.classes) {
-        if (cls.isExported) {
-          const uniqueFilename = this.getUniqueFilename(cls.name, documentedItems.classes);
-          await this.generateClassDoc(cls, uniqueFilename);
-          summary.push(`- [${cls.name}](./classes/${uniqueFilename}.md) (Class)`);
-          documentedItems.classes.add(uniqueFilename);
-        }
+        // Document all classes and prevent duplicates
+        const uniqueFilename = this.getUniqueFilename(cls.name, documentedItems.classes);
+        await this.generateClassDoc(cls, uniqueFilename);
+        summary.push(`- [${cls.name}](./classes/${uniqueFilename}.md) (Class)`);
+        documentedItems.classes.add(uniqueFilename);
       }
 
       for (const iface of result.interfaces) {
-        if (iface.isExported) {
-          const uniqueFilename = this.getUniqueFilename(iface.name, documentedItems.interfaces);
-          await this.generateInterfaceDoc(iface, uniqueFilename);
-          summary.push(`- [${iface.name}](./interfaces/${uniqueFilename}.md) (Interface)`);
-          documentedItems.interfaces.add(uniqueFilename);
-        }
+        // Document all interfaces and prevent duplicates
+        const uniqueFilename = this.getUniqueFilename(iface.name, documentedItems.interfaces);
+        await this.generateInterfaceDoc(iface, uniqueFilename);
+        summary.push(`- [${iface.name}](./interfaces/${uniqueFilename}.md) (Interface)`);
+        documentedItems.interfaces.add(uniqueFilename);
       }
 
       for (const type of result.types) {
-        if (type.isExported) {
-          const uniqueFilename = this.getUniqueFilename(type.name, documentedItems.types);
-          await this.generateTypeDoc(type, uniqueFilename);
-          summary.push(`- [${type.name}](./types/${uniqueFilename}.md) (Type)`);
-          documentedItems.types.add(uniqueFilename);
-        }
+        // Document all types and prevent duplicates
+        const uniqueFilename = this.getUniqueFilename(type.name, documentedItems.types);
+        await this.generateTypeDoc(type, uniqueFilename);
+        summary.push(`- [${type.name}](./types/${uniqueFilename}.md) (Type)`);
+        documentedItems.types.add(uniqueFilename);
       }
     }
 
@@ -307,11 +302,20 @@ export class MarkdownGenerator {
     const lines: string[] = [this.generateFrontmatter(func.name, { sourcePath: func.filePath })];
     lines.push(`# ${func.name}`);
 
+    // Add export status badge
+    const exportBadge = func.isExported
+      ? '![Exported](https://img.shields.io/badge/exported-yes-brightgreen)'
+      : '![Not Exported](https://img.shields.io/badge/exported-no-orange)';
+    lines.push(`\n${exportBadge}\n`);
+
     if (func.description) {
       lines.push(`\n${func.description}\n`);
     }
 
-    lines.push(`\n**Return Type:** \`${func.returnType || 'void'}\`\n`);
+    // Add source path
+    lines.push(`**Source:** \`${func.filePath}${func.line ? `:${func.line}` : ''}\`\n`);
+
+    lines.push(`**Return Type:** \`${func.returnType || 'void'}\`\n`);
 
     // Add common JSDoc sections
     lines.push(...this.renderJSDocCommon(func.jsdoc));
@@ -336,9 +340,18 @@ export class MarkdownGenerator {
     const lines: string[] = [this.generateFrontmatter(cls.name, { sourcePath: cls.filePath })];
     lines.push(`# ${cls.name}`);
 
+    // Add export status badge
+    const exportBadge = cls.isExported
+      ? '![Exported](https://img.shields.io/badge/exported-yes-brightgreen)'
+      : '![Not Exported](https://img.shields.io/badge/exported-no-orange)';
+    lines.push(`\n${exportBadge}\n`);
+
     if (cls.description) {
       lines.push(`\n${cls.description}\n`);
     }
+
+    // Add source path
+    lines.push(`**Source:** \`${cls.filePath}${cls.line ? `:${cls.line}` : ''}\`\n`);
 
     if (cls.extendsClass) {
       lines.push(`**Extends:** \`${cls.extendsClass}\`\n`);
@@ -375,7 +388,17 @@ export class MarkdownGenerator {
   private async generateInterfaceDoc(iface: InterfaceMetadata, filename: string): Promise<void> {
     const lines: string[] = [this.generateFrontmatter(iface.name, { sourcePath: iface.filePath })];
     lines.push(`# ${iface.name}`);
+
+    // Add export status badge
+    const exportBadge = iface.isExported
+      ? '![Exported](https://img.shields.io/badge/exported-yes-brightgreen)'
+      : '![Not Exported](https://img.shields.io/badge/exported-no-orange)';
+    lines.push(`\n${exportBadge}\n`);
+
     if (iface.description) lines.push(`\n${iface.description}\n`);
+
+    // Add source path
+    lines.push(`**Source:** \`${iface.filePath}${iface.line ? `:${iface.line}` : ''}\`\n`);
 
     // Add common JSDoc sections
     lines.push(...this.renderJSDocCommon(iface.jsdoc));
@@ -398,7 +421,17 @@ export class MarkdownGenerator {
   private async generateTypeDoc(type: TypeMetadata, filename: string): Promise<void> {
     const lines: string[] = [this.generateFrontmatter(type.name, { sourcePath: type.filePath })];
     lines.push(`# ${type.name}`);
+
+    // Add export status badge
+    const exportBadge = type.isExported
+      ? '![Exported](https://img.shields.io/badge/exported-yes-brightgreen)'
+      : '![Not Exported](https://img.shields.io/badge/exported-no-orange)';
+    lines.push(`\n${exportBadge}\n`);
+
     if (type.description) lines.push(`\n${type.description}\n`);
+
+    // Add source path
+    lines.push(`**Source:** \`${type.filePath}${type.line ? `:${type.line}` : ''}\`\n`);
 
     // Add common JSDoc sections
     lines.push(...this.renderJSDocCommon(type.jsdoc));

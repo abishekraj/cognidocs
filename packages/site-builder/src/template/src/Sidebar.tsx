@@ -113,6 +113,7 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
           href={href}
           isActive={currentPath === href}
           icon={FileCode}
+          sourcePath={item.sourcePath}
         />
       );
     });

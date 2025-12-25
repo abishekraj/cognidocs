@@ -9,6 +9,7 @@ interface NavigationItemProps {
   isActive?: boolean;
   className?: string;
   onClick?: () => void;
+  sourcePath?: string;
 }
 
 export function NavigationItem({
@@ -18,6 +19,7 @@ export function NavigationItem({
   isActive = false,
   className,
   onClick,
+  sourcePath,
 }: NavigationItemProps) {
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     if (onClick) {
@@ -40,6 +42,7 @@ export function NavigationItem({
         className
       )}
       aria-current={isActive ? 'page' : undefined}
+      title={sourcePath || undefined}
     >
       {Icon && (
         <Icon
