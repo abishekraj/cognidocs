@@ -405,8 +405,10 @@ export class ReactParser {
     }
 
     // Extract @example tags
-    // Fix: Updated regex to properly handle multiple examples by checking for * followed by @
-    const exampleMatches = commentText.matchAll(/@example\s*\n((?:(?!\s*(?:\*\s*)?@).*\n)*)/g);
+    // Match from @example until the next JSDoc tag or end of comment
+    // JSDoc tags must be: newline + whitespace + * + ONE space + @ + word char
+    // This prevents matching Vue/Svelte directives like @row-click which have more indentation
+    const exampleMatches = commentText.matchAll(/@example\s*\n((?:(?!\n\s*\*\s@\w)[\s\S])*?)(?=\n\s*\*\s@\w|$)/g);
     for (const match of exampleMatches) {
       const exampleText = match[1]
         .split('\n')
@@ -416,10 +418,19 @@ export class ReactParser {
 
       if (exampleText.trim()) {
         // Check if there's a description before the code block
-        const parts = exampleText.split(/```/);
-        if (parts.length >= 3) {
-          const description = parts[0].trim() || undefined;
-          const code = parts[1].replace(/^[a-z]+\n/, '').trim(); // Remove language specifier
+        const codeBlockMatch = exampleText.match(/```([a-z]*)\n([\s\S]*?)```/);
+
+        if (codeBlockMatch) {
+          // Found a fenced code block
+          const language = codeBlockMatch[1] || 'typescript';
+          const codeContent = codeBlockMatch[2].trim();
+
+          // Get description (everything before the code block)
+          const descriptionEndIndex = exampleText.indexOf('```');
+          const description = exampleText.substring(0, descriptionEndIndex).trim() || undefined;
+
+          // Store code WITH language specifier for proper rendering
+          const code = language + '\n' + codeContent;
           metadata.examples?.push({ code, description });
         } else {
           // No code block, treat entire content as code

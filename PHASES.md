@@ -1,2629 +1,524 @@
 # CogniDocs Development Phases
 
-This document provides a quick reference for each development phase and what to work on.
+This document tracks the development phases and current project status.
 
 ---
 
-## 🎉 MVP STATUS: READY FOR RELEASE ✅
+## 🎉 CURRENT STATUS
 
-**Phase 4 Progress:** Next.js ✅ | Vue 3 ✅ | Svelte ✅ | Backend Frameworks 🔴
+**Active Phase:** Plugin System & Advanced Features
 
-**🌐 Live Demo:** [https://abishekraj.github.io/cognidocs/](https://abishekraj.github.io/cognidocs/)
+**Completed:**
+- ✅ Phase 1: Foundation (TypeScript/React Parsing)
+- ✅ Phase 2: Analysis & Coverage
+- ✅ Phase 3: Core Documentation Generation
+- ✅ Phase 3.5: Premium UI & Compodoc-Style Documentation
+- ✅ Phase 4: Next.js Support (App Router, Pages Router, API Routes)
+- ✅ **Phase 4 (Extended): Multi-Framework Support (Vue 3 & Svelte with TypeScript)**
 
-**What's Included in Current Release:**
+**In Progress:**
+- 🟡 Plugin System (basic infrastructure in place)
 
-- ✅ Full TypeScript/React parsing with JSDoc extraction
-- ✅ **Next.js support** - App Router, Page Router, API routes
-- ✅ **Vue 3 support** - SFC with Composition API and Options API
-- ✅ **Svelte support** - Full component parsing with props, events, stores, and reactive statements
-- ✅ **JavaScript support** - Parse .js and .jsx files with JSDoc
-- ✅ **Comprehensive export detection** - All export patterns (default, named, re-exports)
-- ✅ Configurable file patterns for custom project structures
-- ✅ Dependency analysis and coverage tracking
-- ✅ Premium documentation site with 12 professional themes
-- ✅ Advanced search with Cmd+K command palette
-- ✅ Interactive dependency graphs with D3.js
-- ✅ Responsive design with accessible navigation
-- ✅ Markdown documentation with proper table rendering
-- ✅ Clean, minimal UI with all bugs fixed
-- ✅ **GitHub Pages deployment** - Live demo with automated CI/CD workflows
-- ✅ **Configurable base path** - Support for subdirectory deployments
-- ✅ **Package Manager Support** - npm and pnpm with automatic detection
+**Backlog:**
+- 🔴 Phase 6: Component Previews
+- 🔴 Phase 7: AI Integration
+- 🔴 Phase 8+: SaaS Platform & Enterprise Features
 
-**See [CLAUDE.md](CLAUDE.md) for full MVP details and deployment options.**
-**See "Known Limitations & Future Improvements" section below for current parser limitations.**
+**Latest Achievement:** 🎉 **Critical Markdown Malformation Fix!** - Fixed JSDoc `@example` extraction regex to prevent truncation of Vue/Svelte event handlers (like `@row-click`, `@click`) in code examples. All generated markdown now has perfectly formatted code blocks with no malformation across all frameworks (React, Next.js, Vue, Svelte).
 
 ---
 
-## How to Reference Phases
+## Phase 1: Foundation 🟢 COMPLETE
 
-When working with Claude Code, you can reference phases like:
-
-- "Let's implement Phase 1"
-- "Show me Phase 2 tasks"
-- "Start working on the analyzer (Phase 2)"
-
-## 📋 Task Progress Update Instructions
-
-**IMPORTANT:** After completing each task in any phase, update the task status in this file:
-
-1. Change `- [ ]` to `- [x]` for completed tasks
-2. Update the phase status emoji if needed:
-   - 🔴 NOT STARTED - No tasks completed
-   - 🟡 IN PROGRESS - Some tasks completed
-   - 🟢 COMPLETE - All tasks completed
-3. Update the "Current Focus" section if moving to a new phase
-4. Add implementation notes or file references for future reference
-
-**Example:**
-
-```markdown
-### Tasks
-
-- [x] Create package.json for @cognidocs/component-preview
-- [x] Set up TypeScript configuration
-- [ ] Implement PreviewRenderer component
-```
-
----
-
-## Phase 1: Foundation (Weeks 1-3) 🟢 COMPLETE
-
-**Goal:** Set up project infrastructure and basic parsing
+**Goal:** Set up project infrastructure and TypeScript/React parsing
 
 ### Packages
+- `@cognidocs/cli` - Command-line interface with init, build, serve commands
+- `@cognidocs/parser` - AST parsing using TypeScript Compiler API
+- `@cognidocs/testing` - Test utilities and fixtures
 
-- `@cognidocs/cli` - Command-line interface
-- `@cognidocs/parser` - AST parsing
-- `@cognidocs/testing` - Test utilities
-
-### Tasks
-
-- [x] Project structure & monorepo setup
-- [x] CLI scaffolding with Commander.js
-- [x] Configuration system
-- [x] TypeScript Compiler API integration
-- [x] **JavaScript support** - Parse .js, .jsx files with appropriate ScriptKind
-- [x] React component parser (TypeScript + JavaScript)
-- [x] JSDoc extraction
-- [x] Basic file system operations
-- [x] Test suite with Vitest
-- [x] **Configurable file patterns** - filePattern option in config
-- [x] **Comprehensive export detection** - Support all JavaScript/TypeScript export patterns:
+### Key Achievements
+- ✅ Monorepo setup with Turbo
+- ✅ TypeScript Compiler API integration
+- ✅ React component parser (function & class components)
+- ✅ JSDoc extraction with @param, @returns, @example tags
+- ✅ JavaScript support (.js, .jsx files)
+- ✅ **Comprehensive export detection** - All patterns supported:
   - Inline exports: `export function foo() {}`
   - Named export lists: `export { foo, bar }`
   - Default exports: `export default App`
   - Re-exports: `export * from './module'`
   - Named re-exports with aliases
-
-### Deliverables
-
-- Working CLI with `init` and `build` commands
-- Parse 100+ React components
-- Generate JSON metadata
-- 80%+ test coverage
+- ✅ Configurable file patterns
+- ✅ Line number tracking for all elements
+- ✅ Props extraction from TypeScript types
+- ✅ React hooks detection
 
 ### Commands
-
 ```bash
-npm run phase1
-npm run build --filter=@cognidocs/cli
-npm run test --filter=@cognidocs/parser
+cognidocs init              # Initialize configuration
+cognidocs build             # Parse and generate documentation
 ```
 
 ---
 
-## Phase 2: Analysis & Coverage (Weeks 4-5) 🟢 COMPLETE
+## Phase 2: Analysis & Coverage 🟢 COMPLETE
 
-**Goal:** Build dependency graphs and track coverage
+**Goal:** Build dependency graphs and track documentation coverage
 
 ### Packages
+- `@cognidocs/analyzer` - Dependency analysis and graph generation
+- `@cognidocs/coverage` - Documentation coverage tracking
 
-- `@cognidocs/analyzer` - Dependency analysis
-- `@cognidocs/coverage` - Coverage tracking
-
-### Tasks
-
-- [x] Dependency graph builder
-- [x] Import/export tracking
-- [x] Component hierarchy detection (Resolved via imports)
-- [x] Route detection (Next.js, React Router) (Inferred from generic graph)
-- [x] Cyclomatic complexity calculation
-- [x] Documentation coverage scoring
-- [x] Test coverage import (Jest/Vitest) (Placeholder in calc)
-- [x] Type coverage calculation
-
-### Deliverables
-
-- Dependency graph for 1000+ files in <30s
-- Coverage reports with thresholds
-- Circular dependency detection
+### Key Achievements
+- ✅ Dependency graph builder with import/export tracking
+- ✅ Circular dependency detection
+- ✅ Module metrics (import/export counts, dependents)
+- ✅ Orphaned module identification
+- ✅ Documentation coverage scoring
+  - Function coverage (JSDoc presence)
+  - Class/interface coverage
+  - Type coverage analysis
+  - Overall project scores
 
 ### Commands
-
 ```bash
-npm run phase2
-cognidocs analyze
-cognidocs coverage
+cognidocs analyze           # Generate dependency analysis
+cognidocs coverage          # Calculate documentation coverage
 ```
 
 ---
 
 ## Phase 3: Core Documentation 🟢 COMPLETE
 
-**Goal:** Generate documentation and build static site.
+**Goal:** Generate documentation and build static site
 
 ### Packages
+- `@cognidocs/docs-generator` - Markdown documentation generator
+- `@cognidocs/site-builder` - Static site builder (Vite + React + TypeScript)
+- `@cognidocs/graph-viz` - D3.js dependency graph visualization
 
-- `@cognidocs/docs-generator` - Documentation generator
-- `@cognidocs/site-builder` - Static site builder
-- `@cognidocs/graph-viz` - Dependency graph visualization
-
-### Tasks
-
-- [x] Create `@cognidocs/docs-generator` package
-- [x] Implement Markdown generation strategy
-- [x] Create `@cognidocs/site-builder` package (Vite + React)
-- [x] Implement `cognidocs build` command
-- [x] Implement `cognidocs serve` command
-- [x] React-based documentation site with search
-- [x] Dependency graph visualization with D3.js
-- [x] Markdown rendering with react-markdown
-- [x] Responsive sidebar navigation
-- [x] Multi-theme support with localStorage persistence
-- [x] **JSDoc Rich Rendering** (@example, @see, @link, @tutorial, @deprecated)
-
-### Deliverables
-
-- ✅ Working documentation site generation
-- ✅ Interactive dependency graphs
-- ✅ Full-text search with Lunr.js
-- ✅ Production-ready static site export
+### Key Achievements
+- ✅ Markdown generation from parsed metadata
+- ✅ Frontmatter support (title, description, category, order)
+- ✅ Additional documentation folder support
+- ✅ React-based documentation site with Vite
+- ✅ Search functionality with Lunr.js
+- ✅ Cmd+K command palette
+- ✅ Responsive sidebar navigation
+- ✅ D3.js force-directed dependency graphs
+- ✅ Markdown rendering with syntax highlighting
+- ✅ Static site export for deployment
 
 ### Commands
-
 ```bash
-cognidocs build    # Generate documentation
-cognidocs serve    # Start development server
+cognidocs build             # Parse code and generate documentation site
+cognidocs serve             # Start development server (port 4173)
+cognidocs serve --port 3001 # Custom port
 ```
 
 ---
 
-## Phase 3.5: Premium UI & Compodoc-Style Documentation (Weeks 6-7) 🟢 COMPLETE
+## Phase 3.5: Premium UI & Compodoc-Style Documentation 🟢 COMPLETE
 
-**Goal:** Transform the documentation site into a premium, production-ready interface matching Compodoc quality with modern enhancements.
+**Goal:** Transform documentation site into premium, production-ready interface
 
-**Reference:** https://compodoc.github.io/compodoc-demo-todomvc-angular/
+### Key Achievements
+- ✅ **Shadcn/ui + Tailwind CSS** - Premium component library
+- ✅ **12 Professional Themes** - GitBook, GitHub, Nord, Dracula, Monokai, Solarized, One Dark, Material (light/dark variants)
+- ✅ **Theme persistence** - localStorage-based theme switching
+- ✅ **Mermaid.js integration** - Full diagram support (flowcharts, sequence, class, ER, Gantt, pie, git graphs)
+- ✅ **Callout boxes** - Four types (info, warning, tip, danger) with remark-directive syntax
+- ✅ **Code blocks** - Copy-to-clipboard, language badges, proper React element handling
+- ✅ **Table of Contents** - Auto-generated sticky TOC for long pages
+- ✅ **Project branding** - Custom header with name and version
+- ✅ **Mobile-responsive** - Collapsible sidebar, touch-friendly
+- ✅ **Hash-based routing** - SPA navigation
+- ✅ **Frontmatter stripping** - YAML metadata hidden from rendered output
+- ✅ **Normalized table styling** - Clean component props tables
+- ✅ **Package manager auto-detection** - npm, pnpm, yarn with automatic selection
+- ✅ **Windows compatibility** - Automatic Rollup dependency fixes
+- ✅ **GitHub Pages deployment** - Base path configuration for subdirectory hosting
+- ✅ **Markdown table escaping** - TypeScript union types render correctly (pipe escaping)
+- ✅ **Clean UI polish** - Footer removed, navigation reordered, focus ring overflow fixed
+- ✅ **Export status badges** - Green/orange badges for exported/non-exported items
+- ✅ **Source path display** - All items show source file location in documentation
 
-**IMPORTANT:** After completing each subtask or task, update this file to mark items as complete with `[x]` and update the status emojis (🟢 COMPLETE, 🟡 IN PROGRESS, 🔴 NOT STARTED).
+### Bug Fixes Completed
+- ✅ Sidebar focus ring overflow fixed
+- ✅ Navigation reordered (Introduction → Overview → Graph)
+- ✅ Markdown table pipe escaping for union types
+- ✅ Export filter removed - ALL items documented (exported and non-exported)
+- ✅ Source paths added to functions, classes, interfaces, types
+- ✅ **Critical: JSDoc example extraction regex fix** - Prevents malformed markdown from Vue/Svelte event handlers
+
+---
+
+## Phase 4: Next.js Support 🟢 COMPLETE
+
+**Goal:** Full Next.js App Router and Pages Router support
+
+### Key Achievements
+- ✅ **App Router Support**
+  - `app/**/page.tsx` - Page components with route metadata
+  - `app/**/layout.tsx` - Layout components
+  - `app/**/route.ts` - API route handlers (GET, POST, PUT, DELETE, PATCH, HEAD, OPTIONS)
+  - Route path extraction from directory structure
+  - Server/Client Component identification
+- ✅ **Pages Router Support**
+  - `pages/**/*.tsx` - Page components
+  - `pages/api/**/*.ts` - API routes with default export handlers
+  - Dynamic routes (`[id].tsx`, `[...slug].tsx`)
+- ✅ **API Route Documentation**
+  - JSDoc `@response` tag support
+  - HTTP methods, status codes, response types
+  - Request/response parameter tables
+- ✅ **UI Updates**
+  - Dedicated "API Routes" sidebar section
+  - Next.js metadata cards (Page/Layout/API Route badges)
+  - Route path display with router type (App Router/Pages Router)
+
+### File: `packages/parser/src/parsers/nextjs-parser.ts`
+Key methods:
+- `parseNextJsFile()` - Parse any Next.js file
+- `analyzeNextJsPath()` - Determine file type (page/layout/API route)
+- `extractApiRoute()` - Extract API route metadata
+
+---
+
+## Phase 4 (Extended): Multi-Framework Support 🟢 COMPLETE
+
+**Goal:** Expand beyond React/Next.js to support Vue, Svelte, and backend frameworks
 
 ### Current Status
 
-- ✅ Basic React site with Vite
-- ✅ Shadcn/ui integration with Tailwind CSS
-- ✅ Enhanced sidebar navigation with collapsible sections
-- ✅ Multi-theme system (12 themes with light/dark variants)
-- ✅ Lunr.js search integration
-- ✅ Dependency graph visualization (D3.js force-directed graph)
-- ✅ Advanced search with Command Palette (Cmd+K)
-- ✅ Theme switcher with dropdown UI and localStorage persistence
-- ✅ Cmd+K keyboard shortcut hint in sidebar
-- ✅ Hash-based routing system with multiple page types
-- ✅ Markdown rendering with react-markdown and plugins
-- ✅ Sidebar navigation cleanup (removed duplicate Components section)
-- ✅ Fixed graph data format compatibility issues
-- ✅ Enhanced content rendering with all UI/UX improvements
-- ✅ Additional documentation system (Guides section)
-- ✅ Frontmatter stripping and proper code rendering
-- ✅ Table styling normalization and header link removal
-- ✅ Code blocks with copy functionality and syntax highlighting
+**Completed:**
+- ✅ React (Function & Class Components) - Full support
+- ✅ Next.js (App Router, Pages Router, API Routes) - Full support
+- ✅ JavaScript support (.js, .jsx files)
+- ✅ **Vue 3 - Full support with TypeScript**
+  - ✅ Single File Components (SFC) parsing with @vue/compiler-sfc
+  - ✅ Composition API with `<script setup>` syntax
+  - ✅ Options API (data, methods, computed, lifecycle hooks)
+  - ✅ Props extraction from `defineProps` (type-based & runtime)
+  - ✅ Emits extraction from `defineEmits`
+  - ✅ Slots extraction from template
+  - ✅ TypeScript support in `<script lang="ts">`
+  - ✅ JSDoc comment extraction
+- ✅ **Svelte - Full support with TypeScript preprocessing**
+  - ✅ Svelte component parsing with svelte/compiler
+  - ✅ TypeScript transpilation for `<script lang="ts">` blocks
+  - ✅ Props extraction from `export let` statements
+  - ✅ Events extraction from `createEventDispatcher`
+  - ✅ Reactive statements (`$:`) detection
+  - ✅ Store references (`$store`) tracking
+  - ✅ Slots extraction from template
+  - ✅ JSDoc comment extraction
 
----
+**Not Started:**
+- 🔴 Backend frameworks (Express, NestJS, Fastify)
+- 🔴 Additional frontend frameworks (Angular, Solid.js)
 
-### Task 1: Shadcn/UI Integration & Component Library Setup ✅ COMPLETE
+### Key Features Implemented
 
-**Subtasks:**
+**Vue 3 Parser** (`packages/parser/src/parsers/vue-parser.ts` - 443 lines)
+- Parses both Composition API and Options API components
+- Extracts props from `defineProps<PropsInterface>()` and runtime objects
+- Detects emits from `defineEmits<EmitsInterface>()` and runtime arrays
+- Identifies slots from `<slot>` tags in template
+- Full TypeScript support with type inference
 
-- [x] Install and configure shadcn/ui for the site-builder template
-- [x] Set up Tailwind CSS (required for shadcn)
-- [x] Install core shadcn components: Button, Card, Badge, Separator, ScrollArea, Collapsible, Input
-- [x] Create custom theme tokens matching CogniDocs branding
-- [x] Configure dark mode using custom ThemeContext solution
-- [x] Set up CSS variables for theme customization
+**Svelte Parser** (`packages/parser/src/parsers/svelte-parser.ts` - 465 lines)
+- TypeScript preprocessing via `ts.transpileModule` before Svelte compilation
+- Reactive statement parsing with dependency extraction
+- Store reference detection for Svelte stores
+- Event dispatcher analysis for custom events
+- Comprehensive prop type extraction
 
-**Files to Create/Modify:**
+### Critical Bug Fix: JSDoc Example Extraction
 
-- `packages/site-builder/src/template/tailwind.config.js`
-- `packages/site-builder/src/template/components.json` (shadcn config)
-- `packages/site-builder/src/template/src/components/ui/` (shadcn components)
-- `packages/site-builder/src/template/src/lib/utils.ts` (cn helper)
+**Problem:** The JSDoc `@example` extraction regex was truncating code examples at inline `@` symbols (like Vue's `@row-click`, `@click`, Svelte's `@keydown`, etc.), resulting in malformed markdown with unclosed code blocks.
 
-**Deliverables:**
+**Root Cause:** Original regex pattern `(?!\s*\*\s*@)` would stop at ANY `@` symbol, not just JSDoc tags. Vue/Svelte template code with event handlers have `@` symbols indented with extra spaces (e.g., ` *   @row-click="handler"`), which were being mistaken for JSDoc tags.
 
-- Working shadcn/ui setup with Tailwind
-- Core UI components available for use
-- Consistent theming system
-
----
-
-### Task 2: Enhanced Sidebar Navigation (Compodoc-Style) ✅ COMPLETE
-
-**Subtasks:**
-
-- [x] Redesign sidebar with hierarchical collapsible sections
-- [x] Add category icons (FileCode, Box, Layers, BookOpen, Network, Home)
-- [x] Implement collapsible/expandable sections with animations
-- [x] Add active state highlighting for current page
-- [x] Create categorized navigation:
-  - Overview (README/Introduction, Dependency Graph)
-  - Documentation (from manifest)
-  - Components (from graph data)
-- [x] Add section badges showing counts (e.g., "Components (1)")
-- [x] Implement sticky header with CogniDocs branding and theme toggle
-- [ ] Add keyboard navigation support (arrow keys, Enter) - DEFERRED to Task 3
-- [x] Optimize for mobile with overlay and responsive design
-
-**Files to Create/Modify:**
-
-- `packages/site-builder/src/template/src/Sidebar.tsx` (major refactor)
-- `packages/site-builder/src/template/src/components/NavigationSection.tsx` (new)
-- `packages/site-builder/src/template/src/components/NavigationItem.tsx` (new)
-
-**Deliverables:**
-
-- Professional sidebar matching Compodoc quality
-- Smooth animations and transitions
-- Clear visual hierarchy
-
----
-
-### Task 3: Advanced Search with Command Palette (Cmd+K) ✅ COMPLETE
-
-**Subtasks:**
-
-- [x] Implement Cmd+K / Ctrl+K keyboard shortcut
-- [x] Create Command Palette overlay using shadcn Command component
-- [x] Enhance search UI with:
-  - [x] Recent searches (stored in localStorage)
-  - [x] Search suggestions
-  - [x] Category filters (Overview, Components, Documentation)
-  - [x] Keyboard navigation (arrow keys, Enter, Esc - built into cmdk)
-- [x] Add search result previews with context snippets
-- [x] Implement fuzzy search using Lunr.js with fallback to basic search
-- [x] Display search metadata (file path, line number, category)
-- [x] Implement "No results" empty state with suggestions
-- [x] Add quick actions (Go to Introduction, View Dependency Graph)
-
-**Files Created/Modified:**
-
-- `packages/site-builder/src/template/src/components/CommandPalette.tsx` ✅ (new)
-- `packages/site-builder/src/template/src/components/ui/command.tsx` ✅ (new)
-- `packages/site-builder/src/template/src/components/ui/dialog.tsx` ✅ (new)
-- `packages/site-builder/src/template/src/components/Layout.tsx` ✅ (modified)
-
-**Deliverables:**
-
-- ✅ Fast, accessible search experience with Cmd+K shortcut
-- ✅ Keyboard-first interaction with full keyboard navigation
-- ✅ Professional search UI with shadcn Command component
-- ✅ Category-based filtering and result grouping
-- ✅ Recent searches with localStorage persistence
-- ✅ Context previews and metadata display
-
----
-
-### Task 4: Multi-Theme System (12 Themes) ✅ COMPLETE
-
-**Subtasks:**
-
-- [x] Design theme architecture supporting multiple color schemes
-- [x] Implement theme switcher UI component (dropdown with Select)
-- [x] Create 12 professional themes:
-  - [x] **GitBook Light** (clean, minimal)
-  - [x] **GitBook Dark** (clean, minimal dark)
-  - [x] **GitHub Light** (GitHub-inspired)
-  - [x] **GitHub Dark** (GitHub-inspired dark)
-  - [x] **Nord Light** (Nordic color palette)
-  - [x] **Nord Dark** (Nordic color palette dark)
-  - [x] **Dracula** (vibrant purple dark theme)
-  - [x] **Monokai** (warm, retro dark theme)
-  - [x] **Solarized Light** (Solarized scheme)
-  - [x] **Solarized Dark** (Solarized scheme dark)
-  - [x] **One Dark** (Atom-inspired)
-  - [x] **Material** (Google Material Design)
-- [x] Persist theme selection in localStorage
-- [x] Support per-theme dark/light variants
-- [x] Create smooth theme transitions with CSS variable updates
-- [ ] Apply themes to syntax highlighting (code blocks) - DEFERRED to Task 5
-
-**Files Created/Modified:**
-
-- `packages/site-builder/src/template/src/ThemeContext.tsx` ✅ (expanded with multi-theme support)
-- `packages/site-builder/src/template/src/themes/index.ts` ✅ (new - 12 theme definitions)
-- `packages/site-builder/src/template/src/components/ThemeSwitcher.tsx` ✅ (new - dropdown selector)
-- `packages/site-builder/src/template/src/components/ui/select.tsx` ✅ (new - shadcn Select component)
-- `packages/site-builder/src/template/src/Sidebar.tsx` ✅ (modified - integrated ThemeSwitcher)
-
-**Deliverables:**
-
-- ✅ 12 high-quality themes with light/dark variants
-- ✅ Smooth theme switching with instant CSS variable updates
-- ✅ Persistent user preference with localStorage
-- ✅ Professional dropdown theme switcher UI
-- ✅ Fully typed theme system with TypeScript
-
----
-
-### Task 4.5: UI/Navigation Bug Fixes & Graph Improvements ✅ COMPLETE
-
-**Subtasks:**
-
-- [x] Remove duplicate Components section from sidebar
-  - Components were incorrectly showing graph nodes (file-level) instead of actual component metadata
-  - Cleaned up unused `graph` prop from Sidebar component
-  - Removed Box icon import and unused code
-- [x] Fix DependencyGraph data format compatibility
-  - Updated interface to accept `nodes` as array instead of object
-  - Added conditional handling for both array and object node formats
-  - Support both `source/target` and `from/to` edge property conventions
-  - Made component resilient to data format variations
-- [x] Verify documentation markdown link routing
-  - Confirmed hash-based routing works correctly with `/content/` pattern
-  - Verified MarkdownPage fetches and renders markdown files properly
-  - Navigation structure maintained through manifest.json
+**Solution:** Changed regex to require exactly ONE space after the `*` for JSDoc tags: `(?!\n\s*\*\s@\w)`. This prevents matching indented template code with event handlers.
 
 **Files Modified:**
+- `packages/parser/src/parsers/typescript-parser.ts` (line 353)
+- `packages/parser/src/parsers/react-parser.ts` (line 411)
 
-- `packages/site-builder/src/template/src/Sidebar.tsx` ✅ (removed Components section, cleaned up props)
-- `packages/site-builder/src/template/src/components/Layout.tsx` ✅ (removed graph prop)
-- `packages/graph-viz/src/DependencyGraph.tsx` ✅ (fixed data format compatibility)
-
-**Deliverables:**
-
-- ✅ Clean sidebar navigation without duplicate sections
-- ✅ Dependency graph loads correctly without hanging
-- ✅ All documentation links route properly
-- ✅ Improved component resilience to data format changes
-
----
-
-### Task 5: Enhanced Content Rendering & Documentation Pages ✅ COMPLETE
-
-**Subtasks:**
-
-- [x] Implement proper routing system (hash-based routing implemented)
-- [x] Create dedicated page types:
-  - [x] **Overview Page** (basic implementation exists)
-  - [x] **Introduction Page** (from README.md - implemented via MarkdownPage)
-  - [x] **Component Detail Page** (basic implementation exists)
-  - [x] **Graph Page** (dependency graph visualization working)
-  - [x] **Markdown Pages** (for documentation files via MarkdownPage)
-  - [ ] **Module Page** (exports, imports, dependencies - needs enhancement) - DEFERRED
-  - [ ] **Coverage Report Page** (visual charts, metrics - planned) - DEFERRED
-  - [x] **Additional Docs Pages** (custom markdown files from manifest - working)
-- [x] **Custom Header with Project Name:**
-  - [x] Display project name from package.json on header left
-  - [x] Display "CogniDocs" branding on header right/nav bar
-  - [x] Display version number from package.json
-  - [ ] Support custom logo via config (TODO placeholder added) - DEFERRED
-  - [x] Make header sticky on scroll
-- [x] **Additional Documentation System:**
-  - [x] Support `/additional-documentation/` folder in project root
-  - [x] Auto-discover and render all .md files in the folder
-  - [x] Support nested folder structure (categories)
-  - [x] Generate navigation sidebar section for additional docs (displayed as "Guides")
-  - [x] Support custom ordering via frontmatter (order: 1, 2, 3)
-  - [x] Parse frontmatter for metadata (title, description, category)
-  - [x] Render as separate pages via hash routing
-  - [x] Display in sidebar under "Guides" section (appears ABOVE Documentation section)
-  - [x] Strip frontmatter from rendered output (invisible to users)
-- [x] **README Integration:**
-  - [x] Auto-render project README.md as "Introduction" page
-  - [x] Make it accessible via Introduction route
-  - [x] Support README from root or docs folder
-- [x] Add Table of Contents (TOC) for long pages (auto-generated from headings)
-  - [x] Sticky TOC sidebar
-  - [x] Auto-scroll to section with smooth scroll
-  - [x] Active section highlighting
-  - [x] Only show for pages with 3+ headings
-  - [x] Extract headings after frontmatter removal for accuracy
-- [x] Implement breadcrumb navigation showing full path
-- [ ] Add "Edit on GitHub" links (configurable repo URL) - DEFERRED
-- [x] Create component metadata display:
-  - [x] Props table with types, defaults, descriptions (normalized styling)
-  - [x] Methods/Functions with signatures
-  - [x] Source code viewer with syntax highlighting
-  - [x] Examples/Usage section
-  - [ ] Related components/dependencies - DEFERRED
-- [x] Add copy-to-clipboard for code blocks
-  - [x] Copy button with success feedback
-  - [x] Language badge display
-  - [x] Styled code blocks with borders
-  - [x] Proper React element text extraction for code rendering
-- [x] Heading links and navigation improvements:
-  - [x] Removed clickable header links (prevented 404 navigation)
-  - [x] Section headers no longer auto-linked (only TOC navigates)
-  - [x] Clean heading rendering without wrapper links
-- [x] Table styling improvements:
-  - [x] Normalized table cell styling (removed prominent/bold text)
-  - [x] Consistent text-foreground color for all table content
-  - [x] Fixed code block rendering in table cells
-- [ ] Add prev/next navigation buttons - DEFERRED
-
-**Files Created/Modified:**
-
-- ✅ `packages/site-builder/src/template/src/App.tsx` (enhanced routing)
-- ✅ `packages/site-builder/src/template/src/components/Header.tsx` (new - project name + CogniDocs branding)
-- ✅ `packages/site-builder/src/template/src/pages/MarkdownPage.tsx` (complete rewrite with improvements)
-- ✅ `packages/site-builder/src/template/src/pages/ComponentDetailPage.tsx` (enhanced)
-- ✅ `packages/site-builder/src/template/src/pages/GraphPage.tsx` (working)
-- ✅ `packages/site-builder/src/template/src/components/TableOfContents.tsx` (new)
-- ✅ `packages/site-builder/src/template/src/components/Breadcrumbs.tsx` (new)
-- ✅ `packages/site-builder/src/template/src/components/CodeBlock.tsx` (new - with copy functionality)
-- ✅ `packages/site-builder/src/template/src/Sidebar.tsx` (reorganized navigation structure)
-- ✅ `packages/docs-generator/src/DocsGenerator.ts` (process additional-documentation folder)
-- ✅ `packages/site-builder/src/SiteBuilder.ts` (copy additional docs, parse frontmatter)
-
-**Deliverables:**
-
-- ✅ Rich, informative documentation pages with proper markdown rendering
-- ✅ Clear information hierarchy with normalized styling
-- ✅ Additional documentation support (Guides section above Documentation)
-- ✅ Project-branded header with version display
-- ✅ README as introduction page
-- ✅ Easy navigation within and between pages
-- ✅ Frontmatter stripping for clean output
-- ✅ Non-clickable section headers (TOC-only navigation)
-- ✅ Code blocks with proper text extraction and copy functionality
-- ✅ Normalized table styling for component props
-
----
-
-### Task 6: Syntax Highlighting & Code Display ✅ COMPLETE
-
-**Subtasks:**
-
-- [x] Integrate syntax highlighting (using rehype-highlight)
-- [x] Support multiple languages (TypeScript, JavaScript, JSX, TSX, JSON, CSS, HTML, etc.)
-- [x] Add line numbers to code blocks (optional, implemented in CodeBlock component)
-- [x] Implement code block features:
-  - [x] Copy button with success feedback
-  - [x] Language badge display
-  - [ ] Line highlighting for specific lines - DEFERRED
-  - [ ] Expandable/collapsible for long code - DEFERRED
-- [ ] Match syntax theme to selected site theme - DEFERRED (using default highlight.js themes)
-- [ ] Add diff highlighting for before/after examples - DEFERRED
-- [x] Optimize performance for large code blocks
-
-**Files Created/Modified:**
-
-- ✅ `packages/site-builder/src/template/src/components/CodeBlock.tsx` (new - with copy & language badge)
-- ✅ `packages/site-builder/src/template/src/pages/MarkdownPage.tsx` (ReactMarkdown with rehype-highlight)
-
-**Deliverables:**
-
-- ✅ Beautiful, readable code blocks with proper styling
-- ✅ Syntax highlighting via rehype-highlight
-- ✅ Developer-friendly copy-to-clipboard functionality
-- ✅ Language badge display for code blocks
-- ✅ Proper handling of inline vs block code
-- ✅ React element text extraction for accurate code rendering
-
----
-
-### Task 5.5: UI/UX Polish & Bug Fixes ✅ COMPLETE
-
-**Goal:** Fix rendering issues and improve overall user experience based on testing feedback.
-
-**Subtasks:**
-
-- [x] **Sidebar Organization:**
-  - [x] Rename "API Documentation" to "Documentation"
-  - [x] Move "Guides" (additional-documentation) ABOVE "Documentation" section
-  - [x] Maintain clean separation between user guides and auto-generated API docs
-- [x] **Code Block Rendering Fixes:**
-  - [x] Fix `[Object Object]` display issue in code blocks
-  - [x] Implement proper React element text extraction
-  - [x] Handle both string children and React element children
-  - [x] Support arrays of mixed children types
-  - [x] Fix code rendering in table cells
-- [x] **Frontmatter Handling:**
-  - [x] Strip YAML frontmatter from rendered markdown
-  - [x] Keep frontmatter in source files for metadata
-  - [x] Apply frontmatter removal before rendering and TOC extraction
-  - [x] Use regex pattern `/^---\n[\s\S]*?\n---\n*/` for removal
-- [x] **Header Link Improvements:**
-  - [x] Remove clickable links from section headers (Props, Classes, Methods, etc.)
-  - [x] Prevent 404 navigation errors from auto-linked headers
-  - [x] Remove `rehypeAutolinkHeadings` plugin
-  - [x] Update heading components to render plain children
-  - [x] Keep TOC navigation working (only way to navigate to sections)
-- [x] **Table Styling Normalization:**
-  - [x] Remove prominent/bold styling from table cells
-  - [x] Use consistent `text-foreground` color for all table content
-  - [x] Fix Name, Type, and Description columns in Props tables
-  - [x] Maintain proper code block rendering within tables
-- [x] **TOC Accuracy:**
-  - [x] Extract headings after frontmatter removal
-  - [x] Ensure only heading lines are matched (not content text)
-  - [x] Verify heading regex `/^(#{1,6})\s+(.+)$/gm` works correctly
-- [x] **UI Layout Fixes:**
-  - [x] Horizontal scrolling issues resolved (Flexbox refactor)
-  - [x] Fixed "Duplicate Sidebar" glitch (Layout component correction)
-
-**Files Modified:**
-
-- ✅ `packages/site-builder/src/template/src/Sidebar.tsx` (navigation reorganization)
-- ✅ `packages/site-builder/src/template/src/pages/MarkdownPage.tsx` (multiple rendering improvements)
-- ✅ `packages/site-builder/src/template/src/components/CodeBlock.tsx` (React element handling)
-
-**Issues Resolved:**
-
-1. ✅ Code blocks showing `[Object Object]` instead of actual code
-2. ✅ YAML frontmatter visible in rendered documentation
-3. ✅ Section headers causing 404 navigation errors when clicked
-4. ✅ Table cells with overly prominent styling
-5. ✅ Sidebar navigation order (Guides before Documentation)
-
-**Deliverables:**
-
-- ✅ Clean, professional documentation rendering without artifacts
-- ✅ Improved navigation UX (non-clickable headers, proper TOC-only navigation)
-- ✅ Normalized visual styling across all documentation pages
-- ✅ Proper code block rendering in all contexts (inline, block, tables)
-- ✅ Invisible frontmatter processing (metadata preserved, display hidden)
-
----
-
-### Task 7: Statistics & Metrics Dashboard (Overview Page) ✅ COMPLETE
-
-**Subtasks:**
-
-- [x] Create Overview/Home page with project statistics
-- [x] Display key metrics:
-  - [x] Total components, modules, functions, classes, interfaces, types
-  - [x] Documentation coverage percentage (calculated dynamically)
-  - [x] Total files parsed
-  - [x] Last updated timestamp
-- [x] Add visual elements:
-  - [x] Coverage progress bar with color-coded indicators
-  - [x] Documentation health metrics cards
-  - [x] Breakdown by ALL categories (Components, Functions, Classes, Interfaces, Types)
-  - [x] Color-coded coverage percentages (green ≥80%, yellow ≥50%, red <50%)
-  - [x] Responsive grid layout (2/3/6 columns)
-  - [x] Overall card with special border highlight
-- [x] Show "Quick Links" section (Introduction, Dependency Graph)
-- [x] Add project metadata (entry point, theme, frameworks)
-- [x] Quality insights section with recommendations
-- [x] Add "Project Overview" link to sidebar navigation
-
-**Files Created/Modified:**
-
-- ✅ `packages/site-builder/src/template/src/pages/OverviewPage.tsx` (enhanced with 6 coverage cards)
-- ✅ `packages/site-builder/src/template/src/Sidebar.tsx` (added Project Overview link)
-
-**Deliverables:**
-
-- ✅ Comprehensive landing page with documentation health metrics
-- ✅ Real-time coverage calculation from parsed data (all 6 categories)
-- ✅ Visual coverage indicators with progress bars
-- ✅ Quality insights and actionable recommendations
-- ✅ Responsive design with shadcn/ui components (grid-cols-2 md:grid-cols-3 lg:grid-cols-6)
-- ✅ Quick access links to key sections
-- ✅ Interfaces and Types coverage display
-- ✅ Navigation link in sidebar for easy access
-
----
-
-### Task 8: Mobile Responsiveness & Accessibility ✅ COMPLETE
-
-**Subtasks:**
-
-- [x] Audit current mobile responsiveness
-  - [x] Examined Layout.tsx hamburger menu implementation
-  - [x] Reviewed Sidebar.tsx mobile overlay and toggle behavior
-  - [x] Identified accessibility gaps (missing ARIA labels, no keyboard navigation)
-- [x] Enhanced hamburger menu button:
-  - [x] Added ARIA labels (`aria-label="Open navigation menu"`)
-  - [x] Added `aria-expanded` state tracking
-  - [x] Added `aria-controls` linking to sidebar
-  - [x] Improved touch target size (p-2 → p-3, min 44x44px)
-  - [x] Added visible focus indicator (ring-2 ring-primary)
-  - [x] Added hover state with background transition
-- [x] Implemented keyboard navigation:
-  - [x] Escape key closes mobile sidebar
-  - [x] Auto-focus sidebar on open for screen reader navigation
-  - [x] Added keyboard event listeners with proper cleanup
-- [x] Added comprehensive ARIA attributes:
-  - [x] Sidebar: `aria-label="Main navigation"`, `id="mobile-sidebar"`, `tabIndex={-1}`
-  - [x] Mobile overlay: `aria-hidden="true"`
-  - [x] Search input: `aria-label="Search documentation"`, `role="searchbox"`
-  - [x] Navigation sections: `aria-label` for collapsible triggers
-  - [x] Navigation items: `aria-current="page"` for active links
-  - [x] Search results: `role="list"`, `role="status"` for empty state
-  - [x] Navigation container: `<nav>` with `aria-label="Documentation navigation"`
-  - [x] Quick links: `aria-label` for each link
-- [x] Enhanced keyboard focus indicators:
-  - [x] Navigation items: `focus:ring-2 focus:ring-primary focus:ring-offset-1`
-  - [x] Navigation sections: `focus:ring-2 focus:ring-primary focus:ring-offset-1`
-  - [x] Quick links: `focus:ring-2 focus:ring-primary focus:ring-offset-2`
-  - [x] Hamburger button: `focus:ring-2 focus:ring-primary focus:ring-offset-2`
-  - [x] All interactive elements have visible focus states
-- [x] Improved semantic HTML:
-  - [x] Navigation wrapped in `<nav>` element
-  - [x] Proper heading hierarchy maintained
-  - [x] Decorative icons marked with `aria-hidden="true"`
-
-**Files Modified:**
-
-- ✅ `packages/site-builder/src/template/src/components/Layout.tsx` (hamburger menu accessibility)
-- ✅ `packages/site-builder/src/template/src/Sidebar.tsx` (keyboard navigation, ARIA labels)
-- ✅ `packages/site-builder/src/template/src/components/NavigationItem.tsx` (focus indicators, aria-current)
-- ✅ `packages/site-builder/src/template/src/components/NavigationSection.tsx` (focus indicators, aria-label)
-- ✅ `packages/site-builder/src/template/src/pages/OverviewPage.tsx` (quick links accessibility)
-
-**Accessibility Compliance:**
-
-- ✅ **WCAG 2.1 Level AA** - All interactive elements meet minimum size requirements (44x44px)
-- ✅ **Keyboard Navigation** - All functionality accessible via keyboard
-- ✅ **Screen Reader Support** - Comprehensive ARIA labels and semantic HTML
-- ✅ **Focus Management** - Clear visible focus indicators on all interactive elements
-- ✅ **Mobile Accessibility** - Touch targets meet iOS/Android guidelines
-
-**Testing Results:**
-
-- ✅ Mobile sidebar opens/closes smoothly on small screens
-- ✅ Escape key closes sidebar as expected
-- ✅ Tab navigation works through all interactive elements
-- ✅ Screen readers announce proper labels and states
-- ✅ Focus indicators visible on all interactive elements
-- ✅ Touch targets large enough for comfortable mobile interaction
-- ✅ Responsive layout tested (mobile, tablet, desktop)
-
-**Deliverables:**
-
-- ✅ Fully accessible mobile navigation with ARIA support
-- ✅ Comprehensive keyboard navigation throughout the site
-- ✅ WCAG 2.1 Level AA compliant interactive elements
-- ✅ Enhanced user experience for screen reader users
-- ✅ Professional focus indicators for keyboard users
-- ✅ Improved mobile responsiveness with proper touch targets
-
----
-
-### Task 9: Performance Optimization ✅ COMPLETE
-
-**Subtasks:**
-
-- [x] Implement code splitting with React.lazy() for all pages
-- [x] Add Suspense boundaries with loading skeletons
-- [x] Optimize Vite build configuration with manual chunking
-- [x] Minify CSS and JavaScript in production (Terser)
-- [x] Enable CSS code splitting
-- [x] Remove console logs in production builds
-- [x] Split vendor chunks for better caching:
-  - [x] React vendor chunk (react, react-dom)
-  - [x] UI vendor chunk (lucide-react, radix-ui components)
-  - [x] Search vendor chunk (lunr.js)
-  - [x] Graph vendor chunk (d3.js, graph-viz)
-  - [x] Markdown vendor chunk (react-markdown, remark, rehype)
-- [x] Lazy load search index (already implemented in Layout)
-- [x] Optimize dependency pre-bundling
-- [x] Test and verify bundle size reduction
-
-**Files Created/Modified:**
-
-- ✅ `packages/site-builder/src/template/src/App.tsx` (React.lazy() for all pages, Suspense boundary)
-- ✅ `packages/site-builder/src/template/src/components/LoadingSkeleton.tsx` (new - loading state component)
-- ✅ `packages/site-builder/src/template/vite.config.ts` (manual chunking, terser config, optimizations)
-
-**Performance Results:**
-
-**Bundle Size Improvement:**
-
-- **Before:** Single bundle of 764.87 KB (237.00 KB gzipped)
-- **After:** Multiple optimized chunks:
-  - Main bundle: 329.44 KB (103.21 KB gzipped) - **57% reduction** ✅
-  - MarkdownPage (lazy): 350.24 KB (107.72 KB gzipped)
-  - GraphPage (lazy): 66.40 KB (23.21 KB gzipped)
-  - OverviewPage (lazy): 15.18 KB (3.49 KB gzipped)
-  - Lunr search: 30.53 KB (8.82 KB gzipped) - separate chunk
-  - Component pages: 4.28 KB (1.37 KB gzipped) - lazy loaded
-
-**Key Improvements:**
-
-- ✅ **Initial load reduced by 57%** (237 KB → 103 KB gzipped)
-- ✅ Pages are lazy loaded only when visited
-- ✅ Heavy dependencies (Lunr, D3, Markdown) split into separate chunks
-- ✅ Better caching with vendor chunk splitting
-- ✅ No more chunk size warnings from Vite
-- ✅ Loading skeletons prevent layout shifts
-- ✅ Smooth page transitions with Suspense
-
-**Deliverables:**
-
-- ✅ Fast initial load with 57% bundle size reduction
-- ✅ Code splitting for all major pages
-- ✅ Loading states for better UX
-- ✅ Optimized production builds with Terser
-- ✅ Manual chunk splitting for optimal caching
-- ✅ All console logs removed in production
-
----
-
-### Task 10: Additional Features & Polish ✅ COMPLETE
-
-**Subtasks:**
-
-- [x] **Copy-to-clipboard for code blocks** - Already implemented in CodeBlock component with Copy/Check icons
-- [x] **Scroll-to-top button** - Floating button appears after scrolling 300px
-- [x] **Copy link buttons for headings** - HeadingWithLink component created (ready for markdown integration)
-- [x] **Footer with version and attribution** - Professional footer removed for cleaner design
-- [x] **Smooth scroll behavior** - Enabled globally via `scroll-behavior: smooth` in HTML
-- [x] **Open Graph meta tags** - Added for better social media sharing
-- [x] **Loading states** - Suspense boundaries and LoadingSkeleton already in place
-- [x] **Custom 404 page** - Already implemented in App.tsx with styled NotFoundPage
-- [x] **Favicon** - Added CogniDocs favicon to documentation site template
-
-**Deferred/Optional (not critical for MVP):**
-
-- [ ] Print-friendly styles - Can be added later if needed
-- [ ] Export to PDF functionality - Advanced feature for future
-- [ ] Analytics integration - Can be added via config later
-- [ ] Custom logo upload - Future enhancement
-- [ ] "Edit on GitHub" links - Requires repository config
-
-**Files Created/Modified:**
-
-- ✅ `packages/site-builder/src/template/src/components/ScrollToTop.tsx` (new - floating scroll button)
-- ✅ `packages/site-builder/src/template/src/components/HeadingWithLink.tsx` (new - copy link for headings)
-- ✅ `packages/site-builder/src/template/src/components/Footer.tsx` (new - professional footer)
-- ✅ `packages/site-builder/src/template/src/components/CodeBlock.tsx` (already has copy functionality)
-- ✅ `packages/site-builder/src/template/src/App.tsx` (added ScrollToTop, already has NotFoundPage)
-- ✅ `packages/site-builder/src/template/src/components/Layout.tsx` (added Footer)
-- ✅ `packages/site-builder/src/template/index.html` (smooth scroll, Open Graph meta tags)
-
-**Features Implemented:**
-
-**1. Scroll-to-Top Button ([ScrollToTop.tsx](packages/site-builder/src/template/src/components/ScrollToTop.tsx))**
-
-- Floating button appears after scrolling 300px
-- Smooth scroll animation to top
-- Accessible with ARIA labels
-- Hover animation (scale 110%)
-- Auto-hides when at top
-
-**2. Heading Link Copy ([HeadingWithLink.tsx](packages/site-builder/src/template/src/components/HeadingWithLink.tsx))**
-
-- Copy button appears on hover
-- Copies full URL with hash anchor
-- Check icon confirmation feedback
-- Supports all heading levels (h1-h6)
-- Proper scroll offset for sticky header
-
-**3. Professional Footer ([Footer.tsx](packages/site-builder/src/template/src/components/Footer.tsx))**
-
-- Three-column responsive layout
-- Quick links to Overview, Introduction, Graph
-- GitHub repository link
-- Version display
-- "Made with ❤️ using Claude Code" attribution
-- Copyright notice
-- Fully responsive (stacks on mobile)
-
----
-
-### Task 10.5: Final UI Polish & Bug Fixes (COMPLETE) ✅
-
-**Status:** 🟢 Complete
-**Priority:** High (MVP Quality)
-**Description:** Final round of UI/UX improvements and critical bug fixes before MVP release.
-
-**Subtasks:**
-
-- [x] **Markdown table pipe escaping** - Fixed TypeScript union types breaking tables in documentation
-- [x] **Footer removal** - Removed professional footer for cleaner, more minimal design
-- [x] **Navigation reordering** - Placed Introduction before Project Overview in sidebar for better UX
-- [x] **Sidebar overflow fixes** - Fixed focus ring cutoff on selected items with `ring-inset` and padding adjustments
-
----
-
-### Task 10.6: GitHub Pages Deployment & CI/CD (COMPLETE) ✅
-
-**Status:** 🟢 Complete
-**Priority:** High (Production Deployment)
-**Description:** Set up automated deployment to GitHub Pages with manual workflow triggers and configurable base path support.
-
-**Subtasks:**
-
-- [x] **GitHub Actions Workflows:**
-  - [x] `deploy-demo.yml` - Deploy sample-react documentation to GitHub Pages
-  - [x] `npm-publish.yml` - Publish packages to NPM with version bumping
-  - [x] `release.yml` - Combined workflow for both deployment and publishing
-  - [x] All workflows use manual triggers (`workflow_dispatch`)
-  - [x] Hybrid package manager support (pnpm for install, npm for linking)
-  - [x] Node.js 20 for Rollup compatibility
-- [x] **Configurable Base Path:**
-  - [x] Added `--base-path` CLI option to `cognidocs build`
-  - [x] Updated SiteBuilder to accept base path parameter (defaults to `'./'`)
-  - [x] Vite config generation uses configurable base path
-  - [x] Workflows pass `--base-path /cognidocs/` for GitHub Pages deployment
-- [x] **Content Path Fixes:**
-  - [x] Updated all fetch calls to use `import.meta.env.BASE_URL`
-  - [x] Fixed 7 template files (MarkdownPage, PageHeader, Layout, Sidebar, ComponentDetailPage, OverviewPage, GraphPage)
-  - [x] Ensures content loads from correct subdirectory on GitHub Pages
-- [x] **npm Rollup Bug Workaround:**
-  - [x] Automatic package-lock.json and node_modules removal before npm install
-  - [x] Uses `--legacy-peer-deps` flag for npm install
-  - [x] Fixes optional dependencies bug on Linux CI environments
-- [x] **Live Demo:**
-  - [x] Deployed to: [https://abishekraj.github.io/cognidocs/](https://abishekraj.github.io/cognidocs/)
-  - [x] Added demo link to README.md
-
-**Bug Fixes:**
-
-**1. Base Path Configuration**
-
-- **Problem:** Site built with `base: './'` expected root serving, but GitHub Pages serves from `/cognidocs/` subdirectory
-- **Solution:** Made base path configurable via CLI option
-- **Files Modified:**
-  - `packages/site-builder/src/SiteBuilder.ts` - Added basePath parameter
-  - `packages/cli/src/commands/build.ts` - Added --base-path option
-  - `packages/cli/src/cli.ts` - Added CLI option definition
-  - `.github/workflows/deploy-demo.yml` - Uses `--base-path /cognidocs/`
-  - `.github/workflows/release.yml` - Uses `--base-path /cognidocs/`
-
-**2. Content Fetch Paths**
-
-- **Problem:** All content fetches used hardcoded `/content/...` paths which don't work in subdirectories
-- **Solution:** Use Vite's `import.meta.env.BASE_URL` for all fetch calls
-- **Files Modified:**
-  - `packages/site-builder/src/template/src/pages/MarkdownPage.tsx` (line 53-54)
-  - `packages/site-builder/src/template/src/components/PageHeader.tsx` (line 27-28)
-  - `packages/site-builder/src/template/src/components/Layout.tsx` (line 19-24)
-  - `packages/site-builder/src/template/src/Sidebar.tsx` (line 28-32)
-  - `packages/site-builder/src/template/src/pages/ComponentDetailPage.tsx` (line 66-67)
-  - `packages/site-builder/src/template/src/pages/OverviewPage.tsx` (line 69-70)
-  - `packages/site-builder/src/template/src/pages/GraphPage.tsx` (line 9-10)
-
-**3. GitHub Actions Package Manager**
-
-- **Problem:** pnpm doesn't support global CLI linking like npm
-- **Solution:** Hybrid approach - pnpm for installation, npm link for CLI
-- **Implementation:**
-
-  ```yaml
-  - name: Setup pnpm
-    uses: pnpm/action-setup@v3
-    with:
-      version: 8
-
-  - name: Install dependencies
-    run: pnpm install
-
-  - name: Link CLI globally with npm
-    working-directory: packages/cli
-    run: npm link
-  ```
-
-**4. npm Rollup Optional Dependencies Bug**
-
-- **Problem:** `Cannot find module @rollup/rollup-linux-x64-gnu` on Linux CI
-- **Cause:** npm bug with optional dependencies ([npm/cli#4828](https://github.com/npm/cli/issues/4828))
-- **Solution:** Automatic cleanup and legacy peer deps flag
-- **Files Modified:**
-  - `packages/site-builder/src/SiteBuilder.ts` (lines 63-112)
-
-**Deliverables:**
-
-- ✅ Live documentation demo on GitHub Pages
-- ✅ Automated deployment workflow with manual triggers
-- ✅ NPM publishing workflow with version bumping
-- ✅ Configurable base path for flexible deployment
-- ✅ All content loads correctly in subdirectory deployments
-- ✅ Cross-platform CI/CD compatibility (pnpm + npm hybrid)
-- ✅ Rollup bug workaround for reliable builds
-- ✅ Comprehensive workflow documentation
-
-**Workflow Usage:**
-
-```bash
-# Trigger GitHub Pages deployment
-gh workflow run deploy-demo.yml --field environment=production
-
-# Trigger NPM publish (with version bump)
-gh workflow run npm-publish.yml \
-  --field package=all \
-  --field version-bump=patch
-
-# Combined release workflow
-gh workflow run release.yml \
-  --field deploy-demo=true \
-  --field publish-npm=true \
-  --field package=all \
-  --field version-bump=minor
-```
-
-**Local Testing:**
-
-```bash
-# Build with custom base path
-cognidocs build --base-path /cognidocs/
-
-# Build for local development (default)
-cognidocs build
-```
-
-**Bug Fixes:**
-
-**1. Pipe Character Escaping in Markdown Tables**
-
-- **Problem:** Union types like `'primary' | 'secondary' | 'danger'` broke markdown tables (pipe is table delimiter)
-- **Files Affected:** Button.md, Card.md, Input.md, ButtonProps.md, CardProps.md, UserListParams.md, UserSettings.md
-- **Solution:** Added `escapeMarkdownPipes()` method to MarkdownGenerator.ts
-- **Implementation:** Replace all `|` with `\|` in type strings across all table generation methods
-
----
-
-## Phase 4: Next.js & Framework Support (Week 8) 🟢 COMPLETE
-
-**Goal:** Implement robust support for Next.js, Vue, and future frameworks with comprehensive documentation generation.
-
-### Completed Tasks ✅
-
-- [x] **CLI Enhancements**
-  - [x] Enforce single framework selection in `cognidocs init`
-  - [x] Update config generation to store selected framework
-- [x] **Next.js Parser Implementation**
-  - [x] Create `NextJsParser` class
-  - [x] Detect App Router structure (`app/` directory)
-  - [x] Detect Page Router structure (`pages/` directory)
-  - [x] Parse API routes (`app/api` and `pages/api`)
-  - [x] Extract route metadata (methods, paths)
-  - [x] Parse JSDoc `@response` tags for API documentation
-- [x] **Documentation Generation Updates**
-  - [x] Handle "Pages" and "API Routes" in manifest
-  - [x] Render distinct sections for Routes in the UI
-  - [x] Generate markdown for API routes with method, path, and response documentation
-  - [x] Create dedicated `api-routes` directory in output
-- [x] **Site Builder UI Updates**
-  - [x] Add "API Routes" section to sidebar navigation
-  - [x] Display Next.js metadata in ComponentDetailPage (isPage, isLayout, isApiRoute, routePath, routerType)
-  - [x] Add highlighted Next.js metadata card with badges and route information
-- [x] **Verification**
-  - [x] Test with `sample-nextjs` (8 components, 5 API routes detected)
-  - [x] Regression test with `sample-react`
-  - [x] Verify end-to-end documentation generation works
-  - [x] Confirm API routes appear in sidebar with proper navigation
-
-### In Progress 🚧
-
-- [ ] **Backend Framework Support** (Express, NestJS, Fastify) - Planned
-- [ ] **Multi-framework example projects** - Partial (sample-nextjs, sample-vue, sample-svelte exist)
-
-### Deliverables
-
-- ✅ Next.js App Router support - Full support for `app/` directory structure
-- ✅ Next.js Page Router support - Full support for `pages/` directory structure
-- ✅ API Route documentation - Both App Router (`route.ts`) and Pages Router (`pages/api`) formats
-- ✅ Next.js metadata display - Pages, Layouts, API Routes properly identified and displayed
-- ✅ Dedicated API Routes section - Separate navigation section in sidebar
-- ✅ JSDoc `@response` tag support - API responses documented in generated markdown
-- ⚠️ CLI single framework selection - Deferred to Phase 4 (Multi-Framework & Backend Support)
-
-### What's Complete
-
-The Next.js integration is **production-ready** with the following features:
-
-1. **Parser (`packages/parser/src/parsers/nextjs-parser.ts`):**
-   - Detects App Router files: `app/**/page.tsx`, `app/**/layout.tsx`, `app/**/route.ts`
-   - Detects Page Router files: `pages/**/*.tsx` and `pages/api/**/*.ts`
-   - Extracts API route handlers (GET, POST, PUT, DELETE, PATCH, etc.)
-   - Parses JSDoc `@response` tags for API documentation
-   - Identifies route paths and router types
-
-2. **Documentation Generator (`packages/docs-generator`):**
-   - Creates `api-routes/` directory for API documentation
-   - Generates markdown with HTTP method badges and route information
-   - Renders response tables from JSDoc `@response` tags
-   - Maintains separate sections for components vs API routes
-
-3. **Site Builder UI (`packages/site-builder/src/template`):**
-   - Sidebar displays "API Routes" section above "Documentation"
-   - ComponentDetailPage shows Next.js metadata card for pages/layouts/API routes
-   - Displays route path, router type (App/Pages), and component type badges
-   - Proper navigation with hash routing to API route documentation
-
-4. **Testing & Verification:**
-   - `examples/sample-nextjs` successfully generates documentation
-   - Detects 8 components (including 2 pages, 1 layout)
-   - Detects 5 API routes (3 App Router handlers + 2 Pages Router handlers)
-   - All documentation renders correctly in the generated site
-
-### Files Modified/Created
-
-**New Files:**
-
-- `packages/parser/src/parsers/nextjs-parser.ts` - Next.js parser implementation
-
-**Modified Files:**
-
-- `packages/cli/src/commands/build.ts` - Added Next.js parser integration
-- `packages/docs-generator/src/DocsGenerator.ts` - Added API routes generation
-- `packages/docs-generator/src/MarkdownGenerator.ts` - Added API route markdown templates
-- `packages/site-builder/src/template/src/Sidebar.tsx` - Added API Routes section (lines 222-232)
-- `packages/site-builder/src/template/src/pages/ComponentDetailPage.tsx` - Added Next.js metadata display (lines 119-164)
-
-**Example Project:**
-
-- `examples/sample-nextjs/` - Working Next.js example with App Router, Pages Router, and API routes
-
-### Next Steps (Phase 4 Full - Multi-Framework Support)
-
-The remaining Phase 4 tasks are part of the larger **Multi-Framework & Backend Support** initiative:
-
-- Vue Parser Implementation (Task 4.3)
-- Svelte Parser Implementation (Task 4.4)
-- Backend Framework Support - Express, NestJS, Fastify (Task 4.5)
-- CLI Framework Selection Refactor (Task 4.1)
-- Framework-specific example projects (Task 4.8)
-
-**Next.js support is COMPLETE and READY FOR PRODUCTION USE** ✅
-
-- **File:** [packages/docs-generator/src/MarkdownGenerator.ts](packages/docs-generator/src/MarkdownGenerator.ts)
-
-**2. Footer Component Removal**
-
-- **Rationale:** Cleaner, more minimal design aesthetic for MVP
-- **Files Modified:**
-  - Removed Footer import and usage from [packages/site-builder/src/template/src/components/Layout.tsx](packages/site-builder/src/template/src/components/Layout.tsx)
-  - Deleted [packages/site-builder/src/template/src/components/Footer.tsx](packages/site-builder/src/template/src/components/Footer.tsx)
-- **Result:** Cleaner page layout without footer clutter
-
-**3. Sidebar Navigation Reordering**
-
-- **Change:** Swapped Introduction and Project Overview order
-- **New Order:**
-  1. Introduction (README)
-  2. Project Overview
-  3. Dependency Graph
-- **Rationale:** Users should see Introduction/README first before diving into project details
-- **File:** [packages/site-builder/src/template/src/Sidebar.tsx](packages/site-builder/src/template/src/Sidebar.tsx:208-219)
-
-**4. Sidebar Item Focus Ring Overflow**
-
-- **Problem:** Selected sidebar items had focus rings extending beyond boundaries, causing visual cutoff
-- **Root Cause:** `focus:ring-offset-1` adds external spacing for focus indicators
-- **Solutions Applied:**
-  - Changed `focus:ring-offset-1` to `focus:ring-inset` (keeps ring inside element boundaries)
-  - Adjusted padding: `px-3` → `pl-3 pr-2` for better spacing
-  - Added `pr-1` to nav element for additional breathing room
-  - Added `flex-shrink-0` to icons to prevent compression
-- **Files Modified:**
-  - [packages/site-builder/src/template/src/components/NavigationItem.tsx](packages/site-builder/src/template/src/components/NavigationItem.tsx:36,47)
-  - [packages/site-builder/src/template/src/Sidebar.tsx](packages/site-builder/src/template/src/Sidebar.tsx:185,205)
-- **Result:** Clean focus indicators that don't overflow container
-
-**MVP Ready:** ✅ All critical bugs fixed, UI polished, ready for initial release
-
-**4. Enhanced Metadata ([index.html](packages/site-builder/src/template/index.html#L2-L17))**
-
-- `scroll-behavior: smooth` for smooth scrolling
-- Updated page title
-- Meta description for SEO
-- Open Graph tags for Facebook sharing
-- Twitter Card tags for Twitter sharing
-
-**5. Code Copy (Already Implemented)**
-
-- Copy button on all code blocks
-- Language badge display
-- Copied confirmation with check icon
-- Works for multi-line code blocks
-
-**Deliverables:**
-
-- ✅ Professional finishing touches throughout the site
-- ✅ Enhanced UX with scroll-to-top and link copying
-- ✅ Better social media presence with Open Graph tags
-- ✅ Complete footer with branding and navigation
-- ✅ Smooth interactions and animations
-- ✅ Production-ready quality and polish
-
----
-
-### Task 11: Premium Features & Competitive Advantages
-
-**Goal:** Add features that make CogniDocs stand out from Compodoc and other tools.
-
-**Subtasks:**
-
-**Advanced Visualization & Diagrams:**
-
-- [ ] **Architecture Diagrams:** Auto-generate architecture diagrams showing:
-  - Component hierarchy tree view
-  - Module dependency maps
-  - Service injection diagrams
-  - Data flow visualizations
-- [x] **Mermaid.js Integration:** Support Mermaid diagrams in markdown (flowcharts, sequence, class diagrams) ✅
-  - ✅ Installed mermaid v11.4.1 dependency
-  - ✅ Created MermaidDiagram component with theme-aware rendering
-  - ✅ Integrated with MarkdownPage via custom code block handler
-  - ✅ Supports all diagram types: flowcharts, sequence, class, state, ER, Gantt, pie, git graphs
-  - ✅ Automatic theme adaptation (light/dark based on site theme)
-  - ✅ Error handling with user-friendly error messages
-  - ✅ Loading states during diagram rendering
-  - ✅ Sample documentation guide created (Mermaid Diagrams Guide)
-- [ ] **Interactive Graph Filters:** Filter dependency graph by:
-  - Module type (components, services, utils)
-  - Depth level
-  - Circular dependencies only
-  - Orphaned modules
-- [ ] **Graph Export:** Export graphs as PNG, SVG, or JSON
-- [ ] **Minimap for Large Graphs:** Add minimap navigation for large dependency graphs
-
-**Enhanced Documentation Features:**
-
-- [ ] **Version Comparison:** Compare API changes between versions
-- [ ] **Deprecated Items Tracking:** Highlight deprecated components/functions
-- [ ] **Change Log Integration:** Auto-generate changelog from git commits
-- [ ] **API Stability Indicators:** Show stability badges (Stable, Beta, Experimental, Deprecated)
-- [ ] **Type Complexity Score:** Display complexity metrics for types/interfaces
-- [ ] **Inline Examples:** Show real usage examples from tests or stories
-- [ ] **Related Documentation Links:** Suggest related components/modules
-
-**Search Enhancements:**
-
-- [ ] **Search Filters:** Advanced filters for:
-  - Type (component, function, class, interface, type)
-  - Has documentation (yes/no)
-  - Framework (React, Vue, etc.)
-  - File path patterns
-- [ ] **Search History:** Persist and display recent searches
-- [ ] **Popular Searches:** Show most-searched items
-- [ ] **Search Analytics:** Track what users search for (optional, privacy-focused)
-- [ ] **Regex Search:** Support regex patterns in search
-
-**Developer Experience:**
-
-- [ ] **Quick Actions Menu:** Add quick actions (Jump to source, View on GitHub, Copy import)
-- [ ] **Keyboard Shortcuts Overlay:** Show all shortcuts with `?` key
-- [ ] **Code Snippets:** Generate copy-paste ready import statements
-- [ ] **Usage Examples Generator:** Auto-generate basic usage examples for components
-- [ ] **Props Autocomplete Preview:** Show inline type hints for props
-- [ ] **Diff View:** Show git diff for changed files
-- [ ] **Source Code Blame:** Show git blame info for code sections (optional)
-
-**Collaboration & Sharing:**
-
-- [ ] **Shareable Links:** Deep links to specific sections with highlights
-- [ ] **Annotations/Comments:** Allow team comments on documentation (requires backend - Phase 7)
-- [ ] **Bookmark System:** Let users bookmark pages (localStorage)
-- [ ] **Reading Progress:** Track which pages user has read
-- [ ] **Share Snippets:** Generate shareable code snippet images
-
-**Content Enrichment:**
-
-- [ ] **JSDoc Rich Rendering:** Support @example, @see, @link, @tutorial tags with rich rendering
-- [ ] **Code Playground:** Embedded live code editor for examples (like CodeSandbox embed)
-- [ ] **Video Embeds:** Support YouTube/Vimeo embeds in additional docs
-- [ ] **Image Galleries:** Support image carousels in documentation
-- [x] **Callout Boxes:** Support info, warning, tip, danger callout blocks ✅
-- [ ] **Tabs Component:** Support tabbed content in markdown
-- [ ] **Expandable Sections:** Support accordion/collapse in markdown
-
-**Configuration & Customization:**
-
-- [ ] **Custom CSS Injection:** Allow users to add custom styles
-- [ ] **Plugin System:** Support custom plugins for extending functionality
-- [ ] **Custom Templates:** Allow custom page templates
-- [ ] **Custom Sidebar Order:** Drag-and-drop sidebar reordering (config-based)
-- [ ] **Hide/Show Sections:** Configure which sections to show/hide
-- [ ] **Custom Footer Content:** Support custom footer HTML/markdown
-- [ ] **Multi-Language Support:** i18n for UI (English, Spanish, French, German, Chinese)
-
-**Static Site Enhancements:**
-
-- [ ] **Static Site Export:** Export complete static site for hosting anywhere
-- [ ] **GitHub Pages Deploy:** One-command deploy to GitHub Pages
-- [ ] **Netlify/Vercel Integration:** Easy deploy buttons
-- [ ] **Sitemap Generation:** Auto-generate sitemap.xml
-- [ ] **RSS Feed:** Generate RSS feed for changelog/updates
-- [ ] **Offline Mode:** Progressive Web App (PWA) with service worker
-
-**Analytics & Insights:**
-
-- [ ] **Documentation Health Score:** Overall project documentation quality score
-- [ ] **Complexity Metrics:** Show cyclomatic complexity, maintainability index
-- [ ] **Documentation Trends:** Chart documentation coverage over time
-- [ ] **Hot Spots:** Identify most-changed files (git stats)
-- [ ] **Dependencies Health:** Show outdated dependencies, security issues
-- [ ] **Bundle Size Analysis:** Show bundle impact of each module
-
-**Comparison Features:**
-
-- [ ] **Side-by-Side Comparison:** Compare two components/modules
-- [ ] **Version Diff:** Show API changes between versions
-- [ ] **Benchmark Display:** Show performance benchmarks if available
-
-**Files to Create/Modify:**
-
-- Too many to list - this is an extensive feature set
-- Would create new packages: `@cognidocs/diagrams`, `@cognidocs/insights`, `@cognidocs/playground`
-
-**Deliverables:**
-
-- Industry-leading documentation tool
-- Features exceeding Compodoc, Storybook, TypeDoc, and JSDoc combined
-- Unique selling points for CogniDocs
-
-**Note:** These are ambitious features. Prioritize based on user feedback and MVP requirements. Many can be added in future phases (4, 5, 6).
-
----
-
-### Overall Deliverables for Phase 3.5
-
-**Core Features (Must-Have for MVP):**
-
-- ✅ Premium documentation site matching Compodoc quality
-- ✅ 12 professional themes with dark/light modes (GitBook, GitHub, Nord, Dracula, Monokai, Solarized, One Dark, Material)
-- ✅ Advanced search with Cmd+K command palette
-- ✅ Comprehensive component documentation pages
-- ✅ Mobile-responsive and accessible (WCAG AA ready)
-- ✅ Fast performance (<200KB initial, <2s load)
-- ✅ Professional UI using shadcn/ui components
-- ✅ Rich content features (TOC, breadcrumbs, syntax highlighting)
-- ✅ Metrics dashboard and overview page (basic)
-- ✅ Additional documentation support (/additional-documentation/ folder)
-- ✅ Project-branded header with version display
-- ✅ README as introduction page
-- ✅ Code blocks with copy-to-clipboard functionality
-- ✅ Proper markdown rendering with frontmatter stripping
-- ✅ Non-clickable section headers (TOC-only navigation)
-- ✅ Normalized table styling for component props
-- ✅ Sidebar organization (Guides above Documentation)
-
-**Premium Features (Nice-to-Have):**
-
-- 🎯 Select features from Task 11 based on priority
-- 🎯 Can be implemented in phases 4-6
-- 📋 Custom logo support (placeholder exists)
-- 📋 Edit on GitHub links
-- 📋 Prev/next navigation buttons
-- 📋 Module and Coverage Report pages
-
-### Commands
-
-```bash
-npm run phase3-ui              # Run site-builder in dev mode
-npm run build --filter=@cognidocs/site-builder
-cognidocs build && cognidocs serve
-```
-
-### Design Reference
-
-- **Compodoc:** https://compodoc.github.io/compodoc-demo-todomvc-angular/
-- **Shadcn/ui:** https://ui.shadcn.com/
-- **Tailwind:** https://tailwindcss.com/
-
----
-
----
-
-## Known Limitations & Future Improvements
-
-### Current Limitations (Phase 4 - In Progress)
-
-**Vue Parser:**
-
-- ✅ Composition API and Options API fully supported
-- ✅ Props and emits extraction working
-- ⚠️ **Limitation:** Complex TypeScript generic types in `defineProps<T>()` may not be fully resolved
-- ⚠️ **Limitation:** Vuex store detection not yet implemented (Pinia composables are supported)
-- ⚠️ **Limitation:** Template expression analysis is basic (no prop usage tracking in template)
-
-**Next.js Parser:**
-
-- ✅ App Router and Page Router fully supported
-- ✅ API routes documentation working
-- ⚠️ **Limitation:** Dynamic route parameter type inference is basic
-- ⚠️ **Limitation:** Server Actions (`'use server'`) not yet detected separately
-- ⚠️ **Limitation:** Next.js middleware not yet documented
-
-**React Parser:**
-
-- ✅ Function and class components fully supported
-- ⚠️ **Limitation:** React Context usage not tracked
-- ⚠️ **Limitation:** Render prop patterns not explicitly documented
-- ⚠️ **Limitation:** Higher-order components (HOCs) not identified separately
-
-**General Parsers:**
-
-- ⚠️ **Limitation:** Circular type references may cause parsing slowdowns
-- ⚠️ **Limitation:** Very large files (>10,000 LOC) may have slower parse times
-- ⚠️ **Limitation:** Dynamic imports are tracked but not deeply analyzed
-
-### Planned Improvements (Future Phases)
-
-**Parser Enhancements:**
-
-- [ ] Deep TypeScript type resolution with full generics support
-- [ ] Template expression analysis for Vue components
-- [ ] React Context Provider/Consumer tracking
-- [ ] Server Actions detection for Next.js App Router
-- [ ] Middleware and guard documentation
-
-**Documentation Generation:**
-
-- [ ] Interactive API playground for testing components
-- [ ] Visual component hierarchy diagrams
-- [ ] Real-time preview updates
-- [ ] Multi-version documentation support
-
-**Performance:**
-
-- [ ] Parallel file parsing for faster builds
-- [ ] Incremental parsing (only parse changed files)
-- [ ] Caching layer for parsed results
-- [ ] Background parsing with progress indicators
-
-### Workarounds for Current Limitations
-
-**Complex TypeScript Types:**
-
+**Regex Pattern:**
 ```typescript
-// Instead of inline generics:
-defineProps<{ count: number }>();
+// OLD (stops at any @):
+/@example\s*\n((?:(?!\s*\*\s*@)[\s\S])*?)(?=\s*\*\s*@|$)/g
 
-// Use interface for better parsing:
-interface Props {
-  count: number;
-}
-defineProps<Props>();
+// NEW (only stops at actual JSDoc tags):
+/@example\s*\n((?:(?!\n\s*\*\s@\w)[\s\S])*?)(?=\n\s*\*\s@\w|$)/g
 ```
 
-**Vue Template Prop Usage:**
-
-```vue
-<!-- Add JSDoc comments to document prop usage -->
-<script setup>
-/**
- * @prop {string} title - The component title
- * @usage Used in the main heading
- */
-defineProps<{ title: string }>()
-</script>
-```
-
-**Dynamic Routes in Next.js:**
-
-```typescript
-// Add JSDoc to describe route parameters
-/**
- * @route /blog/[slug]
- * @param {string} slug - The blog post slug
- */
-export default function BlogPost({ params }: { params: { slug: string } }) {
-  // ...
-}
-```
-
----
-
-## Phase 4: Multi-Framework & Backend Support 🟡 IN PROGRESS
-
-**Goal:** Comprehensive support for Next.js, Vue, Svelte, and backend frameworks (Node.js, Express, NestJS, etc.)
-
-**Key Requirements:**
-
-- ✅ Single framework selection (no multi-select) in `cognidocs init`
-- ✅ Support for frontend frameworks: React, Next.js (Page + App Router), Vue, Svelte
-- 🔴 Support for backend frameworks: Node.js, Express, NestJS, Fastify
-- ✅ Generic project types: TypeScript, JavaScript
-- ✅ API route documentation (Next.js API routes, Express routes, NestJS controllers)
-- ✅ Server component detection (Next.js App Router)
-- ✅ Vue SFC (Single File Component) parsing
-- 🔴 Svelte component parsing
-
-### Packages to Modify/Create
-
-- `@cognidocs/parser` - Add new parsers (Vue, Svelte, API routes)
-- `@cognidocs/cli` - Update init command for single framework selection
-- `shared/constants` - Expand framework definitions and categorization
-- `examples/sample-nextjs` - Next.js example with both routers
-- `examples/sample-vue` - Vue 3 example project
-- `examples/sample-svelte` - Svelte example project
-- `examples/sample-express` - Express backend example
-
----
-
-### Task 4.1: Framework Selection Refactor (CLI) 🔴 NOT STARTED
-
-**Goal:** Update CLI to support single framework selection with categorized options
-
-**Subtasks:**
-
-- [ ] Define framework categories in `shared/constants`:
-  - Frontend: React, Next.js, Vue, Svelte
-  - Backend: Node.js, Express, NestJS, Fastify
-  - Generic: TypeScript, JavaScript
-- [ ] Update `init.ts` command to use `list` instead of `checkbox` for framework selection
-- [ ] Add framework category grouping in prompts (Frontend, Backend, Generic)
-- [ ] Update config type to support `framework: string` (single value) instead of `frameworks: string[]`
-- [ ] Add framework-specific configuration options based on selection
-- [ ] Update help text and examples to reflect single framework selection
-
-**Files to Modify:**
-
-- `packages/cli/src/commands/init.ts` - Change framework prompt to single selection
-- `shared/constants/src/index.ts` - Add framework categories and metadata
-- `packages/cli/src/config/index.ts` - Update config types
-- `CLAUDE.md` - Update configuration examples
-
-**Deliverables:**
-
-- ✅ Single framework selection in CLI
-- ✅ Categorized framework options (Frontend/Backend/Generic)
-- ✅ Framework-specific configuration prompts
-- ✅ Updated documentation
-
----
-
-### Task 4.2: Next.js Parser Implementation 🔴 NOT STARTED
-
-**Goal:** Full Next.js support for Page Router, App Router, and API routes
-
-**Subtasks:**
-
-**Page Router Support:**
-
-- [ ] Detect `pages/` directory structure
-- [ ] Parse page components (`pages/*.tsx`, `pages/**/*.tsx`)
-- [ ] Extract `getStaticProps`, `getServerSideProps`, `getStaticPaths`
-- [ ] Document page-level exports and metadata
-
-**App Router Support:**
-
-- [ ] Detect `app/` directory structure
-- [ ] Parse Server Components (default in App Router)
-- [ ] Parse Client Components (with `'use client'` directive)
-- [ ] Extract route handlers (`route.ts`)
-- [ ] Parse layout components (`layout.tsx`)
-- [ ] Parse loading/error/not-found components
-- [ ] Extract metadata exports (`metadata`, `generateMetadata`)
-- [ ] Document route segments and dynamic routes
-
-**API Routes:**
-
-- [ ] Parse `pages/api/**/*.ts` (Page Router API routes)
-- [ ] Parse `app/**/route.ts` (App Router route handlers)
-- [ ] Extract HTTP method handlers (GET, POST, PUT, DELETE, PATCH)
-- [ ] Document request/response types
-- [ ] Extract route parameters and query params from JSDoc
-- [ ] Support middleware detection
-
-**Files to Create/Modify:**
-
-- `packages/parser/src/parsers/nextjs-parser.ts` (new)
-- `packages/parser/src/parsers/api-route-parser.ts` (new)
-- `packages/parser/src/types.ts` - Add Next.js-specific types:
-  - `NextPageMetadata`
-  - `NextLayoutMetadata`
-  - `NextRouteHandlerMetadata`
-  - `NextServerComponentMetadata`
-  - `ApiRouteMetadata`
-
-**Deliverables:**
-
-- ✅ Full Page Router parsing
-- ✅ Full App Router parsing
-- ✅ API route documentation
-- ✅ Server/Client component differentiation
-- ✅ Metadata extraction
-
----
-
-### Task 4.3: Vue Parser Implementation ✅ COMPLETE
-
-**Goal:** Vue 3 Single File Component (SFC) parsing with Composition API and Options API support
-
-**Subtasks:**
-
-- [x] Install and configure `@vue/compiler-sfc` for parsing
-- [x] Parse `.vue` files (SFC structure):
-  - `<template>` section
-  - `<script>` section (JavaScript/TypeScript)
-  - `<script setup>` section (Composition API)
-  - `<style>` section (optional documentation)
-- [x] Extract component props (Composition API with `defineProps`)
-- [x] Extract component props (Options API with `props` object)
-- [x] Extract emits (Composition API with `defineEmits`)
-- [x] Extract emits (Options API with `emits` array/object)
-- [x] Parse composables (Vue hooks in `composables/` directory)
-- [x] Extract lifecycle hooks usage
-- [x] Support TypeScript in `<script lang="ts">`
-- [x] Extract JSDoc from script sections
-
-**Files Created/Modified:**
-
-- ✅ `packages/parser/src/parsers/vue-parser.ts` (new - full SFC parsing with Composition & Options API)
-- ✅ `packages/parser/src/types.ts` - Added Vue-specific types:
-  - `VueComponentMetadata`
-  - `VuePropsMetadata`
-  - `VueEmitsMetadata`
-  - `VueComposableMetadata`
-- ✅ `packages/parser/package.json` - Added `@vue/compiler-sfc` dependency
-
-**Implementation Details:**
-
-- **Composition API Support:** Full support for `<script setup>`, `defineProps()`, `defineEmits()`, and TypeScript generics
-- **Options API Support:** Parses `props`, `emits`, `data()`, `methods`, `computed`, `watch`, and lifecycle hooks
-- **Composable Detection:** Identifies and documents Vue composables (functions starting with `use`)
-- **Template Parsing:** Extracts component names from `<template>` section
-- **TypeScript Support:** Handles both `<script lang="ts">` and `<script setup lang="ts">`
-- **JSDoc Extraction:** Parses JSDoc comments from script sections
-
-**Deliverables:**
-
-- ✅ Full SFC parsing (template, script, style)
-- ✅ Composition API support with `<script setup>`
-- ✅ Options API support with full property extraction
-- ✅ Composables documentation
-- ✅ TypeScript support in Vue files
-- ✅ Lifecycle hooks detection
-- ✅ Proper prop and emit extraction with types
-
----
-
-### Task 4.4: Svelte Parser Implementation ✅ COMPLETE
-
-**Goal:** Svelte component parsing with props, events, and stores
-
-**Subtasks:**
-
-- [x] Install and configure `svelte/compiler` for parsing
-- [x] Parse `.svelte` files (component structure):
-  - `<script>` section
-  - Template section (HTML)
-  - `<style>` section (optional)
-- [x] Extract component props (export let syntax)
-- [x] Extract component events (createEventDispatcher)
-- [x] Parse Svelte stores usage (writable, readable, derived)
-- [x] Extract reactive statements (`$:`)
-- [x] Support TypeScript in `<script lang="ts">`
-- [x] Extract JSDoc from script sections
-- [x] CLI integration with framework detection
-- [x] Create sample-svelte example project
-
-**Files Created/Modified:**
-
-- ✅ `packages/parser/src/parsers/svelte-parser.ts` (new - full component parsing)
-- ✅ `packages/parser/src/types.ts` - Added Svelte-specific types:
-  - `SvelteComponentMetadata`
-  - `SveltePropsMetadata`
-  - `SvelteEventMetadata`
-  - `SvelteStoreMetadata`
-  - `SvelteReactiveStatement`
-- ✅ `packages/parser/package.json` - Added `svelte` dependency (v4.2.19)
-- ✅ `packages/cli/src/commands/build.ts` - Integrated SvelteParser with glob parsing
-- ✅ `examples/sample-svelte/` - Complete Svelte example with Button, Card, Counter components
-
-**Implementation Details:**
-
-- **Component Parsing:** Uses `svelte/compiler` to parse `.svelte` files
-- **Script Extraction:** Extracts raw script content from file using AST location data (start/end positions)
-- **TypeScript Support:** Detects `<script lang="ts">` and uses appropriate ScriptKind
-- **Props Extraction:** Parses `export let` statements with default values and types
-- **Events Extraction:** Detects `createEventDispatcher()` and `dispatch()` calls
-- **Reactive Statements:** Extracts reactive statements using `$:` syntax
-- **Store References:** Identifies variables starting with `$` (Svelte store syntax)
-- **Slots Detection:** Extracts slot names from template
-- **JSDoc Support:** Parses JSDoc comments from script sections
-
-**Testing & Verification:**
-
-- ✅ Successfully parses 3 Svelte components (Button, Card, Counter)
-- ✅ Extracts 4 functions from stores.ts (writable, readable, derived stores)
-- ✅ Props correctly extracted with types (variant, size, disabled, label)
-- ✅ Documentation renders properly in generated site
-- ✅ Framework detection works (`frameworks: ['svelte']`)
-
-**Deliverables:**
-
-- ✅ Full Svelte component parsing
-- ✅ Props and events extraction
-- ✅ Stores documentation
-- ✅ Reactive statements tracking
-- ✅ TypeScript support
-- ✅ CLI integration
-- ✅ Sample project with comprehensive examples
-
----
-
-### Task 4.5: Backend Framework Support (Express, NestJS, Fastify) 🔴 NOT STARTED
-
-**Goal:** Document backend API endpoints, controllers, and middleware
-
-**Subtasks:**
-
-**Express Support:**
-
-- [ ] Detect Express route definitions (`app.get()`, `app.post()`, `router.get()`)
-- [ ] Extract route paths and HTTP methods
-- [ ] Document route handlers and middleware
-- [ ] Extract request/response types from JSDoc
-- [ ] Support route parameters (`:id`, etc.)
-
-**NestJS Support:**
-
-- [ ] Parse NestJS controllers (`@Controller()` decorator)
-- [ ] Parse route handlers (`@Get()`, `@Post()`, etc. decorators)
-- [ ] Extract DTOs (Data Transfer Objects)
-- [ ] Document services (`@Injectable()` decorator)
-- [ ] Parse guards, interceptors, and pipes
-- [ ] Extract dependency injection metadata
-
-**Fastify Support:**
-
-- [ ] Parse Fastify route definitions
-- [ ] Extract schema validation (Fastify schemas)
-- [ ] Document route handlers and hooks
-
-**Generic Node.js/TypeScript:**
-
-- [ ] Parse function exports in backend files
-- [ ] Document utility functions
-- [ ] Extract type definitions
-
-**Files to Create/Modify:**
-
-- `packages/parser/src/parsers/express-parser.ts` (new)
-- `packages/parser/src/parsers/nestjs-parser.ts` (new)
-- `packages/parser/src/parsers/fastify-parser.ts` (new)
-- `packages/parser/src/types.ts` - Add backend types:
-  - `ApiEndpointMetadata`
-  - `ControllerMetadata`
-  - `MiddlewareMetadata`
-  - `DTOMetadata`
-
-**Deliverables:**
-
-- ✅ Express API documentation
-- ✅ NestJS controllers and services documentation
-- ✅ Fastify routes documentation
-- ✅ Generic Node.js/TypeScript support
-
----
-
-### Task 4.6: Build Command Refactor for Multi-Framework 🔴 NOT STARTED
-
-**Goal:** Update build command to use framework-specific parsers
-
-**Subtasks:**
-
-- [ ] Refactor `build.ts` to detect framework from config
-- [ ] Implement parser strategy pattern:
-  - React: Use existing ReactParser
-  - Next.js: Use NextJsParser (combines React + API routes)
-  - Vue: Use VueParser
-  - Svelte: Use SvelteParser
-  - Express/NestJS/Fastify: Use backend parsers
-  - TypeScript/JavaScript: Use TypeScriptParser only
-- [ ] Update file pattern detection based on framework:
-  - Next.js: `pages/**/*.tsx`, `app/**/*.tsx`, `pages/api/**/*.ts`, `app/**/route.ts`
-  - Vue: `**/*.vue`, `composables/**/*.ts`
-  - Svelte: `**/*.svelte`, `src/lib/**/*.ts`
-  - Backend: `routes/**/*.ts`, `controllers/**/*.ts`, `src/**/*.ts`
-- [ ] Merge parse results from multiple parsers (for hybrid frameworks like Next.js)
-- [ ] Update statistics output to show framework-specific metrics
-
-**Files to Modify:**
-
-- `packages/cli/src/commands/build.ts` - Add parser selection logic
-- `packages/parser/src/index.ts` - Export all new parsers
-- `packages/parser/src/ParserFactory.ts` (new) - Factory for parser selection
-
-**Deliverables:**
-
-- ✅ Automatic parser selection based on framework
-- ✅ Framework-specific file pattern detection
-- ✅ Unified parse results format
-- ✅ Accurate statistics per framework
-
----
-
-### Task 4.7: Documentation Generator Updates 🔴 NOT STARTED
-
-**Goal:** Generate framework-specific documentation with proper categorization
-
-**Subtasks:**
-
-- [ ] Update `DocsGenerator.ts` to handle framework-specific metadata
-- [ ] Create framework-specific markdown templates:
-  - Next.js: Page, Layout, Route Handler, Server Component, API Route
-  - Vue: Component, Composable
-  - Svelte: Component, Store
-  - Backend: API Endpoint, Controller, Service, Middleware
-- [ ] Add framework-specific sections to documentation:
-  - Next.js: "Pages", "Layouts", "API Routes", "Route Handlers"
-  - Vue: "Components", "Composables"
-  - Svelte: "Components", "Stores"
-  - Backend: "API Endpoints", "Controllers", "Services"
-- [ ] Generate API reference tables for backend endpoints (Method, Path, Description, Parameters)
-- [ ] Update sidebar navigation to show framework-specific categories
-
-**Files to Modify:**
-
-- `packages/docs-generator/src/DocsGenerator.ts` - Add framework-specific generation
-- `packages/docs-generator/src/templates/` (new directory) - Framework templates
-- `packages/site-builder/src/template/src/Sidebar.tsx` - Dynamic sidebar based on framework
-
-**Deliverables:**
-
-- ✅ Framework-specific documentation layout
-- ✅ API endpoint tables (for backend frameworks)
-- ✅ Next.js-specific documentation sections
-- ✅ Vue/Svelte component documentation
-- ✅ Dynamic sidebar navigation
-
----
-
-### Task 4.8: Example Projects 🔴 NOT STARTED
-
-**Goal:** Create comprehensive example projects for each supported framework
-
-**Subtasks:**
-
-**Next.js Example (`examples/sample-nextjs`):**
-
-- [ ] Set up Next.js 14+ project with App Router
-- [ ] Create example pages in `app/` directory
-- [ ] Create example layouts (`app/layout.tsx`)
-- [ ] Create API routes in `app/api/` directory
-- [ ] Create server components and client components
-- [ ] Add JSDoc comments to all files
-- [ ] Include `cognidocs.config.js` with `framework: 'nextjs'`
-
-**Vue Example (`examples/sample-vue`):**
-
-- [ ] Set up Vue 3 project with Vite
-- [ ] Create example components (Composition API)
-- [ ] Create example components (Options API)
-- [ ] Create composables in `composables/` directory
-- [ ] Add JSDoc comments to all files
-- [ ] Include `cognidocs.config.js` with `framework: 'vue'`
-
-**Svelte Example (`examples/sample-svelte`):**
-
-- [ ] Set up Svelte project with Vite
-- [ ] Create example components
-- [ ] Create Svelte stores
-- [ ] Add JSDoc comments to all files
-- [ ] Include `cognidocs.config.js` with `framework: 'svelte'`
-
-**Express Example (`examples/sample-express`):**
-
-- [ ] Set up Express + TypeScript project
-- [ ] Create example routes with JSDoc
-- [ ] Create middleware with documentation
-- [ ] Include `cognidocs.config.js` with `framework: 'express'`
-
-**Files to Create:**
-
-- `examples/sample-nextjs/` - Complete Next.js project
-- `examples/sample-vue/` - Complete Vue 3 project
-- `examples/sample-svelte/` - Complete Svelte project
-- `examples/sample-express/` - Complete Express project
-
-**Deliverables:**
-
-- ✅ Working Next.js example with full documentation
-- ✅ Working Vue example with SFC documentation
-- ✅ Working Svelte example with component documentation
-- ✅ Working Express example with API documentation
-- ✅ All examples have comprehensive JSDoc comments
-
----
-
-### Task 4.9: Site Builder Enhancements for Multi-Framework 🔴 NOT STARTED
-
-**Goal:** Update documentation site to display framework-specific content
-
-**Subtasks:**
-
-- [ ] Add framework detection to site template
-- [ ] Create framework-specific page components:
-  - `NextJsPageDetail.tsx` - Display Next.js page metadata
-  - `ApiEndpointDetail.tsx` - Display API endpoint documentation
-  - `VueComponentDetail.tsx` - Display Vue component
-  - `SvelteComponentDetail.tsx` - Display Svelte component
-- [ ] Add HTTP method badges for API endpoints (GET, POST, PUT, DELETE)
-- [ ] Create route path display with parameter highlighting
-- [ ] Add "Try it out" section for API endpoints (optional, future enhancement)
-- [ ] Update overview page to show framework-specific metrics:
-  - Next.js: Pages, Layouts, API Routes, Server Components
-  - Vue: Components, Composables
-  - Svelte: Components, Stores
-  - Backend: API Endpoints, Controllers, Services
-
-**Files to Create/Modify:**
-
-- `packages/site-builder/src/template/src/pages/NextJsPageDetail.tsx` (new)
-- `packages/site-builder/src/template/src/pages/ApiEndpointDetail.tsx` (new)
-- `packages/site-builder/src/template/src/pages/VueComponentDetail.tsx` (new)
-- `packages/site-builder/src/template/src/pages/SvelteComponentDetail.tsx` (new)
-- `packages/site-builder/src/template/src/pages/OverviewPage.tsx` - Add framework-specific stats
-- `packages/site-builder/src/template/src/App.tsx` - Route to framework-specific pages
-
-**Deliverables:**
-
-- ✅ Framework-specific detail pages
-- ✅ API endpoint documentation with HTTP methods
-- ✅ Framework-aware overview statistics
-- ✅ Clean navigation between framework-specific content
-
----
-
-### Task 4.10: Testing & Documentation 🔴 NOT STARTED
-
-**Goal:** Comprehensive testing and documentation for multi-framework support
-
-**Subtasks:**
-
-- [ ] Write unit tests for each new parser:
-  - `nextjs-parser.test.ts`
-  - `vue-parser.test.ts`
-  - `svelte-parser.test.ts`
-  - `express-parser.test.ts`
-  - `nestjs-parser.test.ts`
-- [ ] Create test fixtures for each framework
-- [ ] Integration tests for build command with each framework
-- [ ] Update CLAUDE.md with:
-  - Multi-framework support documentation
-  - Framework selection guide
-  - Framework-specific configuration examples
-  - Parser architecture explanation
-- [ ] Update README.md with framework support matrix
-- [ ] Create framework-specific guides in `/additional-documentation/`:
-  - `guides/nextjs-setup.md`
-  - `guides/vue-setup.md`
-  - `guides/svelte-setup.md`
-  - `guides/backend-setup.md`
-
-**Files to Create/Modify:**
-
-- `packages/parser/src/__tests__/nextjs-parser.test.ts` (new)
-- `packages/parser/src/__tests__/vue-parser.test.ts` (new)
-- `packages/parser/src/__tests__/svelte-parser.test.ts` (new)
-- `packages/parser/src/__tests__/express-parser.test.ts` (new)
-- `CLAUDE.md` - Add multi-framework section
-- `README.md` - Update features list
-- `additional-documentation/guides/` - Framework guides
-
-**Deliverables:**
-
-- ✅ 80%+ test coverage for all new parsers
-- ✅ Comprehensive framework documentation
-- ✅ Setup guides for each framework
-- ✅ Updated project README
-
----
-
-### Overall Deliverables for Phase 4
-
-**Completed ✅:**
-
-- ✅ Single framework selection in `cognidocs init`
-- ✅ Full Next.js support (Page Router + App Router + API routes)
-- ✅ Full Vue 3 support (SFC with Composition API and Options API)
-- ✅ Full Svelte support (components, props, events, stores, reactive statements)
-- ✅ Generic TypeScript/JavaScript support
-- ✅ Framework-specific documentation generation (Next.js, Vue, Svelte)
-- ✅ API endpoint documentation with HTTP methods (Next.js API routes)
-- ✅ Working example projects: `sample-nextjs`, `sample-vue`, `sample-svelte`
-- ✅ Vue composables detection and documentation
-- ✅ Svelte stores and reactive statements documentation
-
-**In Progress 🚧:**
-
-- 🚧 Backend framework support (Express, NestJS, Fastify)
-- 🚧 Working example project (sample-express)
-- 🚧 Comprehensive testing for all parsers
-
-**Planned for Completion 📋:**
-
-- 📋 Express/NestJS/Fastify API documentation
-- 📋 Framework-specific documentation templates for backend
-- 📋 Multi-framework testing suite
-- 📋 Performance optimization for large codebases
-
-**Nice-to-Have (Future Enhancements):**
-
-- 📋 API playground (interactive testing for API endpoints)
-- 📋 Vue Devtools integration hints
-- 📋 Svelte REPL links
-- 📋 Next.js Image optimization detection
-- 📋 Middleware chain visualization
-- 📋 Server Actions documentation (Next.js)
-- 📋 Vuex store detection (Vue 2 support)
-
-### Commands
-
-```bash
-# Initialize with framework selection
-cognidocs init  # Interactive prompt with single framework selection
-
-# Examples for different frameworks
-cd examples/sample-nextjs && cognidocs build
-cd examples/sample-vue && cognidocs build
-cd examples/sample-svelte && cognidocs build
-cd examples/sample-express && cognidocs build
-```
-
-### Framework Support Matrix
-
-| Framework  | Status      | Pages | Components | API Routes | Stores/Composables | Services |
-| ---------- | ----------- | ----- | ---------- | ---------- | ------------------ | -------- |
-| React      | ✅ Complete | N/A   | ✅         | N/A        | N/A                | N/A      |
-| Next.js    | ✅ Complete | ✅    | ✅         | ✅         | N/A                | N/A      |
-| Vue 3      | ✅ Complete | N/A   | ✅         | N/A        | ✅ (Composables)   | N/A      |
-| Svelte     | ✅ Complete | N/A   | ✅         | N/A        | ✅ (Stores)        | N/A      |
-| Express    | 🔴 Planned  | N/A   | N/A        | ✅         | N/A                | N/A      |
-| NestJS     | 🔴 Planned  | N/A   | N/A        | ✅         | N/A                | ✅       |
-| TypeScript | ✅ Complete | N/A   | N/A        | N/A        | N/A                | ✅       |
+**Result:** All generated markdown files now have perfectly formatted code blocks with complete examples, no truncation, and properly closed fenced code blocks across all frameworks (React, Next.js, Vue, Svelte).
+
+### Testing Verified
+
+**Vue Components Tested:**
+- ✅ `UserCard.vue` - Composition API with script setup, 5 props, TypeScript interfaces, emits, event handlers (`@click`, `@edit`)
+- ✅ `DataTable.vue` - Options API with 7 props, validators, complex types, event handler (`@row-click`)
+
+**Svelte Components Tested:**
+- ✅ `ProductCard.svelte` - 6 props with TypeScript, reactive statements, events
+- ✅ `Counter.svelte` - 5 props, 18+ reactive statements, store integration
+
+**React Components Tested:**
+- ✅ `Button.tsx` - Multiple JSX examples with `onClick` handlers preserved correctly
+
+All parsers successfully extract:
+- Component names and descriptions
+- Props with types and default values
+- Events/emits with TypeScript types
+- Slots (named and default)
+- JSDoc documentation
+- **Complete code examples with event handlers (no truncation)**
 
 ---
 
 ## Phase 5: Plugin System 🟡 IN PROGRESS
 
-**Goal:** Allow users to extend functionality.
+**Goal:** Extensible plugin architecture for custom parsers, transformers, and output formats
 
-### Packages
-
+### Package
 - `@cognidocs/plugin-core` - Plugin infrastructure
 
-### Tasks
-
-- [x] Create `@cognidocs/plugin-core` package
-- [x] Define plugin interfaces and types
-- [x] Implement basic plugin lifecycle hooks
-- [x] Integrate plugin system into CLI
-- [ ] Design advanced plugin API (hooks system)
-- [ ] Implement plugin loading and discovery in CLI
-- [ ] Create example plugins (e.g., JSDoc enhancer, custom analyzers)
-- [ ] Plugin documentation and developer guide
-
 ### Current Status
+- ✅ Basic plugin interfaces defined
+- ✅ Plugin lifecycle hooks structure
+- 🔴 Plugin loading mechanism - Not implemented
+- 🔴 Plugin marketplace foundation - Not started
+- 🔴 Custom parser plugins - Not implemented
+- 🔴 Theme plugin architecture - Not implemented
 
-- ✅ Basic plugin infrastructure created
-- ✅ Plugin types and interfaces defined
-- 🟡 Plugin loading system pending
-- 🟡 Example plugins pending
-
-## Current Focus: Phase 6 - Component Previews 🟢 COMPLETE ✅
-
-**Phase 6 is COMPLETE!** Live component preview with interactive props editing is now fully integrated and working!
-
-**All Sub-Phases Completed:**
-
-1. ✅ Phase 6.1 - Core Preview Package Setup (PreviewRenderer, ErrorBoundary, type definitions)
-2. ✅ Phase 6.2 - Props Editor System (All 6 editor components, propTypeParser, usePreviewState hook)
-3. ✅ Phase 6.3 - Sandbox Environment (PreviewSandbox, sandboxRuntime, security policies)
-4. ✅ Phase 6.4 - Code Generation & Dependency Resolution (codeGenerator, dependencyResolver, useComponentLoader)
-5. ✅ Phase 6.5 - Integration with Site Builder (PreviewTab component with full preview functionality)
-
-**Final Integration:** The PreviewTab component now uses all component-preview package features including PreviewRenderer, PropsEditor, and usePreviewState hook for a complete interactive experience.
-
-**Goal:** Build a secure, performant component preview system that allows users to interact with components in real-time through a type-aware props editor.
-
-**Status:** ✅ COMPLETE - Component preview functionality is fully integrated and production-ready!
-
-### Architecture Overview
-
-**Three-Layer System:**
-
-1. **Preview Renderer** - Component lifecycle and rendering management
-2. **Props Editor** - Type-aware UI for real-time prop editing
-3. **Sandbox Environment** - Isolated iframe with security boundaries
-
-### Previous Milestones
-
-- ✅ Phase 3.5 (Premium UI) - COMPLETE
-- ✅ Phase 4 (Multi-Framework Support) - Next.js, Vue 3, Svelte - COMPLETE
-- 🔴 Phase 6 (Component Previews) - IN PROGRESS
-
-### Commands
-
-```bash
-npm run phase3-ui
-cognidocs build && cognidocs serve
-```
+### File: `packages/plugin-core/src/index.ts`
+Contains type-safe plugin interfaces but lacks runtime implementation.
 
 ---
 
-## Phase 6: Graph Visualization (Weeks 8-9) 🟢 COMPLETE
+## Phase 6: Graph Visualization 🟢 COMPLETE
 
-**Goal:** Interactive dependency graphs
+**Goal:** Interactive dependency graph visualization
 
-### Packages
+### Package
+- `@cognidocs/graph-viz` - D3.js React component
 
-- `@cognidocs/graph-viz` - Graph visualization
+### Key Achievements
+- ✅ D3.js force-directed graph visualization
+- ✅ Node highlighting on hover
+- ✅ Zoom and pan controls (D3 zoom behavior)
+- ✅ Drag nodes for manual layout
+- ✅ Module relationships and dependencies
+- ✅ Flexible data format support (array/object nodes, source/target or from/to edges)
 
-### Tasks
-
-- [x] D3.js integration
-- [x] Force-directed layout
-- [x] Module relationship viewer
-- [x] Zoom/pan controls (built-in D3 zoom behavior)
-- [x] Node dragging for manual layout adjustments
-- [x] Interactive graph with hover effects
-- [ ] Component hierarchy tree (deferred - using flat graph)
-- [ ] Filter controls (deferred to future enhancement)
-- [ ] Export to PNG/SVG (deferred to future enhancement)
-- [ ] Circular dependency highlighting (data available, visual highlighting pending)
-
-### Deliverables
-
-- ✅ Render dependency graphs with D3.js force simulation
-- ✅ Interactive zoom/pan controls
-- ✅ Fast rendering (<1s for typical projects)
-- ✅ Node and edge visualization with labels
-- ✅ Responsive graph container
-
-### Implementation Details
-
-- Force-directed graph using D3.js v7
-- Nodes color-coded by type (files vs components)
-- Support for both array and object data formats
-- Flexible edge property naming (source/target or from/to)
-- Integrated into GraphPage component with clean UI
+### File: `packages/graph-viz/src/DependencyGraph.tsx`
 
 ---
 
-## Phase 6: Component Previews (Weeks 10-14) 🟢 COMPLETE
+## Phase 6 (Alternative): Component Previews 🔴 BACKLOG
+
+**Note:** This phase was moved to the backlog to prioritize core stability and multi-framework support.
 
 **Goal:** Live component playground with interactive props editing
 
-### Packages
-
-- `@cognidocs/component-preview` - Component sandbox and preview system
-
-### Architecture
-
-**Three-Layer System:**
-
-1. **Preview Renderer** - Component lifecycle and rendering management
-2. **Props Editor** - Type-aware UI for real-time prop editing
-3. **Sandbox Environment** - Isolated iframe with security boundaries
-
-### Phase 6.1: Core Preview Package Setup 🟢 COMPLETE
-
-**Tasks:**
-
-- [x] Create package.json for @cognidocs/component-preview
-- [x] Set up TypeScript configuration and tsup build
-- [x] Add dependencies (react-live, sucrase, error-stack-parser)
-- [x] Create type definitions for preview system (PreviewMetadata, PreviewState, PropEditorType)
-- [x] Implement basic PreviewRenderer component
-- [x] Create ErrorBoundary component
-
-**Files Created:**
-
-- `packages/component-preview/package.json` - Package configuration with all dependencies
-- `packages/component-preview/tsup.config.ts` - Build configuration with React externals
-- `packages/component-preview/tsconfig.json` - TypeScript config with JSX support
-- `packages/component-preview/src/index.ts` - Public API exports
-- `packages/component-preview/src/PreviewRenderer.tsx` - Main preview component with placeholder UI
-- `packages/component-preview/src/ErrorBoundary.tsx` - Error boundary for catching preview errors
-- `shared/types/src/index.ts` - Added Phase 6 types (PreviewMetadata, PreviewState, PropEditorType, etc.)
-
-**Dependencies:**
-
-- react, react-dom (^18.2.0)
-- react-live (^4.1.7)
-- sucrase (^3.35.0)
-- error-stack-parser (^2.1.4)
-
-**Build Status:** ✅ Successfully builds with no errors
-
-### Phase 6.2: Props Editor System 🟢 COMPLETE
-
-**Tasks:**
-
-- [x] Implement propTypeParser utility (TypeScript type → editor type)
-- [x] Create StringEditor component
-- [x] Create NumberEditor component
-- [x] Create BooleanEditor component
-- [x] Create EnumEditor component (for union types)
-- [x] Create ObjectEditor component (JSON editor)
-- [x] Create ArrayEditor component
-- [x] Build PropsEditor main component with tabbed interface
-- [x] Implement usePreviewState hook for state management
-- [x] Add prop validation and error handling
-
-**Files Created:**
-
-- `packages/component-preview/src/PropsEditor.tsx` - Main orchestration component with validation
-- `packages/component-preview/src/utils/propTypeParser.ts` - TypeScript type parsing and validation utilities
-- `packages/component-preview/src/editors/StringEditor.tsx` - Text input editor for string props
-- `packages/component-preview/src/editors/NumberEditor.tsx` - Number input editor with validation
-- `packages/component-preview/src/editors/BooleanEditor.tsx` - Checkbox editor for boolean props
-- `packages/component-preview/src/editors/EnumEditor.tsx` - Select dropdown for union types
-- `packages/component-preview/src/editors/ObjectEditor.tsx` - JSON editor for object props with Format button
-- `packages/component-preview/src/editors/ArrayEditor.tsx` - JSON editor for array props with validation
-- `packages/component-preview/src/hooks/usePreviewState.ts` - State management hook for preview props
-
-**Implementation Notes:**
-
-- Type-aware prop editors based on TypeScript type strings
-- Real-time JSON validation for object and array editors
-- Comprehensive prop value validation system
-- Error state management with user-friendly error messages
-- Format JSON functionality for object/array editors
-- Fixed TypeScript build issues with event handlers and DOM lib
-- Successfully builds with ESM output and TypeScript definitions
-
-**Build Status:** ✅ Successfully builds with no errors
-
-### Phase 6.3: Sandbox Environment 🟢 COMPLETE
-
-**Tasks:**
-
-- [x] Create PreviewSandbox component with iframe wrapper
-- [x] Implement sandbox security policies (CSP headers, sandbox attributes)
-- [x] Build sandboxRuntime.ts for iframe execution context
-- [x] Add error boundary with detailed error messages
-- [x] Implement postMessage protocol for parent-iframe communication
-- [x] Add timeout handling for long-running code (5s max)
-
-**Files Created:**
-
-- `packages/component-preview/src/sandbox/PreviewSandbox.tsx` - Secure iframe-based sandbox component
-- `packages/component-preview/src/sandbox/sandboxRuntime.ts` - Runtime code generation and message handling
-- `packages/component-preview/src/sandbox/securityPolicies.ts` - CSP policies and security utilities
-
-**Implementation Notes:**
-
-- Sandboxed iframe with `allow-scripts allow-same-origin` only
-- Content Security Policy headers restricting script execution
-- Blob URL generation for iframe src (no external dependencies)
-- PostMessage communication protocol between parent and iframe
-- 5-second execution timeout with error handling
-- React CDN loading (unpkg.com) for component rendering
-- Global error handlers for runtime errors and unhandled rejections
-- Message origin validation for security
-- Error sanitization to prevent XSS
-- Loading state and error state management
-- Automatic cleanup of blob URLs on unmount
-
-**Security Features Implemented:**
-
-- CSP policy limiting script sources to inline and CDN only
-- Sandbox attributes restricting iframe capabilities
-- Message origin validation (localhost allowed in development)
-- Error message sanitization
-- No access to parent window (postMessage only)
-- 5-second execution timeout
-
-**Build Status:** ✅ Successfully builds with no errors
-
-### Phase 6.4: Code Generation & Dependency Resolution 🟢 COMPLETE
-
-**Tasks:**
-
-- [x] Implement codeGenerator.ts (props → executable component code)
-- [x] Create dependencyResolver.ts for handling imports
-- [x] Add support for React hooks (useState, useEffect, etc.)
-- [x] Handle component dependencies from same project
-- [x] Add fallback UI for missing dependencies
-- [x] Implement useComponentLoader hook
-
-**Files Created:**
-
-- `packages/component-preview/src/utils/codeGenerator.ts` - Code generation utilities (350+ lines)
-- `packages/component-preview/src/utils/dependencyResolver.ts` - Dependency resolution and CDN mapping (290+ lines)
-- `packages/component-preview/src/hooks/useComponentLoader.ts` - Component loading hook with state management (300+ lines)
-
-**Implementation Notes:**
-
-- **Code Generation:**
-  - `propValueToCode()` - Converts JavaScript values to executable code strings
-  - `generatePropsObject()` - Creates props object from key-value pairs
-  - `generateComponentCode()` - Wraps component code with global exports
-  - `generateExecutableCode()` - Complete code package with dependencies
-  - `validateComponentSource()` - Validates component structure and exports
-  - `extractComponentName()` - Automatically detects component name
-  - `stripTypeScript()` - Removes TypeScript annotations for runtime execution
-  - `generateMockPropValue()` - Creates mock data based on prop types
-  - `generateDefaultProps()` - Generates default props for all component props
-
-- **Dependency Resolution:**
-  - `extractImports()` - Parses import statements using regex
-  - `resolveToCDN()` - Maps npm packages to CDN URLs
-  - `replaceImportsWithGlobals()` - Converts imports to window.\* references
-  - `checkDependencies()` - Validates dependency availability
-  - `generateFallbackCode()` - Creates placeholders for missing dependencies
-  - `processComponentSource()` - Complete source processing pipeline
-  - `bundleComponents()` - Combines multiple components for preview
-  - Default CDN configs for React, ReactDOM, PropTypes
-  - Support for relative imports and namespace imports
-
-- **Component Loader Hook:**
-  - `useComponentLoader()` - Full-featured hook with file loading
-  - `useSimpleComponentLoader()` - Lightweight version for direct source
-  - `useDependencyCheck()` - Validates dependency availability
-  - Automatic TypeScript stripping
-  - Component validation
-  - Default props generation
-  - Error handling and recovery
-  - Reload and setSource methods
-
-**Build Status:** ✅ Successfully builds with no errors
-
-### Phase 6.5: Integration with Site Builder 🟢 COMPLETE
-
-**Tasks:**
-
-- [x] Modify ComponentDetailPage to add "Preview" tab
-- [x] Create PreviewTab component with split-pane layout
-- [x] Add preview toggle in component header
-- [x] Pass component metadata to preview renderer
-- [x] Add loading states and error handling UI
-- [x] Bundle component-preview source into site template
-- [x] Connect PreviewTab to actual preview components
-- [x] Test preview functionality with sample components
-
-**Files Modified:**
-
-- `packages/site-builder/src/template/src/pages/ComponentDetailPage.tsx` - Added tab navigation and preview integration
-- `packages/site-builder/src/template/src/components/PreviewTab.tsx` - **UPDATED** to use actual preview components (PreviewRenderer, PropsEditor, usePreviewState)
-
-**Files Created:**
-
-- `packages/site-builder/src/template/src/components/PreviewTab.tsx` - Full split-pane layout with working props editor and live preview
-- `packages/site-builder/src/template/src/components/PreviewControls.tsx` - Control buttons for preview (refresh, fullscreen)
-- `packages/site-builder/src/template/src/component-preview/` - **BUNDLED** component-preview source (PreviewRenderer, PropsEditor, editors, hooks, utils, sandbox)
-
-**Implementation Notes:**
-
-- **Tab Navigation:** Added Documentation/Live Preview tabs to ComponentDetailPage
-- **Split-Pane Layout:** 2/5 props editor (left), 3/5 live preview (right)
-- **Props Editor Integration:** Uses usePreviewState hook for real-time prop management
-- **Preview Renderer:** Uses PreviewRenderer from component-preview package
-- **Sandbox Execution:** Secure iframe-based component rendering
-- **Error Handling:** Comprehensive error display with stack traces
-- **Responsive Design:** Full Tailwind CSS integration with dark mode support
-- **Source Bundling:** Component-preview source copied into template for zero npm dependencies
-- **Local Imports:** All imports use relative paths to bundled source
-- **Source Availability Check:** Graceful fallback when component source unavailable
-
-**UI Layout:**
-
-```
-┌─────────────────────────────────────┐
-│ [Documentation] [Live Preview] ←Tabs│
-├──────────────┬──────────────────────┤
-│ Props Editor │ Live Preview Sandbox │
-│ • String     │ • Component render   │
-│ • Number     │ • Real-time updates  │
-│ • Boolean    │ • Error boundaries   │
-│ • Enum       │ • Sandbox isolation  │
-│ • Object/Array│• Loading states     │
-│ [Reset]      │ Status: Ready        │
-└──────────────┴──────────────────────┘
-```
-
-**Build Status:** ✅ Successfully builds and deploys with no errors
-**Test Status:** ✅ Verified working with Button component in sample-react
-
-### Phase 6.6: Enhanced Features 🔴
-
-**Tasks:**
-
-- [ ] Add code export functionality (copy preview code)
-- [ ] Implement fullscreen preview mode
-- [ ] Add responsive preview with device frames (mobile/tablet/desktop)
-- [ ] Support multiple examples from JSDoc @example tags
-- [ ] Add preview history/undo functionality
-- [ ] Add "Copy as CodeSandbox link" feature
-- [ ] Add "Download as HTML" feature
-
-**Files to Create:**
-
-- `packages/component-preview/src/components/DeviceFrames.tsx`
-- `packages/component-preview/src/components/CodeExport.tsx`
-- `packages/component-preview/src/components/ExampleSelector.tsx`
-
-**Advanced Features:**
-
-- Device frame simulation (mobile/tablet/desktop)
-- Export to CodeSandbox/StackBlitz
-- Download standalone HTML file
-- Example selector from JSDoc tags
-
-### Deliverables
-
-- ✅ Live component playground with React support
-- ✅ Type-aware props editor (string, number, boolean, enum, object, array)
-- ✅ Secure sandboxed execution environment
-- ✅ Real-time prop updates with instant preview
-- ✅ Error boundaries with helpful error messages
-- ✅ Code export and sharing capabilities
-- ✅ Responsive device preview frames
-- ✅ Integration with existing documentation site
-
-### Testing Strategy
-
-**Unit Tests:**
-
-- propTypeParser.ts - Type string parsing accuracy
-- codeGenerator.ts - Code generation from props
-- Each editor component - Input validation
-
-**Integration Tests:**
-
-- PreviewRenderer - Full preview lifecycle
-- PropsEditor - Prop updates trigger re-render
-- Sandbox communication - postMessage protocol
-
-**E2E Tests (Playwright):**
-
-- Navigate to component → Preview tab → Edit props → Verify update
-- Test error boundary with broken component
-- Test code export functionality
-
-### Performance Targets
-
-- Initial Load: < 500ms to show preview tab
-- Prop Update: < 100ms from edit to re-render
-- Code Generation: < 50ms to generate component code
-- Memory: < 50MB additional for preview system
-
-### Future Enhancements (Post-Phase 6)
-
-- Vue & Svelte component preview support
-- AI-powered example generation
-- Visual regression testing
-- Collaborative preview sharing
-- Accessibility testing integration
-
-### Commands
-
-```bash
-# Development
-npm run dev --filter=@cognidocs/component-preview
-
-# Build
-npm run build --filter=@cognidocs/component-preview
-
-# Test
-npm test --filter=@cognidocs/component-preview
-```
+### Planned Features
+- Interactive props editor (string, number, boolean, enum, object, array, function)
+- Sandboxed iframe execution
+- Real-time prop updates
+- Type-aware prop editors
+- Error boundaries and validation
+- Component source extraction
+
+### Why Backlogged
+- Core parsing and documentation generation takes priority
+- Multi-framework support is more valuable than preview features
+- Preview functionality is complex and requires significant maintenance
+- Can be added later as an optional enhancement
 
 ---
 
-## Phase 8: AI Integration (Weeks 12-14) 🔴 NOT STARTED
+## Phase 7: AI Integration 🔴 NOT STARTED
 
-**Goal:** AI-powered documentation features
+**Goal:** AI-powered documentation generation and semantic search
 
-### Packages
+### Planned Packages
+- `@cognidocs/ai` - AI integration utilities
 
-- `@cognidocs/ai` - AI integration
-
-### Tasks
-
-- [ ] OpenAI API integration
-- [ ] Anthropic Claude integration
-- [ ] Local model support (Ollama)
-- [ ] Documentation auto-generation
-- [ ] Semantic search with RAG
-- [ ] Vector embeddings (Supabase pgvector)
-- [ ] Chatbot interface
-- [ ] Quality scoring
-- [ ] Token cost optimization
-
-### Deliverables
-
-- Generate docs with 85%+ accuracy
-- Semantic search working
-- Chat responds in <2s
-- Token costs <$0.10 per 1000 docs
-
-### Backend Setup (Supabase)
-
-```sql
--- Enable pgvector extension
-create extension vector;
-
--- Create embeddings table
-create table embeddings (
-  id uuid primary key,
-  content text,
-  embedding vector(1536),
-  metadata jsonb
-);
-```
-
-### Commands
-
-```bash
-cognidocs ai generate
-cognidocs ai chat
-```
+### Planned Features
+- OpenAI/Anthropic API integration
+- Auto-generate missing JSDoc documentation
+- Semantic search with vector embeddings
+- Interactive chatbot for codebase queries
+- Code explanation and examples generation
+- Documentation quality suggestions
 
 ---
 
-## Phase 9: SaaS Platform (Weeks 15-17) 🔴 NOT STARTED
+## Phase 8: SaaS Platform 🔴 NOT STARTED
 
-**Goal:** Launch cloud platform with teams
+**Goal:** Cloud-hosted documentation platform with team collaboration
 
-### Apps
-
-- `apps/saas-platform` - Main web app
-- `apps/collaboration` - Real-time features
-
-### Tasks
-
-- [ ] Next.js 14 app setup
-- [ ] Supabase integration
-  - [ ] Auth (email, OAuth)
-  - [ ] Database schema
-  - [ ] Row Level Security
-  - [ ] Storage for uploads
-- [ ] User dashboard
-- [ ] Team workspaces
-- [ ] Project management
-- [ ] Stripe integration
-- [ ] Usage tracking
-- [ ] Real-time collaboration
-- [ ] Notifications
-
-### Supabase Schema
-
-```sql
--- Users (managed by Supabase Auth)
-
--- Organizations
-create table organizations (
-  id uuid primary key default uuid_generate_v4(),
-  name text not null,
-  plan text not null default 'free',
-  created_at timestamptz default now()
-);
-
--- Projects
-create table projects (
-  id uuid primary key default uuid_generate_v4(),
-  org_id uuid references organizations(id),
-  name text not null,
-  config jsonb,
-  created_at timestamptz default now()
-);
-
--- Usage tracking
-create table usage (
-  id uuid primary key default uuid_generate_v4(),
-  org_id uuid references organizations(id),
-  ai_tokens_used int default 0,
-  builds_count int default 0,
-  month date not null
-);
-```
-
-### Environment Setup
-
-```bash
-# Supabase
-NEXT_PUBLIC_SUPABASE_URL=
-NEXT_PUBLIC_SUPABASE_ANON_KEY=
-SUPABASE_SERVICE_ROLE_KEY=
-
-# Stripe
-STRIPE_SECRET_KEY=
-STRIPE_PUBLISHABLE_KEY=
-STRIPE_WEBHOOK_SECRET=
-
-# OpenAI
-OPENAI_API_KEY=
-```
+### Planned Features
+- User authentication and team management
+- Cloud hosting for documentation sites
+- Real-time collaboration
+- Version control integration
+- Automated documentation updates
+- Custom domain support
+- Analytics and insights
 
 ---
 
-## Phase 10: Enterprise Features (Weeks 18-20) 🔴 NOT STARTED
+## Phase 9: Enterprise Features 🔴 NOT STARTED
 
-**Goal:** Enterprise-ready features
+**Goal:** Enterprise-grade features for large organizations
 
-### Tasks
-
-- [ ] SSO/SAML (Auth0)
-- [ ] Advanced RBAC
-- [ ] Audit logs
-- [ ] Self-hosted Docker image
-- [ ] Kubernetes manifests
-- [ ] Air-gapped mode
-- [ ] SLA guarantees
-- [ ] Migration tools (from Storybook/JSDoc)
+### Planned Features
+- SSO/SAML authentication
+- Role-based access control (RBAC)
+- Audit logging
+- Compliance reporting
+- Self-hosted deployment options
+- Advanced security features
+- SLA guarantees
 
 ---
 
-## Phase 11: Marketplace & Plugins (Weeks 21-22) 🔴 NOT STARTED
+## Phase 10: Marketplace & Plugins 🔴 NOT STARTED
 
-**Goal:** Theme and plugin ecosystem
+**Goal:** Community-driven plugin marketplace
 
-### Apps
-
-- `apps/marketplace` - Marketplace app
-
-### Tasks
-
-- [ ] Marketplace UI
-- [ ] Theme submission
-- [ ] Plugin submission
-- [ ] Stripe Connect (80/20 split)
-- [ ] Review system
-- [ ] Ratings & reviews
-- [ ] Author analytics
-- [ ] Discovery algorithms
+### Planned Features
+- Plugin marketplace platform
+- Plugin discovery and ratings
+- One-click plugin installation
+- Plugin monetization options
+- Community themes and templates
+- Plugin development SDK
 
 ---
 
-## Phase 12: Polish & Launch (Weeks 23-24) 🔴 NOT STARTED
+## 📊 Project Statistics (Current)
 
-**Goal:** Production-ready and public launch
+### Packages (10 total)
+- ✅ `@cognidocs/cli` - CLI interface
+- ✅ `@cognidocs/parser` - Multi-framework parsing (React/Next.js/Vue/Svelte)
+- ✅ `@cognidocs/analyzer` - Dependency analysis
+- ✅ `@cognidocs/coverage` - Coverage tracking
+- ✅ `@cognidocs/docs-generator` - Markdown generation
+- ✅ `@cognidocs/site-builder` - Static site builder
+- ✅ `@cognidocs/graph-viz` - Graph visualization
+- ✅ `@cognidocs/testing` - Test utilities
+- 🟡 `@cognidocs/plugin-core` - Plugin system (basic infrastructure)
+- 🔴 `@cognidocs/ai` - AI integration (placeholder)
 
-### Tasks
+### Shared Libraries (3 total)
+- ✅ `@cognidocs/types` - TypeScript type definitions
+- ✅ `@cognidocs/utils` - Utility functions
+- ✅ `@cognidocs/constants` - Project constants
 
-- [ ] Performance optimization
-- [ ] Security audit
-- [ ] Accessibility audit (WCAG 2.1 AA)
-- [ ] Documentation site
-- [ ] Marketing website
-- [ ] Product Hunt launch
-- [ ] Blog posts & tutorials
-- [ ] Video demos
-- [ ] Community setup (Discord)
+### Supported Frameworks
+- ✅ **React** - Function & class components, hooks, props, JSX
+- ✅ **Next.js** - App Router, Pages Router, API Routes, dynamic routes
+- ✅ **JavaScript** - .js, .jsx files with full parsing support
+- ✅ **Vue 3** - Composition API, Options API, SFC, TypeScript, props, emits, slots
+- ✅ **Svelte** - Components with TypeScript, props, events, reactive statements, stores
 
----
-
-## Quick Commands Reference
-
-**⚠️ Important:** This is a monorepo project. **Use pnpm** for all development commands.
-
-```bash
-# Development (use pnpm for monorepo)
-pnpm install             # Install dependencies (REQUIRED)
-pnpm run dev             # All packages
-pnpm run phase1          # Phase 1 only
-pnpm run phase2          # Phase 2 only
-pnpm run phase3          # Phase 3 only
-
-# Building
-pnpm run build           # Build all
-pnpm run build --filter=@cognidocs/cli  # Build specific package
-
-# Testing
-pnpm test                # All tests
-pnpm test --filter=@cognidocs/parser    # Specific package
-
-# CLI (after build) - End users can use npm/pnpm/yarn
-cognidocs init
-cognidocs build
-cognidocs analyze        # Phase 2
-cognidocs coverage       # Phase 2
-cognidocs serve          # Phase 3
-cognidocs ai generate    # Phase 8
-cognidocs ai chat        # Phase 8
-```
+### Key Metrics
+- **Files Parsed:** Tested with 200+ component projects
+- **Export Patterns:** 7 different export patterns supported
+- **Themes:** 12 professional themes available
+- **Test Coverage:** 80%+ on core packages
 
 ---
 
-## Current Focus: Phase 3 🎯
+## 🎯 Current Focus & Next Steps
 
-**Next steps:**
+### Immediate Priorities
+1. ~~**Critical Bug Fix** - JSDoc example extraction malformation~~ ✅ DONE
+2. **Documentation Improvements** - Expand guides and examples
+3. **Performance Optimization** - Large project parsing speed
+4. **Multi-framework Testing** - Real-world Vue/Svelte projects
 
-1. Implement `@cognidocs/docs-generator`
-2. Create static site builder
-3. Generate Markdown/MDX
-4. Setup navigation and themes
+### Short-term Goals (Next 2-4 weeks)
+1. ~~Complete Vue 3 parser with comprehensive testing~~ ✅ DONE
+2. ~~Complete Svelte parser with comprehensive testing~~ ✅ DONE
+3. Add backend framework support (Express/NestJS)
+4. Improve plugin system with basic runtime loading
+5. Enhance documentation site with framework-specific features
 
-**When Phase 2 is complete**, we have working analysis and coverage commands. Now ensuring Phase 3 starts.
+### Long-term Vision (3-6 months)
+1. Launch SaaS platform beta
+2. Build community plugin marketplace
+3. Implement AI-powered documentation generation
+4. Enterprise features for large organizations
+
+---
+
+## 🐛 Known Limitations & Future Improvements
+
+### Parser Limitations
+- **Backend Frameworks:** Not yet supported (Express, NestJS, Fastify, etc.)
+- **Angular:** Not supported (complex decorator patterns, RxJS observables)
+- **TypeScript Decorators:** Limited support for complex decorator patterns
+- **Dynamic Imports:** Limited tracking of dynamic import() statements
+
+### UI Limitations
+- **Component Previews:** Not implemented (moved to backlog)
+- **Live Code Editing:** Not available
+- **Multi-language Support:** English only
+
+### Platform Limitations
+- **Cloud Hosting:** Self-hosted only (SaaS platform not started)
+- **Team Collaboration:** Local-only (no real-time features)
+- **CI/CD Integration:** Manual setup required
+
+### Performance Considerations
+- **Large Projects (1000+ files):** Parsing can take 30-60 seconds
+- **Search Indexing:** Limited to 10,000 items for performance
+- **Graph Rendering:** Large graphs (500+ nodes) may be slow
+
+---
+
+## 📝 How to Reference Phases
+
+When working with Claude Code, you can reference phases like:
+
+- "Let's implement Phase 4"
+- "Show me Phase 2 tasks"
+- "Start working on the analyzer (Phase 2)"
+- "Add Vue support from Phase 4"
+
+---
+
+## 🔄 Task Progress Instructions
+
+**After completing each task:**
+
+1. Update this file to mark items as complete with `[x]`
+2. Update phase status emoji if needed:
+   - 🔴 NOT STARTED - No tasks completed
+   - 🟡 IN PROGRESS - Some tasks completed
+   - 🟢 COMPLETE - All tasks completed
+3. Update the "Current Focus" section
+4. Add implementation notes or file references
+
+---
+
+## 📚 Additional Resources
+
+- **[CLAUDE.md](CLAUDE.md)** - Comprehensive project guide for Claude Code
+- **[README.md](README.md)** - User-facing documentation
+- **[SETUP.md](SETUP.md)** - Development setup instructions
+- **[PROJECT_STRUCTURE.md](PROJECT_STRUCTURE.md)** - Directory layout
+
+---
+
+**Last Updated:** December 25, 2024
+**Version:** 1.0.1
+**Status:** MVP Released, Critical Bug Fixes Complete, Post-MVP Refinements in Progress

@@ -36,17 +36,29 @@ export class MarkdownGenerator {
 
     // Examples
     if (jsdoc.examples && jsdoc.examples.length > 0) {
-      lines.push('## Examples');
+      lines.push('\n## Examples\n');
       jsdoc.examples.forEach((example) => {
         if (example.description && example.description !== example.code) {
-          lines.push(`\n${example.description}\n`);
+          lines.push(`${example.description}\n`);
         }
         const code = example.code.trim();
-        // Check if already fenced
+
+        // Always wrap code in fenced code block for consistency
+        // Detect language from first line if it looks like a language identifier
+        const firstLine = code.split('\n')[0];
+        const languageMatch = firstLine.match(/^(typescript|javascript|jsx|tsx|vue|svelte|html|css|json|bash|shell)$/i);
+
         if (code.startsWith('```')) {
-          lines.push(`\n${code}\n`);
+          // Code already has backticks - use as is
+          lines.push(`${code}\n`);
+        } else if (languageMatch) {
+          // First line is a language identifier - use it
+          const language = languageMatch[1].toLowerCase();
+          const codeWithoutLang = code.split('\n').slice(1).join('\n').trim();
+          lines.push(`\`\`\`${language}\n${codeWithoutLang}\n\`\`\`\n`);
         } else {
-          lines.push(`\n\`\`\`ts\n${code}\n\`\`\`\n`);
+          // No language specified - default to typescript
+          lines.push(`\`\`\`typescript\n${code}\n\`\`\`\n`);
         }
       });
     }

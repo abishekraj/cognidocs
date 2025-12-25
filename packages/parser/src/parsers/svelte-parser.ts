@@ -23,8 +23,11 @@ export class SvelteParser {
     const fileContent = readFileSync(filePath, 'utf-8');
 
     try {
+      // Preprocess TypeScript if needed
+      const preprocessedContent = this.preprocessTypeScript(fileContent);
+
       // Parse the Svelte file using svelte/compiler
-      const ast = svelteParse(fileContent, {
+      const ast = svelteParse(preprocessedContent, {
         filename: filePath,
       });
 
@@ -380,6 +383,45 @@ export class SvelteParser {
     return {
       description,
     };
+  }
+
+  /**
+   * Preprocess TypeScript in Svelte component
+   * Strips type annotations from script blocks so the Svelte compiler can parse them
+   */
+  private preprocessTypeScript(fileContent: string): string {
+    // Check if the component has TypeScript
+    const scriptRegex = /<script([^>]*?)>([\s\S]*?)<\/script>/g;
+    let processed = fileContent;
+
+    const scriptMatch = scriptRegex.exec(fileContent);
+    if (scriptMatch) {
+      const scriptAttributes = scriptMatch[1];
+      const scriptContent = scriptMatch[2];
+
+      // Check if it's TypeScript
+      if (scriptAttributes.includes('lang="ts"') || scriptAttributes.includes("lang='ts'")) {
+        // Transpile TypeScript to JavaScript using TypeScript compiler
+        const transpiled = ts.transpileModule(scriptContent, {
+          compilerOptions: {
+            target: ts.ScriptTarget.ESNext,
+            module: ts.ModuleKind.ESNext,
+            removeComments: false, // Keep comments for JSDoc extraction
+          },
+        });
+
+        // Replace the script content with transpiled version
+        // Remove the lang="ts" attribute
+        const newScriptAttributes = scriptAttributes
+          .replace(/lang=["']ts["']/g, '')
+          .trim();
+
+        const replacement = `<script${newScriptAttributes ? ' ' + newScriptAttributes : ''}>${transpiled.outputText}</script>`;
+        processed = fileContent.replace(scriptMatch[0], replacement);
+      }
+    }
+
+    return processed;
   }
 
   /**
