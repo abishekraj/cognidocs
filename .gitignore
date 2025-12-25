@@ -13,6 +13,9 @@ out/
 .claude/
 .agent/*
 
+#Playwright
+playwright-report/
+test-results/   
 
 
 # Testing

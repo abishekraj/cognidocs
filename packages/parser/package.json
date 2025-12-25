@@ -1,6 +1,6 @@
 {
   "name": "@cognidocs/parser",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "AST parser for extracting metadata from JavaScript/TypeScript code",
   "main": "./dist/index.mjs",
   "types": "./dist/index.d.mts",
@@ -17,8 +17,8 @@
     "@babel/parser": "^7.23.5",
     "@babel/traverse": "^7.23.5",
     "@babel/types": "^7.23.5",
-    "@cognidocs/types": "*",
-    "@cognidocs/utils": "*",
+    "@cognidocs/types": "workspace:*",
+    "@cognidocs/utils": "workspace:*",
     "@vue/compiler-sfc": "^3.5.25",
     "glob": "^10.3.10",
     "svelte": "^4.2.19",

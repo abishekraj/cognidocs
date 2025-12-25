@@ -3,7 +3,7 @@
  * Phase 1: Foundation
  */
 
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, beforeAll, afterAll } from 'vitest';
 import { TypeScriptParser } from '../parsers/typescript-parser';
 import { writeFileSync, mkdirSync, rmSync } from 'fs';
 import { join } from 'path';

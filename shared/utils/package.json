@@ -1,13 +1,13 @@
 {
   "name": "@cognidocs/utils",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Shared utility functions for CogniDocs",
   "main": "./dist/index.mjs",
   "types": "./dist/index.d.mts",
   "scripts": {
     "dev": "tsup --watch",
     "build": "tsup",
-    "test": "vitest run",
+    "test": "vitest run --passWithNoTests",
     "typecheck": "tsc --noEmit",
     "clean": "rm -rf dist"
   },

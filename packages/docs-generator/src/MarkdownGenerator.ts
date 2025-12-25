@@ -208,7 +208,7 @@ export class MarkdownGenerator {
   private async generateApiRouteDoc(component: ComponentMetadata, filename: string): Promise<void> {
     const method = component.name === 'default' ? 'Handler' : component.name;
     const title = `${component.routePath || ''} ${method}`;
-    const lines: string[] = [this.generateFrontmatter(title, { path: component.filePath })];
+    const lines: string[] = [this.generateFrontmatter(title, { sourcePath: component.filePath })];
     lines.push(`# ${title}`);
     // ... rest same
 
@@ -259,7 +259,7 @@ export class MarkdownGenerator {
     filename: string
   ): Promise<void> {
     const lines: string[] = [
-      this.generateFrontmatter(component.name, { path: component.filePath }),
+      this.generateFrontmatter(component.name, { sourcePath: component.filePath }),
     ];
     lines.push(`# ${component.name}`);
 
@@ -304,7 +304,7 @@ export class MarkdownGenerator {
   }
 
   private async generateFunctionDoc(func: FunctionMetadata, filename: string): Promise<void> {
-    const lines: string[] = [this.generateFrontmatter(func.name, { path: func.filePath })];
+    const lines: string[] = [this.generateFrontmatter(func.name, { sourcePath: func.filePath })];
     lines.push(`# ${func.name}`);
 
     if (func.description) {
@@ -333,7 +333,7 @@ export class MarkdownGenerator {
   }
 
   private async generateClassDoc(cls: ClassMetadata, filename: string): Promise<void> {
-    const lines: string[] = [this.generateFrontmatter(cls.name, { path: cls.filePath })];
+    const lines: string[] = [this.generateFrontmatter(cls.name, { sourcePath: cls.filePath })];
     lines.push(`# ${cls.name}`);
 
     if (cls.description) {
@@ -373,7 +373,7 @@ export class MarkdownGenerator {
   }
 
   private async generateInterfaceDoc(iface: InterfaceMetadata, filename: string): Promise<void> {
-    const lines: string[] = [this.generateFrontmatter(iface.name, { path: iface.filePath })];
+    const lines: string[] = [this.generateFrontmatter(iface.name, { sourcePath: iface.filePath })];
     lines.push(`# ${iface.name}`);
     if (iface.description) lines.push(`\n${iface.description}\n`);
 
@@ -396,7 +396,7 @@ export class MarkdownGenerator {
   }
 
   private async generateTypeDoc(type: TypeMetadata, filename: string): Promise<void> {
-    const lines: string[] = [this.generateFrontmatter(type.name, { path: type.filePath })];
+    const lines: string[] = [this.generateFrontmatter(type.name, { sourcePath: type.filePath })];
     lines.push(`# ${type.name}`);
     if (type.description) lines.push(`\n${type.description}\n`);
 

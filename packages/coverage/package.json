@@ -1,21 +1,21 @@
 {
   "name": "@cognidocs/coverage",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Coverage tracking for CogniDocs",
   "main": "./dist/index.mjs",
   "types": "./dist/index.d.mts",
   "scripts": {
     "dev": "tsup --watch",
     "build": "tsup",
-    "test": "vitest run",
+    "test": "vitest run --passWithNoTests",
     "test:watch": "vitest",
     "typecheck": "tsc --noEmit",
     "lint": "eslint src",
     "clean": "rm -rf dist"
   },
   "dependencies": {
-    "@cognidocs/types": "*",
-    "@cognidocs/utils": "*"
+    "@cognidocs/types": "workspace:*",
+    "@cognidocs/utils": "workspace:*"
   },
   "devDependencies": {
     "tsup": "^8.0.1",

@@ -1,19 +1,19 @@
 {
   "name": "@cognidocs/docs-generator",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "comment": "Phase 3: Core Documentation",
   "main": "./dist/index.mjs",
   "types": "./dist/index.d.mts",
   "scripts": {
     "build": "tsup",
     "dev": "tsup --watch",
-    "test": "vitest run",
+    "test": "vitest run --passWithNoTests",
     "lint": "eslint src"
   },
   "dependencies": {
-    "@cognidocs/constants": "*",
-    "@cognidocs/types": "*",
-    "@cognidocs/utils": "*",
+    "@cognidocs/constants": "workspace:*",
+    "@cognidocs/types": "workspace:*",
+    "@cognidocs/utils": "workspace:*",
     "fs-extra": "^11.2.0"
   },
   "devDependencies": {

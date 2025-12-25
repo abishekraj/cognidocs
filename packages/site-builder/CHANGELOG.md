@@ -1,5 +1,14 @@
 # @cognidocs/site-builder
 
+## 1.0.1
+
+### Patch Changes
+
+- Fixed markdown rendering for generated content
+- Updated dependencies
+  - @cognidocs/graph-viz@1.0.1
+  - @cognidocs/utils@1.0.1
+
 ## 1.0.0
 
 ### Major Changes

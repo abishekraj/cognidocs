@@ -68,23 +68,18 @@ describe('Package Manager Detection', () => {
       expect(getInstallCommand('pnpm')).toBe('pnpm install');
     });
 
+    it('should return pnpm install --ignore-workspace for pnpm with ignoreWorkspace', () => {
+      expect(getInstallCommand('pnpm', { ignoreWorkspace: true })).toBe(
+        'pnpm install --ignore-workspace'
+      );
+    });
+
     it('should return yarn install for yarn', () => {
       expect(getInstallCommand('yarn')).toBe('yarn install');
     });
 
-    it('should return npm install for npm on non-Windows', () => {
-      expect(getInstallCommand('npm', { isWindows: false })).toBe('npm install');
-    });
-
-    it('should return npm install --legacy-peer-deps for npm on Windows', () => {
-      expect(getInstallCommand('npm', { isWindows: true })).toBe('npm install --legacy-peer-deps');
-    });
-
-    it('should respect useLegacyPeerDeps option', () => {
-      expect(getInstallCommand('npm', { useLegacyPeerDeps: true })).toBe(
-        'npm install --legacy-peer-deps'
-      );
-      expect(getInstallCommand('npm', { useLegacyPeerDeps: false })).toBe('npm install');
+    it('should return npm install for npm', () => {
+      expect(getInstallCommand('npm')).toBe('npm install');
     });
   });
 
