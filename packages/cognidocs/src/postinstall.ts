@@ -1,28 +1,11 @@
 #!/usr/bin/env node
 
 /**
- * Post-install script to show helpful information to users
+ * Post-install script - Shows brief welcome message
+ * Kept minimal to avoid slowing down installation
  */
 
-console.log(`
-╔════════════════════════════════════════════╗
-║   🎉 CogniDocs installed successfully!     ║
-╚════════════════════════════════════════════╝
-
-📚 Quick Start:
-
-  1. Initialize your project:
-     $ cognidocs init
-
-  2. Build documentation:
-     $ cognidocs build
-
-  3. View locally:
-     $ cognidocs serve
-
-📖 Documentation: https://github.com/abishekraj/cognidocs
-🐛 Issues: https://github.com/abishekraj/cognidocs/issues
-⭐ Star us: https://github.com/abishekraj/cognidocs
-
-Happy documenting! 🚀
-`);
+// Only show message if not in CI environment
+if (!process.env.CI) {
+  console.log('\n✨ CogniDocs installed! Run "cognidocs --help" to get started.\n');
+}

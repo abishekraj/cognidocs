@@ -20,10 +20,10 @@ program
     'after',
     `
 ${chalk.bold('Installation:')}
-  ${chalk.cyan('npm install -g @cognidocs/cli')}        # Install with npm
-  ${chalk.cyan('pnpm install -g @cognidocs/cli')}       # Install with pnpm (recommended for Windows)
-  ${chalk.cyan('yarn global add @cognidocs/cli')}       # Install with yarn
-  ${chalk.cyan('npx @cognidocs/cli init')}              # Use without installation
+  ${chalk.cyan('npm install -g cognidocs')}             # Install with npm
+  ${chalk.cyan('pnpm install -g cognidocs')}            # Install with pnpm (recommended for Windows)
+  ${chalk.cyan('yarn global add cognidocs')}            # Install with yarn
+  ${chalk.cyan('npx cognidocs init')}                   # Use without installation
 
 ${chalk.bold('Quick Start:')}
   ${chalk.cyan('cognidocs init')}                       # Initialize configuration (interactive)
