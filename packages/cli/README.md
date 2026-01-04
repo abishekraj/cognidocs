@@ -1,64 +1,36 @@
-# CogniDocs
+# @cognidocs/cli
 
-> 🚀 Premium documentation for React, Next.js, Vue, and Svelte — automatically generated from your code.
+> ⚠️ **Looking for the main package?** Install [`cognidocs`](https://www.npmjs.com/package/cognidocs) instead for the best experience!
 
-[![npm version](https://badge.fury.io/js/@cognidocs%2Fcli.svg)](https://www.npmjs.com/package/@cognidocs/cli)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Node.js Version](https://img.shields.io/badge/node-%3E%3D18.0.0-brightgreen)](https://nodejs.org)
-
-CogniDocs is a comprehensive documentation tool for JavaScript and TypeScript. Point it at your codebase, and it generates a stunning, premium documentation site with interactive dependency graphs, detailed coverage reports, and 12 professional themes.
-
-**[🌐 View Live Demo](https://abishekraj.github.io/cognidocs/)** — See CogniDocs in action!
-
----
-
-## 📖 Table of Contents
-
-- [Quick Start](#-quick-start-in-60-seconds)
-- [Features](#-features-at-a-glance)
-- [Supported Frameworks](#-supported-frameworks)
-- [Documenting Your Code](#-documenting-your-code-jsdoc)
-- [Configuration](#-configuration)
-- [CLI Commands](#-cli-commands)
-- [Custom Documentation](#-custom-documentation-guides)
-- [Advanced Markdown](#-advanced-markdown-features)
-- [Contributing](#-contributing--community)
-
----
-
-## 📸 Preview
-
-![CogniDocs Dashboard](../../assets/SCR-20251219-cdur.png)
-_Interactive Dashboard with documentation health metrics and coverage analysis._
-
-![Component Documentation](../../assets/SCR-20251219-cdgc.png)
-_Detailed component documentation with props tables and source code view._
-
-![Mermaid Diagram](../../assets/SCR-20251219-ccxb.png)
-_Mermaid.js diagrams for visualizing complex logic._
-
----
-
-## 🚀 Quick Start in 60 Seconds
-
-### Installation
-
-Choose your preferred package manager:
+## Quick Install
 
 ```bash
-# pnpm (Recommended - especially for monorepo projects)
-pnpm add -g @cognidocs/cli
+# Recommended: Use the main package
+npm install -g cognidocs
 
-# npm
+# Or use this scoped package directly
 npm install -g @cognidocs/cli
-
-# npx (Try without installing)
-npx @cognidocs/cli init
 ```
 
-> **💡 Tip:** For monorepo/workspace projects, we strongly recommend using **pnpm** as it provides superior workspace management and dependency handling.
+---
 
-### Usage
+## About This Package
+
+This is the **CLI package** for CogniDocs. While you can install this directly, we recommend using the main [`cognidocs`](https://www.npmjs.com/package/cognidocs) package which provides:
+
+- ✅ Better discoverability on npm
+- ✅ Simpler installation command
+- ✅ Official entry point for the project
+- ✅ Same functionality with better UX
+
+## Documentation
+
+For complete documentation, visit:
+- **Main Package:** https://www.npmjs.com/package/cognidocs
+- **GitHub:** https://github.com/abishekraj/cognidocs
+- **Live Demo:** https://abishekraj.github.io/cognidocs/
+
+## Quick Start
 
 ```bash
 # 1. Initialize your project
@@ -71,201 +43,19 @@ cognidocs build
 cognidocs serve
 ```
 
-Your documentation site will be generated in the `./docs` directory.
+---
+
+## What is CogniDocs?
+
+CogniDocs is a comprehensive documentation tool for JavaScript and TypeScript that automatically generates stunning documentation sites from your code with:
+
+- 🤖 **Multi-Framework Support** - React, Next.js, Vue 3, and Svelte
+- 🎨 **12 Professional Themes** - GitBook, GitHub, Nord, Dracula, and more
+- 📊 **Deep Analysis** - Coverage reports, dependency graphs, and metrics
+- 💎 **Advanced Features** - Mermaid.js diagrams, callout boxes, and more
 
 ---
 
-## ⚡ Features at a Glance
+## License
 
-### 🤖 Intelligent Code Parsing
-
-- **Multi-Framework Support** - Native support for **React**, **Next.js**, **Vue 3**, and **Svelte**.
-- **TypeScript & JavaScript** - Full AST parsing for both `.ts/.tsx` and `.js/.jsx` files.
-- **Deep Export Detection** - Handles all export patterns (default, named, re-exports, aliases).
-- **Rich JSDoc Rendering** - Supports `@example`, `@see`, `@link`, `@tutorial`, `@deprecated`, and more.
-
-### 📊 Deep Analysis
-
-- **Coverage Reports** - Track documentation health across 6 categories: Components, Modules, Functions, Classes, Interfaces, and Types.
-- **Project Metrics** - Get instant insights into your project's complexity and structure.
-- **Zero Configuration** - Intelligent defaults that work out of the box.
-
----
-
-## 🛠 Supported Frameworks
-
-CogniDocs handles the specific patterns of your favorite frameworks:
-
-| Framework   | Support Details                                                                    |
-| :---------- | :--------------------------------------------------------------------------------- |
-| **React**   | Function & Class components, Hooks extraction, Props detection, JSX/TSX support.   |
-| **Next.js** | Full support for App Router & Page Router, API route documentation.                |
-| **Vue 3**   | Single File Components (SFC), Composition API (`<script setup>`), and Options API. |
-| **Svelte**  | Component props, events, stores, and reactive statements (`$:`) extraction.        |
-
----
-
-## 💡 Documenting Your Code (JSDoc)
-
-CogniDocs automatically extracts information from your JSDoc comments. Here’s how to document your code for the best results:
-
-### React Components
-
-Document props and provide usage examples.
-
-```tsx
-/**
- * A premium button component with multiple variants.
- *
- * @component
- * @example
- * <Button variant="primary" onClick={() => console.log('Clicked!')}>
- *   Click Me
- * </Button>
- */
-export const Button = ({ variant, children, ...props }: ButtonProps) => {
-  return (
-    <button className={variant} {...props}>
-      {children}
-    </button>
-  );
-};
-```
-
-### Functions & Logic
-
-Use standard JSDoc tags for parameters and return types.
-
-```typescript
-/**
- * Calculates the total price including tax.
- *
- * @param price - The base price of the item
- * @param tax - The tax rate (e.g., 0.15 for 15%)
- * @returns The final price with tax applied
- *
- * @deprecated Use `calculateTotalV2` for better precision.
- * @see {@link https://api.docs.com/pricing}
- */
-export function calculateTotal(price: number, tax: number): number {
-  return price * (1 + tax);
-}
-```
-
----
-
-## ⚙️ Configuration
-
-Create a `cognidocs.config.js` in your root:
-
-```javascript
-export default {
-  entry: './src', // Source directory
-  output: './docs', // Output directory
-  theme: 'gitbook', // Theme (12 available)
-  darkMode: true, // Toggle dark mode
-  frameworks: ['react'], // Primary framework
-  name: 'My Project', // Documentation title
-  exclude: ['**/node_modules/**', '**/dist/**', '**/*.test.ts'],
-};
-```
-
-### Available Themes
-
-- `gitbook` (Light/Dark)
-- `github` (Light/Dark)
-- `nord` (Light/Dark)
-- `dracula`
-- `monokai`
-- `solarized-light`, `solarized-dark`
-- `one-dark`
-- `material-light`, `material-dark`
-
----
-
-## 📋 CLI Commands
-
-| Command              | Description                                            |
-| :------------------- | :----------------------------------------------------- |
-| `cognidocs init`     | Initialize configuration (use `-y` for defaults)       |
-| `cognidocs build`    | Generate the documentation site                        |
-| `cognidocs serve`    | Start dev server with live reload (default port: 4173) |
-| `cognidocs analyze`  | Generate interactive dependency graphs                 |
-| `cognidocs coverage` | Calculate documentation coverage metrics               |
-
----
-
-## 📚 Custom Documentation (Guides)
-
-Beyond auto-generated API docs, you can add custom guides (like a "Getting Started" or "Architecture" page).
-
-### How to add Guides
-
-1. Create an `additional-documentation/` folder in your project root.
-2. Add `.md` files to this folder.
-3. Use YAML formatter to organize them:
-
-```markdown
----
-title: Getting Started
-description: Quick start guide for new users
-category: Guides
-order: 1
----
-
-# Getting Started
-
-Your content here...
-```
-
-CogniDocs will automatically discover these files and list them under a **"Guides"** section in the sidebar.
-
----
-
-## 💎 Advanced Markdown Features
-
-CogniDocs premium UI includes built-in support for advanced markdown elements:
-
-### 🧜‍♂️ Mermaid.js Diagrams
-
-Visualize complex logic with native Mermaid support.
-
-```mermaid
-graph TD;
-    A[Source Code] --> B{CogniDocs Parser};
-    B --> C[JSON Metadata];
-    B --> D[Markdown Guides];
-    C --> E[Premium Doc Site];
-    D --> E;
-```
-
-### 🎈 Callout Boxes
-
-Highlight important information using the `:::type` syntax:
-
-:::info
-This is an information callout.
-:::
-
-:::warning
-This is a warning callout.
-:::
-
-:::tip
-This is a helpful tip.
-:::
-
-:::danger
-This is a critical danger callout.
-:::
-
----
-
-## 🤝 Contributing & Community
-
-We welcome contributions! See [CONTRIBUTING.md](CONTRIBUTING.md) to get started.
-
-- 🐛 **Bugs:** [Report an issue](https://github.com/abishekraj/cognidocs/issues)
-- ⭐ **Support:** Give us a star on [GitHub](https://github.com/abishekraj/cognidocs)!
-
-Built with ❤️ by the open-source community.
+MIT © [Abishek Raj](https://github.com/abishekraj)

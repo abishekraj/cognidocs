@@ -2,7 +2,7 @@
 
 > 🚀 Premium documentation for React, Next.js, Vue, and Svelte — automatically generated from your code.
 
-[![npm version](https://badge.fury.io/js/@cognidocs%2Fcli.svg)](https://www.npmjs.com/package/@cognidocs/cli)
+[![npm version](https://badge.fury.io/js/cognidocs.svg)](https://www.npmjs.com/package/cognidocs)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Node.js Version](https://img.shields.io/badge/node-%3E%3D18.0.0-brightgreen)](https://nodejs.org)
 
@@ -12,48 +12,22 @@ CogniDocs is a comprehensive documentation tool for JavaScript and TypeScript. P
 
 ---
 
-## 📖 Table of Contents
-
-- [Quick Start](#-quick-start-in-60-seconds)
-- [Features](#-features-at-a-glance)
-- [Supported Frameworks](#-supported-frameworks)
-- [Documenting Your Code](#-documenting-your-code-jsdoc)
-- [Configuration](#-configuration)
-- [CLI Commands](#-cli-commands)
-- [Custom Documentation](#-custom-documentation-guides)
-- [Advanced Markdown](#-advanced-markdown-features)
-- [Contributing](#-contributing--community)
-
----
-
-## 📸 Preview
-
-![CogniDocs Dashboard](assets/SCR-20251219-cdur.png)
-_Interactive Dashboard with documentation health metrics and coverage analysis._
-
-![Component Documentation](assets/SCR-20251219-cdgc.png)
-_Detailed component documentation with props tables and source code view._
-
-![Mermaid Diagram](assets/SCR-20251219-ccxb.png)
-_Mermaid.js diagrams for visualizing complex logic._
-
----
-
 ## 🚀 Quick Start in 60 Seconds
 
 ### Installation
 
-Choose your preferred package manager:
-
 ```bash
-# pnpm (Recommended - especially for monorepo projects)
-pnpm add -g @cognidocs/cli
-
 # npm
-npm install -g @cognidocs/cli
+npm install -g cognidocs
+
+# pnpm (Recommended - especially for monorepo projects)
+pnpm add -g cognidocs
+
+# yarn
+yarn global add cognidocs
 
 # npx (Try without installing)
-npx @cognidocs/cli init
+npx cognidocs init
 ```
 
 > **💡 Tip:** For monorepo/workspace projects, we strongly recommend using **pnpm** as it provides superior workspace management and dependency handling.
@@ -84,17 +58,39 @@ Your documentation site will be generated in the `./docs` directory.
 - **Deep Export Detection** - Handles all export patterns (default, named, re-exports, aliases).
 - **Rich JSDoc Rendering** - Supports `@example`, `@see`, `@link`, `@tutorial`, `@deprecated`, and more.
 
+### 🎨 Premium Documentation Sites
+
+- **12 Professional Themes** - GitBook, GitHub, Nord, Dracula, Monokai, Solarized, One Dark, Material (light/dark variants).
+- **Advanced Search** - Lunr.js with Cmd+K command palette for instant navigation.
+- **Interactive Dependency Graphs** - D3.js force-directed visualization of module relationships.
+- **Mermaid.js Diagrams** - Full support for flowcharts, sequence diagrams, class diagrams, and more.
+- **Responsive Design** - Works beautifully on desktop, tablet, and mobile.
+- **Dark Mode** - Toggle between light and dark themes.
+
 ### 📊 Deep Analysis
 
-- **Coverage Reports** - Track documentation health across 6 categories: Components, Modules, Functions, Classes, Interfaces, and Types.
+- **Coverage Reports** - Track documentation health across Components, Functions, Classes, Interfaces, and Types.
 - **Project Metrics** - Get instant insights into your project's complexity and structure.
 - **Zero Configuration** - Intelligent defaults that work out of the box.
 
 ---
 
-## 🛠 Supported Frameworks
+---
 
-CogniDocs handles the specific patterns of your favorite frameworks:
+## 📸 Preview
+
+![CogniDocs Dashboard](https://raw.githubusercontent.com/abishekraj/cognidocs/main/assets/SCR-20251219-cdur.png)
+_Interactive Dashboard with documentation health metrics and coverage analysis._
+
+![Component Documentation](https://raw.githubusercontent.com/abishekraj/cognidocs/main/assets/SCR-20251219-cdgc.png)
+_Detailed component documentation with props tables and source code view._
+
+![Mermaid Diagram](https://raw.githubusercontent.com/abishekraj/cognidocs/main/assets/SCR-20251219-ccxb.png)
+_Mermaid.js diagrams for visualizing complex logic._
+
+---
+
+## 🛠 Supported Frameworks
 
 | Framework   | Support Details                                                                    |
 | :---------- | :--------------------------------------------------------------------------------- |
@@ -107,7 +103,7 @@ CogniDocs handles the specific patterns of your favorite frameworks:
 
 ## 💡 Documenting Your Code (JSDoc)
 
-CogniDocs automatically extracts information from your JSDoc comments. Here’s how to document your code for the best results:
+CogniDocs automatically extracts information from your JSDoc comments. Here's how to document your code for the best results:
 
 ### React Components
 
@@ -235,6 +231,8 @@ export default {
 | `cognidocs serve`    | Start dev server with live reload (default port: 4173) |
 | `cognidocs analyze`  | Generate interactive dependency graphs                 |
 | `cognidocs coverage` | Calculate documentation coverage metrics               |
+| `cognidocs --help`   | Show help and available commands                       |
+| `cognidocs --version`| Display current version                                |
 
 ---
 
@@ -246,7 +244,7 @@ Beyond auto-generated API docs, you can add custom guides (like a "Getting Start
 
 1. Create an `additional-documentation/` folder in your project root.
 2. Add `.md` files to this folder.
-3. Use YAML formatter to organize them:
+3. Use YAML frontmatter to organize them:
 
 ```markdown
 ---
@@ -273,19 +271,20 @@ CogniDocs premium UI includes built-in support for advanced markdown elements:
 
 Visualize complex logic with native Mermaid support.
 
-```mermaid
+\`\`\`mermaid
 graph TD;
     A[Source Code] --> B{CogniDocs Parser};
     B --> C[JSON Metadata];
     B --> D[Markdown Guides];
     C --> E[Premium Doc Site];
     D --> E;
-```
+\`\`\`
 
 ### 🎈 Callout Boxes
 
 Highlight important information using the `:::type` syntax:
 
+```
 :::info
 This is an information callout.
 :::
@@ -301,14 +300,24 @@ This is a helpful tip.
 :::danger
 This is a critical danger callout.
 :::
+```
 
 ---
 
 ## 🤝 Contributing & Community
 
-We welcome contributions! See [CONTRIBUTING.md](CONTRIBUTING.md) to get started.
+We welcome contributions! Please see our [Contributing Guide](https://github.com/abishekraj/cognidocs/blob/main/CONTRIBUTING.md) for details.
 
-- 🐛 **Bugs:** [Report an issue](https://github.com/abishekraj/cognidocs/issues)
-- ⭐ **Support:** Give us a star on [GitHub](https://github.com/abishekraj/cognidocs)!
+- 🐛 [Report a bug](https://github.com/abishekraj/cognidocs/issues/new?template=bug_report.md)
+- 💡 [Request a feature](https://github.com/abishekraj/cognidocs/issues/new?template=feature_request.md)
+- ⭐ [Star us on GitHub](https://github.com/abishekraj/cognidocs)
 
-Built with ❤️ by the open-source community.
+---
+
+## 📄 License
+
+MIT © [Abishek Raj](https://github.com/abishekraj)
+
+---
+
+**Made with ❤️ by the CogniDocs team**

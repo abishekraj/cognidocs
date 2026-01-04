@@ -1,30 +1,27 @@
 # @cognidocs/docs-generator
 
-API reference documentation generator.
+> Part of the [CogniDocs](https://www.npmjs.com/package/cognidocs) documentation toolchain
 
-## Phase 3: Core Documentation (Weeks 6-7)
+## Install CogniDocs
 
-**Status:** 🔴 Not Started
+```bash
+npm install -g cognidocs
+```
 
-This package will provide:
+## About This Package
 
-- API documentation generation
-- JSDoc formatting
-- Component reference pages
-- Type documentation
-- Search index generation
+This package is part of the CogniDocs monorepo and provides shared constants and configuration values.
 
-## Planned Features
+**For end users:** Install the main [`cognidocs`](https://www.npmjs.com/package/cognidocs) package instead.
 
-- [ ] Markdown/MDX generation
-- [ ] API reference pages
-- [ ] Component documentation
-- [ ] Type documentation
-- [ ] Search index creation
-- [ ] Cross-reference linking
-- [ ] Example code blocks
+**For developers:** This package can be used as a standalone library in your own projects.
 
-## Dependencies
+## Documentation
 
-- Requires: @cognidocs/parser (Phase 1), @cognidocs/analyzer (Phase 2)
-- Used by: @cognidocs/site-builder (Phase 3)
+- **Main Package:** https://www.npmjs.com/package/cognidocs
+- **GitHub:** https://github.com/abishekraj/cognidocs
+- **API Docs:** https://abishekraj.github.io/cognidocs/
+
+## License
+
+MIT © [Abishek Raj](https://github.com/abishekraj)

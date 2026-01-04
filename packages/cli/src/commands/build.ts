@@ -219,22 +219,30 @@ export async function buildCommand(options: BuildOptions = {}): Promise<void> {
       `Parsed ${parseResults.length} files, found ${allComponents.length} ${frameworkName} components`
     );
 
-    // Generate statistics
+    // Phase 1+3: Output
+    const outputSpinner = ora('Generating documentation...').start();
+
+    // Create output directory
+    await mkdir(outputPath, { recursive: true });
+
+    // Phase 3: Generate Markdown (moved before stats to get actual documented counts)
+    outputSpinner.text = 'Generating Markdown files...';
+    const { MarkdownGenerator } = await import('@cognidocs/docs-generator');
+    const generator = new MarkdownGenerator(outputPath);
+    const documentedCounts = await generator.generate(parseResults);
+
+    // Generate statistics based on DOCUMENTED items (not all parsed items)
     const stats = {
       files: parseResults.length,
-      components: allComponents.length,
-      // API Routes are components with isApiRoute: true.
-      // We should count them separately for clarity, though they are inside 'components' count too depending on how parsers work.
-      // ReactParser only returns components. NextJsParser returns components which can be pages or api routes.
-      // API routes should ideally be distinct.
-      apiRoutes: allComponents.filter((c: any) => c.isApiRoute).length,
-      functions: parseResults.reduce((sum, r) => sum + r.functions.length, 0),
-      classes: parseResults.reduce((sum, r) => sum + r.classes.length, 0),
-      interfaces: parseResults.reduce((sum, r) => sum + r.interfaces.length, 0),
-      types: parseResults.reduce((sum, r) => sum + r.types.length, 0),
+      components: documentedCounts.components,
+      apiRoutes: documentedCounts.apiRoutes,
+      functions: documentedCounts.functions,
+      classes: documentedCounts.classes,
+      interfaces: documentedCounts.interfaces,
+      types: documentedCounts.types,
     };
 
-    console.log(chalk.gray('\n   Statistics:'));
+    console.log(chalk.gray('\n   Documented Items:'));
     console.log(chalk.gray(`   • ${stats.components} components`));
     if (stats.apiRoutes > 0) {
       console.log(chalk.gray(`   • ${stats.apiRoutes} API routes`));
@@ -244,13 +252,7 @@ export async function buildCommand(options: BuildOptions = {}): Promise<void> {
     console.log(chalk.gray(`   • ${stats.interfaces} interfaces`));
     console.log(chalk.gray(`   • ${stats.types} types\n`));
 
-    // Phase 1+3: Output
-    const outputSpinner = ora('Generating documentation...').start();
-
-    // Create output directory
-    await mkdir(outputPath, { recursive: true });
-
-    // Write parsed data as JSON (Keep raw data)
+    // Write parsed data as JSON (with updated stats)
     const dataPath = join(outputPath, 'data.json');
     await writeFile(
       dataPath,
@@ -269,12 +271,6 @@ export async function buildCommand(options: BuildOptions = {}): Promise<void> {
       ),
       'utf-8'
     );
-
-    // Phase 3: Generate Markdown
-    outputSpinner.text = 'Generating Markdown files...';
-    const { MarkdownGenerator } = await import('@cognidocs/docs-generator');
-    const generator = new MarkdownGenerator(outputPath);
-    await generator.generate(parseResults);
 
     // Generate dependency graph
     outputSpinner.text = 'Generating dependency graph...';

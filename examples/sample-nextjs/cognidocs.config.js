@@ -4,12 +4,19 @@
  */
 
 export default {
-  entry: './app',
+  entry: './',
   output: './docs',
   theme: 'dracula',
   darkMode: true,
   frameworks: ['nextjs'],
-  exclude: ['**/*.test.ts', '**/*.test.tsx', '**/node_modules/**', '**/dist/**'],
+  exclude: [
+    '**/*.test.ts',
+    '**/*.test.tsx',
+    '**/node_modules/**',
+    '**/dist/**',
+    '**/.next/**',
+    '**/.cognidocs/**',
+  ],
 
   coverage: {
     enabled: true,

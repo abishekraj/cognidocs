@@ -1,4 +1,4 @@
-# @cognidocs/analyzer
+# @cognidocs/constants
 
 > Part of the [CogniDocs](https://www.npmjs.com/package/cognidocs) documentation toolchain
 
@@ -10,7 +10,7 @@ npm install -g cognidocs
 
 ## About This Package
 
-This package is part of the CogniDocs monorepo and provides shared constants and configuration values.
+This package is part of the CogniDocs monorepo and provides shared constants for all CogniDocs packages.
 
 **For end users:** Install the main [`cognidocs`](https://www.npmjs.com/package/cognidocs) package instead.
 

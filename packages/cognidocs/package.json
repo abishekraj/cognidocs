@@ -1,0 +1,59 @@
+{
+  "name": "cognidocs",
+  "version": "0.0.1",
+  "description": "Premium documentation for React, Next.js, Vue, and Svelte — automatically generated from your code",
+  "keywords": [
+    "documentation",
+    "docs",
+    "react",
+    "nextjs",
+    "vue",
+    "svelte",
+    "typescript",
+    "jsdoc",
+    "code-documentation",
+    "api-docs",
+    "component-library",
+    "storybook",
+    "compodoc",
+    "documentation-generator",
+    "static-site-generator"
+  ],
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "cognidocs": "./dist/cli.mjs"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "postinstall": "node dist/postinstall.mjs || true"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abishekraj/cognidocs.git",
+    "directory": "packages/cognidocs"
+  },
+  "bugs": {
+    "url": "https://github.com/abishekraj/cognidocs/issues"
+  },
+  "homepage": "https://github.com/abishekraj/cognidocs#readme",
+  "author": "Abishek Raj",
+  "license": "MIT",
+  "dependencies": {
+    "@cognidocs/cli": "^1.0.1"
+  },
+  "devDependencies": {
+    "tsup": "^8.0.1",
+    "typescript": "^5.3.3"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

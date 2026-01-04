@@ -46,7 +46,9 @@
     "phase2": "turbo run dev --filter=@cognidocs/analyzer --filter=@cognidocs/coverage",
     "phase3": "turbo run build --filter=./packages/* && cd examples/sample-react && cognidocs build",
     "phase3-ui": "turbo run build --filter=@cognidocs/site-builder && cd examples/sample-react && cognidocs serve",
-    "release": "changeset publish"
+    "changeset": "changeset",
+    "version": "changeset version && ./scripts/version-and-sync.sh",
+    "release": "pnpm run build && changeset publish"
   },
   "devDependencies": {
     "@changesets/cli": "^2.29.8",

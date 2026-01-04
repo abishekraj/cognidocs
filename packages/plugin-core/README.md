@@ -1,4 +1,4 @@
-# @cognidocs/analyzer
+# @cognidocs/plugin-core
 
 > Part of the [CogniDocs](https://www.npmjs.com/package/cognidocs) documentation toolchain
 

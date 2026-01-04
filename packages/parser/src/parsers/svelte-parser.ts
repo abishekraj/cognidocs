@@ -191,9 +191,28 @@ export class SvelteParser {
         for (const declaration of declarations) {
           if (ts.isIdentifier(declaration.name)) {
             const name = declaration.name.getText();
-            const type = declaration.type?.getText(sourceFile);
+            let type = declaration.type?.getText(sourceFile);
             const defaultValue = declaration.initializer?.getText(sourceFile);
             const required = !declaration.initializer;
+
+            // If no inline type, check JSDoc @type tag
+            if (!type) {
+              // Get full JSDoc text and extract @type {TypeName}
+              const fullJSDoc = ts.getJSDocCommentsAndTags(node);
+              if (fullJSDoc.length > 0) {
+                const jsdocText = fullJSDoc[0].getText(sourceFile);
+                // Match @type {TypeName} pattern
+                const typeMatch = jsdocText.match(/@type\s+\{([^}]+)\}/);
+                if (typeMatch && typeMatch[1]) {
+                  type = typeMatch[1].trim();
+                }
+              }
+            }
+
+            // If still no type, infer from default value
+            if (!type && defaultValue) {
+              type = this.inferTypeFromValue(defaultValue);
+            }
 
             props.push({
               name,
@@ -211,6 +230,60 @@ export class SvelteParser {
     visit(sourceFile);
 
     return props;
+  }
+
+  /**
+   * Infer TypeScript type from a default value
+   */
+  private inferTypeFromValue(value: string): string {
+    // Remove quotes for string detection
+    const trimmed = value.trim();
+
+    // String literals (single or double quotes)
+    if (
+      (trimmed.startsWith("'") && trimmed.endsWith("'")) ||
+      (trimmed.startsWith('"') && trimmed.endsWith('"')) ||
+      (trimmed.startsWith('`') && trimmed.endsWith('`'))
+    ) {
+      return 'string';
+    }
+
+    // Boolean literals
+    if (trimmed === 'true' || trimmed === 'false') {
+      return 'boolean';
+    }
+
+    // Null/undefined
+    if (trimmed === 'null' || trimmed === 'undefined') {
+      return 'any';
+    }
+
+    // Number literals (including decimals, negatives, scientific notation)
+    if (/^-?\d+(\.\d+)?([eE][+-]?\d+)?$/.test(trimmed)) {
+      return 'number';
+    }
+
+    // Array literals
+    if (trimmed.startsWith('[') && trimmed.endsWith(']')) {
+      return 'any[]';
+    }
+
+    // Object literals
+    if (trimmed.startsWith('{') && trimmed.endsWith('}')) {
+      return 'object';
+    }
+
+    // Function expressions
+    if (
+      trimmed.startsWith('function') ||
+      trimmed.startsWith('(') ||
+      trimmed.includes('=>')
+    ) {
+      return 'Function';
+    }
+
+    // Default to any
+    return 'any';
   }
 
   /**

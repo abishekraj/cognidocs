@@ -1,30 +1,27 @@
 # @cognidocs/graph-viz
 
-Interactive dependency graph visualization.
+> Part of the [CogniDocs](https://www.npmjs.com/package/cognidocs) documentation toolchain
 
-## Phase 4: Graph Visualization (Weeks 8-9)
+## Install CogniDocs
 
-**Status:** 🔴 Not Started
+```bash
+npm install -g cognidocs
+```
 
-This package will provide:
+## About This Package
 
-- Interactive dependency graphs
-- Module relationship diagrams
-- Component hierarchy trees
-- Architecture overview
-- Exportable diagrams (PNG/SVG)
+This package is part of the CogniDocs monorepo and provides shared constants and configuration values.
 
-## Planned Features
+**For end users:** Install the main [`cognidocs`](https://www.npmjs.com/package/cognidocs) package instead.
 
-- [ ] D3.js graph rendering
-- [ ] Cytoscape.js integration
-- [ ] Force-directed layouts
-- [ ] Zoom/pan/filter interactions
-- [ ] Circular dependency highlighting
-- [ ] Bundle size overlay
-- [ ] Export to static images
+**For developers:** This package can be used as a standalone library in your own projects.
 
-## Dependencies
+## Documentation
 
-- Requires: @cognidocs/analyzer (Phase 2)
-- Used by: @cognidocs/site-builder (Phase 3)
+- **Main Package:** https://www.npmjs.com/package/cognidocs
+- **GitHub:** https://github.com/abishekraj/cognidocs
+- **API Docs:** https://abishekraj.github.io/cognidocs/
+
+## License
+
+MIT © [Abishek Raj](https://github.com/abishekraj)

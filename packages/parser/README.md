@@ -1,36 +1,27 @@
 # @cognidocs/parser
 
-AST parser for extracting metadata from JavaScript/TypeScript code.
+> Part of the [CogniDocs](https://www.npmjs.com/package/cognidocs) documentation toolchain
 
-## Phase 1: Foundation
+## Install CogniDocs
 
-This package provides:
-
-- TypeScript Compiler API integration
-- Babel parser for JavaScript files
-- Component metadata extraction (React, Vue, Svelte)
-- JSDoc/TSDoc comment parsing
-- Type information extraction
-
-## Usage
-
-```typescript
-import { TypeScriptParser, ReactParser } from '@cognidocs/parser';
-
-const parser = new TypeScriptParser();
-const result = await parser.parseFile('./src/Button.tsx');
-
-console.log(result.components);
+```bash
+npm install -g cognidocs
 ```
 
-## Supported Patterns
+## About This Package
 
-- Function components
-- Class components
-- TypeScript interfaces and types
-- JSDoc comments
-- React hooks
+This package is part of the CogniDocs monorepo and provides shared constants and configuration values.
 
-## Status
+**For end users:** Install the main [`cognidocs`](https://www.npmjs.com/package/cognidocs) package instead.
 
-🚧 Phase 1 - In Development
+**For developers:** This package can be used as a standalone library in your own projects.
+
+## Documentation
+
+- **Main Package:** https://www.npmjs.com/package/cognidocs
+- **GitHub:** https://github.com/abishekraj/cognidocs
+- **API Docs:** https://abishekraj.github.io/cognidocs/
+
+## License
+
+MIT © [Abishek Raj](https://github.com/abishekraj)

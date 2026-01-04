@@ -10,6 +10,9 @@ import {
   BarChart3,
   Eye,
   FileText,
+  Component,
+  Boxes,
+  Zap,
 } from 'lucide-react';
 import { cn } from './lib/utils';
 import { Input } from './components/ui/input';
@@ -93,6 +96,19 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
 
   const isSearching = searchTerm.length > 0;
 
+  // Helper function to get framework icon based on file path or metadata
+  const getFrameworkIcon = (path: string) => {
+    if (path.includes('/components/')) {
+      // Check if it's a Vue component
+      if (path.includes('.vue')) return Boxes;
+      // Check if it's a Svelte component
+      if (path.includes('.svelte')) return Zap;
+      // Default to React/Component icon
+      return Component;
+    }
+    return FileCode;
+  };
+
   // Recursive helper to render manifest tree
   const renderTree = (items: any[]) => {
     return items.map((item: any) => {
@@ -105,6 +121,7 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
       }
 
       const href = `#/content/${item.path.replace('.md', '')}`;
+      const icon = getFrameworkIcon(item.path);
 
       return (
         <NavigationItem
@@ -112,7 +129,7 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
           label={item.name}
           href={href}
           isActive={currentPath === href}
-          icon={FileCode}
+          icon={icon}
           sourcePath={item.sourcePath}
         />
       );

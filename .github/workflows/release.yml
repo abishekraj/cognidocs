@@ -25,6 +25,7 @@ on:
         type: choice
         options:
           - all
+          - cognidocs
           - '@cognidocs/cli'
           - '@cognidocs/parser'
           - '@cognidocs/analyzer'

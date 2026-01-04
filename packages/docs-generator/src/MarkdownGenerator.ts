@@ -23,6 +23,28 @@ export class MarkdownGenerator {
   }
 
   /**
+   * Normalizes type strings for markdown table display
+   * - Removes newlines and extra whitespace
+   * - Converts multi-line types to single-line format
+   * - Preserves essential spacing
+   * - Escapes pipe characters
+   */
+  private normalizeTypeString(typeText: string | undefined): string {
+    if (!typeText) return 'any';
+
+    // Remove all newlines and collapse multiple spaces into single space
+    let normalized = typeText
+      .replace(/\r?\n/g, ' ') // Replace newlines with space
+      .replace(/\s+/g, ' ') // Collapse multiple spaces
+      .trim(); // Trim leading/trailing whitespace
+
+    // Escape pipe characters for markdown tables
+    normalized = this.escapeMarkdownPipes(normalized);
+
+    return normalized;
+  }
+
+  /**
    * Render common JSDoc sections (Examples, See Also, Tutorials, Deprecated)
    */
   private renderJSDocCommon(jsdoc?: JSDocMetadata): string[] {
@@ -31,7 +53,11 @@ export class MarkdownGenerator {
 
     // Deprecated
     if (jsdoc.deprecated) {
-      lines.push(`\n:::danger Deprecated\n${jsdoc.deprecated}\n:::\n`);
+      lines.push('');
+      lines.push(':::danger');
+      lines.push('**Deprecated:** ' + jsdoc.deprecated);
+      lines.push(':::');
+      lines.push('');
     }
 
     // Examples
@@ -87,7 +113,14 @@ export class MarkdownGenerator {
     return lines;
   }
 
-  async generate(results: ParseResult[]): Promise<void> {
+  async generate(results: ParseResult[]): Promise<{
+    components: number;
+    functions: number;
+    classes: number;
+    interfaces: number;
+    types: number;
+    apiRoutes: number;
+  }> {
     await ensureDir(this.outputDir);
 
     // Clean up old documentation folders to prevent stale files
@@ -189,6 +222,16 @@ export class MarkdownGenerator {
     }
 
     await writeFile(join(this.outputDir, 'README.md'), summary.join('\n'));
+
+    // Return actual documented counts
+    return {
+      components: documentedItems.components.size,
+      functions: documentedItems.functions.size,
+      classes: documentedItems.classes.size,
+      interfaces: documentedItems.interfaces.size,
+      types: documentedItems.types.size,
+      apiRoutes: documentedItems.apiRoutes.size,
+    };
   }
 
   private getUniqueFilename(name: string, documented: Set<string>): string {
@@ -220,9 +263,12 @@ export class MarkdownGenerator {
     // ... rest same
 
     // Add Method Badge/Callout
-    lines.push(
-      `\n:::info\n**Method:** \`${method.toUpperCase()}\`  \n**Route:** \`${component.routePath}\`\n:::\n`
-    );
+    lines.push('');
+    lines.push(':::info');
+    lines.push(`**Method:** \`${method.toUpperCase()}\``);
+    lines.push(`**Route:** \`${component.routePath}\``);
+    lines.push(':::');
+    lines.push('');
 
     if (component.description) {
       lines.push(`\n${component.description}\n`);
@@ -249,7 +295,7 @@ export class MarkdownGenerator {
       lines.push('| Status | Description | Type |');
       lines.push('| :--- | :---------- | :--- |');
       for (const response of component.jsdoc.responses) {
-        const typeStr = response.type ? `\`${this.escapeMarkdownPipes(response.type)}\`` : '-';
+        const typeStr = response.type ? `\`${this.normalizeTypeString(response.type)}\`` : '-';
         lines.push(
           `| **${response.status}** | ${this.escapeMarkdownPipes(response.description)} | ${typeStr} |`
         );
@@ -300,11 +346,123 @@ export class MarkdownGenerator {
       lines.push('| :--- | :--- | :------- | :---------- |');
 
       for (const prop of component.props) {
-        const escapedType = this.escapeMarkdownPipes(prop.type || 'any');
+        const normalizedType = this.normalizeTypeString(prop.type);
         lines.push(
-          `| \`${prop.name}\` | \`${escapedType}\` | ${prop.optional ? 'Yes' : 'No'} | ${prop.description || '-'} |`
+          `| \`${prop.name}\` | \`${normalizedType}\` | ${prop.optional ? 'Yes' : 'No'} | ${prop.description || '-'} |`
         );
       }
+      lines.push('');
+    }
+
+    // Vue-specific sections
+    if (component.framework === 'vue') {
+      // Vue API Style Badge
+      if (component.compositionApi !== undefined) {
+        const apiStyle = component.scriptSetup
+          ? 'Composition API (script setup)'
+          : component.compositionApi
+            ? 'Composition API'
+            : 'Options API';
+        lines.push('');
+        lines.push(':::tip');
+        lines.push('**Vue API Style:** ' + apiStyle);
+        lines.push(':::');
+        lines.push('');
+      }
+
+      // Vue Emits
+      if (component.emits && component.emits.length > 0) {
+        lines.push('## Emits');
+        lines.push('| Event | Payload | Description |');
+        lines.push('| :---- | :------ | :---------- |');
+        for (const emit of component.emits) {
+          const payload = emit.payload ? `\`${this.normalizeTypeString(emit.payload)}\`` : '-';
+          lines.push(`| \`${emit.name}\` | ${payload} | ${emit.description || '-'} |`);
+        }
+        lines.push('');
+      }
+
+      // Vue Slots
+      if (component.slots && component.slots.length > 0) {
+        lines.push('## Slots');
+        lines.push('| Name | Props | Description |');
+        lines.push('| :--- | :---- | :---------- |');
+        for (const slot of component.slots) {
+          const props = slot.props ? `\`${this.normalizeTypeString(slot.props)}\`` : '-';
+          lines.push(
+            `| \`${slot.name}\` | ${props} | ${slot.description || '-'} |`
+          );
+        }
+        lines.push('');
+      }
+    }
+
+    // Svelte-specific sections
+    if (component.framework === 'svelte') {
+      const svelteComp = component as any; // Cast to access Svelte-specific fields
+
+      // Svelte Events
+      if (svelteComp.events && svelteComp.events.length > 0) {
+        lines.push('## Events');
+        lines.push('| Event | Detail | Description |');
+        lines.push('| :---- | :----- | :---------- |');
+        for (const event of svelteComp.events) {
+          const detail = event.detail ? `\`${this.normalizeTypeString(event.detail)}\`` : '-';
+          lines.push(`| \`${event.name}\` | ${detail} | ${event.description || '-'} |`);
+        }
+        lines.push('');
+      }
+
+      // Svelte Reactive Statements
+      if (svelteComp.reactiveStatements && svelteComp.reactiveStatements.length > 0) {
+        lines.push('## Reactive Statements');
+        lines.push('');
+        for (const stmt of svelteComp.reactiveStatements) {
+          lines.push('```javascript');
+          lines.push(`$: ${stmt.expression}`);
+          lines.push('```');
+          if (stmt.dependencies && stmt.dependencies.length > 0) {
+            lines.push(`**Dependencies:** ${stmt.dependencies.map((d: string) => `\`${d}\``).join(', ')}`);
+          }
+          lines.push('');
+        }
+      }
+
+      // Svelte Stores
+      if (svelteComp.stores && svelteComp.stores.length > 0) {
+        lines.push('## Store References');
+        lines.push('');
+        lines.push(
+          'This component uses the following Svelte stores:'
+        );
+        lines.push('');
+        for (const store of svelteComp.stores) {
+          lines.push(`- \`$${store}\``);
+        }
+        lines.push('');
+      }
+
+      // Svelte Slots
+      if (svelteComp.svelteSlots && svelteComp.svelteSlots.length > 0) {
+        lines.push('## Slots');
+        lines.push('');
+        for (const slot of svelteComp.svelteSlots) {
+          lines.push(`- \`${slot}\``);
+        }
+        lines.push('');
+      }
+    }
+
+    // React-specific sections
+    if (component.framework === 'react' && component.hooks && component.hooks.length > 0) {
+      lines.push('## React Hooks');
+      lines.push('');
+      lines.push('This component uses the following React hooks:');
+      lines.push('');
+      for (const hook of component.hooks) {
+        lines.push(`- \`${hook}\``);
+      }
+      lines.push('');
     }
 
     await writeFile(join(this.outputDir, 'components', `${filename}.md`), lines.join('\n'));
@@ -338,9 +496,9 @@ export class MarkdownGenerator {
       lines.push('| :--- | :--- | :------- | :---------- |');
 
       for (const param of func.parameters) {
-        const escapedType = this.escapeMarkdownPipes(param.type || 'any');
+        const normalizedType = this.normalizeTypeString(param.type);
         lines.push(
-          `| \`${param.name}\` | \`${escapedType}\` | ${param.optional ? 'Yes' : 'No'} | ${param.description || '-'} |`
+          `| \`${param.name}\` | \`${normalizedType}\` | ${param.optional ? 'Yes' : 'No'} | ${param.description || '-'} |`
         );
       }
     }
@@ -377,8 +535,8 @@ export class MarkdownGenerator {
       lines.push('| Name | Type | Description |');
       lines.push('| :--- | :--- | :---------- |');
       for (const prop of cls.properties) {
-        const escapedType = this.escapeMarkdownPipes(prop.type || 'any');
-        lines.push(`| \`${prop.name}\` | \`${escapedType}\` | ${prop.description || '-'} |`);
+        const normalizedType = this.normalizeTypeString(prop.type);
+        lines.push(`| \`${prop.name}\` | \`${normalizedType}\` | ${prop.description || '-'} |`);
       }
       lines.push('');
     }
@@ -420,9 +578,9 @@ export class MarkdownGenerator {
       lines.push('| Name | Type | Optional | Description |');
       lines.push('| :--- | :--- | :------- | :---------- |');
       for (const prop of iface.properties) {
-        const escapedType = this.escapeMarkdownPipes(prop.type || 'any');
+        const normalizedType = this.normalizeTypeString(prop.type);
         lines.push(
-          `| \`${prop.name}\` | \`${escapedType}\` | ${prop.optional ? 'Yes' : 'No'} | ${prop.description || '-'} |`
+          `| \`${prop.name}\` | \`${normalizedType}\` | ${prop.optional ? 'Yes' : 'No'} | ${prop.description || '-'} |`
         );
       }
     }

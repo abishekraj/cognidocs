@@ -1,32 +1,27 @@
 # @cognidocs/site-builder
 
-Static site generator for documentation.
+> Part of the [CogniDocs](https://www.npmjs.com/package/cognidocs) documentation toolchain
 
-## Phase 3: Core Documentation (Weeks 6-7)
+## Install CogniDocs
 
-**Status:** 🔴 Not Started
+```bash
+npm install -g cognidocs
+```
 
-This package will provide:
+## About This Package
 
-- Static site generation
-- Navigation structure
-- Theme system (8+ themes)
-- Search functionality
-- Mobile-responsive design
-- PWA support
+This package is part of the CogniDocs monorepo and provides shared constants and configuration values.
 
-## Planned Features
+**For end users:** Install the main [`cognidocs`](https://www.npmjs.com/package/cognidocs) package instead.
 
-- [ ] Vite-based build system
-- [ ] SSR support
-- [ ] Theme hot-swapping
-- [ ] Search (Pagefind/Meilisearch)
-- [ ] Navigation generation
-- [ ] Sitemap generation
-- [ ] PWA manifest
-- [ ] Performance optimization
+**For developers:** This package can be used as a standalone library in your own projects.
 
-## Dependencies
+## Documentation
 
-- Requires: @cognidocs/docs-generator (Phase 3)
-- Uses: @cognidocs/graph-viz (Phase 4), @cognidocs/component-preview (Phase 5)
+- **Main Package:** https://www.npmjs.com/package/cognidocs
+- **GitHub:** https://github.com/abishekraj/cognidocs
+- **API Docs:** https://abishekraj.github.io/cognidocs/
+
+## License
+
+MIT © [Abishek Raj](https://github.com/abishekraj)
