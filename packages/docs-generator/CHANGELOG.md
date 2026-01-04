@@ -1,5 +1,15 @@
 # @cognidocs/docs-generator
 
+## 1.0.2
+
+### Patch Changes
+
+- Add cognidocs wrapper for all packages
+- Updated dependencies
+  - @cognidocs/constants@1.0.1
+  - @cognidocs/types@1.0.1
+  - @cognidocs/utils@1.0.2
+
 ## 1.0.1
 
 ### Patch Changes

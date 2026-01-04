@@ -1,5 +1,13 @@
 # @cognidocs/plugin-core
 
+## 1.0.2
+
+### Patch Changes
+
+- Add cognidocs wrapper for all packages
+- Updated dependencies
+  - @cognidocs/utils@1.0.2
+
 ## 1.0.1
 
 ### Patch Changes

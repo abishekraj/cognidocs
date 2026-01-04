@@ -9,6 +9,7 @@ This document tracks the development phases and current project status.
 **Active Phase:** Plugin System & Advanced Features
 
 **Completed:**
+
 - ✅ Phase 1: Foundation (TypeScript/React Parsing)
 - ✅ Phase 2: Analysis & Coverage
 - ✅ Phase 3: Core Documentation Generation
@@ -19,9 +20,11 @@ This document tracks the development phases and current project status.
 - ✅ **Phase 4.6: Enhanced Next.js Sample Project** - Comprehensive sample with 15 components, 10 API routes, 13 functions, 11 interfaces, 4 types
 
 **In Progress:**
+
 - 🟡 Plugin System (basic infrastructure in place)
 
 **Backlog:**
+
 - 🔴 Phase 6: Component Previews
 - 🔴 Phase 7: AI Integration
 - 🔴 Phase 8+: SaaS Platform & Enterprise Features
@@ -35,11 +38,13 @@ This document tracks the development phases and current project status.
 **Goal:** Set up project infrastructure and TypeScript/React parsing
 
 ### Packages
+
 - `@cognidocs/cli` - Command-line interface with init, build, serve commands
 - `@cognidocs/parser` - AST parsing using TypeScript Compiler API
 - `@cognidocs/testing` - Test utilities and fixtures
 
 ### Key Achievements
+
 - ✅ Monorepo setup with Turbo
 - ✅ TypeScript Compiler API integration
 - ✅ React component parser (function & class components)
@@ -57,6 +62,7 @@ This document tracks the development phases and current project status.
 - ✅ React hooks detection
 
 ### Commands
+
 ```bash
 cognidocs init              # Initialize configuration
 cognidocs build             # Parse and generate documentation
@@ -69,10 +75,12 @@ cognidocs build             # Parse and generate documentation
 **Goal:** Build dependency graphs and track documentation coverage
 
 ### Packages
+
 - `@cognidocs/analyzer` - Dependency analysis and graph generation
 - `@cognidocs/coverage` - Documentation coverage tracking
 
 ### Key Achievements
+
 - ✅ Dependency graph builder with import/export tracking
 - ✅ Circular dependency detection
 - ✅ Module metrics (import/export counts, dependents)
@@ -84,6 +92,7 @@ cognidocs build             # Parse and generate documentation
   - Overall project scores
 
 ### Commands
+
 ```bash
 cognidocs analyze           # Generate dependency analysis
 cognidocs coverage          # Calculate documentation coverage
@@ -96,11 +105,13 @@ cognidocs coverage          # Calculate documentation coverage
 **Goal:** Generate documentation and build static site
 
 ### Packages
+
 - `@cognidocs/docs-generator` - Markdown documentation generator
 - `@cognidocs/site-builder` - Static site builder (Vite + React + TypeScript)
 - `@cognidocs/graph-viz` - D3.js dependency graph visualization
 
 ### Key Achievements
+
 - ✅ Markdown generation from parsed metadata
 - ✅ Frontmatter support (title, description, category, order)
 - ✅ Additional documentation folder support
@@ -113,6 +124,7 @@ cognidocs coverage          # Calculate documentation coverage
 - ✅ Static site export for deployment
 
 ### Commands
+
 ```bash
 cognidocs build             # Parse code and generate documentation site
 cognidocs serve             # Start development server (port 4173)
@@ -126,6 +138,7 @@ cognidocs serve --port 3001 # Custom port
 **Goal:** Transform documentation site into premium, production-ready interface
 
 ### Key Achievements
+
 - ✅ **Shadcn/ui + Tailwind CSS** - Premium component library
 - ✅ **12 Professional Themes** - GitBook, GitHub, Nord, Dracula, Monokai, Solarized, One Dark, Material (light/dark variants)
 - ✅ **Theme persistence** - localStorage-based theme switching
@@ -147,6 +160,7 @@ cognidocs serve --port 3001 # Custom port
 - ✅ **Source path display** - All items show source file location in documentation
 
 ### Bug Fixes Completed
+
 - ✅ Sidebar focus ring overflow fixed
 - ✅ Navigation reordered (Introduction → Overview → Graph)
 - ✅ Markdown table pipe escaping for union types
@@ -161,6 +175,7 @@ cognidocs serve --port 3001 # Custom port
 **Goal:** Full Next.js App Router and Pages Router support
 
 ### Key Achievements
+
 - ✅ **App Router Support**
   - `app/**/page.tsx` - Page components with route metadata
   - `app/**/layout.tsx` - Layout components
@@ -181,7 +196,9 @@ cognidocs serve --port 3001 # Custom port
   - Route path display with router type (App Router/Pages Router)
 
 ### File: `packages/parser/src/parsers/nextjs-parser.ts`
+
 Key methods:
+
 - `parseNextJsFile()` - Parse any Next.js file
 - `analyzeNextJsPath()` - Determine file type (page/layout/API route)
 - `extractApiRoute()` - Extract API route metadata
@@ -195,6 +212,7 @@ Key methods:
 ### Current Status
 
 **Completed:**
+
 - ✅ React (Function & Class Components) - Full support
 - ✅ Next.js (App Router, Pages Router, API Routes) - Full support
 - ✅ JavaScript support (.js, .jsx files)
@@ -218,12 +236,14 @@ Key methods:
   - ✅ JSDoc comment extraction
 
 **Not Started:**
+
 - 🔴 Backend frameworks (Express, NestJS, Fastify)
 - 🔴 Additional frontend frameworks (Angular, Solid.js)
 
 ### Key Features Implemented
 
 **Vue 3 Parser** (`packages/parser/src/parsers/vue-parser.ts` - 443 lines)
+
 - Parses both Composition API and Options API components
 - Extracts props from `defineProps<PropsInterface>()` and runtime objects
 - Detects emits from `defineEmits<EmitsInterface>()` and runtime arrays
@@ -231,6 +251,7 @@ Key methods:
 - Full TypeScript support with type inference
 
 **Svelte Parser** (`packages/parser/src/parsers/svelte-parser.ts` - 465 lines)
+
 - TypeScript preprocessing via `ts.transpileModule` before Svelte compilation
 - Reactive statement parsing with dependency extraction
 - Store reference detection for Svelte stores
@@ -246,10 +267,12 @@ Key methods:
 **Solution:** Changed regex to require exactly ONE space after the `*` for JSDoc tags: `(?!\n\s*\*\s@\w)`. This prevents matching indented template code with event handlers.
 
 **Files Modified:**
+
 - `packages/parser/src/parsers/typescript-parser.ts` (line 353)
 - `packages/parser/src/parsers/react-parser.ts` (line 411)
 
 **Regex Pattern:**
+
 ```typescript
 // OLD (stops at any @):
 /@example\s*\n((?:(?!\s*\*\s*@)[\s\S])*?)(?=\s*\*\s*@|$)/g
@@ -263,17 +286,21 @@ Key methods:
 ### Testing Verified
 
 **Vue Components Tested:**
+
 - ✅ `UserCard.vue` - Composition API with script setup, 5 props, TypeScript interfaces, emits, event handlers (`@click`, `@edit`)
 - ✅ `DataTable.vue` - Options API with 7 props, validators, complex types, event handler (`@row-click`)
 
 **Svelte Components Tested:**
+
 - ✅ `ProductCard.svelte` - 6 props with TypeScript, reactive statements, events
 - ✅ `Counter.svelte` - 5 props, 18+ reactive statements, store integration
 
 **React Components Tested:**
+
 - ✅ `Button.tsx` - Multiple JSX examples with `onClick` handlers preserved correctly
 
 All parsers successfully extract:
+
 - Component names and descriptions
 - Props with types and default values
 - Events/emits with TypeScript types
@@ -292,6 +319,7 @@ All parsers successfully extract:
 ### Key Achievements
 
 #### **React Framework Features** ✅
+
 - ✅ **React Hooks Detection** - Automatically extracts and displays all hooks used in components
   - Detects: useState, useEffect, useMemo, useCallback, useRef, useContext, and custom hooks
   - Displays in dedicated "React Hooks" section in generated markdown
@@ -299,6 +327,7 @@ All parsers successfully extract:
 - ✅ **Enhanced Component Documentation** - Better props tables and JSDoc rendering
 
 #### **Next.js Framework Features** ✅
+
 - ✅ **Page Component Detection** - Identifies App Router and Pages Router pages
   - Shows route path and router type
   - Displays special "Page Component" badge with NOTE callout
@@ -314,6 +343,7 @@ All parsers successfully extract:
   - Example: `/api/hello GET` with status codes and response types
 
 #### **Vue 3 Framework Features** ✅
+
 - ✅ **API Style Badge** - Shows Composition API vs Options API
   - Detects `<script setup>` for Composition API
   - Shows "Composition API (script setup)", "Composition API", or "Options API"
@@ -326,6 +356,7 @@ All parsers successfully extract:
   - Extracted from template `<slot>` tags
 
 #### **Svelte Framework Features** ✅
+
 - ✅ **Events Documentation** - Custom event table
   - Shows events from `createEventDispatcher`
   - Displays event name, detail type, and description
@@ -339,6 +370,7 @@ All parsers successfully extract:
 - ✅ **Slots List** - Component slots
 
 #### **UI Enhancements** ✅
+
 - ✅ **Framework Icons in Sidebar**
   - React: Component icon (📦)
   - Vue: Boxes icon (📚)
@@ -350,6 +382,7 @@ All parsers successfully extract:
 ### Files Modified
 
 **Core Implementation:**
+
 1. **`packages/docs-generator/src/MarkdownGenerator.ts`** (Lines 297-416)
    - Added `generateComponentDoc()` framework detection
    - Vue sections: API style callout, emits table, slots table
@@ -362,25 +395,28 @@ All parsers successfully extract:
    - Imported framework icons: Component, Boxes, Zap
    - Updated `renderTree()` to use framework-specific icons
 
-**Type Definitions:**
-3. **`shared/types/src/index.ts`**
-   - All framework-specific types already defined (VueEmitMetadata, VueSlotMetadata, SvelteEventMetadata, SvelteReactiveStatement, etc.)
+**Type Definitions:** 3. **`shared/types/src/index.ts`**
+
+- All framework-specific types already defined (VueEmitMetadata, VueSlotMetadata, SvelteEventMetadata, SvelteReactiveStatement, etc.)
 
 ### Testing & Verification
 
 **React Testing** (`examples/sample-react/`):
+
 - ✅ DataTable component - Shows 5 hooks (useState, useRef, useEffect, useMemo, useCallback)
 - ✅ Input component - Shows 2 hooks (useState, useCallback)
 - ✅ Card component - Shows 2 hooks (useState, useEffect)
 - ✅ Button component - No hooks (correctly doesn't show section)
 
 **Next.js Testing** (`examples/sample-nextjs/`):
+
 - ✅ 5 components documented (3 pages + 2 layouts)
 - ✅ 3 API routes fully documented with HTTP methods
 - ✅ Pages show route paths and router type
 - ✅ API routes show method, route, and responses table
 
 **Build Output:**
+
 ```
 sample-react: 5 components, 14 functions, 2 classes, 15 interfaces, 5 types
 sample-nextjs: 5 components, 3 API routes
@@ -389,6 +425,7 @@ sample-nextjs: 5 components, 3 API routes
 ### Example Documentation Output
 
 **React Hooks Section:**
+
 ```markdown
 ## React Hooks
 
@@ -402,6 +439,7 @@ This component uses the following React hooks:
 ```
 
 **Next.js Page:**
+
 ```markdown
 > [!NOTE]
 > This is a Next.js Page component.
@@ -412,6 +450,7 @@ This component uses the following React hooks:
 ```
 
 **Next.js API Route:**
+
 ```markdown
 # /api/hello GET
 
@@ -421,42 +460,50 @@ This component uses the following React hooks:
 :::
 
 ## Responses
-| Status | Description | Type |
-| :--- | :---------- | :--- |
+
+| Status  | Description           | Type     |
+| :------ | :-------------------- | :------- |
 | **200** | Returns hello message | `string` |
 ```
 
 **Vue Component (when used):**
+
 ```markdown
 :::tip Vue API Style
 **Composition API (script setup)**
 :::
 
 ## Emits
-| Event | Payload | Description |
-| :---- | :------ | :---------- |
+
+| Event    | Payload           | Description                |
+| :------- | :---------------- | :------------------------- |
 | `update` | `{value: string}` | Emitted when value changes |
 
 ## Slots
-| Name | Props | Description |
-| :--- | :---- | :---------- |
-| `default` | - | Main content slot |
+
+| Name      | Props | Description       |
+| :-------- | :---- | :---------------- |
+| `default` | -     | Main content slot |
 ```
 
 **Svelte Component (when used):**
-```markdown
+
+````markdown
 ## Reactive Statements
 
 ```javascript
-$: doubled = count * 2
+$: doubled = count * 2;
 ```
-*Dependencies: `count`*
+````
+
+_Dependencies: `count`_
 
 ## Store References
 
 - `$cartStore`
 - `$userStore`
-```
+
+````
 
 ### Impact & Benefits
 
@@ -596,9 +643,10 @@ interface RouteParams {
     id: string;
   };
 }
-```
+````
 
 All routes include:
+
 - Comprehensive JSDoc with descriptions
 - `@param` tags for parameters
 - `@response` tags documenting all status codes
@@ -609,6 +657,7 @@ All routes include:
 ### Configuration Updates
 
 Updated `cognidocs.config.js` to parse entire project:
+
 - Changed `entry` from `'./app'` to `'./'` to include `lib/` directory
 - Added exclusions for `.next` and `.cognidocs` directories
 - Enabled coverage tracking with thresholds (docs: 80%, types: 90%)
@@ -618,6 +667,7 @@ Updated `cognidocs.config.js` to parse entire project:
 ### Documentation Quality
 
 Every code element includes:
+
 - ✅ **Complete JSDoc comments** with detailed descriptions
 - ✅ **@param tags** for all function parameters with types and descriptions
 - ✅ **@returns tags** documenting return values and types
@@ -677,7 +727,8 @@ docs/
 ### Example Documentation Output
 
 **Function Documentation (`validateEmail.md`):**
-```markdown
+
+````markdown
 # validateEmail
 
 ![Exported](https://img.shields.io/badge/exported-yes-brightgreen)
@@ -689,6 +740,7 @@ valid email address using a comprehensive RFC 5322 compliant regex pattern.
 **Return Type:** `ValidationResult`
 
 ## Examples
+
 ```typescript
 const result = validateEmail('user@example.com');
 if (result.valid) {
@@ -697,12 +749,15 @@ if (result.valid) {
   console.error(result.error);
 }
 ```
+````
 
 ## Parameters
-| Name | Type | Optional | Description |
-| :--- | :--- | :------- | :---------- |
-| `email` | `string` | No | The email address to validate |
-```
+
+| Name    | Type     | Optional | Description                   |
+| :------ | :------- | :------- | :---------------------------- |
+| `email` | `string` | No       | The email address to validate |
+
+````
 
 **API Route Documentation (`api-posts-get.md`):**
 ```markdown
@@ -731,20 +786,23 @@ fetch('/api/posts?page=1&pageSize=10')
 
 // Fetch published posts only
 fetch('/api/posts?status=published')
-```
+````
 
 ## Responses
-| Status | Description | Type |
-| :--- | :---------- | :--- |
+
+| Status  | Description                  | Type                      |
+| :------ | :--------------------------- | :------------------------ |
 | **200** | Successfully retrieved posts | `PaginatedResponse<Post>` |
-| **400** | Invalid query parameters | `ApiResponse` |
-| **500** | Internal server error | `ApiResponse` |
+| **400** | Invalid query parameters     | `ApiResponse`             |
+| **500** | Internal server error        | `ApiResponse`             |
+
 ```
 
 ### Testing & Verification
 
 **Build Output:**
 ```
+
 Statistics:
 • 15 components
 • 10 API routes
@@ -752,6 +810,7 @@ Statistics:
 • 1 classes
 • 11 interfaces
 • 4 types
+
 ```
 
 **Documentation Site:**
@@ -1042,3 +1101,4 @@ When working with Claude Code, you can reference phases like:
 **Last Updated:** December 25, 2024
 **Version:** 1.0.1
 **Status:** MVP Released, Critical Bug Fixes Complete, Post-MVP Refinements in Progress
+```

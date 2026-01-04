@@ -26,6 +26,7 @@ This is the **CLI package** for CogniDocs. While you can install this directly, 
 ## Documentation
 
 For complete documentation, visit:
+
 - **Main Package:** https://www.npmjs.com/package/cognidocs
 - **GitHub:** https://github.com/abishekraj/cognidocs
 - **Live Demo:** https://abishekraj.github.io/cognidocs/

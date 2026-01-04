@@ -47,7 +47,7 @@
     "phase3": "turbo run build --filter=./packages/* && cd examples/sample-react && cognidocs build",
     "phase3-ui": "turbo run build --filter=@cognidocs/site-builder && cd examples/sample-react && cognidocs serve",
     "changeset": "changeset",
-    "version": "changeset version && ./scripts/version-and-sync.sh",
+    "update-version": "changeset version && ./scripts/version-and-sync.sh",
     "release": "pnpm run build && changeset publish"
   },
   "devDependencies": {

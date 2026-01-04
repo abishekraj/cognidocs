@@ -1,6 +1,6 @@
 {
   "name": "@cognidocs/coverage",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Coverage tracking for CogniDocs",
   "main": "./dist/index.mjs",
   "types": "./dist/index.d.mts",

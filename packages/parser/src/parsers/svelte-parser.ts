@@ -274,11 +274,7 @@ export class SvelteParser {
     }
 
     // Function expressions
-    if (
-      trimmed.startsWith('function') ||
-      trimmed.startsWith('(') ||
-      trimmed.includes('=>')
-    ) {
+    if (trimmed.startsWith('function') || trimmed.startsWith('(') || trimmed.includes('=>')) {
       return 'Function';
     }
 
@@ -485,9 +481,7 @@ export class SvelteParser {
 
         // Replace the script content with transpiled version
         // Remove the lang="ts" attribute
-        const newScriptAttributes = scriptAttributes
-          .replace(/lang=["']ts["']/g, '')
-          .trim();
+        const newScriptAttributes = scriptAttributes.replace(/lang=["']ts["']/g, '').trim();
 
         const replacement = `<script${newScriptAttributes ? ' ' + newScriptAttributes : ''}>${transpiled.outputText}</script>`;
         processed = fileContent.replace(scriptMatch[0], replacement);

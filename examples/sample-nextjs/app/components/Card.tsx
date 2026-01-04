@@ -62,27 +62,17 @@ export function Card({
     elevated: 'bg-white shadow-lg hover:shadow-xl',
   };
 
-  const interactiveStyles = onClick
-    ? 'cursor-pointer hover:scale-[1.02] active:scale-[0.98]'
-    : '';
+  const interactiveStyles = onClick ? 'cursor-pointer hover:scale-[1.02] active:scale-[0.98]' : '';
 
   const cardStyles = `${baseStyles} ${variantStyles[variant]} ${interactiveStyles} ${className}`;
 
   return (
     <div className={cardStyles} onClick={onClick}>
-      {header && (
-        <div className="px-6 py-4 border-b border-gray-200 font-semibold">
-          {header}
-        </div>
-      )}
+      {header && <div className="px-6 py-4 border-b border-gray-200 font-semibold">{header}</div>}
 
       <div className="px-6 py-4">{children}</div>
 
-      {footer && (
-        <div className="px-6 py-4 border-t border-gray-200 bg-gray-50">
-          {footer}
-        </div>
-      )}
+      {footer && <div className="px-6 py-4 border-t border-gray-200 bg-gray-50">{footer}</div>}
     </div>
   );
 }

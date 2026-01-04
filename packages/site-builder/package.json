@@ -1,6 +1,6 @@
 {
   "name": "@cognidocs/site-builder",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "comment": "Phase 3: Core Documentation - Site Builder",
   "main": "./dist/index.mjs",
   "types": "./dist/index.d.mts",

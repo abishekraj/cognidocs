@@ -4,10 +4,5 @@ export default {
   theme: 'gitbook',
   darkMode: true,
   frameworks: ['svelte'],
-  exclude: [
-    '**/*.test.ts',
-    '**/*.test.js',
-    '**/node_modules/**',
-    '**/dist/**',
-  ],
+  exclude: ['**/*.test.ts', '**/*.test.js', '**/node_modules/**', '**/dist/**'],
 };

@@ -1,5 +1,21 @@
 # @cognidocs/cli
 
+## 1.0.2
+
+### Patch Changes
+
+- Add cognidocs wrapper for all packages
+- Updated dependencies
+  - @cognidocs/analyzer@1.0.2
+  - @cognidocs/coverage@1.0.2
+  - @cognidocs/docs-generator@1.0.2
+  - @cognidocs/parser@1.0.2
+  - @cognidocs/plugin-core@1.0.2
+  - @cognidocs/site-builder@1.0.2
+  - @cognidocs/constants@1.0.1
+  - @cognidocs/types@1.0.1
+  - @cognidocs/utils@1.0.2
+
 ## 1.0.1
 
 ### Patch Changes

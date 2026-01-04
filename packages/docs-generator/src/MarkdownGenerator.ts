@@ -72,7 +72,9 @@ export class MarkdownGenerator {
         // Always wrap code in fenced code block for consistency
         // Detect language from first line if it looks like a language identifier
         const firstLine = code.split('\n')[0];
-        const languageMatch = firstLine.match(/^(typescript|javascript|jsx|tsx|vue|svelte|html|css|json|bash|shell)$/i);
+        const languageMatch = firstLine.match(
+          /^(typescript|javascript|jsx|tsx|vue|svelte|html|css|json|bash|shell)$/i
+        );
 
         if (code.startsWith('```')) {
           // Code already has backticks - use as is
@@ -389,9 +391,7 @@ export class MarkdownGenerator {
         lines.push('| :--- | :---- | :---------- |');
         for (const slot of component.slots) {
           const props = slot.props ? `\`${this.normalizeTypeString(slot.props)}\`` : '-';
-          lines.push(
-            `| \`${slot.name}\` | ${props} | ${slot.description || '-'} |`
-          );
+          lines.push(`| \`${slot.name}\` | ${props} | ${slot.description || '-'} |`);
         }
         lines.push('');
       }
@@ -422,7 +422,9 @@ export class MarkdownGenerator {
           lines.push(`$: ${stmt.expression}`);
           lines.push('```');
           if (stmt.dependencies && stmt.dependencies.length > 0) {
-            lines.push(`**Dependencies:** ${stmt.dependencies.map((d: string) => `\`${d}\``).join(', ')}`);
+            lines.push(
+              `**Dependencies:** ${stmt.dependencies.map((d: string) => `\`${d}\``).join(', ')}`
+            );
           }
           lines.push('');
         }
@@ -432,9 +434,7 @@ export class MarkdownGenerator {
       if (svelteComp.stores && svelteComp.stores.length > 0) {
         lines.push('## Store References');
         lines.push('');
-        lines.push(
-          'This component uses the following Svelte stores:'
-        );
+        lines.push('This component uses the following Svelte stores:');
         lines.push('');
         for (const store of svelteComp.stores) {
           lines.push(`- \`$${store}\``);

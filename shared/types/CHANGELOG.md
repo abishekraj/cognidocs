@@ -1,5 +1,11 @@
 # @cognidocs/types
 
+## 1.0.1
+
+### Patch Changes
+
+- Add cognidocs wrapper for all packages
+
 ## 1.0.0
 
 ### Major Changes

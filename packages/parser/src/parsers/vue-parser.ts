@@ -9,7 +9,12 @@
 import * as ts from 'typescript';
 import { parse as parseVueSFC } from '@vue/compiler-sfc';
 import { readFileSync } from 'fs';
-import type { ComponentMetadata, PropertyMetadata, VueEmitMetadata, VueSlotMetadata } from '../types';
+import type {
+  ComponentMetadata,
+  PropertyMetadata,
+  VueEmitMetadata,
+  VueSlotMetadata,
+} from '../types';
 import { TypeScriptParser } from './typescript-parser';
 
 export class VueParser {
@@ -155,7 +160,10 @@ export class VueParser {
   /**
    * Extract props from TypeScript type (for defineProps<Type>())
    */
-  private extractPropsFromType(typeNode: ts.TypeNode, sourceFile?: ts.SourceFile): PropertyMetadata[] {
+  private extractPropsFromType(
+    typeNode: ts.TypeNode,
+    sourceFile?: ts.SourceFile
+  ): PropertyMetadata[] {
     const props: PropertyMetadata[] = [];
 
     // Handle inline type literal: defineProps<{ title: string }>()
@@ -255,7 +263,10 @@ export class VueParser {
         let defaultValue: string | undefined;
 
         // For detailed prop definitions: { type: String, required: true, default: 'hello' }
-        if (ts.isPropertyAssignment(property) && ts.isObjectLiteralExpression(property.initializer)) {
+        if (
+          ts.isPropertyAssignment(property) &&
+          ts.isObjectLiteralExpression(property.initializer)
+        ) {
           const propObj = property.initializer;
 
           for (const propProp of propObj.properties) {
@@ -385,7 +396,7 @@ export class VueParser {
 
     while ((match = slotRegex.exec(template)) !== null) {
       const slotName = match[1] || 'default';
-      if (!slots.find(s => s.name === slotName)) {
+      if (!slots.find((s) => s.name === slotName)) {
         slots.push({
           name: slotName,
         });
@@ -438,5 +449,4 @@ export class VueParser {
 
     return undefined;
   }
-
 }

@@ -350,7 +350,9 @@ export class TypeScriptParser {
     // Match from @example until the next JSDoc tag or end of comment
     // JSDoc tags must be: newline + whitespace + * + ONE space + @ + word char
     // This prevents matching Vue/Svelte directives like @row-click which have more indentation
-    const exampleMatches = commentText.matchAll(/@example\s*\n((?:(?!\n\s*\*\s@\w)[\s\S])*?)(?=\n\s*\*\s@\w|$)/g);
+    const exampleMatches = commentText.matchAll(
+      /@example\s*\n((?:(?!\n\s*\*\s@\w)[\s\S])*?)(?=\n\s*\*\s@\w|$)/g
+    );
     for (const match of exampleMatches) {
       const exampleText = match[1]
         .split('\n')

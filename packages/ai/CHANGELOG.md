@@ -1,5 +1,13 @@
 # @cognidocs/ai
 
+## 1.0.2
+
+### Patch Changes
+
+- Add cognidocs wrapper for all packages
+- Updated dependencies
+  - @cognidocs/types@1.0.1
+
 ## 1.0.1
 
 ### Patch Changes

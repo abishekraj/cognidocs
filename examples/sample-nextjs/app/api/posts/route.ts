@@ -70,9 +70,7 @@ export async function GET(request: NextRequest) {
     ];
 
     // Filter by status if provided
-    const filteredPosts = status
-      ? mockPosts.filter((post) => post.status === status)
-      : mockPosts;
+    const filteredPosts = status ? mockPosts.filter((post) => post.status === status) : mockPosts;
 
     const totalItems = filteredPosts.length;
     const totalPages = Math.ceil(totalItems / pageSize);

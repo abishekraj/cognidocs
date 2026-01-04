@@ -24,10 +24,7 @@ interface RouteParams {
  * @response 404 {ApiResponse} Post not found
  * @response 500 {ApiResponse} Internal server error
  */
-export async function GET(
-  request: NextRequest,
-  { params }: RouteParams
-) {
+export async function GET(request: NextRequest, { params }: RouteParams) {
   try {
     const { id } = params;
 
@@ -86,10 +83,7 @@ export async function GET(
  * @response 404 {ApiResponse} Post not found
  * @response 500 {ApiResponse} Internal server error
  */
-export async function PATCH(
-  request: NextRequest,
-  { params }: RouteParams
-) {
+export async function PATCH(request: NextRequest, { params }: RouteParams) {
   try {
     const { id } = params;
     const body = await request.json();
@@ -158,10 +152,7 @@ export async function PATCH(
  * @response 404 {ApiResponse} Post not found
  * @response 500 {ApiResponse} Internal server error
  */
-export async function DELETE(
-  request: NextRequest,
-  { params }: RouteParams
-) {
+export async function DELETE(request: NextRequest, { params }: RouteParams) {
   try {
     const { id } = params;
 

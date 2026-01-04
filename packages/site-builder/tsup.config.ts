@@ -17,11 +17,13 @@ export default defineConfig({
       filter: (src: string) => {
         // Exclude only node_modules, .cognidocs, and cache directories
         const relativePath = src.replace(templateSrc, '');
-        return !relativePath.includes('node_modules') &&
-               !relativePath.includes('.cognidocs') &&
-               !relativePath.includes('/.turbo') &&
-               !relativePath.includes('/.cache');
-      }
+        return (
+          !relativePath.includes('node_modules') &&
+          !relativePath.includes('.cognidocs') &&
+          !relativePath.includes('/.turbo') &&
+          !relativePath.includes('/.cache')
+        );
+      },
     });
   },
 });

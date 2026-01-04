@@ -224,15 +224,15 @@ export default {
 
 ## 📋 CLI Commands
 
-| Command              | Description                                            |
-| :------------------- | :----------------------------------------------------- |
-| `cognidocs init`     | Initialize configuration (use `-y` for defaults)       |
-| `cognidocs build`    | Generate the documentation site                        |
-| `cognidocs serve`    | Start dev server with live reload (default port: 4173) |
-| `cognidocs analyze`  | Generate interactive dependency graphs                 |
-| `cognidocs coverage` | Calculate documentation coverage metrics               |
-| `cognidocs --help`   | Show help and available commands                       |
-| `cognidocs --version`| Display current version                                |
+| Command               | Description                                            |
+| :-------------------- | :----------------------------------------------------- |
+| `cognidocs init`      | Initialize configuration (use `-y` for defaults)       |
+| `cognidocs build`     | Generate the documentation site                        |
+| `cognidocs serve`     | Start dev server with live reload (default port: 4173) |
+| `cognidocs analyze`   | Generate interactive dependency graphs                 |
+| `cognidocs coverage`  | Calculate documentation coverage metrics               |
+| `cognidocs --help`    | Show help and available commands                       |
+| `cognidocs --version` | Display current version                                |
 
 ---
 
@@ -273,11 +273,11 @@ Visualize complex logic with native Mermaid support.
 
 \`\`\`mermaid
 graph TD;
-    A[Source Code] --> B{CogniDocs Parser};
-    B --> C[JSON Metadata];
-    B --> D[Markdown Guides];
-    C --> E[Premium Doc Site];
-    D --> E;
+A[Source Code] --> B{CogniDocs Parser};
+B --> C[JSON Metadata];
+B --> D[Markdown Guides];
+C --> E[Premium Doc Site];
+D --> E;
 \`\`\`
 
 ### 🎈 Callout Boxes
